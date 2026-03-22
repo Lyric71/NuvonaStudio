@@ -1,0 +1,115 @@
+---
+const services = [
+  {
+    icon: '✦',
+    title: 'Content',
+    tag: 'Organic',
+    body: 'Strong B2B brands on LinkedIn are built on consistent, high-quality content. We manage your LinkedIn company page like a brand newsroom — editorial strategy, content production, post scheduling, community management, newsletters, and LinkedIn events. Every piece of content is crafted for the feed, written for your audience, and optimised to build reach and engagement over time.',
+  },
+  {
+    icon: '◈',
+    title: 'Advertising',
+    tag: 'Paid',
+    body: "LinkedIn's advertising platform is the most precise B2B targeting tool on the internet — and the most underutilised. We design and manage LinkedIn ad campaigns across the full funnel: sponsored content, sponsored messaging, lead gen forms, account-based marketing, and retargeting. Every campaign is built on audience intelligence, managed with rigour, and reported with complete transparency.",
+  },
+  {
+    icon: '◉',
+    title: 'Employee Advocacy',
+    tag: 'Amplification',
+    body: 'Your employees have more combined LinkedIn reach than your company page. We design and manage structured employee advocacy programs that activate your team, amplify your brand, and build credibility through the most trusted voices in your organisation — the people who work there.',
+  },
+  {
+    icon: '◆',
+    title: 'Personal Branding',
+    tag: 'Executive',
+    body: 'In B2B, people buy from people. A senior executive with a strong, consistent LinkedIn presence builds trust with buyers, partners, and talent long before any sales conversation begins. We optimise executive profiles, ghostwrite high-performing LinkedIn content, and grow follower audiences for leaders who have genuine expertise worth sharing.',
+  },
+  {
+    icon: '◇',
+    title: 'Training',
+    tag: 'Knowledge',
+    body: 'LinkedIn expertise should not sit only with your agency. We run workshops and masterclasses for marketing teams, leadership, and commercial functions — covering content strategy, advertising, algorithm mechanics, and platform best practices. We transfer knowledge, not just deliverables.',
+  },
+];
+---
+
+<section class="section" aria-labelledby="services-heading">
+  <div class="container">
+    <div class="services__header text-center mb-12">
+      <p class="eyebrow">What we do</p>
+      <h2 id="services-heading">Five disciplines. One platform.<br />Delivered with transparency.</h2>
+    </div>
+
+    <div class="services__grid">
+      {services.map(s => (
+        <article class="card card--accent services__card">
+          <div class="services__card-top">
+            <span class="services__icon" aria-hidden="true">{s.icon}</span>
+            <span class="tag tag--cyan">{s.tag}</span>
+          </div>
+          <h3 class="services__title">{s.title}</h3>
+          <p class="services__body">{s.body}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="services__cta text-center" style="margin-top: var(--space-12)">
+      <a href="/services" class="btn btn--outline btn--lg">See everything we offer →</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .services__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  /* Last row: 2 cards centred */
+  .services__grid .services__card:nth-child(4) {
+    grid-column: 1 / span 1;
+  }
+
+  .services__grid .services__card:nth-child(4),
+  .services__grid .services__card:nth-child(5) {
+    /* handled by grid auto-placement */
+  }
+
+  .services__card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-4);
+  }
+
+  .services__icon {
+    font-size: var(--font-size-xl);
+    color: var(--color-blue);
+  }
+
+  .services__title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-deep-navy);
+    margin-bottom: var(--space-3);
+  }
+
+  .services__body {
+    font-size: var(--font-size-sm);
+    color: var(--color-slate);
+    line-height: var(--line-height-relaxed);
+  }
+
+  @media (max-width: 1024px) {
+    .services__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .services__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

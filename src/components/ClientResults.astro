@@ -1,0 +1,149 @@
+---
+// Placeholders — replace with real data before launch
+const caseStudies = [
+  {
+    industry: 'Technology & SaaS',
+    challenge: 'PLACEHOLDER — describe the challenge in one sentence',
+    result: 'PLACEHOLDER — quantified outcome (e.g. +240% pipeline from LinkedIn in 6 months)',
+    tag: 'Case Study',
+  },
+  {
+    industry: 'Manufacturing & Industrial',
+    challenge: 'PLACEHOLDER — describe the challenge in one sentence',
+    result: 'PLACEHOLDER — quantified outcome',
+    tag: 'Case Study',
+  },
+  {
+    industry: 'Professional Services',
+    challenge: 'PLACEHOLDER — describe the challenge in one sentence',
+    result: 'PLACEHOLDER — quantified outcome',
+    tag: 'Case Study',
+  },
+];
+
+const testimonials = [
+  {
+    quote: 'PLACEHOLDER — client quote here.',
+    name: 'PLACEHOLDER Name',
+    title: 'PLACEHOLDER Title',
+    company: 'PLACEHOLDER Company',
+  },
+  {
+    quote: 'PLACEHOLDER — client quote here.',
+    name: 'PLACEHOLDER Name',
+    title: 'PLACEHOLDER Title',
+    company: 'PLACEHOLDER Company',
+  },
+];
+---
+
+<section class="section section--ice" aria-labelledby="results-heading">
+  <div class="container">
+    <div class="results__header text-center mb-12">
+      <p class="eyebrow">Selected work</p>
+      <h2 id="results-heading">What good LinkedIn strategy actually delivers.</h2>
+    </div>
+
+    <!-- Case study cards -->
+    <div class="grid grid--3 mb-12">
+      {caseStudies.map(cs => (
+        <article class="card card--featured results__case">
+          <span class="tag tag--blue" style="margin-bottom: var(--space-4); display:inline-flex">{cs.tag}</span>
+          <p class="results__industry">{cs.industry}</p>
+          <p class="results__challenge">{cs.challenge}</p>
+          <div class="divider--gradient" style="margin-block: var(--space-4)"></div>
+          <p class="results__result">{cs.result}</p>
+        </article>
+      ))}
+    </div>
+
+    <!-- Testimonials -->
+    <div class="grid grid--2 mb-12">
+      {testimonials.map(t => (
+        <blockquote class="card testimonial">
+          <p class="testimonial__quote">"{t.quote}"</p>
+          <footer class="testimonial__footer">
+            <p class="testimonial__name">{t.name}</p>
+            <p class="testimonial__meta">{t.title}, {t.company}</p>
+          </footer>
+        </blockquote>
+      ))}
+    </div>
+
+    <!-- Supporting line + CTA -->
+    <div class="results__footer text-center">
+      <p class="results__support">
+        From global manufacturers to fast-growing SaaS companies, we have helped B2B brands
+        across industries build LinkedIn presences that perform.
+      </p>
+      <a href="/work" class="btn btn--outline btn--lg" style="margin-top: var(--space-6)">
+        View all case studies →
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .results__case {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .results__industry {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--letter-spacing-wider);
+    text-transform: uppercase;
+    color: var(--color-blue);
+    margin-bottom: var(--space-2);
+  }
+
+  .results__challenge {
+    font-size: var(--font-size-sm);
+    color: var(--color-slate);
+    line-height: var(--line-height-relaxed);
+    flex: 1;
+  }
+
+  .results__result {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-deep-navy);
+  }
+
+  /* Testimonials */
+  .testimonial {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    border-left: 3px solid var(--color-blue);
+  }
+
+  .testimonial__quote {
+    font-size: var(--font-size-md);
+    font-style: italic;
+    color: var(--color-dark);
+    line-height: var(--line-height-relaxed);
+    flex: 1;
+  }
+
+  .testimonial__name {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-deep-navy);
+  }
+
+  .testimonial__meta {
+    font-size: var(--font-size-xs);
+    color: var(--color-slate);
+    margin-top: var(--space-1);
+  }
+
+  .results__support {
+    font-size: var(--font-size-md);
+    color: var(--color-slate);
+    max-width: 600px;
+    margin-inline: auto;
+    line-height: var(--line-height-relaxed);
+  }
+</style>

@@ -1,0 +1,99 @@
+---
+const principles = [
+  {
+    number: '01',
+    title: 'Transparency',
+    body: 'You see everything. Account access, performance data, pricing, and strategic decisions are never obscured. We tell you what is working, what is not, and why.',
+  },
+  {
+    number: '02',
+    title: 'LinkedIn-only depth',
+    body: 'We do not spread our expertise across ten channels. Every recommendation is grounded in current LinkedIn platform mechanics, ad product updates, and B2B audience behaviour on LinkedIn specifically.',
+  },
+  {
+    number: '03',
+    title: 'Measurable outcomes',
+    body: 'We agree on KPIs at the start of every engagement — follower growth, engagement rate, cost per lead, pipeline contribution. Reporting is always delivered against those KPIs, not vanity metrics.',
+  },
+  {
+    number: '04',
+    title: 'Content quality',
+    body: 'We hold B2B content to a high standard. Every post, article, ad, and message we produce is designed to earn attention and build credibility, not fill a calendar.',
+  },
+];
+---
+
+<section class="section section--dark" aria-labelledby="how-heading">
+  <div class="container">
+    <div class="how__header text-center mb-12">
+      <p class="eyebrow" style="color: var(--color-cyan)">Our principles</p>
+      <h2 id="how-heading" style="color: var(--color-white)">
+        We work the way B2B buyers expect to be treated.
+      </h2>
+    </div>
+
+    <div class="how__grid">
+      {principles.map(p => (
+        <div class="how__card">
+          <span class="how__number" aria-hidden="true">{p.number}</span>
+          <h3 class="how__title">{p.title}</h3>
+          <p class="how__body">{p.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .how__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+  }
+
+  .how__card {
+    padding: var(--space-6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-xl);
+    background: rgba(255, 255, 255, 0.04);
+    transition: background var(--transition-base);
+  }
+
+  .how__card:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .how__number {
+    display: block;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--letter-spacing-wider);
+    color: var(--color-cyan);
+    margin-bottom: var(--space-4);
+  }
+
+  .how__title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-white);
+    margin-bottom: var(--space-3);
+  }
+
+  .how__body {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.6);
+    line-height: var(--line-height-relaxed);
+  }
+
+  @media (max-width: 1024px) {
+    .how__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .how__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

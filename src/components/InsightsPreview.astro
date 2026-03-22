@@ -1,0 +1,124 @@
+---
+// Dynamic posts will be pulled from CMS/content collection
+// Placeholder cards until blog is set up
+const posts = [
+  {
+    category: 'LinkedIn Strategy',
+    title: 'PLACEHOLDER — Article title',
+    excerpt: 'PLACEHOLDER — One-sentence summary of the article.',
+    date: '2026-03-01',
+    slug: '#',
+  },
+  {
+    category: 'Advertising',
+    title: 'PLACEHOLDER — Article title',
+    excerpt: 'PLACEHOLDER — One-sentence summary of the article.',
+    date: '2026-02-20',
+    slug: '#',
+  },
+  {
+    category: 'B2B Content',
+    title: 'PLACEHOLDER — Article title',
+    excerpt: 'PLACEHOLDER — One-sentence summary of the article.',
+    date: '2026-02-10',
+    slug: '#',
+  },
+];
+
+function formatDate(dateStr: string) {
+  return new Date(dateStr).toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+}
+---
+
+<section class="section" aria-labelledby="insights-heading">
+  <div class="container">
+    <div class="insights__header text-center mb-12">
+      <p class="eyebrow">From the blog</p>
+      <h2 id="insights-heading">LinkedIn intelligence, in writing.</h2>
+      <p class="insights__sub">
+        Sharp thinking on LinkedIn strategy, B2B content, advertising, and platform updates —
+        written by practitioners, not content mills.
+      </p>
+    </div>
+
+    <div class="grid grid--3">
+      {posts.map(post => (
+        <article class="card insights__post">
+          <span class="tag tag--blue" style="margin-bottom: var(--space-4); display:inline-flex">
+            {post.category}
+          </span>
+          <h3 class="insights__post-title">
+            <a href={`/insights/${post.slug}`}>{post.title}</a>
+          </h3>
+          <p class="insights__post-excerpt">{post.excerpt}</p>
+          <footer class="insights__post-footer">
+            <time datetime={post.date} class="insights__date">{formatDate(post.date)}</time>
+            <a href={`/insights/${post.slug}`} class="btn btn--ghost btn--sm">Read →</a>
+          </footer>
+        </article>
+      ))}
+    </div>
+
+    <div class="text-center" style="margin-top: var(--space-10)">
+      <a href="/insights" class="btn btn--outline btn--lg">Read all articles →</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .insights__sub {
+    font-size: var(--font-size-md);
+    color: var(--color-slate);
+    max-width: 560px;
+    margin-inline: auto;
+    margin-top: var(--space-4);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .insights__post {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .insights__post-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-deep-navy);
+    margin-bottom: var(--space-3);
+    line-height: var(--line-height-snug);
+    flex: 1;
+  }
+
+  .insights__post-title a {
+    color: inherit;
+  }
+
+  .insights__post-title a:hover {
+    color: var(--color-blue);
+  }
+
+  .insights__post-excerpt {
+    font-size: var(--font-size-sm);
+    color: var(--color-slate);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-6);
+  }
+
+  .insights__post-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: var(--space-4);
+    border-top: var(--border-thin);
+  }
+
+  .insights__date {
+    font-size: var(--font-size-xs);
+    color: var(--color-slate);
+  }
+</style>

@@ -1,0 +1,163 @@
+---
+const navLinks = [
+  { label: 'Services', href: '/services' },
+  { label: 'Work',     href: '/work' },
+  { label: 'Insights', href: '/insights' },
+  { label: 'About',    href: '/about' },
+  { label: 'Contact',  href: '/contact' },
+];
+
+const legalLinks = [
+  { label: 'Privacy Policy', href: '/privacy' },
+  { label: 'Terms of Service', href: '/terms' },
+  { label: 'Cookie Policy', href: '/cookies' },
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__top">
+      <!-- Brand -->
+      <div class="footer__brand">
+        <a href="/" class="footer__logo" aria-label="Nuvora Studio — home">
+          <img src="/logo.png" alt="Nuvora Studio" class="footer__logo-img" width="160" height="48" />
+        </a>
+        <p class="footer__tagline">LinkedIn expertise for B2B companies that mean it.</p>
+      </div>
+
+      <!-- Nav -->
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <ul class="footer__links" role="list">
+          {navLinks.map(l => (
+            <li><a href={l.href} class="footer__link">{l.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <!-- Contact nudge -->
+      <div class="footer__contact">
+        <p class="footer__contact-label">Ready to start?</p>
+        <a href="/contact?intent=call" class="btn btn--primary">Book a call</a>
+      </div>
+    </div>
+
+    <div class="divider--gradient"></div>
+
+    <div class="footer__bottom">
+      <p class="footer__copy">© {year} Nuvora Studio. All rights reserved.</p>
+      <ul class="footer__legal" role="list">
+        {legalLinks.map(l => (
+          <li><a href={l.href} class="footer__legal-link">{l.label}</a></li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-deep-navy);
+    padding-block: var(--space-16) var(--space-8);
+  }
+
+  .footer__top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--space-12);
+    margin-bottom: var(--space-10);
+    align-items: start;
+  }
+
+  .footer__logo {
+    display: inline-block;
+    margin-bottom: var(--space-4);
+  }
+
+  .footer__logo-img {
+    height: 40px;
+    width: auto;
+    display: block;
+    /* Invert dark text to white for navy background */
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+  }
+
+  .footer__tagline {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.5);
+    line-height: var(--line-height-relaxed);
+    max-width: 280px;
+  }
+
+  .footer__links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .footer__link {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.6);
+    transition: color var(--transition-fast);
+  }
+
+  .footer__link:hover {
+    color: var(--color-cyan);
+  }
+
+  .footer__contact-label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: var(--space-4);
+  }
+
+  /* Bottom bar */
+  .footer__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
+    padding-top: var(--space-6);
+  }
+
+  .footer__copy {
+    font-size: var(--font-size-xs);
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .footer__legal {
+    display: flex;
+    gap: var(--space-6);
+  }
+
+  .footer__legal-link {
+    font-size: var(--font-size-xs);
+    color: rgba(255, 255, 255, 0.35);
+    transition: color var(--transition-fast);
+  }
+
+  .footer__legal-link:hover {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  @media (max-width: 768px) {
+    .footer__top {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+
+    .footer__bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-4);
+    }
+
+    .footer__legal {
+      flex-wrap: wrap;
+      gap: var(--space-4);
+    }
+  }
+</style>

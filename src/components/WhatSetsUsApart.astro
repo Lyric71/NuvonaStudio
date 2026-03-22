@@ -1,0 +1,115 @@
+---
+---
+
+<section class="section section--ice" aria-labelledby="apart-heading">
+  <div class="container">
+    <div class="apart__layout">
+      <div class="apart__text">
+        <p class="eyebrow">Our approach</p>
+        <h2 id="apart-heading">One platform.<br />Total mastery.</h2>
+        <div class="accent-bar"></div>
+        <p class="apart__lead">
+          Most marketing agencies treat LinkedIn as one checkbox on a long list of channels.
+          We treat it as the only one. That focus is not a limitation — it is a deliberate choice
+          that makes everything we do sharper and more accountable than what a generalist agency
+          can offer.
+        </p>
+        <p class="apart__body">
+          We know how the LinkedIn algorithm rewards consistency. We know which ad formats perform
+          at each stage of the B2B funnel. We know what makes a B2B buyer stop scrolling, read,
+          and act. We know because LinkedIn is all we do, every day, for clients across industries
+          and markets worldwide.
+        </p>
+        <p class="apart__body">
+          Strategy, platform audit, and performance reporting come with every engagement — not
+          sold as extras.
+        </p>
+      </div>
+
+      <div class="apart__pillars" aria-label="Core advantages">
+        <div class="apart__pillar">
+          <span class="apart__pillar-icon" aria-hidden="true">◎</span>
+          <h3 class="apart__pillar-title">LinkedIn-only depth</h3>
+          <p>We go deeper on this platform than any generalist agency can. Every recommendation is grounded in current mechanics, product updates, and B2B audience behaviour on LinkedIn specifically.</p>
+        </div>
+        <div class="apart__pillar">
+          <span class="apart__pillar-icon" aria-hidden="true">◎</span>
+          <h3 class="apart__pillar-title">Global client base</h3>
+          <p>We work with B2B companies from established multinationals to high-growth challengers, across industries and markets worldwide.</p>
+        </div>
+        <div class="apart__pillar">
+          <span class="apart__pillar-icon" aria-hidden="true">◎</span>
+          <h3 class="apart__pillar-title">Everything included</h3>
+          <p>Strategy, platform audit, and performance reporting are part of every engagement. Not upsells. Not extras.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .apart__layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+    align-items: start;
+  }
+
+  .apart__lead {
+    font-size: var(--font-size-md);
+    color: var(--color-dark);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-5);
+  }
+
+  .apart__body {
+    color: var(--color-slate);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-4);
+  }
+
+  .apart__pillars {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding-top: var(--space-12);
+  }
+
+  .apart__pillar {
+    background: var(--color-white);
+    border: var(--border-thin);
+    border-left: 3px solid var(--color-cyan);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5) var(--space-6);
+  }
+
+  .apart__pillar-icon {
+    display: block;
+    color: var(--color-cyan);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-3);
+  }
+
+  .apart__pillar-title {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-deep-navy);
+    margin-bottom: var(--space-2);
+  }
+
+  .apart__pillar p {
+    font-size: var(--font-size-sm);
+    color: var(--color-slate);
+    line-height: var(--line-height-relaxed);
+  }
+
+  @media (max-width: 1024px) {
+    .apart__layout {
+      grid-template-columns: 1fr;
+    }
+
+    .apart__pillars {
+      padding-top: 0;
+    }
+  }
+</style>

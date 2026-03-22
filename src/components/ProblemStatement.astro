@@ -1,0 +1,81 @@
+---
+---
+
+<section class="section" aria-labelledby="problem-heading">
+  <div class="container">
+    <div class="problem__layout">
+      <div class="problem__header">
+        <p class="eyebrow">Why this matters</p>
+        <h2 id="problem-heading">
+          LinkedIn is your highest-value B2B channel.<br />
+          Most companies are wasting it.
+        </h2>
+        <div class="accent-bar"></div>
+      </div>
+
+      <div class="problem__body">
+        <p class="problem__lead">
+          Over 65 million decision-makers are active on LinkedIn. Four out of five LinkedIn members
+          drive business decisions. B2B marketers consistently rate it as their strongest channel
+          for lead generation, thought leadership, and brand awareness.
+        </p>
+        <p>
+          And yet — company pages go weeks without a post. Executive profiles read like old CVs.
+          Ad budgets burn through audiences with no clear targeting strategy. Content gets published
+          without a plan and earns nothing.
+        </p>
+        <p class="problem__close">
+          The gap between what LinkedIn can deliver for a B2B company and what most companies
+          actually get from it is significant. <strong>Closing that gap is what we do.</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .problem__layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+    align-items: start;
+  }
+
+  .problem__header h2 {
+    margin-bottom: var(--space-6);
+  }
+
+  .problem__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .problem__lead {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-deep-navy);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .problem__body p {
+    color: var(--color-slate);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .problem__close {
+    color: var(--color-dark) !important;
+  }
+
+  .problem__close strong {
+    color: var(--color-blue);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  @media (max-width: 1024px) {
+    .problem__layout {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+  }
+</style>

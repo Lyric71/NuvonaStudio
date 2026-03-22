@@ -1,0 +1,102 @@
+---
+const industries = [
+  { label: 'Technology & SaaS',            icon: '◈' },
+  { label: 'Manufacturing & Industrial',    icon: '◉' },
+  { label: 'Professional Services',         icon: '◆' },
+  { label: 'Healthcare & Life Sciences',    icon: '◇' },
+  { label: 'Financial Services',            icon: '◎' },
+  { label: 'Logistics & Supply Chain',      icon: '✦' },
+];
+---
+
+<section class="section section--ice" aria-labelledby="industries-heading">
+  <div class="container">
+    <div class="industries__layout">
+      <div class="industries__text">
+        <p class="eyebrow">Who we work with</p>
+        <h2 id="industries-heading">Built for B2B, across sectors.</h2>
+        <div class="accent-bar"></div>
+        <p class="industries__body">
+          We work with B2B companies globally — from established multinationals expanding into new
+          markets to high-growth companies building their LinkedIn presence from the ground up.
+        </p>
+        <p class="industries__body">
+          If your buyers are on LinkedIn and you are not reaching them effectively, we should talk.
+        </p>
+        <a href="/contact" class="btn btn--primary" style="margin-top: var(--space-6)">
+          Talk to us →
+        </a>
+      </div>
+
+      <div class="industries__grid" aria-label="Industries we serve">
+        {industries.map(i => (
+          <div class="industries__item">
+            <span class="industries__icon" aria-hidden="true">{i.icon}</span>
+            <span class="industries__label">{i.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .industries__layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+    align-items: center;
+  }
+
+  .industries__body {
+    color: var(--color-slate);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-4);
+  }
+
+  .industries__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  .industries__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    background: var(--color-white);
+    border: var(--border-thin);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+  }
+
+  .industries__item:hover {
+    border-color: var(--color-cyan);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .industries__icon {
+    color: var(--color-blue);
+    font-size: var(--font-size-lg);
+    flex-shrink: 0;
+  }
+
+  .industries__label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-deep-navy);
+  }
+
+  @media (max-width: 1024px) {
+    .industries__layout {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .industries__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

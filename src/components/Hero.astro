@@ -1,0 +1,152 @@
+---
+---
+
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <p class="eyebrow hero__eyebrow">The LinkedIn-only B2B consultancy</p>
+      <h1 id="hero-heading">
+        Most B2B companies are on LinkedIn.<br />
+        <span class="hero__headline-muted">Very few are getting anything from&nbsp;it.</span>
+      </h1>
+      <p class="hero__sub">
+        We are a specialist LinkedIn marketing agency working with B2B companies across the globe.
+        We build LinkedIn presences that generate real pipeline, attract the right decision-makers,
+        and establish lasting authority in your market. One platform. Absolute focus. Measurable results.
+      </p>
+      <div class="hero__actions">
+        <a href="/about" class="btn btn--primary btn--lg">See how we work</a>
+        <a href="/work"  class="btn btn--outline-white btn--lg">View client results</a>
+      </div>
+    </div>
+
+    <!-- Decorative stat strip -->
+    <div class="hero__stats" aria-label="Key LinkedIn facts">
+      <div class="hero__stat">
+        <span class="hero__stat-number">65M+</span>
+        <span class="hero__stat-label">Decision-makers on LinkedIn</span>
+      </div>
+      <div class="hero__stat-divider" aria-hidden="true"></div>
+      <div class="hero__stat">
+        <span class="hero__stat-number">4 in 5</span>
+        <span class="hero__stat-label">LinkedIn members drive business decisions</span>
+      </div>
+      <div class="hero__stat-divider" aria-hidden="true"></div>
+      <div class="hero__stat">
+        <span class="hero__stat-number">#1</span>
+        <span class="hero__stat-label">B2B lead generation channel</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background: var(--gradient-hero);
+    padding-block: var(--space-32) var(--space-20);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle radial glow */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(0, 168, 220, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero__inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+  }
+
+  .hero__eyebrow {
+    color: var(--color-cyan);
+    margin-bottom: var(--space-4);
+  }
+
+  .hero__content h1 {
+    color: var(--color-white);
+    max-width: 760px;
+    margin-bottom: var(--space-6);
+  }
+
+  .hero__headline-muted {
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  .hero__sub {
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-relaxed);
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 620px;
+    margin-bottom: var(--space-10);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  /* Stats strip */
+  .hero__stats {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    padding: var(--space-6) var(--space-8);
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-xl);
+    backdrop-filter: blur(8px);
+  }
+
+  .hero__stat {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    flex: 1;
+  }
+
+  .hero__stat-number {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-white);
+    line-height: 1;
+  }
+
+  .hero__stat-label {
+    font-size: var(--font-size-xs);
+    color: var(--color-cyan);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .hero__stat-divider {
+    width: 1px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.15);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding-block: var(--space-20) var(--space-16);
+    }
+
+    .hero__stats {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-6);
+    }
+
+    .hero__stat-divider {
+      width: 100%;
+      height: 1px;
+    }
+  }
+</style>
