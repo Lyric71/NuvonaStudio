@@ -1,0 +1,675 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+
+const tiers = [
+  {
+    name: 'Foundation',
+    price: '$1,800',
+    period: '/month',
+    commitment: '3-month minimum',
+    featured: false,
+    tag: 'Tier 1',
+    includes: [
+      'LinkedIn company page audit + optimization',
+      'Content strategy development (topics, formats, cadence)',
+      '8 posts/month — written, designed, scheduled',
+      'AI-generated images and visual assets included',
+      'Community management (monitoring + response guidelines)',
+      'Monthly performance report',
+      'Weekly strategy call',
+      'Dedicated account manager · Mon–Fri 9am–6pm',
+    ],
+  },
+  {
+    name: 'Growth',
+    price: '$3,500',
+    period: '/month',
+    commitment: '3-month minimum',
+    featured: true,
+    tag: 'Tier 2 · Most popular',
+    includes: [
+      'LinkedIn company page audit + optimization',
+      'Content strategy development (topics, formats, cadence)',
+      '12 posts/month — written, designed, scheduled',
+      'AI-generated images and visual assets included',
+      'Community management (monitoring + response guidelines)',
+      'LinkedIn Ads management (ad spend billed separately)',
+      'ICP definition + audience targeting framework',
+      'Competitor content monitoring (monthly brief)',
+      'Monthly report — engagement + ad performance',
+      'Weekly strategy call',
+      'Dedicated account manager · Mon–Fri 9am–6pm',
+    ],
+  },
+  {
+    name: 'Scale',
+    price: '$6,000',
+    period: '/month',
+    commitment: '6-month minimum',
+    featured: false,
+    tag: 'Tier 3',
+    includes: [
+      'LinkedIn company page audit + optimization',
+      'Content strategy development (topics, formats, cadence)',
+      '16 posts/month — written, designed, scheduled',
+      'AI-generated images and visual assets included',
+      'Community management (monitoring + response guidelines)',
+      'LinkedIn Ads management (ad spend billed separately)',
+      'ICP definition + audience targeting framework',
+      'Competitor content monitoring (monthly brief)',
+      'Weekly strategy call',
+      'Dedicated account lead',
+    ],
+  },
+];
+
+const execServices = [
+  { service: 'Executive profile optimization (one-time)', price: '$500 per profile' },
+  { service: 'Executive ghostwriting — 4 posts/month + profile maintenance', price: '$1,200/month per leader' },
+];
+
+const adsUnder = [
+  'Custom full-funnel LinkedIn Ads strategy',
+  'Unlimited campaigns and ads',
+  'Unlimited expert support',
+  'Customized reporting',
+  'Guidance on creating top-performing ad content',
+  'Budget optimization',
+];
+
+const adsOver = [
+  'Weekly check-in calls',
+  'Performance analysis',
+  'Ad scheduling',
+  'Scale-ready microsegmentation strategy',
+  'Volume discounts for large budgets',
+];
+
+const contentServices = [
+  { service: 'AI-generated video (5s to 30s)', price: '$200 – $5,000 per video' },
+  { service: 'Professional video shooting', price: 'Custom quote per project' },
+  { service: 'Multilingual content', price: 'Custom quote per language' },
+];
+
+const trainingServices = [
+  { service: 'LinkedIn training workshop (2 hours)', price: '$2,500 per session' },
+  { service: 'Team training program (4 sessions)', price: '$8,000 one-time' },
+  { service: 'Employee advocacy program', price: '$2,500/month' },
+];
+
+const bonuses = [
+  {
+    model: 'Lead milestone bonus',
+    structure: '+15% of monthly retainer when agreed lead targets are met. Available only for clients with active LinkedIn ad spend.',
+    tiers: 'Tier 2, 3',
+  },
+  {
+    model: 'Follower growth bonus',
+    structure: '+10% of monthly retainer when quarterly growth targets are exceeded.',
+    tiers: 'Tier 1, 2, 3',
+  },
+];
+---
+
+<Layout
+  title="Pricing — Nuvora Studio"
+  description="Transparent LinkedIn service pricing. Retainer tiers, ads management, executive branding, training, and content production. No hidden fees."
+>
+  <NavBar />
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="pricing-hero section--dark" aria-labelledby="pricing-heading">
+      <div class="container">
+        <p class="eyebrow" style="color: var(--color-cyan)">Pricing</p>
+        <h1 id="pricing-heading">Transparent pricing.<br />No surprises.</h1>
+        <p class="pricing-hero__sub">
+          Every engagement includes strategy, audit, and performance reporting.
+          Ad spend is always billed separately and directly to your LinkedIn account.
+        </p>
+      </div>
+    </section>
+
+    <!-- Core Retainer Tiers -->
+    <section class="section" aria-labelledby="retainer-heading">
+      <div class="container">
+        <div class="pricing-section-header text-center mb-12">
+          <p class="eyebrow">Core retainer</p>
+          <h2 id="retainer-heading">Monthly LinkedIn management.</h2>
+          <p class="pricing-section-sub">Choose the level of activity that matches your growth objectives.</p>
+        </div>
+
+        <div class="tiers">
+          {tiers.map(tier => (
+            <article class={`tier ${tier.featured ? 'tier--featured' : ''}`} aria-labelledby={`tier-${tier.name}`}>
+              {tier.featured && <div class="tier__badge">Most popular</div>}
+              <div class="tier__header">
+                <span class="tag tag--navy">{tier.tag}</span>
+                <h3 id={`tier-${tier.name}`} class="tier__name">{tier.name}</h3>
+                <div class="tier__price">
+                  <span class="tier__amount">{tier.price}</span>
+                  <span class="tier__period">{tier.period}</span>
+                </div>
+                <p class="tier__commitment">{tier.commitment}</p>
+              </div>
+              <div class="tier__divider"></div>
+              <ul class="tier__list" role="list">
+                {tier.includes.map(item => (
+                  <li class="tier__item">
+                    <span class="tier__check" aria-hidden="true">✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={`/contact?intent=retainer&tier=${tier.name.toLowerCase()}`}
+                class={`btn w-full ${tier.featured ? 'btn--primary' : 'btn--outline'}`}
+                style="justify-content: center; margin-top: auto;"
+              >
+                Get started
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Executive Personal Branding -->
+    <section class="section section--ice" aria-labelledby="exec-heading">
+      <div class="container">
+        <div class="pricing-split">
+          <div class="pricing-split__text">
+            <p class="eyebrow">Add-on or standalone</p>
+            <h2 id="exec-heading">Executive Personal Branding</h2>
+            <p class="pricing-split__desc">
+              A standalone offer for senior leaders building their LinkedIn presence.
+              Can be combined with any retainer tier or purchased independently.
+            </p>
+            <a href="/services/training#executive" class="btn btn--outline" style="margin-top: var(--space-6)">
+              See executive workshop →
+            </a>
+          </div>
+          <div class="pricing-table-wrap">
+            <table class="pricing-table" aria-label="Executive personal branding pricing">
+              <thead>
+                <tr>
+                  <th>Service</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                {execServices.map(row => (
+                  <tr>
+                    <td>{row.service}</td>
+                    <td class="pricing-table__price">{row.price}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LinkedIn Ads Standalone -->
+    <section class="section" aria-labelledby="ads-heading">
+      <div class="container">
+        <div class="pricing-section-header text-center mb-12">
+          <p class="eyebrow">Standalone offer</p>
+          <h2 id="ads-heading">LinkedIn Ads Management</h2>
+          <p class="pricing-section-sub">
+            Expert LinkedIn advertising without a full retainer.
+            Ad spend billed separately, directly to your LinkedIn account.
+          </p>
+        </div>
+
+        <div class="ads-tiers">
+          <!-- Under $15k -->
+          <div class="ads-tier card card--accent">
+            <p class="eyebrow">Budgets under $15,000/month</p>
+            <div class="ads-tier__price">
+              <span class="ads-tier__amount">$2,500</span>
+              <span class="ads-tier__period">/month</span>
+            </div>
+            <p class="ads-tier__setup">+ $1,500 one-time setup fee · 3-month contract</p>
+            <div class="divider"></div>
+            <p class="ads-tier__includes-label">What's included</p>
+            <ul class="tier__list" role="list">
+              {adsUnder.map(item => (
+                <li class="tier__item">
+                  <span class="tier__check" aria-hidden="true">✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Over $15k -->
+          <div class="ads-tier card card--featured">
+            <p class="eyebrow">Budgets over $15,000/month</p>
+            <div class="ads-tier__price">
+              <span class="ads-tier__amount">8% – 15%</span>
+              <span class="ads-tier__period"> of ad spend</span>
+            </div>
+            <p class="ads-tier__setup">+ $1,500 one-time setup fee · 3-month contract</p>
+            <div class="divider"></div>
+            <p class="ads-tier__includes-label">Everything above, plus</p>
+            <ul class="tier__list" role="list">
+              {adsOver.map(item => (
+                <li class="tier__item">
+                  <span class="tier__check" aria-hidden="true">✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content Production + Training -->
+    <section class="section section--ice" aria-labelledby="addons-heading">
+      <div class="container">
+        <div class="pricing-section-header text-center mb-12">
+          <p class="eyebrow">Additional services</p>
+          <h2 id="addons-heading">Content, training, and advocacy.</h2>
+          <p class="pricing-section-sub">Written posts and AI-generated visuals are included in all retainer tiers. The following services are available separately.</p>
+        </div>
+
+        <div class="addons-grid">
+          <!-- Content production -->
+          <div class="addon-block">
+            <h3 class="addon-block__title">Content Production</h3>
+            <table class="pricing-table" aria-label="Content production pricing">
+              <thead>
+                <tr>
+                  <th>Service</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                {contentServices.map(row => (
+                  <tr>
+                    <td>{row.service}</td>
+                    <td class="pricing-table__price">{row.price}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Training -->
+          <div class="addon-block">
+            <h3 class="addon-block__title">Training & Employee Advocacy</h3>
+            <table class="pricing-table" aria-label="Training pricing">
+              <thead>
+                <tr>
+                  <th>Service</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                {trainingServices.map(row => (
+                  <tr>
+                    <td>{row.service}</td>
+                    <td class="pricing-table__price">{row.price}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <a href="/services/training" class="btn btn--ghost btn--sm" style="margin-top: var(--space-4)">
+              View all training workshops →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Performance Bonus -->
+    <section class="section section--dark" aria-labelledby="bonus-heading">
+      <div class="container">
+        <div class="pricing-section-header text-center mb-12">
+          <p class="eyebrow" style="color: var(--color-cyan)">Optional</p>
+          <h2 id="bonus-heading" style="color: var(--color-white)">Performance Bonus Option</h2>
+          <p class="pricing-section-sub" style="color: rgba(255,255,255,0.65)">
+            Available on Tier 2 and above. Targets defined collaboratively at onboarding and reviewed quarterly.
+          </p>
+        </div>
+
+        <div class="bonus-grid">
+          {bonuses.map(b => (
+            <div class="bonus-card">
+              <p class="bonus-card__model">{b.model}</p>
+              <p class="bonus-card__structure">{b.structure}</p>
+              <span class="tag tag--navy" style="margin-top: var(--space-4)">{b.tiers}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <ContactCTA />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  /* ── Hero ── */
+  .pricing-hero {
+    padding-block: var(--space-24) var(--space-16);
+  }
+
+  .pricing-hero h1 {
+    color: var(--color-white);
+    max-width: 600px;
+    margin-block: var(--space-4) var(--space-6);
+  }
+
+  .pricing-hero__sub {
+    font-size: var(--font-size-md);
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 520px;
+    line-height: var(--line-height-relaxed);
+  }
+
+  /* ── Section headers ── */
+  .pricing-section-header {
+    max-width: 640px;
+    margin-inline: auto;
+  }
+
+  .pricing-section-sub {
+    font-size: var(--font-size-md);
+    color: var(--color-slate);
+    margin-top: var(--space-4);
+    line-height: var(--line-height-relaxed);
+  }
+
+  /* ── Retainer tiers ── */
+  .tiers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    align-items: start;
+  }
+
+  .tier {
+    background: var(--color-white);
+    border: var(--border-thin);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    position: relative;
+    transition: box-shadow var(--transition-base);
+  }
+
+  .tier:hover {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .tier--featured {
+    border: 2px solid var(--color-blue);
+    box-shadow: var(--shadow-card);
+  }
+
+  .tier__badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gradient-button);
+    color: var(--color-white);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--letter-spacing-wide);
+    padding: var(--space-1) var(--space-4);
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+  }
+
+  .tier__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .tier__name {
+    font-size: var(--font-size-xl);
+    color: var(--color-deep-navy);
+  }
+
+  .tier__price {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-1);
+  }
+
+  .tier__amount {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-deep-navy);
+    line-height: 1;
+  }
+
+  .tier__period {
+    font-size: var(--font-size-base);
+    color: var(--color-slate);
+  }
+
+  .tier__commitment {
+    font-size: var(--font-size-xs);
+    color: var(--color-slate);
+    font-style: italic;
+  }
+
+  .tier__divider {
+    height: 1px;
+    background: var(--color-light-grey);
+  }
+
+  .tier__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    flex: 1;
+  }
+
+  .tier__item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    font-size: var(--font-size-sm);
+    color: var(--color-dark);
+    line-height: var(--line-height-snug);
+  }
+
+  .tier__check {
+    color: var(--color-cyan);
+    font-weight: var(--font-weight-bold);
+    flex-shrink: 0;
+  }
+
+  /* ── Pricing split layout ── */
+  .pricing-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+    align-items: center;
+  }
+
+  .pricing-split__desc {
+    color: var(--color-slate);
+    line-height: var(--line-height-relaxed);
+    margin-top: var(--space-4);
+  }
+
+  /* ── Tables ── */
+  .pricing-table-wrap {
+    overflow: hidden;
+    border-radius: var(--radius-xl);
+    border: var(--border-thin);
+  }
+
+  .pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--font-size-sm);
+  }
+
+  .pricing-table th {
+    background: var(--color-deep-navy);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--letter-spacing-wider);
+    text-transform: uppercase;
+    padding: var(--space-3) var(--space-5);
+    text-align: left;
+  }
+
+  .pricing-table td {
+    padding: var(--space-4) var(--space-5);
+    color: var(--color-dark);
+    border-bottom: var(--border-thin);
+    vertical-align: middle;
+    line-height: var(--line-height-snug);
+  }
+
+  .pricing-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .pricing-table tr:nth-child(even) td {
+    background: var(--color-ice);
+  }
+
+  .pricing-table__price {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-blue);
+    white-space: nowrap;
+  }
+
+  /* ── Ads tiers ── */
+  .ads-tiers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+
+  .ads-tier {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-8);
+  }
+
+  .ads-tier__price {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-1);
+    margin-top: var(--space-2);
+  }
+
+  .ads-tier__amount {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-deep-navy);
+    line-height: 1;
+  }
+
+  .ads-tier__period {
+    font-size: var(--font-size-base);
+    color: var(--color-slate);
+  }
+
+  .ads-tier__setup {
+    font-size: var(--font-size-xs);
+    color: var(--color-slate);
+    font-style: italic;
+  }
+
+  .ads-tier__includes-label {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--letter-spacing-wider);
+    text-transform: uppercase;
+    color: var(--color-blue);
+  }
+
+  /* ── Add-ons ── */
+  .addons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+
+  .addon-block__title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-deep-navy);
+    margin-bottom: var(--space-4);
+  }
+
+  .addon-block .pricing-table-wrap {
+    border-color: var(--color-light-grey);
+  }
+
+  /* ── Performance bonus ── */
+  .bonus-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+
+  .bonus-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bonus-card__model {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-white);
+    margin-bottom: var(--space-3);
+  }
+
+  .bonus-card__structure {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.65);
+    line-height: var(--line-height-relaxed);
+    flex: 1;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .tiers {
+      grid-template-columns: 1fr;
+      max-width: 480px;
+      margin-inline: auto;
+    }
+
+    .pricing-split,
+    .ads-tiers,
+    .addons-grid,
+    .bonus-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .pricing-table th,
+    .pricing-table td {
+      padding: var(--space-3) var(--space-4);
+    }
+  }
+</style>

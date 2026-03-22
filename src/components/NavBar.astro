@@ -1,10 +1,17 @@
 ---
 const links = [
-  { label: 'Services', href: '/services' },
+  {
+    label: 'Services',
+    href: '/services',
+    children: [
+      { label: 'Training', href: '/services/training' },
+    ],
+  },
+  { label: 'Pricing',  href: '/pricing' },
   { label: 'Work',     href: '/work' },
   { label: 'Insights', href: '/insights' },
-  { label: 'About',    href: '/about' },
-  { label: 'Contact',  href: '/contact' },
+  { label: 'About',      href: '/about' },
+  { label: 'Contact us', href: '/contact' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -20,13 +27,45 @@ const currentPath = Astro.url.pathname;
     <!-- Desktop links -->
     <ul class="nav__links" role="list">
       {links.map(link => (
-        <li>
-          <a
-            href={link.href}
-            class={`nav__link${currentPath === link.href ? ' nav__link--active' : ''}`}
-          >
-            {link.label}
-          </a>
+        <li class={link.children ? 'nav__item nav__item--has-dropdown' : 'nav__item'}>
+          {link.children ? (
+            <>
+              <button
+                class={`nav__link nav__link--dropdown${currentPath.startsWith(link.href) ? ' nav__link--active' : ''}`}
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                {link.label}
+                <svg class="nav__chevron" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+                  <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <ul class="nav__dropdown" role="list">
+                <li>
+                  <a href={link.href} class={`nav__dropdown-link${currentPath === link.href ? ' nav__dropdown-link--active' : ''}`}>
+                    All Services
+                  </a>
+                </li>
+                {link.children.map(child => (
+                  <li>
+                    <a
+                      href={child.href}
+                      class={`nav__dropdown-link${currentPath === child.href ? ' nav__dropdown-link--active' : ''}`}
+                    >
+                      {child.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : (
+            <a
+              href={link.href}
+              class={`nav__link${currentPath === link.href ? ' nav__link--active' : ''}`}
+            >
+              {link.label}
+            </a>
+          )}
         </li>
       ))}
     </ul>
@@ -46,7 +85,16 @@ const currentPath = Astro.url.pathname;
   <div class="nav__mobile" id="mobile-menu" aria-hidden="true">
     <ul role="list">
       {links.map(link => (
-        <li><a href={link.href} class="nav__mobile-link">{link.label}</a></li>
+        <>
+          <li><a href={link.href} class="nav__mobile-link">{link.label}</a></li>
+          {link.children?.map(child => (
+            <li>
+              <a href={child.href} class="nav__mobile-link nav__mobile-link--child">
+                └ {child.label}
+              </a>
+            </li>
+          ))}
+        </>
       ))}
     </ul>
     <a href="/contact?intent=call" class="btn btn--primary w-full text-center" style="justify-content:center">Book a call</a>
@@ -64,6 +112,82 @@ const currentPath = Astro.url.pathname;
     display: flex;
     align-items: center;
     gap: var(--space-4);
+  }
+
+  /* Nav items */
+  .nav__item {
+    position: relative;
+  }
+
+  .nav__link--dropdown {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-slate);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: color var(--transition-fast);
+  }
+
+  .nav__link--dropdown:hover,
+  .nav__link--dropdown.nav__link--active {
+    color: var(--color-blue);
+  }
+
+  .nav__chevron {
+    transition: transform var(--transition-fast);
+  }
+
+  .nav__item--has-dropdown:hover .nav__chevron,
+  .nav__item--has-dropdown.is-open .nav__chevron {
+    transform: rotate(180deg);
+  }
+
+  /* Dropdown */
+  .nav__dropdown {
+    position: absolute;
+    top: calc(100% + var(--space-3));
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 180px;
+    background: var(--color-white);
+    border: var(--border-thin);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(-6px);
+    transition: opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast);
+    z-index: var(--z-dropdown);
+  }
+
+  .nav__item--has-dropdown:hover .nav__dropdown,
+  .nav__item--has-dropdown.is-open .nav__dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .nav__dropdown-link {
+    display: block;
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-slate);
+    border-radius: var(--radius-md);
+    transition: background var(--transition-fast), color var(--transition-fast);
+    white-space: nowrap;
+  }
+
+  .nav__dropdown-link:hover,
+  .nav__dropdown-link--active {
+    background: var(--color-ice);
+    color: var(--color-blue);
   }
 
   /* Mobile burger */
@@ -106,6 +230,12 @@ const currentPath = Astro.url.pathname;
     color: var(--color-blue);
   }
 
+  .nav__mobile-link--child {
+    font-size: var(--font-size-sm);
+    color: var(--color-slate);
+    padding-left: var(--space-4);
+  }
+
   @media (max-width: 768px) {
     .nav__links,
     .nav__actions {
@@ -123,6 +253,7 @@ const currentPath = Astro.url.pathname;
 </style>
 
 <script>
+  // Mobile burger
   const burger = document.querySelector('.nav__burger') as HTMLButtonElement | null;
   const menu   = document.getElementById('mobile-menu');
 
@@ -130,5 +261,24 @@ const currentPath = Astro.url.pathname;
     const isOpen = menu?.classList.toggle('is-open');
     burger.setAttribute('aria-expanded', String(isOpen));
     menu?.setAttribute('aria-hidden', String(!isOpen));
+  });
+
+  // Dropdown keyboard support
+  document.querySelectorAll('.nav__link--dropdown').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.nav__item--has-dropdown');
+      item?.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', String(item?.classList.contains('is-open') ?? false));
+    });
+  });
+
+  // Close dropdown on outside click
+  document.addEventListener('click', (e) => {
+    document.querySelectorAll('.nav__item--has-dropdown.is-open').forEach(item => {
+      if (!item.contains(e.target as Node)) {
+        item.classList.remove('is-open');
+        item.querySelector('.nav__link--dropdown')?.setAttribute('aria-expanded', 'false');
+      }
+    });
   });
 </script>
