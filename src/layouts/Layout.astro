@@ -4,11 +4,13 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  abstract?: string;
 }
 
 const {
-  title = 'Nuvora Studio — LinkedIn Consultancy for B2B Companies',
-  description = 'Specialist LinkedIn marketing agency. We build LinkedIn presences that generate real pipeline, attract decision-makers, and establish lasting authority. One platform. Absolute focus.',
+  title = 'Nuvora Studio — LinkedIn Marketing Agency for B2B',
+  description = 'Specialist LinkedIn-only consultancy for B2B companies. We build presences that generate pipeline, attract decision-makers, and establish lasting authority. One platform. Absolute focus.',
+  abstract,
 } = Astro.props;
 ---
 
@@ -32,10 +34,35 @@ const {
     <meta name="twitter:description" content={description} />
 
     <link rel="canonical" href="https://nuvora.studio" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Fonts: preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    {abstract && <meta name="abstract" content={abstract} />}
+
     <title>{title}</title>
   </head>
   <body>
     <slot />
+
+    <!-- Scroll-reveal observer -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
   </body>
 </html>

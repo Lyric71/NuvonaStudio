@@ -5,51 +5,73 @@ import Footer from '../components/Footer.astro';
 ---
 
 <Layout
-  title="Contact Us — Nuvora Studio"
-  description="Get in touch with Nuvora Studio. Tell us about your project and we'll get back to you within one business day."
+  title="Contact Nuvora Studio — Book a LinkedIn Discovery Call"
+  description="Get in touch with Nuvora Studio. Book a 30-minute discovery call or send a message about your LinkedIn marketing goals. We reply within one business day."
+  abstract="Book a 30-minute discovery call or send a message. We reply within one business day. No pitch — just a straight conversation."
 >
   <NavBar />
   <main id="main-content">
 
     <!-- Hero -->
-    <section class="contact-hero section--dark">
+    <section class="contact-hero" aria-labelledby="contact-heading">
       <div class="container">
-        <p class="eyebrow" style="color: var(--color-cyan)">Get in touch</p>
-        <h1>Let's talk LinkedIn.</h1>
-        <p class="contact-hero__sub">
-          Tell us about your project. We read every message and reply within one business day.
-        </p>
+        <div class="contact-hero__inner">
+          <div class="contact-hero__text">
+            <p class="eyebrow eyebrow--light reveal">Get in touch</p>
+            <h1 id="contact-heading" class="contact-hero__h1 reveal reveal-delay-1">
+              Let's talk<br /><em>LinkedIn.</em>
+            </h1>
+            <p class="contact-hero__sub reveal reveal-delay-2">
+              Tell us about your project. We read every message and reply within one business day.
+            </p>
+          </div>
+          <div class="contact-hero__info reveal reveal-delay-2">
+            <div class="contact-info-item">
+              <span class="contact-info-item__label">Response time</span>
+              <span class="contact-info-item__value">1 business day</span>
+            </div>
+            <div class="contact-info-item">
+              <span class="contact-info-item__label">We work with</span>
+              <span class="contact-info-item__value">B2B companies worldwide</span>
+            </div>
+            <div class="contact-info-item">
+              <span class="contact-info-item__label">Engagements from</span>
+              <span class="contact-info-item__value">$1,800 / month</span>
+              <a href="/pricing" class="contact-info-item__link">See full pricing →</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Form section -->
-    <section class="section section--ice">
-      <div class="container container--md">
+    <section class="section" style="background: var(--off-white);">
+      <div class="container container--contact">
 
-        <div class="contact-card">
-          <!-- Success state (hidden until form submits successfully) -->
-          <div class="contact-success" id="contact-success" aria-live="polite">
-            <div class="contact-success__icon" aria-hidden="true">✓</div>
-            <h2 class="contact-success__title">Message sent.</h2>
-            <p class="contact-success__body">
-              Thanks for reaching out. We'll get back to you within one business day.
+        <!-- Success state -->
+        <div class="contact-success" id="contact-success" aria-live="polite">
+          <div class="contact-success__icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+              <path d="M5 14l6.5 6.5L23 8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h2 class="contact-success__title">Message sent.</h2>
+          <p class="contact-success__body">
+            Thanks for reaching out. We will get back to you within one business day.
+          </p>
+          <a href="/" class="btn btn--primary" style="margin-top: var(--sp-6)">Back to home</a>
+        </div>
+
+        <!-- Form card -->
+        <div class="contact-card" id="contact-card">
+          <div class="contact-card__header">
+            <h2 class="contact-card__title">Send us a message</h2>
+            <p class="contact-card__note">
+              Fields marked <span aria-hidden="true">*</span><span class="sr-only">with an asterisk</span> are required.
             </p>
-            <a href="/" class="btn btn--outline" style="margin-top: var(--space-6)">Back to home</a>
           </div>
 
-          <!-- Form -->
-          <form
-            id="contact-form"
-            class="contact-form"
-            novalidate
-            aria-label="Contact form"
-          >
-            <div class="contact-form__header">
-              <h2 class="contact-form__title">Send us a message</h2>
-              <p class="contact-form__note">
-                Fields marked <span aria-hidden="true">*</span><span class="sr-only">with an asterisk</span> are required.
-              </p>
-            </div>
+          <form id="contact-form" class="contact-form" novalidate aria-label="Contact form">
 
             <div class="contact-form__grid">
               <!-- Name -->
@@ -57,15 +79,8 @@ import Footer from '../components/Footer.astro';
                 <label class="form-label" for="name">
                   Your Name <span class="required-mark" aria-hidden="true">*</span>
                 </label>
-                <input
-                  class="form-input"
-                  type="text"
-                  id="name"
-                  name="name"
-                  autocomplete="name"
-                  required
-                  placeholder="Jane Smith"
-                />
+                <input class="form-input" type="text" id="name" name="name"
+                  autocomplete="name" required placeholder="Jane Smith" />
                 <span class="form-error" id="name-error" role="alert"></span>
               </div>
 
@@ -74,15 +89,8 @@ import Footer from '../components/Footer.astro';
                 <label class="form-label" for="email">
                   Your Email <span class="required-mark" aria-hidden="true">*</span>
                 </label>
-                <input
-                  class="form-input"
-                  type="email"
-                  id="email"
-                  name="email"
-                  autocomplete="email"
-                  required
-                  placeholder="jane@company.com"
-                />
+                <input class="form-input" type="email" id="email" name="email"
+                  autocomplete="email" required placeholder="jane@company.com" />
                 <span class="form-error" id="email-error" role="alert"></span>
               </div>
 
@@ -91,14 +99,8 @@ import Footer from '../components/Footer.astro';
                 <label class="form-label" for="phone">
                   Your Phone <span class="form-optional">(optional)</span>
                 </label>
-                <input
-                  class="form-input"
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  autocomplete="tel"
-                  placeholder="+1 555 000 0000"
-                />
+                <input class="form-input" type="tel" id="phone" name="phone"
+                  autocomplete="tel" placeholder="+1 555 000 0000" />
               </div>
 
               <!-- Website -->
@@ -106,15 +108,8 @@ import Footer from '../components/Footer.astro';
                 <label class="form-label" for="website">
                   Your Website <span class="required-mark" aria-hidden="true">*</span>
                 </label>
-                <input
-                  class="form-input"
-                  type="url"
-                  id="website"
-                  name="website"
-                  autocomplete="url"
-                  required
-                  placeholder="https://yourcompany.com"
-                />
+                <input class="form-input" type="url" id="website" name="website"
+                  autocomplete="url" required placeholder="https://yourcompany.com" />
                 <span class="form-error" id="website-error" role="alert"></span>
               </div>
 
@@ -123,15 +118,8 @@ import Footer from '../components/Footer.astro';
                 <label class="form-label" for="company">
                   Your Company Name <span class="required-mark" aria-hidden="true">*</span>
                 </label>
-                <input
-                  class="form-input"
-                  type="text"
-                  id="company"
-                  name="company"
-                  autocomplete="organization"
-                  required
-                  placeholder="Acme Corp"
-                />
+                <input class="form-input" type="text" id="company" name="company"
+                  autocomplete="organization" required placeholder="Acme Corp" />
                 <span class="form-error" id="company-error" role="alert"></span>
               </div>
 
@@ -140,19 +128,15 @@ import Footer from '../components/Footer.astro';
                 <label class="form-label" for="project">
                   Your Project <span class="required-mark" aria-hidden="true">*</span>
                 </label>
-                <textarea
-                  class="form-textarea"
-                  id="project"
-                  name="project"
-                  required
-                  rows="5"
+                <textarea class="form-textarea" id="project" name="project"
+                  required rows="5"
                   placeholder="Tell us what you're working on, what you need, and any context that would help us respond well."
                 ></textarea>
                 <span class="form-error" id="project-error" role="alert"></span>
               </div>
             </div>
 
-            <!-- Form error banner -->
+            <!-- Error banner -->
             <div class="form-banner" id="form-error-banner" role="alert">
               <span id="form-error-message"></span>
             </div>
@@ -162,31 +146,11 @@ import Footer from '../components/Footer.astro';
                 <span id="submit-label">Send message</span>
                 <span id="submit-spinner" class="submit-spinner" style="display:none" aria-hidden="true"></span>
               </button>
-              <p class="contact-form__privacy">
-                We never share your data with third parties.
-              </p>
+              <p class="contact-form__privacy">We never share your data with third parties.</p>
             </div>
           </form>
         </div>
 
-        <!-- Aside info -->
-        <div class="contact-aside">
-          <div class="contact-info-card">
-            <p class="eyebrow">Response time</p>
-            <p class="contact-info-card__value">1 business day</p>
-          </div>
-          <div class="contact-info-card">
-            <p class="eyebrow">We work with</p>
-            <p class="contact-info-card__value">B2B companies worldwide</p>
-          </div>
-          <div class="contact-info-card">
-            <p class="eyebrow">Engagements start from</p>
-            <p class="contact-info-card__value">$1,800 / month</p>
-            <a href="/pricing" class="btn btn--ghost btn--sm" style="margin-top: var(--space-3); padding-left: 0">
-              See full pricing →
-            </a>
-          </div>
-        </div>
 
       </div>
     </section>
@@ -196,231 +160,258 @@ import Footer from '../components/Footer.astro';
 </Layout>
 
 <style>
-  /* Hero */
+  /* ── Hero ── */
   .contact-hero {
-    padding-block: var(--space-20) var(--space-16);
+    background: var(--deep-navy);
+    padding-block: var(--sp-24) var(--sp-20);
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 70% at 90% 50%, rgba(0,168,220,0.10) 0%, transparent 60%);
+    pointer-events: none;
   }
 
-  .contact-hero h1 {
-    color: var(--color-white);
-    margin-block: var(--space-4) var(--space-6);
+  .contact-hero__inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--sp-16);
+    align-items: center;
   }
+
+  .contact-hero__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-block: var(--sp-5) var(--sp-6);
+  }
+  .contact-hero__h1 em { color: rgba(255,255,255,0.48); font-weight: 300; font-style: normal; }
 
   .contact-hero__sub {
-    font-size: var(--font-size-md);
-    color: rgba(255, 255, 255, 0.7);
+    font-size: var(--fs-md);
+    color: rgba(255,255,255,0.65);
     max-width: 480px;
-    line-height: var(--line-height-relaxed);
+    line-height: 1.75;
   }
 
-  /* Layout */
-  .container--md {
-    display: grid;
-    grid-template-columns: 1fr 260px;
-    gap: var(--space-10);
-    align-items: start;
+  /* Info cards in hero */
+  .contact-hero__info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-1);
+    flex-shrink: 0;
   }
 
-  /* Card */
+  .contact-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-1);
+    padding: var(--sp-5) var(--sp-7);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: var(--r-xl);
+    min-width: 200px;
+  }
+
+  .contact-info-item__label {
+    font-size: var(--fs-xs);
+    color: var(--cyan);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .contact-info-item__value {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.2;
+  }
+
+  .contact-info-item__link {
+    font-size: var(--fs-xs);
+    color: rgba(255,255,255,0.45);
+    margin-top: var(--sp-1);
+    transition: color var(--t-fast);
+  }
+  .contact-info-item__link:hover { color: var(--cyan); }
+
+  /* ── Form section layout ── */
+  .container--contact {
+    max-width: 760px;
+  }
+
+  /* Success state spans full width */
+  .contact-success {
+    display: none;
+    grid-column: 1 / -1;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--sp-20) var(--sp-10);
+    background: var(--white);
+    border-radius: var(--r-2xl);
+    border: 1px solid var(--border);
+  }
+  .contact-success.is-visible { display: flex; }
+
+  .contact-success__icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--sp-6);
+  }
+
+  .contact-success__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    color: var(--deep-navy);
+    margin-bottom: var(--sp-3);
+    letter-spacing: -0.02em;
+  }
+
+  .contact-success__body {
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    max-width: 360px;
+    line-height: 1.75;
+  }
+
+  /* ── Card ── */
   .contact-card {
-    background: var(--color-white);
-    border: var(--border-thin);
-    border-radius: var(--radius-2xl);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-2xl);
     overflow: hidden;
   }
 
-  /* Form */
-  .contact-form {
-    padding: var(--space-10);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-6);
-  }
-
-  .contact-form__header {
+  .contact-card__header {
+    padding: var(--sp-8) var(--sp-10) var(--sp-6);
+    border-bottom: 1px solid var(--border);
     display: flex;
     align-items: baseline;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: var(--space-3);
+    gap: var(--sp-3);
   }
 
-  .contact-form__title {
-    font-size: var(--font-size-xl);
-    color: var(--color-deep-navy);
+  .contact-card__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: 600;
+    color: var(--deep-navy);
+    letter-spacing: -0.01em;
   }
 
-  .contact-form__note {
-    font-size: var(--font-size-xs);
-    color: var(--color-slate);
+  .contact-card__note {
+    font-size: var(--fs-xs);
+    color: var(--text-3);
+  }
+
+  /* ── Form ── */
+  .contact-form {
+    padding: var(--sp-8) var(--sp-10);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-6);
   }
 
   .contact-form__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-5);
+    gap: var(--sp-5);
   }
 
-  .contact-form__full {
-    grid-column: 1 / -1;
-  }
+  .contact-form__full { grid-column: 1 / -1; }
 
-  .required-mark {
-    color: var(--color-error);
-    margin-left: 2px;
-  }
+  .required-mark { color: var(--blue); margin-left: 2px; }
 
   .form-optional {
-    color: var(--color-slate);
-    font-weight: var(--font-weight-regular);
-    font-size: var(--font-size-xs);
+    color: var(--text-3);
+    font-weight: 400;
+    font-size: var(--fs-xs);
   }
 
   .form-error {
-    font-size: var(--font-size-xs);
-    color: var(--color-error);
+    font-size: var(--fs-xs);
+    color: #c0392b;
     min-height: 16px;
     display: block;
   }
 
   .form-input.is-invalid,
   .form-textarea.is-invalid {
-    border-color: var(--color-error);
-    box-shadow: 0 0 0 3px rgba(163, 45, 45, 0.1);
+    border-color: #c0392b;
+    box-shadow: 0 0 0 3px rgba(192,57,43,0.10);
   }
 
-  /* Error banner */
   .form-banner {
     display: none;
-    padding: var(--space-4);
+    padding: var(--sp-4);
     background: #FEF2F2;
-    border: 1px solid rgba(163, 45, 45, 0.2);
-    border-radius: var(--radius-md);
-    font-size: var(--font-size-sm);
-    color: var(--color-error);
+    border: 1px solid rgba(192,57,43,0.20);
+    border-radius: var(--r-md);
+    font-size: var(--fs-sm);
+    color: #c0392b;
   }
+  .form-banner.is-visible { display: block; }
 
-  .form-banner.is-visible {
-    display: block;
-  }
-
-  /* Submit */
   .contact-form__actions {
     display: flex;
     align-items: center;
-    gap: var(--space-6);
+    gap: var(--sp-6);
+    flex-wrap: wrap;
   }
 
   .contact-form__privacy {
-    font-size: var(--font-size-xs);
-    color: var(--color-slate);
+    font-size: var(--fs-xs);
+    color: var(--text-3);
   }
 
   .submit-spinner {
     display: inline-block;
     width: 16px;
     height: 16px;
-    border: 2px solid rgba(255,255,255,0.3);
+    border: 2px solid rgba(255,255,255,0.30);
     border-top-color: #fff;
     border-radius: 50%;
     animation: spin 0.6s linear infinite;
+    margin-left: var(--sp-2);
   }
-
   @keyframes spin { to { transform: rotate(360deg); } }
 
-  /* Success — hidden by default, shown via .is-visible */
-  .contact-success {
-    display: none;
-    padding: var(--space-16) var(--space-10);
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .contact-hero__inner { grid-template-columns: 1fr; }
+    .contact-hero__info { flex-direction: row; flex-wrap: wrap; }
+    .contact-info-item { flex: 1; min-width: 160px; }
   }
 
-  .contact-success.is-visible {
-    display: flex;
-  }
-
-  .contact-success__icon {
-    width: 64px;
-    height: 64px;
-    border-radius: var(--radius-full);
-    background: var(--gradient-button);
-    color: var(--color-white);
-    font-size: var(--font-size-2xl);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: var(--space-6);
-  }
-
-  .contact-success__title {
-    font-size: var(--font-size-2xl);
-    color: var(--color-deep-navy);
-    margin-bottom: var(--space-3);
-  }
-
-  .contact-success__body {
-    color: var(--color-slate);
-    max-width: 360px;
-    line-height: var(--line-height-relaxed);
-  }
-
-  /* Aside */
-  .contact-aside {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    position: sticky;
-    top: calc(64px + var(--space-6));
-  }
-
-  .contact-info-card {
-    background: var(--color-white);
-    border: var(--border-thin);
-    border-radius: var(--radius-xl);
-    padding: var(--space-5) var(--space-6);
-  }
-
-  .contact-info-card .eyebrow {
-    margin-bottom: var(--space-2);
-  }
-
-  .contact-info-card__value {
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-deep-navy);
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .container--md {
-      grid-template-columns: 1fr;
-    }
-
-    .contact-aside {
-      position: static;
-      flex-direction: row;
-      flex-wrap: wrap;
-    }
-
-    .contact-info-card {
-      flex: 1;
-      min-width: 140px;
-    }
-
-    .contact-form {
-      padding: var(--space-6);
-    }
-
-    .contact-form__grid {
-      grid-template-columns: 1fr;
-    }
+  @media (max-width: 640px) {
+    .contact-hero { padding-block: var(--sp-16) var(--sp-12); }
+    .contact-form { padding: var(--sp-6); }
+    .contact-card__header { padding: var(--sp-6); }
+    .contact-form__grid { grid-template-columns: 1fr; }
   }
 </style>
 
 <script>
   const form    = document.getElementById('contact-form') as HTMLFormElement | null;
+  const card    = document.getElementById('contact-card') as HTMLElement | null;
   const success = document.getElementById('contact-success') as HTMLElement | null;
   const submitBtn   = document.getElementById('submit-btn') as HTMLButtonElement | null;
   const submitLabel = document.getElementById('submit-label') as HTMLElement | null;
@@ -445,7 +436,6 @@ import Footer from '../components/Footer.astro';
 
     const required: { id: string; label: string }[] = [
       { id: 'name',    label: 'Name is required.' },
-      { id: 'website', label: 'Website is required.' },
       { id: 'company', label: 'Company name is required.' },
       { id: 'project', label: 'Please describe your project.' },
     ];
@@ -457,13 +447,32 @@ import Footer from '../components/Footer.astro';
       }
     });
 
+    // Email: required + format
     const email = (data.get('email') as string)?.trim();
     if (!email) {
       setFieldError('email', 'Email is required.');
       valid = false;
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setFieldError('email', 'Please enter a valid email address.');
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+      setFieldError('email', 'Please enter a valid email address (e.g. jane@company.com).');
       valid = false;
+    }
+
+    // Website: required + must be a valid URL with http/https
+    const website = (data.get('website') as string)?.trim();
+    if (!website) {
+      setFieldError('website', 'Website is required.');
+      valid = false;
+    } else {
+      try {
+        const url = new URL(website);
+        if (url.protocol !== 'http:' && url.protocol !== 'https:') {
+          setFieldError('website', 'Website must start with https:// or http://');
+          valid = false;
+        }
+      } catch {
+        setFieldError('website', 'Please enter a valid URL (e.g. https://yourcompany.com).');
+        valid = false;
+      }
     }
 
     return valid;
@@ -476,7 +485,6 @@ import Footer from '../components/Footer.astro';
     const data = new FormData(form);
     if (!validate(data)) return;
 
-    // Loading state
     if (submitBtn)     submitBtn.disabled = true;
     if (submitLabel)   submitLabel.textContent = 'Sending…';
     if (submitSpinner) submitSpinner.style.display = 'inline-block';
@@ -486,7 +494,7 @@ import Footer from '../components/Footer.astro';
       const json = await res.json();
 
       if (res.ok) {
-        form.style.display = 'none';
+        if (card)    card.style.display = 'none';
         if (success) success.classList.add('is-visible');
       } else {
         if (errorBanner)  errorBanner.classList.add('is-visible');

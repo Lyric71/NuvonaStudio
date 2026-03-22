@@ -1,115 +1,150 @@
 ---
 const services = [
   {
-    icon: '✦',
+    num: '01',
     title: 'Content',
     tag: 'Organic',
-    body: 'Strong B2B brands on LinkedIn are built on consistent, high-quality content. We manage your LinkedIn company page like a brand newsroom — editorial strategy, content production, post scheduling, community management, newsletters, and LinkedIn events. Every piece of content is crafted for the feed, written for your audience, and optimised to build reach and engagement over time.',
+    body: 'Strong B2B brands on LinkedIn are built on consistent, high-quality content. We manage your LinkedIn company page like a brand newsroom — editorial strategy, content production, post scheduling, community management, newsletters, and LinkedIn events.',
   },
   {
-    icon: '◈',
+    num: '02',
     title: 'Advertising',
     tag: 'Paid',
-    body: "LinkedIn's advertising platform is the most precise B2B targeting tool on the internet — and the most underutilised. We design and manage LinkedIn ad campaigns across the full funnel: sponsored content, sponsored messaging, lead gen forms, account-based marketing, and retargeting. Every campaign is built on audience intelligence, managed with rigour, and reported with complete transparency.",
+    body: "LinkedIn's advertising platform is the most precise B2B targeting tool on the internet — and the most underutilised. We design and manage campaigns across the full funnel: sponsored content, messaging, lead gen forms, account-based marketing, and retargeting.",
   },
   {
-    icon: '◉',
+    num: '03',
     title: 'Employee Advocacy',
     tag: 'Amplification',
-    body: 'Your employees have more combined LinkedIn reach than your company page. We design and manage structured employee advocacy programs that activate your team, amplify your brand, and build credibility through the most trusted voices in your organisation — the people who work there.',
+    body: 'Your employees have more combined LinkedIn reach than your company page. We design and manage structured employee advocacy programs that activate your team and build credibility through the most trusted voices in your organisation.',
   },
   {
-    icon: '◆',
+    num: '04',
     title: 'Personal Branding',
     tag: 'Executive',
-    body: 'In B2B, people buy from people. A senior executive with a strong, consistent LinkedIn presence builds trust with buyers, partners, and talent long before any sales conversation begins. We optimise executive profiles, ghostwrite high-performing LinkedIn content, and grow follower audiences for leaders who have genuine expertise worth sharing.',
+    body: 'In B2B, people buy from people. A senior executive with a strong LinkedIn presence builds trust with buyers, partners, and talent long before any sales conversation begins. We optimise profiles, ghostwrite content, and grow follower audiences for leaders.',
   },
   {
-    icon: '◇',
+    num: '05',
     title: 'Training',
     tag: 'Knowledge',
-    body: 'LinkedIn expertise should not sit only with your agency. We run workshops and masterclasses for marketing teams, leadership, and commercial functions — covering content strategy, advertising, algorithm mechanics, and platform best practices. We transfer knowledge, not just deliverables.',
+    body: 'LinkedIn expertise should not sit only with your agency. We run workshops and masterclasses for marketing teams, leadership, and commercial functions — covering content strategy, advertising, algorithm mechanics, and platform best practices.',
   },
 ];
 ---
 
-<section class="section" aria-labelledby="services-heading">
+<section id="services" class="section" aria-labelledby="services-heading">
   <div class="container">
-    <div class="services__header text-center mb-12">
-      <p class="eyebrow">What we do</p>
-      <h2 id="services-heading">Five disciplines. One platform.<br />Delivered with transparency.</h2>
+
+    <div class="services__head reveal">
+      <div>
+        <p class="eyebrow">What we do</p>
+        <h2 id="services-heading">Five disciplines.<br />One platform.</h2>
+      </div>
+      <p class="services__intro">
+        Delivered with full transparency — strategy, audit, and reporting included in every engagement.
+      </p>
     </div>
 
-    <div class="services__grid">
-      {services.map(s => (
-        <article class="card card--accent services__card">
-          <div class="services__card-top">
-            <span class="services__icon" aria-hidden="true">{s.icon}</span>
-            <span class="tag tag--cyan">{s.tag}</span>
+    <div class="services__list">
+      {services.map((s, i) => (
+        <article class="services__item reveal" style={`transition-delay: ${i * 0.07}s`}>
+          <span class="services__num">{s.num}</span>
+          <div class="services__body">
+            <div class="services__title-row">
+              <h3 class="services__title">{s.title}</h3>
+              <span class="tag tag--cyan">{s.tag}</span>
+            </div>
+            <p class="services__desc">{s.body}</p>
           </div>
-          <h3 class="services__title">{s.title}</h3>
-          <p class="services__body">{s.body}</p>
         </article>
       ))}
     </div>
 
-    <div class="services__cta text-center" style="margin-top: var(--space-12)">
+    <div class="services__foot reveal">
       <a href="/services" class="btn btn--outline btn--lg">See everything we offer →</a>
     </div>
+
   </div>
 </section>
 
 <style>
-  .services__grid {
+  .services__head {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-6);
+    grid-template-columns: auto 1fr;
+    gap: var(--sp-12);
+    align-items: end;
+    margin-bottom: var(--sp-12);
   }
 
-  /* Last row: 2 cards centred */
-  .services__grid .services__card:nth-child(4) {
-    grid-column: 1 / span 1;
+  .services__intro {
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    line-height: 1.7;
+    max-width: 400px;
+    align-self: flex-end;
+    padding-bottom: 6px;
   }
 
-  .services__grid .services__card:nth-child(4),
-  .services__grid .services__card:nth-child(5) {
-    /* handled by grid auto-placement */
+  /* Editorial numbered list */
+  .services__list {
+    border-top: 1px solid var(--border);
+    margin-bottom: var(--sp-12);
   }
 
-  .services__card-top {
+  .services__item {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: var(--sp-6);
+    padding: var(--sp-7) 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+    transition: background var(--t-base);
+  }
+  .services__item:hover { background: linear-gradient(90deg, rgba(10,102,194,0.02) 0%, transparent 100%); }
+
+  .services__num {
+    font-family: var(--font-display);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--blue);
+    letter-spacing: 0.08em;
+    padding-top: 6px;
+    display: block;
+  }
+
+  .services__title-row {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: var(--space-4);
-  }
-
-  .services__icon {
-    font-size: var(--font-size-xl);
-    color: var(--color-blue);
+    gap: var(--sp-4);
+    margin-bottom: var(--sp-3);
+    flex-wrap: wrap;
   }
 
   .services__title {
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-deep-navy);
-    margin-bottom: var(--space-3);
+    font-family: var(--font-display);
+    font-size: var(--fs-2xl);
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
   }
 
-  .services__body {
-    font-size: var(--font-size-sm);
-    color: var(--color-slate);
-    line-height: var(--line-height-relaxed);
+  .services__desc {
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.75;
+    max-width: 700px;
   }
+
+  .services__foot { text-align: center; }
 
   @media (max-width: 1024px) {
-    .services__grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    .services__head { grid-template-columns: 1fr; gap: var(--sp-6); }
+    .services__intro { max-width: 100%; }
   }
 
   @media (max-width: 640px) {
-    .services__grid {
-      grid-template-columns: 1fr;
-    }
+    .services__item { grid-template-columns: 36px 1fr; }
   }
 </style>

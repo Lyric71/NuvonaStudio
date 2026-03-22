@@ -1,49 +1,59 @@
 ---
 const navLinks = [
   { label: 'Services', href: '/services' },
+  { label: 'Pricing',  href: '/pricing' },
   { label: 'Work',     href: '/work' },
   { label: 'Insights', href: '/insights' },
   { label: 'About',    href: '/about' },
-  { label: 'Contact',  href: '/contact' },
 ];
 
 const legalLinks = [
-  { label: 'Privacy Policy', href: '/privacy' },
+  { label: 'Privacy Policy',   href: '/privacy' },
   { label: 'Terms of Service', href: '/terms' },
-  { label: 'Cookie Policy', href: '/cookies' },
+  { label: 'Cookie Policy',    href: '/cookies' },
 ];
 
 const year = new Date().getFullYear();
 ---
 
-<footer class="footer" role="contentinfo">
+<footer class="footer" role="contentinfo" style="background: var(--deep-navy);">
   <div class="container">
-    <div class="footer__top">
-      <!-- Brand -->
+
+    <div class="footer__main">
+
       <div class="footer__brand">
-        <a href="/" class="footer__logo" aria-label="Nuvora Studio — home">
-          <img src="/logo.png" alt="Nuvora Studio" class="footer__logo-img" width="160" height="48" />
+        <a href="/" class="footer__logo-link" aria-label="Nuvora Studio — home">
+          <img
+            src="/nuvora-logo.png"
+            alt="Nuvora Studio"
+            class="footer__logo"
+            width="200"
+            height="78"
+          />
         </a>
         <p class="footer__tagline">LinkedIn expertise for B2B companies that mean it.</p>
+        <a href="/contact?intent=call" class="btn btn--primary btn--sm footer__cta-btn">Book a call</a>
       </div>
 
-      <!-- Nav -->
       <nav class="footer__nav" aria-label="Footer navigation">
-        <ul class="footer__links" role="list">
+        <p class="footer__col-label">Navigation</p>
+        <ul role="list" class="footer__links">
           {navLinks.map(l => (
             <li><a href={l.href} class="footer__link">{l.label}</a></li>
           ))}
         </ul>
       </nav>
 
-      <!-- Contact nudge -->
-      <div class="footer__contact">
-        <p class="footer__contact-label">Ready to start?</p>
-        <a href="/contact?intent=call" class="btn btn--primary">Book a call</a>
+      <div class="footer__contact-col">
+        <p class="footer__col-label">Get in touch</p>
+        <a href="/contact?intent=call" class="footer__contact-link">Book a discovery call</a>
+        <a href="/contact" class="footer__contact-link">Send a message</a>
+        <p class="footer__working">Working globally</p>
       </div>
+
     </div>
 
-    <div class="divider--gradient"></div>
+    <div class="footer__rule"></div>
 
     <div class="footer__bottom">
       <p class="footer__copy">© {year} Nuvora Studio. All rights reserved.</p>
@@ -53,111 +63,98 @@ const year = new Date().getFullYear();
         ))}
       </ul>
     </div>
+
   </div>
 </footer>
 
 <style>
-  .footer {
-    background: var(--color-deep-navy);
-    padding-block: var(--space-16) var(--space-8);
-  }
+  .footer { padding-block: var(--sp-16) var(--sp-8); }
 
-  .footer__top {
+  .footer__main {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
-    gap: var(--space-12);
-    margin-bottom: var(--space-10);
+    gap: var(--sp-12);
     align-items: start;
+    padding-bottom: var(--sp-12);
   }
 
+  /* Brand */
+  .footer__logo-link { display: inline-block; margin-bottom: var(--sp-4); }
   .footer__logo {
-    display: inline-block;
-    margin-bottom: var(--space-4);
-  }
-
-  .footer__logo-img {
     height: 40px;
     width: auto;
     display: block;
-    /* Invert dark text to white for navy background */
     filter: brightness(0) invert(1);
-    opacity: 0.9;
+    opacity: 0.90;
   }
-
   .footer__tagline {
-    font-size: var(--font-size-sm);
-    color: rgba(255, 255, 255, 0.5);
-    line-height: var(--line-height-relaxed);
+    font-size: var(--fs-sm);
+    color: var(--navy-text-2);
+    line-height: 1.65;
     max-width: 280px;
+    margin-bottom: var(--sp-6);
   }
 
-  .footer__links {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
+  /* Nav col */
+  .footer__col-label {
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--navy-text-3);
+    margin-bottom: var(--sp-5);
   }
-
+  .footer__links { display: flex; flex-direction: column; gap: var(--sp-3); }
   .footer__link {
-    font-size: var(--font-size-sm);
-    color: rgba(255, 255, 255, 0.6);
-    transition: color var(--transition-fast);
+    font-size: var(--fs-sm);
+    color: var(--navy-text-2);
+    transition: color var(--t-fast);
+  }
+  .footer__link:hover { color: var(--cyan); }
+
+  /* Contact col */
+  .footer__contact-link {
+    display: block;
+    font-size: var(--fs-sm);
+    color: var(--navy-text-2);
+    transition: color var(--t-fast);
+    margin-bottom: var(--sp-3);
+  }
+  .footer__contact-link:hover { color: var(--cyan); }
+  .footer__working {
+    font-size: var(--fs-xs);
+    color: var(--navy-text-3);
+    margin-top: var(--sp-4);
+    letter-spacing: 0.04em;
   }
 
-  .footer__link:hover {
-    color: var(--color-cyan);
-  }
-
-  .footer__contact-label {
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-    color: rgba(255, 255, 255, 0.6);
-    margin-bottom: var(--space-4);
-  }
-
-  /* Bottom bar */
+  /* Bottom */
+  .footer__rule { height: 1px; background: rgba(255,255,255,0.08); }
   .footer__bottom {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--space-6);
-    padding-top: var(--space-6);
+    gap: var(--sp-6);
+    padding-top: var(--sp-6);
+    flex-wrap: wrap;
   }
-
   .footer__copy {
-    font-size: var(--font-size-xs);
-    color: rgba(255, 255, 255, 0.35);
+    font-size: var(--fs-xs);
+    color: var(--navy-text-3);
+    letter-spacing: 0.02em;
   }
-
-  .footer__legal {
-    display: flex;
-    gap: var(--space-6);
-  }
-
+  .footer__legal { display: flex; gap: var(--sp-6); flex-wrap: wrap; }
   .footer__legal-link {
-    font-size: var(--font-size-xs);
-    color: rgba(255, 255, 255, 0.35);
-    transition: color var(--transition-fast);
+    font-size: var(--fs-xs);
+    color: var(--navy-text-3);
+    transition: color var(--t-fast);
+    letter-spacing: 0.02em;
   }
-
-  .footer__legal-link:hover {
-    color: rgba(255, 255, 255, 0.7);
-  }
+  .footer__legal-link:hover { color: var(--navy-text-2); }
 
   @media (max-width: 768px) {
-    .footer__top {
-      grid-template-columns: 1fr;
-      gap: var(--space-8);
-    }
-
-    .footer__bottom {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: var(--space-4);
-    }
-
-    .footer__legal {
-      flex-wrap: wrap;
-      gap: var(--space-4);
-    }
+    .footer__main { grid-template-columns: 1fr; gap: var(--sp-8); padding-bottom: var(--sp-8); }
+    .footer__bottom { flex-direction: column; align-items: flex-start; gap: var(--sp-4); }
+    .footer__legal { gap: var(--sp-4); }
   }
 </style>

@@ -8,7 +8,7 @@ const principles = [
   {
     number: '02',
     title: 'LinkedIn-only depth',
-    body: 'We do not spread our expertise across ten channels. Every recommendation is grounded in current LinkedIn platform mechanics, ad product updates, and B2B audience behaviour on LinkedIn specifically.',
+    body: 'We do not spread our expertise across ten channels. Every recommendation is grounded in current LinkedIn mechanics, ad product updates, and B2B audience behaviour on the platform specifically.',
   },
   {
     number: '03',
@@ -23,77 +23,79 @@ const principles = [
 ];
 ---
 
-<section class="section section--dark" aria-labelledby="how-heading">
+<section class="section" aria-labelledby="how-heading" style="background: var(--deep-navy);">
   <div class="container">
-    <div class="how__header text-center mb-12">
-      <p class="eyebrow" style="color: var(--color-cyan)">Our principles</p>
-      <h2 id="how-heading" style="color: var(--color-white)">
+
+    <div class="how__head text-center reveal">
+      <p class="eyebrow eyebrow--light">Our principles</p>
+      <h2 id="how-heading" style="color: white; max-width: 600px; margin-inline: auto;">
         We work the way B2B buyers expect to be treated.
       </h2>
     </div>
 
     <div class="how__grid">
-      {principles.map(p => (
-        <div class="how__card">
-          <span class="how__number" aria-hidden="true">{p.number}</span>
+      {principles.map((p, i) => (
+        <div class="how__card reveal" style={`transition-delay: ${i * 0.10}s`}>
+          <span class="how__num">{p.number}</span>
           <h3 class="how__title">{p.title}</h3>
           <p class="how__body">{p.body}</p>
         </div>
       ))}
     </div>
+
   </div>
 </section>
 
 <style>
+  .how__head { margin-bottom: var(--sp-16); }
+
   .how__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-6);
+    gap: 1px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--r-xl);
+    overflow: hidden;
   }
 
   .how__card {
-    padding: var(--space-6);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: var(--radius-xl);
-    background: rgba(255, 255, 255, 0.04);
-    transition: background var(--transition-base);
+    padding: var(--sp-8) var(--sp-6);
+    background: var(--deep-navy);
+    transition: background var(--t-base);
   }
+  .how__card:hover { background: rgba(0,65,130,0.60); }
 
-  .how__card:hover {
-    background: rgba(255, 255, 255, 0.08);
-  }
-
-  .how__number {
+  .how__num {
     display: block;
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-semibold);
-    letter-spacing: var(--letter-spacing-wider);
-    color: var(--color-cyan);
-    margin-bottom: var(--space-4);
+    font-family: var(--font-display);
+    font-size: var(--fs-3xl);
+    font-weight: 600;
+    color: var(--cyan);
+    opacity: 0.45;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--sp-6);
   }
 
   .how__title {
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-white);
-    margin-bottom: var(--space-3);
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: var(--sp-3);
+    line-height: 1.2;
   }
 
   .how__body {
-    font-size: var(--font-size-sm);
-    color: rgba(255, 255, 255, 0.6);
-    line-height: var(--line-height-relaxed);
+    font-size: var(--fs-sm);
+    color: rgba(255,255,255,0.55);
+    line-height: 1.75;
   }
 
   @media (max-width: 1024px) {
-    .how__grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    .how__grid { grid-template-columns: repeat(2, 1fr); }
   }
-
   @media (max-width: 640px) {
-    .how__grid {
-      grid-template-columns: 1fr;
-    }
+    .how__grid { grid-template-columns: 1fr; }
   }
 </style>

@@ -1,5 +1,4 @@
 ---
-// Placeholders — replace with real data before launch
 const caseStudies = [
   {
     industry: 'Technology & SaaS',
@@ -37,113 +36,184 @@ const testimonials = [
 ];
 ---
 
-<section class="section section--ice" aria-labelledby="results-heading">
+<section class="section" aria-labelledby="results-heading">
   <div class="container">
-    <div class="results__header text-center mb-12">
-      <p class="eyebrow">Selected work</p>
-      <h2 id="results-heading">What good LinkedIn strategy actually delivers.</h2>
+
+    <div class="results__head reveal">
+      <div>
+        <p class="eyebrow">Selected work</p>
+        <h2 id="results-heading">What good LinkedIn strategy actually delivers.</h2>
+      </div>
+      <a href="/work" class="btn btn--outline">View all case studies →</a>
     </div>
 
-    <!-- Case study cards -->
-    <div class="grid grid--3 mb-12">
-      {caseStudies.map(cs => (
-        <article class="card card--featured results__case">
-          <span class="tag tag--blue" style="margin-bottom: var(--space-4); display:inline-flex">{cs.tag}</span>
+    <!-- Case studies -->
+    <div class="results__cases">
+      {caseStudies.map((cs, i) => (
+        <article class="results__card reveal" style={`transition-delay: ${i * 0.08}s`}>
+          <span class="tag tag--blue" style="margin-bottom: var(--sp-5); display: inline-flex;">{cs.tag}</span>
           <p class="results__industry">{cs.industry}</p>
           <p class="results__challenge">{cs.challenge}</p>
-          <div class="divider--gradient" style="margin-block: var(--space-4)"></div>
+          <hr class="results__rule" />
           <p class="results__result">{cs.result}</p>
         </article>
       ))}
     </div>
 
     <!-- Testimonials -->
-    <div class="grid grid--2 mb-12">
-      {testimonials.map(t => (
-        <blockquote class="card testimonial">
-          <p class="testimonial__quote">"{t.quote}"</p>
-          <footer class="testimonial__footer">
-            <p class="testimonial__name">{t.name}</p>
-            <p class="testimonial__meta">{t.title}, {t.company}</p>
+    <div class="results__quotes">
+      {testimonials.map((t, i) => (
+        <blockquote class="results__quote reveal" style={`transition-delay: ${i * 0.10}s`}>
+          <p class="results__quote-mark" aria-hidden="true">"</p>
+          <p class="results__quote-text">{t.quote}"</p>
+          <footer class="results__quote-footer">
+            <p class="results__quote-name">{t.name}</p>
+            <p class="results__quote-meta">{t.title}, {t.company}</p>
           </footer>
         </blockquote>
       ))}
     </div>
 
-    <!-- Supporting line + CTA -->
-    <div class="results__footer text-center">
-      <p class="results__support">
-        From global manufacturers to fast-growing SaaS companies, we have helped B2B brands
-        across industries build LinkedIn presences that perform.
-      </p>
-      <a href="/work" class="btn btn--outline btn--lg" style="margin-top: var(--space-6)">
-        View all case studies →
-      </a>
-    </div>
+    <p class="results__support reveal text-center">
+      From global manufacturers to fast-growing SaaS companies, we have helped B2B brands
+      across industries build LinkedIn presences that perform.
+    </p>
+
   </div>
 </section>
 
 <style>
-  .results__case {
+  /* Header row */
+  .results__head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--sp-8);
+    margin-bottom: var(--sp-12);
+    flex-wrap: wrap;
+  }
+
+  /* Case study cards */
+  .results__cases {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-6);
+    margin-bottom: var(--sp-10);
+  }
+
+  .results__card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    padding: var(--sp-7);
     display: flex;
     flex-direction: column;
+    transition: all var(--t-base);
+  }
+  .results__card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--mid-blue);
+    transform: translateY(-2px);
   }
 
   .results__industry {
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-semibold);
-    letter-spacing: var(--letter-spacing-wider);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--color-blue);
-    margin-bottom: var(--space-2);
+    color: var(--blue);
+    margin-bottom: var(--sp-2);
   }
 
   .results__challenge {
-    font-size: var(--font-size-sm);
-    color: var(--color-slate);
-    line-height: var(--line-height-relaxed);
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.7;
     flex: 1;
+    margin-bottom: var(--sp-4);
+  }
+
+  .results__rule {
+    height: 1px;
+    background: var(--border);
+    border: none;
+    margin-bottom: var(--sp-4);
   }
 
   .results__result {
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-deep-navy);
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
   }
 
   /* Testimonials */
-  .testimonial {
+  .results__quotes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-6);
+    margin-bottom: var(--sp-12);
+  }
+
+  .results__quote {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--blue);
+    border-radius: 0 var(--r-xl) var(--r-xl) 0;
+    padding: var(--sp-8);
     display: flex;
     flex-direction: column;
-    gap: var(--space-6);
-    border-left: 3px solid var(--color-blue);
   }
 
-  .testimonial__quote {
-    font-size: var(--font-size-md);
+  .results__quote-mark {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    color: var(--blue);
+    opacity: 0.25;
+    line-height: 0.8;
+    margin-bottom: var(--sp-3);
+    font-weight: 700;
+  }
+
+  .results__quote-text {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
     font-style: italic;
-    color: var(--color-dark);
-    line-height: var(--line-height-relaxed);
+    color: var(--text);
+    line-height: 1.6;
     flex: 1;
+    margin-bottom: var(--sp-6);
+    letter-spacing: -0.01em;
   }
 
-  .testimonial__name {
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-deep-navy);
+  .results__quote-name {
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--text);
   }
-
-  .testimonial__meta {
-    font-size: var(--font-size-xs);
-    color: var(--color-slate);
-    margin-top: var(--space-1);
+  .results__quote-meta {
+    font-size: var(--fs-xs);
+    color: var(--text-3);
+    margin-top: 2px;
+    letter-spacing: 0.02em;
   }
 
   .results__support {
-    font-size: var(--font-size-md);
-    color: var(--color-slate);
-    max-width: 600px;
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    max-width: 560px;
     margin-inline: auto;
-    line-height: var(--line-height-relaxed);
+    line-height: 1.75;
+  }
+
+  @media (max-width: 1024px) {
+    .results__cases { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .results__head { flex-direction: column; align-items: flex-start; }
+    .results__cases { grid-template-columns: 1fr; }
+    .results__quotes { grid-template-columns: 1fr; }
   }
 </style>

@@ -1,20 +1,21 @@
 ---
 const industries = [
-  { label: 'Technology & SaaS',            icon: '◈' },
-  { label: 'Manufacturing & Industrial',    icon: '◉' },
-  { label: 'Professional Services',         icon: '◆' },
-  { label: 'Healthcare & Life Sciences',    icon: '◇' },
-  { label: 'Financial Services',            icon: '◎' },
-  { label: 'Logistics & Supply Chain',      icon: '✦' },
+  { label: 'Technology & SaaS' },
+  { label: 'Manufacturing & Industrial' },
+  { label: 'Professional Services' },
+  { label: 'Healthcare & Life Sciences' },
+  { label: 'Financial Services' },
+  { label: 'Logistics & Supply Chain' },
 ];
 ---
 
-<section class="section section--ice" aria-labelledby="industries-heading">
+<section class="section" aria-labelledby="industries-heading">
   <div class="container">
     <div class="industries__layout">
-      <div class="industries__text">
+
+      <div class="industries__text reveal">
         <p class="eyebrow">Who we work with</p>
-        <h2 id="industries-heading">Built for B2B, across sectors.</h2>
+        <h2 id="industries-heading">Built for B2B,<br /><em>across sectors.</em></h2>
         <div class="accent-bar"></div>
         <p class="industries__body">
           We work with B2B companies globally — from established multinationals expanding into new
@@ -23,19 +24,20 @@ const industries = [
         <p class="industries__body">
           If your buyers are on LinkedIn and you are not reaching them effectively, we should talk.
         </p>
-        <a href="/contact" class="btn btn--primary" style="margin-top: var(--space-6)">
+        <a href="/contact" class="btn btn--primary" style="margin-top: var(--sp-6);">
           Talk to us →
         </a>
       </div>
 
-      <div class="industries__grid" aria-label="Industries we serve">
+      <div class="industries__grid reveal reveal-delay-2" aria-label="Industries we serve">
         {industries.map(i => (
           <div class="industries__item">
-            <span class="industries__icon" aria-hidden="true">{i.icon}</span>
+            <span class="industries__dot" aria-hidden="true"></span>
             <span class="industries__label">{i.label}</span>
           </div>
         ))}
       </div>
+
     </div>
   </div>
 </section>
@@ -44,59 +46,61 @@ const industries = [
   .industries__layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-16);
+    gap: var(--sp-16);
     align-items: center;
   }
 
   .industries__body {
-    color: var(--color-slate);
-    line-height: var(--line-height-relaxed);
-    margin-bottom: var(--space-4);
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    line-height: 1.75;
+    margin-bottom: var(--sp-4);
   }
 
   .industries__grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-4);
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-3);
   }
 
   .industries__item {
     display: flex;
     align-items: center;
-    gap: var(--space-3);
-    padding: var(--space-4);
-    background: var(--color-white);
-    border: var(--border-thin);
-    border-radius: var(--radius-lg);
-    transition: all var(--transition-base);
+    gap: var(--sp-3);
+    padding: var(--sp-4) var(--sp-5);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    transition: all var(--t-base);
   }
-
   .industries__item:hover {
-    border-color: var(--color-cyan);
+    border-color: var(--blue);
+    background: #EEF4FB;
+    transform: translateY(-1px);
     box-shadow: var(--shadow-sm);
   }
+  .industries__item:hover .industries__dot { background: var(--blue); }
 
-  .industries__icon {
-    color: var(--color-blue);
-    font-size: var(--font-size-lg);
+  .industries__dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--cyan);
     flex-shrink: 0;
+    transition: background var(--t-fast);
   }
 
   .industries__label {
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-deep-navy);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: 0.01em;
   }
 
   @media (max-width: 1024px) {
-    .industries__layout {
-      grid-template-columns: 1fr;
-    }
+    .industries__layout { grid-template-columns: 1fr; gap: var(--sp-10); }
   }
-
   @media (max-width: 480px) {
-    .industries__grid {
-      grid-template-columns: 1fr;
-    }
+    .industries__grid { grid-template-columns: 1fr; }
   }
 </style>

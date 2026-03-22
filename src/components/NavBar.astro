@@ -10,21 +10,20 @@ const links = [
   { label: 'Pricing',  href: '/pricing' },
   { label: 'Work',     href: '/work' },
   { label: 'Insights', href: '/insights' },
-  { label: 'About',      href: '/about' },
-  { label: 'Contact us', href: '/contact' },
+  { label: 'About',    href: '/about' },
 ];
+// Note: Contact removed from links — handled by dedicated CTA button only
 
 const currentPath = Astro.url.pathname;
 ---
 
 <nav class="nav" aria-label="Main navigation">
   <div class="nav__inner">
-    <!-- Logo -->
+
     <a href="/" class="nav__logo" aria-label="Nuvora Studio — home">
-      <img src="/logo.png" alt="Nuvora Studio" class="nav__logo-img" width="160" height="48" />
+      <img src="/nuvora-logo.png" alt="Nuvora Studio" class="nav__logo-img" width="220" height="86" />
     </a>
 
-    <!-- Desktop links -->
     <ul class="nav__links" role="list">
       {links.map(link => (
         <li class={link.children ? 'nav__item nav__item--has-dropdown' : 'nav__item'}>
@@ -32,12 +31,11 @@ const currentPath = Astro.url.pathname;
             <>
               <button
                 class={`nav__link nav__link--dropdown${currentPath.startsWith(link.href) ? ' nav__link--active' : ''}`}
-                aria-haspopup="true"
-                aria-expanded="false"
+                aria-haspopup="true" aria-expanded="false"
               >
                 {link.label}
-                <svg class="nav__chevron" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
-                  <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <svg class="nav__chevron" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
+                  <path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
                 </svg>
               </button>
               <ul class="nav__dropdown" role="list">
@@ -48,10 +46,7 @@ const currentPath = Astro.url.pathname;
                 </li>
                 {link.children.map(child => (
                   <li>
-                    <a
-                      href={child.href}
-                      class={`nav__dropdown-link${currentPath === child.href ? ' nav__dropdown-link--active' : ''}`}
-                    >
+                    <a href={child.href} class={`nav__dropdown-link${currentPath === child.href ? ' nav__dropdown-link--active' : ''}`}>
                       {child.label}
                     </a>
                   </li>
@@ -59,10 +54,7 @@ const currentPath = Astro.url.pathname;
               </ul>
             </>
           ) : (
-            <a
-              href={link.href}
-              class={`nav__link${currentPath === link.href ? ' nav__link--active' : ''}`}
-            >
+            <a href={link.href} class={`nav__link${currentPath === link.href ? ' nav__link--active' : ''}`}>
               {link.label}
             </a>
           )}
@@ -70,190 +62,138 @@ const currentPath = Astro.url.pathname;
       ))}
     </ul>
 
-    <!-- CTA -->
     <div class="nav__actions">
       <a href="/contact?intent=call" class="btn btn--primary btn--sm">Book a call</a>
     </div>
 
-    <!-- Mobile menu toggle -->
     <button class="nav__burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span><span></span>
     </button>
   </div>
 
-  <!-- Mobile menu -->
   <div class="nav__mobile" id="mobile-menu" aria-hidden="true">
     <ul role="list">
       {links.map(link => (
         <>
           <li><a href={link.href} class="nav__mobile-link">{link.label}</a></li>
           {link.children?.map(child => (
-            <li>
-              <a href={child.href} class="nav__mobile-link nav__mobile-link--child">
-                └ {child.label}
-              </a>
-            </li>
+            <li><a href={child.href} class="nav__mobile-link nav__mobile-link--child">↳ {child.label}</a></li>
           ))}
         </>
       ))}
     </ul>
-    <a href="/contact?intent=call" class="btn btn--primary w-full text-center" style="justify-content:center">Book a call</a>
+    <a href="/contact?intent=call" class="btn btn--primary w-full" style="justify-content:center; margin-top: 1.25rem;">Book a call</a>
   </div>
 </nav>
 
 <style>
   .nav__logo-img {
-    height: 40px;
+    height: 44px;
     width: auto;
     display: block;
   }
 
-  .nav__actions {
-    display: flex;
-    align-items: center;
-    gap: var(--space-4);
-  }
-
-  /* Nav items */
-  .nav__item {
-    position: relative;
-  }
+  /* Items */
+  .nav__item { position: relative; }
 
   .nav__link--dropdown {
     display: flex;
     align-items: center;
-    gap: var(--space-1);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-slate);
+    gap: 4px;
+    font-size: var(--fs-sm);
+    font-weight: 400;
+    color: var(--text-2);
     background: none;
     border: none;
     cursor: pointer;
     padding: 0;
-    transition: color var(--transition-fast);
+    transition: color var(--t-fast);
   }
-
   .nav__link--dropdown:hover,
-  .nav__link--dropdown.nav__link--active {
-    color: var(--color-blue);
-  }
+  .nav__link--dropdown.nav__link--active { color: var(--blue); }
 
-  .nav__chevron {
-    transition: transform var(--transition-fast);
-  }
-
+  .nav__chevron { transition: transform var(--t-fast); }
   .nav__item--has-dropdown:hover .nav__chevron,
-  .nav__item--has-dropdown.is-open .nav__chevron {
-    transform: rotate(180deg);
-  }
+  .nav__item--has-dropdown.is-open .nav__chevron { transform: rotate(180deg); }
 
   /* Dropdown */
   .nav__dropdown {
     position: absolute;
-    top: calc(100% + var(--space-3));
+    top: calc(100% + 12px);
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(-6px);
     min-width: 180px;
-    background: var(--color-white);
-    border: var(--border-thin);
-    border-radius: var(--radius-lg);
+    background: var(--white);
+    border: 1px solid var(--border-2);
+    border-radius: var(--r-lg);
     box-shadow: var(--shadow-lg);
-    padding: var(--space-2);
+    padding: var(--sp-2);
     opacity: 0;
     visibility: hidden;
-    transform: translateX(-50%) translateY(-6px);
-    transition: opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast);
-    z-index: var(--z-dropdown);
+    transition: opacity var(--t-fast), transform var(--t-fast), visibility var(--t-fast);
+    z-index: 100;
   }
-
   .nav__item--has-dropdown:hover .nav__dropdown,
   .nav__item--has-dropdown.is-open .nav__dropdown {
-    opacity: 1;
-    visibility: visible;
+    opacity: 1; visibility: visible;
     transform: translateX(-50%) translateY(0);
   }
 
   .nav__dropdown-link {
     display: block;
-    padding: var(--space-2) var(--space-4);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-slate);
-    border-radius: var(--radius-md);
-    transition: background var(--transition-fast), color var(--transition-fast);
+    padding: 0.5rem 1rem;
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    border-radius: var(--r-md);
+    transition: background var(--t-fast), color var(--t-fast);
     white-space: nowrap;
   }
-
   .nav__dropdown-link:hover,
-  .nav__dropdown-link--active {
-    background: var(--color-ice);
-    color: var(--color-blue);
-  }
+  .nav__dropdown-link--active { background: #EEF4FB; color: var(--blue); }
 
-  /* Mobile burger */
+  /* Burger */
   .nav__burger {
     display: none;
     flex-direction: column;
     gap: 5px;
-    padding: var(--space-2);
+    padding: var(--sp-2);
   }
-
   .nav__burger span {
     display: block;
-    width: 22px;
-    height: 2px;
-    background: var(--color-deep-navy);
+    width: 20px;
+    height: 1.5px;
+    background: var(--text);
     border-radius: 2px;
-    transition: all var(--transition-base);
+    transition: all var(--t-base);
   }
 
   /* Mobile menu */
   .nav__mobile {
     display: none;
     flex-direction: column;
-    gap: var(--space-4);
-    padding: var(--space-4) var(--space-6) var(--space-6);
-    border-top: var(--border-thin);
-    background: var(--color-white);
+    padding: var(--sp-4) var(--gutter) var(--sp-6);
+    border-top: 1px solid var(--border);
+    background: var(--white);
   }
-
   .nav__mobile-link {
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-dark);
     display: block;
-    padding-block: var(--space-3);
-    border-bottom: var(--border-thin);
+    font-size: var(--fs-base);
+    color: var(--text-2);
+    padding-block: var(--sp-3);
+    border-bottom: 1px solid var(--border);
+    transition: color var(--t-fast);
   }
-
-  .nav__mobile-link:hover {
-    color: var(--color-blue);
-  }
-
-  .nav__mobile-link--child {
-    font-size: var(--font-size-sm);
-    color: var(--color-slate);
-    padding-left: var(--space-4);
-  }
+  .nav__mobile-link:hover { color: var(--blue); }
+  .nav__mobile-link--child { font-size: var(--fs-sm); color: var(--text-3); padding-left: var(--sp-4); }
 
   @media (max-width: 768px) {
-    .nav__links,
-    .nav__actions {
-      display: none;
-    }
-
-    .nav__burger {
-      display: flex;
-    }
-
-    .nav__mobile.is-open {
-      display: flex;
-    }
+    .nav__links, .nav__actions { display: none; }
+    .nav__burger { display: flex; }
+    .nav__mobile.is-open { display: flex; }
   }
 </style>
 
 <script>
-  // Mobile burger
   const burger = document.querySelector('.nav__burger') as HTMLButtonElement | null;
   const menu   = document.getElementById('mobile-menu');
 
@@ -263,7 +203,6 @@ const currentPath = Astro.url.pathname;
     menu?.setAttribute('aria-hidden', String(!isOpen));
   });
 
-  // Dropdown keyboard support
   document.querySelectorAll('.nav__link--dropdown').forEach(btn => {
     btn.addEventListener('click', () => {
       const item = btn.closest('.nav__item--has-dropdown');
@@ -272,7 +211,6 @@ const currentPath = Astro.url.pathname;
     });
   });
 
-  // Close dropdown on outside click
   document.addEventListener('click', (e) => {
     document.querySelectorAll('.nav__item--has-dropdown.is-open').forEach(item => {
       if (!item.contains(e.target as Node)) {

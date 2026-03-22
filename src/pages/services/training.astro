@@ -90,40 +90,43 @@ const workshops = [
 ---
 
 <Layout
-  title="Training — Nuvora Studio"
-  description="LinkedIn training workshops for marketing teams and executives. Fundamentals, content strategy, ads, and personal branding — taught by practitioners."
+  title="LinkedIn Training Workshops for B2B Teams — Nuvora Studio"
+  description="Expert LinkedIn training workshops for B2B marketing teams, leadership, and commercial functions. Algorithm mechanics, content strategy, advertising, and employee advocacy — taught by active practitioners."
+  abstract="Expert LinkedIn training for B2B teams. Algorithm, content strategy, ads, and employee advocacy — taught by practitioners, not theorists."
 >
   <NavBar />
   <main id="main-content">
 
-    <!-- Page Hero -->
-    <section class="training-hero section--dark" aria-labelledby="training-heading">
+    <!-- Hero -->
+    <section class="training-hero" aria-labelledby="training-heading">
       <div class="container">
         <div class="training-hero__inner">
-          <div>
-            <p class="eyebrow" style="color: var(--color-cyan)">Services / Training</p>
-            <h1 id="training-heading">LinkedIn training that transfers real capability.</h1>
-            <p class="training-hero__sub">
+          <div class="training-hero__text">
+            <p class="eyebrow eyebrow--light reveal">Services / Training</p>
+            <h1 id="training-heading" class="training-hero__h1 reveal reveal-delay-1">
+              LinkedIn training that transfers<br /><em>real capability.</em>
+            </h1>
+            <p class="training-hero__sub reveal reveal-delay-2">
               Four specialist workshops for teams and leaders who want to own their LinkedIn performance
               — not just outsource it. Online or in-person. Led by practitioners.
             </p>
-            <div class="training-hero__actions">
+            <div class="training-hero__actions reveal reveal-delay-3">
               <a href="/contact?intent=training" class="btn btn--primary btn--lg">Book a workshop</a>
               <a href="#workshops" class="btn btn--outline-white btn--lg">See all workshops</a>
             </div>
           </div>
-          <div class="training-hero__badges">
-            <div class="training-badge">
-              <span class="training-badge__number">4</span>
-              <span class="training-badge__label">Specialist workshops</span>
+          <div class="training-hero__stats reveal reveal-delay-2">
+            <div class="training-stat">
+              <span class="training-stat__number">4</span>
+              <span class="training-stat__label">Specialist workshops</span>
             </div>
-            <div class="training-badge">
-              <span class="training-badge__number">½–1</span>
-              <span class="training-badge__label">Day formats</span>
+            <div class="training-stat">
+              <span class="training-stat__number">½–1</span>
+              <span class="training-stat__label">Day formats</span>
             </div>
-            <div class="training-badge">
-              <span class="training-badge__number">100%</span>
-              <span class="training-badge__label">Practitioner-led</span>
+            <div class="training-stat">
+              <span class="training-stat__number">100%</span>
+              <span class="training-stat__label">Practitioner-led</span>
             </div>
           </div>
         </div>
@@ -131,61 +134,67 @@ const workshops = [
     </section>
 
     <!-- Workshops -->
-    <section class="section" id="workshops" aria-label="Training workshops">
+    <section class="section" id="workshops" style="background: var(--white);" aria-label="Training workshops">
       <div class="container">
+
+        <div class="workshops-header reveal">
+          <p class="eyebrow">Our workshops</p>
+          <h2>Four programmes.<br />One platform mastered.</h2>
+        </div>
+
         <div class="workshops">
           {workshops.map((w, i) => (
-            <article class="workshop" id={w.id} aria-labelledby={`workshop-${w.id}`}>
-              <div class="workshop__header">
+            <article class="workshop reveal" id={w.id} aria-labelledby={`workshop-${w.id}`}>
+
+              <div class="workshop__top">
                 <div class="workshop__meta">
-                  <span class="tag tag--cyan">{w.tag}</span>
-                  <span class="workshop__index" aria-hidden="true">0{i + 1}</span>
+                  <span class="workshop__num" aria-hidden="true">0{i + 1}</span>
+                  <span class="tag">{w.tag}</span>
                 </div>
+                <div class="workshop__rule"></div>
                 <h2 id={`workshop-${w.id}`} class="workshop__title">{w.title}</h2>
                 <p class="workshop__hook">{w.hook}</p>
               </div>
 
               <div class="workshop__body">
-                <!-- Stats -->
-                <div class="workshop__stats">
+                <div class="workshop__stats-col">
                   {w.stats.map(s => (
                     <div class="workshop__stat">
-                      <span class="workshop__stat-number">{s.number}</span>
+                      <span class="workshop__stat-num">{s.number}</span>
                       <span class="workshop__stat-label">{s.label}</span>
                     </div>
                   ))}
                 </div>
 
-                <!-- Description -->
-                <div class="workshop__text">
+                <div class="workshop__content">
                   <p class="workshop__intro">{w.intro}</p>
                   <p class="workshop__desc">{w.body}</p>
 
-                  <!-- Modules -->
                   <div class="workshop__modules">
                     <p class="workshop__modules-label">What we cover</p>
                     <ul class="workshop__module-list" role="list">
                       {w.modules.map(m => (
                         <li class="workshop__module-item">
-                          <span class="workshop__module-check" aria-hidden="true">✓</span>
+                          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" class="workshop__check">
+                            <circle cx="7" cy="7" r="7" fill="var(--blue)" opacity="0.12"/>
+                            <path d="M4 7l2.2 2.2L10 5" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
                           {m}
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <!-- Format & note -->
                   <div class="workshop__footer">
                     <p class="workshop__format">{w.format}</p>
-                    <p class="workshop__note">
-                      <em>{w.note}</em>
-                    </p>
+                    <p class="workshop__note"><em>{w.note}</em></p>
                     <a href={`/contact?intent=training&workshop=${w.id}`} class="btn btn--primary">
                       Book this workshop →
                     </a>
                   </div>
                 </div>
               </div>
+
             </article>
           ))}
         </div>
@@ -200,268 +209,280 @@ const workshops = [
 <style>
   /* ── Hero ── */
   .training-hero {
-    background: var(--gradient-section);
-    padding-block: var(--space-24) var(--space-20);
+    background: var(--deep-navy);
+    padding-block: var(--sp-24) var(--sp-20);
+    position: relative;
+    overflow: hidden;
+  }
+  .training-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 80% 40%, rgba(0,168,220,0.10) 0%, transparent 60%);
+    pointer-events: none;
   }
 
   .training-hero__inner {
+    position: relative;
+    z-index: 1;
     display: grid;
     grid-template-columns: 1fr auto;
-    gap: var(--space-16);
+    gap: var(--sp-16);
     align-items: center;
   }
 
-  .training-hero h1 {
-    color: var(--color-white);
-    max-width: 640px;
-    margin-block: var(--space-4) var(--space-6);
+  .training-hero__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-block: var(--sp-5) var(--sp-6);
   }
+  .training-hero__h1 em { color: rgba(255,255,255,0.48); font-weight: 300; font-style: normal; }
 
   .training-hero__sub {
-    font-size: var(--font-size-md);
-    color: rgba(255, 255, 255, 0.75);
+    font-size: var(--fs-md);
+    color: rgba(255,255,255,0.68);
     max-width: 560px;
-    line-height: var(--line-height-relaxed);
-    margin-bottom: var(--space-10);
+    line-height: 1.75;
+    margin-bottom: var(--sp-10);
   }
 
   .training-hero__actions {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-4);
+    gap: var(--sp-4);
   }
 
-  .training-hero__badges {
+  /* Stats sidebar */
+  .training-hero__stats {
     display: flex;
     flex-direction: column;
-    gap: var(--space-4);
+    gap: var(--sp-1);
     flex-shrink: 0;
   }
 
-  .training-badge {
+  .training-stat {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: var(--space-5) var(--space-6);
-    background: rgba(255, 255, 255, 0.07);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: var(--radius-xl);
-    min-width: 130px;
+    padding: var(--sp-6) var(--sp-8);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: var(--r-xl);
+    min-width: 140px;
   }
 
-  .training-badge__number {
-    font-size: var(--font-size-3xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-white);
+  .training-stat__number {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+    font-weight: 700;
+    color: var(--white);
     line-height: 1;
   }
 
-  .training-badge__label {
-    font-size: var(--font-size-xs);
-    color: var(--color-cyan);
-    margin-top: var(--space-2);
-    font-weight: var(--font-weight-medium);
-    text-align: center;
+  .training-stat__label {
+    font-size: var(--fs-xs);
+    color: var(--cyan);
+    margin-top: var(--sp-2);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
 
-  /* ── Workshops list ── */
+  /* ── Workshops header ── */
+  .workshops-header {
+    margin-bottom: var(--sp-12);
+  }
+  .workshops-header h2 {
+    margin-top: var(--sp-4);
+  }
+
+  /* ── Workshop list ── */
   .workshops {
     display: flex;
     flex-direction: column;
-    gap: var(--space-6);
   }
 
   .workshop {
-    border: var(--border-thin);
-    border-radius: var(--radius-2xl);
-    overflow: hidden;
-    transition: box-shadow var(--transition-base);
+    border-top: 1px solid var(--border);
+    padding-block: var(--sp-12);
   }
+  .workshop:last-child { border-bottom: 1px solid var(--border); }
 
-  .workshop:hover {
-    box-shadow: var(--shadow-lg);
-  }
-
-  .workshop__header {
-    background: var(--gradient-hero);
-    padding: var(--space-8) var(--space-10);
+  .workshop__top {
+    margin-bottom: var(--sp-8);
   }
 
   .workshop__meta {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--sp-5);
   }
 
-  .workshop__index {
-    font-size: var(--font-size-4xl);
-    font-weight: var(--font-weight-bold);
-    color: rgba(255, 255, 255, 0.1);
+  .workshop__num {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 700;
+    color: var(--border-2);
     line-height: 1;
-    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.04em;
+  }
+
+  .workshop__rule {
+    height: 1px;
+    background: var(--border);
+    margin-bottom: var(--sp-6);
   }
 
   .workshop__title {
-    color: var(--color-white);
-    font-size: var(--font-size-3xl);
-    margin-bottom: var(--space-3);
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin-bottom: var(--sp-3);
   }
 
   .workshop__hook {
-    font-size: var(--font-size-md);
-    color: rgba(255, 255, 255, 0.75);
+    font-size: var(--fs-md);
+    color: var(--text-2);
     font-style: italic;
     max-width: 680px;
+    line-height: 1.65;
   }
 
-  /* ── Body ── */
+  /* Body: stats + content */
   .workshop__body {
     display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 0;
+    grid-template-columns: 240px 1fr;
+    gap: var(--sp-12);
+    align-items: start;
   }
 
-  .workshop__stats {
-    background: var(--color-ice);
-    border-right: var(--border-thin);
-    padding: var(--space-8);
+  .workshop__stats-col {
     display: flex;
     flex-direction: column;
-    gap: var(--space-8);
+    gap: var(--sp-8);
+    padding: var(--sp-6);
+    background: var(--off-white);
+    border-radius: var(--r-xl);
+    border: 1px solid var(--border);
   }
 
   .workshop__stat {
     display: flex;
     flex-direction: column;
-    gap: var(--space-2);
+    gap: var(--sp-1);
   }
 
-  .workshop__stat-number {
-    font-size: var(--font-size-3xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-blue);
+  .workshop__stat-num {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2vw, 1.875rem);
+    font-weight: 700;
+    color: var(--blue);
     line-height: 1;
+    letter-spacing: -0.01em;
   }
 
   .workshop__stat-label {
-    font-size: var(--font-size-xs);
-    color: var(--color-slate);
-    line-height: var(--line-height-snug);
+    font-size: var(--fs-xs);
+    color: var(--text-3);
+    line-height: 1.5;
   }
 
-  .workshop__text {
-    padding: var(--space-8) var(--space-10);
+  .workshop__content {
     display: flex;
     flex-direction: column;
-    gap: var(--space-6);
+    gap: var(--sp-5);
   }
 
   .workshop__intro {
-    font-size: var(--font-size-md);
-    color: var(--color-dark);
-    line-height: var(--line-height-relaxed);
+    font-size: var(--fs-md);
+    color: var(--text);
+    line-height: 1.75;
   }
 
   .workshop__desc {
-    color: var(--color-slate);
-    line-height: var(--line-height-relaxed);
+    font-size: var(--fs-base);
+    color: var(--text-2);
+    line-height: 1.75;
   }
 
   /* Modules */
+  .workshop__modules { padding-top: var(--sp-2); }
+
   .workshop__modules-label {
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-semibold);
-    letter-spacing: var(--letter-spacing-wider);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--color-blue);
-    margin-bottom: var(--space-3);
+    color: var(--blue);
+    margin-bottom: var(--sp-4);
   }
 
   .workshop__module-list {
     display: flex;
     flex-direction: column;
-    gap: var(--space-2);
+    gap: var(--sp-3);
   }
 
   .workshop__module-item {
     display: flex;
     align-items: flex-start;
-    gap: var(--space-3);
-    font-size: var(--font-size-sm);
-    color: var(--color-dark);
+    gap: var(--sp-3);
+    font-size: var(--fs-sm);
+    color: var(--text);
+    line-height: 1.55;
   }
 
-  .workshop__module-check {
-    color: var(--color-cyan);
-    font-weight: var(--font-weight-bold);
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
+  .workshop__check { flex-shrink: 0; margin-top: 2px; }
 
   /* Footer */
   .workshop__footer {
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
-    padding-top: var(--space-6);
-    border-top: var(--border-thin);
-    margin-top: auto;
+    gap: var(--sp-3);
+    padding-top: var(--sp-6);
+    border-top: 1px solid var(--border);
+    margin-top: var(--sp-2);
   }
 
   .workshop__format {
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-deep-navy);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--deep-navy);
   }
 
   .workshop__note {
-    font-size: var(--font-size-sm);
-    color: var(--color-slate);
-    line-height: var(--line-height-relaxed);
+    font-size: var(--fs-sm);
+    color: var(--text-3);
+    line-height: 1.65;
   }
 
   /* ── Responsive ── */
   @media (max-width: 1024px) {
-    .training-hero__inner {
-      grid-template-columns: 1fr;
-    }
-
-    .training-hero__badges {
+    .training-hero__inner { grid-template-columns: 1fr; }
+    .training-hero__stats {
       flex-direction: row;
       flex-wrap: wrap;
     }
-
-    .training-badge {
-      flex: 1;
-      min-width: 100px;
-    }
-
-    .workshop__body {
-      grid-template-columns: 1fr;
-    }
-
-    .workshop__stats {
-      border-right: none;
-      border-bottom: var(--border-thin);
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: var(--space-6);
-    }
+    .training-stat { flex: 1; min-width: 120px; }
   }
 
   @media (max-width: 768px) {
-    .workshop__header {
-      padding: var(--space-6);
+    .training-hero { padding-block: var(--sp-16) var(--sp-12); }
+    .workshop__body { grid-template-columns: 1fr; }
+    .workshop__stats-col {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: var(--sp-6);
     }
-
-    .workshop__text {
-      padding: var(--space-6);
-    }
-
-    .workshop__title {
-      font-size: var(--font-size-2xl);
-    }
+    .workshop__stat { flex: 1; min-width: 120px; }
   }
 </style>
