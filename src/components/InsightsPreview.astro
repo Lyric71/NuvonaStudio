@@ -9,11 +9,6 @@ const posts = [
   },
 ];
 
-function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString('en-GB', {
-    day: 'numeric', month: 'long', year: 'numeric',
-  });
-}
 ---
 
 <section class="section" aria-labelledby="insights-heading" style="background: var(--off-white);">
@@ -35,7 +30,6 @@ function formatDate(dateStr: string) {
         <article class="insights__card reveal" style={`transition-delay: ${i * 0.08}s`}>
           <div class="insights__card-top">
             <span class="tag tag--blue">{post.category}</span>
-            <time datetime={post.date} class="insights__date">{formatDate(post.date)}</time>
           </div>
           <h3 class="insights__title">
             <a href={`/insights/${post.slug}`}>{post.title}</a>
@@ -80,7 +74,7 @@ function formatDate(dateStr: string) {
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: var(--r-xl);
-    padding: var(--sp-7);
+    padding: var(--sp-10);
     display: flex;
     flex-direction: column;
     transition: all var(--t-base);
