@@ -4,6 +4,7 @@ import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
+  output: 'static',
   adapter: vercel(),
   server: {
     host: '127.0.0.1',
