@@ -1,53 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
 
-  <!-- ── English pages ── -->
+  <!-- Home -->
   <url>
     <loc>https://nuvora.studio/</loc>
     <lastmod>2026-03-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://nuvora.studio/"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://nuvora.studio/fr/"/>
   </url>
 
+  <url>
+    <loc>https://nuvora.studio/fr/</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://nuvora.studio/"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://nuvora.studio/fr/"/>
+  </url>
+
+  <!-- Pricing -->
   <url>
     <loc>https://nuvora.studio/pricing</loc>
     <lastmod>2026-03-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/pricing"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/pricing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/pricing"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://nuvora.studio/pricing"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://nuvora.studio/fr/pricing"/>
   </url>
 
+  <url>
+    <loc>https://nuvora.studio/fr/pricing</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/pricing"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://nuvora.studio/pricing"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://nuvora.studio/fr/pricing"/>
+  </url>
+
+  <!-- Contact -->
   <url>
     <loc>https://nuvora.studio/contact</loc>
     <lastmod>2026-03-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/contact"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/contact"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://nuvora.studio/contact"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://nuvora.studio/fr/contact"/>
   </url>
 
+  <url>
+    <loc>https://nuvora.studio/fr/contact</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/contact"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://nuvora.studio/contact"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://nuvora.studio/fr/contact"/>
+  </url>
+
+  <!-- Training -->
   <url>
     <loc>https://nuvora.studio/services/training</loc>
     <lastmod>2026-03-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/services/training"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/services/training"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/services/training"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://nuvora.studio/services/training"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://nuvora.studio/fr/services/training"/>
   </url>
 
+  <url>
+    <loc>https://nuvora.studio/fr/services/training</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/services/training"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://nuvora.studio/services/training"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://nuvora.studio/fr/services/training"/>
+  </url>
+
+  <!-- Insights -->
   <url>
     <loc>https://nuvora.studio/insights</loc>
     <lastmod>2026-03-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://nuvora.studio/insights"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://nuvora.studio/fr/insights"/>
   </url>
 
+  <url>
+    <loc>https://nuvora.studio/fr/insights</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://nuvora.studio/insights"/>
+    <xhtml:link rel="alternate" hreflang="fr"        href="https://nuvora.studio/fr/insights"/>
+  </url>
+
+  <!-- Blog posts (English only) -->
   <url>
     <loc>https://nuvora.studio/insights/your-linkedin-post-is-already-dead</loc>
     <lastmod>2026-03-23</lastmod>
@@ -60,52 +122,6 @@
     <lastmod>2026-03-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
-  </url>
-
-  <!-- ── French pages ── -->
-  <url>
-    <loc>https://nuvora.studio/fr/</loc>
-    <lastmod>2026-03-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/"/>
-  </url>
-
-  <url>
-    <loc>https://nuvora.studio/fr/pricing</loc>
-    <lastmod>2026-03-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/pricing"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/pricing"/>
-  </url>
-
-  <url>
-    <loc>https://nuvora.studio/fr/contact</loc>
-    <lastmod>2026-03-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/contact"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/contact"/>
-  </url>
-
-  <url>
-    <loc>https://nuvora.studio/fr/services/training</loc>
-    <lastmod>2026-03-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/services/training"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/services/training"/>
-  </url>
-
-  <url>
-    <loc>https://nuvora.studio/fr/insights</loc>
-    <lastmod>2026-03-23</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights"/>
   </url>
 
 </urlset>
