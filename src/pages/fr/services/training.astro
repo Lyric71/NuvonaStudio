@@ -1,0 +1,105 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import NavBar from '../../../components/NavBar.astro';
+import LangBanner from '../../../components/LangBanner.astro';
+import ContactCTA from '../../../components/ContactCTA.astro';
+import Footer from '../../../components/Footer.astro';
+import { useTranslations, getAlternateUrl } from '../../../i18n/index.ts';
+
+const t = useTranslations('fr');
+---
+
+<Layout
+  lang="fr"
+  title="[FR] Formations LinkedIn pour équipes B2B — Nuvora Studio"
+  description="[FR] Expert LinkedIn training workshops for B2B marketing teams, leadership, and commercial functions."
+  abstract="[FR] Expert LinkedIn training for B2B teams — taught by practitioners."
+>
+  <NavBar lang="fr" />
+  <LangBanner
+    message={t('lang.banner')}
+    alternatUrl={getAlternateUrl('/fr/services/training', 'en')}
+  />
+  <main id="main-content">
+
+    <section class="training-hero" aria-labelledby="training-heading">
+      <div class="container">
+        <div class="training-hero__inner">
+          <div class="training-hero__text">
+            <p class="eyebrow eyebrow--light">Services / Formation</p>
+            <h1 id="training-heading" class="training-hero__h1">
+              [FR] LinkedIn training that transfers<br /><em>[FR] real capability.</em>
+            </h1>
+            <p class="training-hero__sub">
+              [FR] Four specialist workshops for teams and leaders who want to own their LinkedIn performance.
+            </p>
+            <div class="training-hero__actions">
+              <a href="/fr/contact?intent=training" class="btn btn--primary btn--lg">[FR] Book a workshop</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background: var(--white);">
+      <div class="container">
+        <div class="placeholder-notice">
+          <p>🇫🇷 <strong>Page en cours de traduction.</strong> Les détails complets des formations seront disponibles en français prochainement.</p>
+          <a href="/services/training" class="btn btn--outline btn--sm">Read in English →</a>
+        </div>
+      </div>
+    </section>
+
+    <ContactCTA />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .training-hero {
+    background: var(--deep-navy);
+    padding-block: var(--sp-24) var(--sp-20);
+    position: relative;
+    overflow: hidden;
+  }
+  .training-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 80% 40%, rgba(0,168,220,0.10) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .training-hero__inner {
+    position: relative;
+    z-index: 1;
+  }
+  .training-hero__h1 {
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-block: var(--sp-5) var(--sp-6);
+  }
+  .training-hero__h1 em { color: rgba(255,255,255,0.48); font-weight: 300; font-style: normal; }
+  .training-hero__sub {
+    font-size: var(--fs-md);
+    color: rgba(255,255,255,0.68);
+    max-width: 560px;
+    line-height: 1.75;
+    margin-bottom: var(--sp-10);
+  }
+  .training-hero__actions { display: flex; gap: var(--sp-4); flex-wrap: wrap; }
+  .placeholder-notice {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    padding: var(--sp-10);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-6);
+    flex-wrap: wrap;
+  }
+  .placeholder-notice p { font-size: var(--fs-md); color: var(--text-2); }
+</style>

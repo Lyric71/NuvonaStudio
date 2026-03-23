@@ -1,0 +1,41 @@
+---
+interface Props {
+  message: string;
+  alternatUrl: string;
+}
+const { message, alternatUrl } = Astro.props;
+---
+
+{message && (
+  <div class="lang-banner" role="status">
+    <span class="lang-banner__flag" aria-hidden="true">🇫🇷</span>
+    <p class="lang-banner__text">{message}</p>
+    <a href={alternatUrl} class="lang-banner__link">Read in English →</a>
+  </div>
+)}
+
+<style>
+  .lang-banner {
+    background: rgba(10,102,194,0.07);
+    border-bottom: 1px solid rgba(10,102,194,0.15);
+    padding: var(--sp-3) var(--gutter);
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    flex-wrap: wrap;
+  }
+  .lang-banner__flag { font-size: 1rem; flex-shrink: 0; }
+  .lang-banner__text {
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    flex: 1;
+  }
+  .lang-banner__link {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    color: var(--blue);
+    white-space: nowrap;
+    transition: color var(--t-fast);
+  }
+  .lang-banner__link:hover { color: var(--mid-blue); }
+</style>

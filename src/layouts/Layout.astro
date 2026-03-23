@@ -5,17 +5,19 @@ interface Props {
   title?: string;
   description?: string;
   abstract?: string;
+  lang?: 'en' | 'fr';
 }
 
 const {
   title = 'Nuvora Studio — LinkedIn Marketing Agency for B2B',
   description = 'Specialist LinkedIn-only consultancy for B2B companies. We build presences that generate pipeline, attract decision-makers, and establish lasting authority. One platform. Absolute focus.',
   abstract,
+  lang = 'en',
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

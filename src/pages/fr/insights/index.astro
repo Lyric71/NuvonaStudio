@@ -1,0 +1,93 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import NavBar from '../../../components/NavBar.astro';
+import LangBanner from '../../../components/LangBanner.astro';
+import ContactCTA from '../../../components/ContactCTA.astro';
+import Footer from '../../../components/Footer.astro';
+import { useTranslations, getAlternateUrl } from '../../../i18n/index.ts';
+
+const t = useTranslations('fr');
+---
+
+<Layout
+  lang="fr"
+  title="[FR] Insights — Stratégie LinkedIn & Contenu B2B — Nuvora Studio"
+  description="[FR] Sharp thinking on LinkedIn strategy, B2B content, advertising, and platform updates."
+  abstract="[FR] LinkedIn strategy and B2B content insights from Nuvora Studio."
+>
+  <NavBar lang="fr" />
+  <LangBanner
+    message={t('lang.banner')}
+    alternatUrl={getAlternateUrl('/fr/insights', 'en')}
+  />
+  <main id="main-content">
+
+    <section class="insights-hero" aria-labelledby="insights-heading">
+      <div class="container">
+        <p class="eyebrow eyebrow--light">Insights</p>
+        <h1 id="insights-heading" class="insights-hero__h1">
+          [FR] LinkedIn intelligence,<br /><em>[FR] in writing.</em>
+        </h1>
+        <p class="insights-hero__sub">
+          [FR] Sharp thinking on LinkedIn strategy, B2B content, advertising, and platform updates.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" style="background: var(--off-white);">
+      <div class="container">
+        <div class="placeholder-notice">
+          <p>🇫🇷 <strong>Articles en cours de traduction.</strong> Les articles seront disponibles en français prochainement.</p>
+          <a href="/insights" class="btn btn--outline btn--sm">Read in English →</a>
+        </div>
+      </div>
+    </section>
+
+    <ContactCTA />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .insights-hero {
+    background: var(--deep-navy);
+    padding-block: clamp(3rem, 6vw, 5rem);
+    position: relative;
+    overflow: hidden;
+  }
+  .insights-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 70% at 75% 40%, rgba(0,168,220,0.10) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .insights-hero .container { position: relative; z-index: 1; }
+  .insights-hero__h1 {
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    margin-block: var(--sp-5) var(--sp-6);
+  }
+  .insights-hero__h1 em { color: rgba(255,255,255,0.42); font-weight: 300; font-style: normal; }
+  .insights-hero__sub {
+    font-size: var(--fs-md);
+    color: rgba(255,255,255,0.65);
+    max-width: 540px;
+    line-height: 1.75;
+  }
+  .placeholder-notice {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    padding: var(--sp-10);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-6);
+    flex-wrap: wrap;
+  }
+  .placeholder-notice p { font-size: var(--fs-md); color: var(--text-2); }
+</style>

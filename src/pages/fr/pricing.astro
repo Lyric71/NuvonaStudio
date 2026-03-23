@@ -1,0 +1,93 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import NavBar from '../../components/NavBar.astro';
+import LangBanner from '../../components/LangBanner.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import Footer from '../../components/Footer.astro';
+import { useTranslations, getAlternateUrl } from '../../i18n/index.ts';
+
+const t = useTranslations('fr');
+---
+
+<Layout
+  lang="fr"
+  title="[FR] Tarifs — Nuvora Studio"
+  description="[FR] LinkedIn marketing retainers for B2B companies. Transparent pricing, no lock-in."
+  abstract="[FR] Transparent LinkedIn retainer pricing for B2B companies."
+>
+  <NavBar lang="fr" />
+  <LangBanner
+    message={t('lang.banner')}
+    alternatUrl={getAlternateUrl('/fr/pricing', 'en')}
+  />
+  <main id="main-content">
+
+    <section class="pricing-hero" aria-labelledby="pricing-heading">
+      <div class="container">
+        <p class="eyebrow eyebrow--light">Tarifs</p>
+        <h1 id="pricing-heading" class="pricing-hero__h1">
+          [FR] Transparent pricing.<br /><em>[FR] No surprises.</em>
+        </h1>
+        <p class="pricing-hero__sub">
+          [FR] Three retainer tiers. One platform. Clear deliverables at every level.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" style="background: var(--off-white);">
+      <div class="container">
+        <div class="placeholder-notice">
+          <p>🇫🇷 <strong>Page en cours de traduction.</strong> Le contenu complet de cette page sera disponible prochainement en français.</p>
+          <a href="/pricing" class="btn btn--outline btn--sm">Read in English →</a>
+        </div>
+      </div>
+    </section>
+
+    <ContactCTA />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .pricing-hero {
+    background: var(--deep-navy);
+    padding-block: clamp(3rem, 6vw, 5rem);
+    position: relative;
+    overflow: hidden;
+  }
+  .pricing-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 70% at 75% 40%, rgba(0,168,220,0.10) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .pricing-hero .container { position: relative; z-index: 1; }
+  .pricing-hero__h1 {
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    margin-block: var(--sp-5) var(--sp-6);
+  }
+  .pricing-hero__h1 em { color: rgba(255,255,255,0.42); font-weight: 300; font-style: normal; }
+  .pricing-hero__sub {
+    font-size: var(--fs-md);
+    color: rgba(255,255,255,0.65);
+    max-width: 540px;
+    line-height: 1.75;
+  }
+  .placeholder-notice {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    padding: var(--sp-10);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-6);
+    flex-wrap: wrap;
+  }
+  .placeholder-notice p { font-size: var(--fs-md); color: var(--text-2); }
+</style>

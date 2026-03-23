@@ -1,26 +1,41 @@
 ---
+import { useTranslations, getAlternateUrl, type Lang } from '../i18n/index.ts';
+
+interface Props {
+  lang?: Lang;
+}
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+
+const prefix = lang === 'fr' ? '/fr' : '';
+const currentPath = Astro.url.pathname;
+
+const alternateLang = lang === 'en' ? 'fr' : 'en';
+const alternateLabel = lang === 'en' ? 'Français' : 'English';
+const alternateUrl = getAlternateUrl(currentPath, alternateLang as Lang);
+
 const links = [
   {
-    label: 'Services',
-    href: '/services',
+    label: t('nav.services'),
+    href: `${prefix}/services`,
     children: [
-      { label: 'Training', href: '/services/training' },
+      { label: t('nav.training'), href: `${prefix}/services/training` },
     ],
   },
-  { label: 'Pricing',  href: '/pricing' },
-  { label: 'Work',     href: '/work' },
-  { label: 'Insights', href: '/insights' },
-  { label: 'About',    href: '/about' },
+  { label: t('nav.pricing'),  href: `${prefix}/pricing` },
+  { label: t('nav.work'),     href: `${prefix}/work` },
+  { label: t('nav.insights'), href: `${prefix}/insights` },
+  { label: t('nav.about'),    href: `${prefix}/about` },
 ];
-// Note: Contact removed from links — handled by dedicated CTA button only
 
-const currentPath = Astro.url.pathname;
+const homeHref = lang === 'fr' ? '/fr/' : '/';
+const contactHref = `${prefix}/contact?intent=call`;
 ---
 
 <nav class="nav" aria-label="Main navigation">
   <div class="nav__inner">
 
-    <a href="/" class="nav__logo" aria-label="Nuvora Studio — home">
+    <a href={homeHref} class="nav__logo" aria-label="Nuvora Studio — home">
       <img src="/nuvora-logo.png" alt="Nuvora Studio" class="nav__logo-img" width="220" height="86" />
     </a>
 
@@ -41,7 +56,7 @@ const currentPath = Astro.url.pathname;
               <ul class="nav__dropdown" role="list">
                 <li>
                   <a href={link.href} class={`nav__dropdown-link${currentPath === link.href ? ' nav__dropdown-link--active' : ''}`}>
-                    All Services
+                    {t('nav.all_services')}
                   </a>
                 </li>
                 {link.children.map(child => (
@@ -63,7 +78,13 @@ const currentPath = Astro.url.pathname;
     </ul>
 
     <div class="nav__actions">
-      <a href="/contact?intent=call" class="btn btn--primary btn--sm">Book a call</a>
+      <!-- Language switcher -->
+      <a href={alternateUrl} class="nav__lang" aria-label={`Switch to ${alternateLabel}`}>
+        <span class="nav__lang-flag" aria-hidden="true">{lang === 'en' ? '🇫🇷' : '🇬🇧'}</span>
+        <span class="nav__lang-label">{alternateLabel}</span>
+      </a>
+
+      <a href={contactHref} class="btn btn--primary btn--sm">{t('nav.book_call')}</a>
     </div>
 
     <button class="nav__burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
@@ -81,8 +102,15 @@ const currentPath = Astro.url.pathname;
           ))}
         </>
       ))}
+      <li>
+        <a href={alternateUrl} class="nav__mobile-link nav__mobile-lang">
+          {lang === 'en' ? '🇫🇷' : '🇬🇧'} {alternateLabel}
+        </a>
+      </li>
     </ul>
-    <a href="/contact?intent=call" class="btn btn--primary w-full" style="justify-content:center; margin-top: 1.25rem;">Book a call</a>
+    <a href={contactHref} class="btn btn--primary w-full" style="justify-content:center; margin-top: 1.25rem;">
+      {t('nav.book_call')}
+    </a>
   </div>
 </nav>
 
@@ -151,6 +179,23 @@ const currentPath = Astro.url.pathname;
   .nav__dropdown-link:hover,
   .nav__dropdown-link--active { background: #EEF4FB; color: var(--blue); }
 
+  /* Language switcher */
+  .nav__lang {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    color: var(--text-2);
+    padding: var(--sp-1) var(--sp-3);
+    border: 1px solid var(--border-2);
+    border-radius: 999px;
+    transition: border-color var(--t-fast), color var(--t-fast);
+    white-space: nowrap;
+  }
+  .nav__lang:hover { border-color: var(--blue); color: var(--blue); }
+  .nav__lang-label { font-size: var(--fs-xs); }
+
   /* Burger */
   .nav__burger {
     display: none;
@@ -185,6 +230,7 @@ const currentPath = Astro.url.pathname;
   }
   .nav__mobile-link:hover { color: var(--blue); }
   .nav__mobile-link--child { font-size: var(--fs-sm); color: var(--text-3); padding-left: var(--sp-4); }
+  .nav__mobile-lang { color: var(--blue); }
 
   @media (max-width: 768px) {
     .nav__links, .nav__actions { display: none; }
