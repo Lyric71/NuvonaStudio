@@ -409,6 +409,8 @@ import Footer from '../components/Footer.astro';
   }
 </style>
 
+<script is:inline src="https://www.google.com/recaptcha/api.js?render=6LfeTpQsAAAAAH-_V7o9bJuu4PO_kfgGcGMCuSiE"></script>
+
 <script>
   const form    = document.getElementById('contact-form') as HTMLFormElement | null;
   const card    = document.getElementById('contact-card') as HTMLElement | null;
@@ -490,6 +492,17 @@ import Footer from '../components/Footer.astro';
     if (submitSpinner) submitSpinner.style.display = 'inline-block';
 
     try {
+      // Get reCAPTCHA v3 token
+      const token = await new Promise<string>((resolve, reject) => {
+        (window as any).grecaptcha.ready(() => {
+          (window as any).grecaptcha
+            .execute('6LfeTpQsAAAAAH-_V7o9bJuu4PO_kfgGcGMCuSiE', { action: 'contact' })
+            .then(resolve)
+            .catch(reject);
+        });
+      });
+      data.append('recaptcha_token', token);
+
       const res = await fetch('/api/contact', { method: 'POST', body: data });
       const json = await res.json();
 
