@@ -234,6 +234,88 @@ const cards = [
       </section>
     ))}
 
+    <!-- ── FAQ ──────────────────────────────────────────────── -->
+    <section class="section cfaq" aria-labelledby="cfaq-heading" style="background: var(--off-white);">
+      <div class="container container--md">
+
+        <div class="cfaq__head reveal">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="cfaq-heading">Everything you need<br />to know.</h2>
+        </div>
+
+        <dl class="cfaq__list reveal reveal-delay-1">
+          {[
+            {
+              q: 'Do I need all four services, or can I start with one?',
+              a: 'You can start with one. Most clients begin with Company Page Management or Content Production, then add services as their LinkedIn presence grows. Every service works on its own.',
+            },
+            {
+              q: 'How does your content generate leads?',
+              a: "We build content around your ideal buyer's problems, not your product features. The right topics attract the right audience. Consistent publishing builds trust. Trust starts conversations. Conversations become leads.",
+            },
+            {
+              q: 'How do you use AI to produce content, visuals, and videos?',
+              a: 'We use AI-generated content tools across the full production workflow. AI accelerates research, drafting, multilingual writing, image creation, and video editing. It means we produce more content, faster, at a lower cost. Without sacrificing quality. Our editorial team reviews every piece. Our designers check every visual. Nothing goes live without a human sign-off and your approval. AI gives us speed. Our team gives you the standard your brand requires.',
+            },
+            {
+              q: 'Can you write in languages other than English?',
+              a: 'Yes. We produce content natively in each language — not translated. If your audience reads in German, Spanish, Mandarin, or another language, we write for that audience directly.',
+            },
+            {
+              q: 'How much input do I need to give each week?',
+              a: 'Very little. We plan a full editorial calendar a month ahead. You review and approve. Most clients spend less than 30 minutes per week on approvals. We handle the rest.',
+            },
+            {
+              q: 'What LinkedIn formats do you work with?',
+              a: 'All of them. Text posts, carousels, videos, native documents, polls, articles, newsletters, and events. We choose the format based on what will perform best for your audience, not what is easiest to produce.',
+            },
+            {
+              q: 'How do LinkedIn Events generate leads?',
+              a: 'Every person who registers for a LinkedIn Event gives you their name, job title, and company. That is a named lead your sales team can follow up with. We also build a post-event follow-up playbook so no registration goes to waste.',
+            },
+            {
+              q: 'What does your reporting look like?',
+              a: 'Monthly. Clear. No vanity metrics. We report on what happened, why it happened, and what we do next. Every number ties back to your commercial goals.',
+            },
+            {
+              q: 'How long before I see results?',
+              a: 'Most clients see measurable increases in profile views, follower growth, and engagement within the first 60 days. Lead generation typically builds momentum over 90 days as content compounds and your audience grows.',
+            },
+            {
+              q: 'How do I get started?',
+              a: 'Book a call. We will walk through your current LinkedIn presence, identify the biggest gaps, and tell you exactly what we would do first. No pitch deck. Just a straight conversation.',
+            },
+          ].map((faq, i) => (
+            <div class="cfaq__item">
+              <dt>
+                <button
+                  class="cfaq__question"
+                  aria-expanded="false"
+                  aria-controls={`cfaq-answer-${i}`}
+                  id={`cfaq-q-${i}`}
+                >
+                  <span>{faq.q}</span>
+                  <span class="cfaq__icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                      <path d="M4.5 6.75l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </button>
+              </dt>
+              <dd class="cfaq__answer" id={`cfaq-answer-${i}`} role="region" aria-labelledby={`cfaq-q-${i}`} hidden>
+                <p>{faq.a}</p>
+              </dd>
+            </div>
+          ))}
+        </dl>
+
+        <div class="cfaq__cta reveal">
+          <a href="/contact?intent=call" class="btn btn--primary btn--lg">Book a call</a>
+        </div>
+
+      </div>
+    </section>
+
     <!-- ── Bottom CTA ────────────────────────────────────────── -->
     <section class="section cta" aria-labelledby="content-cta-heading" style="background: var(--deep-navy);">
       <div class="container">
@@ -596,8 +678,82 @@ const cards = [
     .cta__layout { grid-template-columns: 1fr; gap: var(--sp-10); }
   }
 
+  /* ── FAQ ── */
+  .cfaq__head { margin-bottom: var(--sp-10); }
+  .cfaq__head h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    margin-top: var(--sp-4);
+    max-width: 520px;
+  }
+
+  .cfaq__list {
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    overflow: hidden;
+    background: var(--white);
+    margin-bottom: var(--sp-10);
+  }
+
+  .cfaq__item { border-bottom: 1px solid var(--border); }
+  .cfaq__item:last-child { border-bottom: none; }
+
+  .cfaq__question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-6);
+    padding: 1.5rem var(--sp-8);
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    color: var(--text);
+    text-align: left;
+    background: var(--white);
+    transition: background var(--t-fast), color var(--t-fast);
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+  .cfaq__question:hover { background: #EEF4FB; }
+  .cfaq__question[aria-expanded="true"] { background: #EEF4FB; color: var(--blue); }
+
+  .cfaq__icon {
+    flex-shrink: 0;
+    color: var(--text-3);
+    transition: transform var(--t-base), color var(--t-base);
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+  }
+  .cfaq__question[aria-expanded="true"] .cfaq__icon {
+    transform: rotate(180deg);
+    color: var(--blue);
+    border-color: var(--blue);
+    background: rgba(10,102,194,0.06);
+  }
+
+  .cfaq__answer { padding: 0 var(--sp-8) 1.5rem; background: #EEF4FB; }
+  .cfaq__answer p {
+    font-size: var(--fs-base);
+    color: var(--text-2);
+    line-height: 1.75;
+    max-width: 640px;
+  }
+
+  .cfaq__cta {
+    display: flex;
+    justify-content: center;
+  }
+
   @media (max-width: 768px) {
     .content-hero { padding-block: var(--sp-16) var(--sp-12); }
+    .cfaq__question { padding: var(--sp-6); font-size: var(--fs-base); }
+    .cfaq__answer { padding: 0 var(--sp-6) var(--sp-6); }
   }
 
   @media (max-width: 640px) {
@@ -606,3 +762,14 @@ const cards = [
     .cta__actions .btn { justify-content: center; }
   }
 </style>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.cfaq__question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      const answer = document.getElementById(btn.getAttribute('aria-controls')!) as HTMLElement | null;
+      btn.setAttribute('aria-expanded', String(!expanded));
+      if (answer) answer.hidden = expanded;
+    });
+  });
+</script>
