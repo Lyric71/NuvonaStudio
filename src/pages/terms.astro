@@ -1,0 +1,153 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Terms of Service — Nuvora Studio"
+  description="Terms and conditions governing the use of Nuvora Studio's website and services."
+>
+  <NavBar />
+  <main id="main-content">
+
+    <section class="legal" aria-labelledby="legal-h">
+      <div class="container container--md">
+
+        <p class="legal__updated">Last updated: 26 March 2026</p>
+        <h1 id="legal-h" class="legal__h1">Terms of Service</h1>
+
+        <p>Nuvora Studio is a service provided by Beyond Border Group Ltd, a company registered in Hong Kong. In these Terms, "Nuvora Studio", "we", "us", or "our" refers to Beyond Border Group Ltd, operating under the Nuvora Studio brand.</p>
+        <p>These Terms of Service ("Terms") govern your access to and use of the website nuvora.studio and the services provided by Nuvora Studio. By accessing or using our website or engaging our services, you agree to be bound by these Terms.</p>
+
+        <h2>1. Services</h2>
+        <p>Nuvora Studio provides LinkedIn marketing services for B2B companies, including but not limited to content production, advertising campaign management, consulting, employee advocacy programs, personal branding, and training workshops. The specific scope of services, deliverables, and timelines will be outlined in a separate service agreement or proposal for each engagement.</p>
+
+        <h2>2. Use of Our Website</h2>
+        <p>You agree to use our website only for lawful purposes and in a manner that does not infringe upon the rights of others or restrict their use and enjoyment of the website. You may not:</p>
+        <ul>
+          <li>Use the website in any way that violates applicable local, national, or international law or regulation.</li>
+          <li>Transmit or procure the sending of any unsolicited advertising or promotional material.</li>
+          <li>Attempt to gain unauthorised access to any part of the website, the server on which it is hosted, or any connected system.</li>
+          <li>Use any automated means to access the website or collect information from it without our prior written consent.</li>
+        </ul>
+
+        <h2>3. Intellectual Property</h2>
+        <p>All content on this website — including text, graphics, logos, images, and software — is the property of Nuvora Studio or its licensors and is protected by applicable intellectual property laws. You may not reproduce, distribute, modify, or create derivative works of any content without our prior written consent.</p>
+        <p>Work produced under a service agreement belongs to the client upon full payment, unless otherwise specified in writing.</p>
+
+        <h2>4. Client Obligations</h2>
+        <p>When engaging our services, you agree to:</p>
+        <ul>
+          <li>Provide accurate and complete information necessary for us to deliver the agreed services.</li>
+          <li>Review and approve content, campaigns, or deliverables within the timelines outlined in the service agreement.</li>
+          <li>Ensure that any materials you provide to us do not infringe on the intellectual property rights of any third party.</li>
+          <li>Pay all fees as outlined in the service agreement and within the agreed payment terms.</li>
+        </ul>
+
+        <h2>5. Payment Terms</h2>
+        <p>Payment terms, including fees, billing frequency, and payment methods, will be specified in each service agreement. Unless otherwise agreed in writing:</p>
+        <ul>
+          <li>Invoices are due within 30 days of the invoice date.</li>
+          <li>Late payments may incur interest at a rate of 1.5% per month on the outstanding balance.</li>
+          <li>We reserve the right to suspend services if payment is overdue by more than 15 days.</li>
+        </ul>
+
+        <h2>6. Confidentiality</h2>
+        <p>Both parties agree to keep confidential any proprietary or sensitive information shared during the course of the engagement. This obligation survives termination of the service agreement and remains in effect for a period of two years thereafter.</p>
+
+        <h2>7. Limitation of Liability</h2>
+        <p>To the fullest extent permitted by law:</p>
+        <ul>
+          <li>Our website and its content are provided on an "as is" and "as available" basis without warranties of any kind, either express or implied.</li>
+          <li>We shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our website or services.</li>
+          <li>Our total liability for any claim arising from our services shall not exceed the fees paid by you for the specific service giving rise to the claim.</li>
+        </ul>
+
+        <h2>8. Indemnification</h2>
+        <p>You agree to indemnify and hold harmless Nuvora Studio, its directors, employees, and agents from any claims, damages, losses, or expenses arising from your breach of these Terms, your use of our website, or your violation of any rights of a third party.</p>
+
+        <h2>9. Termination</h2>
+        <p>We may terminate or suspend your access to our website at any time, without prior notice, for conduct that we believe violates these Terms or is harmful to other users or our business interests.</p>
+        <p>Termination of service engagements is governed by the terms set out in the applicable service agreement.</p>
+
+        <h2>10. Governing Law</h2>
+        <p>These Terms shall be governed by and construed in accordance with the laws of the Hong Kong Special Administrative Region. Any disputes arising from or relating to these Terms shall be subject to the exclusive jurisdiction of the courts of Hong Kong.</p>
+
+        <h2>11. Changes to These Terms</h2>
+        <p>We reserve the right to update or modify these Terms at any time. Changes will be posted on this page with an updated effective date. Your continued use of our website after any changes constitutes acceptance of the revised Terms.</p>
+
+        <h2>12. Severability</h2>
+        <p>If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall continue in full force and effect.</p>
+
+        <h2>13. Contact Us</h2>
+        <p>If you have any questions about these Terms of Service, please contact us through our <a href="/contact">contact form</a>.</p>
+
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .legal {
+    padding-block: var(--sp-24) var(--sp-16);
+  }
+  .legal__updated {
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin-bottom: var(--sp-4);
+  }
+  .legal__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--sp-10);
+  }
+  .legal h2 {
+    font-size: var(--fs-xl);
+    font-weight: 600;
+    color: var(--text);
+    margin-top: var(--sp-10);
+    margin-bottom: var(--sp-4);
+  }
+  .legal h3 {
+    font-size: var(--fs-md);
+    font-weight: 600;
+    color: var(--text);
+    margin-top: var(--sp-6);
+    margin-bottom: var(--sp-3);
+  }
+  .legal p {
+    font-size: var(--fs-base);
+    color: var(--text-2);
+    line-height: 1.75;
+    margin-bottom: var(--sp-4);
+  }
+  .legal ul {
+    list-style: disc;
+    padding-left: var(--sp-6);
+    margin-bottom: var(--sp-4);
+  }
+  .legal li {
+    font-size: var(--fs-base);
+    color: var(--text-2);
+    line-height: 1.75;
+    margin-bottom: var(--sp-2);
+  }
+  .legal a {
+    color: var(--blue);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .legal a:hover {
+    color: var(--mid-blue);
+  }
+</style>

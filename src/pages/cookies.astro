@@ -1,0 +1,196 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Cookie Policy — Nuvora Studio"
+  description="How Nuvora Studio uses cookies and similar technologies on its website."
+>
+  <NavBar />
+  <main id="main-content">
+
+    <section class="legal" aria-labelledby="legal-h">
+      <div class="container container--md">
+
+        <p class="legal__updated">Last updated: 26 March 2026</p>
+        <h1 id="legal-h" class="legal__h1">Cookie Policy</h1>
+
+        <p>Nuvora Studio is a service provided by Beyond Border Group Ltd, a company registered in Hong Kong. In this policy, "Nuvora Studio", "we", "us", or "our" refers to Beyond Border Group Ltd, operating under the Nuvora Studio brand.</p>
+        <p>This Cookie Policy explains how we use cookies and similar technologies on our website nuvora.studio. By continuing to browse or use our website, you acknowledge that you have read and understood this policy.</p>
+
+        <h2>What Are Cookies</h2>
+        <p>Cookies are small text files that are placed on your device (computer, tablet, or mobile phone) when you visit a website. They are widely used to make websites work more efficiently, provide a better browsing experience, and supply information to the website owner.</p>
+
+        <h2>How We Use Cookies</h2>
+        <p>We use cookies for the following purposes:</p>
+
+        <h3>Strictly Necessary Cookies</h3>
+        <p>These cookies are essential for the website to function properly. They enable basic features such as page navigation and access to secure areas of the website. The website cannot function properly without these cookies.</p>
+
+        <div class="legal__table-wrap">
+          <table class="legal__table">
+            <thead>
+              <tr><th>Cookie</th><th>Purpose</th><th>Duration</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Session ID</td><td>Maintains your session while browsing</td><td>Session</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Analytics Cookies</h3>
+        <p>These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously. We use this data to improve the performance and content of our website.</p>
+
+        <div class="legal__table-wrap">
+          <table class="legal__table">
+            <thead>
+              <tr><th>Cookie</th><th>Provider</th><th>Purpose</th><th>Duration</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>_ga</td><td>Google Analytics</td><td>Distinguishes unique users by assigning a randomly generated number</td><td>2 years</td></tr>
+              <tr><td>_ga_*</td><td>Google Analytics</td><td>Maintains session state</td><td>2 years</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Functional Cookies</h3>
+        <p>These cookies allow the website to remember choices you make (such as your preferred language) and provide enhanced, more personalised features.</p>
+
+        <h3>Marketing Cookies</h3>
+        <p>We do not currently use marketing or advertising cookies on our website. Should this change in the future, we will update this policy accordingly.</p>
+
+        <h2>Third-Party Cookies</h2>
+        <p>Some cookies are placed by third-party services that appear on our pages. We do not control these third-party cookies. The third-party services we use include:</p>
+        <ul>
+          <li><strong>Google Analytics</strong> — for website usage analysis. Google's privacy policy is available at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>.</li>
+        </ul>
+
+        <h2>Managing Cookies</h2>
+        <p>Most web browsers allow you to control cookies through their settings. You can typically:</p>
+        <ul>
+          <li>View the cookies stored on your device and delete them individually or all at once.</li>
+          <li>Block third-party cookies.</li>
+          <li>Block cookies from specific websites.</li>
+          <li>Block all cookies from being set.</li>
+          <li>Delete all cookies when you close your browser.</li>
+        </ul>
+        <p>Please note that if you choose to block or delete cookies, some features of our website may not function as intended.</p>
+        <p>For more information on how to manage cookies in your specific browser, please visit your browser's help pages:</p>
+        <ul>
+          <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">Google Chrome</a></li>
+          <li><a href="https://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer" target="_blank" rel="noopener noreferrer">Mozilla Firefox</a></li>
+          <li><a href="https://support.apple.com/en-gb/guide/safari/sfri11471" target="_blank" rel="noopener noreferrer">Apple Safari</a></li>
+          <li><a href="https://support.microsoft.com/en-us/microsoft-edge/manage-cookies-in-microsoft-edge-view-allow-block-delete-and-use-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener noreferrer">Microsoft Edge</a></li>
+        </ul>
+
+        <h2>Hong Kong Legal Framework</h2>
+        <p>This Cookie Policy is governed by the Personal Data (Privacy) Ordinance (Cap. 486) of the laws of Hong Kong. While Hong Kong does not currently have specific legislation regulating the use of cookies, we are committed to handling any personal data collected through cookies in accordance with the Data Protection Principles set out in the Ordinance.</p>
+
+        <h2>Changes to This Cookie Policy</h2>
+        <p>We may update this Cookie Policy from time to time to reflect changes in technology, legislation, or our business practices. Any changes will be posted on this page with an updated effective date. We encourage you to review this policy periodically.</p>
+
+        <h2>Contact Us</h2>
+        <p>If you have any questions about our use of cookies, please contact us through our <a href="/contact">contact form</a>.</p>
+
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .legal {
+    padding-block: var(--sp-24) var(--sp-16);
+  }
+  .legal__updated {
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin-bottom: var(--sp-4);
+  }
+  .legal__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--sp-10);
+  }
+  .legal h2 {
+    font-size: var(--fs-xl);
+    font-weight: 600;
+    color: var(--text);
+    margin-top: var(--sp-10);
+    margin-bottom: var(--sp-4);
+  }
+  .legal h3 {
+    font-size: var(--fs-md);
+    font-weight: 600;
+    color: var(--text);
+    margin-top: var(--sp-6);
+    margin-bottom: var(--sp-3);
+  }
+  .legal p {
+    font-size: var(--fs-base);
+    color: var(--text-2);
+    line-height: 1.75;
+    margin-bottom: var(--sp-4);
+  }
+  .legal ul {
+    list-style: disc;
+    padding-left: var(--sp-6);
+    margin-bottom: var(--sp-4);
+  }
+  .legal li {
+    font-size: var(--fs-base);
+    color: var(--text-2);
+    line-height: 1.75;
+    margin-bottom: var(--sp-2);
+  }
+  .legal a {
+    color: var(--blue);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .legal a:hover {
+    color: var(--mid-blue);
+  }
+
+  /* Cookie tables */
+  .legal__table-wrap {
+    overflow-x: auto;
+    margin-bottom: var(--sp-6);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+  }
+  .legal__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--fs-sm);
+  }
+  .legal__table th {
+    text-align: left;
+    padding: var(--sp-3) var(--sp-4);
+    background: var(--off-white);
+    color: var(--text);
+    font-weight: 600;
+    font-size: var(--fs-xs);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+  }
+  .legal__table td {
+    padding: var(--sp-3) var(--sp-4);
+    color: var(--text-2);
+    border-bottom: 1px solid var(--border);
+  }
+  .legal__table tr:last-child td {
+    border-bottom: none;
+  }
+</style>

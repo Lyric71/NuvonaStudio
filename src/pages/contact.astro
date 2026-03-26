@@ -83,10 +83,6 @@ import Footer from '../components/Footer.astro';
               </div>
               <div class="hero-visual-card__dot"></div>
             </div>
-            <div class="hero-visual-stat">
-              <span class="hero-visual-stat__num">B2B</span>
-              <span class="hero-visual-stat__label">Worldwide</span>
-            </div>
           </div>
 
         </div>
@@ -480,31 +476,6 @@ import Footer from '../components/Footer.astro';
     50%       { box-shadow: 0 0 0 6px rgba(34,197,94,0.10); }
   }
 
-  .hero-visual-stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2px;
-    background: rgba(0,168,220,0.10);
-    border: 1px solid rgba(0,168,220,0.22);
-    border-radius: var(--r-lg);
-    padding: var(--sp-4) var(--sp-8);
-    width: 100%;
-  }
-  .hero-visual-stat__num {
-    font-family: var(--font-display);
-    font-size: var(--fs-2xl);
-    font-weight: 700;
-    color: var(--cyan);
-    letter-spacing: -0.02em;
-  }
-  .hero-visual-stat__label {
-    font-size: var(--fs-xs);
-    color: rgba(255,255,255,0.45);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
 
   /* Bottom fade from navy to off-white */
   .hero-fade-bottom {
@@ -682,7 +653,7 @@ import Footer from '../components/Footer.astro';
   .contact-sidebar {
     display: flex;
     flex-direction: column;
-    gap: var(--sp-5);
+    gap: var(--sp-6);
     position: sticky;
     top: 96px;
   }
@@ -691,7 +662,7 @@ import Footer from '../components/Footer.astro';
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: var(--r-2xl);
-    padding: var(--sp-7) var(--sp-8);
+    padding: var(--sp-6);
     box-shadow: var(--shadow-sm);
   }
 
@@ -702,7 +673,7 @@ import Footer from '../components/Footer.astro';
     color: var(--deep-navy);
     letter-spacing: 0.02em;
     text-transform: uppercase;
-    margin-bottom: var(--sp-6);
+    margin-bottom: var(--sp-5);
     opacity: 0.55;
   }
 
@@ -730,7 +701,7 @@ import Footer from '../components/Footer.astro';
     background: var(--border);
   }
 
-  .step-item + .step-item { margin-top: var(--sp-5); }
+  .step-item + .step-item { margin-top: var(--sp-4); }
 
   .step-item__number {
     flex-shrink: 0;
@@ -769,7 +740,7 @@ import Footer from '../components/Footer.astro';
   .trust-list {
     display: flex;
     flex-direction: column;
-    gap: var(--sp-4);
+    gap: var(--sp-3);
   }
 
   .trust-item {

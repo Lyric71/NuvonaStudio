@@ -1,10 +1,8 @@
 ---
 const servicesLinks = [
   { label: 'Content',            href: '/services/content' },
-  { label: 'Advertising',        href: '/services#advertising' },
-  { label: 'Personal Branding',  href: '/services#personal-branding' },
-  { label: 'Employee Advocacy',  href: '/services#employee-advocacy' },
-  { label: 'Training',           href: '/services#training' },
+  { label: 'Advertising',        href: '/services/advertising' },
+  { label: 'Consulting',          href: '/services/consulting' },
 ];
 
 const companyLinks = [
@@ -13,13 +11,6 @@ const companyLinks = [
   { label: 'Insights', href: '/insights' },
   { label: 'Pricing',  href: '/pricing' },
   { label: 'Contact',  href: '/contact' },
-];
-
-const trainingLinks = [
-  { label: 'LinkedIn Fundamentals',    href: '/training/linkedin-fundamentals' },
-  { label: 'Content Masterclass',      href: '/training/content-masterclass' },
-  { label: 'LinkedIn Ads Deep Dive',   href: '/training/linkedin-ads' },
-  { label: 'Executive Personal Brand', href: '/training/executive-personal-brand' },
 ];
 
 const legalLinks = [
@@ -71,16 +62,6 @@ const year = new Date().getFullYear();
         </ul>
       </nav>
 
-      <!-- Training -->
-      <nav class="footer__col" aria-label="Training">
-        <p class="footer__col-label">Training</p>
-        <ul role="list" class="footer__links">
-          {trainingLinks.map(l => (
-            <li><a href={l.href} class="footer__link">{l.label}</a></li>
-          ))}
-        </ul>
-        <a href="/training" class="footer__see-all">View all workshops →</a>
-      </nav>
 
     </div>
 
@@ -104,7 +85,7 @@ const year = new Date().getFullYear();
 
   .footer__main {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr;
     gap: var(--sp-10);
     align-items: start;
     padding-bottom: var(--sp-12);

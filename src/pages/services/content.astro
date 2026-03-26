@@ -2,337 +2,414 @@
 import Layout from '../../layouts/Layout.astro';
 import NavBar from '../../components/NavBar.astro';
 import Footer from '../../components/Footer.astro';
-import ContactCTA from '../../components/ContactCTA.astro';
+import FAQ from '../../components/FAQ.astro';
+
+/* ── Data ───────────────────────────────────────────────── */
+
+const overviewCards = [
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="7" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.6"/><line x1="9" y1="12" x2="15" y2="12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="9" y1="16" x2="13" y2="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
+    title: 'Company Page Management',
+    text: 'Your global first impression, built and managed end to end.',
+    href: '#svc-company-page',
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
+    title: 'Content Production & Editorial',
+    text: 'Every format, every week, every market. Content that earns authority.',
+    href: '#svc-content-production',
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M2 7l10 7 10-7" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
+    title: 'LinkedIn Newsletter',
+    text: 'A direct relationship with the professionals who matter most to your business.',
+    href: '#svc-newsletter',
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="1.6"/><rect x="7" y="14" width="3" height="3" rx="0.5" fill="currentColor" opacity="0.7"/></svg>`,
+    title: 'LinkedIn Events',
+    text: 'The highest-engagement format on LinkedIn, executed without the risk.',
+    href: '#svc-events',
+  },
+];
+
+const whatWeDo = [
+  { title: 'We run your entire content operation.', body: 'Strategy, editorial calendar, production, publishing, reporting. You approve. We do the rest. Your team stays focused on their actual job.', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/></svg>` },
+  { title: 'We write in your voice, not ours.', body: 'Every brand sounds different. We learn how your team talks, what your market cares about, and who you are trying to reach. Then we write content your audience trusts because it sounds like it came from you.', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>` },
+  { title: 'We produce content in every language your buyers speak.', body: 'Not translated. Written natively. If your buyers read in German, Mandarin, Spanish, or Portuguese, we write for that audience from scratch.', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 9h17M3.5 15h17" stroke="currentColor" stroke-width="1.6"/><ellipse cx="12" cy="12" rx="4" ry="9" stroke="currentColor" stroke-width="1.6"/></svg>` },
+  { title: 'We use AI to move faster without cutting corners.', body: 'AI accelerates research, drafting, multilingual production, visuals, and video editing. Our editorial team reviews everything. You approve everything. The result: more content, produced faster, at a lower cost per piece. Quality stays the same because humans make the final call.', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.09 6.26L20 10l-5.91 1.74L12 18l-2.09-6.26L4 10l5.91-1.74L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>` },
+  { title: 'We report on what matters to your business.', body: 'Monthly reporting tied to your commercial goals. What happened, why it happened, what we change next. No dashboards full of numbers that mean nothing to your sales team.', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7 17V13M12 17V9M17 17V7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>` },
+];
+
+const whyBlocks = [
+  { title: 'LinkedIn is the only thing we do.', body: 'We are not a digital agency that offers LinkedIn as one of fifteen channels. This is all we do. Every workflow, every editorial process, and every performance benchmark we use was built for LinkedIn and nothing else.' },
+  { title: 'Multilingual from day one.', body: 'Most agencies translate English content and call it localized. We write natively in each language. Your German content reads like it was written by someone who thinks in German. Because it was.' },
+  { title: 'AI-powered production, editorial standards.', body: 'We use AI-generated content tools across the full workflow. Research, first drafts, visuals, video clips. But every output goes through our editorial team before you see it. AI gives us speed. The team gives you the quality your brand needs.' },
+  { title: 'You own everything.', body: 'Content, subscriber lists, registrant data, creative assets. All yours. If you leave tomorrow, it all comes with you. No hostage situations.' },
+];
 
 const services = [
   {
-    id: 'company-page',
+    id: 'svc-company-page',
     title: 'Company Page Management',
-    h2: 'Your LinkedIn page is your global first impression.',
-    sub: 'We make sure it earns the meeting.',
-    items: [
-      { title: 'Audit and Rebuild', body: 'We fix the foundation first. Banner, About section, featured content, specialty tags.' },
-      { title: 'Monthly Content Management', body: "Consistent, strategic, on schedule. Calibrated to LinkedIn's algorithm and your commercial priorities." },
-      { title: 'All LinkedIn Formats', body: 'Text posts, carousels, videos, documents, polls. Every format chosen for impact, not convenience.' },
-      { title: 'Follower Growth', body: 'Employee amplification, targeted campaigns, content built to travel.' },
-      { title: 'Monthly Reporting', body: 'What happened, why it happened, what we do next.' },
+    short: 'Your global first impression, built and managed end to end.',
+    details: [
+      'Audit and rebuild (banner, About section, featured content, specialty tags)',
+      "Monthly content management, calibrated to LinkedIn's algorithm and your commercial priorities",
+      'All LinkedIn formats: text posts, carousels, videos, documents, polls',
+      'Follower growth through employee amplification, targeted campaigns, and content built to travel',
+      'Monthly reporting: what happened, why it happened, what we do next',
     ],
     trust: 'AI-powered. Human-led. Speed from AI. Quality from our team.',
-    note: 'Nothing goes live without your approval. Everything we build belongs to you.',
-    image: '/images/placeholder-company-page.jpg',
-    imageAlt: 'Company page management visual placeholder',
+    footnote: 'Nothing goes live without your approval. Everything we build belongs to you.',
     stat: null,
+    image: '/images/placeholder-company-page.jpg',
+    imageAlt: 'Company page management dashboard',
   },
   {
-    id: 'content-production',
+    id: 'svc-content-production',
     title: 'Content Production & Editorial',
-    h2: 'Content is how B2B companies earn trust at scale.',
-    sub: 'Every format. Every week. Every market.',
-    items: [
-      { title: 'Every LinkedIn Format', body: 'Text posts, carousels, videos, native documents, polls, articles. Every format chosen strategically, not by default.' },
-      { title: 'Executive Ghostwriting', body: 'Your leaders have the expertise. We give it a voice.' },
-      { title: 'Multilingual Content', body: 'Written natively in each language. Not translated.' },
-      { title: 'Editorial Calendar', body: 'Planned a month ahead. Drafted, reviewed, approved, published on schedule.' },
+    short: 'Every format, every week, every market.',
+    details: [
+      'Every LinkedIn format chosen strategically, not by default',
+      'Executive ghostwriting: your leaders have the expertise, we give it a voice',
+      'Multilingual content written natively in each language',
+      'Editorial calendar planned a month ahead: drafted, reviewed, approved, published on schedule',
     ],
     trust: 'AI accelerates research, drafting, and multilingual production. Our editorial team ensures every output meets the standard your brand requires.',
-    note: 'You approve every piece. If it is not right, we rewrite it. No exceptions.',
-    image: '/images/placeholder-content-production.jpg',
-    imageAlt: 'Content production and editorial visual placeholder',
+    footnote: 'You approve every piece. If it is not right, we rewrite it. No exceptions.',
     stat: null,
+    image: '/images/placeholder-content-production.jpg',
+    imageAlt: 'Content production workflow',
   },
   {
-    id: 'newsletter',
+    id: 'svc-newsletter',
     title: 'LinkedIn Newsletter',
-    h2: 'The algorithm controls your reach. Your newsletter subscribers chose you.',
-    sub: 'Build the audience asset that outlasts any campaign.',
-    items: [
-      { title: 'Editorial Concept', body: 'We define what your newsletter stands for, who it serves, and why people subscribe and stay subscribed.' },
-      { title: 'End-to-End Production', body: 'Research, writing, editing, subject line, calls to action. Every edition, on time.' },
-      { title: 'Subscriber Growth', body: 'Organic and paid acquisition across your Company Page, leadership profiles, and targeted campaigns.' },
-      { title: 'Performance Tracking', body: 'Open rates, click-throughs, subscriber growth. Clear commentary after every edition.' },
+    short: 'A direct line to the professionals who matter most to your business.',
+    details: [
+      'Editorial concept: what your newsletter stands for, who it serves, why people stay subscribed',
+      'End-to-end production: research, writing, editing, subject line, calls to action',
+      'Subscriber growth: organic and paid acquisition across your Company Page, leadership profiles, and targeted campaigns',
+      'Performance tracking: open rates, click-throughs, subscriber growth, clear commentary after every edition',
     ],
     trust: 'AI accelerates topic research, audience analysis, and multilingual drafting. The voice and the final copy are always human.',
-    note: 'Your subscriber list belongs to you entirely. Always.',
-    image: '/images/placeholder-newsletter.jpg',
-    imageAlt: 'LinkedIn newsletter visual placeholder',
+    footnote: 'Your subscriber list belongs to you entirely. Always.',
     stat: null,
+    image: '/images/placeholder-newsletter.jpg',
+    imageAlt: 'LinkedIn newsletter design',
   },
   {
-    id: 'events',
+    id: 'svc-events',
     title: 'LinkedIn Events',
-    h2: 'Your audience scrolls past posts. They show up for events.',
-    sub: 'Every registration is a named lead. We make sure you use it.',
-    items: [
-      { title: 'Concept & Positioning', body: 'A sharp, specific angle for a clearly defined audience. Built to fill seats.' },
-      { title: 'Promotion Campaign', body: 'Multi-touchpoint campaign starting four weeks out. Organic, outreach, and paid.' },
-      { title: 'Speaker Preparation', body: 'Every participant briefed, prepared, and technically checked before the day.' },
-      { title: 'Live Management', body: 'We run the session. You focus on the content.' },
-      { title: 'Post-Event Content', body: 'Recording, clips, written summary, social posts. One event becomes weeks of content.' },
-      { title: 'Follow-Up Playbook', body: 'Registrant data plus a clear action plan for your commercial team.' },
+    short: 'The highest-engagement format on LinkedIn. Every registration is a named lead.',
+    details: [
+      'Concept and positioning: sharp angle, clearly defined audience, built to fill seats',
+      'Promotion campaign: multi-touchpoint, starting four weeks out, organic and paid',
+      'Speaker preparation: every participant briefed, prepared, and technically checked',
+      'Live management: we run the session, you focus on the content',
+      'Post-event content: recording, clips, written summary, social posts',
+      'Follow-up playbook: registrant data plus a clear action plan for your commercial team',
     ],
     trust: 'AI processes recordings, generates clips, and repurposes key moments across every LinkedIn format available.',
-    note: 'All assets and registrant data belong to you. If the concept will not drive registration, we say so in week one.',
-    image: '/images/placeholder-events.jpg',
-    imageAlt: 'LinkedIn events visual placeholder',
+    footnote: 'All assets and registrant data belong to you. If the concept will not drive registration, we say so in week one.',
     stat: '100% Registrant Data Ownership',
+    image: '/images/placeholder-events.jpg',
+    imageAlt: 'LinkedIn event promotion visual',
   },
 ];
 
-// Icon paths: company page, content/editorial, newsletter, events
-const cardIcons = [
-  // Building / company page
-  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <rect x="3" y="7" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/>
-    <path d="M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.6"/>
-    <line x1="9" y1="12" x2="15" y2="12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-    <line x1="9" y1="16" x2="13" y2="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-  </svg>`,
-  // Pen / editorial
-  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <path d="M12 20h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-  </svg>`,
-  // Envelope / newsletter
-  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/>
-    <path d="M2 7l10 7 10-7" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-  </svg>`,
-  // Calendar / events
-  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/>
-    <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-    <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-    <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="1.6"/>
-    <rect x="7" y="14" width="3" height="3" rx="0.5" fill="currentColor" opacity="0.7"/>
-  </svg>`,
+const cardIcons = overviewCards.map(c => c.icon);
+
+const stats = [
+  { value: '80%', label: 'of all B2B social media leads come from LinkedIn.', context: 'No other platform is close.', source: 'LinkedIn Marketing Solutions / Cognism' },
+  { value: '7x', label: 'faster follower growth for pages that post weekly.', context: 'Consistency is the single biggest driver of reach.', source: 'LinkedIn' },
+  { value: '5x', label: 'more engagement for video content vs. static posts.', context: 'Format selection matters as much as what you write.', source: 'LinkedIn' },
+  { value: '59%', label: 'of B2B decision-makers say thought leadership is the most trustworthy way to judge a company.', context: 'More trusted than any other marketing material.', source: 'LinkedIn / Edelman' },
+  { value: '4 out of 5', label: 'LinkedIn members are involved in business decisions.', context: 'Your content reaches people who can actually buy.', source: 'LinkedIn' },
+  { value: '2x', label: 'higher conversion rates on LinkedIn vs. other social platforms.', context: 'The audience is already in a work mindset.', source: 'LinkedIn Marketing Solutions' },
+  { value: '277%', label: 'more effective at lead generation than Facebook and X combined.', context: 'LinkedIn is not competing. It is in a different category.', source: 'HubSpot' },
+  { value: '46%', label: 'of all social media traffic to B2B websites comes from LinkedIn.', context: 'Content does not just build brand. It drives site visits.', source: 'LinkedIn' },
+  { value: '28%', label: 'lower cost per lead on LinkedIn vs. Google Ads.', context: 'Organic content reduces that cost even further.', source: 'HubSpot' },
+  { value: '61%', label: 'higher likelihood of paid conversion after organic engagement.', context: 'Companies that run content alongside ads get more from both.', source: 'LinkedIn internal research' },
 ];
 
-const cards = [
-  { title: 'Company Page Management', desc: 'Your global first impression, built and managed end to end.', href: '#company-page' },
-  { title: 'Content Production & Editorial', desc: 'Every format, every week, every market. Content that earns authority.', href: '#content-production' },
-  { title: 'LinkedIn Newsletter', desc: 'A direct relationship with the professionals who matter most to your business.', href: '#newsletter' },
-  { title: 'LinkedIn Events', desc: 'The highest-engagement format on LinkedIn, executed without the risk.', href: '#events' },
+const faqs = [
+  { q: 'What does the first month look like?', a: 'We start with an audit of your current LinkedIn presence. Company page, executive profiles, content history, follower base. From there, we build your editorial strategy, get your approval on the first month of content, and start publishing. Most clients are live within two to three weeks.' },
+  { q: 'How long are your contracts?', a: 'We work on a rolling monthly basis after an initial three-month commitment. The first three months give enough time to build momentum and measure results. After that, you stay because it is working, not because you are locked in.' },
+  { q: 'How do you use AI to produce content, visuals, and videos?', a: 'We use AI-generated content tools across the full production workflow. AI accelerates research, drafting, multilingual writing, image creation, and video editing. It means we produce more content, faster, at a lower cost. Without sacrificing quality. Our editorial team reviews every piece. Our designers check every visual. Nothing goes live without a human sign-off and your approval. AI gives us speed. Our team gives you the standard your brand requires.' },
+  { q: 'What if I do not like the content you produce?', a: 'We rewrite it. No arguments, no extra charges. You approve every piece before it goes live. We would rather redo a post three times than publish something that misses the mark.' },
+  { q: 'Do I need all four services, or can I start with one?', a: 'Start with one. Add more when you are ready.' },
+  { q: 'How much input does my team need to give each week?', a: 'We plan content a month ahead. Your team reviews and approves. That typically takes 20 to 30 minutes a week. Some clients do it over coffee on Monday morning.' },
+  { q: 'Can you work with our existing brand guidelines?', a: 'Yes. We follow your brand guidelines, tone of voice, visual identity, and approval processes. If you have templates, terminology rules, or compliance requirements, we work within them.' },
+  { q: 'What does your reporting cover?', a: 'Monthly reports tied to your commercial goals. Follower growth, engagement, content performance, lead indicators. We tell you what worked, what did not, and what we are changing. No padding. No vanity metrics.' },
+  { q: 'How long before I see results?', a: 'Most clients see increases in profile views, follower growth, and engagement within 60 days. Lead generation builds over 90 days as content compounds and your audience grows. We do not promise overnight results. LinkedIn rewards consistency over time.' },
+  { q: 'What happens if I want to stop?', a: 'After the initial three months, you can stop with 30 days notice. The content, the subscribers, the assets. They are yours. You walk away with everything we built.' },
 ];
 ---
 
 <Layout
-  title="LinkedIn Content Services — Nuvora Studio"
-  description="Four LinkedIn content services for B2B companies. Company page management, content production, newsletter, and events — all managed end to end by specialists."
-  abstract="Four LinkedIn content services. One goal: a LinkedIn presence that works as hard as your team does."
+  title="LinkedIn Content Services | Get More B2B Leads"
+  description="We produce every piece of LinkedIn content your brand needs. Strategy, production, publishing, reporting. Built for B2B. Built to generate leads."
+  abstract="We run your LinkedIn content operation end to end. Strategy, production, publishing, reporting. Four services, one goal: more leads from LinkedIn."
 >
   <NavBar />
   <main id="main-content">
 
     <!-- ── Hero ─────────────────────────────────────────────── -->
-    <section class="content-hero" aria-labelledby="content-heading">
+    <section class="c-hero" aria-labelledby="hero-h">
+      <div class="c-hero__orb c-hero__orb--1" aria-hidden="true"></div>
+      <div class="c-hero__orb c-hero__orb--2" aria-hidden="true"></div>
       <div class="container">
-        <div class="content-hero__inner">
+        <div class="c-hero__inner">
 
-          <div class="content-hero__text">
-            <p class="eyebrow eyebrow--light reveal">Services / Content</p>
-            <h1 id="content-heading" class="content-hero__h1 reveal reveal-delay-1">
-              LinkedIn Content Services
+          <div class="c-hero__text">
+            <p class="eyebrow eyebrow--light reveal">LinkedIn Content Services</p>
+            <h1 id="hero-h" class="c-hero__h1 reveal reveal-delay-1">
+              LinkedIn content that earns attention and generates <span class="text-gradient">leads.</span>
             </h1>
-            <p class="content-hero__sub reveal reveal-delay-2">
-              Four services. One goal. A LinkedIn presence that works as hard as your team does.
+            <p class="c-hero__sub reveal reveal-delay-2">
+              We produce every piece of content your LinkedIn presence needs. Strategy, production, publishing, reporting. All handled.
             </p>
-            <div class="content-hero__actions reveal reveal-delay-3">
-              <a href="/contact?intent=call" class="btn btn--primary btn--lg">Book a call</a>
+            <div class="c-hero__actions reveal reveal-delay-3">
+              <a href="/contact" class="btn btn--primary btn--lg">Book a call</a>
             </div>
           </div>
 
-          <!-- Service cards grid -->
-          <div class="content-hero__cards reveal reveal-delay-2">
-            {cards.map((card, i) => (
-              <a href={card.href} class="hero-card">
-                <span class="hero-card__icon" aria-hidden="true" set:html={cardIcons[i]} />
-                <strong class="hero-card__title">{card.title}</strong>
-                <p class="hero-card__desc">{card.desc}</p>
-              </a>
-            ))}
+          <div class="c-hero__visual reveal reveal-delay-2">
+            <div class="c-hero__img-wrap">
+              <img src="/images/placeholder-content-hero.jpg" alt="LinkedIn content strategy dashboard" class="c-hero__img" width="600" height="400" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="c-hero__img-ph" aria-hidden="true">
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                  <rect width="64" height="64" rx="12" fill="rgba(0,168,220,0.12)"/>
+                  <path d="M20 44l10-14 8 10 6-8 10 12H20z" fill="rgba(0,168,220,0.2)"/>
+                  <circle cx="44" cy="24" r="5" fill="rgba(0,168,220,0.25)"/>
+                </svg>
+                <span>Visual coming soon</span>
+              </div>
+            </div>
+            <!-- Floating badges -->
+            <div class="c-hero-badge c-hero-badge--1 reveal reveal-delay-3">
+              <span class="c-hero-badge__num">80%</span>
+              <span class="c-hero-badge__label">B2B leads from LinkedIn</span>
+            </div>
+            <div class="c-hero-badge c-hero-badge--2 reveal reveal-delay-4">
+              <span class="c-hero-badge__num">4 services</span>
+              <span class="c-hero-badge__label">End-to-end</span>
+            </div>
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- ── Service Sections ──────────────────────────────────── -->
-    {services.map((svc, i) => (
-      <section
-        class={`section svc-section${i % 2 === 1 ? ' svc-section--alt' : ''}`}
-        id={svc.id}
-        aria-labelledby={`svc-${svc.id}`}
-      >
-        <div class="container">
-          <div class="svc-layout">
 
-            <!-- Text side -->
-            <div class="svc-text">
-              <span class="svc-icon" aria-hidden="true" set:html={cardIcons[i]} />
-              <h2 id={`svc-${svc.id}`} class="svc-h2 reveal">{svc.h2}</h2>
-              <p class="svc-sub reveal">{svc.sub}</p>
+    <!-- ── Service Overview Cards ──────────────────────────── -->
+    <section class="section c-overview" aria-label="Service overview">
+      <div class="container">
+        <div class="c-ov__grid">
+          {overviewCards.map((card, i) => (
+            <a href={card.href} class={`c-ov-card reveal${i > 0 ? ` reveal-delay-${Math.min(i, 3)}` : ''}`}>
+              <div class="c-ov-card__top">
+                <span class="c-ov-card__icon" set:html={card.icon} />
+                <span class="c-ov-card__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              </div>
+              <strong class="c-ov-card__title">{card.title}</strong>
+              <p class="c-ov-card__text">{card.text}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
 
-              <ul class="svc-items" role="list">
-                {svc.items.map(item => (
-                  <li class="svc-item reveal">
-                    <svg class="svc-item__icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-                      <circle cx="9" cy="9" r="9" fill="var(--blue)" opacity="0.12"/>
-                      <path d="M5.5 9l2.5 2.5L12.5 6.5" stroke="var(--blue)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <div>
-                      <strong class="svc-item__title">{item.title}</strong>
-                      <p class="svc-item__body">{item.body}</p>
-                    </div>
+
+    <!-- ── What We Do ──────────────────────────────────────── -->
+    <section class="section c-wwd" aria-labelledby="wwd-h">
+      <div class="container">
+        <div class="c-wwd__head reveal">
+          <p class="eyebrow">What We Do</p>
+          <h2 id="wwd-h" class="c-wwd__h2">We turn your LinkedIn presence into a lead generation channel.</h2>
+          <p class="c-wwd__intro">Your team has the expertise. Your company has the story. But expertise sitting inside your building does not fill your pipeline.</p>
+          <p class="c-wwd__intro">We take what makes your brand credible and turn it into a content operation that runs every week on LinkedIn. Posts, articles, newsletters, events. All built to reach the people who buy what you sell.</p>
+        </div>
+
+        <div class="c-wwd__grid">
+          {whatWeDo.map((item, i) => (
+            <div class={`c-wwd-card reveal${i > 0 ? ` reveal-delay-${Math.min(i, 3)}` : ''}`}>
+              <div class="c-wwd-card__top">
+                <span class="c-wwd-card__icon" aria-hidden="true" set:html={item.icon} />
+                <span class="c-wwd-card__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              </div>
+              <strong class="c-wwd-card__title">{item.title}</strong>
+              <p class="c-wwd-card__body">{item.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── Why Brands Work With Us ─────────────────────────── -->
+    <section class="section c-why" aria-labelledby="why-h">
+      <div class="c-why__bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="c-why__head reveal">
+          <p class="eyebrow eyebrow--light">Why Us</p>
+          <h2 id="why-h" class="c-why__h2">Built for B2B. Built for global.</h2>
+        </div>
+
+        <div class="c-why__layout">
+          <!-- Left: visual column -->
+          <div class="c-why__visual reveal">
+            <div class="c-why__photo-wrap">
+              <img src="/images/placeholder-team.jpg" alt="Nuvora Studio team" class="c-why__photo" width="480" height="560" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="c-why__photo-ph" aria-hidden="true">
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                  <circle cx="32" cy="22" r="12" fill="rgba(0,168,220,0.2)"/>
+                  <ellipse cx="32" cy="52" rx="20" ry="12" fill="rgba(0,168,220,0.15)"/>
+                </svg>
+                <span>Visual coming soon</span>
+              </div>
+            </div>
+            <div class="c-why__trust-row">
+              <div class="c-why__trust-item">
+                <span class="c-why__trust-num">100%</span>
+                <span class="c-why__trust-label">LinkedIn-focused</span>
+              </div>
+              <div class="c-why__trust-divider"></div>
+              <div class="c-why__trust-item">
+                <span class="c-why__trust-num">B2B</span>
+                <span class="c-why__trust-label">Only</span>
+              </div>
+              <div class="c-why__trust-divider"></div>
+              <div class="c-why__trust-item">
+                <span class="c-why__trust-num">Global</span>
+                <span class="c-why__trust-label">Multilingual</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: differentiator cards -->
+          <div class="c-why__cards">
+            {whyBlocks.map((b, i) => (
+              <div class={`c-why-card reveal${i > 0 ? ` reveal-delay-${Math.min(i, 3)}` : ''}`}>
+                <div class="c-why-card__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</div>
+                <div class="c-why-card__content">
+                  <strong class="c-why-card__title">{b.title}</strong>
+                  <p class="c-why-card__body">{b.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── Our LinkedIn Content Services ───────────────────── -->
+    <section class="section c-svc" aria-labelledby="svc-h">
+      <div class="container">
+        <div class="c-svc__head reveal">
+          <p class="eyebrow">Our Services</p>
+          <h2 id="svc-h" class="c-svc__h2">Four services. One goal. More leads from LinkedIn.</h2>
+          <p class="c-svc__intro">Each service works on its own. Together, they turn your LinkedIn presence into a lead generation system your sales team can rely on.</p>
+        </div>
+
+        {services.map((s, i) => (
+          <div class={`c-svc-block${i % 2 === 1 ? ' c-svc-block--flip' : ''} reveal`} id={s.id}>
+            <div class="c-svc-block__text">
+              <div class="c-svc-block__label">
+                <span class="c-svc-block__icon" set:html={cardIcons[i]} />
+                <span class="c-svc-block__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              </div>
+              <h3 class="c-svc-block__title">{s.title}</h3>
+              <p class="c-svc-block__short">{s.short}</p>
+
+              <ul class="c-svc-block__details" role="list">
+                {s.details.map(d => (
+                  <li>
+                    <svg class="c-svc-check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="var(--blue)" opacity="0.10"/><path d="M5 8l2.2 2.2L11.4 6" stroke="var(--blue)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>{d}</span>
                   </li>
                 ))}
               </ul>
 
-              <div class="svc-trust reveal">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" class="svc-trust__icon">
-                  <path d="M8 1L10.09 5.26L15 6L11.5 9.38L12.18 14.28L8 12.1L3.82 14.28L4.5 9.38L1 6L5.91 5.26L8 1Z" fill="var(--cyan)" opacity="0.85"/>
-                </svg>
-                <p class="svc-trust__text">{svc.trust}</p>
+              <div class="c-svc-block__trust">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1l1.76 3.58L13 5.24l-3 2.88.72 4.12L7 10.36 3.28 12.24 4 8.12 1 5.24l4.24-.66L7 1z" fill="var(--cyan)" opacity="0.85"/></svg>
+                <p>{s.trust}</p>
               </div>
+              <p class="c-svc-block__footnote"><em>{s.footnote}</em></p>
 
-              <p class="svc-note reveal"><em>{svc.note}</em></p>
-
-              {svc.stat && (
-                <div class="svc-stat reveal">
-                  <span class="svc-stat__value">{svc.stat}</span>
+              {s.stat && (
+                <div class="c-svc-block__stat">
+                  <span>{s.stat}</span>
                 </div>
               )}
             </div>
 
-            <!-- Visual side -->
-            <div class="svc-visual reveal">
-              <div class="svc-img-wrap">
-                <img
-                  src={svc.image}
-                  alt={svc.imageAlt}
-                  class="svc-img"
-                  width="600"
-                  height="420"
-                  loading="lazy"
-                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-                />
-                <div class="svc-img-placeholder" aria-hidden="true">
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                    <rect width="48" height="48" rx="8" fill="rgba(0,90,156,0.08)"/>
-                    <path d="M12 36l9-12 7 9 5-6 9 9H12z" fill="rgba(0,90,156,0.15)"/>
-                    <circle cx="34" cy="18" r="4" fill="rgba(0,90,156,0.18)"/>
-                  </svg>
+            <div class="c-svc-block__visual">
+              <div class="c-svc-block__img-wrap">
+                <img src={s.image} alt={s.imageAlt} class="c-svc-block__img" width="560" height="400" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="c-svc-block__img-ph" aria-hidden="true">
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="8" fill="rgba(0,90,156,0.08)"/><path d="M12 36l9-12 7 9 5-6 9 9H12z" fill="rgba(0,90,156,0.15)"/><circle cx="34" cy="18" r="4" fill="rgba(0,90,156,0.18)"/></svg>
                   <span>Visual coming soon</span>
                 </div>
               </div>
-              <div class="svc-badge">
-                <span class="svc-badge__text">{cards[i].title}</span>
-              </div>
             </div>
-
           </div>
+        ))}
+
+        <div class="c-svc__cta reveal">
+          <a href="/contact" class="btn btn--primary btn--lg">Start generating leads</a>
         </div>
-      </section>
-    ))}
-
-    <!-- ── FAQ ──────────────────────────────────────────────── -->
-    <section class="section cfaq" aria-labelledby="cfaq-heading" style="background: var(--off-white);">
-      <div class="container container--md">
-
-        <div class="cfaq__head reveal">
-          <p class="eyebrow">FAQ</p>
-          <h2 id="cfaq-heading">Everything you need<br />to know.</h2>
-        </div>
-
-        <dl class="cfaq__list reveal reveal-delay-1">
-          {[
-            {
-              q: 'Do I need all four services, or can I start with one?',
-              a: 'You can start with one. Most clients begin with Company Page Management or Content Production, then add services as their LinkedIn presence grows. Every service works on its own.',
-            },
-            {
-              q: 'How does your content generate leads?',
-              a: "We build content around your ideal buyer's problems, not your product features. The right topics attract the right audience. Consistent publishing builds trust. Trust starts conversations. Conversations become leads.",
-            },
-            {
-              q: 'How do you use AI to produce content, visuals, and videos?',
-              a: 'We use AI-generated content tools across the full production workflow. AI accelerates research, drafting, multilingual writing, image creation, and video editing. It means we produce more content, faster, at a lower cost. Without sacrificing quality. Our editorial team reviews every piece. Our designers check every visual. Nothing goes live without a human sign-off and your approval. AI gives us speed. Our team gives you the standard your brand requires.',
-            },
-            {
-              q: 'Can you write in languages other than English?',
-              a: 'Yes. We produce content natively in each language — not translated. If your audience reads in German, Spanish, Mandarin, or another language, we write for that audience directly.',
-            },
-            {
-              q: 'How much input do I need to give each week?',
-              a: 'Very little. We plan a full editorial calendar a month ahead. You review and approve. Most clients spend less than 30 minutes per week on approvals. We handle the rest.',
-            },
-            {
-              q: 'What LinkedIn formats do you work with?',
-              a: 'All of them. Text posts, carousels, videos, native documents, polls, articles, newsletters, and events. We choose the format based on what will perform best for your audience, not what is easiest to produce.',
-            },
-            {
-              q: 'How do LinkedIn Events generate leads?',
-              a: 'Every person who registers for a LinkedIn Event gives you their name, job title, and company. That is a named lead your sales team can follow up with. We also build a post-event follow-up playbook so no registration goes to waste.',
-            },
-            {
-              q: 'What does your reporting look like?',
-              a: 'Monthly. Clear. No vanity metrics. We report on what happened, why it happened, and what we do next. Every number ties back to your commercial goals.',
-            },
-            {
-              q: 'How long before I see results?',
-              a: 'Most clients see measurable increases in profile views, follower growth, and engagement within the first 60 days. Lead generation typically builds momentum over 90 days as content compounds and your audience grows.',
-            },
-            {
-              q: 'How do I get started?',
-              a: 'Book a call. We will walk through your current LinkedIn presence, identify the biggest gaps, and tell you exactly what we would do first. No pitch deck. Just a straight conversation.',
-            },
-          ].map((faq, i) => (
-            <div class="cfaq__item">
-              <dt>
-                <button
-                  class="cfaq__question"
-                  aria-expanded="false"
-                  aria-controls={`cfaq-answer-${i}`}
-                  id={`cfaq-q-${i}`}
-                >
-                  <span>{faq.q}</span>
-                  <span class="cfaq__icon" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                      <path d="M4.5 6.75l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                </button>
-              </dt>
-              <dd class="cfaq__answer" id={`cfaq-answer-${i}`} role="region" aria-labelledby={`cfaq-q-${i}`} hidden>
-                <p>{faq.a}</p>
-              </dd>
-            </div>
-          ))}
-        </dl>
-
-        <div class="cfaq__cta reveal">
-          <a href="/contact?intent=call" class="btn btn--primary btn--lg">Book a call</a>
-        </div>
-
       </div>
     </section>
 
-    <!-- ── Bottom CTA ────────────────────────────────────────── -->
-    <section class="section cta" aria-labelledby="content-cta-heading" style="background: var(--deep-navy);">
+
+    <!-- ── LinkedIn Content by the Numbers ─────────────────── -->
+    <section class="section c-stats" aria-labelledby="stats-h">
       <div class="container">
-        <div class="cta__layout">
-          <div class="cta__left reveal">
+        <div class="c-stats__head reveal">
+          <p class="eyebrow eyebrow--light">By the Numbers</p>
+          <h2 id="stats-h" class="c-stats__h2">Why professional LinkedIn content pays for itself.</h2>
+          <p class="c-stats__sub">You already know LinkedIn matters for B2B. These numbers show what happens when companies invest in doing it well.</p>
+        </div>
+
+        <div class="c-stats__grid">
+          {stats.map((s, i) => (
+            <div class={`c-stat${i === 0 ? ' c-stat--featured' : ''} reveal${i > 0 ? ` reveal-delay-${(i % 3) === 0 ? '' : i % 3}` : ''}`}>
+              <span class="c-stat__value">{s.value}</span>
+              <span class="c-stat__label">{s.label}</span>
+              <p class="c-stat__context">{s.context}</p>
+              {s.source && <p class="c-stat__source">{s.source}</p>}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+
+    <FAQ heading="Common questions about working with us." faqs={faqs} background="var(--off-white)" cta={{ text: 'Book a call', href: '/contact' }} id="content-faq" />
+
+
+    <!-- ── Bottom CTA ────────────────────────────────────────── -->
+    <section class="section c-cta" aria-labelledby="bcta-h">
+      <div class="c-cta__orb c-cta__orb--1" aria-hidden="true"></div>
+      <div class="c-cta__orb c-cta__orb--2" aria-hidden="true"></div>
+      <div class="container">
+        <div class="c-cta__layout">
+          <div class="c-cta__left reveal">
             <p class="eyebrow eyebrow--light">Start here</p>
-            <h2 id="content-cta-heading" class="cta__headline">
-              Ready to get more leads<br />
-              <em>from LinkedIn?</em>
+            <h2 id="bcta-h" class="c-cta__headline">
+              Your buyers are on LinkedIn.<br />
+              <em>Your content should be too.</em>
             </h2>
           </div>
-          <div class="cta__right reveal reveal-delay-2">
-            <p class="cta__sub">Tell us about your company. We'll show you exactly where the opportunity is.</p>
-            <div class="cta__actions">
-              <a href="/contact?intent=call" class="btn btn--primary btn--lg">Book a call</a>
+          <div class="c-cta__right reveal reveal-delay-2">
+            <p class="c-cta__sub">Book a call. We will look at your current LinkedIn presence and tell you where the leads are.</p>
+            <div class="c-cta__actions">
+              <a href="/contact" class="btn btn--primary btn--lg">Book a call</a>
             </div>
-            <p class="cta__note">30 minutes. No pitch. Straight answers.</p>
+            <p class="c-cta__note">30 minutes. No pitch. Straight answers.</p>
           </div>
         </div>
       </div>
@@ -342,214 +419,653 @@ const cards = [
   <Footer />
 </Layout>
 
+
 <style>
-  /* ── Hero ── */
-  .content-hero {
+  /* ────────────────────────────────────────────────────────────
+     HERO
+     ──────────────────────────────────────────────────────────── */
+  .c-hero {
     background: var(--deep-navy);
     padding-block: var(--sp-24) var(--sp-20);
     position: relative;
     overflow: hidden;
   }
-  .content-hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse 70% 80% at 80% 40%, rgba(0,168,220,0.10) 0%, transparent 60%);
+
+  .c-hero__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
     pointer-events: none;
   }
+  .c-hero__orb--1 {
+    width: 600px; height: 600px;
+    background: rgba(10, 102, 194, 0.18);
+    top: -200px; right: -100px;
+    animation: orbFloat 12s ease-in-out infinite;
+  }
+  .c-hero__orb--2 {
+    width: 400px; height: 400px;
+    background: rgba(0, 168, 220, 0.10);
+    bottom: -150px; left: -100px;
+    animation: orbFloat 16s ease-in-out infinite reverse;
+  }
+  @keyframes orbFloat {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(30px, -20px); }
+  }
 
-  .content-hero__inner {
+  .c-hero__inner {
     position: relative;
     z-index: 1;
-    display: flex;
-    flex-direction: column;
-    gap: var(--sp-16);
-  }
-
-  .content-hero__h1 {
-    font-family: var(--font-display);
-    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
-    font-weight: 700;
-    color: var(--white);
-    line-height: 1.12;
-    letter-spacing: -0.01em;
-    margin-block: var(--sp-5) var(--sp-6);
-  }
-
-  .content-hero__sub {
-    font-size: var(--fs-md);
-    color: rgba(255,255,255,0.68);
-    max-width: 560px;
-    line-height: 1.75;
-    margin-bottom: var(--sp-10);
-  }
-
-  .content-hero__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--sp-4);
-  }
-
-  /* Service cards grid */
-  .content-hero__cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--sp-4);
-  }
-
-  .hero-card {
-    display: flex;
-    flex-direction: column;
-    gap: var(--sp-3);
-    padding: var(--sp-6);
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.10);
-    border-radius: var(--r-xl);
-    transition: background var(--t-fast), border-color var(--t-fast);
-    text-decoration: none;
-  }
-  .hero-card:hover {
-    background: rgba(255,255,255,0.10);
-    border-color: rgba(0,168,220,0.35);
-  }
-
-  .hero-card__icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: var(--r-lg);
-    background: rgba(0,168,220,0.15);
-    color: var(--cyan);
-    flex-shrink: 0;
-  }
-  .hero-card__icon svg { display: block; }
-
-  .hero-card__title {
-    font-size: var(--fs-base);
-    font-weight: 600;
-    color: var(--white);
-    line-height: 1.3;
-  }
-
-  .hero-card__desc {
-    font-size: var(--fs-sm);
-    color: rgba(255,255,255,0.55);
-    line-height: 1.6;
-  }
-
-  /* ── Service Sections ── */
-  .svc-section { background: var(--white); }
-  .svc-section--alt { background: var(--off-white); }
-
-  .svc-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--sp-16);
     align-items: center;
   }
-  .svc-section--alt .svc-layout { direction: rtl; }
-  .svc-section--alt .svc-text,
-  .svc-section--alt .svc-visual { direction: ltr; }
 
-  .svc-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 52px;
-    height: 52px;
-    border-radius: var(--r-lg);
-    background: rgba(0,90,156,0.08);
-    color: var(--blue);
-    margin-bottom: var(--sp-5);
-    flex-shrink: 0;
-  }
-  .svc-icon svg { display: block; }
-
-  .svc-h2 {
+  .c-hero__h1 {
     font-family: var(--font-display);
-    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-size: clamp(2.25rem, 4.5vw, 3.75rem);
     font-weight: 700;
-    color: var(--text);
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    margin-bottom: var(--sp-3);
+    color: var(--white);
+    line-height: 1.10;
+    letter-spacing: -0.02em;
+    margin-block: var(--sp-5) var(--sp-6);
+  }
+  .c-hero__h1 .text-gradient {
+    background: linear-gradient(135deg, var(--cyan) 0%, #60d4f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  .svc-sub {
+  .c-hero__sub {
     font-size: var(--fs-md);
-    color: var(--text-2);
-    line-height: 1.65;
-    margin-bottom: var(--sp-8);
+    color: rgba(255, 255, 255, 0.68);
+    max-width: 520px;
+    line-height: 1.75;
+    margin-bottom: var(--sp-10);
   }
 
-  /* Service items */
-  .svc-items {
+  .c-hero__actions {
     display: flex;
-    flex-direction: column;
-    gap: var(--sp-5);
-    margin-bottom: var(--sp-8);
-  }
-
-  .svc-item {
-    display: flex;
-    align-items: flex-start;
+    flex-wrap: wrap;
     gap: var(--sp-4);
   }
 
-  .svc-item__icon { flex-shrink: 0; margin-top: 3px; }
+  /* Hero visual */
+  .c-hero__visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-  .svc-item__title {
-    display: block;
+  .c-hero__img-wrap {
+    position: relative;
+    border-radius: var(--r-2xl);
+    overflow: hidden;
+    aspect-ratio: 3/2;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  }
+
+  .c-hero__img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+
+  .c-hero__img-ph {
+    display: none;
+    position: absolute; inset: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-4);
+    background: linear-gradient(135deg, rgba(0, 24, 64, 0.8) 0%, rgba(10, 102, 194, 0.4) 100%);
+  }
+  .c-hero__img-ph span {
+    font-size: var(--fs-xs);
+    color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .c-hero__img-wrap .c-hero__img { display: none; }
+  .c-hero__img-wrap .c-hero__img-ph { display: flex; }
+
+  /* Floating stat badges */
+  .c-hero-badge {
+    position: absolute;
+    padding: var(--sp-3) var(--sp-5);
+    background: rgba(0, 24, 64, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 168, 220, 0.3);
+    border-radius: var(--r-lg);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+  }
+  .c-hero-badge--1 { bottom: -16px; left: -24px; }
+  .c-hero-badge--2 { top: 20px; right: -20px; }
+
+  .c-hero-badge__num {
+    font-family: var(--font-display);
+    font-size: var(--fs-xl);
+    font-weight: 700;
+    color: var(--cyan);
+    line-height: 1.1;
+  }
+  .c-hero-badge__label {
+    font-size: var(--fs-xs);
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+  }
+
+
+  /* ────────────────────────────────────────────────────────────
+     OVERVIEW CARDS
+     ──────────────────────────────────────────────────────────── */
+  .c-overview {
+    background: var(--off-white);
+  }
+
+  .c-ov__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-6);
+  }
+
+  .c-ov-card {
+    padding: var(--sp-8);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: border-color var(--t-base), box-shadow var(--t-base), transform var(--t-base);
+  }
+  .c-ov-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--cyan));
+    opacity: 0;
+    transition: opacity var(--t-base);
+  }
+  .c-ov-card:hover {
+    border-color: rgba(10, 102, 194, 0.25);
+    box-shadow: 0 12px 40px rgba(0, 24, 64, 0.08);
+    transform: translateY(-4px);
+  }
+  .c-ov-card:hover::before {
+    opacity: 1;
+  }
+
+  .c-ov-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--sp-2);
+  }
+
+  .c-ov-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px; height: 48px;
+    border-radius: var(--r-lg);
+    background: linear-gradient(135deg, rgba(10, 102, 194, 0.10), rgba(0, 168, 220, 0.08));
+    color: var(--blue);
+    flex-shrink: 0;
+  }
+  .c-ov-card__icon svg { display: block; }
+
+  .c-ov-card__num {
+    font-family: var(--font-display);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--text-3);
+    letter-spacing: -0.02em;
+  }
+
+  .c-ov-card__title {
     font-size: var(--fs-base);
     font-weight: 600;
     color: var(--text);
-    margin-bottom: var(--sp-1);
+    line-height: 1.3;
   }
 
-  .svc-item__body {
+  .c-ov-card__text {
     font-size: var(--fs-sm);
     color: var(--text-2);
     line-height: 1.65;
   }
 
-  /* Trust line */
-  .svc-trust {
+
+  /* ────────────────────────────────────────────────────────────
+     WHAT WE DO
+     ──────────────────────────────────────────────────────────── */
+  .c-wwd {
+    background: var(--white);
+  }
+
+  .c-wwd__head {
+    margin-bottom: var(--sp-12);
+    max-width: 720px;
+  }
+
+  .c-wwd__h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-block: var(--sp-4) var(--sp-5);
+  }
+
+  .c-wwd__intro {
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    line-height: 1.75;
+    margin-bottom: var(--sp-3);
+  }
+
+  .c-wwd__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-6);
+  }
+
+  .c-wwd-card {
+    padding: var(--sp-8);
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    position: relative;
+    overflow: hidden;
+    transition: border-color var(--t-base), box-shadow var(--t-base), transform var(--t-base);
+  }
+  .c-wwd-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--cyan));
+    opacity: 0;
+    transition: opacity var(--t-base);
+  }
+  .c-wwd-card:hover {
+    border-color: rgba(10, 102, 194, 0.25);
+    box-shadow: 0 12px 40px rgba(0, 24, 64, 0.08);
+    transform: translateY(-4px);
+  }
+  .c-wwd-card:hover::before { opacity: 1; }
+
+  .c-wwd-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--sp-2);
+  }
+
+  .c-wwd-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px; height: 48px;
+    border-radius: var(--r-lg);
+    background: linear-gradient(135deg, rgba(10, 102, 194, 0.10), rgba(0, 168, 220, 0.08));
+    color: var(--blue);
+  }
+  .c-wwd-card__icon svg { display: block; }
+
+  .c-wwd-card__num {
+    font-family: var(--font-display);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--text-3);
+    letter-spacing: -0.02em;
+  }
+
+  .c-wwd-card__title {
+    font-size: var(--fs-base);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  .c-wwd-card__body {
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.65;
+  }
+
+
+  /* ────────────────────────────────────────────────────────────
+     WHY BRANDS WORK WITH US
+     ──────────────────────────────────────────────────────────── */
+  .c-why {
+    background: var(--deep-navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .c-why__bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 50% 60% at 90% 20%, rgba(0, 168, 220, 0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 50% at 10% 80%, rgba(10, 102, 194, 0.10) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .c-why__head {
+    position: relative; z-index: 1;
+    margin-bottom: var(--sp-12);
+  }
+
+  .c-why__h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-top: var(--sp-4);
+  }
+
+  .c-why__layout {
+    position: relative; z-index: 1;
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: var(--sp-12);
+    align-items: start;
+  }
+
+  /* Visual column */
+  .c-why__visual {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-6);
+    position: sticky;
+    top: 100px;
+  }
+
+  .c-why__photo-wrap {
+    position: relative;
+    border-radius: var(--r-2xl);
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  }
+
+  .c-why__photo {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+
+  .c-why__photo-ph {
+    display: none;
+    position: absolute; inset: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-4);
+    background: linear-gradient(160deg, rgba(0, 24, 64, 0.8) 0%, rgba(10, 102, 194, 0.35) 100%);
+  }
+  .c-why__photo-ph span {
+    font-size: var(--fs-xs);
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .c-why__photo-wrap .c-why__photo { display: none; }
+  .c-why__photo-wrap .c-why__photo-ph { display: flex; }
+
+  /* Trust row */
+  .c-why__trust-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-5);
+    padding: var(--sp-4) var(--sp-5);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--r-xl);
+  }
+
+  .c-why__trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    flex: 1;
+  }
+
+  .c-why__trust-num {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+  }
+
+  .c-why__trust-label {
+    font-size: var(--fs-xs);
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+  }
+
+  .c-why__trust-divider {
+    width: 1px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.10);
+    flex-shrink: 0;
+  }
+
+  /* Differentiator cards */
+  .c-why__cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+  }
+
+  .c-why-card {
     display: flex;
     align-items: flex-start;
-    gap: var(--sp-3);
-    padding: var(--sp-4) var(--sp-5);
-    background: rgba(0,90,156,0.05);
-    border-left: 3px solid var(--blue);
-    border-radius: 0 var(--r-md) var(--r-md) 0;
-    margin-bottom: var(--sp-4);
+    gap: var(--sp-5);
+    padding: var(--sp-6);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--r-xl);
+    transition: background var(--t-base), border-color var(--t-base), transform var(--t-base);
+  }
+  .c-why-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(0, 168, 220, 0.30);
+    transform: translateX(4px);
   }
 
-  .svc-trust__icon { flex-shrink: 0; margin-top: 2px; }
+  .c-why-card__num {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0, 168, 220, 0.15), rgba(10, 102, 194, 0.10));
+    border: 1px solid rgba(0, 168, 220, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-family: var(--font-display);
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    color: var(--cyan);
+    letter-spacing: -0.02em;
+  }
 
-  .svc-trust__text {
+  .c-why-card__title {
+    display: block;
+    font-size: var(--fs-base);
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: var(--sp-2);
+    line-height: 1.3;
+  }
+
+  .c-why-card__body {
     font-size: var(--fs-sm);
-    color: var(--text-2);
+    color: rgba(255, 255, 255, 0.55);
     line-height: 1.65;
   }
 
-  .svc-note {
-    font-size: var(--fs-sm);
-    color: var(--text-3);
+
+  /* ────────────────────────────────────────────────────────────
+     SERVICES (detailed alternating blocks)
+     ──────────────────────────────────────────────────────────── */
+  .c-svc {
+    background: var(--white);
+  }
+
+  .c-svc__head {
+    margin-bottom: var(--sp-16);
+    max-width: 760px;
+  }
+
+  .c-svc__h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-block: var(--sp-4) var(--sp-5);
+  }
+
+  .c-svc__intro {
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    line-height: 1.75;
+  }
+
+  .c-svc-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-16);
+    align-items: center;
+    margin-bottom: var(--sp-16);
+  }
+  .c-svc-block:last-of-type { margin-bottom: 0; }
+  .c-svc-block--flip { direction: rtl; }
+  .c-svc-block--flip .c-svc-block__text,
+  .c-svc-block--flip .c-svc-block__visual { direction: ltr; }
+
+  .c-svc-block__label {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+    margin-bottom: var(--sp-5);
+  }
+
+  .c-svc-block__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px; height: 48px;
+    border-radius: var(--r-lg);
+    background: linear-gradient(135deg, rgba(10, 102, 194, 0.10), rgba(0, 168, 220, 0.08));
+    color: var(--blue);
+  }
+  .c-svc-block__icon svg { display: block; }
+
+  .c-svc-block__num {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xl);
+    font-weight: 700;
+    color: var(--blue);
+    opacity: 0.10;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .c-svc-block__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+    margin-bottom: var(--sp-3);
+  }
+
+  .c-svc-block__short {
+    font-size: var(--fs-md);
+    color: var(--text-2);
     line-height: 1.65;
     margin-bottom: var(--sp-6);
   }
 
-  /* Stat callout */
-  .svc-stat {
+  .c-svc-block__details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    margin-bottom: var(--sp-6);
+  }
+  .c-svc-block__details li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-3);
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.65;
+  }
+  .c-svc-check { flex-shrink: 0; margin-top: 3px; }
+
+  .c-svc-block__trust {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-3);
+    padding: var(--sp-4) var(--sp-5);
+    background: rgba(10, 102, 194, 0.05);
+    border-left: 3px solid var(--blue);
+    border-radius: 0 var(--r-md) var(--r-md) 0;
+    margin-bottom: var(--sp-4);
+  }
+  .c-svc-block__trust svg { flex-shrink: 0; margin-top: 2px; }
+  .c-svc-block__trust p { font-size: var(--fs-sm); color: var(--text-2); line-height: 1.65; }
+
+  .c-svc-block__footnote {
+    font-size: var(--fs-sm);
+    color: var(--text-3);
+    line-height: 1.65;
+    margin-bottom: var(--sp-4);
+  }
+
+  .c-svc-block__stat {
     display: inline-flex;
     align-items: center;
     padding: var(--sp-3) var(--sp-5);
     background: var(--deep-navy);
     border-radius: var(--r-lg);
   }
-
-  .svc-stat__value {
+  .c-svc-block__stat span {
     font-size: var(--fs-sm);
     font-weight: 700;
     color: var(--cyan);
@@ -558,81 +1074,173 @@ const cards = [
   }
 
   /* Visual side */
-  .svc-visual {
+  .c-svc-block__visual {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: var(--sp-4);
   }
 
-  .svc-img-wrap {
+  .c-svc-block__img-wrap {
     position: relative;
-    border-radius: var(--r-xl);
+    border-radius: var(--r-2xl);
     overflow: hidden;
-    aspect-ratio: 16/10;
+    aspect-ratio: 16/11;
     background: var(--off-white);
     border: 1px solid var(--border);
+    box-shadow: 0 16px 48px rgba(0, 24, 64, 0.06);
   }
 
-  .svc-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  .c-svc-block__img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
   }
 
-  .svc-img-placeholder {
+  .c-svc-block__img-ph {
     display: none;
-    position: absolute;
-    inset: 0;
+    position: absolute; inset: 0;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: var(--sp-3);
     background: linear-gradient(135deg, #f0f4f8 0%, #e8eef5 100%);
   }
-
-  .svc-img-placeholder span {
+  .c-svc-block__img-ph span {
     font-size: var(--fs-xs);
     color: var(--text-3);
     letter-spacing: 0.06em;
     text-transform: uppercase;
     font-weight: 500;
   }
+  .c-svc-block__img-wrap .c-svc-block__img { display: none; }
+  .c-svc-block__img-wrap .c-svc-block__img-ph { display: flex; }
 
-  /* Show placeholder by default (until real image loads) */
-  .svc-img-wrap .svc-img {
-    display: none;
-  }
-  .svc-img-wrap .svc-img-placeholder {
+  .c-svc__cta {
     display: flex;
+    justify-content: center;
+    margin-top: var(--sp-16);
   }
 
-  .svc-badge {
-    align-self: flex-start;
-    padding: var(--sp-2) var(--sp-4);
-    background: var(--off-white);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-  }
 
-  .svc-badge__text {
-    font-size: var(--fs-xs);
-    font-weight: 500;
-    color: var(--blue);
-    letter-spacing: 0.04em;
+  /* ────────────────────────────────────────────────────────────
+     STATS
+     ──────────────────────────────────────────────────────────── */
+  .c-stats {
+    background: var(--deep-navy);
+    position: relative;
+    overflow: hidden;
   }
-
-  /* ── Bottom CTA (same as ContactCTA) ── */
-  .cta { position: relative; overflow: hidden; }
-  .cta::before {
+  .c-stats::before {
     content: '';
     position: absolute; inset: 0;
-    background: radial-gradient(ellipse 60% 80% at 100% 50%, rgba(0,168,220,0.10) 0%, transparent 60%);
+    background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0, 168, 220, 0.08) 0%, transparent 60%);
     pointer-events: none;
   }
 
-  .cta__layout {
+  .c-stats__head {
+    position: relative; z-index: 1;
+    margin-bottom: var(--sp-12);
+  }
+
+  .c-stats__h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-block: var(--sp-4) var(--sp-5);
+  }
+
+  .c-stats__sub {
+    font-size: var(--fs-md);
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.75;
+    max-width: 620px;
+  }
+
+  .c-stats__grid {
+    position: relative; z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-5);
+  }
+
+  .c-stat {
+    padding: var(--sp-6);
+    background: linear-gradient(135deg, var(--deep-navy), var(--navy));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--r-xl);
+    transition: border-color var(--t-base), transform var(--t-base);
+  }
+  .c-stat:hover {
+    border-color: rgba(0, 168, 220, 0.30);
+    transform: translateY(-3px);
+  }
+
+  .c-stat--featured {
+    background: linear-gradient(135deg, rgba(0, 168, 220, 0.15) 0%, rgba(10, 102, 194, 0.10) 100%);
+    border-color: rgba(0, 168, 220, 0.25);
+  }
+
+  .c-stat__value {
+    display: block;
+    font-family: var(--font-display);
+    font-size: var(--fs-4xl);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--white);
+  }
+
+  .c-stat__label {
+    display: block;
+    font-size: var(--fs-sm);
+    font-weight: 300;
+    color: var(--cyan);
+    margin-top: var(--sp-2);
+    line-height: 1.5;
+  }
+
+  .c-stat__context {
+    font-size: var(--fs-sm);
+    color: rgba(255, 255, 255, 0.45);
+    line-height: 1.55;
+    margin-top: var(--sp-3);
+  }
+
+  .c-stat__source {
+    font-size: var(--fs-xs);
+    color: rgba(255, 255, 255, 0.25);
+    font-style: italic;
+    margin-top: var(--sp-2);
+  }
+
+
+
+  /* ────────────────────────────────────────────────────────────
+     BOTTOM CTA
+     ──────────────────────────────────────────────────────────── */
+  .c-cta {
+    background: var(--deep-navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .c-cta__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+  .c-cta__orb--1 {
+    width: 420px; height: 420px;
+    top: -120px; right: 10%;
+    background: radial-gradient(circle, rgba(0, 168, 220, 0.15) 0%, transparent 70%);
+  }
+  .c-cta__orb--2 {
+    width: 300px; height: 300px;
+    bottom: -80px; left: -50px;
+    background: radial-gradient(circle, rgba(10, 102, 194, 0.12) 0%, transparent 70%);
+  }
+
+  .c-cta__layout {
     position: relative; z-index: 1;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -640,23 +1248,27 @@ const cards = [
     align-items: center;
   }
 
-  .cta__headline {
+  .c-cta__headline {
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 600;
     color: var(--white);
     line-height: 1.10;
     letter-spacing: -0.02em;
   }
-  .cta__headline em { color: rgba(255,255,255,0.45); font-weight: 300; }
+  .c-cta__headline em {
+    color: rgba(255, 255, 255, 0.45);
+    font-weight: 300;
+    font-style: normal;
+  }
 
-  .cta__sub {
+  .c-cta__sub {
     font-size: var(--fs-md);
-    color: rgba(255,255,255,0.60);
+    color: rgba(255, 255, 255, 0.60);
     line-height: 1.75;
     margin-bottom: var(--sp-8);
   }
 
-  .cta__actions {
+  .c-cta__actions {
     display: flex;
     flex-wrap: wrap;
     gap: var(--sp-4);
@@ -664,112 +1276,50 @@ const cards = [
     margin-bottom: var(--sp-5);
   }
 
-  .cta__note {
+  .c-cta__note {
     font-size: var(--fs-sm);
-    color: rgba(255,255,255,0.35);
+    color: rgba(255, 255, 255, 0.35);
     letter-spacing: 0.02em;
   }
 
-  /* ── Responsive ── */
+
+  /* ────────────────────────────────────────────────────────────
+     RESPONSIVE
+     ──────────────────────────────────────────────────────────── */
   @media (max-width: 1024px) {
-    .content-hero__cards { grid-template-columns: repeat(2, 1fr); }
-    .svc-layout { grid-template-columns: 1fr; gap: var(--sp-10); }
-    .svc-section--alt .svc-layout { direction: ltr; }
-    .cta__layout { grid-template-columns: 1fr; gap: var(--sp-10); }
-  }
+    .c-hero__inner { grid-template-columns: 1fr; gap: var(--sp-12); }
+    .c-hero__visual { max-width: 520px; }
 
-  /* ── FAQ ── */
-  .cfaq__head { margin-bottom: var(--sp-10); }
-  .cfaq__head h2 {
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    margin-top: var(--sp-4);
-    max-width: 520px;
-  }
+    .c-ov__grid { grid-template-columns: repeat(2, 1fr); }
 
-  .cfaq__list {
-    border: 1px solid var(--border);
-    border-radius: var(--r-xl);
-    overflow: hidden;
-    background: var(--white);
-    margin-bottom: var(--sp-10);
-  }
+    .c-wwd__grid { grid-template-columns: repeat(2, 1fr); }
 
-  .cfaq__item { border-bottom: 1px solid var(--border); }
-  .cfaq__item:last-child { border-bottom: none; }
+    .c-why__layout { grid-template-columns: 1fr; gap: var(--sp-10); }
+    .c-why__visual { position: static; max-width: 400px; }
 
-  .cfaq__question {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--sp-6);
-    padding: 1.5rem var(--sp-8);
-    font-family: var(--font-display);
-    font-size: var(--fs-lg);
-    font-weight: 600;
-    color: var(--text);
-    text-align: left;
-    background: var(--white);
-    transition: background var(--t-fast), color var(--t-fast);
-    letter-spacing: -0.01em;
-    line-height: 1.3;
-  }
-  .cfaq__question:hover { background: #EEF4FB; }
-  .cfaq__question[aria-expanded="true"] { background: #EEF4FB; color: var(--blue); }
+    .c-svc-block { grid-template-columns: 1fr; gap: var(--sp-10); }
+    .c-svc-block--flip { direction: ltr; }
 
-  .cfaq__icon {
-    flex-shrink: 0;
-    color: var(--text-3);
-    transition: transform var(--t-base), color var(--t-base);
-    width: 28px;
-    height: 28px;
-    border: 1px solid var(--border);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--white);
-  }
-  .cfaq__question[aria-expanded="true"] .cfaq__icon {
-    transform: rotate(180deg);
-    color: var(--blue);
-    border-color: var(--blue);
-    background: rgba(10,102,194,0.06);
-  }
-
-  .cfaq__answer { padding: 0 var(--sp-8) 1.5rem; background: #EEF4FB; }
-  .cfaq__answer p {
-    font-size: var(--fs-base);
-    color: var(--text-2);
-    line-height: 1.75;
-    max-width: 640px;
-  }
-
-  .cfaq__cta {
-    display: flex;
-    justify-content: center;
+    .c-cta__layout { grid-template-columns: 1fr; gap: var(--sp-10); }
   }
 
   @media (max-width: 768px) {
-    .content-hero { padding-block: var(--sp-16) var(--sp-12); }
-    .cfaq__question { padding: var(--sp-6); font-size: var(--fs-base); }
-    .cfaq__answer { padding: 0 var(--sp-6) var(--sp-6); }
+    .c-hero { padding-block: var(--sp-16) var(--sp-12); }
+    .c-hero-badge--1 { left: 0; bottom: -12px; }
+    .c-hero-badge--2 { right: 0; top: 12px; }
+
+    .c-ov__grid { grid-template-columns: 1fr; }
+    .c-wwd__grid { grid-template-columns: 1fr; }
+    .c-stats__grid { grid-template-columns: 1fr; }
+
+
   }
 
   @media (max-width: 640px) {
-    .content-hero__cards { grid-template-columns: 1fr; }
-    .cta__actions { flex-direction: column; align-items: stretch; }
-    .cta__actions .btn { justify-content: center; }
+    .c-hero-badge { display: none; }
+    .c-cta__actions { flex-direction: column; align-items: stretch; }
+    .c-cta__actions .btn { justify-content: center; }
   }
 </style>
 
-<script>
-  document.querySelectorAll<HTMLButtonElement>('.cfaq__question').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      const answer = document.getElementById(btn.getAttribute('aria-controls')!) as HTMLElement | null;
-      btn.setAttribute('aria-expanded', String(!expanded));
-      if (answer) answer.hidden = expanded;
-    });
-  });
-</script>
+

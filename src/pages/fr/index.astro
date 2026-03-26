@@ -1,6 +1,15 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import NavBar from '../../components/NavBar.astro';
+import FAQ from '../../components/FAQ.astro';
+
+const faqs = [
+  { q: "Travaillez-vous avec des entreprises hors d'Europe ?", a: "Oui. Nous accompagnons des entreprises B2B partout dans le monde. LinkedIn est une plateforme mondiale et notre équipe travaille sur plusieurs fuseaux horaires." },
+  { q: "Vous occupez-vous uniquement de LinkedIn, ou d'autres canaux aussi ?", a: "Uniquement LinkedIn. C'est un choix délibéré — il nous permet d'aller beaucoup plus loin sur la plateforme que n'importe quelle agence généraliste." },
+  { q: "La publicité fait-elle partie de vos services ?", a: "La publicité LinkedIn est une ligne de service à part entière. Certains clients nous font confiance pour le contenu organique uniquement, d'autres pour la publicité, beaucoup pour les deux. Nous définissons le périmètre de chaque mission selon vos objectifs." },
+  { q: "Comment mesurez-vous les résultats ?", a: "Chaque client dispose d'un tableau de bord aligné sur les indicateurs définis ensemble. Nous mesurons des résultats concrets — portée, engagement, prospects, contribution au pipeline — jamais de simples chiffres d'activité." },
+  { q: "Travaillez-vous aussi avec de petites entreprises ?", a: "Oui. Nos formations et services de conseil sont conçus pour les équipes qui ne sont pas encore prêtes pour un mandat complet, mais qui veulent développer une vraie maîtrise de LinkedIn." },
+];
 ---
 
 <Layout
@@ -509,106 +518,7 @@ import NavBar from '../../components/NavBar.astro';
       </div>
     </section>
 
-    <!-- ══ FAQ ══ -->
-    <section class="section" aria-labelledby="faq-heading" style="background: var(--off-white);">
-      <div class="container container--lg">
-
-        <div class="faq__head reveal">
-          <div>
-            <p class="eyebrow">Questions fréquentes</p>
-            <h2 id="faq-heading">Ce qu'on nous demande le plus souvent.</h2>
-          </div>
-          <p class="faq__sub">
-            D'autres questions ? <a href="/fr/contact" class="faq__link">Écrivez-nous</a> — nous répondons dans un jour ouvrable.
-          </p>
-        </div>
-
-        <dl class="faq__list reveal reveal-delay-1">
-
-          <div class="faq__item">
-            <dt>
-              <button class="faq__question" aria-expanded="false" aria-controls="faq-fr-0" id="faq-fr-q-0">
-                <span>Travaillez-vous avec des entreprises hors d'Europe ?</span>
-                <span class="faq__icon" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-              </button>
-            </dt>
-            <dd class="faq__answer" id="faq-fr-0" role="region" aria-labelledby="faq-fr-q-0" hidden>
-              <p>Oui. Nous accompagnons des entreprises B2B partout dans le monde. LinkedIn est une plateforme mondiale et notre équipe travaille sur plusieurs fuseaux horaires.</p>
-            </dd>
-          </div>
-
-          <div class="faq__item">
-            <dt>
-              <button class="faq__question" aria-expanded="false" aria-controls="faq-fr-1" id="faq-fr-q-1">
-                <span>Vous occupez-vous uniquement de LinkedIn, ou d'autres canaux aussi ?</span>
-                <span class="faq__icon" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-              </button>
-            </dt>
-            <dd class="faq__answer" id="faq-fr-1" role="region" aria-labelledby="faq-fr-q-1" hidden>
-              <p>Uniquement LinkedIn. C'est un choix délibéré — il nous permet d'aller beaucoup plus loin sur la plateforme que n'importe quelle agence généraliste.</p>
-            </dd>
-          </div>
-
-          <div class="faq__item">
-            <dt>
-              <button class="faq__question" aria-expanded="false" aria-controls="faq-fr-2" id="faq-fr-q-2">
-                <span>La publicité fait-elle partie de vos services ?</span>
-                <span class="faq__icon" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-              </button>
-            </dt>
-            <dd class="faq__answer" id="faq-fr-2" role="region" aria-labelledby="faq-fr-q-2" hidden>
-              <p>La publicité LinkedIn est une ligne de service à part entière. Certains clients nous font confiance pour le contenu organique uniquement, d'autres pour la publicité, beaucoup pour les deux. Nous définissons le périmètre de chaque mission selon vos objectifs.</p>
-            </dd>
-          </div>
-
-          <div class="faq__item">
-            <dt>
-              <button class="faq__question" aria-expanded="false" aria-controls="faq-fr-3" id="faq-fr-q-3">
-                <span>Comment mesurez-vous les résultats ?</span>
-                <span class="faq__icon" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-              </button>
-            </dt>
-            <dd class="faq__answer" id="faq-fr-3" role="region" aria-labelledby="faq-fr-q-3" hidden>
-              <p>Chaque client dispose d'un tableau de bord aligné sur les indicateurs définis ensemble. Nous mesurons des résultats concrets — portée, engagement, prospects, contribution au pipeline — jamais de simples chiffres d'activité.</p>
-            </dd>
-          </div>
-
-          <div class="faq__item">
-            <dt>
-              <button class="faq__question" aria-expanded="false" aria-controls="faq-fr-4" id="faq-fr-q-4">
-                <span>Travaillez-vous aussi avec de petites entreprises ?</span>
-                <span class="faq__icon" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-              </button>
-            </dt>
-            <dd class="faq__answer" id="faq-fr-4" role="region" aria-labelledby="faq-fr-q-4" hidden>
-              <p>Oui. Nos formations et services de conseil sont conçus pour les équipes qui ne sont pas encore prêtes pour un mandat complet, mais qui veulent développer une vraie maîtrise de LinkedIn.</p>
-            </dd>
-          </div>
-
-        </dl>
-
-      </div>
-    </section>
+    <FAQ eyebrow="Questions fréquentes" heading="Ce qu'on nous demande le plus souvent." faqs={faqs} background="var(--off-white)" footer="D'autres questions ?" footerLink={{ text: 'Écrivez-nous', href: '/fr/contact' }} id="faq-fr" />
 
     <!-- ══ CTA ══ -->
     <section class="section cta" aria-labelledby="cta-heading" style="background: var(--deep-navy);">
@@ -882,23 +792,6 @@ import NavBar from '../../components/NavBar.astro';
   @media (max-width: 1024px) { .industries__layout { grid-template-columns: 1fr; gap: var(--sp-10); } }
   @media (max-width: 480px) { .industries__grid { grid-template-columns: 1fr; } }
 
-  /* ── FAQ ── */
-  .faq__head { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-12); align-items: end; margin-bottom: var(--sp-12); }
-  .faq__sub { font-size: var(--fs-md); color: var(--text-2); line-height: 1.7; align-self: flex-end; }
-  .faq__link { color: var(--blue); transition: color var(--t-fast); }
-  .faq__link:hover { color: var(--mid-blue); }
-  .faq__list { border: 1px solid var(--border); border-radius: var(--r-xl); overflow: hidden; background: var(--white); }
-  .faq__item { border-bottom: 1px solid var(--border); }
-  .faq__item:last-child { border-bottom: none; }
-  .faq__question { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: var(--sp-6); padding: var(--sp-5) var(--sp-7); font-family: var(--font-display); font-size: var(--fs-lg); font-weight: 600; color: var(--text); text-align: left; background: var(--white); transition: background var(--t-fast), color var(--t-fast); letter-spacing: -0.01em; line-height: 1.3; }
-  .faq__question:hover { background: #EEF4FB; }
-  .faq__question[aria-expanded="true"] { background: #EEF4FB; color: var(--blue); }
-  .faq__icon { flex-shrink: 0; color: var(--text-3); transition: transform var(--t-base), color var(--t-base); }
-  .faq__question[aria-expanded="true"] .faq__icon { transform: rotate(180deg); color: var(--blue); }
-  .faq__answer { padding: 0 var(--sp-7) var(--sp-5); background: #EEF4FB; }
-  .faq__answer p { font-size: var(--fs-sm); color: var(--text-2); line-height: 1.75; }
-  @media (max-width: 768px) { .faq__head { grid-template-columns: 1fr; gap: var(--sp-6); } .faq__question { padding: var(--sp-5); font-size: var(--fs-base); } .faq__answer { padding: 0 var(--sp-5) var(--sp-5); } }
-
   /* ── CTA ── */
   .cta { position: relative; overflow: hidden; }
   .cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 100% 50%, rgba(0,168,220,0.10) 0%, transparent 60%); pointer-events: none; }
@@ -1004,13 +897,4 @@ import NavBar from '../../components/NavBar.astro';
   }, { threshold: 0.5 });
   statNums.forEach(el => counterObs.observe(el));
 
-  /* ── Accordéon FAQ ── */
-  document.querySelectorAll<HTMLButtonElement>('.faq__question').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      const answer = document.getElementById(btn.getAttribute('aria-controls')!) as HTMLElement | null;
-      btn.setAttribute('aria-expanded', String(!expanded));
-      if (answer) answer.hidden = expanded;
-    });
-  });
 </script>

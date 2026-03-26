@@ -1,34 +1,40 @@
 ---
 const services = [
   {
-    num: '01',
     title: 'Content',
     tag: 'Organic',
-    body: 'We manage your company page, produce every format LinkedIn offers, and publish consistently — so your brand stays visible while your team stays focused.',
+    body: 'We manage your company page, produce every format LinkedIn offers, and publish consistently so your brand stays visible while your team stays focused.',
+    href: '/services/content',
+    subs: [
+      'Company page management',
+      'Content production & editorial',
+      'LinkedIn newsletter',
+      'LinkedIn events',
+    ],
   },
   {
-    num: '02',
     title: 'Advertising',
     tag: 'Paid',
     body: 'From Sponsored Content to Lead Gen Forms, we build and run campaigns that reach the right decision-makers and convert them into leads.',
+    href: '/services/advertising',
+    subs: [
+      'Campaign architecture',
+      'Audience targeting',
+      'Ad creative & copy',
+      'CRM-connected reporting',
+    ],
   },
   {
-    num: '03',
-    title: 'Personal Branding',
-    tag: 'Executive',
-    body: 'We build executive profiles that open doors. Thought leadership content that earns trust before the first conversation.',
-  },
-  {
-    num: '04',
-    title: 'Employee Advocacy',
-    tag: 'Amplification',
-    body: "Your team's networks are your biggest untapped channel. We help you activate them at scale.",
-  },
-  {
-    num: '05',
-    title: 'Training',
-    tag: 'Knowledge',
-    body: 'LinkedIn fundamentals, content strategy, ads, and personal branding — workshops built for teams that want to perform, not just participate.',
+    title: 'Consulting',
+    tag: 'Strategy',
+    body: 'Training, personal branding, and employee advocacy programs that turn your people into your strongest channel on LinkedIn.',
+    href: '/services/consulting',
+    subs: [
+      'Employee advocacy',
+      'Executive personal branding',
+      'Training workshops',
+      'LinkedIn strategy audit',
+    ],
   },
 ];
 ---
@@ -42,31 +48,34 @@ const services = [
         <h2 id="services-heading">Everything your LinkedIn<br />presence needs.</h2>
       </div>
       <p class="services__intro">
-        Delivered with full transparency — strategy, audit, and reporting included in every engagement.
+        Delivered with full transparency. Strategy, audit, and reporting included in every engagement.
       </p>
     </div>
 
-    <div class="vis-placeholder services__visual" aria-hidden="true">
-      <span>Visual placeholder</span>
-    </div>
-
-    <div class="services__list">
+    <div class="services__grid">
       {services.map((s, i) => (
-        <article class="services__item reveal" style={`transition-delay: ${i * 0.07}s`}>
-          <span class="services__num">{s.num}</span>
-          <div class="services__body">
-            <div class="services__title-row">
-              <h3 class="services__title">{s.title}</h3>
-              <span class="tag tag--cyan">{s.tag}</span>
-            </div>
-            <p class="services__desc">{s.body}</p>
+        <a href={s.href} class="services__card reveal" style={`transition-delay: ${i * 0.08}s`}>
+          <div class="services__card-top">
+            <span class="tag tag--cyan">{s.tag}</span>
+            <span class="services__arrow" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M4.5 15.5L15.5 4.5M15.5 4.5H7.5M15.5 4.5V12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
           </div>
-        </article>
+          <h3 class="services__card-title">{s.title}</h3>
+          <p class="services__card-desc">{s.body}</p>
+          <ul class="services__subs">
+            {s.subs.map(sub => (
+              <li class="services__sub">{sub}</li>
+            ))}
+          </ul>
+        </a>
       ))}
     </div>
 
     <div class="services__foot reveal">
-      <a href="/services" class="btn btn--outline btn--lg">See all services →</a>
+      <a href="/services" class="btn btn--outline btn--lg">See all services</a>
     </div>
 
   </div>
@@ -78,7 +87,7 @@ const services = [
     grid-template-columns: auto 1fr;
     gap: var(--sp-12);
     align-items: end;
-    margin-bottom: var(--sp-10);
+    margin-bottom: var(--sp-12);
   }
 
   .services__intro {
@@ -90,87 +99,117 @@ const services = [
     padding-bottom: 6px;
   }
 
-  .services__visual {
-    width: 100%;
-    aspect-ratio: 21 / 7;
-    min-height: 180px;
-    margin-bottom: var(--sp-10);
-  }
-
-  .services__list {
-    border-top: 1px solid var(--border);
+  /* ── Card grid ── */
+  .services__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-6);
     margin-bottom: var(--sp-12);
   }
 
-  .services__item {
-    display: grid;
-    grid-template-columns: 48px 1fr;
-    gap: var(--sp-6);
-    padding: var(--sp-7) 0;
-    border-bottom: 1px solid var(--border);
-    align-items: start;
-    transition: background var(--t-base);
-  }
-  .services__item:hover { background: linear-gradient(90deg, rgba(10,102,194,0.02) 0%, transparent 100%); }
-
-  .services__num {
-    font-family: var(--font-display);
-    font-size: var(--fs-sm);
-    font-weight: 600;
-    color: var(--blue);
-    letter-spacing: 0.08em;
-    padding-top: 6px;
-    display: block;
+  /* ── Card ── */
+  .services__card {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    padding: var(--sp-8);
+    transition: all var(--t-base);
+    text-decoration: none;
+    color: inherit;
   }
 
-  .services__title-row {
+  .services__card:hover {
+    border-color: var(--mid-blue);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+  }
+
+  .services__card:hover .services__arrow {
+    background: var(--blue);
+    color: var(--white);
+    border-color: var(--blue);
+  }
+
+  .services__card-top {
     display: flex;
     align-items: center;
-    gap: var(--sp-4);
-    margin-bottom: var(--sp-3);
-    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: var(--sp-6);
   }
 
-  .services__title {
+  .services__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    color: var(--text-3);
+    transition: all var(--t-base);
+    flex-shrink: 0;
+  }
+
+  .services__card-title {
     font-family: var(--font-display);
     font-size: var(--fs-2xl);
     font-weight: 600;
     color: var(--text);
     letter-spacing: -0.02em;
-    line-height: 1.1;
+    line-height: 1.15;
+    margin-bottom: var(--sp-4);
   }
 
-  .services__desc {
+  .services__card-desc {
     font-size: var(--fs-sm);
     color: var(--text-2);
     line-height: 1.75;
-    max-width: 700px;
+    margin-bottom: var(--sp-6);
+  }
+
+  /* ── Sub-services list ── */
+  .services__subs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    margin-top: auto;
+    padding-top: var(--sp-6);
+    border-top: 1px solid var(--border);
+  }
+
+  .services__sub {
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    color: var(--text-2);
+    letter-spacing: 0.02em;
+    padding-left: var(--sp-4);
+    position: relative;
+  }
+
+  .services__sub::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--cyan);
   }
 
   .services__foot { text-align: center; }
 
-  .vis-placeholder {
-    background: linear-gradient(135deg, rgba(10,102,194,0.06) 0%, rgba(0,168,220,0.09) 100%);
-    border-radius: var(--r-xl);
-    border: 1.5px dashed rgba(10,102,194,0.22);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(10,102,194,0.35);
-    font-size: var(--fs-xs);
-    font-weight: 600;
-    letter-spacing: 0.10em;
-    text-transform: uppercase;
-  }
-
+  /* ── Responsive ── */
   @media (max-width: 1024px) {
     .services__head { grid-template-columns: 1fr; gap: var(--sp-6); }
     .services__intro { max-width: 100%; }
-    .services__visual { aspect-ratio: 16 / 7; }
+    .services__grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 640px) {
-    .services__item { grid-template-columns: 36px 1fr; }
-    .services__visual { aspect-ratio: 4 / 3; }
+    .services__grid { grid-template-columns: 1fr; }
   }
 </style>

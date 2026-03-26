@@ -5,12 +5,40 @@ import Hero from '../components/Hero.astro';
 import ProblemStatement from '../components/ProblemStatement.astro';
 import WhatSetsUsApart from '../components/WhatSetsUsApart.astro';
 import ServicesGrid from '../components/ServicesGrid.astro';
-import ClientResults from '../components/ClientResults.astro';
+import Testimonials from '../components/Testimonials.astro';
 import InsightsPreview from '../components/InsightsPreview.astro';
 import IndustriesWeServe from '../components/IndustriesWeServe.astro';
 import FAQ from '../components/FAQ.astro';
 import ContactCTA from '../components/ContactCTA.astro';
 import Footer from '../components/Footer.astro';
+
+const faqs = [
+  {
+    q: 'Where are your clients based?',
+    a: 'Everywhere. We work with B2B companies across Europe, North America, Asia, and beyond. LinkedIn is a global platform. So are we.',
+  },
+  {
+    q: 'Do you only do LinkedIn?',
+    a: 'Yes. No SEO, no Instagram, no "full-service" packages. LinkedIn only. That focus is why we\'re good at it.',
+  },
+  {
+    q: 'What does it cost to get started?',
+    a: 'Our Foundation retainer starts at $1,800/month. That includes strategy, content, and reporting. Most clients start there and scale up.',
+    link: { text: 'See full pricing →', href: '/pricing' },
+  },
+  {
+    q: 'Is this only for large companies?',
+    a: 'No. Our packages are built for companies at different stages. $1,800/month gets you a fully managed LinkedIn presence. We also offer standalone training and ad management if a full retainer isn\'t the right fit yet.',
+  },
+  {
+    q: 'Is advertising included?',
+    a: 'Ads are a separate line. Some clients run organic only. Others run paid only. Most do both. Ad spend always goes directly to your LinkedIn account — never through us.',
+  },
+  {
+    q: 'How do you measure results?',
+    a: 'We agree on KPIs at the start — leads, pipeline, follower growth, cost per lead. Every month you get a report against those numbers. Not a deck full of impressions.',
+  },
+];
 ---
 
 <Layout
@@ -24,10 +52,10 @@ import Footer from '../components/Footer.astro';
     <ProblemStatement />
     <ServicesGrid />
     <WhatSetsUsApart />
-    <ClientResults />
+    <Testimonials />
     <InsightsPreview />
     <IndustriesWeServe />
-    <FAQ />
+    <FAQ heading="The things people usually ask." faqs={faqs} footer="Still have questions?" footerLink={{ text: 'Get in touch', href: '/contact' }} />
     <ContactCTA />
   </main>
   <Footer />

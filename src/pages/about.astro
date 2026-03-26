@@ -1,0 +1,1020 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+import FAQ from '../components/FAQ.astro';
+
+/* ── Data ───────────────────────────────────────────────── */
+
+const values = [
+  {
+    title: 'Do the work. Don\'t just advise on it.',
+    body: 'The strategist who builds your plan is the same person running your campaigns. We don\'t separate thinking from doing. That\'s where most agencies fall apart.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.09 6.26L20 10l-5.91 1.74L12 18l-2.09-6.26L4 10l5.91-1.74L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
+  },
+  {
+    title: 'Say what\'s true. Skip what sounds good.',
+    body: 'We won\'t inflate metrics to make a report look pretty. If something isn\'t working, you\'ll hear it from us first.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" stroke="currentColor" stroke-width="1.6"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  },
+  {
+    title: 'Earn attention. Never rent it.',
+    body: 'Every post, every ad, every executive profile we build has to be worth someone\'s time. If the content won\'t stop the scroll, it doesn\'t ship.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/></svg>`,
+  },
+];
+
+const whyWorkWithUs = [
+  {
+    title: 'LinkedIn is all we do.',
+    body: 'We don\'t juggle ten platforms. Everyone on our team works on LinkedIn strategy, content, and ads. Nothing else. That depth shows up in the results.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
+  },
+  {
+    title: 'Senior people. No handoffs.',
+    body: 'The people you brief are the people who do the work. Your strategist, your writer, your campaign manager. You\'ll know them by name.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
+  },
+  {
+    title: 'Global team. Local fluency.',
+    body: 'We operate from Hong Kong, France, the Philippines, and China. A core group of LinkedIn strategists and campaign managers, backed by bilingual writers, designers, and data analysts. We produce content in 10+ languages without losing tone or nuance.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 9h17M3.5 15h17" stroke="currentColor" stroke-width="1.6"/><ellipse cx="12" cy="12" rx="4" ry="9" stroke="currentColor" stroke-width="1.6"/></svg>`,
+  },
+  {
+    title: 'AI where it speeds things up. Humans where it counts.',
+    body: 'We use AIGC workflows to draft and translate content faster. Every piece is reviewed and shaped by a real editor before it goes live. The technology keeps costs down. The people keep quality up.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.09 6.26L20 10l-5.91 1.74L12 18l-2.09-6.26L4 10l5.91-1.74L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
+  },
+  {
+    title: 'Certified by LinkedIn.',
+    body: 'Our team holds official LinkedIn Marketing certifications. It\'s a hiring standard, not a marketing badge.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l3 6h6l-5 4 2 6-6-4-6 4 2-6-5-4h6l3-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
+  },
+];
+
+const services = [
+  { num: '01', title: 'Strategy & Account Management', body: 'We own your LinkedIn presence end-to-end. Page governance, content calendar, KPI tracking. One dedicated strategist per account.' },
+  { num: '02', title: 'B2B Content Production', body: 'Thought leadership, carousels, newsletters, video scripts. Written by people who understand B2B and can work in 10+ languages.' },
+  { num: '03', title: 'LinkedIn Ads', body: 'Sponsored Content, Lead Gen Forms, retargeting. Run by certified campaign specialists with full transparency on spend and results.' },
+  { num: '04', title: 'AI-Assisted Production', body: 'Integrated AIGC workflows for brand-aligned content at scale. Faster turnaround. Consistent quality. Lower production cost.' },
+  { num: '05', title: 'Executive & Personal Branding', body: 'Ghostwriting and positioning for C-suite leaders. Your executives become visible to the buyers and decision-makers who matter. Every post reinforces the company story.' },
+];
+
+const faqs = [
+  { q: 'What kind of companies do you work with?', a: 'B2B companies across manufacturing, healthcare, tech, FMCG, retail, and professional services. If your buyers are on LinkedIn, we can help.' },
+  { q: 'How long before we see results?', a: 'It depends on where you\'re starting. Companies with an existing LinkedIn presence tend to see traction faster than those building from zero. We set specific benchmarks in our first strategy session and report against them monthly.' },
+  { q: 'What does onboarding look like?', a: 'We start with a strategy sprint: audit your current LinkedIn presence, define your target audience, and build a content and campaign plan. From there, we move into production.' },
+  { q: 'We already have a marketing team. How does Nuvora fit in?', a: 'We work alongside internal teams regularly. Some clients hand LinkedIn to us entirely. Others use us for content production and ads while their team handles community engagement. We adapt to your setup.' },
+  { q: 'Do you only work with large companies?', a: 'No. We work with mid-market and enterprise B2B companies. What matters is that LinkedIn is a meaningful channel for your sales pipeline.' },
+  { q: 'How do you handle content in multiple languages?', a: 'Our team and AI-assisted workflows produce content in 10+ languages. Every piece is reviewed by a native speaker before publishing. We don\'t translate word for word. We localize for tone, context, and platform norms.' },
+  { q: 'Can you manage executive profiles alongside the company page?', a: 'Yes. We offer ghostwriting and positioning for C-suite leaders as a standalone service or bundled with company page management. Executive branding is one of the fastest ways to generate inbound interest on LinkedIn.' },
+  { q: 'What reporting do we get?', a: 'Monthly performance reports covering engagement, follower growth, ad metrics, and lead attribution. Clear numbers. No vanity metrics dressed up to look impressive.' },
+  { q: 'What\'s the minimum commitment?', a: 'We recommend a three-month minimum to start. LinkedIn requires consistency to perform. A one-month test rarely tells you anything useful.' },
+  { q: 'How do we get started?', a: 'Book a call. We\'ll review your current LinkedIn presence, talk through your goals, and tell you if we\'re the right fit.' },
+];
+---
+
+<Layout
+  title="About Nuvora Studio | LinkedIn Agency for B2B Leads"
+  description="Nuvora Studio grows LinkedIn presence for B2B companies worldwide. Certified team. Strategic content. LinkedIn ads. Executive branding. More leads."
+  abstract="We grow LinkedIn presence for B2B companies around the world. One platform. Certified team. Strategic content. The result: more leads."
+>
+  <NavBar />
+  <main id="main-content">
+
+    <!-- ── Hero ─────────────────────────────────────────────── -->
+    <section class="ab-hero" aria-labelledby="ab-hero-h">
+      <div class="ab-hero__orb ab-hero__orb--1" aria-hidden="true"></div>
+      <div class="ab-hero__orb ab-hero__orb--2" aria-hidden="true"></div>
+
+      <!-- Dot grid -->
+      <svg class="ab-hero__dots" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <pattern id="ab-dots" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.2" fill="rgba(255,255,255,0.08)" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#ab-dots)" />
+      </svg>
+
+      <div class="container">
+        <div class="ab-hero__inner">
+          <div class="ab-hero__text">
+            <p class="eyebrow eyebrow--light reveal">About Nuvora Studio</p>
+            <h1 id="ab-hero-h" class="ab-hero__h1 reveal reveal-delay-1">
+              The B2B Network Is Crowded.<br />We Make Sure You Are <span class="text-gradient">Heard.</span>
+            </h1>
+          </div>
+
+          <div class="ab-hero__visual reveal reveal-delay-2" aria-hidden="true">
+            <div class="ab-hero__img-wrap">
+              <img src="/images/placeholder-about-hero.jpg" alt="Nuvora Studio team" class="ab-hero__img" width="600" height="400" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="ab-hero__img-ph">
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="12" fill="rgba(0,168,220,0.12)"/><path d="M20 44l10-14 8 10 6-8 10 12H20z" fill="rgba(0,168,220,0.2)"/><circle cx="44" cy="24" r="5" fill="rgba(0,168,220,0.25)"/></svg>
+                <span>Visual coming soon</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ab-hero__body reveal reveal-delay-2">
+          <p>Most B2B companies treat LinkedIn like an afterthought. A company page that hasn't been updated in weeks. Executives with no presence. Ad spend with no strategy behind it.</p>
+          <p>Meanwhile, their competitors are building audiences, earning trust, and closing deals on the platform.</p>
+          <p><strong>Nuvora Studio exists to change that.</strong> We grow LinkedIn presence for B2B companies around the world. The result: more leads.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── Why We Exist ────────────────────────────────────── -->
+    <section class="section ab-exist" aria-labelledby="exist-h">
+      <div class="container">
+        <div class="ab-exist__layout">
+
+          <div class="ab-exist__text reveal">
+            <p class="eyebrow">Our Story</p>
+            <h2 id="exist-h">Why We Exist</h2>
+            <p>We started Nuvora Studio because we kept seeing the same problem.</p>
+            <p>Companies know LinkedIn matters for B2B. But they don't have the team, the time, or the platform expertise to make it work. So they post without a plan. They run ads without a strategy. And the leads don't come.</p>
+            <p>We built an agency that does one thing and does it well. We grow your LinkedIn presence so you get more leads. Not more impressions. Not more followers for the sake of it. More conversations with the right buyers.</p>
+            <p class="ab-exist__closing"><strong>That's why we're here.</strong></p>
+          </div>
+
+          <div class="ab-exist__visual reveal reveal-delay-1">
+            <div class="ab-exist__sig-card">
+              <div class="ab-exist__sig-photo">
+                <img src="/images/placeholder-cyril.jpg" alt="Cyril Drouin, CEO" class="ab-exist__sig-img" width="80" height="80" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div class="ab-exist__sig-img-ph" aria-hidden="true">
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="15" r="8" fill="rgba(10,102,194,0.15)"/><ellipse cx="20" cy="36" rx="14" ry="8" fill="rgba(10,102,194,0.10)"/></svg>
+                </div>
+              </div>
+              <div class="ab-exist__sig-info">
+                <strong class="ab-exist__sig-name">Cyril Drouin</strong>
+                <span class="ab-exist__sig-title">CEO & Chief Strategy Officer</span>
+              </div>
+              <img src="https://beyondbordergroup.com/wp-content/compressx-nextgen/uploads/2026/02/Cyril-Drouin-Signature-Transparent.png.avif" alt="Cyril Drouin signature" class="ab-exist__sig-mark" width="180" height="60" loading="lazy" />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── Our Values ──────────────────────────────────────── -->
+    <section class="section ab-values" aria-labelledby="values-h">
+      <div class="ab-values__bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="ab-values__head reveal">
+          <p class="eyebrow eyebrow--light">What Drives Us</p>
+          <h2 id="values-h">Our Values</h2>
+        </div>
+
+        <div class="ab-values__grid">
+          {values.map((v, i) => (
+            <div class={`ab-val-card reveal${i > 0 ? ` reveal-delay-${i}` : ''}`}>
+              <div class="ab-val-card__icon" aria-hidden="true" set:html={v.icon} />
+              <strong class="ab-val-card__title">{v.title}</strong>
+              <p class="ab-val-card__body">{v.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── Why Work With Us ────────────────────────────────── -->
+    <section class="section ab-why" aria-labelledby="why-h">
+      <div class="container">
+        <div class="ab-why__head reveal">
+          <p class="eyebrow">Why Us</p>
+          <h2 id="why-h">Why Work With Us</h2>
+        </div>
+
+        <div class="ab-why__grid">
+          {whyWorkWithUs.map((item, i) => (
+            <div class={`ab-why-card reveal${i > 0 ? ` reveal-delay-${Math.min(i, 3)}` : ''}`}>
+              <div class="ab-why-card__icon" aria-hidden="true" set:html={item.icon} />
+              <strong class="ab-why-card__title">{item.title}</strong>
+              <p class="ab-why-card__body">{item.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── What We Do ──────────────────────────────────────── -->
+    <section class="section ab-services" aria-labelledby="svc-h" style="background: var(--off-white);">
+      <div class="container">
+        <div class="ab-svc__head reveal">
+          <p class="eyebrow">What We Do</p>
+          <h2 id="svc-h">What We Do</h2>
+        </div>
+
+        <div class="ab-svc__list">
+          {services.map((s, i) => (
+            <div class={`ab-svc-item reveal${i > 0 ? ` reveal-delay-${Math.min(i, 3)}` : ''}`}>
+              <span class="ab-svc-item__num" aria-hidden="true">{s.num}</span>
+              <div class="ab-svc-item__content">
+                <strong class="ab-svc-item__title">{s.title}</strong>
+                <p class="ab-svc-item__body">{s.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="ab-svc__cta reveal">
+          <a href="/services/content" class="btn btn--outline">Explore our services</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── Our Leadership ──────────────────────────────────── -->
+    <section class="section ab-team" aria-labelledby="team-h">
+      <div class="container">
+        <div class="ab-team__head reveal">
+          <p class="eyebrow">Our Leadership</p>
+          <h2 id="team-h">Our Leadership</h2>
+          <p class="ab-team__sub">Built by practitioners. Proven at scale.</p>
+        </div>
+
+        <!-- Cyril Drouin -->
+        <div class="ab-leader reveal">
+          <div class="ab-leader__visual">
+            <div class="ab-leader__photo-wrap">
+              <img src="/images/placeholder-cyril-headshot.jpg" alt="Cyril Drouin" class="ab-leader__photo" width="400" height="480" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="ab-leader__photo-ph" aria-hidden="true">
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="22" r="12" fill="rgba(10,102,194,0.15)"/><ellipse cx="32" cy="52" rx="20" ry="12" fill="rgba(10,102,194,0.10)"/></svg>
+                <span>Photo coming soon</span>
+              </div>
+            </div>
+            <div class="ab-leader__badge-wrap">
+              <img src="/images/placeholder-linkedin-badge.png" alt="LinkedIn Certified Marketing Expert" class="ab-leader__badge" width="120" height="120" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="ab-leader__badge-ph" aria-hidden="true">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="rgba(10,102,194,0.10)"/><path d="M20 8l3 6h6l-5 4 2 6-6-4-6 4 2-6-5-4h6l3-6z" fill="rgba(10,102,194,0.2)"/></svg>
+                <span>Badge</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="ab-leader__content">
+            <h3 class="ab-leader__name">Cyril Drouin</h3>
+            <span class="ab-leader__title">CEO & Chief Strategy Officer</span>
+
+            <div class="ab-leader__bio">
+              <p>Cyril has spent 20+ years building marketing and commerce operations across China, Europe, and global markets.</p>
+              <p>As CEO of Publicis Commerce China, he ran a 250-person team that generated $35M in revenue with 25%+ year-over-year growth. The agency was named eCommerce Agency of the Year, Greater China (Gold 2022). His client portfolio included Apple, L'Oréal, Nike, Nestlé, Heineken, and Kering.</p>
+              <p>He is triple-certified by LinkedIn Marketing Labs: Marketing Strategy, Advertising Fundamentals, and Content & Creative Design.</p>
+              <p>Cyril also founded HubStudio, an AIGC content studio, and teaches at HEC Paris, ESCP, and Shanghai Jiaotong University.</p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="ab-team__divider" />
+
+        <!-- LiYan Ye -->
+        <div class="ab-leader ab-leader--flip reveal">
+          <div class="ab-leader__visual">
+            <div class="ab-leader__photo-wrap">
+              <img src="https://beyondbordergroup.com/wp-content/uploads/elementor/thumbs/Liyan-Ye-rjaieqnzssadxaepw8m116yt79e5qhu51d5tgiyybk.jpg" alt="LiYan Ye" class="ab-leader__photo" width="400" height="480" loading="lazy" />
+              <div class="ab-leader__photo-ph" aria-hidden="true" style="display:none;">
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="22" r="12" fill="rgba(10,102,194,0.15)"/><ellipse cx="32" cy="52" rx="20" ry="12" fill="rgba(10,102,194,0.10)"/></svg>
+                <span>Photo coming soon</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="ab-leader__content">
+            <h3 class="ab-leader__name">LiYan Ye</h3>
+            <span class="ab-leader__title">General Manager</span>
+
+            <div class="ab-leader__bio">
+              <p>LiYan brings 20 years of marketing experience with Fortune 500 brands including Beiersdorf, Reckitt Benckiser, Yum! Brands, and Valio.</p>
+              <p>As Digital Marketing Director at Yum! China, she delivered the brand's first positive quarterly same-store sales growth in Q1 2017, reversing 11 consecutive quarters of decline. She was also a founding team member of Valio APAC, where she built the company's China B2B digital presence from scratch.</p>
+              <p>At Nuvora Studio, LiYan runs day-to-day operations and oversees content quality, campaign performance, and client delivery across every account. Her focus areas are LinkedIn content strategy, social selling, and B2B audience engagement.</p>
+              <p>Fluent in Mandarin and English.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <FAQ heading="Frequently Asked Questions" faqs={faqs} background="var(--off-white)" id="ab-faq" />
+
+
+    <!-- ── Bottom CTA ──────────────────────────────────────── -->
+    <section class="section ab-cta" aria-labelledby="ab-cta-h">
+      <div class="ab-cta__orb ab-cta__orb--1" aria-hidden="true"></div>
+      <div class="ab-cta__orb ab-cta__orb--2" aria-hidden="true"></div>
+      <div class="container">
+        <div class="ab-cta__layout">
+          <div class="ab-cta__left reveal">
+            <p class="eyebrow eyebrow--light">Start here</p>
+            <h2 id="ab-cta-h" class="ab-cta__headline">
+              Your buyers are on LinkedIn.<br />
+              <em>Let's make sure they find you.</em>
+            </h2>
+          </div>
+          <div class="ab-cta__right reveal reveal-delay-2">
+            <p class="ab-cta__sub">Book a call. We'll review your current LinkedIn presence and tell you where the opportunity is.</p>
+            <div class="ab-cta__actions">
+              <a href="/contact?intent=call" class="btn btn--primary btn--lg">Book a call</a>
+            </div>
+            <p class="ab-cta__note">30 minutes. No pitch. Straight answers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+
+
+<style>
+  /* ────────────────────────────────────────────────────────────
+     HERO
+     ──────────────────────────────────────────────────────────── */
+  .ab-hero {
+    background: var(--deep-navy);
+    padding-block: var(--sp-24) var(--sp-16);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ab-hero__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+  .ab-hero__orb--1 {
+    width: 600px; height: 600px;
+    background: rgba(10, 102, 194, 0.18);
+    top: -200px; right: -100px;
+    animation: abOrbFloat 12s ease-in-out infinite;
+  }
+  .ab-hero__orb--2 {
+    width: 400px; height: 400px;
+    background: rgba(0, 168, 220, 0.10);
+    bottom: -150px; left: -100px;
+    animation: abOrbFloat 16s ease-in-out infinite reverse;
+  }
+  @keyframes abOrbFloat {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(30px, -20px); }
+  }
+
+  .ab-hero__dots {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  .ab-hero__inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-16);
+    align-items: center;
+  }
+
+  .ab-hero__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.10;
+    letter-spacing: -0.02em;
+    margin-block: var(--sp-5) 0;
+  }
+  .ab-hero__h1 .text-gradient {
+    background: linear-gradient(135deg, var(--cyan) 0%, #60d4f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Hero visual */
+  .ab-hero__visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ab-hero__img-wrap {
+    position: relative;
+    border-radius: var(--r-2xl);
+    overflow: hidden;
+    aspect-ratio: 3/2;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  }
+  .ab-hero__img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+  .ab-hero__img-ph {
+    display: none;
+    position: absolute; inset: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-4);
+    background: linear-gradient(135deg, rgba(0, 24, 64, 0.8) 0%, rgba(10, 102, 194, 0.4) 100%);
+  }
+  .ab-hero__img-ph span {
+    font-size: var(--fs-xs);
+    color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  /* Show placeholder by default since image is a placeholder */
+  .ab-hero__img-wrap .ab-hero__img { display: none; }
+  .ab-hero__img-wrap .ab-hero__img-ph { display: flex; }
+
+  .ab-hero__body {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin-top: var(--sp-12);
+  }
+  .ab-hero__body p {
+    font-size: var(--fs-md);
+    color: rgba(255, 255, 255, 0.68);
+    line-height: 1.75;
+    margin-bottom: var(--sp-4);
+  }
+  .ab-hero__body p:last-child { margin-bottom: 0; }
+  .ab-hero__body strong { color: rgba(255, 255, 255, 0.90); }
+
+
+  /* ────────────────────────────────────────────────────────────
+     WHY WE EXIST
+     ──────────────────────────────────────────────────────────── */
+  .ab-exist {
+    background: var(--white);
+  }
+
+  .ab-exist__layout {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--sp-16);
+    align-items: center;
+  }
+
+  .ab-exist__text h2 {
+    margin-bottom: var(--sp-6);
+  }
+  .ab-exist__text p {
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    line-height: 1.75;
+    margin-bottom: var(--sp-4);
+  }
+  .ab-exist__text p:last-child { margin-bottom: 0; }
+  .ab-exist__closing {
+    margin-top: var(--sp-4);
+  }
+  .ab-exist__closing strong {
+    color: var(--text);
+    font-size: var(--fs-lg);
+  }
+
+  /* Signature card */
+  .ab-exist__sig-card {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    padding: var(--sp-8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-5);
+    text-align: center;
+  }
+  .ab-exist__sig-photo {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--border);
+  }
+  .ab-exist__sig-img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+  .ab-exist__sig-img-ph {
+    display: none;
+    width: 100%; height: 100%;
+    align-items: center;
+    justify-content: center;
+    background: var(--off-white);
+  }
+  /* Show placeholder */
+  .ab-exist__sig-photo .ab-exist__sig-img { display: none; }
+  .ab-exist__sig-photo .ab-exist__sig-img-ph { display: flex; }
+
+  .ab-exist__sig-name {
+    font-size: var(--fs-base);
+    font-weight: 600;
+    color: var(--text);
+    display: block;
+  }
+  .ab-exist__sig-title {
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    display: block;
+    margin-top: var(--sp-1);
+  }
+  .ab-exist__sig-mark {
+    max-width: 180px;
+    height: auto;
+    opacity: 0.75;
+  }
+
+
+  /* ────────────────────────────────────────────────────────────
+     OUR VALUES
+     ──────────────────────────────────────────────────────────── */
+  .ab-values {
+    background: var(--deep-navy);
+    position: relative;
+    overflow: hidden;
+  }
+  .ab-values__bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 20% 50%, rgba(0, 168, 220, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 60% at 80% 30%, rgba(10, 102, 194, 0.06) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .ab-values__head {
+    position: relative;
+    z-index: 1;
+    margin-bottom: var(--sp-12);
+  }
+  .ab-values__head h2 {
+    color: var(--white);
+  }
+
+  .ab-values__grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-6);
+  }
+
+  .ab-val-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: var(--r-xl);
+    padding: var(--sp-8);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+    transition: all var(--t-base);
+  }
+  .ab-val-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(0, 168, 220, 0.25);
+    transform: translateY(-4px);
+  }
+
+  .ab-val-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px; height: 48px;
+    border-radius: var(--r-lg);
+    background: rgba(0, 168, 220, 0.12);
+    color: var(--cyan);
+    flex-shrink: 0;
+  }
+
+  .ab-val-card__title {
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.3;
+  }
+
+  .ab-val-card__body {
+    font-size: var(--fs-sm);
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.65;
+  }
+
+
+  /* ────────────────────────────────────────────────────────────
+     WHY WORK WITH US
+     ──────────────────────────────────────────────────────────── */
+  .ab-why {
+    background: var(--white);
+  }
+
+  .ab-why__head {
+    margin-bottom: var(--sp-12);
+    max-width: 600px;
+  }
+
+  .ab-why__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-6);
+  }
+
+  .ab-why-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    padding: var(--sp-8);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+    transition: all var(--t-base);
+    position: relative;
+    overflow: hidden;
+  }
+  .ab-why-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--cyan));
+    opacity: 0;
+    transition: opacity var(--t-base);
+  }
+  .ab-why-card:hover {
+    border-color: rgba(10, 102, 194, 0.25);
+    box-shadow: 0 12px 40px rgba(0, 24, 64, 0.08);
+    transform: translateY(-4px);
+  }
+  .ab-why-card:hover::before {
+    opacity: 1;
+  }
+
+  .ab-why-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px; height: 48px;
+    border-radius: var(--r-lg);
+    background: linear-gradient(135deg, rgba(10, 102, 194, 0.10), rgba(0, 168, 220, 0.08));
+    color: var(--blue);
+    flex-shrink: 0;
+  }
+
+  .ab-why-card__title {
+    font-size: var(--fs-base);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  .ab-why-card__body {
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.65;
+  }
+
+
+  /* ────────────────────────────────────────────────────────────
+     WHAT WE DO (SERVICES)
+     ──────────────────────────────────────────────────────────── */
+  .ab-svc__head {
+    margin-bottom: var(--sp-12);
+    max-width: 600px;
+  }
+
+  .ab-svc__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+  }
+
+  .ab-svc-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-6);
+    padding: var(--sp-6) var(--sp-8);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    transition: all var(--t-base);
+  }
+  .ab-svc-item:hover {
+    border-color: rgba(10, 102, 194, 0.20);
+    box-shadow: 0 8px 28px rgba(0, 24, 64, 0.06);
+    transform: translateY(-2px);
+  }
+
+  .ab-svc-item__num {
+    font-family: var(--font-display);
+    font-size: var(--fs-2xl);
+    font-weight: 700;
+    color: var(--text-3);
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 40px;
+    padding-top: var(--sp-1);
+  }
+
+  .ab-svc-item__content {
+    flex: 1;
+  }
+
+  .ab-svc-item__title {
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+    display: block;
+    margin-bottom: var(--sp-2);
+  }
+
+  .ab-svc-item__body {
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.65;
+  }
+
+  .ab-svc__cta {
+    margin-top: var(--sp-10);
+    text-align: center;
+  }
+
+
+  /* ────────────────────────────────────────────────────────────
+     LEADERSHIP
+     ──────────────────────────────────────────────────────────── */
+  .ab-team {
+    background: var(--white);
+  }
+
+  .ab-team__head {
+    margin-bottom: var(--sp-16);
+  }
+  .ab-team__sub {
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    margin-top: var(--sp-3);
+    line-height: 1.65;
+  }
+
+  .ab-team__divider {
+    height: 1px;
+    background: var(--border);
+    border: none;
+    margin-block: var(--sp-16);
+  }
+
+  .ab-leader {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: var(--sp-12);
+    align-items: start;
+  }
+  .ab-leader--flip {
+    grid-template-columns: 1fr 340px;
+  }
+  .ab-leader--flip .ab-leader__visual {
+    order: 2;
+  }
+  .ab-leader--flip .ab-leader__content {
+    order: 1;
+  }
+
+  .ab-leader__visual {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+    align-items: center;
+  }
+
+  .ab-leader__photo-wrap {
+    width: 100%;
+    aspect-ratio: 5/6;
+    border-radius: var(--r-2xl);
+    overflow: hidden;
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    position: relative;
+  }
+  .ab-leader__photo {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+  .ab-leader__photo-ph {
+    display: none;
+    position: absolute; inset: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-3);
+    background: var(--off-white);
+  }
+  .ab-leader__photo-ph span {
+    font-size: var(--fs-xs);
+    color: var(--text-3);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  /* Show placeholder for Cyril since image is a placeholder */
+  .ab-leader:not(.ab-leader--flip) .ab-leader__photo { display: none; }
+  .ab-leader:not(.ab-leader--flip) .ab-leader__photo-ph { display: flex; }
+
+  .ab-leader__badge-wrap {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+  }
+  .ab-leader__badge {
+    width: 80px; height: 80px;
+    object-fit: contain;
+    border-radius: var(--r-md);
+  }
+  .ab-leader__badge-ph {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-1);
+    padding: var(--sp-3);
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+  }
+  .ab-leader__badge-ph span {
+    font-size: var(--fs-xs);
+    color: var(--text-3);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  /* Show badge placeholder */
+  .ab-leader__badge-wrap .ab-leader__badge { display: none; }
+  .ab-leader__badge-wrap .ab-leader__badge-ph { display: flex; }
+
+  .ab-leader__name {
+    font-size: var(--fs-2xl);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .ab-leader__title {
+    display: block;
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--blue);
+    letter-spacing: 0.04em;
+    margin-top: var(--sp-2);
+    margin-bottom: var(--sp-6);
+  }
+
+  .ab-leader__bio p {
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.75;
+    margin-bottom: var(--sp-4);
+  }
+  .ab-leader__bio p:last-child { margin-bottom: 0; }
+
+
+
+  /* ────────────────────────────────────────────────────────────
+     BOTTOM CTA
+     ──────────────────────────────────────────────────────────── */
+  .ab-cta {
+    background: var(--deep-navy);
+    position: relative;
+    overflow: hidden;
+  }
+  .ab-cta::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 100% 50%, rgba(0, 168, 220, 0.10) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .ab-cta__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+  .ab-cta__orb--1 {
+    width: 500px; height: 500px;
+    background: rgba(10, 102, 194, 0.12);
+    top: -200px; left: -150px;
+  }
+  .ab-cta__orb--2 {
+    width: 350px; height: 350px;
+    background: rgba(0, 168, 220, 0.08);
+    bottom: -100px; right: -100px;
+  }
+
+  .ab-cta__layout {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-16);
+    align-items: center;
+  }
+
+  .ab-cta__headline {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.10;
+    letter-spacing: -0.02em;
+  }
+  .ab-cta__headline em { color: rgba(255, 255, 255, 0.45); font-weight: 300; }
+
+  .ab-cta__sub {
+    font-size: var(--fs-md);
+    color: rgba(255, 255, 255, 0.60);
+    line-height: 1.75;
+    margin-bottom: var(--sp-8);
+  }
+
+  .ab-cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+    align-items: center;
+    margin-bottom: var(--sp-5);
+  }
+
+  .ab-cta__note {
+    font-size: var(--fs-sm);
+    color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 0.02em;
+  }
+
+
+  /* ────────────────────────────────────────────────────────────
+     RESPONSIVE
+     ──────────────────────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .ab-hero__inner { grid-template-columns: 1fr; gap: var(--sp-10); }
+    .ab-hero__visual { max-width: 500px; }
+
+    .ab-exist__layout { grid-template-columns: 1fr; gap: var(--sp-10); }
+    .ab-exist__visual { order: -1; max-width: 360px; margin-inline: auto; }
+
+    .ab-values__grid { grid-template-columns: repeat(3, 1fr); }
+
+    .ab-why__grid { grid-template-columns: repeat(2, 1fr); }
+
+    .ab-leader { grid-template-columns: 280px 1fr; gap: var(--sp-8); }
+    .ab-leader--flip { grid-template-columns: 1fr 280px; }
+
+    .ab-cta__layout { grid-template-columns: 1fr; gap: var(--sp-10); }
+  }
+
+  @media (max-width: 768px) {
+    .ab-hero { padding-block: var(--sp-16) var(--sp-12); }
+    .ab-hero__visual { max-width: 100%; }
+
+    .ab-values__grid { grid-template-columns: 1fr; }
+
+    .ab-why__grid { grid-template-columns: 1fr; }
+
+    .ab-leader {
+      grid-template-columns: 1fr;
+      gap: var(--sp-8);
+    }
+    .ab-leader--flip {
+      grid-template-columns: 1fr;
+    }
+    .ab-leader--flip .ab-leader__visual { order: 0; }
+    .ab-leader--flip .ab-leader__content { order: 0; }
+    .ab-leader__photo-wrap {
+      max-width: 280px;
+      margin-inline: auto;
+    }
+
+    .ab-svc-item {
+      flex-direction: column;
+      gap: var(--sp-3);
+      padding: var(--sp-6);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .ab-cta__actions { flex-direction: column; align-items: stretch; }
+    .ab-cta__actions .btn { justify-content: center; }
+  }
+</style>

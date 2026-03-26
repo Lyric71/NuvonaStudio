@@ -1,39 +1,39 @@
 ---
-const faqs = [
-  {
-    q: 'Where are your clients based?',
-    a: 'Everywhere. We work with B2B companies across Europe, North America, Asia, and beyond. LinkedIn is a global platform. So are we.',
-  },
-  {
-    q: 'Do you only do LinkedIn?',
-    a: 'Yes. No SEO, no Instagram, no "full-service" packages. LinkedIn only. That focus is why we\'re good at it.',
-  },
-  {
-    q: 'What does it cost to get started?',
-    a: 'Our Foundation retainer starts at $1,800/month. That includes strategy, content, and reporting. Most clients start there and scale up.',
-    link: { text: 'See full pricing →', href: '/pricing' },
-  },
-  {
-    q: 'Is this only for large companies?',
-    a: 'No. Our packages are built for companies at different stages. $1,800/month gets you a fully managed LinkedIn presence. We also offer standalone training and ad management if a full retainer isn\'t the right fit yet.',
-  },
-  {
-    q: 'Is advertising included?',
-    a: 'Ads are a separate line. Some clients run organic only. Others run paid only. Most do both. Ad spend always goes directly to your LinkedIn account — never through us.',
-  },
-  {
-    q: 'How do you measure results?',
-    a: 'We agree on KPIs at the start — leads, pipeline, follower growth, cost per lead. Every month you get a report against those numbers. Not a deck full of impressions.',
-  },
-];
+interface FaqItem {
+  q: string;
+  a: string;
+  link?: { text: string; href: string };
+}
+
+interface Props {
+  eyebrow?: string;
+  heading: string;
+  faqs: FaqItem[];
+  footer?: string;
+  footerLink?: { text: string; href: string };
+  cta?: { text: string; href: string };
+  background?: string;
+  id?: string;
+}
+
+const {
+  eyebrow = 'FAQ',
+  heading,
+  faqs,
+  footer,
+  footerLink,
+  cta,
+  background,
+  id = 'faq',
+} = Astro.props;
 ---
 
-<section class="section" aria-labelledby="faq-heading">
+<section class="section" aria-labelledby={`${id}-heading`} style={background ? `background: ${background};` : undefined}>
   <div class="container container--md">
 
     <div class="faq__head reveal">
-      <p class="eyebrow">FAQ</p>
-      <h2 id="faq-heading">The things people<br />usually ask.</h2>
+      <p class="eyebrow">{eyebrow}</p>
+      <h2 id={`${id}-heading`}>{heading}</h2>
     </div>
 
     <dl class="faq__list reveal reveal-delay-1">
@@ -43,8 +43,8 @@ const faqs = [
             <button
               class="faq__question"
               aria-expanded="false"
-              aria-controls={`faq-answer-${i}`}
-              id={`faq-q-${i}`}
+              aria-controls={`${id}-answer-${i}`}
+              id={`${id}-q-${i}`}
             >
               <span>{faq.q}</span>
               <span class="faq__icon" aria-hidden="true">
@@ -54,16 +54,24 @@ const faqs = [
               </span>
             </button>
           </dt>
-          <dd class="faq__answer" id={`faq-answer-${i}`} role="region" aria-labelledby={`faq-q-${i}`} hidden>
+          <dd class="faq__answer" id={`${id}-answer-${i}`} role="region" aria-labelledby={`${id}-q-${i}`} hidden>
             <p>{faq.a}{faq.link && <> <a href={faq.link.href} class="faq__answer-link">{faq.link.text}</a></>}</p>
           </dd>
         </div>
       ))}
     </dl>
 
-    <p class="faq__footer reveal">
-      Still have questions? <a href="/contact" class="faq__link">Get in touch</a> — we reply within one business day.
-    </p>
+    {footer && footerLink && (
+      <p class="faq__footer reveal">
+        {footer} <a href={footerLink.href} class="faq__link">{footerLink.text}</a>
+      </p>
+    )}
+
+    {cta && (
+      <div class="faq__cta reveal">
+        <a href={cta.href} class="btn btn--primary btn--lg">{cta.text}</a>
+      </div>
+    )}
 
   </div>
 </section>
@@ -147,6 +155,11 @@ const faqs = [
 
   .faq__answer-link { color: var(--blue); font-weight: 500; transition: color var(--t-fast); }
   .faq__answer-link:hover { color: var(--mid-blue); }
+
+  .faq__cta {
+    display: flex;
+    justify-content: center;
+  }
 
   @media (max-width: 768px) {
     .faq__question { padding: var(--sp-6) var(--sp-6); font-size: var(--fs-base); }

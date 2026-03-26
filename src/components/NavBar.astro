@@ -19,8 +19,9 @@ const links = [
     label: t('nav.services'),
     href: `${prefix}/services`,
     children: [
-      { label: t('nav.content'),  href: `${prefix}/services/content` },
-      { label: t('nav.training'), href: `${prefix}/services/training` },
+      { label: t('nav.content'),      href: `${prefix}/services/content` },
+      { label: t('nav.advertising'), href: `${prefix}/services/advertising` },
+      { label: t('nav.consulting'),  href: `${prefix}/services/consulting` },
     ],
   },
   { label: t('nav.pricing'),  href: `${prefix}/pricing` },
@@ -45,7 +46,8 @@ const contactHref = `${prefix}/contact?intent=call`;
         <li class={link.children ? 'nav__item nav__item--has-dropdown' : 'nav__item'}>
           {link.children ? (
             <>
-              <button
+              <a
+                href={link.href}
                 class={`nav__link nav__link--dropdown${currentPath.startsWith(link.href) ? ' nav__link--active' : ''}`}
                 aria-haspopup="true" aria-expanded="false"
               >
@@ -53,7 +55,7 @@ const contactHref = `${prefix}/contact?intent=call`;
                 <svg class="nav__chevron" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
                   <path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
                 </svg>
-              </button>
+              </a>
               <ul class="nav__dropdown" role="list">
                 {link.children.map(child => (
                   <li>
@@ -174,6 +176,7 @@ const contactHref = `${prefix}/contact?intent=call`;
   }
   .nav__dropdown-link:hover,
   .nav__dropdown-link--active { background: #EEF4FB; color: var(--blue); }
+
 
   /* Language switcher */
   .nav__lang {

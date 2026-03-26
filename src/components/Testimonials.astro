@@ -1,0 +1,228 @@
+---
+const testimonials = [
+  {
+    text: "This ERP revolutionized our operations, streamlining finance and inventory. The cloud-based platform keeps us productive, even remotely.",
+    image: "https://randomuser.me/api/portraits/women/1.jpg",
+    name: "Briana Patton",
+    role: "Operations Manager",
+  },
+  {
+    text: "Implementing this ERP was smooth and quick. The customizable, user-friendly interface made team training effortless.",
+    image: "https://randomuser.me/api/portraits/men/2.jpg",
+    name: "Bilal Ahmed",
+    role: "IT Manager",
+  },
+  {
+    text: "The support team is exceptional, guiding us through setup and providing ongoing assistance, ensuring our satisfaction.",
+    image: "https://randomuser.me/api/portraits/women/3.jpg",
+    name: "Saman Malik",
+    role: "Customer Support Lead",
+  },
+  {
+    text: "This ERP's seamless integration enhanced our business operations and efficiency. Highly recommend for its intuitive interface.",
+    image: "https://randomuser.me/api/portraits/men/4.jpg",
+    name: "Omar Raza",
+    role: "CEO",
+  },
+  {
+    text: "Its robust features and quick support have transformed our workflow, making us significantly more efficient.",
+    image: "https://randomuser.me/api/portraits/women/5.jpg",
+    name: "Zainab Hussain",
+    role: "Project Manager",
+  },
+  {
+    text: "The smooth implementation exceeded expectations. It streamlined processes, improving overall business performance.",
+    image: "https://randomuser.me/api/portraits/women/6.jpg",
+    name: "Aliza Khan",
+    role: "Business Analyst",
+  },
+  {
+    text: "Our business functions improved with a user-friendly design and positive customer feedback.",
+    image: "https://randomuser.me/api/portraits/men/7.jpg",
+    name: "Farhan Siddiqui",
+    role: "Marketing Director",
+  },
+  {
+    text: "They delivered a solution that exceeded expectations, understanding our needs and enhancing our operations.",
+    image: "https://randomuser.me/api/portraits/women/8.jpg",
+    name: "Sana Sheikh",
+    role: "Sales Manager",
+  },
+  {
+    text: "Using this ERP, our online presence and conversions significantly improved, boosting business performance.",
+    image: "https://randomuser.me/api/portraits/men/9.jpg",
+    name: "Hassan Ali",
+    role: "E-commerce Manager",
+  },
+];
+
+const firstColumn = testimonials.slice(0, 3);
+const secondColumn = testimonials.slice(3, 6);
+const thirdColumn = testimonials.slice(6, 9);
+---
+
+<section class="testimonials section" aria-labelledby="testimonials-heading">
+  <div class="container">
+    <div class="testimonials__head reveal">
+      <div class="testimonials__badge">Testimonials</div>
+      <h2 id="testimonials-heading" class="testimonials__title">What our users say</h2>
+      <p class="testimonials__sub">See what our customers have to say about us.</p>
+    </div>
+
+    <div class="testimonials__columns">
+      {[
+        { items: firstColumn, speed: 'slow' },
+        { items: secondColumn, speed: 'mid' },
+        { items: thirdColumn, speed: 'fast' },
+      ].map(({ items, speed }, colIdx) => (
+        <div class={`testimonials__col testimonials__col--${speed} ${colIdx === 1 ? 'testimonials__col--md' : ''} ${colIdx === 2 ? 'testimonials__col--lg' : ''}`}>
+          <div class="testimonials__track">
+            {/* Duplicate list for seamless loop */}
+            {[0, 1].map(() =>
+              items.map((t, i) => (
+                <div class="testimonials__card" key={i}>
+                  <p class="testimonials__text">{t.text}</p>
+                  <div class="testimonials__author">
+                    <img
+                      width="40"
+                      height="40"
+                      src={t.image}
+                      alt={t.name}
+                      class="testimonials__avatar"
+                      loading="lazy"
+                    />
+                    <div>
+                      <p class="testimonials__name">{t.name}</p>
+                      <p class="testimonials__role">{t.role}</p>
+                    </div>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials__head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 540px;
+    margin-inline: auto;
+    margin-bottom: var(--sp-10);
+    text-align: center;
+  }
+
+  .testimonials__badge {
+    display: inline-flex;
+    padding: 0.25rem 1rem;
+    border: 1px solid var(--border-2);
+    border-radius: var(--r-md);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--text-2);
+    margin-bottom: var(--sp-5);
+  }
+
+  .testimonials__title {
+    letter-spacing: -0.03em;
+  }
+
+  .testimonials__sub {
+    margin-top: var(--sp-4);
+    color: var(--text-2);
+  }
+
+  /* ── Columns grid ── */
+  .testimonials__columns {
+    display: flex;
+    justify-content: center;
+    gap: var(--sp-6);
+    max-height: 740px;
+    overflow: hidden;
+    mask-image: linear-gradient(to bottom, transparent, black 25%, black 75%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 25%, black 75%, transparent);
+  }
+
+  .testimonials__col {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .testimonials__col--md { display: none; }
+  .testimonials__col--lg { display: none; }
+
+  /* ── Infinite scroll track ── */
+  .testimonials__track {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-6);
+    animation: scroll-up 15s linear infinite;
+  }
+
+  .testimonials__col--mid .testimonials__track { animation-duration: 19s; }
+  .testimonials__col--fast .testimonials__track { animation-duration: 17s; }
+
+  @keyframes scroll-up {
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+  }
+
+  /* ── Card ── */
+  .testimonials__card {
+    padding: var(--sp-8);
+    border-radius: var(--r-2xl);
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 24px rgba(10, 102, 194, 0.07);
+    background: var(--white);
+  }
+
+  .testimonials__text {
+    font-size: var(--fs-sm);
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  .testimonials__author {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    margin-top: var(--sp-5);
+  }
+
+  .testimonials__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--r-full);
+    object-fit: cover;
+  }
+
+  .testimonials__name {
+    font-weight: 500;
+    font-size: var(--fs-sm);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+
+  .testimonials__role {
+    font-size: var(--fs-xs);
+    line-height: 1.3;
+    color: var(--text-3);
+    letter-spacing: -0.01em;
+  }
+
+  /* ── Responsive ── */
+  @media (min-width: 768px) {
+    .testimonials__col--md { display: block; }
+  }
+
+  @media (min-width: 1024px) {
+    .testimonials__col--lg { display: block; }
+  }
+</style>
