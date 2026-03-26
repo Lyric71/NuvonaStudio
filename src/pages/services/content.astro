@@ -1,0 +1,608 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import NavBar from '../../components/NavBar.astro';
+import Footer from '../../components/Footer.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+
+const services = [
+  {
+    id: 'company-page',
+    title: 'Company Page Management',
+    h2: 'Your LinkedIn page is your global first impression.',
+    sub: 'We make sure it earns the meeting.',
+    items: [
+      { title: 'Audit and Rebuild', body: 'We fix the foundation first. Banner, About section, featured content, specialty tags.' },
+      { title: 'Monthly Content Management', body: "Consistent, strategic, on schedule. Calibrated to LinkedIn's algorithm and your commercial priorities." },
+      { title: 'All LinkedIn Formats', body: 'Text posts, carousels, videos, documents, polls. Every format chosen for impact, not convenience.' },
+      { title: 'Follower Growth', body: 'Employee amplification, targeted campaigns, content built to travel.' },
+      { title: 'Monthly Reporting', body: 'What happened, why it happened, what we do next.' },
+    ],
+    trust: 'AI-powered. Human-led. Speed from AI. Quality from our team.',
+    note: 'Nothing goes live without your approval. Everything we build belongs to you.',
+    image: '/images/placeholder-company-page.jpg',
+    imageAlt: 'Company page management visual placeholder',
+    stat: null,
+  },
+  {
+    id: 'content-production',
+    title: 'Content Production & Editorial',
+    h2: 'Content is how B2B companies earn trust at scale.',
+    sub: 'Every format. Every week. Every market.',
+    items: [
+      { title: 'Every LinkedIn Format', body: 'Text posts, carousels, videos, native documents, polls, articles. Every format chosen strategically, not by default.' },
+      { title: 'Executive Ghostwriting', body: 'Your leaders have the expertise. We give it a voice.' },
+      { title: 'Multilingual Content', body: 'Written natively in each language. Not translated.' },
+      { title: 'Editorial Calendar', body: 'Planned a month ahead. Drafted, reviewed, approved, published on schedule.' },
+    ],
+    trust: 'AI accelerates research, drafting, and multilingual production. Our editorial team ensures every output meets the standard your brand requires.',
+    note: 'You approve every piece. If it is not right, we rewrite it. No exceptions.',
+    image: '/images/placeholder-content-production.jpg',
+    imageAlt: 'Content production and editorial visual placeholder',
+    stat: null,
+  },
+  {
+    id: 'newsletter',
+    title: 'LinkedIn Newsletter',
+    h2: 'The algorithm controls your reach. Your newsletter subscribers chose you.',
+    sub: 'Build the audience asset that outlasts any campaign.',
+    items: [
+      { title: 'Editorial Concept', body: 'We define what your newsletter stands for, who it serves, and why people subscribe and stay subscribed.' },
+      { title: 'End-to-End Production', body: 'Research, writing, editing, subject line, calls to action. Every edition, on time.' },
+      { title: 'Subscriber Growth', body: 'Organic and paid acquisition across your Company Page, leadership profiles, and targeted campaigns.' },
+      { title: 'Performance Tracking', body: 'Open rates, click-throughs, subscriber growth. Clear commentary after every edition.' },
+    ],
+    trust: 'AI accelerates topic research, audience analysis, and multilingual drafting. The voice and the final copy are always human.',
+    note: 'Your subscriber list belongs to you entirely. Always.',
+    image: '/images/placeholder-newsletter.jpg',
+    imageAlt: 'LinkedIn newsletter visual placeholder',
+    stat: null,
+  },
+  {
+    id: 'events',
+    title: 'LinkedIn Events',
+    h2: 'Your audience scrolls past posts. They show up for events.',
+    sub: 'Every registration is a named lead. We make sure you use it.',
+    items: [
+      { title: 'Concept & Positioning', body: 'A sharp, specific angle for a clearly defined audience. Built to fill seats.' },
+      { title: 'Promotion Campaign', body: 'Multi-touchpoint campaign starting four weeks out. Organic, outreach, and paid.' },
+      { title: 'Speaker Preparation', body: 'Every participant briefed, prepared, and technically checked before the day.' },
+      { title: 'Live Management', body: 'We run the session. You focus on the content.' },
+      { title: 'Post-Event Content', body: 'Recording, clips, written summary, social posts. One event becomes weeks of content.' },
+      { title: 'Follow-Up Playbook', body: 'Registrant data plus a clear action plan for your commercial team.' },
+    ],
+    trust: 'AI processes recordings, generates clips, and repurposes key moments across every LinkedIn format available.',
+    note: 'All assets and registrant data belong to you. If the concept will not drive registration, we say so in week one.',
+    image: '/images/placeholder-events.jpg',
+    imageAlt: 'LinkedIn events visual placeholder',
+    stat: '100% Registrant Data Ownership',
+  },
+];
+
+// Icon paths: company page, content/editorial, newsletter, events
+const cardIcons = [
+  // Building / company page
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <rect x="3" y="7" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/>
+    <path d="M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.6"/>
+    <line x1="9" y1="12" x2="15" y2="12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    <line x1="9" y1="16" x2="13" y2="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  </svg>`,
+  // Pen / editorial
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M12 20h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+  </svg>`,
+  // Envelope / newsletter
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/>
+    <path d="M2 7l10 7 10-7" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+  </svg>`,
+  // Calendar / events
+  `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/>
+    <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="1.6"/>
+    <rect x="7" y="14" width="3" height="3" rx="0.5" fill="currentColor" opacity="0.7"/>
+  </svg>`,
+];
+
+const cards = [
+  { title: 'Company Page Management', desc: 'Your global first impression, built and managed end to end.', href: '#company-page' },
+  { title: 'Content Production & Editorial', desc: 'Every format, every week, every market. Content that earns authority.', href: '#content-production' },
+  { title: 'LinkedIn Newsletter', desc: 'A direct relationship with the professionals who matter most to your business.', href: '#newsletter' },
+  { title: 'LinkedIn Events', desc: 'The highest-engagement format on LinkedIn, executed without the risk.', href: '#events' },
+];
+---
+
+<Layout
+  title="LinkedIn Content Services — Nuvora Studio"
+  description="Four LinkedIn content services for B2B companies. Company page management, content production, newsletter, and events — all managed end to end by specialists."
+  abstract="Four LinkedIn content services. One goal: a LinkedIn presence that works as hard as your team does."
+>
+  <NavBar />
+  <main id="main-content">
+
+    <!-- ── Hero ─────────────────────────────────────────────── -->
+    <section class="content-hero" aria-labelledby="content-heading">
+      <div class="container">
+        <div class="content-hero__inner">
+
+          <div class="content-hero__text">
+            <p class="eyebrow eyebrow--light reveal">Services / Content</p>
+            <h1 id="content-heading" class="content-hero__h1 reveal reveal-delay-1">
+              LinkedIn Content Services
+            </h1>
+            <p class="content-hero__sub reveal reveal-delay-2">
+              Four services. One goal. A LinkedIn presence that works as hard as your team does.
+            </p>
+            <div class="content-hero__actions reveal reveal-delay-3">
+              <a href="/contact?intent=call" class="btn btn--primary btn--lg">Book a call</a>
+            </div>
+          </div>
+
+          <!-- Service cards grid -->
+          <div class="content-hero__cards reveal reveal-delay-2">
+            {cards.map((card, i) => (
+              <a href={card.href} class="hero-card">
+                <span class="hero-card__icon" aria-hidden="true" set:html={cardIcons[i]} />
+                <strong class="hero-card__title">{card.title}</strong>
+                <p class="hero-card__desc">{card.desc}</p>
+              </a>
+            ))}
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Service Sections ──────────────────────────────────── -->
+    {services.map((svc, i) => (
+      <section
+        class={`section svc-section${i % 2 === 1 ? ' svc-section--alt' : ''}`}
+        id={svc.id}
+        aria-labelledby={`svc-${svc.id}`}
+      >
+        <div class="container">
+          <div class="svc-layout">
+
+            <!-- Text side -->
+            <div class="svc-text">
+              <span class="svc-icon" aria-hidden="true" set:html={cardIcons[i]} />
+              <h2 id={`svc-${svc.id}`} class="svc-h2 reveal">{svc.h2}</h2>
+              <p class="svc-sub reveal">{svc.sub}</p>
+
+              <ul class="svc-items" role="list">
+                {svc.items.map(item => (
+                  <li class="svc-item reveal">
+                    <svg class="svc-item__icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                      <circle cx="9" cy="9" r="9" fill="var(--blue)" opacity="0.12"/>
+                      <path d="M5.5 9l2.5 2.5L12.5 6.5" stroke="var(--blue)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div>
+                      <strong class="svc-item__title">{item.title}</strong>
+                      <p class="svc-item__body">{item.body}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+
+              <div class="svc-trust reveal">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" class="svc-trust__icon">
+                  <path d="M8 1L10.09 5.26L15 6L11.5 9.38L12.18 14.28L8 12.1L3.82 14.28L4.5 9.38L1 6L5.91 5.26L8 1Z" fill="var(--cyan)" opacity="0.85"/>
+                </svg>
+                <p class="svc-trust__text">{svc.trust}</p>
+              </div>
+
+              <p class="svc-note reveal"><em>{svc.note}</em></p>
+
+              {svc.stat && (
+                <div class="svc-stat reveal">
+                  <span class="svc-stat__value">{svc.stat}</span>
+                </div>
+              )}
+            </div>
+
+            <!-- Visual side -->
+            <div class="svc-visual reveal">
+              <div class="svc-img-wrap">
+                <img
+                  src={svc.image}
+                  alt={svc.imageAlt}
+                  class="svc-img"
+                  width="600"
+                  height="420"
+                  loading="lazy"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                />
+                <div class="svc-img-placeholder" aria-hidden="true">
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                    <rect width="48" height="48" rx="8" fill="rgba(0,90,156,0.08)"/>
+                    <path d="M12 36l9-12 7 9 5-6 9 9H12z" fill="rgba(0,90,156,0.15)"/>
+                    <circle cx="34" cy="18" r="4" fill="rgba(0,90,156,0.18)"/>
+                  </svg>
+                  <span>Visual coming soon</span>
+                </div>
+              </div>
+              <div class="svc-badge">
+                <span class="svc-badge__text">{cards[i].title}</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <!-- ── Bottom CTA ────────────────────────────────────────── -->
+    <section class="section cta" aria-labelledby="content-cta-heading" style="background: var(--deep-navy);">
+      <div class="container">
+        <div class="cta__layout">
+          <div class="cta__left reveal">
+            <p class="eyebrow eyebrow--light">Start here</p>
+            <h2 id="content-cta-heading" class="cta__headline">
+              Ready to get more leads<br />
+              <em>from LinkedIn?</em>
+            </h2>
+          </div>
+          <div class="cta__right reveal reveal-delay-2">
+            <p class="cta__sub">Tell us about your company. We'll show you exactly where the opportunity is.</p>
+            <div class="cta__actions">
+              <a href="/contact?intent=call" class="btn btn--primary btn--lg">Book a call</a>
+            </div>
+            <p class="cta__note">30 minutes. No pitch. Straight answers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  /* ── Hero ── */
+  .content-hero {
+    background: var(--deep-navy);
+    padding-block: var(--sp-24) var(--sp-20);
+    position: relative;
+    overflow: hidden;
+  }
+  .content-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 80% 40%, rgba(0,168,220,0.10) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .content-hero__inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-16);
+  }
+
+  .content-hero__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    margin-block: var(--sp-5) var(--sp-6);
+  }
+
+  .content-hero__sub {
+    font-size: var(--fs-md);
+    color: rgba(255,255,255,0.68);
+    max-width: 560px;
+    line-height: 1.75;
+    margin-bottom: var(--sp-10);
+  }
+
+  .content-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+  }
+
+  /* Service cards grid */
+  .content-hero__cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-4);
+  }
+
+  .hero-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    padding: var(--sp-6);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: var(--r-xl);
+    transition: background var(--t-fast), border-color var(--t-fast);
+    text-decoration: none;
+  }
+  .hero-card:hover {
+    background: rgba(255,255,255,0.10);
+    border-color: rgba(0,168,220,0.35);
+  }
+
+  .hero-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--r-lg);
+    background: rgba(0,168,220,0.15);
+    color: var(--cyan);
+    flex-shrink: 0;
+  }
+  .hero-card__icon svg { display: block; }
+
+  .hero-card__title {
+    font-size: var(--fs-base);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.3;
+  }
+
+  .hero-card__desc {
+    font-size: var(--fs-sm);
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+  }
+
+  /* ── Service Sections ── */
+  .svc-section { background: var(--white); }
+  .svc-section--alt { background: var(--off-white); }
+
+  .svc-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-16);
+    align-items: center;
+  }
+  .svc-section--alt .svc-layout { direction: rtl; }
+  .svc-section--alt .svc-text,
+  .svc-section--alt .svc-visual { direction: ltr; }
+
+  .svc-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: var(--r-lg);
+    background: rgba(0,90,156,0.08);
+    color: var(--blue);
+    margin-bottom: var(--sp-5);
+    flex-shrink: 0;
+  }
+  .svc-icon svg { display: block; }
+
+  .svc-h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-bottom: var(--sp-3);
+  }
+
+  .svc-sub {
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    line-height: 1.65;
+    margin-bottom: var(--sp-8);
+  }
+
+  /* Service items */
+  .svc-items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-5);
+    margin-bottom: var(--sp-8);
+  }
+
+  .svc-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-4);
+  }
+
+  .svc-item__icon { flex-shrink: 0; margin-top: 3px; }
+
+  .svc-item__title {
+    display: block;
+    font-size: var(--fs-base);
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: var(--sp-1);
+  }
+
+  .svc-item__body {
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.65;
+  }
+
+  /* Trust line */
+  .svc-trust {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-3);
+    padding: var(--sp-4) var(--sp-5);
+    background: rgba(0,90,156,0.05);
+    border-left: 3px solid var(--blue);
+    border-radius: 0 var(--r-md) var(--r-md) 0;
+    margin-bottom: var(--sp-4);
+  }
+
+  .svc-trust__icon { flex-shrink: 0; margin-top: 2px; }
+
+  .svc-trust__text {
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.65;
+  }
+
+  .svc-note {
+    font-size: var(--fs-sm);
+    color: var(--text-3);
+    line-height: 1.65;
+    margin-bottom: var(--sp-6);
+  }
+
+  /* Stat callout */
+  .svc-stat {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--sp-3) var(--sp-5);
+    background: var(--deep-navy);
+    border-radius: var(--r-lg);
+  }
+
+  .svc-stat__value {
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    color: var(--cyan);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* Visual side */
+  .svc-visual {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+  }
+
+  .svc-img-wrap {
+    position: relative;
+    border-radius: var(--r-xl);
+    overflow: hidden;
+    aspect-ratio: 16/10;
+    background: var(--off-white);
+    border: 1px solid var(--border);
+  }
+
+  .svc-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .svc-img-placeholder {
+    display: none;
+    position: absolute;
+    inset: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-3);
+    background: linear-gradient(135deg, #f0f4f8 0%, #e8eef5 100%);
+  }
+
+  .svc-img-placeholder span {
+    font-size: var(--fs-xs);
+    color: var(--text-3);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* Show placeholder by default (until real image loads) */
+  .svc-img-wrap .svc-img {
+    display: none;
+  }
+  .svc-img-wrap .svc-img-placeholder {
+    display: flex;
+  }
+
+  .svc-badge {
+    align-self: flex-start;
+    padding: var(--sp-2) var(--sp-4);
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+  }
+
+  .svc-badge__text {
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    color: var(--blue);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── Bottom CTA (same as ContactCTA) ── */
+  .cta { position: relative; overflow: hidden; }
+  .cta::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 100% 50%, rgba(0,168,220,0.10) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .cta__layout {
+    position: relative; z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-16);
+    align-items: center;
+  }
+
+  .cta__headline {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.10;
+    letter-spacing: -0.02em;
+  }
+  .cta__headline em { color: rgba(255,255,255,0.45); font-weight: 300; }
+
+  .cta__sub {
+    font-size: var(--fs-md);
+    color: rgba(255,255,255,0.60);
+    line-height: 1.75;
+    margin-bottom: var(--sp-8);
+  }
+
+  .cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+    align-items: center;
+    margin-bottom: var(--sp-5);
+  }
+
+  .cta__note {
+    font-size: var(--fs-sm);
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.02em;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .content-hero__cards { grid-template-columns: repeat(2, 1fr); }
+    .svc-layout { grid-template-columns: 1fr; gap: var(--sp-10); }
+    .svc-section--alt .svc-layout { direction: ltr; }
+    .cta__layout { grid-template-columns: 1fr; gap: var(--sp-10); }
+  }
+
+  @media (max-width: 768px) {
+    .content-hero { padding-block: var(--sp-16) var(--sp-12); }
+  }
+
+  @media (max-width: 640px) {
+    .content-hero__cards { grid-template-columns: 1fr; }
+    .cta__actions { flex-direction: column; align-items: stretch; }
+    .cta__actions .btn { justify-content: center; }
+  }
+</style>
