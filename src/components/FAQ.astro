@@ -1,39 +1,39 @@
 ---
 const faqs = [
   {
-    q: 'Do you work with companies outside Europe?',
-    a: 'Yes. We work with B2B companies globally. LinkedIn is a global platform and our team operates across time zones.',
+    q: 'Where are your clients based?',
+    a: 'Everywhere. We work with B2B companies across Europe, North America, Asia, and beyond. LinkedIn is a global platform. So are we.',
   },
   {
-    q: 'Do you manage LinkedIn only, or other channels too?',
-    a: 'LinkedIn only. That is a deliberate choice — it allows us to go deeper on the platform than any generalist agency can.',
+    q: 'Do you only do LinkedIn?',
+    a: 'Yes. No SEO, no Instagram, no "full-service" packages. LinkedIn only. That focus is why we\'re good at it.',
   },
   {
-    q: 'Is advertising included in your services?',
-    a: 'LinkedIn advertising is a dedicated service line. Some clients engage us for organic content only, others for paid only, and many for both. We scope each engagement around your objectives.',
+    q: 'What does it cost to get started?',
+    a: 'Our Foundation retainer starts at $1,800/month. That includes strategy, content, and reporting. Most clients start there and scale up.',
+    link: { text: 'See full pricing →', href: '/pricing' },
   },
   {
-    q: 'How do you report on results?',
-    a: 'Every client receives a performance dashboard aligned to agreed KPIs. We report against outcomes — reach, engagement, leads, pipeline — not just activity.',
+    q: 'Is this only for large companies?',
+    a: 'No. Our packages are built for companies at different stages. $1,800/month gets you a fully managed LinkedIn presence. We also offer standalone training and ad management if a full retainer isn\'t the right fit yet.',
   },
   {
-    q: 'Do smaller companies work with you?',
-    a: 'Yes. Our training and standalone advisory services are designed for teams that are not yet ready for a full retainer but want to build genuine LinkedIn capability.',
+    q: 'Is advertising included?',
+    a: 'Ads are a separate line. Some clients run organic only. Others run paid only. Most do both. Ad spend always goes directly to your LinkedIn account — never through us.',
+  },
+  {
+    q: 'How do you measure results?',
+    a: 'We agree on KPIs at the start — leads, pipeline, follower growth, cost per lead. Every month you get a report against those numbers. Not a deck full of impressions.',
   },
 ];
 ---
 
 <section class="section" aria-labelledby="faq-heading" style="background: var(--off-white);">
-  <div class="container container--lg">
+  <div class="container container--md">
 
     <div class="faq__head reveal">
-      <div>
-        <p class="eyebrow">Common questions</p>
-        <h2 id="faq-heading">The things people usually ask.</h2>
-      </div>
-      <p class="faq__sub">
-        Still have questions? <a href="/contact" class="faq__link">Get in touch</a> and we'll reply within one business day.
-      </p>
+      <p class="eyebrow">FAQ</p>
+      <h2 id="faq-heading">The things people<br />usually ask.</h2>
     </div>
 
     <dl class="faq__list reveal reveal-delay-1">
@@ -48,45 +48,42 @@ const faqs = [
             >
               <span>{faq.q}</span>
               <span class="faq__icon" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <path d="M4.5 6.75l4.5 4.5 4.5-4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </span>
             </button>
           </dt>
           <dd class="faq__answer" id={`faq-answer-${i}`} role="region" aria-labelledby={`faq-q-${i}`} hidden>
-            <p>{faq.a}</p>
+            <p>{faq.a}{faq.link && <> <a href={faq.link.href} class="faq__answer-link">{faq.link.text}</a></>}</p>
           </dd>
         </div>
       ))}
     </dl>
+
+    <p class="faq__footer reveal">
+      Still have questions? <a href="/contact" class="faq__link">Get in touch</a> — we reply within one business day.
+    </p>
 
   </div>
 </section>
 
 <style>
   .faq__head {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--sp-12);
-    align-items: end;
-    margin-bottom: var(--sp-12);
+    margin-bottom: var(--sp-10);
   }
 
-  .faq__sub {
-    font-size: var(--fs-md);
-    color: var(--text-2);
-    line-height: 1.7;
-    align-self: flex-end;
+  .faq__head h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    max-width: 520px;
   }
-  .faq__link { color: var(--blue); transition: color var(--t-fast); }
-  .faq__link:hover { color: var(--mid-blue); }
 
   .faq__list {
     border: 1px solid var(--border);
     border-radius: var(--r-xl);
     overflow: hidden;
     background: var(--white);
+    margin-bottom: var(--sp-8);
   }
 
   .faq__item { border-bottom: 1px solid var(--border); }
@@ -98,7 +95,7 @@ const faqs = [
     align-items: center;
     justify-content: space-between;
     gap: var(--sp-6);
-    padding: var(--sp-5) var(--sp-7);
+    padding: 1.5rem var(--sp-8);
     font-family: var(--font-display);
     font-size: var(--fs-lg);
     font-weight: 600;
@@ -112,16 +109,48 @@ const faqs = [
   .faq__question:hover { background: #EEF4FB; }
   .faq__question[aria-expanded="true"] { background: #EEF4FB; color: var(--blue); }
 
-  .faq__icon { flex-shrink: 0; color: var(--text-3); transition: transform var(--t-base), color var(--t-base); }
-  .faq__question[aria-expanded="true"] .faq__icon { transform: rotate(180deg); color: var(--blue); }
+  .faq__icon {
+    flex-shrink: 0;
+    color: var(--text-3);
+    transition: transform var(--t-base), color var(--t-base);
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+  }
+  .faq__question[aria-expanded="true"] .faq__icon {
+    transform: rotate(180deg);
+    color: var(--blue);
+    border-color: var(--blue);
+    background: rgba(10,102,194,0.06);
+  }
 
-  .faq__answer { padding: 0 var(--sp-7) var(--sp-5); background: #EEF4FB; }
-  .faq__answer p { font-size: var(--fs-sm); color: var(--text-2); line-height: 1.75; }
+  .faq__answer { padding: 0 var(--sp-8) 1.5rem; background: #EEF4FB; }
+  .faq__answer p {
+    font-size: var(--fs-base);
+    color: var(--text-2);
+    line-height: 1.75;
+    max-width: 640px;
+  }
+
+  .faq__footer {
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    text-align: center;
+  }
+  .faq__link { color: var(--blue); font-weight: 500; transition: color var(--t-fast); }
+  .faq__link:hover { color: var(--mid-blue); }
+
+  .faq__answer-link { color: var(--blue); font-weight: 500; transition: color var(--t-fast); }
+  .faq__answer-link:hover { color: var(--mid-blue); }
 
   @media (max-width: 768px) {
-    .faq__head { grid-template-columns: 1fr; gap: var(--sp-6); }
-    .faq__question { padding: var(--sp-5); font-size: var(--fs-base); }
-    .faq__answer { padding: 0 var(--sp-5) var(--sp-5); }
+    .faq__question { padding: var(--sp-6) var(--sp-6); font-size: var(--fs-base); }
+    .faq__answer { padding: 0 var(--sp-6) var(--sp-6); }
   }
 </style>
 

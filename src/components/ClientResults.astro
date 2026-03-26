@@ -27,12 +27,6 @@ const testimonials = [
     title: 'PLACEHOLDER Title',
     company: 'PLACEHOLDER Company',
   },
-  {
-    quote: 'PLACEHOLDER — client quote here.',
-    name: 'PLACEHOLDER Name',
-    title: 'PLACEHOLDER Title',
-    company: 'PLACEHOLDER Company',
-  },
 ];
 ---
 
@@ -41,13 +35,12 @@ const testimonials = [
 
     <div class="results__head reveal">
       <div>
-        <p class="eyebrow">Selected work</p>
-        <h2 id="results-heading">What good LinkedIn strategy actually delivers.</h2>
+        <p class="eyebrow">Proof</p>
+        <h2 id="results-heading">LinkedIn that generates pipeline.</h2>
       </div>
       <a href="/work" class="btn btn--outline">View all case studies →</a>
     </div>
 
-    <!-- Case studies -->
     <div class="results__cases">
       {caseStudies.map((cs, i) => (
         <article class="results__card reveal" style={`transition-delay: ${i * 0.08}s`}>
@@ -60,7 +53,6 @@ const testimonials = [
       ))}
     </div>
 
-    <!-- Testimonials -->
     <div class="results__quotes">
       {testimonials.map((t, i) => (
         <blockquote class="results__quote reveal" style={`transition-delay: ${i * 0.10}s`}>
@@ -74,16 +66,10 @@ const testimonials = [
       ))}
     </div>
 
-    <p class="results__support reveal text-center">
-      From global manufacturers to fast-growing SaaS companies, we have helped B2B brands
-      across industries build LinkedIn presences that perform.
-    </p>
-
   </div>
 </section>
 
 <style>
-  /* Header row */
   .results__head {
     display: flex;
     align-items: flex-end;
@@ -93,7 +79,6 @@ const testimonials = [
     flex-wrap: wrap;
   }
 
-  /* Case study cards */
   .results__cases {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -133,12 +118,7 @@ const testimonials = [
     margin-bottom: var(--sp-4);
   }
 
-  .results__rule {
-    height: 1px;
-    background: var(--border);
-    border: none;
-    margin-bottom: var(--sp-4);
-  }
+  .results__rule { height: 1px; background: var(--border); border: none; margin-bottom: var(--sp-4); }
 
   .results__result {
     font-family: var(--font-display);
@@ -149,12 +129,11 @@ const testimonials = [
     letter-spacing: -0.01em;
   }
 
-  /* Testimonials */
   .results__quotes {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--sp-6);
-    margin-bottom: var(--sp-12);
+    margin-bottom: var(--sp-4);
   }
 
   .results__quote {
@@ -188,29 +167,10 @@ const testimonials = [
     letter-spacing: -0.01em;
   }
 
-  .results__quote-name {
-    font-size: var(--fs-sm);
-    font-weight: 600;
-    color: var(--text);
-  }
-  .results__quote-meta {
-    font-size: var(--fs-xs);
-    color: var(--text-3);
-    margin-top: 2px;
-    letter-spacing: 0.02em;
-  }
+  .results__quote-name { font-size: var(--fs-sm); font-weight: 600; color: var(--text); }
+  .results__quote-meta { font-size: var(--fs-xs); color: var(--text-3); margin-top: 2px; letter-spacing: 0.02em; }
 
-  .results__support {
-    font-size: var(--fs-md);
-    color: var(--text-2);
-    max-width: 560px;
-    margin-inline: auto;
-    line-height: 1.75;
-  }
-
-  @media (max-width: 1024px) {
-    .results__cases { grid-template-columns: repeat(2, 1fr); }
-  }
+  @media (max-width: 1024px) { .results__cases { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 768px) {
     .results__head { flex-direction: column; align-items: flex-start; }
     .results__cases { grid-template-columns: 1fr; }

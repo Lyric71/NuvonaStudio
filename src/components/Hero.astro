@@ -2,40 +2,33 @@
 ---
 
 <section class="hero" aria-labelledby="hero-heading">
-  <!-- Animated canvas background -->
   <canvas class="hero__canvas" aria-hidden="true"></canvas>
-
-  <!-- Gradient layers -->
   <div class="hero__gradient-1" aria-hidden="true"></div>
   <div class="hero__gradient-2" aria-hidden="true"></div>
 
   <div class="container hero__container">
     <div class="hero__grid">
 
-      <!-- Left: copy -->
       <div class="hero__copy">
         <h1 id="hero-heading" class="hero__headline">
-          The LinkedIn only<br />B2B consultancy.
+          We grow LinkedIn presence.<br />
+          <span class="hero__headline-sub">You get more leads.</span>
         </h1>
 
         <p class="hero__hook">
-          Most B2B companies are on LinkedIn.<br />
-          <span class="hero__hook-muted">Very few are getting anything from it.</span>
+          LinkedIn is where B2B decisions are made.
         </p>
 
         <p class="hero__sub">
-          We are a specialist LinkedIn marketing agency working with B2B companies across the globe.
-          We build presences that generate real pipeline, attract the right decision-makers,
-          and establish lasting authority. One platform. Absolute focus.
+          We help you show up, build authority, and turn that into pipeline.
         </p>
 
         <div class="hero__actions">
-          <a href="/contact?intent=call" class="btn btn--primary btn--lg hero__btn-primary">Book a discovery call</a>
+          <a href="/contact?intent=call" class="btn btn--primary btn--lg hero__btn-primary">Start generating leads</a>
           <a href="/work" class="btn btn--outline-white btn--lg">View client results</a>
         </div>
       </div>
 
-      <!-- Right: image -->
       <div class="hero__image-col">
         <div class="hero__image-wrap">
           <div class="hero__image-glow" aria-hidden="true"></div>
@@ -56,7 +49,6 @@
 
     </div>
 
-    <!-- Stats bar -->
     <div class="hero__stats" aria-label="Key LinkedIn statistics">
       <div class="hero__stat">
         <span class="hero__stat-num" data-count="65" data-suffix="M+">65M+</span>
@@ -70,7 +62,7 @@
       <div class="hero__stat-sep" aria-hidden="true"></div>
       <div class="hero__stat">
         <span class="hero__stat-num">#1</span>
-        <span class="hero__stat-label">Rated B2B lead generation channel</span>
+        <span class="hero__stat-label">B2B lead generation channel</span>
       </div>
     </div>
 
@@ -78,7 +70,6 @@
 </section>
 
 <style>
-  /* ── Section ── */
   .hero {
     position: relative;
     background: var(--deep-navy);
@@ -88,66 +79,24 @@
     isolation: isolate;
   }
 
-  /* Canvas */
-  .hero__canvas {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    opacity: 0.45;
-  }
+  .hero__canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.45; }
 
-  /* Gradient layers */
   .hero__gradient-1 {
-    position: absolute;
-    inset: 0;
+    position: absolute; inset: 0;
     background:
       radial-gradient(ellipse 80% 60% at 70% 30%, rgba(0,168,220,0.14) 0%, transparent 60%),
       radial-gradient(ellipse 50% 70% at 10% 80%, rgba(0,65,130,0.35) 0%, transparent 55%);
-    z-index: 0;
-    pointer-events: none;
+    z-index: 0; pointer-events: none;
   }
 
   .hero__gradient-2 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 40%;
+    position: absolute; bottom: 0; left: 0; right: 0; height: 40%;
     background: linear-gradient(to top, rgba(0,24,64,0.6) 0%, transparent 100%);
-    z-index: 0;
-    pointer-events: none;
+    z-index: 0; pointer-events: none;
   }
 
-  /* Container above canvas */
   .hero__container { position: relative; z-index: 1; }
 
-  /* ── Eyebrow ── */
-  .hero__eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--sp-2);
-    font-size: var(--fs-xs);
-    font-weight: 500;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--cyan);
-    margin-bottom: var(--sp-5);
-    opacity: 0;
-    animation: heroFadeUp 0.7s 0.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-
-  .hero__eyebrow-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--cyan);
-    box-shadow: 0 0 8px var(--cyan);
-    animation: pulse 2.4s ease-in-out infinite;
-  }
-
-  /* ── Headline ── */
   .hero__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -167,34 +116,29 @@
     animation: heroFadeUp 0.75s 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
-  .hero__hook {
-    font-size: var(--fs-md);
-    font-weight: 500;
-    color: rgba(255,255,255,0.75);
-    line-height: 1.6;
-    margin-bottom: var(--sp-6);
-    opacity: 0;
-    animation: heroFadeUp 0.75s 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-
-  .hero__hook-muted {
-    color: rgba(255,255,255,0.38);
-    font-weight: 300;
-  }
-
-  .hero__muted {
+  .hero__headline-sub {
     display: block;
-    background: linear-gradient(90deg, rgba(255,255,255,0.42) 0%, rgba(0,168,220,0.5) 100%);
+    background: linear-gradient(90deg, rgba(255,255,255,0.85) 0%, rgba(0,168,220,0.85) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    font-weight: 300;
+    font-weight: 600;
+  }
+
+  .hero__hook {
+    font-size: var(--fs-xl);
+    font-weight: 500;
+    color: rgba(255,255,255,0.80);
+    line-height: 1.5;
+    margin-bottom: var(--sp-4);
+    opacity: 0;
+    animation: heroFadeUp 0.75s 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   .hero__sub {
     font-size: var(--fs-md);
     line-height: 1.75;
-    color: rgba(255,255,255,0.65);
+    color: rgba(255,255,255,0.55);
     margin-bottom: var(--sp-8);
     max-width: 520px;
     opacity: 0;
@@ -218,7 +162,6 @@
     transform: translateY(-1px);
   }
 
-  /* ── Image ── */
   .hero__image-col {
     display: flex;
     align-items: flex-end;
@@ -227,125 +170,50 @@
     animation: heroFadeUp 0.85s 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
-  .hero__image-wrap {
-    position: relative;
-    width: 100%;
-    max-width: 500px;
-  }
+  .hero__image-wrap { position: relative; width: 100%; max-width: 500px; }
 
-  /* Ambient glow behind image */
   .hero__image-glow {
-    position: absolute;
-    inset: -20px;
+    position: absolute; inset: -20px;
     background: radial-gradient(ellipse 70% 60% at 50% 60%, rgba(0,168,220,0.22) 0%, transparent 70%);
-    z-index: 0;
-    filter: blur(20px);
-    pointer-events: none;
+    z-index: 0; filter: blur(20px); pointer-events: none;
   }
 
   .hero__img {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: auto;
+    position: relative; z-index: 1; width: 100%; height: auto;
     border-radius: var(--r-2xl) var(--r-2xl) 0 0;
-    display: block;
-    margin-inline: auto;
-    box-shadow:
-      0 -12px 80px rgba(0,168,220,0.18),
-      0 0 0 1px rgba(255,255,255,0.06);
+    display: block; margin-inline: auto;
+    box-shadow: 0 -12px 80px rgba(0,168,220,0.18), 0 0 0 1px rgba(255,255,255,0.06);
     animation: float 6s ease-in-out infinite;
   }
 
-
-  /* ── Stats bar ── */
   .hero__stats {
-    display: flex;
-    align-items: stretch;
-    gap: 0;
+    display: flex; align-items: stretch; gap: 0;
     background: rgba(255,255,255,0.04);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-bottom: none;
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.08); border-bottom: none;
     border-radius: var(--r-xl) var(--r-xl) 0 0;
     padding: var(--sp-5) var(--sp-6);
     opacity: 0;
     animation: heroFadeUp 0.75s 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
-  .hero__stat {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding-inline: var(--sp-6);
-  }
-
+  .hero__stat { flex: 1; display: flex; flex-direction: column; gap: 5px; padding-inline: var(--sp-6); }
   .hero__stat:first-child { padding-left: 0; }
+  .hero__stat-num { font-size: var(--fs-2xl); font-weight: 700; color: var(--white); line-height: 1; letter-spacing: -0.02em; }
+  .hero__stat-label { font-size: 0.68rem; font-weight: 400; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.07em; line-height: 1.4; }
+  .hero__stat-sep { width: 1px; background: rgba(255,255,255,0.10); flex-shrink: 0; margin-block: var(--sp-1); }
 
-  .hero__stat-num {
-    font-size: var(--fs-2xl);
-    font-weight: 700;
-    color: var(--white);
-    line-height: 1;
-    letter-spacing: -0.02em;
-  }
+  @keyframes heroFadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
 
-  .hero__stat-label {
-    font-size: 0.68rem;
-    font-weight: 400;
-    color: var(--cyan);
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-    line-height: 1.4;
-  }
-
-  .hero__stat-sep {
-    width: 1px;
-    background: rgba(255,255,255,0.10);
-    flex-shrink: 0;
-    margin-block: var(--sp-1);
-  }
-
-  /* ── Animations ── */
-  @keyframes heroFadeUp {
-    from { opacity: 0; transform: translateY(22px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50%       { transform: translateY(-10px); }
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50%       { opacity: 0.5; transform: scale(0.75); }
-  }
-
-  /* ── Responsive ── */
   @media (max-width: 900px) {
-    .hero__grid {
-      grid-template-columns: 1fr;
-      gap: var(--sp-10);
-      padding-bottom: var(--sp-8);
-    }
+    .hero__grid { grid-template-columns: 1fr; gap: var(--sp-10); padding-bottom: var(--sp-8); }
     .hero__image-col { order: -1; }
-    .hero__img {
-      max-width: 360px;
-      border-radius: var(--r-2xl);
-      animation: none;
-    }
+    .hero__img { max-width: 360px; border-radius: var(--r-2xl); animation: none; }
   }
 
   @media (max-width: 640px) {
-    .hero__stats {
-      flex-direction: column;
-      gap: var(--sp-5);
-      padding: var(--sp-5);
-      border-radius: var(--r-xl) var(--r-xl) 0 0;
-    }
+    .hero__stats { flex-direction: column; gap: var(--sp-5); padding: var(--sp-5); }
     .hero__stat { padding-inline: 0; }
     .hero__stat-sep { width: 100%; height: 1px; margin-block: 0; }
     .hero__img { max-width: 100%; }
@@ -353,92 +221,55 @@
 </style>
 
 <script>
-  /* ── Canvas network animation ── */
   const canvas = document.querySelector('.hero__canvas') as HTMLCanvasElement | null;
   if (canvas) {
     const c = canvas;
     const ctx = c.getContext('2d')!;
-
     let nodes: Array<{ x: number; y: number; vx: number; vy: number; r: number }> = [];
     let W = 0, H = 0;
     const COUNT = 55;
     const MAX_DIST = 160;
 
     function resize() {
-      W = c.offsetWidth;
-      H = c.offsetHeight;
-      c.width  = W * devicePixelRatio;
-      c.height = H * devicePixelRatio;
+      W = c.offsetWidth; H = c.offsetHeight;
+      c.width = W * devicePixelRatio; c.height = H * devicePixelRatio;
       ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
     }
-
     function init() {
       nodes = Array.from({ length: COUNT }, () => ({
-        x:  Math.random() * W,
-        y:  Math.random() * H,
-        vx: (Math.random() - 0.5) * 0.35,
-        vy: (Math.random() - 0.5) * 0.35,
-        r:  Math.random() * 1.5 + 1,
+        x: Math.random() * W, y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.35, vy: (Math.random() - 0.5) * 0.35,
+        r: Math.random() * 1.5 + 1,
       }));
     }
-
     function draw() {
       ctx.clearRect(0, 0, W, H);
-
-      // Draw connections
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
-          const dx = nodes[i].x - nodes[j].x;
-          const dy = nodes[i].y - nodes[j].y;
+          const dx = nodes[i].x - nodes[j].x; const dy = nodes[i].y - nodes[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < MAX_DIST) {
-            const alpha = (1 - dist / MAX_DIST) * 0.25;
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(0,168,220,${alpha})`;
+            ctx.strokeStyle = `rgba(0,168,220,${(1 - dist / MAX_DIST) * 0.25})`;
             ctx.lineWidth = 0.8;
-            ctx.moveTo(nodes[i].x, nodes[i].y);
-            ctx.lineTo(nodes[j].x, nodes[j].y);
-            ctx.stroke();
+            ctx.moveTo(nodes[i].x, nodes[i].y); ctx.lineTo(nodes[j].x, nodes[j].y); ctx.stroke();
           }
         }
       }
-
-      // Draw nodes
-      nodes.forEach(n => {
-        ctx.beginPath();
-        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(0,168,220,0.55)';
-        ctx.fill();
-      });
+      nodes.forEach(n => { ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fillStyle = 'rgba(0,168,220,0.55)'; ctx.fill(); });
     }
-
     function update() {
       nodes.forEach(n => {
-        n.x += n.vx;
-        n.y += n.vy;
+        n.x += n.vx; n.y += n.vy;
         if (n.x < 0 || n.x > W) n.vx *= -1;
         if (n.y < 0 || n.y > H) n.vy *= -1;
       });
     }
-
-    function loop() {
-      update();
-      draw();
-      requestAnimationFrame(loop);
-    }
-
-    resize();
-    init();
-    loop();
-
-    const ro = new ResizeObserver(() => {
-      resize();
-      init();
-    });
-    ro.observe(c);
+    function loop() { update(); draw(); requestAnimationFrame(loop); }
+    resize(); init(); loop();
+    new ResizeObserver(() => { resize(); init(); }).observe(c);
   }
 
-  /* ── Stat counter animation ── */
   const statNums = document.querySelectorAll<HTMLElement>('.hero__stat-num[data-count]');
   const counterObs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -446,19 +277,16 @@
       const el = entry.target as HTMLElement;
       const target = parseInt(el.dataset.count!);
       const suffix = el.dataset.suffix ?? '';
-      let start = 0;
       const duration = 1400;
       const startTime = performance.now();
       function tick(now: number) {
         const progress = Math.min((now - startTime) / duration, 1);
-        const ease = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.round(start + (target - start) * ease) + suffix;
+        el.textContent = Math.round(target * (1 - Math.pow(1 - progress, 3))) + suffix;
         if (progress < 1) requestAnimationFrame(tick);
       }
       requestAnimationFrame(tick);
       counterObs.unobserve(el);
     });
   }, { threshold: 0.5 });
-
   statNums.forEach(el => counterObs.observe(el));
 </script>

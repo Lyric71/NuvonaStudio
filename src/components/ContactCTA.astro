@@ -8,21 +8,20 @@
       <div class="cta__left reveal">
         <p class="eyebrow eyebrow--light">Start here</p>
         <h2 id="cta-heading" class="cta__headline">
-          Let's build your LinkedIn presence<br />
-          <em>the right way.</em>
+          Ready to get more leads<br />
+          <em>on LinkedIn?</em>
         </h2>
       </div>
 
       <div class="cta__right reveal reveal-delay-2">
         <p class="cta__sub">
-          Whether you are starting from scratch, scaling an existing presence, or making your
-          LinkedIn advertising work harder — we would like to understand your situation before
-          recommending anything. No pitch. Just a straight conversation.
+          Tell us about your company. We'll show you exactly where the opportunity is.
         </p>
         <div class="cta__actions">
-          <a href="/contact?intent=call" class="btn btn--primary btn--lg">Book a 30-minute call</a>
-          <a href="/contact" class="btn btn--outline-white btn--lg">Send us a message</a>
+          <a href="/contact?intent=call" class="btn btn--primary btn--lg">Book a call</a>
+          <a href="/contact" class="btn btn--outline-white btn--lg">Send a message</a>
         </div>
+        <p class="cta__note">30 minutes. No pitch. Straight answers.</p>
       </div>
 
     </div>
@@ -30,21 +29,16 @@
 </section>
 
 <style>
-  .cta {
-    position: relative;
-    overflow: hidden;
-  }
+  .cta { position: relative; overflow: hidden; }
   .cta::before {
     content: '';
-    position: absolute;
-    inset: 0;
+    position: absolute; inset: 0;
     background: radial-gradient(ellipse 60% 80% at 100% 50%, rgba(0,168,220,0.10) 0%, transparent 60%);
     pointer-events: none;
   }
 
   .cta__layout {
-    position: relative;
-    z-index: 1;
+    position: relative; z-index: 1;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--sp-16);
@@ -72,6 +66,13 @@
     flex-wrap: wrap;
     gap: var(--sp-4);
     align-items: center;
+    margin-bottom: var(--sp-5);
+  }
+
+  .cta__note {
+    font-size: var(--fs-sm);
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.02em;
   }
 
   @media (max-width: 1024px) {
