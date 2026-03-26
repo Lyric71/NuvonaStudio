@@ -33,7 +33,7 @@ const services = [
 ];
 ---
 
-<section id="services" class="section" aria-labelledby="services-heading">
+<section id="services" class="section" style="background: var(--off-white);" aria-labelledby="services-heading">
   <div class="container">
 
     <div class="services__head reveal">
@@ -44,6 +44,10 @@ const services = [
       <p class="services__intro">
         Delivered with full transparency — strategy, audit, and reporting included in every engagement.
       </p>
+    </div>
+
+    <div class="vis-placeholder services__visual" aria-hidden="true">
+      <span>Visual placeholder</span>
     </div>
 
     <div class="services__list">
@@ -74,7 +78,7 @@ const services = [
     grid-template-columns: auto 1fr;
     gap: var(--sp-12);
     align-items: end;
-    margin-bottom: var(--sp-12);
+    margin-bottom: var(--sp-10);
   }
 
   .services__intro {
@@ -84,6 +88,13 @@ const services = [
     max-width: 400px;
     align-self: flex-end;
     padding-bottom: 6px;
+  }
+
+  .services__visual {
+    width: 100%;
+    aspect-ratio: 21 / 7;
+    min-height: 180px;
+    margin-bottom: var(--sp-10);
   }
 
   .services__list {
@@ -138,12 +149,28 @@ const services = [
 
   .services__foot { text-align: center; }
 
+  .vis-placeholder {
+    background: linear-gradient(135deg, rgba(10,102,194,0.06) 0%, rgba(0,168,220,0.09) 100%);
+    border-radius: var(--r-xl);
+    border: 1.5px dashed rgba(10,102,194,0.22);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(10,102,194,0.35);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+  }
+
   @media (max-width: 1024px) {
     .services__head { grid-template-columns: 1fr; gap: var(--sp-6); }
     .services__intro { max-width: 100%; }
+    .services__visual { aspect-ratio: 16 / 7; }
   }
 
   @media (max-width: 640px) {
     .services__item { grid-template-columns: 36px 1fr; }
+    .services__visual { aspect-ratio: 4 / 3; }
   }
 </style>

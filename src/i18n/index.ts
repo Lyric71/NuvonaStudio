@@ -13,6 +13,7 @@ export const ui = {
     // Nav
     'nav.services':     'Services',
     'nav.all_services': 'All Services',
+    'nav.content':      'Content',
     'nav.training':     'Training',
     'nav.pricing':      'Pricing',
     'nav.work':         'Work',
@@ -42,6 +43,7 @@ export const ui = {
     // Nav
     'nav.services':     'Services',
     'nav.all_services': 'Tous les services',
+    'nav.content':      'Contenu',
     'nav.training':     'Formation',
     'nav.pricing':      'Tarifs',
     'nav.work':         'Réalisations',

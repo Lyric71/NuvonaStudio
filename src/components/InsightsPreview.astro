@@ -20,7 +20,7 @@ const posts = [
 
 ---
 
-<section class="section" aria-labelledby="insights-heading" style="background: var(--off-white);">
+<section class="section" aria-labelledby="insights-heading">
   <div class="container">
 
     <div class="insights__head reveal">
@@ -37,6 +37,9 @@ const posts = [
     <div class="insights__grid">
       {posts.map((post, i) => (
         <article class="insights__card reveal" style={`transition-delay: ${i * 0.08}s`}>
+          <div class="vis-placeholder insights__thumb" aria-hidden="true">
+            <span>Visual placeholder</span>
+          </div>
           <div class="insights__card-top">
             <div class="insights__tags">
               {post.tags.map(t => <span class="insights__tag">{t}</span>)}
@@ -85,7 +88,7 @@ const posts = [
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: var(--r-xl);
-    padding: var(--sp-10);
+    padding: var(--sp-8);
     display: flex;
     flex-direction: column;
     transition: all var(--t-base);
@@ -94,6 +97,14 @@ const posts = [
     box-shadow: var(--shadow-md);
     border-color: var(--border-2);
     transform: translateY(-2px);
+  }
+
+  .insights__thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 160px;
+    margin-bottom: var(--sp-7);
+    flex-shrink: 0;
   }
 
   .insights__card-top {
@@ -154,6 +165,20 @@ const posts = [
     transition: color var(--t-fast);
   }
   .insights__read:hover { color: var(--mid-blue); }
+
+  .vis-placeholder {
+    background: linear-gradient(135deg, rgba(10,102,194,0.06) 0%, rgba(0,168,220,0.09) 100%);
+    border-radius: var(--r-lg);
+    border: 1.5px dashed rgba(10,102,194,0.22);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(10,102,194,0.35);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+  }
 
   @media (max-width: 1024px) {
     .insights__head { grid-template-columns: 1fr; gap: var(--sp-6); }

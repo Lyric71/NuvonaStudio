@@ -19,6 +19,7 @@ const links = [
     label: t('nav.services'),
     href: `${prefix}/services`,
     children: [
+      { label: t('nav.content'),  href: `${prefix}/services/content` },
       { label: t('nav.training'), href: `${prefix}/services/training` },
     ],
   },
@@ -54,11 +55,6 @@ const contactHref = `${prefix}/contact?intent=call`;
                 </svg>
               </button>
               <ul class="nav__dropdown" role="list">
-                <li>
-                  <a href={link.href} class={`nav__dropdown-link${currentPath === link.href ? ' nav__dropdown-link--active' : ''}`}>
-                    {t('nav.all_services')}
-                  </a>
-                </li>
                 {link.children.map(child => (
                   <li>
                     <a href={child.href} class={`nav__dropdown-link${currentPath === child.href ? ' nav__dropdown-link--active' : ''}`}>

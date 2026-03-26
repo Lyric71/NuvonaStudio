@@ -9,7 +9,7 @@ const industries = [
 ];
 ---
 
-<section class="section" aria-labelledby="industries-heading">
+<section class="section" style="background: var(--off-white);" aria-labelledby="industries-heading">
   <div class="container">
     <div class="industries__layout">
 
@@ -29,13 +29,18 @@ const industries = [
         </a>
       </div>
 
-      <div class="industries__grid reveal reveal-delay-2" aria-label="Industries we serve">
-        {industries.map(i => (
-          <div class="industries__item">
-            <span class="industries__dot" aria-hidden="true"></span>
-            <span class="industries__label">{i.label}</span>
-          </div>
-        ))}
+      <div class="industries__right reveal reveal-delay-2">
+        <div class="vis-placeholder industries__visual" aria-hidden="true">
+          <span>Visual placeholder</span>
+        </div>
+        <div class="industries__grid" aria-label="Industries we serve">
+          {industries.map(i => (
+            <div class="industries__item">
+              <span class="industries__dot" aria-hidden="true"></span>
+              <span class="industries__label">{i.label}</span>
+            </div>
+          ))}
+        </div>
       </div>
 
     </div>
@@ -55,6 +60,15 @@ const industries = [
     color: var(--text-2);
     line-height: 1.75;
     margin-bottom: var(--sp-4);
+  }
+
+  .industries__right { display: flex; flex-direction: column; gap: var(--sp-6); }
+
+  .industries__visual {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 200px;
+    flex-shrink: 0;
   }
 
   .industries__grid {
@@ -94,6 +108,20 @@ const industries = [
     font-weight: 500;
     color: var(--text);
     letter-spacing: 0.01em;
+  }
+
+  .vis-placeholder {
+    background: linear-gradient(135deg, rgba(10,102,194,0.06) 0%, rgba(0,168,220,0.09) 100%);
+    border-radius: var(--r-xl);
+    border: 1.5px dashed rgba(10,102,194,0.22);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(10,102,194,0.35);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
   }
 
   @media (max-width: 1024px) {

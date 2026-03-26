@@ -1,7 +1,7 @@
 ---
 ---
 
-<section class="section" style="background: var(--off-white);" aria-labelledby="apart-heading">
+<section class="section" aria-labelledby="apart-heading">
   <div class="container">
     <div class="apart__layout">
 
@@ -15,33 +15,39 @@
         </p>
       </div>
 
-      <div class="apart__pillars" aria-label="Our advantages">
-        <div class="apart__pillar reveal reveal-delay-1">
-          <span class="apart__pillar-num">01</span>
-          <div>
-            <h3 class="apart__pillar-title">Specialists, not generalists</h3>
-            <p>Every service we offer is built around LinkedIn. We know the algorithm, the formats, the targeting, and the content that drives results.</p>
-          </div>
+      <div class="apart__right">
+        <div class="vis-placeholder apart__visual" aria-hidden="true">
+          <span>Visual placeholder</span>
         </div>
-        <div class="apart__pillar reveal reveal-delay-2">
-          <span class="apart__pillar-num">02</span>
-          <div>
-            <h3 class="apart__pillar-title">Content that earns attention</h3>
-            <p>We write for your audience, not your approval. Clear, direct B2B content that gets read and acted on.</p>
+
+        <div class="apart__pillars" aria-label="Our advantages">
+          <div class="apart__pillar reveal reveal-delay-1">
+            <span class="apart__pillar-num">01</span>
+            <div>
+              <h3 class="apart__pillar-title">Specialists, not generalists</h3>
+              <p>Every service we offer is built around LinkedIn. We know the algorithm, the formats, the targeting, and the content that drives results.</p>
+            </div>
           </div>
-        </div>
-        <div class="apart__pillar reveal reveal-delay-3">
-          <span class="apart__pillar-num">03</span>
-          <div>
-            <h3 class="apart__pillar-title">Transparent by default</h3>
-            <p>No vague reports. No hidden markups. You always know what we're doing and why.</p>
+          <div class="apart__pillar reveal reveal-delay-2">
+            <span class="apart__pillar-num">02</span>
+            <div>
+              <h3 class="apart__pillar-title">Content that earns attention</h3>
+              <p>We write for your audience, not your approval. Clear, direct B2B content that gets read and acted on.</p>
+            </div>
           </div>
-        </div>
-        <div class="apart__pillar reveal reveal-delay-4">
-          <span class="apart__pillar-num">04</span>
-          <div>
-            <h3 class="apart__pillar-title">AI-assisted. Human-led.</h3>
-            <p>We use AI to move faster and scale content production. Every output is reviewed and shaped by our team before it goes near your brand.</p>
+          <div class="apart__pillar reveal reveal-delay-3">
+            <span class="apart__pillar-num">03</span>
+            <div>
+              <h3 class="apart__pillar-title">Transparent by default</h3>
+              <p>No vague reports. No hidden markups. You always know what we're doing and why.</p>
+            </div>
+          </div>
+          <div class="apart__pillar reveal reveal-delay-4">
+            <span class="apart__pillar-num">04</span>
+            <div>
+              <h3 class="apart__pillar-title">AI-assisted. Human-led.</h3>
+              <p>We use AI to move faster and scale content production. Every output is reviewed and shaped by our team before it goes near your brand.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -65,11 +71,20 @@
     margin-bottom: var(--sp-5);
   }
 
+  .apart__right { display: flex; flex-direction: column; }
+
+  .apart__visual {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 200px;
+    margin-bottom: var(--sp-8);
+    flex-shrink: 0;
+  }
+
   .apart__pillars {
     display: flex;
     flex-direction: column;
     gap: 0;
-    padding-top: var(--sp-2);
   }
 
   .apart__pillar {
@@ -106,6 +121,20 @@
     font-size: var(--fs-sm);
     color: var(--text-2);
     line-height: 1.75;
+  }
+
+  .vis-placeholder {
+    background: linear-gradient(135deg, rgba(10,102,194,0.06) 0%, rgba(0,168,220,0.09) 100%);
+    border-radius: var(--r-xl);
+    border: 1.5px dashed rgba(10,102,194,0.22);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(10,102,194,0.35);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
   }
 
   @media (max-width: 1024px) {

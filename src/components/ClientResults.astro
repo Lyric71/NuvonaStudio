@@ -30,7 +30,7 @@ const testimonials = [
 ];
 ---
 
-<section class="section" aria-labelledby="results-heading">
+<section class="section" style="background: var(--off-white);" aria-labelledby="results-heading">
   <div class="container">
 
     <div class="results__head reveal">
@@ -44,6 +44,9 @@ const testimonials = [
     <div class="results__cases">
       {caseStudies.map((cs, i) => (
         <article class="results__card reveal" style={`transition-delay: ${i * 0.08}s`}>
+          <div class="vis-placeholder results__card-img" aria-hidden="true">
+            <span>Visual placeholder</span>
+          </div>
           <span class="tag tag--blue" style="margin-bottom: var(--sp-5); display: inline-flex;">{cs.tag}</span>
           <p class="results__industry">{cs.industry}</p>
           <p class="results__challenge">{cs.challenge}</p>
@@ -101,6 +104,14 @@ const testimonials = [
     transform: translateY(-2px);
   }
 
+  .results__card-img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 160px;
+    margin-bottom: var(--sp-6);
+    flex-shrink: 0;
+  }
+
   .results__industry {
     font-size: var(--fs-xs);
     font-weight: 500;
@@ -137,7 +148,7 @@ const testimonials = [
   }
 
   .results__quote {
-    background: var(--off-white);
+    background: var(--white);
     border: 1px solid var(--border);
     border-left: 4px solid var(--blue);
     border-radius: 0 var(--r-xl) var(--r-xl) 0;
@@ -169,6 +180,20 @@ const testimonials = [
 
   .results__quote-name { font-size: var(--fs-sm); font-weight: 600; color: var(--text); }
   .results__quote-meta { font-size: var(--fs-xs); color: var(--text-3); margin-top: 2px; letter-spacing: 0.02em; }
+
+  .vis-placeholder {
+    background: linear-gradient(135deg, rgba(10,102,194,0.06) 0%, rgba(0,168,220,0.09) 100%);
+    border-radius: var(--r-lg);
+    border: 1.5px dashed rgba(10,102,194,0.22);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(10,102,194,0.35);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+  }
 
   @media (max-width: 1024px) { .results__cases { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 768px) {

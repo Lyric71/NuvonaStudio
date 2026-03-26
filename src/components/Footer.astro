@@ -1,10 +1,25 @@
 ---
-const navLinks = [
-  { label: 'Services', href: '/services' },
-  { label: 'Pricing',  href: '/pricing' },
+const servicesLinks = [
+  { label: 'Content',            href: '/services#content' },
+  { label: 'Advertising',        href: '/services#advertising' },
+  { label: 'Personal Branding',  href: '/services#personal-branding' },
+  { label: 'Employee Advocacy',  href: '/services#employee-advocacy' },
+  { label: 'Training',           href: '/services#training' },
+];
+
+const companyLinks = [
+  { label: 'About',    href: '/about' },
   { label: 'Work',     href: '/work' },
   { label: 'Insights', href: '/insights' },
-  { label: 'About',    href: '/about' },
+  { label: 'Pricing',  href: '/pricing' },
+  { label: 'Contact',  href: '/contact' },
+];
+
+const trainingLinks = [
+  { label: 'LinkedIn Fundamentals',    href: '/training/linkedin-fundamentals' },
+  { label: 'Content Masterclass',      href: '/training/content-masterclass' },
+  { label: 'LinkedIn Ads Deep Dive',   href: '/training/linkedin-ads' },
+  { label: 'Executive Personal Brand', href: '/training/executive-personal-brand' },
 ];
 
 const legalLinks = [
@@ -21,6 +36,7 @@ const year = new Date().getFullYear();
 
     <div class="footer__main">
 
+      <!-- Brand -->
       <div class="footer__brand">
         <a href="/" class="footer__logo-link" aria-label="Nuvora Studio — home">
           <img
@@ -31,31 +47,47 @@ const year = new Date().getFullYear();
             height="78"
           />
         </a>
-        <p class="footer__tagline">LinkedIn expertise for B2B companies that mean it.</p>
-        <a href="/contact?intent=call" class="btn btn--primary btn--sm footer__cta-btn">Book a call</a>
+        <p class="footer__tagline">LinkedIn without a noise.</p>
       </div>
 
-      <nav class="footer__nav" aria-label="Footer navigation">
-        <p class="footer__col-label">Navigation</p>
+      <!-- Services -->
+      <nav class="footer__col" aria-label="Services">
+        <p class="footer__col-label">Services</p>
         <ul role="list" class="footer__links">
-          {navLinks.map(l => (
+          {servicesLinks.map(l => (
+            <li><a href={l.href} class="footer__link">{l.label}</a></li>
+          ))}
+        </ul>
+        <a href="/services" class="footer__see-all">See all services →</a>
+      </nav>
+
+      <!-- Company -->
+      <nav class="footer__col" aria-label="Company">
+        <p class="footer__col-label">Company</p>
+        <ul role="list" class="footer__links">
+          {companyLinks.map(l => (
             <li><a href={l.href} class="footer__link">{l.label}</a></li>
           ))}
         </ul>
       </nav>
 
-      <div class="footer__contact-col">
-        <p class="footer__col-label">Get in touch</p>
-        <a href="/contact?intent=call" class="footer__contact-link">Book a discovery call</a>
-        <a href="/contact" class="footer__contact-link">Send a message</a>
-        <p class="footer__working">Working globally</p>
-      </div>
+      <!-- Training -->
+      <nav class="footer__col" aria-label="Training">
+        <p class="footer__col-label">Training</p>
+        <ul role="list" class="footer__links">
+          {trainingLinks.map(l => (
+            <li><a href={l.href} class="footer__link">{l.label}</a></li>
+          ))}
+        </ul>
+        <a href="/training" class="footer__see-all">View all workshops →</a>
+      </nav>
 
     </div>
 
     <div class="footer__rule"></div>
 
     <div class="footer__bottom">
+      <p class="footer__badges">Working globally&nbsp;&nbsp;|&nbsp;&nbsp;LinkedIn-only&nbsp;&nbsp;|&nbsp;&nbsp;B2B specialists</p>
       <p class="footer__copy">© {year} Nuvora Studio. All rights reserved.</p>
       <ul class="footer__legal" role="list">
         {legalLinks.map(l => (
@@ -72,8 +104,8 @@ const year = new Date().getFullYear();
 
   .footer__main {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: var(--sp-12);
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--sp-10);
     align-items: start;
     padding-bottom: var(--sp-12);
   }
@@ -91,11 +123,10 @@ const year = new Date().getFullYear();
     font-size: var(--fs-sm);
     color: var(--navy-text-2);
     line-height: 1.65;
-    max-width: 280px;
-    margin-bottom: var(--sp-6);
+    max-width: 260px;
   }
 
-  /* Nav col */
+  /* Columns */
   .footer__col-label {
     font-size: var(--fs-xs);
     font-weight: 500;
@@ -112,23 +143,17 @@ const year = new Date().getFullYear();
   }
   .footer__link:hover { color: var(--cyan); }
 
-  /* Contact col */
-  .footer__contact-link {
-    display: block;
-    font-size: var(--fs-sm);
-    color: var(--navy-text-2);
-    transition: color var(--t-fast);
-    margin-bottom: var(--sp-3);
-  }
-  .footer__contact-link:hover { color: var(--cyan); }
-  .footer__working {
-    font-size: var(--fs-xs);
-    color: var(--navy-text-3);
+  .footer__see-all {
+    display: inline-block;
     margin-top: var(--sp-4);
-    letter-spacing: 0.04em;
+    font-size: var(--fs-xs);
+    color: var(--cyan);
+    font-weight: 500;
+    transition: opacity var(--t-fast);
   }
+  .footer__see-all:hover { opacity: 0.75; }
 
-  /* Bottom */
+  /* Bottom bar */
   .footer__rule { height: 1px; background: rgba(255,255,255,0.08); }
   .footer__bottom {
     display: flex;
@@ -138,12 +163,19 @@ const year = new Date().getFullYear();
     padding-top: var(--sp-6);
     flex-wrap: wrap;
   }
+  .footer__badges {
+    font-size: var(--fs-xs);
+    color: var(--navy-text-3);
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
   .footer__copy {
     font-size: var(--fs-xs);
     color: var(--navy-text-3);
     letter-spacing: 0.02em;
+    white-space: nowrap;
   }
-  .footer__legal { display: flex; gap: var(--sp-6); flex-wrap: wrap; }
+  .footer__legal { display: flex; gap: var(--sp-5); flex-wrap: wrap; }
   .footer__legal-link {
     font-size: var(--fs-xs);
     color: var(--navy-text-3);
@@ -153,8 +185,10 @@ const year = new Date().getFullYear();
   .footer__legal-link:hover { color: var(--navy-text-2); }
 
   @media (max-width: 768px) {
-    .footer__main { grid-template-columns: 1fr; gap: var(--sp-8); padding-bottom: var(--sp-8); }
+    .footer__main { grid-template-columns: 1fr 1fr; gap: var(--sp-8); padding-bottom: var(--sp-8); }
+    .footer__brand { grid-column: 1 / -1; }
     .footer__bottom { flex-direction: column; align-items: flex-start; gap: var(--sp-4); }
+    .footer__badges { white-space: normal; }
     .footer__legal { gap: var(--sp-4); }
   }
 </style>
