@@ -1,54 +1,90 @@
 ---
+const pillars = [
+  {
+    title: 'Specialists, not generalists',
+    body: 'Every service we offer is built around LinkedIn. We know the algorithm, the formats, the targeting, and the content that drives results.',
+    metric: '100%',
+    metricLabel: 'LinkedIn focus',
+  },
+  {
+    title: 'Content that earns attention',
+    body: 'We write for your audience, not your approval. Clear, direct B2B content that gets read and acted on.',
+    metric: '3.2x',
+    metricLabel: 'avg. engagement lift',
+  },
+  {
+    title: 'Transparent by default',
+    body: 'No vague reports. No hidden markups. You always know what we are doing and why.',
+    metric: '0',
+    metricLabel: 'hidden fees',
+  },
+  {
+    title: 'AI-assisted. Human-led.',
+    body: 'We use AI to move faster and scale content production. Every output is reviewed and shaped by our team before it touches your brand.',
+    metric: '100%',
+    metricLabel: 'human-reviewed',
+  },
+];
 ---
 
 <section class="section" aria-labelledby="apart-heading">
   <div class="container">
     <div class="apart__layout">
 
-      <div class="apart__left reveal">
-        <p class="eyebrow">Why us</p>
-        <h2 id="apart-heading">We do one thing.<br />LinkedIn.</h2>
-        <div class="accent-bar"></div>
-        <p class="apart__lead">
-          We are not a full-service digital agency with a LinkedIn practice.
-          LinkedIn is all we do. That focus is the difference.
-        </p>
+      <div class="apart__left">
+        <div class="apart__head reveal">
+          <p class="eyebrow">Why us</p>
+          <h2 id="apart-heading">We do one thing.<br />LinkedIn.</h2>
+          <div class="accent-bar"></div>
+          <p class="apart__lead">
+            We are not a full-service digital agency with a LinkedIn practice.
+            LinkedIn is all we do. That focus is the difference.
+          </p>
+        </div>
+
+        <!-- Visual placeholder: comparison graphic -->
+        <div class="apart__visual reveal reveal-delay-1" aria-hidden="true">
+          <div class="apart__visual-inner">
+            <div class="apart__vis-compare">
+              <div class="apart__vis-col apart__vis-col--them">
+                <span class="apart__vis-label">Generalist agencies</span>
+                <div class="apart__vis-bars">
+                  <div class="apart__vis-item"><span class="apart__vis-dot apart__vis-dot--muted"></span><div class="apart__vis-bar apart__vis-bar--muted" style="width: 30%"></div></div>
+                  <div class="apart__vis-item"><span class="apart__vis-dot apart__vis-dot--muted"></span><div class="apart__vis-bar apart__vis-bar--muted" style="width: 25%"></div></div>
+                  <div class="apart__vis-item"><span class="apart__vis-dot apart__vis-dot--muted"></span><div class="apart__vis-bar apart__vis-bar--muted" style="width: 20%"></div></div>
+                  <div class="apart__vis-item"><span class="apart__vis-dot apart__vis-dot--muted"></span><div class="apart__vis-bar apart__vis-bar--muted" style="width: 35%"></div></div>
+                  <div class="apart__vis-item"><span class="apart__vis-dot apart__vis-dot--muted"></span><div class="apart__vis-bar apart__vis-bar--muted" style="width: 15%"></div></div>
+                </div>
+              </div>
+              <div class="apart__vis-divider"></div>
+              <div class="apart__vis-col apart__vis-col--us">
+                <span class="apart__vis-label">Nuvora Studio</span>
+                <div class="apart__vis-bars">
+                  <div class="apart__vis-item"><span class="apart__vis-dot"></span><div class="apart__vis-bar" style="width: 100%"></div></div>
+                </div>
+                <span class="apart__vis-tag">LinkedIn only</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="apart__right">
-        <div class="vis-placeholder apart__visual" aria-hidden="true">
-          <span>Visual placeholder</span>
-        </div>
-
-        <div class="apart__pillars" aria-label="Our advantages">
-          <div class="apart__pillar reveal reveal-delay-1">
-            <span class="apart__pillar-num">01</span>
-            <div>
-              <h3 class="apart__pillar-title">Specialists, not generalists</h3>
-              <p>Every service we offer is built around LinkedIn. We know the algorithm, the formats, the targeting, and the content that drives results.</p>
+        <div class="apart__grid">
+          {pillars.map((p, i) => (
+            <div class="apart__card reveal" style={`transition-delay: ${i * 0.08}s`}>
+              <div class="apart__card-metric">
+                <span class="apart__metric-value">{p.metric}</span>
+                <span class="apart__metric-label">{p.metricLabel}</span>
+              </div>
+              <div class="apart__card-body">
+                <div class="apart__card-header">
+                  <h3 class="apart__title">{p.title}</h3>
+                </div>
+                <p class="apart__body">{p.body}</p>
+              </div>
             </div>
-          </div>
-          <div class="apart__pillar reveal reveal-delay-2">
-            <span class="apart__pillar-num">02</span>
-            <div>
-              <h3 class="apart__pillar-title">Content that earns attention</h3>
-              <p>We write for your audience, not your approval. Clear, direct B2B content that gets read and acted on.</p>
-            </div>
-          </div>
-          <div class="apart__pillar reveal reveal-delay-3">
-            <span class="apart__pillar-num">03</span>
-            <div>
-              <h3 class="apart__pillar-title">Transparent by default</h3>
-              <p>No vague reports. No hidden markups. You always know what we're doing and why.</p>
-            </div>
-          </div>
-          <div class="apart__pillar reveal reveal-delay-4">
-            <span class="apart__pillar-num">04</span>
-            <div>
-              <h3 class="apart__pillar-title">AI-assisted. Human-led.</h3>
-              <p>We use AI to move faster and scale content production. Every output is reviewed and shaped by our team before it goes near your brand.</p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
 
@@ -60,84 +96,190 @@
   .apart__layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--sp-16);
+    gap: var(--sp-12);
     align-items: start;
+  }
+
+  .apart__left {
+    position: sticky;
+    top: calc(var(--sp-24));
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-8);
   }
 
   .apart__lead {
     font-size: var(--fs-md);
-    color: var(--text);
+    color: var(--text-2);
     line-height: 1.75;
-    margin-bottom: var(--sp-5);
   }
 
-  .apart__right { display: flex; flex-direction: column; }
-
+  /* ── Comparison visual ── */
   .apart__visual {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    min-height: 200px;
-    margin-bottom: var(--sp-8);
-    flex-shrink: 0;
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    overflow: hidden;
   }
 
-  .apart__pillars {
+  .apart__visual-inner {
+    padding: var(--sp-8);
+  }
+
+  .apart__vis-compare {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 20px;
   }
 
-  .apart__pillar {
+  .apart__vis-col {
     display: flex;
-    gap: var(--sp-5);
-    align-items: flex-start;
-    padding: var(--sp-6) 0;
-    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    gap: 10px;
   }
-  .apart__pillar:last-child { border-bottom: none; }
 
-  .apart__pillar-num {
-    font-family: var(--font-display);
-    font-size: var(--fs-sm);
+  .apart__vis-label {
+    font-size: var(--fs-xs);
     font-weight: 600;
-    color: var(--blue);
-    letter-spacing: 0.08em;
-    flex-shrink: 0;
-    padding-top: 4px;
-    min-width: 28px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-3);
   }
 
-  .apart__pillar-title {
+  .apart__vis-col--us .apart__vis-label {
+    color: var(--blue);
+  }
+
+  .apart__vis-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .apart__vis-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .apart__vis-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--cyan);
+    flex-shrink: 0;
+  }
+  .apart__vis-dot--muted {
+    background: var(--border-2);
+  }
+
+  .apart__vis-bar {
+    height: 8px;
+    background: linear-gradient(90deg, var(--blue), var(--cyan));
+    border-radius: 4px;
+    opacity: 0.7;
+  }
+  .apart__vis-bar--muted {
+    background: var(--border-2);
+    opacity: 0.5;
+  }
+
+  .apart__vis-divider {
+    height: 1px;
+    background: var(--border);
+  }
+
+  .apart__vis-tag {
+    display: inline-block;
+    width: fit-content;
+    padding: 3px 10px;
+    border-radius: var(--r-full);
+    background: rgba(10,102,194,0.08);
+    color: var(--blue);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* ── Cards grid ── */
+  .apart__grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-6);
+  }
+
+  .apart__card {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    overflow: hidden;
+    transition: all var(--t-base);
+  }
+
+  .apart__card:hover {
+    border-color: var(--border-2);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .apart__card-metric {
+    background: var(--off-white);
+    padding: var(--sp-5) var(--sp-8);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: baseline;
+    gap: var(--sp-3);
+  }
+
+  .apart__metric-value {
     font-family: var(--font-display);
-    font-size: var(--fs-xl);
+    font-size: var(--fs-2xl);
+    font-weight: 700;
+    color: var(--blue);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .apart__metric-label {
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-3);
+  }
+
+  .apart__card-body {
+    padding: var(--sp-5) var(--sp-8) var(--sp-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+  }
+
+  .apart__card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+  }
+
+  .apart__title {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
     font-weight: 600;
     color: var(--text);
-    margin-bottom: var(--sp-2);
     line-height: 1.2;
     letter-spacing: -0.01em;
   }
 
-  .apart__pillar p {
+  .apart__body {
     font-size: var(--fs-sm);
     color: var(--text-2);
     line-height: 1.75;
   }
 
-  .vis-placeholder {
-    background: linear-gradient(135deg, rgba(10,102,194,0.06) 0%, rgba(0,168,220,0.09) 100%);
-    border-radius: var(--r-xl);
-    border: 1.5px dashed rgba(10,102,194,0.22);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(10,102,194,0.35);
-    font-size: var(--fs-xs);
-    font-weight: 600;
-    letter-spacing: 0.10em;
-    text-transform: uppercase;
-  }
-
   @media (max-width: 1024px) {
-    .apart__layout { grid-template-columns: 1fr; gap: var(--sp-10); }
+    .apart__layout { grid-template-columns: 1fr; }
+    .apart__left { position: static; }
   }
 </style>

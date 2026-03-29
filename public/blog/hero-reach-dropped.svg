@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 500" fill="none">
+  <rect width="1400" height="500" fill="#001840"/>
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1400" y2="500">
+      <stop offset="0%" stop-color="#0A66C2" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#00A8DC" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="line1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0A66C2" stop-opacity="0.6"/>
+      <stop offset="60%" stop-color="#00A8DC" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#00A8DC" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="500" fill="url(#g1)"/>
+  <!-- Declining reach chart lines -->
+  <path d="M100 120 Q300 130 500 180 T900 320 T1300 420" stroke="url(#line1)" stroke-width="3" fill="none" opacity="0.5"/>
+  <path d="M100 160 Q350 170 550 220 T950 350 T1350 440" stroke="#0077B5" stroke-width="1.5" fill="none" opacity="0.25"/>
+  <path d="M100 90 Q280 100 480 140 T880 280 T1280 390" stroke="#00A8DC" stroke-width="1" fill="none" opacity="0.2"/>
+  <!-- Grid dots -->
+  <g opacity="0.08" fill="#fff">
+    <circle cx="200" cy="100" r="2"/><circle cx="400" cy="100" r="2"/><circle cx="600" cy="100" r="2"/><circle cx="800" cy="100" r="2"/><circle cx="1000" cy="100" r="2"/><circle cx="1200" cy="100" r="2"/>
+    <circle cx="200" cy="200" r="2"/><circle cx="400" cy="200" r="2"/><circle cx="600" cy="200" r="2"/><circle cx="800" cy="200" r="2"/><circle cx="1000" cy="200" r="2"/><circle cx="1200" cy="200" r="2"/>
+    <circle cx="200" cy="300" r="2"/><circle cx="400" cy="300" r="2"/><circle cx="600" cy="300" r="2"/><circle cx="800" cy="300" r="2"/><circle cx="1000" cy="300" r="2"/><circle cx="1200" cy="300" r="2"/>
+    <circle cx="200" cy="400" r="2"/><circle cx="400" cy="400" r="2"/><circle cx="600" cy="400" r="2"/><circle cx="800" cy="400" r="2"/><circle cx="1000" cy="400" r="2"/><circle cx="1200" cy="400" r="2"/>
+  </g>
+  <!-- Accent glow -->
+  <circle cx="1100" cy="150" r="200" fill="#00A8DC" opacity="0.04"/>
+  <circle cx="300" cy="400" r="150" fill="#0A66C2" opacity="0.06"/>
+  <!-- Percentage indicator -->
+  <text x="1050" y="180" font-family="system-ui,sans-serif" font-size="72" font-weight="700" fill="#fff" opacity="0.06">-50%</text>
+</svg>

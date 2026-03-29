@@ -33,6 +33,18 @@ const painPoints = [
       </p>
     </div>
 
+    <div class="problem__visual reveal">
+      <img
+        src="/problem-linkedin.png"
+        alt="Comparison between a dead LinkedIn post with zero engagement and a competitor's post with 847 likes and 156 comments"
+        class="problem__img"
+        width="1400"
+        height="612"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+
     <div class="problem__grid">
       {painPoints.map((p, i) => (
         <div class="problem__card reveal" style={`transition-delay: ${i * 0.1}s`}>
@@ -55,7 +67,7 @@ const painPoints = [
     text-align: center;
     max-width: 680px;
     margin-inline: auto;
-    margin-bottom: var(--sp-16);
+    margin-bottom: var(--sp-12);
   }
 
   .problem__head :global(.eyebrow) {
@@ -71,6 +83,20 @@ const painPoints = [
     font-size: var(--fs-md);
     color: var(--navy-text-2);
     line-height: 1.75;
+  }
+
+  /* ── Visual ── */
+  .problem__visual {
+    max-width: 860px;
+    margin-inline: auto;
+    margin-bottom: var(--sp-16);
+  }
+
+  .problem__img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--r-xl);
+    display: block;
   }
 
   /* ── Stat cards ── */

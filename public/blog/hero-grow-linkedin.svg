@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 500" fill="none">
+  <rect width="1400" height="500" fill="#001840"/>
+  <defs>
+    <linearGradient id="g5" x1="200" y1="500" x2="1200" y2="0">
+      <stop offset="0%" stop-color="#0A66C2" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#00A8DC" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="500" fill="url(#g5)"/>
+  <!-- Network nodes representing 5x creators -->
+  <g stroke="#0077B5" stroke-width="0.5" opacity="0.10">
+    <line x1="300" y1="150" x2="500" y2="200"/><line x1="500" y1="200" x2="700" y2="180"/>
+    <line x1="700" y1="180" x2="900" y2="220"/><line x1="900" y1="220" x2="1100" y2="170"/>
+    <line x1="300" y1="150" x2="400" y2="300"/><line x1="500" y1="200" x2="600" y2="350"/>
+    <line x1="700" y1="180" x2="800" y2="330"/><line x1="900" y1="220" x2="1000" y2="370"/>
+    <line x1="400" y1="300" x2="600" y2="350"/><line x1="600" y1="350" x2="800" y2="330"/>
+    <line x1="800" y1="330" x2="1000" y2="370"/><line x1="1000" y1="370" x2="1100" y2="170"/>
+  </g>
+  <!-- Outer nodes (crowd) -->
+  <g fill="#0077B5" opacity="0.08">
+    <circle cx="300" cy="150" r="6"/><circle cx="500" cy="200" r="6"/><circle cx="700" cy="180" r="6"/>
+    <circle cx="900" cy="220" r="6"/><circle cx="1100" cy="170" r="6"/>
+    <circle cx="400" cy="300" r="5"/><circle cx="600" cy="350" r="5"/><circle cx="800" cy="330" r="5"/>
+    <circle cx="1000" cy="370" r="5"/>
+  </g>
+  <!-- Highlighted "you" node -->
+  <circle cx="700" cy="250" r="20" fill="#00A8DC" opacity="0.12"/>
+  <circle cx="700" cy="250" r="12" fill="#00A8DC" opacity="0.08"/>
+  <circle cx="700" cy="250" r="40" stroke="#00A8DC" stroke-width="1" fill="none" opacity="0.08"/>
+  <circle cx="700" cy="250" r="60" stroke="#00A8DC" stroke-width="0.5" fill="none" opacity="0.05"/>
+  <!-- 5x text -->
+  <text x="1050" y="400" font-family="system-ui,sans-serif" font-size="90" font-weight="700" fill="#fff" opacity="0.04">5x</text>
+  <!-- Growth arrow -->
+  <path d="M200 380 Q500 370 700 300 T1200 140" stroke="#00A8DC" stroke-width="2" fill="none" opacity="0.12"/>
+  <!-- Accent -->
+  <circle cx="200" cy="400" r="180" fill="#0A66C2" opacity="0.04"/>
+  <circle cx="1200" cy="100" r="150" fill="#00A8DC" opacity="0.04"/>
+</svg>

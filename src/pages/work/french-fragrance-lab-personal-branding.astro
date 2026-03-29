@@ -1,0 +1,296 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import NavBar from '../../components/NavBar.astro';
+import Footer from '../../components/Footer.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+---
+
+<Layout
+  title="French Fragrance Lab Personal Branding | Case Study | Nuvora Studio"
+  description="A French fragrance lab attracted luxury clients through one founder's LinkedIn voice. Cold emails never worked. Personal branding opened every door."
+  abstract="Case study: how executive personal branding on LinkedIn brought luxury brand clients to a French fragrance laboratory."
+>
+  <NavBar />
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="cs-hero" aria-labelledby="cs-heading">
+      <div class="container">
+        <div class="cs-hero__inner">
+          <div class="cs-hero__meta">
+            <span class="cs-hero__number">Case Study 04</span>
+            <div class="cs-hero__tags">
+              <span class="cs-tag-pill">Executive Personal Branding</span>
+              <span class="cs-tag-pill">LinkedIn Content</span>
+              <span class="cs-tag-pill">Consulting</span>
+            </div>
+          </div>
+          <h1 id="cs-heading" class="cs-hero__h1">
+            A French fragrance lab attracted luxury clients through one founder's voice.<br /><em>Personal branding opened every door.</em>
+          </h1>
+          <p class="cs-hero__deck">
+            Cold emails never worked. Personal branding on LinkedIn opened every door.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats bar -->
+    <section class="cs-stats-bar" aria-label="Key results">
+      <div class="container">
+        <div class="cs-stats-bar__inner">
+          <div class="cs-stat">
+            <span class="cs-stat__value">2,400</span>
+            <span class="cs-stat__label">Followers in 4 months</span>
+          </div>
+          <div class="cs-stat">
+            <span class="cs-stat__value">8K+</span>
+            <span class="cs-stat__label">Top post impressions</span>
+          </div>
+          <div class="cs-stat">
+            <span class="cs-stat__value">2</span>
+            <span class="cs-stat__label">Inbound proposals</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Article body -->
+    <article class="cs-body" aria-label="Case study content">
+      <div class="container">
+        <div class="cs-content">
+
+          <section>
+            <h2>The Brief</h2>
+            <p>
+              B2B fragrance laboratory in France. They develop custom scents for luxury brands, hotels, cosmetics houses. The founder is a trained perfumer, 20+ years in the industry and well known inside trade circles. Outside those circles, completely invisible. New business came from referrals and one major trade show a year. Between events the pipeline went quiet. <strong>Cold emails to creative directors at luxury houses went unanswered.</strong> The work deserved better reach.
+            </p>
+          </section>
+
+          <section>
+            <h2>Our Strategy</h2>
+            <p>
+              Personal branding project from the start. The founder had the expertise and (this matters) she actually wanted to do it. No convincing needed. She was frustrated that her knowledge only reached people she already knew.
+            </p>
+            <p>
+              First two weeks were spent on positioning. "Fragrance lab founder" is too generic. We landed on something sharper: <strong>the science and instinct behind creating scents for luxury brands.</strong> That framing let her write about what she genuinely thinks about all day.
+            </p>
+            <p>
+              Her posts covered ingredient sourcing from specific regions. How a client brief becomes a finished fragrance through rounds of revision. Why certain scent trends spread from fashion to hospitality and others disappear. She wrote about visiting a bergamot farm in Calabria. About what happens when a client's brief says "something that smells like trust" (apparently that happens more often than you'd think).
+            </p>
+            <p>
+              These aren't posts you generate from a content calendar. They came from her life. We shaped them, tightened writing, handled the scheduling and the posting. Voice stayed hers entirely.
+            </p>
+            <p>
+              Company page ran alongside with posts on development process, ingredient sourcing, project notes.
+            </p>
+            <p>
+              Consulting engagement anchored the strategy to commercial goals. Ideal client profile workshop. Messaging framework. 6-month roadmap the team could execute on their own.
+            </p>
+          </section>
+
+          <section>
+            <h2>The Result</h2>
+            <p>
+              2,400 followers in four months. Two posts broke 8,000 impressions. Company page added 480 followers. Growth was slower than our other projects honestly, but the audience was extremely niche. Luxury fragrance is not a mass market.
+            </p>
+            <p>
+              What mattered to her: <strong>inbound messages from a luxury cosmetics brand and an international hotel group.</strong> Both requesting development proposals. No cold email. No trade show.
+            </p>
+            <blockquote>
+              "LinkedIn is the trade show that never closes."
+            </blockquote>
+          </section>
+
+        </div>
+      </div>
+    </article>
+
+    <!-- Back link -->
+    <section class="cs-back" aria-label="Navigation">
+      <div class="container">
+        <a href="/work" class="cs-back__link">&larr; Back to all case studies</a>
+      </div>
+    </section>
+
+    <ContactCTA />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  /* ── Hero ── */
+  .cs-hero {
+    background: var(--deep-navy);
+    padding-block: clamp(3rem, 6vw, 5rem) clamp(3rem, 5vw, 4.5rem);
+    position: relative;
+    overflow: hidden;
+  }
+  .cs-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 80% 30%, rgba(0,168,220,0.10) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .cs-hero__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+  }
+
+  .cs-hero__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--sp-4);
+    margin-bottom: var(--sp-6);
+  }
+
+  .cs-hero__number {
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--cyan);
+  }
+
+  .cs-hero__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+  }
+
+  .cs-tag-pill {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.16);
+    color: rgba(255,255,255,0.75);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .cs-hero__h1 {
+    font-size: clamp(2rem, 4.5vw, 3.25rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    margin-bottom: var(--sp-6);
+  }
+  .cs-hero__h1 em {
+    color: rgba(255,255,255,0.45);
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  .cs-hero__deck {
+    font-size: var(--fs-md);
+    color: rgba(255,255,255,0.68);
+    line-height: 1.75;
+    max-width: 600px;
+  }
+
+  /* ── Stats bar ── */
+  .cs-stats-bar {
+    background: var(--off-white);
+    border-bottom: 1px solid var(--border);
+    padding-block: var(--sp-8);
+  }
+
+  .cs-stats-bar__inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-6);
+    max-width: 680px;
+  }
+
+  .cs-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+  }
+
+  .cs-stat__value {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 700;
+    color: var(--deep-navy);
+    letter-spacing: -0.02em;
+  }
+
+  .cs-stat__label {
+    font-size: 0.72rem;
+    color: var(--text-3);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* ── Body ── */
+  .cs-body {
+    padding-block: clamp(3rem, 6vw, 5rem);
+    background: var(--white);
+  }
+
+  .cs-content {
+    max-width: 680px;
+  }
+
+  .cs-content section {
+    margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+  }
+
+  .cs-content h2 {
+    font-size: clamp(1.25rem, 2vw, 1.6rem);
+    font-weight: 700;
+    color: var(--deep-navy);
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    margin-bottom: var(--sp-5);
+  }
+
+  .cs-content p {
+    font-size: var(--fs-md);
+    color: var(--text);
+    line-height: 1.85;
+    margin-bottom: var(--sp-5);
+  }
+
+  .cs-content blockquote {
+    border-left: 3px solid var(--blue);
+    margin: var(--sp-8) 0;
+    padding: var(--sp-1) var(--sp-6);
+    font-size: var(--fs-md);
+    font-style: italic;
+    color: var(--text-2);
+    line-height: 1.75;
+  }
+
+  /* ── Back link ── */
+  .cs-back {
+    padding-block: var(--sp-8);
+    background: var(--off-white);
+    border-top: 1px solid var(--border);
+  }
+
+  .cs-back__link {
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--text-2);
+    transition: color var(--t-fast);
+  }
+  .cs-back__link:hover { color: var(--blue); }
+
+  /* ── Responsive ── */
+  @media (max-width: 640px) {
+    .cs-hero__meta { flex-direction: column; align-items: flex-start; }
+    .cs-stats-bar__inner { grid-template-columns: 1fr; gap: var(--sp-5); }
+  }
+</style>

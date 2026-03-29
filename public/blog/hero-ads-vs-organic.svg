@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 500" fill="none">
+  <rect width="1400" height="500" fill="#001840"/>
+  <defs>
+    <linearGradient id="g3a" x1="0" y1="0" x2="700" y2="500">
+      <stop offset="0%" stop-color="#0A66C2" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+    <linearGradient id="g3b" x1="1400" y1="0" x2="700" y2="500">
+      <stop offset="0%" stop-color="#00A8DC" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="700" height="500" fill="url(#g3a)"/>
+  <rect x="700" y="0" width="700" height="500" fill="url(#g3b)"/>
+  <!-- Divider -->
+  <line x1="700" y1="60" x2="700" y2="440" stroke="#fff" stroke-width="1" opacity="0.06"/>
+  <!-- Left side - organic circles -->
+  <circle cx="350" cy="250" r="120" stroke="#0A66C2" stroke-width="1" fill="none" opacity="0.12"/>
+  <circle cx="350" cy="250" r="80" stroke="#0A66C2" stroke-width="1" fill="none" opacity="0.08"/>
+  <circle cx="350" cy="250" r="40" fill="#0A66C2" opacity="0.06"/>
+  <!-- Right side - paid arrows -->
+  <path d="M950 200 L1100 200" stroke="#00A8DC" stroke-width="2" opacity="0.15" marker-end="url(#arrow)"/>
+  <path d="M950 250 L1150 250" stroke="#00A8DC" stroke-width="2" opacity="0.12" marker-end="url(#arrow)"/>
+  <path d="M950 300 L1050 300" stroke="#00A8DC" stroke-width="2" opacity="0.10" marker-end="url(#arrow)"/>
+  <!-- Nodes -->
+  <g fill="#fff" opacity="0.06">
+    <circle cx="250" cy="180" r="4"/><circle cx="450" cy="180" r="4"/><circle cx="300" cy="320" r="4"/><circle cx="400" cy="320" r="4"/>
+    <circle cx="1000" cy="150" r="4"/><circle cx="1100" cy="350" r="4"/><circle cx="1050" cy="250" r="4"/>
+  </g>
+  <!-- VS text -->
+  <text x="670" y="260" font-family="system-ui,sans-serif" font-size="24" font-weight="600" fill="#fff" opacity="0.06">vs</text>
+  <!-- Accent glows -->
+  <circle cx="350" cy="250" r="200" fill="#0A66C2" opacity="0.03"/>
+  <circle cx="1050" cy="250" r="200" fill="#00A8DC" opacity="0.03"/>
+</svg>

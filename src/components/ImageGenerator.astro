@@ -1,0 +1,276 @@
+---
+---
+
+<section class="generator-section">
+  <div class="generator-container">
+    <div class="generator-header">
+      <span class="badge">AI Visual Studio</span>
+      <h2>Image Generator</h2>
+      <p>Powered by Google Nano Banana 2 Pro via WaveSpeed AI. Describe any visual and generate it instantly.</p>
+    </div>
+
+    <form id="generator-form" class="generator-form">
+      <div class="input-row">
+        <textarea
+          id="prompt-input"
+          name="prompt"
+          placeholder="Describe the image you want to generate..."
+          rows="3"
+          required
+        ></textarea>
+        <button type="submit" id="generate-btn">
+          <span class="btn-label">Generate</span>
+          <span class="btn-loading" hidden>
+            <svg class="spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" opacity="0.25" />
+              <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round" />
+            </svg>
+            Generating...
+          </span>
+        </button>
+      </div>
+    </form>
+
+    <div id="generator-error" class="generator-error" hidden></div>
+
+    <div id="result-area" class="result-area" hidden>
+      <div class="result-image-wrap">
+        <img id="result-image" alt="Generated image" />
+      </div>
+      <div class="result-meta">
+        <span id="result-time" class="result-time"></span>
+        <a id="result-download" class="result-download" download="nuvora-generated.png" target="_blank">
+          Download
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .generator-section {
+    background: var(--white);
+    padding: var(--sp-20) var(--sp-6);
+  }
+
+  .generator-container {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .generator-header {
+    text-align: center;
+    margin-bottom: var(--sp-10);
+  }
+
+  .badge {
+    display: inline-block;
+    background: var(--deep-navy);
+    color: var(--cyan);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: var(--sp-1) var(--sp-3);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--sp-4);
+  }
+
+  .generator-header h2 {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xl);
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 var(--sp-3);
+  }
+
+  .generator-header p {
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    max-width: 540px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .generator-form {
+    margin-bottom: var(--sp-6);
+  }
+
+  .input-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+  }
+
+  textarea {
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: var(--fs-base);
+    color: var(--text);
+    background: var(--off-white);
+    border: 1px solid var(--border-2);
+    border-radius: var(--radius-lg);
+    padding: var(--sp-4);
+    resize: vertical;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+  }
+
+  textarea:focus {
+    outline: none;
+    border-color: var(--blue);
+  }
+
+  button[type="submit"] {
+    align-self: flex-end;
+    background: var(--blue);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: var(--fs-base);
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-md);
+    padding: var(--sp-3) var(--sp-8);
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+  }
+
+  button[type="submit"]:hover {
+    background: var(--navy);
+  }
+
+  button[type="submit"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .spinner {
+    width: 18px;
+    height: 18px;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .generator-error {
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+    border-radius: var(--radius-md);
+    padding: var(--sp-3) var(--sp-4);
+    font-size: var(--fs-sm);
+    margin-bottom: var(--sp-6);
+  }
+
+  .result-area {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--off-white);
+  }
+
+  .result-image-wrap {
+    display: flex;
+    justify-content: center;
+    padding: var(--sp-4);
+  }
+
+  .result-image-wrap img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+  }
+
+  .result-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--sp-3) var(--sp-4);
+    border-top: 1px solid var(--border);
+  }
+
+  .result-time {
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+  }
+
+  .result-download {
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--blue);
+    text-decoration: none;
+  }
+
+  .result-download:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 600px) {
+    .generator-header h2 {
+      font-size: var(--fs-2xl);
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('generator-form') as HTMLFormElement;
+  const input = document.getElementById('prompt-input') as HTMLTextAreaElement;
+  const btn = document.getElementById('generate-btn') as HTMLButtonElement;
+  const btnLabel = btn.querySelector('.btn-label') as HTMLElement;
+  const btnLoading = btn.querySelector('.btn-loading') as HTMLElement;
+  const errorBox = document.getElementById('generator-error') as HTMLElement;
+  const resultArea = document.getElementById('result-area') as HTMLElement;
+  const resultImage = document.getElementById('result-image') as HTMLImageElement;
+  const resultTime = document.getElementById('result-time') as HTMLElement;
+  const resultDownload = document.getElementById('result-download') as HTMLAnchorElement;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const prompt = input.value.trim();
+    if (!prompt) return;
+
+    // UI: loading state
+    btn.disabled = true;
+    btnLabel.hidden = true;
+    btnLoading.hidden = false;
+    errorBox.hidden = true;
+    resultArea.hidden = true;
+
+    const startTime = performance.now();
+
+    try {
+      const res = await fetch('/api/generate-image', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || 'Generation failed.');
+      }
+
+      const elapsed = ((performance.now() - startTime) / 1000).toFixed(1);
+      const imageUrl = data.outputs[0];
+
+      resultImage.src = imageUrl;
+      resultDownload.href = imageUrl;
+      resultTime.textContent = `Generated in ${elapsed}s`;
+      resultArea.hidden = false;
+
+    } catch (err: any) {
+      errorBox.textContent = err.message || 'Something went wrong.';
+      errorBox.hidden = false;
+    } finally {
+      btn.disabled = false;
+      btnLabel.hidden = false;
+      btnLoading.hidden = true;
+    }
+  });
+</script>

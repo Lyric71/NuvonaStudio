@@ -63,6 +63,23 @@ const services = [
               </svg>
             </span>
           </div>
+          {s.title === 'Content' ? (
+            <div class="services__vis services__vis--content" aria-hidden="true">
+              <img src="/content-calendar-v2.png" alt="" width="600" height="338" loading="lazy" />
+            </div>
+          ) : s.title === 'Advertising' ? (
+            <div class="services__vis services__vis--content" aria-hidden="true">
+              <img src="/ad-creative-stack.png" alt="" width="600" height="338" loading="lazy" />
+            </div>
+          ) : s.title === 'Consulting' ? (
+            <div class="services__vis services__vis--content" aria-hidden="true">
+              <img src="/consulting-workshop.png" alt="" width="600" height="338" loading="lazy" />
+            </div>
+          ) : (
+            <div class="vis-placeholder services__vis" aria-hidden="true">
+              <span>Visual placeholder</span>
+            </div>
+          )}
           <h3 class="services__card-title">{s.title}</h3>
           <p class="services__card-desc">{s.body}</p>
           <ul class="services__subs">
@@ -150,6 +167,42 @@ const services = [
     color: var(--text-3);
     transition: all var(--t-base);
     flex-shrink: 0;
+  }
+
+  /* ── Visual placeholder ── */
+  .services__vis {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 120px;
+    margin-bottom: var(--sp-6);
+    border-radius: var(--r-lg);
+    background: linear-gradient(135deg, rgba(10,102,194,0.04) 0%, rgba(0,168,220,0.07) 100%);
+    border: 1.5px dashed rgba(10,102,194,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .services__vis--content {
+    background: none;
+    border: none;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .services__vis--content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--r-lg);
+  }
+
+  .services__vis span {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: rgba(10,102,194,0.25);
   }
 
   .services__card-title {

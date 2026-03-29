@@ -1,58 +1,58 @@
 ---
 const testimonials = [
   {
-    text: "This ERP revolutionized our operations, streamlining finance and inventory. The cloud-based platform keeps us productive, even remotely.",
-    image: "https://randomuser.me/api/portraits/women/1.jpg",
-    name: "Briana Patton",
-    role: "Operations Manager",
+    text: "Nuvora transformed our LinkedIn presence from an afterthought into our top lead channel. Within six months, we were generating 40% of pipeline from LinkedIn alone.",
+    image: "https://randomuser.me/api/portraits/women/32.jpg",
+    name: "Sophie Laurent",
+    role: "CMO, SaaS Platform",
   },
   {
-    text: "Implementing this ERP was smooth and quick. The customizable, user-friendly interface made team training effortless.",
-    image: "https://randomuser.me/api/portraits/men/2.jpg",
-    name: "Bilal Ahmed",
-    role: "IT Manager",
+    text: "They don't just post content — they understand B2B buying cycles. Our executive team's profiles went from dormant to actively generating inbound conversations.",
+    image: "https://randomuser.me/api/portraits/men/45.jpg",
+    name: "Marcus Webb",
+    role: "VP Sales, Industrial Tech",
   },
   {
-    text: "The support team is exceptional, guiding us through setup and providing ongoing assistance, ensuring our satisfaction.",
-    image: "https://randomuser.me/api/portraits/women/3.jpg",
-    name: "Saman Malik",
-    role: "Customer Support Lead",
+    text: "The transparency is refreshing. Every month we see exactly what's working, what's not, and where the budget goes. No other agency has given us that.",
+    image: "https://randomuser.me/api/portraits/women/28.jpg",
+    name: "Priya Sharma",
+    role: "Head of Marketing, Fintech",
   },
   {
-    text: "This ERP's seamless integration enhanced our business operations and efficiency. Highly recommend for its intuitive interface.",
-    image: "https://randomuser.me/api/portraits/men/4.jpg",
-    name: "Omar Raza",
-    role: "CEO",
+    text: "We tried three agencies before Nuvora. The difference? They actually understand LinkedIn's algorithm and how B2B decision-makers behave on the platform.",
+    image: "https://randomuser.me/api/portraits/men/22.jpg",
+    name: "David Chen",
+    role: "CEO, Consulting Firm",
   },
   {
-    text: "Its robust features and quick support have transformed our workflow, making us significantly more efficient.",
-    image: "https://randomuser.me/api/portraits/women/5.jpg",
-    name: "Zainab Hussain",
-    role: "Project Manager",
+    text: "Our LinkedIn ad spend went from burning cash to delivering qualified leads at half the cost. The campaign structure they built is incredibly efficient.",
+    image: "https://randomuser.me/api/portraits/women/44.jpg",
+    name: "Emma Bergström",
+    role: "Digital Lead, Manufacturing",
   },
   {
-    text: "The smooth implementation exceeded expectations. It streamlined processes, improving overall business performance.",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
-    name: "Aliza Khan",
-    role: "Business Analyst",
+    text: "The content quality sets them apart. Every post sounds like us, not like an agency. That's rare in B2B content outsourcing.",
+    image: "https://randomuser.me/api/portraits/men/36.jpg",
+    name: "James Okafor",
+    role: "Founder, Professional Services",
   },
   {
-    text: "Our business functions improved with a user-friendly design and positive customer feedback.",
-    image: "https://randomuser.me/api/portraits/men/7.jpg",
-    name: "Farhan Siddiqui",
-    role: "Marketing Director",
+    text: "From strategy to execution, everything is handled. We went from posting once a month to a full presence — company page, executive profiles, and ads — all performing.",
+    image: "https://randomuser.me/api/portraits/women/51.jpg",
+    name: "Ana Rodriguez",
+    role: "Marketing Director, Healthcare",
   },
   {
-    text: "They delivered a solution that exceeded expectations, understanding our needs and enhancing our operations.",
-    image: "https://randomuser.me/api/portraits/women/8.jpg",
-    name: "Sana Sheikh",
-    role: "Sales Manager",
+    text: "Nuvora helped us build an employee advocacy programme that turned our sales team into thought leaders. The pipeline impact has been measurable and significant.",
+    image: "https://randomuser.me/api/portraits/men/53.jpg",
+    name: "Ravi Patel",
+    role: "CRO, Enterprise Software",
   },
   {
-    text: "Using this ERP, our online presence and conversions significantly improved, boosting business performance.",
-    image: "https://randomuser.me/api/portraits/men/9.jpg",
-    name: "Hassan Ali",
-    role: "E-commerce Manager",
+    text: "What impressed me most is the reporting. Real KPIs, real pipeline numbers — not impressions and likes. We finally know what LinkedIn is actually doing for our business.",
+    image: "https://randomuser.me/api/portraits/women/19.jpg",
+    name: "Laura Koenig",
+    role: "COO, Logistics Company",
   },
 ];
 
@@ -64,9 +64,9 @@ const thirdColumn = testimonials.slice(6, 9);
 <section class="testimonials section" aria-labelledby="testimonials-heading">
   <div class="container">
     <div class="testimonials__head reveal">
-      <div class="testimonials__badge">Testimonials</div>
-      <h2 id="testimonials-heading" class="testimonials__title">What our users say</h2>
-      <p class="testimonials__sub">See what our customers have to say about us.</p>
+      <p class="eyebrow">Social proof</p>
+      <h2 id="testimonials-heading" class="testimonials__title">What our clients say</h2>
+      <p class="testimonials__sub">Results-driven partnerships with B2B teams across industries.</p>
     </div>
 
     <div class="testimonials__columns">
@@ -77,10 +77,15 @@ const thirdColumn = testimonials.slice(6, 9);
       ].map(({ items, speed }, colIdx) => (
         <div class={`testimonials__col testimonials__col--${speed} ${colIdx === 1 ? 'testimonials__col--md' : ''} ${colIdx === 2 ? 'testimonials__col--lg' : ''}`}>
           <div class="testimonials__track">
-            {/* Duplicate list for seamless loop */}
             {[0, 1].map(() =>
               items.map((t, i) => (
-                <div class="testimonials__card" key={i}>
+                <div class="testimonials__card">
+                  <div class="testimonials__quote" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M10 8H6C4.9 8 4 8.9 4 10V14C4 15.1 4.9 16 6 16H8L6 20H8.5L10.5 16H10C11.1 16 12 15.1 12 14V10C12 8.9 11.1 8 10 8Z" fill="currentColor"/>
+                      <path d="M20 8H16C14.9 8 14 8.9 14 10V14C14 15.1 14.9 16 16 16H18L16 20H18.5L20.5 16H20C21.1 16 22 15.1 22 14V10C22 8.9 21.1 8 20 8Z" fill="currentColor"/>
+                    </svg>
+                  </div>
                   <p class="testimonials__text">{t.text}</p>
                   <div class="testimonials__author">
                     <img
@@ -115,17 +120,6 @@ const thirdColumn = testimonials.slice(6, 9);
     margin-inline: auto;
     margin-bottom: var(--sp-10);
     text-align: center;
-  }
-
-  .testimonials__badge {
-    display: inline-flex;
-    padding: 0.25rem 1rem;
-    border: 1px solid var(--border-2);
-    border-radius: var(--r-md);
-    font-size: var(--fs-sm);
-    font-weight: 500;
-    color: var(--text-2);
-    margin-bottom: var(--sp-5);
   }
 
   .testimonials__title {
@@ -182,6 +176,12 @@ const thirdColumn = testimonials.slice(6, 9);
     background: var(--white);
   }
 
+  .testimonials__quote {
+    color: var(--cyan);
+    opacity: 0.35;
+    margin-bottom: var(--sp-4);
+  }
+
   .testimonials__text {
     font-size: var(--fs-sm);
     line-height: 1.7;
@@ -224,5 +224,9 @@ const thirdColumn = testimonials.slice(6, 9);
 
   @media (min-width: 1024px) {
     .testimonials__col--lg { display: block; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .testimonials__track { animation: none; }
   }
 </style>

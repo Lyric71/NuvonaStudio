@@ -8,8 +8,8 @@
       <div class="cta__left reveal">
         <p class="eyebrow eyebrow--light">Start here</p>
         <h2 id="cta-heading" class="cta__headline">
-          Ready to get more leads<br />
-          <em>on LinkedIn?</em>
+          Ready to make LinkedIn<br />
+          <em>work for your business?</em>
         </h2>
       </div>
 
@@ -19,6 +19,7 @@
         </p>
         <div class="cta__actions">
           <a href="/contact?intent=call" class="btn btn--primary btn--lg">Book a call</a>
+          <a href="/pricing" class="btn btn--outline-white btn--lg">View pricing</a>
         </div>
         <p class="cta__note">30 minutes. No pitch. Straight answers.</p>
       </div>
@@ -52,6 +53,27 @@
     letter-spacing: -0.02em;
   }
   .cta__headline em { color: rgba(255,255,255,0.45); font-weight: 300; }
+
+  .cta__visual {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 160px;
+    border-radius: var(--r-xl);
+    background: rgba(255,255,255,0.03);
+    border: 1.5px dashed rgba(255,255,255,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--sp-8);
+  }
+
+  .cta__visual span {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.18);
+  }
 
   .cta__sub {
     font-size: var(--fs-md);

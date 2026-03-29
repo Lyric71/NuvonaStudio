@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 500" fill="none">
+  <rect width="1400" height="500" fill="#001840"/>
+  <defs>
+    <linearGradient id="g2" x1="0" y1="500" x2="1400" y2="0">
+      <stop offset="0%" stop-color="#0077B5" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#00A8DC" stop-opacity="0.04"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="500" fill="url(#g2)"/>
+  <!-- Bar chart comparison -->
+  <g opacity="0.12">
+    <rect x="300" y="340" width="80" height="100" rx="6" fill="#00A8DC"/>
+    <rect x="420" y="280" width="80" height="160" rx="6" fill="#0077B5"/>
+    <rect x="540" y="160" width="80" height="280" rx="6" fill="#0A66C2"/>
+    <rect x="700" y="100" width="80" height="340" rx="6" fill="#0A66C2"/>
+    <rect x="820" y="80" width="80" height="360" rx="6" fill="#0077B5"/>
+  </g>
+  <!-- Connecting trend line -->
+  <path d="M340 340 L460 280 L580 160 L740 100 L860 80" stroke="#00A8DC" stroke-width="2" fill="none" opacity="0.3"/>
+  <!-- Grid lines -->
+  <g stroke="#fff" stroke-width="0.5" opacity="0.04">
+    <line x1="200" y1="100" x2="1200" y2="100"/>
+    <line x1="200" y1="200" x2="1200" y2="200"/>
+    <line x1="200" y1="300" x2="1200" y2="300"/>
+    <line x1="200" y1="400" x2="1200" y2="400"/>
+  </g>
+  <!-- Dollar signs -->
+  <text x="1050" y="200" font-family="system-ui,sans-serif" font-size="120" font-weight="700" fill="#fff" opacity="0.03">$</text>
+  <text x="1150" y="350" font-family="system-ui,sans-serif" font-size="80" font-weight="700" fill="#00A8DC" opacity="0.05">$</text>
+  <!-- Accent -->
+  <circle cx="1200" cy="120" r="180" fill="#0A66C2" opacity="0.05"/>
+</svg>

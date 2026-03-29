@@ -25,13 +25,13 @@ const industries = [
           If your buyers are on LinkedIn and you're not reaching them, we should talk.
         </p>
         <a href="/contact" class="btn btn--primary" style="margin-top: var(--sp-6);">
-          Talk to us →
+          Talk to us
         </a>
       </div>
 
       <div class="industries__right reveal reveal-delay-2">
-        <div class="vis-placeholder industries__visual" aria-hidden="true">
-          <span>Visual placeholder</span>
+        <div class="industries__visual" aria-hidden="true">
+          <img src="/global-connections.png" alt="" width="600" height="338" loading="lazy" />
         </div>
         <div class="industries__grid" aria-label="Industries we serve">
           {industries.map(i => (
@@ -66,9 +66,16 @@ const industries = [
 
   .industries__visual {
     width: 100%;
-    aspect-ratio: 16 / 9;
-    min-height: 200px;
     flex-shrink: 0;
+    border-radius: var(--r-xl);
+    overflow: hidden;
+  }
+
+  .industries__visual img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--r-xl);
   }
 
   .industries__grid {
@@ -108,20 +115,6 @@ const industries = [
     font-weight: 500;
     color: var(--text);
     letter-spacing: 0.01em;
-  }
-
-  .vis-placeholder {
-    background: linear-gradient(135deg, rgba(10,102,194,0.06) 0%, rgba(0,168,220,0.09) 100%);
-    border-radius: var(--r-xl);
-    border: 1.5px dashed rgba(10,102,194,0.22);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(10,102,194,0.35);
-    font-size: var(--fs-xs);
-    font-weight: 600;
-    letter-spacing: 0.10em;
-    text-transform: uppercase;
   }
 
   @media (max-width: 1024px) {

@@ -17,7 +17,6 @@ const posts = [
     slug: 'the-real-linkedin-problem',
   },
 ];
-
 ---
 
 <section class="section" aria-labelledby="insights-heading">
@@ -49,7 +48,12 @@ const posts = [
             <a href={`/insights/${post.slug}`}>{post.title}</a>
           </h3>
           <p class="insights__excerpt">{post.excerpt}</p>
-          <a href={`/insights/${post.slug}`} class="insights__read">Read article →</a>
+          <a href={`/insights/${post.slug}`} class="insights__read">
+            Read article
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M3 7h8m0 0L7.5 3.5M11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
         </article>
       ))}
     </div>
@@ -99,12 +103,27 @@ const posts = [
     transform: translateY(-2px);
   }
 
+  /* ── Thumbnail placeholder ── */
   .insights__thumb {
     width: 100%;
     aspect-ratio: 16 / 9;
     min-height: 160px;
-    margin-bottom: var(--sp-7);
+    margin-bottom: var(--sp-6);
+    border-radius: var(--r-lg);
+    background: linear-gradient(135deg, rgba(10,102,194,0.04) 0%, rgba(0,168,220,0.07) 100%);
+    border: 1.5px dashed rgba(10,102,194,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
+  }
+
+  .insights__thumb span {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: rgba(10,102,194,0.25);
   }
 
   .insights__card-top {
@@ -156,29 +175,18 @@ const posts = [
   }
 
   .insights__read {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
     font-size: var(--fs-xs);
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--blue);
     margin-top: auto;
-    transition: color var(--t-fast);
+    transition: color var(--t-fast), gap var(--t-fast);
   }
-  .insights__read:hover { color: var(--mid-blue); }
-
-  .vis-placeholder {
-    background: linear-gradient(135deg, rgba(10,102,194,0.06) 0%, rgba(0,168,220,0.09) 100%);
-    border-radius: var(--r-lg);
-    border: 1.5px dashed rgba(10,102,194,0.22);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(10,102,194,0.35);
-    font-size: var(--fs-xs);
-    font-weight: 600;
-    letter-spacing: 0.10em;
-    text-transform: uppercase;
-  }
+  .insights__read:hover { color: var(--mid-blue); gap: var(--sp-3); }
 
   @media (max-width: 1024px) {
     .insights__head { grid-template-columns: 1fr; gap: var(--sp-6); }

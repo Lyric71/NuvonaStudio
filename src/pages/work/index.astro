@@ -1,0 +1,895 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import NavBar from '../../components/NavBar.astro';
+import Footer from '../../components/Footer.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import Testimonials from '../../components/Testimonials.astro';
+
+const caseStudies = [
+  {
+    slug: 'japanese-medical-bed-maker-linkedin-leads',
+    number: '01',
+    title: 'A Japanese medical bed maker needed leads in Europe. LinkedIn delivered them.',
+    subtitle: 'No digital footprint outside Japan. In 90 days, a full pipeline of European distributors.',
+    services: ['LinkedIn Content', 'LinkedIn Advertising', 'Executive Personal Branding'],
+    region: 'Japan → Europe',
+    industry: 'MedTech',
+    gradient: 'linear-gradient(135deg, #001840 0%, #0A66C2 50%, #00A8DC 100%)',
+    icon: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="28" width="40" height="24" rx="4" stroke="white" stroke-width="1.5" opacity="0.7"/><path d="M28 36h24M28 40h16M28 44h20" stroke="white" stroke-width="1" opacity="0.4"/><circle cx="40" cy="20" r="6" stroke="white" stroke-width="1.5" opacity="0.5"/><path d="M34 20h12" stroke="white" stroke-width="1" opacity="0.3"/><rect x="16" y="56" width="48" height="4" rx="2" stroke="white" stroke-width="1" opacity="0.3"/></svg>`,
+    stats: [
+      { value: '9', label: 'Product demos booked' },
+      { value: '74', label: 'Qualified leads' },
+      { value: '$52', label: 'Cost per lead' },
+    ],
+  },
+  {
+    slug: 'chinese-cable-manufacturer-employee-advocacy',
+    number: '02',
+    title: 'A Chinese cable manufacturer turned 40 engineers into LinkedIn ambassadors.',
+    subtitle: 'Global workforce, zero LinkedIn culture. We changed that in 60 days.',
+    services: ['LinkedIn Content', 'Employee Advocacy', 'Training'],
+    region: 'China → Global',
+    industry: 'Manufacturing',
+    gradient: 'linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)',
+    icon: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="32" r="8" stroke="white" stroke-width="1.5" opacity="0.6"/><circle cx="24" cy="48" r="6" stroke="white" stroke-width="1.5" opacity="0.4"/><circle cx="56" cy="48" r="6" stroke="white" stroke-width="1.5" opacity="0.4"/><circle cx="20" cy="32" r="4" stroke="white" stroke-width="1" opacity="0.3"/><circle cx="60" cy="32" r="4" stroke="white" stroke-width="1" opacity="0.3"/><path d="M40 40v-0M32 36l-6 8M48 36l6 8M24 42v0M56 42v0" stroke="white" stroke-width="1" opacity="0.3"/><path d="M34 38l-8 6M46 38l8 6" stroke="white" stroke-width="1" opacity="0.25"/></svg>`,
+    stats: [
+      { value: '40', label: 'Advocates enrolled' },
+      { value: '160K', label: 'Impressions in 60 days' },
+      { value: '1,400', label: 'Page followers' },
+    ],
+  },
+  {
+    slug: 'swedish-polymer-brand-aerospace',
+    number: '03',
+    title: 'A Swedish polymer brand became the name aerospace buyers searched for.',
+    subtitle: 'World-class aerospace materials. A LinkedIn page that said otherwise.',
+    services: ['Consulting', 'LinkedIn Content', 'LinkedIn Advertising'],
+    region: 'Sweden → Global',
+    industry: 'Aerospace',
+    gradient: 'linear-gradient(135deg, #0c1445 0%, #1a237e 50%, #0A66C2 100%)',
+    icon: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M40 16L28 52h24L40 16z" stroke="white" stroke-width="1.5" opacity="0.5"/><path d="M22 48l18-8 18 8" stroke="white" stroke-width="1.5" opacity="0.6"/><path d="M32 52l8 12 8-12" stroke="white" stroke-width="1" opacity="0.3"/><circle cx="40" cy="36" r="3" stroke="white" stroke-width="1" opacity="0.4"/></svg>`,
+    stats: [
+      { value: '1,900', label: 'Followers gained' },
+      { value: '3.2%', label: 'Engagement rate' },
+      { value: '61', label: 'Leads generated' },
+    ],
+  },
+  {
+    slug: 'french-fragrance-lab-personal-branding',
+    number: '04',
+    title: 'A French fragrance lab attracted luxury clients through one founder\'s voice.',
+    subtitle: 'Cold emails never worked. Personal branding on LinkedIn opened every door.',
+    services: ['Executive Personal Branding', 'LinkedIn Content', 'Consulting'],
+    region: 'France',
+    industry: 'Luxury & Fragrance',
+    gradient: 'linear-gradient(135deg, #1a0a2e 0%, #3d1f6d 50%, #7b2d8e 100%)',
+    icon: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M36 24h8v8c0 8-4 16-4 16s-4-8-4-16v-8z" stroke="white" stroke-width="1.5" opacity="0.6"/><ellipse cx="40" cy="52" rx="12" ry="6" stroke="white" stroke-width="1.5" opacity="0.5"/><path d="M34 20c0-2 2-4 6-4s6 2 6 4" stroke="white" stroke-width="1" opacity="0.4"/><circle cx="30" cy="36" r="2" fill="white" opacity="0.15"/><circle cx="52" cy="40" r="3" fill="white" opacity="0.1"/><circle cx="46" cy="28" r="1.5" fill="white" opacity="0.12"/></svg>`,
+    stats: [
+      { value: '2,400', label: 'Followers in 4 months' },
+      { value: '8K+', label: 'Top post impressions' },
+      { value: '2', label: 'Inbound proposals' },
+    ],
+  },
+  {
+    slug: 'french-accounting-firm-partner-linkedin',
+    number: '05',
+    title: 'A French accounting firm gave its partners a reason to post on LinkedIn. Then the leads came.',
+    subtitle: '12 partners. None active on LinkedIn. Within 90 days, six posting weekly.',
+    services: ['LinkedIn Content', 'Training', 'LinkedIn Advertising'],
+    region: 'France → International',
+    industry: 'Professional Services',
+    gradient: 'linear-gradient(135deg, #0d1b2a 0%, #1b3a4b 50%, #274c5b 100%)',
+    icon: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="24" y="20" width="32" height="40" rx="3" stroke="white" stroke-width="1.5" opacity="0.6"/><path d="M30 28h20M30 34h14M30 40h18M30 46h10" stroke="white" stroke-width="1" opacity="0.35"/><path d="M42 46l4 4 8-10" stroke="white" stroke-width="1.5" opacity="0.5"/><rect x="28" y="24" width="8" height="2" rx="1" fill="white" opacity="0.2"/></svg>`,
+    stats: [
+      { value: '6/12', label: 'Partners posting weekly' },
+      { value: '42', label: 'Leads generated' },
+      { value: '$38', label: 'Cost per lead' },
+    ],
+  },
+  {
+    slug: 'hong-kong-law-firm-cross-border-deals',
+    number: '06',
+    title: 'A Hong Kong law firm turned senior partners into magnets for cross-border deals.',
+    subtitle: 'The expertise was there. The visibility wasn\'t.',
+    services: ['Executive Personal Branding', 'LinkedIn Content', 'Employee Advocacy'],
+    region: 'Hong Kong → Greater China',
+    industry: 'Legal',
+    gradient: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
+    icon: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="24" y="32" width="32" height="28" rx="2" stroke="white" stroke-width="1.5" opacity="0.5"/><path d="M20 32h40" stroke="white" stroke-width="1.5" opacity="0.6"/><path d="M24 28l16-8 16 8" stroke="white" stroke-width="1.5" opacity="0.6"/><path d="M32 44h4v16h-4zM44 40h4v20h-4z" stroke="white" stroke-width="1" opacity="0.35"/><circle cx="40" cy="38" r="3" stroke="white" stroke-width="1" opacity="0.4"/></svg>`,
+    stats: [
+      { value: '2', label: 'New mandates from LinkedIn' },
+      { value: '3,800', label: 'Combined followers' },
+      { value: '12K', label: 'Top post impressions' },
+    ],
+  },
+];
+
+const allServices = [...new Set(caseStudies.flatMap(cs => cs.services))].sort();
+---
+
+<Layout
+  title="Work | Case Studies | Nuvora Studio"
+  description="Real results from real clients. See how we help B2B companies grow through LinkedIn content, advertising, personal branding, and employee advocacy."
+  abstract="Case studies from Nuvora Studio. LinkedIn strategy that drives pipeline."
+>
+  <NavBar />
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="work-hero" aria-labelledby="work-heading">
+      <!-- Animated grid background -->
+      <div class="work-hero__grid" aria-hidden="true"></div>
+      <!-- Glow orbs -->
+      <div class="work-hero__orb work-hero__orb--1" aria-hidden="true"></div>
+      <div class="work-hero__orb work-hero__orb--2" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="work-hero__inner">
+          <div class="work-hero__content">
+            <p class="eyebrow eyebrow--light reveal">Case Studies</p>
+            <h1 id="work-heading" class="work-hero__h1 reveal reveal-delay-1">
+              The work speaks.<br /><em>So do the numbers.</em>
+            </h1>
+            <p class="work-hero__sub reveal reveal-delay-2">
+              Real strategies, real clients, real pipeline. No hypotheticals.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="cases-section" aria-label="Case studies">
+      <!-- Top decorative fade from hero -->
+      <div class="cases-section__fade" aria-hidden="true"></div>
+
+      <div class="container">
+
+        <!-- Service filters -->
+        <div class="service-filters reveal" role="group" aria-label="Filter by service">
+          <button class="filter-btn filter-btn--active" data-service="all">All</button>
+          {allServices.map(service => (
+            <button class="filter-btn" data-service={service}>{service}</button>
+          ))}
+        </div>
+
+        <!-- Cases grid -->
+        <div class="cases-grid" id="cases-grid">
+          {caseStudies.map((cs, i) => (
+            <article
+              class={`case-card reveal reveal-delay-${Math.min(i + 1, 4)}`}
+              data-services={cs.services.join('||')}
+            >
+              <!-- Visual banner -->
+              <div class="case-card__visual" style={`background: ${cs.gradient};`}>
+                <div class="case-card__visual-grid" aria-hidden="true"></div>
+                <div class="case-card__visual-icon" aria-hidden="true" set:html={cs.icon} />
+                <span class="case-card__visual-industry">{cs.industry}</span>
+              </div>
+
+              <div class="case-card__body">
+
+              <div class="case-card__top">
+                <div class="case-card__meta">
+                  <span class="case-card__region">{cs.region}</span>
+                  <span class="case-card__dot" aria-hidden="true"></span>
+                  <span class="case-card__industry">{cs.industry}</span>
+                </div>
+              </div>
+
+              <div class="case-card__services">
+                {cs.services.map(s => (
+                  <span class="service-tag">{s}</span>
+                ))}
+              </div>
+
+              <h2 class="case-card__title">
+                <a href={`/work/${cs.slug}`}>{cs.title}</a>
+              </h2>
+              <p class="case-card__subtitle">{cs.subtitle}</p>
+
+              <div class="case-card__stats">
+                {cs.stats.map((stat) => (
+                  <div class="case-stat">
+                    <span class="case-stat__value">{stat.value}</span>
+                    <span class="case-stat__label">{stat.label}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div class="case-card__footer">
+                <a href={`/work/${cs.slug}`} class="case-card__cta">
+                  Read case study
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+
+              </div><!-- .case-card__body -->
+            </article>
+          ))}
+        </div>
+
+        <!-- Empty state -->
+        <p class="cases-empty" id="cases-empty" style="display:none">
+          No case studies found for this service.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- Founder profile showcase -->
+    <section class="founder-section" aria-labelledby="founder-heading">
+      <div class="container">
+        <div class="founder-card reveal">
+          <div class="founder-card__glow" aria-hidden="true"></div>
+          <div class="founder-card__content">
+            <p class="eyebrow eyebrow--light">Leading by example</p>
+            <h2 id="founder-heading" class="founder-card__title">
+              We don't just advise on LinkedIn.<br />We do it ourselves.
+            </h2>
+            <p class="founder-card__text">
+              Cyril Drouin, Founder &amp; CEO of Nuvora Studio, maintains the kind of LinkedIn presence we build for clients. Not a vanity project. A working profile that generates conversations, builds trust, and demonstrates the strategies we use every day.
+            </p>
+            <a
+              href="https://www.linkedin.com/in/cyril-d-68835729/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="founder-card__link"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              View Cyril's LinkedIn profile
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" class="founder-card__arrow">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+          <div class="founder-card__visual">
+            <a
+              href="https://www.linkedin.com/in/cyril-d-68835729/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="founder-card__screenshot-link"
+            >
+              <div class="founder-card__browser">
+                <div class="browser__dots" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </div>
+                <span class="browser__url">linkedin.com/in/cyril-d-68835729</span>
+              </div>
+              <img
+                src="/Cyril-Drouin-LinkedIn-03-29-2026_09_55_AM.png"
+                alt="Cyril Drouin's LinkedIn profile showing an active, optimized presence with consistent content and engagement"
+                class="founder-card__img"
+                loading="lazy"
+                width="960"
+                height="600"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Testimonials />
+    <ContactCTA />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  /* ── Hero ── */
+  .work-hero {
+    background: var(--deep-navy);
+    padding-block: clamp(4rem, 8vw, 7rem);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle grid pattern */
+  .work-hero__grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 70%);
+  }
+
+  /* Floating glow orbs */
+  .work-hero__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+  .work-hero__orb--1 {
+    width: 500px;
+    height: 500px;
+    top: -120px;
+    right: -80px;
+    background: radial-gradient(circle, rgba(10,102,194,0.25) 0%, transparent 70%);
+    animation: float-orb 8s ease-in-out infinite alternate;
+  }
+  .work-hero__orb--2 {
+    width: 350px;
+    height: 350px;
+    bottom: -100px;
+    left: 10%;
+    background: radial-gradient(circle, rgba(0,168,220,0.15) 0%, transparent 70%);
+    animation: float-orb 10s ease-in-out 2s infinite alternate-reverse;
+  }
+
+  @keyframes float-orb {
+    0%   { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(20px, -15px) scale(1.08); }
+  }
+
+  .work-hero .container { position: relative; z-index: 1; }
+
+  .work-hero__inner {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--sp-12);
+  }
+
+  .work-hero__h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-block: var(--sp-5) var(--sp-6);
+  }
+  .work-hero__h1 em {
+    background: linear-gradient(90deg, rgba(255,255,255,0.45), rgba(0,168,220,0.6));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 300;
+    font-style: normal;
+  }
+  .work-hero__sub {
+    font-size: var(--fs-md);
+    color: rgba(255,255,255,0.6);
+    max-width: 480px;
+    line-height: 1.75;
+  }
+
+  /* Hero stats strip */
+  .work-hero__stats {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-8);
+    padding: var(--sp-6) var(--sp-8);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--r-xl);
+    backdrop-filter: blur(12px);
+    flex-shrink: 0;
+  }
+
+  .hero-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .hero-stat__value {
+    font-size: var(--fs-3xl);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-stat__label {
+    font-size: var(--fs-xs);
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+  }
+
+  .hero-stat__divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255,255,255,0.1);
+  }
+
+  /* ── Cases section ── */
+  .cases-section {
+    position: relative;
+    background: var(--off-white);
+    padding-block: var(--sp-24);
+  }
+
+  .cases-section__fade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(to bottom, var(--deep-navy), transparent);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .cases-section .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── Service filters ── */
+  .service-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+    margin-bottom: var(--sp-10);
+  }
+
+  .filter-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--sp-2) var(--sp-5);
+    border-radius: 999px;
+    border: 1px solid var(--border-2);
+    background: var(--white);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    color: var(--text-2);
+    cursor: pointer;
+    transition: all 0.22s ease;
+    letter-spacing: 0.02em;
+    box-shadow: 0 1px 3px rgba(0,24,64,0.04);
+  }
+  .filter-btn:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+    box-shadow: 0 2px 8px rgba(10,102,194,0.12);
+    transform: translateY(-1px);
+  }
+  .filter-btn--active {
+    background: var(--gradient-button);
+    border-color: transparent;
+    color: var(--white);
+    box-shadow: 0 4px 14px rgba(10,102,194,0.3);
+  }
+
+  /* ── Grid ── */
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-8);
+  }
+
+  /* ── Card ── */
+  .case-card {
+    position: relative;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-2xl);
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.32s ease, border-color 0.32s ease, transform 0.32s ease;
+    overflow: hidden;
+  }
+
+  .case-card:hover {
+    box-shadow: 0 8px 40px rgba(0,24,64,0.10), 0 0 0 1px var(--border-2);
+    transform: translateY(-4px);
+  }
+
+  .case-card.is-hidden {
+    display: none;
+  }
+
+  /* ── Visual banner ── */
+  .case-card__visual {
+    position: relative;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .case-card__visual-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 10%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 10%, transparent 70%);
+  }
+
+  .case-card__visual-icon {
+    position: relative;
+    z-index: 1;
+    width: 80px;
+    height: 80px;
+  }
+  .case-card__visual-icon :global(svg) {
+    width: 100%;
+    height: 100%;
+  }
+
+  .case-card__visual-industry {
+    position: absolute;
+    bottom: var(--sp-4);
+    right: var(--sp-5);
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    z-index: 1;
+  }
+
+  /* ── Card body ── */
+  .case-card__body {
+    padding: var(--sp-8) var(--sp-8) var(--sp-8);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+    flex: 1;
+  }
+
+  .case-card__subtitle {
+    flex: 1;
+  }
+
+  .case-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-3);
+  }
+
+  .case-card__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    font-size: var(--fs-xs);
+    color: var(--text-3);
+    letter-spacing: 0.02em;
+  }
+
+  .case-card__dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--text-3);
+  }
+
+  .case-card__services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+  }
+
+  .service-tag {
+    display: inline-block;
+    padding: 3px var(--sp-3);
+    border-radius: 999px;
+    background: rgba(10,102,194,0.07);
+    color: var(--blue);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    border: 1px solid rgba(10,102,194,0.1);
+  }
+
+  .case-card__title {
+    font-size: var(--fs-xl);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    margin-top: var(--sp-2);
+  }
+  .case-card__title a {
+    color: inherit;
+    transition: color 0.15s ease;
+  }
+  .case-card__title a:hover { color: var(--blue); }
+
+
+  /* ── Stats row ── */
+  .case-card__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-3);
+    padding: var(--sp-5);
+    background: linear-gradient(135deg, var(--deep-navy) 0%, #003366 100%);
+    border-radius: var(--r-lg);
+    margin-top: var(--sp-2);
+  }
+
+  .case-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 3px;
+  }
+
+  .case-stat__value {
+    font-size: var(--fs-xl);
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .case-stat__label {
+    font-size: 0.62rem;
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* ── Footer ── */
+  .case-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: var(--sp-4);
+    border-top: 1px solid var(--border);
+    margin-top: auto;
+  }
+
+  .case-card__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--blue);
+    transition: color 0.15s ease, gap 0.2s ease;
+  }
+  .case-card__cta:hover {
+    color: var(--mid-blue);
+    gap: var(--sp-3);
+  }
+  .case-card__cta svg {
+    transition: transform 0.2s ease;
+  }
+  .case-card:hover .case-card__cta svg {
+    transform: translateX(3px);
+  }
+
+  .cases-empty {
+    text-align: center;
+    color: var(--text-3);
+    padding-block: var(--sp-20);
+    font-size: var(--fs-md);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .work-hero__inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--sp-8);
+    }
+    .work-hero__stats {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .cases-grid { grid-template-columns: 1fr; }
+    .case-card__body { padding: var(--sp-6); }
+    .case-card__visual { height: 150px; }
+    .work-hero__stats {
+      gap: var(--sp-5);
+      padding: var(--sp-5) var(--sp-6);
+    }
+    .hero-stat__value { font-size: var(--fs-2xl); }
+  }
+
+  @media (max-width: 480px) {
+    .work-hero__stats { flex-wrap: wrap; }
+    .hero-stat__divider { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .work-hero__orb { animation: none; }
+  }
+
+  /* ── Founder section ── */
+  .founder-section {
+    background: var(--deep-navy);
+    padding-block: var(--sp-24);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .founder-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-12);
+    align-items: center;
+    padding: var(--sp-12);
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--r-2xl);
+    backdrop-filter: blur(12px);
+    overflow: hidden;
+  }
+
+  .founder-card__glow {
+    position: absolute;
+    bottom: -60%;
+    left: 30%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0,168,220,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .founder-card__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .founder-card__title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    margin-top: var(--sp-4);
+  }
+
+  .founder-card__text {
+    font-size: var(--fs-base);
+    color: rgba(255,255,255,0.6);
+    line-height: 1.75;
+    margin-top: var(--sp-5);
+    max-width: 460px;
+  }
+
+  .founder-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-3);
+    margin-top: var(--sp-6);
+    padding: var(--sp-3) var(--sp-6);
+    background: var(--gradient-button);
+    border-radius: 999px;
+    color: var(--white);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+    box-shadow: 0 4px 16px rgba(10,102,194,0.3);
+  }
+  .founder-card__link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(10,102,194,0.45);
+  }
+  .founder-card__arrow {
+    transition: transform 0.2s ease;
+  }
+  .founder-card__link:hover .founder-card__arrow {
+    transform: translateX(3px);
+  }
+
+  .founder-card__visual {
+    position: relative;
+    z-index: 1;
+  }
+
+  .founder-card__screenshot-link {
+    display: block;
+    border-radius: var(--r-xl);
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.06);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    background: #f0f0f0;
+  }
+  .founder-card__screenshot-link:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.1);
+  }
+
+  /* Fake browser chrome */
+  .founder-card__browser {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    padding: 10px var(--sp-4);
+    background: #1a1a2e;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .browser__dots {
+    display: flex;
+    gap: 5px;
+  }
+  .browser__dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+  }
+  .browser__dots span:first-child { background: #ff5f57; }
+  .browser__dots span:nth-child(2) { background: #ffbd2e; }
+  .browser__dots span:nth-child(3) { background: #28c840; }
+
+  .browser__url {
+    flex: 1;
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.06);
+    padding: 3px var(--sp-3);
+    border-radius: 4px;
+    letter-spacing: 0.02em;
+    font-family: monospace;
+  }
+
+  .founder-card__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: top;
+    max-height: 420px;
+  }
+
+  @media (max-width: 768px) {
+    .founder-card {
+      grid-template-columns: 1fr;
+      gap: var(--sp-8);
+      padding: var(--sp-8);
+    }
+  }
+</style>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const cards   = document.querySelectorAll<HTMLElement>('.case-card');
+  const empty   = document.getElementById('cases-empty');
+
+  function filter(service: string) {
+    let visible = 0;
+
+    cards.forEach(card => {
+      const services = (card.dataset.services ?? '').split('||');
+      const show = service === 'all' || services.includes(service);
+      card.classList.toggle('is-hidden', !show);
+      if (show) visible++;
+    });
+
+    if (empty) empty.style.display = visible === 0 ? 'block' : 'none';
+
+    buttons.forEach(btn => {
+      btn.classList.toggle('filter-btn--active', btn.dataset.service === service);
+    });
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => filter(btn.dataset.service ?? 'all'));
+  });
+</script>

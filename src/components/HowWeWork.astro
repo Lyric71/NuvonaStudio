@@ -1,101 +1,165 @@
 ---
-const principles = [
+const steps = [
   {
-    number: '01',
-    title: 'Transparency',
-    body: 'You see everything. Account access, performance data, pricing, and strategic decisions are never obscured. We tell you what is working, what is not, and why.',
+    title: 'Audit & Strategy',
+    body: 'We review your LinkedIn presence, competitors, and audience. You get a clear roadmap with specific actions — not a generic playbook.',
+    detail: 'Week 1–2',
   },
   {
-    number: '02',
-    title: 'LinkedIn-only depth',
-    body: 'We do not spread our expertise across ten channels. Every recommendation is grounded in current LinkedIn mechanics, ad product updates, and B2B audience behaviour on the platform specifically.',
+    title: 'Build & Launch',
+    body: 'We optimise profiles, set up your content engine, and launch campaigns. Everything goes live with your sign-off.',
+    detail: 'Week 3–4',
   },
   {
-    number: '03',
-    title: 'Measurable outcomes',
-    body: 'We agree on KPIs at the start of every engagement — follower growth, engagement rate, cost per lead, pipeline contribution. Reporting is always delivered against those KPIs, not vanity metrics.',
-  },
-  {
-    number: '04',
-    title: 'Content quality',
-    body: 'We hold B2B content to a high standard. Every post, article, ad, and message we produce is designed to earn attention and build credibility, not fill a calendar.',
+    title: 'Grow & Report',
+    body: 'Monthly reporting against agreed KPIs. We iterate on what works and scale what converts. No vanity metrics.',
+    detail: 'Ongoing',
   },
 ];
 ---
 
-<section class="section" aria-labelledby="how-heading" style="background: var(--deep-navy);">
+<section class="section" style="background: var(--deep-navy);" aria-labelledby="process-heading">
   <div class="container">
 
-    <div class="how__head text-center reveal">
-      <p class="eyebrow eyebrow--light">Our principles</p>
-      <h2 id="how-heading" style="color: white; max-width: 600px; margin-inline: auto;">
-        We work the way B2B buyers expect to be treated.
+    <div class="process__head reveal">
+      <p class="eyebrow eyebrow--light">How it works</p>
+      <h2 id="process-heading" style="color: var(--white);">
+        From audit to pipeline<br /><em style="color: rgba(255,255,255,0.40); font-weight: 300;">in three steps.</em>
       </h2>
     </div>
 
-    <div class="how__grid">
-      {principles.map((p, i) => (
-        <div class="how__card reveal" style={`transition-delay: ${i * 0.10}s`}>
-          <span class="how__num">{p.number}</span>
-          <h3 class="how__title">{p.title}</h3>
-          <p class="how__body">{p.body}</p>
+    <div class="process__grid">
+      {steps.map((s, i) => (
+        <div class="process__step reveal" style={`transition-delay: ${i * 0.1}s`}>
+          {i < steps.length - 1 && <div class="process__line-horizontal" aria-hidden="true"></div>}
+          <div class="process__content">
+            <span class="process__detail">{s.detail}</span>
+            <h3 class="process__title">{s.title}</h3>
+            <p class="process__body">{s.body}</p>
+          </div>
+          {s.title === 'Audit & Strategy' ? (
+            <div class="process__vis process__vis--img" aria-hidden="true">
+              <img src="/audit-strategy.png" alt="" width="600" height="375" loading="lazy" />
+            </div>
+          ) : s.title === 'Build & Launch' ? (
+            <div class="process__vis process__vis--img" aria-hidden="true">
+              <img src="/build-launch.png" alt="" width="600" height="375" loading="lazy" />
+            </div>
+          ) : s.title === 'Grow & Report' ? (
+            <div class="process__vis process__vis--img" aria-hidden="true">
+              <img src="/grow-report.png" alt="" width="600" height="375" loading="lazy" />
+            </div>
+          ) : (
+            <div class="vis-placeholder process__vis" aria-hidden="true">
+              <span>Visual placeholder</span>
+            </div>
+          )}
         </div>
       ))}
+    </div>
+
+    <div class="process__cta reveal" style="transition-delay: 0.3s">
+      <a href="/pricing" class="btn btn--outline-white btn--lg">See pricing</a>
     </div>
 
   </div>
 </section>
 
 <style>
-  .how__head { margin-bottom: var(--sp-16); }
+  .process__head {
+    text-align: center;
+    max-width: 600px;
+    margin-inline: auto;
+    margin-bottom: var(--sp-16);
+  }
 
-  .how__grid {
+  .process__grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: var(--r-xl);
-    overflow: hidden;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-8);
+    margin-bottom: var(--sp-12);
   }
 
-  .how__card {
-    padding: var(--sp-8) var(--sp-6);
-    background: var(--deep-navy);
-    transition: background var(--t-base);
+  .process__step {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-5);
   }
-  .how__card:hover { background: rgba(0,65,130,0.60); }
 
-  .how__num {
-    display: block;
-    font-family: var(--font-display);
-    font-size: var(--fs-3xl);
-    font-weight: 600;
+  .process__line-horizontal {
+    height: 1px;
+    background: linear-gradient(to right, rgba(0, 168, 220, 0.30), transparent);
+    margin-bottom: var(--sp-2);
+  }
+
+  .process__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+  }
+
+  .process__detail {
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
     color: var(--cyan);
-    opacity: 0.45;
-    line-height: 1;
-    letter-spacing: -0.03em;
-    margin-bottom: var(--sp-6);
   }
 
-  .how__title {
-    font-size: var(--fs-lg);
+  .process__title {
+    font-family: var(--font-display);
+    font-size: var(--fs-xl);
     font-weight: 600;
     color: var(--white);
-    margin-bottom: var(--sp-3);
+    letter-spacing: -0.01em;
     line-height: 1.2;
   }
 
-  .how__body {
+  .process__body {
     font-size: var(--fs-sm);
-    color: rgba(255,255,255,0.55);
+    color: var(--navy-text-2);
     line-height: 1.75;
   }
 
-  @media (max-width: 1024px) {
-    .how__grid { grid-template-columns: repeat(2, 1fr); }
+  .process__vis {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    min-height: 100px;
+    margin-top: var(--sp-2);
+    border-radius: var(--r-lg);
+    background: rgba(255,255,255,0.03);
+    border: 1.5px dashed rgba(255,255,255,0.10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  @media (max-width: 640px) {
-    .how__grid { grid-template-columns: 1fr; }
+
+  .process__vis--img {
+    background: none;
+    border: none;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .process__vis--img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--r-lg);
+  }
+
+  .process__vis span {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.15);
+  }
+
+  .process__cta { text-align: center; }
+
+  @media (max-width: 768px) {
+    .process__grid { grid-template-columns: 1fr; gap: var(--sp-10); }
+    .process__line-horizontal { display: none; }
   }
 </style>
