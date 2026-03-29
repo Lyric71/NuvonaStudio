@@ -1,56 +1,426 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import NavBar from '../../components/NavBar.astro';
-import LangBanner from '../../components/LangBanner.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
-import { useTranslations, getAlternateUrl } from '../../i18n/index.ts';
+import Pricing1 from '../../components/ui/Pricing.astro';
+import FAQ from '../../components/FAQ.astro';
 
-const t = useTranslations('fr');
+/* ── Formules d'accompagnement ── */
+const plans = [
+  { name: 'Foundation', popular: false, price: '1 500 €', href: '/fr/contact?intent=retainer&tier=foundation' },
+  { name: 'Growth', popular: true, price: '3 000 €', href: '/fr/contact?intent=retainer&tier=growth' },
+  { name: 'Scale', popular: false, price: '5 250 €', href: '/fr/contact?intent=retainer&tier=scale' },
+];
+
+const features = [
+  { label: 'Tarif mensuel',                foundation: '1 500 €', growth: '3 000 €', scale: '5 250 €' },
+  { label: 'Audit et mise en place',       foundation: '✓', growth: '✓', scale: '✓' },
+  { label: 'Stratégie de contenu',         foundation: '✓', growth: '✓', scale: '✓' },
+  { label: 'Publications par mois',        foundation: '4', growth: '8', scale: '16' },
+  { label: 'Visuels générés par IA',       foundation: '✓', growth: '✓', scale: '✓' },
+  { label: 'Animation de communauté',      foundation: '✓', growth: '✓', scale: '✓' },
+  { label: 'Gestion de la publicité LinkedIn', foundation: '—', growth: '✓', scale: '✓' },
+  { label: 'Ciblage et profil acheteur',   foundation: '—', growth: '✓', scale: '✓' },
+  { label: 'Veille concurrentielle',       foundation: '—', growth: '✓', scale: '✓' },
+  { label: 'Rapport de performance',       foundation: '✓', growth: '✓', scale: '✓' },
+  { label: 'Appel stratégique hebdomadaire', foundation: '✓', growth: '✓', scale: '✓' },
+  { label: 'Contact dédié',               foundation: 'Responsable', growth: 'Responsable', scale: 'Référent senior' },
+  { label: 'Assistance par messagerie L–V', foundation: '✓', growth: '✓', scale: '✓' },
+];
+
+/* ── Comparatif Ads ── */
+const adsFeatures = [
+  { label: 'Frais mensuels',                        foundation: '1 300 €/mois', growth: '6 %–10 % du budget' },
+  { label: 'Stratégie publicitaire complète',        foundation: '✓', growth: '✓' },
+  { label: 'Campagnes et annonces illimitées',       foundation: '✓', growth: '✓' },
+  { label: 'Accompagnement expert illimité',         foundation: '✓', growth: '✓' },
+  { label: 'Rapports personnalisés',                 foundation: '✓', growth: '✓' },
+  { label: 'Recommandations de contenu publicitaire', foundation: '✓', growth: '✓' },
+  { label: 'Points hebdomadaires',                   foundation: '—', growth: '✓' },
+  { label: 'Analyse de performance',                 foundation: '—', growth: '✓' },
+  { label: 'Stratégie de micro-ciblage',             foundation: '—', growth: '✓' },
+  { label: 'Remises sur volume',                     foundation: '—', growth: '✓' },
+];
+
+/* ── Tableaux simples ── */
+const execServices = [
+  { service: 'Optimisation du profil dirigeant (prestation unique)', price: '450 € par profil' },
+  { service: 'Rédaction pour dirigeant (4 publications/mois + maintien du profil)', price: '1 050 €/mois par dirigeant' },
+];
+
+const contentServices = [
+  { service: 'Vidéo générée par IA (5 s – 30 s)', price: '180 € – 4 500 € par vidéo' },
+  { service: 'Tournage vidéo professionnel', price: 'Devis sur mesure' },
+  { service: 'Contenu multilingue', price: 'Devis par langue' },
+];
+
+const trainingServices = [
+  { service: 'Atelier LinkedIn (2 heures)', price: '2 200 € par session' },
+  { service: 'Programme de formation équipe (4 sessions)', price: '7 000 € forfait unique' },
+  { service: 'Programme de mobilisation des collaborateurs', price: '2 200 €/mois' },
+];
+
+const bonusServices = [
+  { model: 'Prime sur objectif de prospection', percent: '+15%', structure: 'du forfait mensuel quand les objectifs de prospection sont atteints. Suppose un budget publicitaire LinkedIn actif.' },
+  { model: 'Prime sur croissance d\'audience', percent: '+10%', structure: 'du forfait mensuel si les objectifs trimestriels de croissance d\'audience sont dépassés. Budget publicitaire LinkedIn actif requis.' },
+];
+
+/* ── FAQ ── */
+const faqs = [
+  {
+    q: "Qu'est-ce qui est inclus dans le tarif ?",
+    a: "Tout ce qui est listé dans votre formule : stratégie, contenu, visuels, gestion de la communauté, suivi, appel hebdomadaire, un interlocuteur dédié... Le seul coût en plus c'est le budget pub LinkedIn, et il est débité sur votre compte à vous, pas le nôtre.",
+  },
+  {
+    q: 'Pourquoi un engagement de 3 mois ?',
+    a: "LinkedIn donne pas de résultats du jour au lendemain. Il faut du temps pour auditer votre page, construire une stratégie, publier régulièrement et laisser l'algorithme faire son travail. Trois mois, c'est le minimum pour observer un vrai mouvement.",
+  },
+  {
+    q: 'On peut changer de formule en cours de route ?',
+    a: 'Oui, sans problème. Une fois les 3 premiers mois passés vous pouvez monter ou descendre de formule à chaque nouveau cycle de facturation.',
+  },
+  {
+    q: 'Vous garantissez un nombre précis de prospects ?',
+    a: "Non. Et honnêtement, méfiez-vous de quiconque le fait. On s'engage à faire le travail correctement : stratégie, contenu, ciblage, semaine après semaine. Avec l'option prime de performance, on ne gagne davantage que si on atteint les objectifs qu'on a fixés ensemble.",
+  },
+  {
+    q: 'Que signifie « Ciblage et profil acheteur » ?',
+    a: "En gros, c'est le portrait-robot de votre acheteur idéal. On identifie qui sont vos meilleurs prospects — par poste, secteur, taille de boîte, localisation — et on construit le contenu et les campagnes autour de ça. C'est inclus dans Growth et Scale.",
+  },
+  {
+    q: 'Comment fonctionne la facturation du budget publicitaire ?',
+    a: "Vous payez LinkedIn directement depuis votre compte à vous. Nous on gère les campagnes. Votre argent ne transite pas par chez nous, c'est aussi simple que ça.",
+  },
+  {
+    q: 'Peut-on acheter la rédaction pour dirigeant sans formule mensuelle ?',
+    a: "Oui. C'est un service à part. Optimisation de profil, rédaction, ou les deux. Pas besoin de souscrire à une formule.",
+  },
+  {
+    q: 'Combien coûte la prime de performance si vous ratez l\'objectif ?',
+    a: "Rien. La prime ne s'applique que quand on atteint ou dépasse les objectifs qu'on a défini ensemble. Si on est en dessous vous payez votre forfait, c'est tout.",
+  },
+  {
+    q: "Quelle est la vraie différence entre Foundation et Growth ?",
+    a: "Foundation vous donne une présence : du contenu régulier et de l'animation de communauté. Growth, c'est le niveau où la prospection démarre vraiment — publicité, ciblage, veille concurrentielle et deux fois plus de contenu. Si vous cherchez à générer des prospects, c'est par Growth qu'il faut commencer.",
+  },
+  {
+    q: 'Que se passe-t-il après les 3 mois ?',
+    a: "Vous passez au mois par mois. Vous restez, vous changez de formule ou vous résiliez avec 30 jours de préavis. Aucune pénalité.",
+  },
+];
 ---
 
 <Layout
   lang="fr"
-  title="[FR] Tarifs | Nuvora Studio"
-  description="[FR] LinkedIn marketing retainers for B2B companies. Transparent pricing, no lock-in."
-  abstract="[FR] Transparent LinkedIn retainer pricing for B2B companies."
+  title="Tarifs LinkedIn pour entreprises B2B | Nuvora Studio"
+  description="Découvrez nos tarifs LinkedIn. Trois formules d'accompagnement, gestion publicitaire, visibilité du dirigeant et formation. Des offres conçues pour générer plus de prospects."
+  abstract="Tarifs LinkedIn pour entreprises B2B. Trois formules de 1 500 € à 5 250 €/mois. Publicité LinkedIn, visibilité du dirigeant et formation en complément."
 >
   <NavBar lang="fr" />
-  <LangBanner
-    message={t('lang.banner')}
-    alternatUrl={getAlternateUrl('/fr/pricing', 'en')}
-  />
   <main id="main-content">
 
+    <!-- ═══ HERO ═══ -->
     <section class="pricing-hero" aria-labelledby="pricing-heading">
       <div class="pricing-hero__bg" aria-hidden="true"></div>
       <div class="pricing-hero__overlay" aria-hidden="true"></div>
       <div class="container" style="position: relative; z-index: 2;">
         <div class="pricing-hero__content">
           <p class="eyebrow eyebrow--light reveal">Tarifs</p>
-          <h1 id="pricing-heading" class="pricing-hero__h1 reveal reveal-delay-1">
-            Des tarifs transparents. <span class="text-gradient">Sans surprises.</span>
+          <h1 id="pricing-heading" class="pricing-hero__title reveal reveal-delay-1">
+            Un seul objectif : vous apporter plus de <span class="text-gradient">prospects via LinkedIn.</span>
           </h1>
           <p class="pricing-hero__sub reveal reveal-delay-2">
-            Trois formules d'accompagnement. Une seule plateforme. Des livrables clairs à chaque niveau.
+            Choisissez la formule qui correspond à là où vous en êtes aujourd'hui. Stratégie, contenu,
+            suivi et un interlocuteur dédié sont inclus dans chaque formule. Pas de frais cachés.
+            Aucun engagement au-delà des trois premiers mois.
+          </p>
+          <div class="pricing-hero__actions reveal reveal-delay-3">
+            <a href="#retainer" class="btn btn--primary btn--lg">Voir les formules</a>
+            <a href="/fr/contact?intent=call" class="btn btn--outline-white btn--lg">Prendre rendez-vous</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FORMULES D'ACCOMPAGNEMENT ═══ -->
+    <section class="section" id="retainer" aria-labelledby="retainer-heading">
+      <div class="container">
+        <div class="s-head reveal">
+          <p class="eyebrow">Nos formules d'accompagnement</p>
+          <h2 id="retainer-heading">Gestion mensuelle de votre présence LinkedIn</h2>
+          <p class="s-head__sub">Toutes les formules nécessitent un engagement minimum de 3 mois.</p>
+        </div>
+
+        <div class="reveal reveal-delay-1">
+          <Pricing1 plans={plans} features={features} ctaLabel="Prendre rendez-vous" popularLabel="La plus demandée" periodLabel="/mois" />
+        </div>
+
+        <div class="tier-cards reveal reveal-delay-2">
+          <div class="tier-card">
+            Avec <strong>Foundation</strong>, vous posez les bases : une présence LinkedIn régulière, bien construite, avant de monter en puissance.
+          </div>
+          <div class="tier-card tier-card--pop">
+            <strong>Growth</strong> c'est là que la prospection commence pour de bon. Publicité, ciblage, deux fois plus de contenu. Notre formule la plus demandée — et c'est pas un hasard.
+          </div>
+          <div class="tier-card">
+            <strong>Scale</strong>, c'est pour les entreprises qui veulent aller à fond : 16 publications par mois, un référent senior sur votre compte, et tous nos services qui avancent de concert.
+          </div>
+        </div>
+
+        <p class="s-footnote reveal">
+          Vous hésitez entre les formules ? <a href="/fr/contact?intent=call">Prenez rendez-vous</a> et on en discute ensemble.
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══ VISIBILITÉ DU DIRIGEANT ═══ -->
+    <section class="section exec-section" aria-labelledby="exec-heading">
+      <div class="exec-section__bg" aria-hidden="true"></div>
+      <div class="exec-section__overlay" aria-hidden="true"></div>
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="exec-split">
+          <div class="exec-split__text reveal">
+            <p class="eyebrow">En complément ou de façon indépendante</p>
+            <h2 id="exec-heading">Visibilité du dirigeant</h2>
+            <p class="s-head__sub">
+              La page de votre entreprise raconte une histoire. Vos dirigeants en racontent une autre. Les acheteurs consultent les deux avant de vous contacter.
+            </p>
+            <p class="s-head__note">
+              C'est un service indépendant, pensé pour les dirigeants qui veulent construire leur propre visibilité sur LinkedIn.
+              Ça marche seul ou en complément de n'importe quelle formule.
+            </p>
+          </div>
+          <div class="exec-split__cards reveal reveal-delay-1">
+            {execServices.map(row => (
+              <div class="exec-card">
+                <p class="exec-card__label">{row.service}</p>
+                <p class="exec-card__price">{row.price}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ GESTION DE LA PUBLICITÉ LINKEDIN ═══ -->
+    <section class="section" aria-labelledby="ads-heading">
+      <div class="container">
+        <div class="s-head reveal">
+          <p class="eyebrow">Offre indépendante</p>
+          <h2 id="ads-heading">Gestion de la publicité LinkedIn</h2>
+          <p class="s-head__sub">
+            Pour les entreprises qui veulent une gestion publicitaire experte sans formule d'accompagnement complète.
+            Le budget publicitaire est facturé séparément, directement sur votre compte LinkedIn.
+          </p>
+          <p class="s-head__note">Les deux niveaux requièrent un contrat de 3 mois et des frais de mise en place de 1 300 €.</p>
+        </div>
+
+        <div class="ads-table reveal">
+          <div class="ads-table__scroll">
+            <table aria-label="Comparatif tarifs publicité LinkedIn">
+              <thead>
+                <tr>
+                  <th class="ads-table__corner"></th>
+                  <th class="ads-table__col-head">Budget pub &lt; 13 000 €/mois</th>
+                  <th class="ads-table__col-head">Budget pub &gt; 13 000 €/mois</th>
+                </tr>
+              </thead>
+              <tbody>
+                {adsFeatures.map((row, i) => (
+                  <tr class={i === 0 ? 'ads-table__row--price' : ''}>
+                    <td class="ads-table__label">{row.label}</td>
+                    <td class="ads-table__val">
+                      {row.foundation === '✓' ? (
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-label="Inclus"><path d="M4 9.5l3.5 3.5L14 6" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      ) : row.foundation === '—' ? (
+                        <span class="ads-table__dash">—</span>
+                      ) : (
+                        <strong>{row.foundation}</strong>
+                      )}
+                    </td>
+                    <td class="ads-table__val">
+                      {row.growth === '✓' ? (
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-label="Inclus"><path d="M4 9.5l3.5 3.5L14 6" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      ) : row.growth === '—' ? (
+                        <span class="ads-table__dash">—</span>
+                      ) : (
+                        <strong>{row.growth}</strong>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ GRANDS COMPTES ═══ -->
+    <section class="section section--dark enterprise" aria-labelledby="enterprise-heading">
+      <div class="enterprise__bg" aria-hidden="true"></div>
+      <div class="enterprise__overlay" aria-hidden="true"></div>
+      <div class="container" style="position: relative; z-index: 2;">
+
+        <div class="ent-top reveal">
+          <p class="eyebrow eyebrow--light">Sur mesure</p>
+          <h2 id="enterprise-heading" class="ent-top__title">Grands comptes</h2>
+          <p class="ent-top__lead">
+            Pour les entreprises internationales qui ont besoin que LinkedIn fonctionne sur plusieurs marchés, équipes et langues.
           </p>
         </div>
+
+        <div class="ent-intro reveal">
+          <p>
+            Nos formules standard conviennent à la plupart des entreprises B2B. Mais certaines organisations ont besoin de plus. Plusieurs régions.
+            Des dizaines de profils de dirigeants. Du contenu en quatre langues. Des campagnes publicitaires qui tournent en parallèle
+            sur l'Asie-Pacifique, l'Europe et les Amériques.
+          </p>
+          <p>L'offre Grands comptes est faite pour ça.</p>
+          <p>
+            On construit un périmètre d'intervention adapté à votre organisation. Pas une offre standard à laquelle on colle votre nom.
+            Chaque mission démarre par un appel pour comprendre vos objectifs, vos marchés, qui fait quoi en interne
+            et comment vous fonctionnez au quotidien.
+          </p>
+        </div>
+
+        <div class="ent-grid">
+          <!-- Ce dont les grands comptes ont généralement besoin -->
+          <div class="ent-block reveal">
+            <h3 class="ent-block__title">Ce dont les grands comptes ont généralement besoin</h3>
+            <ul class="ent-list" role="list">
+              <li>Stratégie LinkedIn multi-marchés couvrant plusieurs régions et langues</li>
+              <li>Calendriers éditoriaux coordonnés entre pages d'entreprise et profils de dirigeants</li>
+              <li>Programmes de mobilisation des collaborateurs à grande échelle</li>
+              <li>Un seul interlocuteur, stratège senior, qui suit tout</li>
+              <li>Gestion de la publicité LinkedIn sur plusieurs comptes et devises</li>
+              <li>Production de contenu multilingue, rédigé par des gens qui connaissent le marché, pas juste la langue</li>
+              <li>Tableaux de bord personnalisés alignés sur vos indicateurs de performance</li>
+              <li>Points trimestriels avec votre direction</li>
+            </ul>
+          </div>
+
+          <!-- Fonctionnement des tarifs + À qui ça s'adresse -->
+          <div class="ent-block reveal reveal-delay-1">
+            <h3 class="ent-block__title">Fonctionnement des tarifs</h3>
+            <div class="ent-block__text">
+              <p>
+                L'offre Grands comptes est définie et chiffrée au cas par cas. Il n'y a pas de tarif fixe car aucun programme ne se ressemble.
+                Le prix dépend du nombre de marchés, de profils, du volume de contenu, des comptes publicitaires et des langues concernés.
+              </p>
+              <p class="ent-price-range">
+                La plupart des accompagnements Grands comptes démarrent entre <strong>9 000 € et 22 000 € par mois.</strong>
+                Certains vont au dessus. Dans tous les cas on vous envoie une proposition détaillée, ligne par ligne, avant de commencer. Pas de surprises.
+              </p>
+            </div>
+
+            <h3 class="ent-block__title" style="margin-top: var(--sp-10);">À qui ça s'adresse</h3>
+            <ul class="ent-list" role="list">
+              <li>Entreprises internationales présentes dans plusieurs pays</li>
+              <li>Organisations en expansion sur de nouveaux marchés, tous secteurs confondus</li>
+              <li>Entreprises pour lesquelles LinkedIn est un canal stratégique — pas un projet secondaire</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="ent-cta reveal">
+          <p class="ent-cta__text">Si vous avez dépassé le stade de la formule standard, c'est le bon moment pour en parler.</p>
+          <a href="/fr/contact?intent=enterprise" class="btn btn--primary btn--lg">Prendre rendez-vous Grands comptes</a>
+        </div>
+
       </div>
     </section>
 
-    <section class="section" style="background: var(--off-white);">
+    <!-- ═══ CONTENU + FORMATION ═══ -->
+    <section class="section" style="background: var(--off-white);" aria-labelledby="addons-heading">
       <div class="container">
-        <div class="placeholder-notice">
-          <p>🇫🇷 <strong>Page en cours de traduction.</strong> Le contenu complet de cette page sera disponible prochainement en français.</p>
-          <a href="/pricing" class="btn btn--outline btn--sm">Read in English →</a>
+        <div class="s-head reveal" style="text-align: center; max-width: 640px; margin-inline: auto;">
+          <p class="eyebrow">Services complémentaires</p>
+          <h2 id="addons-heading">Contenu, formation et mobilisation</h2>
+          <p class="s-head__sub" style="margin-inline: auto;">
+            Les publications rédigées, les images générées par IA et les supports visuels sont inclus dans toutes les formules.
+            Ces services sont disponibles séparément.
+          </p>
+        </div>
+
+        <div class="addon-grid">
+          <!-- Production de contenu -->
+          <div class="addon-col reveal">
+            <h3 class="addon-col__title">Production de contenu</h3>
+            {contentServices.map(row => (
+              <div class="addon-item">
+                <p class="addon-item__name">{row.service}</p>
+                <p class="addon-item__price">{row.price}</p>
+              </div>
+            ))}
+          </div>
+
+          <!-- Séparateur -->
+          <div class="addon-divider" aria-hidden="true"></div>
+
+          <!-- Formation -->
+          <div class="addon-col reveal reveal-delay-1">
+            <h3 class="addon-col__title">Formation et mobilisation des collaborateurs</h3>
+            {trainingServices.map(row => (
+              <div class="addon-item">
+                <p class="addon-item__name">{row.service}</p>
+                <p class="addon-item__price">{row.price}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- ═══ PRIME DE PERFORMANCE ═══ -->
+    <section class="section section--dark" aria-labelledby="bonus-heading">
+      <div class="container container--md">
+        <div class="s-head reveal" style="text-align: center;">
+          <p class="eyebrow eyebrow--light">Optionnel</p>
+          <h2 id="bonus-heading" style="color: var(--white);">Prime de performance</h2>
+          <p class="s-head__sub" style="color: var(--navy-text-2); margin-inline: auto;">
+            Disponible avec les formules Growth et Scale. Nous lions une partie de nos honoraires aux résultats.
+            Quand on atteint les objectifs convenus, nous touchons une prime.
+            Quand on les rate vous payez uniquement votre forfait.
+          </p>
+        </div>
+
+        <div class="bonus-grid">
+          {bonusServices.map((b, i) => (
+            <div class={`bonus-card reveal reveal-delay-${i + 1}`}>
+              <span class="bonus-card__pct">{b.percent}</span>
+              <p class="bonus-card__title">{b.model}</p>
+              <p class="bonus-card__desc">{b.structure}</p>
+              <span class="bonus-card__tag">Growth & Scale</span>
+            </div>
+          ))}
+        </div>
+
+        <p class="s-footnote reveal" style="color: var(--navy-text-3); text-align: center; margin-top: var(--sp-8);">
+          Les objectifs sont définis ensemble au lancement de la mission et révisés chaque trimestre.
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══ MENTION LÉGALE ═══ -->
+    <div style="padding: var(--sp-10) 0; background: var(--off-white);">
+      <div class="container">
+        <p class="s-disclaimer reveal">
+          Tous les prix sont en euros HT. Le budget publicitaire LinkedIn est facturé séparément sur votre compte.
+          Des offres sur mesure sont disponibles pour les grands comptes.
+        </p>
+      </div>
+    </div>
+
+    <FAQ heading="Vos questions sur les tarifs." faqs={faqs} id="pfaq" />
+
     <ContactCTA />
+
   </main>
 </Layout>
 
 <style>
+  /* ═══════════ HERO ═══════════ */
   .pricing-hero {
     position: relative;
     overflow: hidden;
@@ -63,7 +433,7 @@ const t = useTranslations('fr');
   .pricing-hero__bg {
     position: absolute;
     inset: 0;
-    background: url('/hero-network.webp') center center / cover no-repeat;
+    background: url('/pricing/hero-pipeline.png') center center / cover no-repeat;
     z-index: 0;
   }
 
@@ -72,9 +442,9 @@ const t = useTranslations('fr');
     inset: 0;
     background: linear-gradient(
       to right,
-      rgba(15,23,42, 0.92) 0%,
-      rgba(15,23,42, 0.75) 50%,
-      rgba(15,23,42, 0.45) 100%
+      rgba(15, 23, 42, 0.94) 0%,
+      rgba(15, 23, 42, 0.78) 50%,
+      rgba(15, 23, 42, 0.50) 100%
     );
     z-index: 1;
   }
@@ -83,7 +453,7 @@ const t = useTranslations('fr');
     max-width: 680px;
   }
 
-  .pricing-hero__h1 {
+  .pricing-hero__title {
     font-family: var(--font-display);
     font-size: clamp(2.25rem, 4.5vw, 3.75rem);
     font-weight: 700;
@@ -92,7 +462,7 @@ const t = useTranslations('fr');
     letter-spacing: -0.02em;
     margin-block: var(--sp-5) var(--sp-6);
   }
-  .pricing-hero__h1 .text-gradient {
+  .pricing-hero__title .text-gradient {
     background: linear-gradient(135deg, var(--cyan) 0%, var(--sky) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -106,19 +476,601 @@ const t = useTranslations('fr');
     line-height: 1.75;
   }
 
+  .pricing-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+    margin-top: var(--sp-10);
+  }
+
   @media (max-width: 640px) {
     .pricing-hero { padding-block: var(--sp-16) var(--sp-12); }
   }
-  .placeholder-notice {
-    background: var(--white);
+
+  /* ── Section visuals ── */
+  .section-visual {
+    width: 100%;
+    height: auto;
+    border-radius: var(--r-xl);
+    object-fit: cover;
+  }
+
+  .section-visual--rounded {
+    border-radius: var(--r-xl);
+    margin-top: var(--sp-8);
+  }
+
+  .retainer-visual,
+  .ads-visual,
+  .addon-visual,
+  .bonus-visual,
+  .exec-visual {
+    max-width: 820px;
+    margin-inline: auto;
+    margin-bottom: var(--sp-12);
+  }
+
+  /* ═══════════ SECTION HEADS ═══════════ */
+  .s-head {
+    margin-bottom: var(--sp-12);
+  }
+
+  .s-head h2 {
+    font-family: var(--font-display);
+    font-size: clamp(var(--fs-xl), 3vw, var(--fs-2xl));
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    margin-top: var(--sp-4);
+    color: var(--text);
+  }
+
+  .s-head__sub {
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    line-height: 1.75;
+    margin-top: var(--sp-5);
+    max-width: 640px;
+  }
+
+  .s-head__note {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.7;
+    margin-top: var(--sp-3);
+    max-width: 640px;
+  }
+
+  /* ═══════════ TIER CARDS ═══════════ */
+  .tier-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-6);
+    margin-top: var(--sp-12);
+  }
+
+  .tier-card {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.7;
+    padding: var(--sp-8) var(--sp-8) var(--sp-10);
     border: 1px solid var(--border);
     border-radius: var(--r-xl);
-    padding: var(--sp-10);
+    background: var(--white);
+    transition: transform var(--t-base), box-shadow var(--t-base), border-color var(--t-base);
+  }
+
+  .tier-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--border-2);
+  }
+
+  .tier-card--pop {
+    border-color: var(--sky);
+    background: rgba(14, 165, 233, 0.02);
+  }
+
+  .tier-card--pop:hover {
+    border-color: var(--sky);
+  }
+
+  .tier-card strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .s-footnote {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    text-align: center;
+    margin-top: var(--sp-8);
+  }
+
+  .s-footnote a {
+    color: var(--sky);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color var(--t-fast);
+  }
+
+  .s-footnote a:hover { color: var(--blue); }
+
+  /* ═══════════ EXEC SECTION ═══════════ */
+  .exec-section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .exec-section__bg {
+    position: absolute;
+    inset: 0;
+    background: url('/pricing/exec-signature.png') center center / cover no-repeat;
+    z-index: 0;
+  }
+
+  .exec-section__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(15, 23, 42, 0.92) 0%,
+      rgba(15, 23, 42, 0.76) 50%,
+      rgba(15, 23, 42, 0.54) 100%
+    );
+    z-index: 1;
+  }
+
+  /* ═══════════ EXEC SPLIT ═══════════ */
+  .exec-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-16);
+    align-items: center;
+  }
+
+  .exec-section .eyebrow {
+    color: var(--cyan);
+  }
+
+  .exec-split__text h2 {
+    font-family: var(--font-display);
+    font-size: clamp(var(--fs-xl), 3vw, var(--fs-2xl));
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    margin-top: var(--sp-4);
+    color: var(--white);
+  }
+
+  .exec-section .s-head__sub,
+  .exec-section .s-head__note {
+    color: var(--navy-text-2);
+  }
+
+  .exec-split__cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-5);
+  }
+
+  .exec-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: var(--r-xl);
+    padding: var(--sp-6) var(--sp-8);
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: var(--sp-6);
-    flex-wrap: wrap;
+    backdrop-filter: blur(10px);
+    transition: transform var(--t-base), background var(--t-base), border-color var(--t-base);
   }
-  .placeholder-notice p { font-size: var(--fs-md); color: var(--text-2); }
+
+  .exec-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.20);
+  }
+
+  .exec-card__label {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--white);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .exec-card__price {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    color: var(--sky);
+    white-space: nowrap;
+  }
+
+  /* ═══════════ ENTERPRISE ═══════════ */
+  .enterprise {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .enterprise__bg {
+    position: absolute;
+    inset: 0;
+    background: url('/pricing/enterprise-constellation.png') center center / cover no-repeat;
+    z-index: 0;
+  }
+
+  .enterprise__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(15, 23, 42, 0.85) 0%,
+      rgba(15, 23, 42, 0.72) 40%,
+      rgba(15, 23, 42, 0.88) 100%
+    );
+    z-index: 1;
+  }
+
+  .ent-top {
+    margin-bottom: var(--sp-10);
+  }
+
+  .ent-top__title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--fs-2xl), 4vw, var(--fs-3xl));
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-top: var(--sp-4);
+  }
+
+  .ent-top__lead {
+    font-family: var(--font-body);
+    font-size: var(--fs-xl);
+    color: var(--navy-text);
+    line-height: 1.5;
+    margin-top: var(--sp-5);
+    max-width: 600px;
+  }
+
+  .ent-intro {
+    max-width: 720px;
+    margin-bottom: var(--sp-16);
+  }
+
+  .ent-intro p {
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    color: var(--navy-text-2);
+    line-height: 1.75;
+    margin-bottom: var(--sp-4);
+  }
+
+  .ent-intro p:last-child { margin-bottom: 0; }
+
+  .ent-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-12);
+    margin-bottom: var(--sp-16);
+  }
+
+  .ent-block__title {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: var(--sp-6);
+    padding-bottom: var(--sp-4);
+    border-bottom: 2px solid rgba(6, 182, 212, 0.30);
+  }
+
+  .ent-block__text p {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--navy-text-2);
+    line-height: 1.75;
+    margin-bottom: var(--sp-4);
+  }
+
+  .ent-block__text p:last-child { margin-bottom: 0; }
+
+  .ent-price-range strong {
+    color: var(--white);
+  }
+
+  .ent-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+  }
+
+  .ent-list li {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--navy-text-2);
+    line-height: 1.6;
+    padding-left: var(--sp-6);
+    position: relative;
+  }
+
+  .ent-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--cyan);
+    opacity: 0.6;
+  }
+
+  .ent-cta {
+    text-align: center;
+    padding-top: var(--sp-8);
+    border-top: 1px solid var(--navy-border);
+  }
+
+  .ent-cta__text {
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    color: var(--navy-text-2);
+    line-height: 1.7;
+    margin-bottom: var(--sp-8);
+    max-width: 500px;
+    margin-inline: auto;
+  }
+
+  /* ═══════════ ADDON GRID ═══════════ */
+  .addon-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: var(--sp-10);
+    align-items: start;
+  }
+
+  .addon-divider {
+    width: 1px;
+    align-self: stretch;
+    background: var(--border);
+  }
+
+  .addon-col__title {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: var(--sp-6);
+    padding-bottom: var(--sp-4);
+    border-bottom: 2px solid var(--sky);
+  }
+
+  .addon-item {
+    padding: var(--sp-4) 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-1);
+  }
+
+  .addon-item:last-child { border-bottom: none; }
+
+  .addon-item__name {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .addon-item__price {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--sky);
+  }
+
+  /* ═══════════ ADS TABLE ═══════════ */
+  .ads-table {
+    border: 1px solid var(--border);
+    border-radius: var(--r-2xl);
+    overflow: hidden;
+    background: var(--white);
+    box-shadow: var(--shadow-sm);
+    max-width: 820px;
+    margin-inline: auto;
+  }
+
+  .ads-table__scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ads-table table {
+    width: 100%;
+    min-width: 520px;
+    border-collapse: collapse;
+    font-size: var(--fs-sm);
+  }
+
+  .ads-table__corner {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    width: 38%;
+  }
+
+  .ads-table__col-head {
+    padding: var(--sp-6) var(--sp-5);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: var(--fs-sm);
+    color: var(--text);
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    background: var(--white);
+    line-height: 1.4;
+  }
+
+  .ads-table__label {
+    padding: var(--sp-3) var(--sp-6);
+    font-family: var(--font-body);
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+
+  .ads-table__val {
+    padding: var(--sp-3) var(--sp-5);
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+    color: var(--text);
+  }
+
+  .ads-table__val svg {
+    display: block;
+    margin-inline: auto;
+  }
+
+  .ads-table__val strong {
+    font-weight: 600;
+  }
+
+  .ads-table__dash { color: var(--text-3); }
+
+  .ads-table__row--price td {
+    font-size: var(--fs-base);
+    padding-block: var(--sp-4);
+    background: var(--off-white);
+  }
+
+  .ads-table tbody tr {
+    transition: background var(--t-fast);
+  }
+
+  .ads-table tbody tr:hover td { background: var(--off-white); }
+
+  /* ═══════════ BONUS ═══════════ */
+  .bonus-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-6);
+  }
+
+  .bonus-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--navy-border);
+    border-radius: var(--r-xl);
+    padding: var(--sp-8);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    transition: transform var(--t-base), background var(--t-base), border-color var(--t-base);
+  }
+
+  .bonus-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+
+  .bonus-card__pct {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xl);
+    font-weight: 700;
+    background: var(--gradient-button);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+
+  .bonus-card__title {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .bonus-card__desc {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--navy-text-2);
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  .bonus-card__tag {
+    display: inline-flex;
+    align-self: flex-start;
+    padding: 4px var(--sp-3);
+    border-radius: var(--r-sm);
+    background: rgba(6, 182, 212, 0.12);
+    color: var(--cyan);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin-top: var(--sp-2);
+  }
+
+  .s-disclaimer {
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.7;
+    max-width: 520px;
+    margin-inline: auto;
+  }
+
+
+  /* ═══════════ RESPONSIVE ═══════════ */
+  @media (max-width: 1024px) {
+    .tier-cards,
+    .bonus-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .exec-split,
+    .ent-grid {
+      grid-template-columns: 1fr;
+      gap: var(--sp-10);
+    }
+
+    .addon-grid {
+      grid-template-columns: 1fr;
+      gap: var(--sp-12);
+    }
+
+    .addon-divider { display: none; }
+  }
+
+  @media (max-width: 768px) {
+    .pricing-hero { padding-block: var(--sp-24) var(--sp-16); }
+
+    .pricing-hero__overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.90) 0%,
+        rgba(15, 23, 42, 0.82) 100%
+      );
+    }
+
+    .pricing-hero__actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .pricing-hero__actions .btn { justify-content: center; }
+
+  }
 </style>

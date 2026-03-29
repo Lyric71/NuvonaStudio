@@ -134,12 +134,7 @@ const consultingServices = [
           </div>
           <div class="s-pillar__visual reveal reveal-delay-2">
             <div class="s-pillar__img-wrap">
-              <div class="s-pillar__img-ph" aria-hidden="true">
-                <div class="s-ph__icon">
-                  <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill="rgba(6,182,212,.08)"/><path d="M16 40l10-14 8 10 6-8 10 12H16z" fill="rgba(6,182,212,.16)"/><circle cx="40" cy="20" r="5" fill="rgba(6,182,212,.20)"/></svg>
-                </div>
-                <span class="s-ph__label">Content Services</span>
-              </div>
+              <img src="/services-content.webp" alt="LinkedIn content feed showing carousel posts, articles, and newsletter notifications" width="1024" height="1024" loading="lazy" class="s-pillar__img" />
             </div>
           </div>
         </div>
@@ -149,7 +144,6 @@ const consultingServices = [
             <a href="/services/content" class={`s-card reveal${i > 0 ? ` reveal-delay-${Math.min(i, 3)}` : ''}`}>
               <div class="s-card__top">
                 <span class="s-card__icon" set:html={card.icon} />
-                <span class="s-card__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
               </div>
               <strong class="s-card__title">{card.title}</strong>
               <p class="s-card__text">{card.text}</p>
@@ -176,12 +170,7 @@ const consultingServices = [
           </div>
           <div class="s-pillar__visual reveal reveal-delay-2">
             <div class="s-pillar__img-wrap s-pillar__img-wrap--dark">
-              <div class="s-pillar__img-ph s-pillar__img-ph--dark" aria-hidden="true">
-                <div class="s-ph__icon">
-                  <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill="rgba(6,182,212,.10)"/><circle cx="28" cy="28" r="12" stroke="rgba(6,182,212,.30)" stroke-width="2"/><circle cx="28" cy="28" r="6" fill="rgba(6,182,212,.22)"/><circle cx="28" cy="28" r="2" fill="rgba(6,182,212,.45)"/></svg>
-                </div>
-                <span class="s-ph__label s-ph__label--dark">Advertising Services</span>
-              </div>
+              <img src="/services-advertising.webp" alt="LinkedIn advertising analytics dashboard with targeting filters and performance graphs" width="1024" height="1024" loading="lazy" class="s-pillar__img" />
             </div>
           </div>
         </div>
@@ -214,12 +203,7 @@ const consultingServices = [
           </div>
           <div class="s-pillar__visual reveal reveal-delay-2">
             <div class="s-pillar__img-wrap">
-              <div class="s-pillar__img-ph" aria-hidden="true">
-                <div class="s-ph__icon">
-                  <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill="rgba(6,182,212,.08)"/><path d="M14 18h10a4 4 0 0 1 4 4v16a3 3 0 0 0-3-3H14V18z" fill="rgba(6,182,212,.12)"/><path d="M42 18H32a4 4 0 0 0-4 4v16a3 3 0 0 1 3-3h11V18z" fill="rgba(6,182,212,.18)"/></svg>
-                </div>
-                <span class="s-ph__label">Consulting Services</span>
-              </div>
+              <img src="/services-consulting.webp" alt="Professional workshop scene with presenter teaching LinkedIn profile optimization strategy" width="1024" height="1024" loading="lazy" class="s-pillar__img" />
             </div>
           </div>
         </div>
@@ -291,7 +275,7 @@ const consultingServices = [
   .s-hero__bg {
     position: absolute;
     inset: 0;
-    background: url('/hero-network.webp') center center / cover no-repeat;
+    background: url('/services-hero.webp') center center / cover no-repeat;
     z-index: 0;
   }
 
@@ -451,7 +435,14 @@ const consultingServices = [
   }
   .s-pillar--dark .s-pillar__body { color: rgba(255,255,255,0.48); }
 
-  /* Visual placeholder */
+  /* Visual images */
+  .s-pillar__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
   .s-pillar__img-wrap {
     position: relative;
     border-radius: var(--r-2xl);

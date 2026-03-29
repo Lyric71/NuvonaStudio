@@ -25,7 +25,7 @@ import NavBar from '../components/NavBar.astro';
             Tell us about your project. We read every message and reply within one business day.
           </p>
           <div class="contact-hero__actions reveal reveal-delay-3">
-            <a href="#contact-form" class="btn btn--primary btn--lg">Send a message</a>
+            <a href="#contact-form" class="btn btn--primary btn--lg">Contact us</a>
           </div>
         </div>
       </div>
@@ -63,7 +63,7 @@ import NavBar from '../components/NavBar.astro';
                   </svg>
                 </div>
                 <div>
-                  <h2 class="contact-card__title">Send us a message</h2>
+                  <h2 class="contact-card__title">Tell us about your project</h2>
                   <p class="contact-card__note">
                     Fields marked <span aria-hidden="true">*</span><span class="sr-only">with an asterisk</span> are required.
                   </p>
@@ -79,7 +79,7 @@ import NavBar from '../components/NavBar.astro';
                       Your Name <span class="required-mark" aria-hidden="true">*</span>
                     </label>
                     <input class="form-input" type="text" id="name" name="name"
-                      autocomplete="name" required placeholder="Jane Smith" />
+                      autocomplete="name" required placeholder="Mariana Castillo" />
                     <span class="form-error" id="name-error" role="alert"></span>
                   </div>
 
@@ -89,7 +89,7 @@ import NavBar from '../components/NavBar.astro';
                       Your Email <span class="required-mark" aria-hidden="true">*</span>
                     </label>
                     <input class="form-input" type="email" id="email" name="email"
-                      autocomplete="email" required placeholder="jane@company.com" />
+                      autocomplete="email" required placeholder="mariana@heliobio.com" />
                     <span class="form-error" id="email-error" role="alert"></span>
                   </div>
 
@@ -99,7 +99,7 @@ import NavBar from '../components/NavBar.astro';
                       Your Phone <span class="form-optional">(optional)</span>
                     </label>
                     <input class="form-input" type="tel" id="phone" name="phone"
-                      autocomplete="tel" placeholder="+1 555 000 0000" />
+                      autocomplete="tel" placeholder="+44 20 7946 0958" />
                   </div>
 
                   <!-- Website -->
@@ -108,7 +108,7 @@ import NavBar from '../components/NavBar.astro';
                       Your Website <span class="required-mark" aria-hidden="true">*</span>
                     </label>
                     <input class="form-input" type="url" id="website" name="website"
-                      autocomplete="url" required placeholder="https://yourcompany.com" />
+                      autocomplete="url" required placeholder="https://heliobio.com" />
                     <span class="form-error" id="website-error" role="alert"></span>
                   </div>
 
@@ -118,7 +118,7 @@ import NavBar from '../components/NavBar.astro';
                       Your Company Name <span class="required-mark" aria-hidden="true">*</span>
                     </label>
                     <input class="form-input" type="text" id="company" name="company"
-                      autocomplete="organization" required placeholder="Acme Corp" />
+                      autocomplete="organization" required placeholder="Helio Biosciences" />
                     <span class="form-error" id="company-error" role="alert"></span>
                   </div>
 
@@ -129,7 +129,7 @@ import NavBar from '../components/NavBar.astro';
                     </label>
                     <textarea class="form-textarea" id="project" name="project"
                       required rows="5"
-                      placeholder="Tell us what you're working on, what you need, and any context that would help us respond well."
+                      placeholder="We're a 120-person biotech expanding into the EU and need LinkedIn visibility for our leadership team…"
                     ></textarea>
                     <span class="form-error" id="project-error" role="alert"></span>
                   </div>
@@ -267,7 +267,7 @@ import NavBar from '../components/NavBar.astro';
   .contact-hero__bg {
     position: absolute;
     inset: 0;
-    background: url('/hero-network.webp') center center / cover no-repeat;
+    background: url('/contact-hero-people.webp') center center / cover no-repeat;
     z-index: 0;
   }
 
@@ -491,7 +491,7 @@ import NavBar from '../components/NavBar.astro';
   .contact-sidebar {
     display: flex;
     flex-direction: column;
-    gap: var(--sp-6);
+    gap: var(--sp-4);
     position: sticky;
     top: 96px;
   }
@@ -500,7 +500,7 @@ import NavBar from '../components/NavBar.astro';
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: var(--r-2xl);
-    padding: var(--sp-7);
+    padding: var(--sp-5) var(--sp-6);
     box-shadow: var(--shadow-sm);
     transition: box-shadow var(--t-base);
   }
@@ -516,7 +516,7 @@ import NavBar from '../components/NavBar.astro';
     color: var(--deep-navy);
     letter-spacing: 0.02em;
     text-transform: uppercase;
-    margin-bottom: var(--sp-5);
+    margin-bottom: var(--sp-3);
     opacity: 0.55;
   }
 
@@ -529,7 +529,7 @@ import NavBar from '../components/NavBar.astro';
 
   .step-item {
     display: flex;
-    gap: var(--sp-4);
+    gap: var(--sp-3);
     position: relative;
   }
 
@@ -537,18 +537,18 @@ import NavBar from '../components/NavBar.astro';
   .step-item:not(:last-child)::after {
     content: '';
     position: absolute;
-    left: 15px;
-    top: 32px;
-    bottom: -8px;
+    left: 14px;
+    top: 30px;
+    bottom: -4px;
     width: 1px;
     background: var(--border);
   }
 
-  .step-item + .step-item { margin-top: var(--sp-4); }
+  .step-item + .step-item { margin-top: var(--sp-2); }
 
   .step-item__number {
     flex-shrink: 0;
-    width: 30px; height: 30px;
+    width: 28px; height: 28px;
     border-radius: 50%;
     background: var(--deep-navy);
     color: var(--white);
@@ -564,8 +564,8 @@ import NavBar from '../components/NavBar.astro';
   }
 
   .step-item__content {
-    padding-top: 4px;
-    padding-bottom: var(--sp-4);
+    padding-top: 3px;
+    padding-bottom: var(--sp-2);
   }
   .step-item__content strong {
     display: block;
@@ -586,7 +586,7 @@ import NavBar from '../components/NavBar.astro';
   .trust-list {
     display: flex;
     flex-direction: column;
-    gap: var(--sp-3);
+    gap: var(--sp-2);
   }
 
   .trust-item {
@@ -601,7 +601,7 @@ import NavBar from '../components/NavBar.astro';
 
   .trust-item__icon {
     flex-shrink: 0;
-    width: 28px; height: 28px;
+    width: 26px; height: 26px;
     background: rgba(6,182,212,0.08);
     border-radius: var(--r-md);
     display: flex;
@@ -624,7 +624,7 @@ import NavBar from '../components/NavBar.astro';
     display: flex;
     flex-direction: column;
     gap: var(--sp-1);
-    margin-bottom: var(--sp-3);
+    margin-bottom: var(--sp-2);
   }
   .pricing-anchor__label {
     font-size: var(--fs-xs);
@@ -650,7 +650,7 @@ import NavBar from '../components/NavBar.astro';
     font-family: var(--font-body);
     font-size: var(--fs-xs);
     color: rgba(255,255,255,0.38);
-    margin-bottom: var(--sp-5);
+    margin-bottom: var(--sp-3);
     line-height: 1.5;
   }
   .pricing-anchor__link {
@@ -736,7 +736,7 @@ import NavBar from '../components/NavBar.astro';
       setFieldError('email', 'Email is required.');
       valid = false;
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-      setFieldError('email', 'Please enter a valid email address (e.g. jane@company.com).');
+      setFieldError('email', 'Please enter a valid email address (e.g. mariana@heliobio.com).');
       valid = false;
     }
 
@@ -752,7 +752,7 @@ import NavBar from '../components/NavBar.astro';
           valid = false;
         }
       } catch {
-        setFieldError('website', 'Please enter a valid URL (e.g. https://yourcompany.com).');
+        setFieldError('website', 'Please enter a valid URL (e.g. https://heliobio.com).');
         valid = false;
       }
     }

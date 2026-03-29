@@ -1,5 +1,19 @@
 ---
-const testimonials = [
+interface Testimonial {
+  text: string;
+  image: string;
+  name: string;
+  role: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  heading?: string;
+  sub?: string;
+  items?: Testimonial[];
+}
+
+const defaultItems: Testimonial[] = [
   {
     text: "Nuvora transformed our LinkedIn presence from an afterthought into our top lead channel. Within six months, we were generating 40% of pipeline from LinkedIn alone.",
     image: "https://randomuser.me/api/portraits/women/32.jpg",
@@ -56,6 +70,14 @@ const testimonials = [
   },
 ];
 
+const {
+  eyebrow = 'Social proof',
+  heading = 'What our clients say',
+  sub = 'Results-driven partnerships with B2B teams across industries.',
+  items = defaultItems,
+} = Astro.props;
+
+const testimonials = items;
 const firstColumn = testimonials.slice(0, 3);
 const secondColumn = testimonials.slice(3, 6);
 const thirdColumn = testimonials.slice(6, 9);
@@ -64,9 +86,9 @@ const thirdColumn = testimonials.slice(6, 9);
 <section class="testimonials section" style="background: var(--off-white);" aria-labelledby="testimonials-heading">
   <div class="container">
     <div class="testimonials__head reveal">
-      <p class="eyebrow">Social proof</p>
-      <h2 id="testimonials-heading" class="testimonials__title">What our clients say</h2>
-      <p class="testimonials__sub">Results-driven partnerships with B2B teams across industries.</p>
+      <p class="eyebrow">{eyebrow}</p>
+      <h2 id="testimonials-heading" class="testimonials__title">{heading}</h2>
+      <p class="testimonials__sub">{sub}</p>
     </div>
 
     <div class="testimonials__columns">

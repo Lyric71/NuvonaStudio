@@ -4,42 +4,89 @@
 <section class="optimizer">
   <div class="optimizer__container">
 
+    <!-- ═══ GATE FORM VIEW ═══ -->
+    <div id="view-gate" class="optimizer__view optimizer__view--active">
+      <div class="optimizer__header">
+        <span class="eyebrow">Free Audit Tool</span>
+        <h1 class="optimizer__title">LinkedIn Profile Optimizer</h1>
+        <p class="optimizer__subtitle">Get a detailed AI-powered analysis of any LinkedIn profile with 100+ best-practice checks, personalized score, and actionable recommendations.</p>
+      </div>
+
+      <div class="gate-card">
+        <div class="gate-card__header">
+          <h2 class="gate-card__title">Tell us about yourself to get started</h2>
+          <p class="gate-card__desc">We use this information to personalize your report and follow up with insights relevant to your industry.</p>
+        </div>
+        <form id="gate-form" class="gate-form" novalidate>
+          <div class="gate-form__grid">
+            <div class="gate-field">
+              <label for="gate-name" class="gate-field__label">Full Name <span class="gate-field__req">*</span></label>
+              <input type="text" id="gate-name" name="name" required placeholder="Claire Fontaine" autocomplete="name" />
+            </div>
+            <div class="gate-field">
+              <label for="gate-company" class="gate-field__label">Company <span class="gate-field__req">*</span></label>
+              <input type="text" id="gate-company" name="company" required placeholder="Meridian Solutions" autocomplete="organization" />
+            </div>
+            <div class="gate-field">
+              <label for="gate-position" class="gate-field__label">Position <span class="gate-field__opt">(optional)</span></label>
+              <input type="text" id="gate-position" name="position" placeholder="Head of Growth" autocomplete="organization-title" />
+            </div>
+            <div class="gate-field">
+              <label for="gate-email" class="gate-field__label">Work Email <span class="gate-field__req">*</span></label>
+              <input type="email" id="gate-email" name="email" required placeholder="claire@meridian.io" autocomplete="email" />
+              <p class="gate-field__hint">Please use your company email address</p>
+              <p class="gate-field__error u-hidden" id="gate-email-error"></p>
+            </div>
+            <div class="gate-field">
+              <label for="gate-country" class="gate-field__label">Country <span class="gate-field__opt">(optional)</span></label>
+              <input type="text" id="gate-country" name="country" placeholder="Singapore" autocomplete="country-name" />
+            </div>
+          </div>
+          <p class="gate-form__error u-hidden" id="gate-form-error"></p>
+          <button type="submit" class="btn btn--primary btn--lg gate-form__submit">
+            Continue to Analyzer
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <p class="gate-form__privacy">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Your data is safe. We never share your information with third parties.
+          </p>
+        </form>
+      </div>
+    </div>
+
     <!-- ═══ INPUT VIEW ═══ -->
-    <div id="view-input" class="optimizer__view optimizer__view--active">
+    <div id="view-input" class="optimizer__view">
       <div class="optimizer__header">
         <span class="eyebrow">Free Audit Tool</span>
         <h1 class="optimizer__title">LinkedIn Profile Optimizer</h1>
         <p class="optimizer__subtitle">Upload a screenshot of any LinkedIn profile or company page. We'll analyze it against 100+ best-practice checks and give you an actionable score with prioritized recommendations.</p>
       </div>
 
-      <form id="analyze-form" class="optimizer__form">
-        <div class="upload-zone" id="upload-zone">
-          <input
-            type="file"
-            id="screenshot-input"
-            accept="image/png,image/jpeg,image/webp"
-            class="upload-zone__input"
-            required
-          />
-          <div class="upload-zone__content" id="upload-placeholder">
-            <div class="upload-zone__icon">
+      <form id="analyze-form" class="optimizer__form" novalidate>
+        <!-- Hidden file input (outside the styled zone) -->
+        <input type="file" id="screenshot-input" accept="image/png,image/jpeg,image/webp" style="display:none;" />
+
+        <!-- Clickable upload zone -->
+        <div class="upload-zone" id="upload-zone" role="button" tabindex="0">
+          <div id="upload-placeholder">
+            <div style="color:var(--text-3);margin-bottom:12px;display:flex;justify-content:center;">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
                 <circle cx="8.5" cy="8.5" r="1.5"/>
                 <polyline points="21 15 16 10 5 21"/>
               </svg>
             </div>
-            <p class="upload-zone__label">Drop your LinkedIn screenshot here or <span class="upload-zone__browse">browse</span></p>
-            <p class="upload-zone__hint">PNG, JPG, or WebP — max 10 MB</p>
+            <p style="font-size:1rem;font-weight:500;color:var(--text-2);margin:0 0 4px;text-align:center;">Drop your LinkedIn screenshot here or <span style="color:var(--sky);font-weight:600;text-decoration:underline;text-underline-offset:2px;">browse</span></p>
+            <p style="font-size:0.75rem;color:var(--text-3);margin:0;text-align:center;">PNG, JPG, or WebP - max 10 MB</p>
           </div>
-          <div class="upload-zone__preview" id="upload-preview" hidden>
+          <div id="upload-preview" class="upload-zone__preview u-hidden">
             <img id="preview-image" alt="Screenshot preview" />
             <button type="button" class="upload-zone__remove" id="remove-image" aria-label="Remove image">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
             </button>
           </div>
-          <!-- Upload progress bar -->
-          <div class="upload-progress" id="upload-progress" hidden>
+          <div id="upload-progress" class="upload-progress u-hidden">
             <div class="upload-progress__info">
               <span class="upload-progress__name" id="upload-progress-name">screenshot.png</span>
               <span class="upload-progress__pct" id="upload-progress-pct">0%</span>
@@ -53,15 +100,51 @@
 
         <div class="upload-zone__tip">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-          <span>For best results, capture the full profile page — scroll down to include About, Experience, Skills, and Featured sections.</span>
+          <span>For best results, capture the full profile page - scroll down to include About, Experience, Skills, and Featured sections.</span>
         </div>
+
+        <details class="why-screenshot">
+          <summary class="why-screenshot__toggle">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Why a screenshot instead of a profile URL?
+          </summary>
+          <div class="why-screenshot__content">
+            <div class="why-screenshot__item">
+              <div class="why-screenshot__icon why-screenshot__icon--red">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              </div>
+              <div>
+                <strong>LinkedIn prohibits automated scraping.</strong>
+                <span>Accessing profile data programmatically violates LinkedIn's Terms of Service and can result in legal action - as seen with multiple lawsuits against scraping providers in 2025-2026.</span>
+              </div>
+            </div>
+            <div class="why-screenshot__item">
+              <div class="why-screenshot__icon why-screenshot__icon--green">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <strong>Your data stays private.</strong>
+                <span>We never access your LinkedIn account. The screenshot is analyzed by AI and is not stored - it's discarded immediately after generating your report.</span>
+              </div>
+            </div>
+            <div class="why-screenshot__item">
+              <div class="why-screenshot__icon why-screenshot__icon--blue">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <strong>More accurate analysis.</strong>
+                <span>A screenshot captures your profile exactly as visitors see it - including visual elements like your photo quality, banner design, and layout that no API can evaluate.</span>
+              </div>
+            </div>
+          </div>
+        </details>
 
         <button type="submit" id="analyze-btn" class="btn btn--primary btn--lg optimizer__submit">
           <span class="btn__label">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
             Analyze Profile
           </span>
-          <span class="btn__loading" hidden>
+          <span class="btn__loading u-hidden">
             <svg class="spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <circle cx="12" cy="12" r="10" opacity="0.25" />
               <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round" />
@@ -71,7 +154,7 @@
         </button>
       </form>
 
-      <div id="analyze-error" class="optimizer__error" hidden></div>
+      <div id="analyze-error" class="optimizer__error u-hidden"></div>
 
       <div class="optimizer__trust">
         <div class="trust-item">
@@ -90,7 +173,7 @@
     </div>
 
     <!-- ═══ LOADING VIEW ═══ -->
-    <div id="view-loading" class="optimizer__view" hidden>
+    <div id="view-loading" class="optimizer__view">
       <div class="loading-state">
         <!-- Animated background dots -->
         <div class="loading-state__bg">
@@ -164,7 +247,7 @@
     </div>
 
     <!-- ═══ RESULTS VIEW ═══ -->
-    <div id="view-results" class="optimizer__view" hidden>
+    <div id="view-results" class="optimizer__view">
       <div class="results">
 
         <!-- ── Score Hero Card ── -->
@@ -237,6 +320,40 @@
           <div class="results__all-checks" id="results-all-checks"></div>
         </details>
 
+        <!-- ── Share & Email ── -->
+        <div class="results__share">
+          <div class="results__share-header">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            <span>Share your results</span>
+          </div>
+          <div class="results__share-actions">
+            <button type="button" class="share-btn" id="btn-copy-results" title="Copy to clipboard">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy Report
+            </button>
+            <button type="button" class="share-btn share-btn--email" id="btn-email-open" title="Send by email">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Email Report
+            </button>
+          </div>
+          <!-- Email form (hidden by default) -->
+          <form class="email-form is-hidden" id="email-form">
+            <div class="email-form__row">
+              <input type="email" id="email-input" placeholder="Enter email address" required autocomplete="email" />
+              <button type="submit" class="btn btn--primary btn--sm" id="email-send-btn">
+                <span class="email-form__label">Send</span>
+                <span class="email-form__loading u-hidden">
+                  <svg class="spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14">
+                    <circle cx="12" cy="12" r="10" opacity="0.25" /><path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round" />
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <p class="email-form__status u-hidden" id="email-status"></p>
+          </form>
+          <p class="results__share-copied u-hidden" id="copy-toast">Report copied to clipboard</p>
+        </div>
+
         <!-- ── CTA ── -->
         <div class="results__cta-card">
           <div class="results__cta-content">
@@ -292,6 +409,105 @@
     line-height: 1.65;
   }
 
+  /* ── Gate Form ── */
+  .gate-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-2xl);
+    padding: var(--sp-8);
+    box-shadow: 0 4px 24px rgba(15, 23, 42, 0.04);
+  }
+  .gate-card__header { margin-bottom: var(--sp-6); }
+  .gate-card__title {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 var(--sp-2);
+  }
+  .gate-card__desc {
+    font-size: var(--fs-sm);
+    color: var(--text-3);
+    margin: 0;
+    line-height: 1.6;
+  }
+  .gate-form__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-4) var(--sp-5);
+    margin-bottom: var(--sp-6);
+  }
+  .gate-field { display: flex; flex-direction: column; }
+  .gate-field:nth-child(4) { grid-column: 1 / -1; }
+  .gate-field__label {
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: var(--sp-1);
+  }
+  .gate-field__req { color: #dc2626; }
+  .gate-field__opt { font-weight: 400; color: var(--text-3); font-size: var(--fs-xs); }
+  .gate-field input {
+    font-family: var(--font-body);
+    font-size: var(--fs-base);
+    color: var(--text);
+    background: var(--off-white);
+    border: 1.5px solid var(--border-2);
+    border-radius: var(--r-md);
+    padding: var(--sp-3) var(--sp-4);
+    transition: border-color var(--t-base), box-shadow var(--t-base);
+  }
+  .gate-field input:focus {
+    outline: none;
+    border-color: var(--sky);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+  }
+  .gate-field input.is-invalid {
+    border-color: #dc2626;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.08);
+  }
+  .gate-field__hint {
+    font-size: var(--fs-xs);
+    color: var(--text-3);
+    margin: var(--sp-1) 0 0;
+  }
+  .gate-field__error {
+    font-size: var(--fs-xs);
+    color: #dc2626;
+    margin: var(--sp-1) 0 0;
+  }
+  .gate-form__error {
+    font-size: var(--fs-sm);
+    color: #dc2626;
+    margin: 0 0 var(--sp-4);
+    padding: var(--sp-3) var(--sp-4);
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: var(--r-md);
+  }
+  .gate-form__submit {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+  }
+  .gate-form__privacy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    font-size: var(--fs-xs);
+    color: var(--text-3);
+    margin: var(--sp-4) 0 0;
+  }
+  .gate-form__privacy svg { color: var(--sky); flex-shrink: 0; }
+
+  @media (max-width: 640px) {
+    .gate-form__grid { grid-template-columns: 1fr; }
+    .gate-card { padding: var(--sp-6) var(--sp-4); }
+  }
+
   /* ── Upload Zone ── */
   .optimizer__form { margin-bottom: var(--sp-6); }
   .upload-zone {
@@ -315,52 +531,19 @@
     padding: var(--sp-4);
     cursor: default;
   }
-  .upload-zone__input {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    cursor: pointer;
-  }
-  .upload-zone.has-file .upload-zone__input {
-    display: none;
-  }
-  .upload-zone__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .upload-zone__icon {
-    color: var(--text-3);
-    margin-bottom: var(--sp-3);
-  }
-  .upload-zone__label {
-    font-size: var(--fs-base);
-    font-weight: 500;
-    color: var(--text-2);
-    margin: 0 0 var(--sp-1);
-  }
-  .upload-zone__browse {
-    color: var(--sky);
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-  .upload-zone__hint {
-    font-size: var(--fs-xs);
-    color: var(--text-3);
-    margin: 0;
+  .upload-zone.has-file {
+    cursor: default;
   }
 
-  /* Hidden attribute enforcement (CSS display overrides [hidden]) */
-  [hidden] { display: none !important; }
+  /* Utility: hide elements */
+  .optimizer .u-hidden { display: none !important; }
 
   /* Preview */
   .upload-zone__preview {
     position: relative;
     display: flex;
     justify-content: center;
+    z-index: 20;
   }
   .upload-zone__preview img {
     max-width: 100%;
@@ -473,6 +656,62 @@
     animation: spin 0.8s linear infinite;
   }
   @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── Why Screenshot ── */
+  .why-screenshot {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    margin-bottom: var(--sp-6);
+    overflow: hidden;
+  }
+  .why-screenshot__toggle {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: var(--sp-4) var(--sp-5);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--text-2);
+    cursor: pointer;
+    list-style: none;
+    transition: color var(--t-fast);
+  }
+  .why-screenshot__toggle:hover { color: var(--text); }
+  .why-screenshot__toggle::-webkit-details-marker { display: none; }
+  .why-screenshot__toggle svg { color: var(--sky); flex-shrink: 0; }
+  .why-screenshot__content {
+    padding: 0 var(--sp-5) var(--sp-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+  }
+  .why-screenshot__item {
+    display: flex;
+    gap: var(--sp-3);
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.6;
+  }
+  .why-screenshot__item strong {
+    display: block;
+    color: var(--text);
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .why-screenshot__icon {
+    width: 28px;
+    height: 28px;
+    border-radius: var(--r-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .why-screenshot__icon--red { background: #fef2f2; color: #dc2626; }
+  .why-screenshot__icon--green { background: #f0fdf4; color: #16a34a; }
+  .why-screenshot__icon--blue { background: #f0f9ff; color: #0284c7; }
 
   /* ── Error ── */
   .optimizer__error {
@@ -1013,6 +1252,100 @@
   .check-row__status--na { background: var(--off-white); color: var(--text-3); }
   .check-row__label { flex: 1; color: var(--text-2); }
 
+  /* ── Share & Email ── */
+  .results__share {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    padding: var(--sp-5) var(--sp-6);
+    margin-bottom: var(--sp-6);
+  }
+  .results__share-header {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: var(--sp-4);
+  }
+  .results__share-header svg { color: var(--sky); }
+  .results__share-actions {
+    display: flex;
+    gap: var(--sp-3);
+    margin-bottom: var(--sp-1);
+  }
+  .share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: var(--sp-2) var(--sp-4);
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--text-2);
+    background: var(--white);
+    border: 1px solid var(--border-2);
+    border-radius: var(--r-md);
+    cursor: pointer;
+    transition: all var(--t-fast);
+  }
+  .share-btn:hover {
+    border-color: var(--sky);
+    color: var(--sky);
+    background: rgba(14, 165, 233, 0.04);
+  }
+  .share-btn--email svg { color: var(--sky); }
+
+  /* Email form */
+  .email-form.is-hidden { display: none; }
+  .email-form {
+    margin-top: var(--sp-4);
+    padding-top: var(--sp-4);
+    border-top: 1px solid var(--border);
+  }
+  .email-form__row {
+    display: flex;
+    gap: var(--sp-3);
+  }
+  .email-form__row input {
+    flex: 1;
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--text);
+    background: var(--white);
+    border: 1.5px solid var(--border-2);
+    border-radius: var(--r-md);
+    padding: var(--sp-2) var(--sp-4);
+    transition: border-color var(--t-base);
+  }
+  .email-form__row input:focus {
+    outline: none;
+    border-color: var(--sky);
+  }
+  .email-form__label,
+  .email-form__loading {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+  }
+  .email-form__status {
+    font-size: var(--fs-xs);
+    margin: var(--sp-2) 0 0;
+    line-height: 1.5;
+  }
+  .email-form__status.is-success { color: #16a34a; }
+  .email-form__status.is-error { color: #dc2626; }
+
+  /* Copy toast */
+  .results__share-copied {
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    color: #16a34a;
+    margin: var(--sp-3) 0 0;
+    animation: fadeUp 300ms ease;
+  }
+
   /* ── CTA Card ── */
   .results__cta-card {
     background: var(--off-white);
@@ -1071,34 +1404,121 @@
 
 <script>
   // ══════════════════════════════════════════════════════════
-  // DOM REFS
+  // DOM REFS (all declared upfront)
   // ══════════════════════════════════════════════════════════
-  const viewInput   = document.getElementById('view-input') as HTMLElement;
-  const viewLoading = document.getElementById('view-loading') as HTMLElement;
-  const viewResults = document.getElementById('view-results') as HTMLElement;
+  const viewGate    = document.getElementById('view-gate')!;
+  const viewInput   = document.getElementById('view-input')!;
+  const viewLoading = document.getElementById('view-loading')!;
+  const viewResults = document.getElementById('view-results')!;
+  const gateForm    = document.getElementById('gate-form') as HTMLFormElement;
   const form        = document.getElementById('analyze-form') as HTMLFormElement;
   const fileInput   = document.getElementById('screenshot-input') as HTMLInputElement;
-  const uploadZone  = document.getElementById('upload-zone') as HTMLElement;
-  const placeholder = document.getElementById('upload-placeholder') as HTMLElement;
-  const previewWrap = document.getElementById('upload-preview') as HTMLElement;
+  const uploadZone  = document.getElementById('upload-zone')!;
+  const placeholder = document.getElementById('upload-placeholder')!;
+  const previewWrap = document.getElementById('upload-preview')!;
   const previewImg  = document.getElementById('preview-image') as HTMLImageElement;
   const removeBtn   = document.getElementById('remove-image') as HTMLButtonElement;
   const analyzeBtn  = document.getElementById('analyze-btn') as HTMLButtonElement;
   const btnLabel    = analyzeBtn.querySelector('.btn__label') as HTMLElement;
   const btnLoading  = analyzeBtn.querySelector('.btn__loading') as HTMLElement;
-  const errorBox    = document.getElementById('analyze-error') as HTMLElement;
+  const errorBox    = document.getElementById('analyze-error')!;
 
+  const allViews = [viewGate, viewInput, viewLoading, viewResults];
   let selectedFile: File | null = null;
+  let gateUserData: { name: string; company: string; position: string; email: string; country: string } | null = null;
+
+  // Visibility helpers (avoid hidden attribute issues)
+  function hide(el: HTMLElement) { el.classList.add('u-hidden'); }
+  function show(el: HTMLElement) { el.classList.remove('u-hidden'); }
 
   function showView(view: HTMLElement) {
-    [viewInput, viewLoading, viewResults].forEach(v => {
-      v.hidden = true;
+    allViews.forEach(v => {
+      v.removeAttribute('hidden');
       v.classList.remove('optimizer__view--active');
     });
-    view.hidden = false;
     view.classList.add('optimizer__view--active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  // ══════════════════════════════════════════════════════════
+  // GATE FORM (lead capture)
+  // ══════════════════════════════════════════════════════════
+  const GENERIC_DOMAINS = [
+    'gmail.com','yahoo.com','hotmail.com','outlook.com','aol.com','icloud.com',
+    'mail.com','protonmail.com','zoho.com','yandex.com','gmx.com','live.com',
+    'msn.com','me.com','mac.com','inbox.com','fastmail.com','tutanota.com',
+    'qq.com','163.com','126.com','yeah.net','foxmail.com',
+    'orange.fr','wanadoo.fr','laposte.net','free.fr','sfr.fr',
+    'web.de','gmx.de','t-online.de',
+    'mail.ru','rambler.ru','list.ru',
+    'rediffmail.com','pm.me','hey.com',
+  ];
+
+  gateForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const nameEl    = document.getElementById('gate-name') as HTMLInputElement;
+    const companyEl = document.getElementById('gate-company') as HTMLInputElement;
+    const positionEl= document.getElementById('gate-position') as HTMLInputElement;
+    const emailEl   = document.getElementById('gate-email') as HTMLInputElement;
+    const countryEl = document.getElementById('gate-country') as HTMLInputElement;
+    const emailErr  = document.getElementById('gate-email-error')!;
+    const formErr   = document.getElementById('gate-form-error')!;
+
+    // Reset errors
+    hide(emailErr);
+    hide(formErr);
+    emailEl.classList.remove('is-invalid');
+
+    const name    = nameEl.value.trim();
+    const company = companyEl.value.trim();
+    const email   = emailEl.value.trim().toLowerCase();
+
+    // Validate required fields
+    if (!name || !company || !email) {
+      formErr.textContent = 'Please fill in all required fields.';
+      show(formErr);
+      return;
+    }
+
+    // Validate email format
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      emailErr.textContent = 'Please enter a valid email address.';
+      show(emailErr);
+      emailEl.classList.add('is-invalid');
+      emailEl.focus();
+      return;
+    }
+
+    // Check for generic email domains
+    const domain = email.split('@')[1];
+    if (GENERIC_DOMAINS.includes(domain)) {
+      emailErr.textContent = 'Please use your company email address. Generic email providers (Gmail, Yahoo, etc.) are not accepted.';
+      show(emailErr);
+      emailEl.classList.add('is-invalid');
+      emailEl.focus();
+      return;
+    }
+
+    // Store user data
+    gateUserData = {
+      name,
+      company,
+      position: positionEl.value.trim(),
+      email,
+      country: countryEl.value.trim(),
+    };
+
+    // Send lead data to notification email (fire and forget)
+    fetch('/api/optimizer-lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(gateUserData),
+    }).catch(() => {});
+
+    // Proceed to upload view
+    showView(viewInput);
+  });
 
   // ══════════════════════════════════════════════════════════
   // FILE UPLOAD HANDLING
@@ -1108,8 +1528,8 @@
     const reader = new FileReader();
     reader.onload = (e) => {
       previewImg.src = e.target?.result as string;
-      placeholder.hidden = true;
-      previewWrap.hidden = false;
+      hide(placeholder);
+      show(previewWrap);
       uploadZone.classList.add('has-file');
     };
     reader.readAsDataURL(file);
@@ -1118,21 +1538,28 @@
   function clearFile() {
     selectedFile = null;
     fileInput.value = '';
-    placeholder.hidden = false;
-    previewWrap.hidden = true;
+    show(placeholder);
+    hide(previewWrap);
     uploadZone.classList.remove('has-file');
     previewImg.src = '';
   }
+
+  // Click upload zone to trigger file picker
+  uploadZone.addEventListener('click', () => {
+    if (!uploadZone.classList.contains('has-file')) {
+      fileInput.click();
+    }
+  });
 
   fileInput.addEventListener('change', () => {
     if (fileInput.files && fileInput.files[0]) {
       const file = fileInput.files[0];
       if (file.size > 10 * 1024 * 1024) {
         errorBox.textContent = 'File is too large. Maximum size is 10 MB.';
-        errorBox.hidden = false;
+        show(errorBox);
         return;
       }
-      errorBox.hidden = true;
+      hide(errorBox);
       showPreview(file);
     }
   });
@@ -1352,19 +1779,19 @@
     progressFill.style.width = '0%';
     progressStatus.textContent = 'Uploading screenshot...';
     progressStatus.classList.remove('is-done');
-    progressWrap.hidden = false;
+    show(progressWrap);
   }
   function updateProgress(pct: number) {
     const p = Math.min(100, Math.round(pct));
     progressPct.textContent = p + '%';
     progressFill.style.width = p + '%';
     if (p >= 100) {
-      progressStatus.textContent = 'Upload complete — analyzing...';
+      progressStatus.textContent = 'Upload complete - analyzing...';
       progressStatus.classList.add('is-done');
     }
   }
   function hideProgress() {
-    progressWrap.hidden = true;
+    hide(progressWrap);
   }
 
   // ══════════════════════════════════════════════════════════
@@ -1374,15 +1801,15 @@
     e.preventDefault();
     if (!selectedFile) {
       errorBox.textContent = 'Please upload a screenshot of your LinkedIn profile.';
-      errorBox.hidden = false;
+      show(errorBox);
       return;
     }
 
     // UI: loading state
     analyzeBtn.disabled = true;
-    btnLabel.hidden = true;
-    btnLoading.hidden = false;
-    errorBox.hidden = true;
+    hide(btnLabel);
+    show(btnLoading);
+    hide(errorBox);
 
     // Show progress bar in upload zone
     showProgress(selectedFile.name);
@@ -1442,24 +1869,155 @@
       });
 
       stopLoadingAnimation();
+      lastAnalysis = data.analysis;
       renderResults(data.analysis);
+
+      // Auto-send report to the user's gate email
+      if (gateUserData?.email) {
+        fetch('/api/email-linkedin-report', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: gateUserData.email, analysis: data.analysis }),
+        }).catch(() => {});
+      }
 
     } catch (err: any) {
       stopLoadingAnimation();
       hideProgress();
       showView(viewInput);
       errorBox.textContent = err.message || 'Something went wrong. Please try again.';
-      errorBox.hidden = false;
+      show(errorBox);
     } finally {
       analyzeBtn.disabled = false;
-      btnLabel.hidden = false;
-      btnLoading.hidden = true;
+      show(btnLabel);
+      hide(btnLoading);
     }
   });
 
-  // Restart
+  // ══════════════════════════════════════════════════════════
+  // SHARE & EMAIL
+  // ══════════════════════════════════════════════════════════
+  let lastAnalysis: any = null;
+
+  function buildTextReport(data: any): string {
+    const lines: string[] = [];
+    lines.push('LINKEDIN PROFILE ANALYSIS');
+    lines.push(`Score: ${data.overall_score}/100 (Grade: ${data.overall_grade})`);
+    lines.push('');
+    lines.push('CATEGORY BREAKDOWN');
+    (data.categories || []).forEach((cat: any) => {
+      lines.push(`  ${cat.name}: ${cat.score}%`);
+    });
+    if (data.top_priorities?.length) {
+      lines.push('');
+      lines.push('TOP PRIORITIES');
+      data.top_priorities.forEach((p: any, i: number) => {
+        lines.push(`  ${i + 1}. [${p.impact}] ${p.label}`);
+        lines.push(`     ${p.recommendation}`);
+      });
+    }
+    if (data.quick_wins?.length) {
+      lines.push('');
+      lines.push('QUICK WINS');
+      data.quick_wins.forEach((q: string) => { lines.push(`  - ${q}`); });
+    }
+    if (data.strengths?.length) {
+      lines.push('');
+      lines.push('STRENGTHS');
+      data.strengths.forEach((s: string) => { lines.push(`  - ${s}`); });
+    }
+    lines.push('');
+    lines.push('---');
+    lines.push('Generated by Nuvora Studio LinkedIn Profile Optimizer');
+    lines.push('https://nuvora.studio/linkedin-optimizer');
+    return lines.join('\n');
+  }
+
+  // Copy to clipboard
+  document.getElementById('btn-copy-results')!.addEventListener('click', async () => {
+    if (!lastAnalysis) return;
+    const text = buildTextReport(lastAnalysis);
+    try {
+      await navigator.clipboard.writeText(text);
+      const toast = document.getElementById('copy-toast')!;
+      show(toast);
+      setTimeout(() => { hide(toast); }, 3000);
+    } catch {
+      // Fallback
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      const toast = document.getElementById('copy-toast')!;
+      show(toast);
+      setTimeout(() => { hide(toast); }, 3000);
+    }
+  });
+
+  // Email form toggle
+  document.getElementById('btn-email-open')!.addEventListener('click', () => {
+    const emailForm = document.getElementById('email-form') as HTMLElement;
+    const isHidden = emailForm.classList.toggle('is-hidden');
+    if (!isHidden) {
+      const emailInput = document.getElementById('email-input') as HTMLInputElement;
+      // Pre-fill with gate email if available
+      if (gateUserData?.email && !emailInput.value) {
+        emailInput.value = gateUserData.email;
+      }
+      emailInput.focus();
+    }
+  });
+
+  // Email send
+  (document.getElementById('email-form') as HTMLFormElement).addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!lastAnalysis) return;
+
+    const emailInput = document.getElementById('email-input') as HTMLInputElement;
+    const sendBtn = document.getElementById('email-send-btn') as HTMLButtonElement;
+    const labelEl = sendBtn.querySelector('.email-form__label') as HTMLElement;
+    const loadingEl = sendBtn.querySelector('.email-form__loading') as HTMLElement;
+    const statusEl = document.getElementById('email-status') as HTMLElement;
+
+    const email = emailInput.value.trim();
+    if (!email) return;
+
+    sendBtn.disabled = true;
+    hide(labelEl);
+    show(loadingEl);
+    hide(statusEl);
+
+    try {
+      const res = await fetch('/api/email-linkedin-report', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, analysis: lastAnalysis }),
+      });
+      const result = await res.json();
+      if (!res.ok || !result.success) {
+        throw new Error(result.error || 'Failed to send email.');
+      }
+      statusEl.textContent = `Report sent to ${email}`;
+      statusEl.className = 'email-form__status is-success';
+      show(statusEl);
+      emailInput.value = '';
+    } catch (err: any) {
+      statusEl.textContent = err.message || 'Failed to send. Please try again.';
+      statusEl.className = 'email-form__status is-error';
+      show(statusEl);
+    } finally {
+      sendBtn.disabled = false;
+      show(labelEl);
+      hide(loadingEl);
+    }
+  });
+
+  // Restart - goes back to upload view (gate data is kept)
   document.getElementById('btn-restart')!.addEventListener('click', () => {
     clearFile();
+    lastAnalysis = null;
     showView(viewInput);
   });
 </script>

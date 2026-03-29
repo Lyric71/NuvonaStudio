@@ -21,28 +21,30 @@ const painPoints = [
 <section class="section problem" aria-labelledby="problem-heading">
   <div class="container">
 
-    <div class="problem__head reveal">
-      <p class="eyebrow eyebrow--light">The problem</p>
-      <h2 id="problem-heading">
-        Most B2B companies are<br />invisible on LinkedIn.
-      </h2>
-      <p class="problem__sub">
-        They post sporadically. Their company page is outdated. Their executives have no presence.
-        Their ads reach the wrong people. LinkedIn rewards consistency and expertise. Without both,
-        you are wasting the best B2B channel available.
-      </p>
-    </div>
+    <div class="problem__hero reveal">
+      <div class="problem__head">
+        <p class="eyebrow eyebrow--light">The problem</p>
+        <h2 id="problem-heading">
+          Most B2B companies are<br />invisible on LinkedIn.
+        </h2>
+        <p class="problem__sub">
+          They post sporadically. Their company page is outdated. Their executives have no presence.
+          Their ads reach the wrong people. LinkedIn rewards consistency and expertise. Without both,
+          you are wasting the best B2B channel available.
+        </p>
+      </div>
 
-    <div class="problem__visual reveal">
-      <img
-        src="/problem-linkedin.png"
-        alt="Comparison between a dead LinkedIn post with zero engagement and a competitor's post with 847 likes and 156 comments"
-        class="problem__img"
-        width="1400"
-        height="612"
-        loading="lazy"
-        decoding="async"
-      />
+      <div class="problem__visual">
+        <img
+          src="/problem-linkedin.png"
+          alt="Split-screen comparison of two laptops: left shows empty LinkedIn notifications with zero impressions and flat analytics, right shows a flood of connection requests, new leads, and 12,400 reach"
+          class="problem__img"
+          width="1024"
+          height="1024"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
     </div>
 
     <div class="problem__grid">
@@ -63,11 +65,17 @@ const painPoints = [
     background: var(--deep-navy);
   }
 
+  /* ── Hero row ── */
+  .problem__hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-12);
+    align-items: center;
+    margin-bottom: var(--sp-16);
+  }
+
   .problem__head {
-    text-align: center;
-    max-width: 660px;
-    margin-inline: auto;
-    margin-bottom: var(--sp-12);
+    max-width: 540px;
   }
 
   .problem__head :global(.eyebrow) {
@@ -87,9 +95,6 @@ const painPoints = [
 
   /* ── Visual ── */
   .problem__visual {
-    max-width: 860px;
-    margin-inline: auto;
-    margin-bottom: var(--sp-16);
     border-radius: var(--r-xl);
     overflow: hidden;
   }
@@ -149,6 +154,12 @@ const painPoints = [
 
   /* ── Responsive ── */
   @media (max-width: 1024px) {
+    .problem__hero {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .problem__head { max-width: 660px; margin-inline: auto; }
+    .problem__visual { max-width: 480px; margin-inline: auto; }
     .problem__grid { grid-template-columns: repeat(2, 1fr); }
   }
 

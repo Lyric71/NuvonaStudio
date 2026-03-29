@@ -21,9 +21,12 @@ interface PricingPlan {
 interface Props {
   plans: PricingPlan[];
   features: PricingFeature[];
+  ctaLabel?: string;
+  popularLabel?: string;
+  periodLabel?: string;
 }
 
-const { plans, features } = Astro.props;
+const { plans, features, ctaLabel = 'Book a call', popularLabel = 'Most popular', periodLabel = '/mo' } = Astro.props;
 ---
 
 <div class="ptable">
@@ -34,9 +37,9 @@ const { plans, features } = Astro.props;
           <th class="ptable__corner"></th>
           {plans.map(plan => (
             <th class={`ptable__plan ${plan.popular ? 'ptable__plan--pop' : ''}`}>
-              {plan.popular && <span class="ptable__pop-badge">Most popular</span>}
+              {plan.popular && <span class="ptable__pop-badge">{popularLabel}</span>}
               <span class="ptable__plan-name">{plan.name}</span>
-              <span class="ptable__plan-price">{plan.price}<span class="ptable__plan-period">/mo</span></span>
+              <span class="ptable__plan-price">{plan.price}<span class="ptable__plan-period">{periodLabel}</span></span>
             </th>
           ))}
         </tr>
@@ -67,7 +70,7 @@ const { plans, features } = Astro.props;
           {plans.map(plan => (
             <td class="ptable__cta">
               <a href={plan.href} class={`btn ${plan.popular ? 'btn--primary' : 'btn--outline'}`}>
-                Book a call
+                {ctaLabel}
               </a>
             </td>
           ))}

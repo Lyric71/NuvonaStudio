@@ -65,7 +65,7 @@ const caseStudies = [
     icon: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M36 24h8v8c0 8-4 16-4 16s-4-8-4-16v-8z" stroke="white" stroke-width="1.5" opacity="0.6"/><ellipse cx="40" cy="52" rx="12" ry="6" stroke="white" stroke-width="1.5" opacity="0.5"/><path d="M34 20c0-2 2-4 6-4s6 2 6 4" stroke="white" stroke-width="1" opacity="0.4"/><circle cx="30" cy="36" r="2" fill="white" opacity="0.15"/><circle cx="52" cy="40" r="3" fill="white" opacity="0.1"/><circle cx="46" cy="28" r="1.5" fill="white" opacity="0.12"/></svg>`,
     stats: [
       { value: '2 400', label: 'Abonnés en 4 mois' },
-      { value: '8 000+', label: 'Vues sur le meilleur post' },
+      { value: '8 000+', label: 'Vues meilleure publication' },
       { value: '2', label: 'Demandes entrantes' },
     ],
   },
@@ -185,7 +185,7 @@ const allServices = [...new Set(caseStudies.flatMap(cs => cs.services))].sort();
               </div>
 
               <h2 class="case-card__title">
-                <a href={`/work/${cs.slug}`}>{cs.title}</a>
+                <a href={`/fr/work/${cs.slug}`}>{cs.title}</a>
               </h2>
               <p class="case-card__subtitle">{cs.subtitle}</p>
 
@@ -199,7 +199,7 @@ const allServices = [...new Set(caseStudies.flatMap(cs => cs.services))].sort();
               </div>
 
               <div class="case-card__footer">
-                <a href={`/work/${cs.slug}`} class="case-card__cta">
+                <a href={`/fr/work/${cs.slug}`} class="case-card__cta">
                   Lire l'étude de cas
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                     <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -277,7 +277,22 @@ const allServices = [...new Set(caseStudies.flatMap(cs => cs.services))].sort();
       </div>
     </section>
 
-    <Testimonials />
+    <Testimonials
+      eyebrow="Ils nous font confiance"
+      heading="Ce que disent nos clients"
+      sub="Des collaborations orientées résultats, avec des équipes B2B de tous secteurs."
+      items={[
+        { text: "Nuvora a transformé notre présence LinkedIn. En six mois, 40% de nos prospects venaient de LinkedIn. Avant c'était un canal qu'on négligeait complètement.", image: "https://randomuser.me/api/portraits/women/32.jpg", name: "Sophie Laurent", role: "Directrice marketing, Éditeur SaaS" },
+        { text: "Ils ne se contentent pas de publier. Ils comprennent les cycles d'achat B2B. Les profils de nos dirigeants sont passés de dormants à générateurs de conversations entrantes.", image: "https://randomuser.me/api/portraits/men/45.jpg", name: "Marcus Webb", role: "Directeur commercial, Industrie tech" },
+        { text: "La transparence, c'est ce qui change tout. Chaque mois on voit exactement ce qui marche, ce qui marche pas, et où va le budget. Aucune autre agence nous avait donné ça.", image: "https://randomuser.me/api/portraits/women/28.jpg", name: "Priya Sharma", role: "Responsable marketing, Fintech" },
+        { text: "On a testé trois agences avant Nuvora. La différence ? Ils comprennent vraiment l'algorithme LinkedIn et comment les décideurs B2B se comportent sur la plateforme.", image: "https://randomuser.me/api/portraits/men/22.jpg", name: "David Chen", role: "PDG, Cabinet de conseil" },
+        { text: "Notre budget pub LinkedIn est passé de l'argent brûlé à des prospects qualifiés à moitié prix. L'architecture de campagne qu'ils ont construite est redoutablement efficace.", image: "https://randomuser.me/api/portraits/women/44.jpg", name: "Emma Bergström", role: "Responsable numérique, Industrie" },
+        { text: "Ce qui les distingue c'est la qualité du contenu. Chaque publication sonne comme nous, pas comme une agence. C'est rare quand on externalise du contenu B2B.", image: "https://randomuser.me/api/portraits/men/36.jpg", name: "James Okafor", role: "Fondateur, Services professionnels" },
+        { text: "De la stratégie à l'exécution, tout est pris en charge. On est passés d'une publication par mois à une vraie présence. Page entreprise, profils dirigeants, publicité. Et tout fonctionne.", image: "https://randomuser.me/api/portraits/women/51.jpg", name: "Ana Rodriguez", role: "Directrice marketing, Santé" },
+        { text: "Nuvora nous a aidés à monter un programme de mobilisation qui a transformé nos commerciaux en voix de référence. L'impact sur la prospection a été mesurable, et significatif.", image: "https://randomuser.me/api/portraits/men/53.jpg", name: "Ravi Patel", role: "Directeur de la croissance, Éditeur logiciel" },
+        { text: "Ce qui m'a le plus impressionné c'est le suivi. De vrais indicateurs, de vrais chiffres de prospection. Pas des vues et des mentions « j'aime ». On sait enfin ce que LinkedIn apporte concrètement à notre activité.", image: "https://randomuser.me/api/portraits/women/19.jpg", name: "Laura Koenig", role: "Directrice des opérations, Logistique" },
+      ]}
+    />
     <ContactCTA />
   </main>
 </Layout>

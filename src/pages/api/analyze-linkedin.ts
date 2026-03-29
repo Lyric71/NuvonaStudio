@@ -188,6 +188,51 @@ export const POST: APIRoute = async ({ request }) => {
   const resolvedType = allowedTypes.includes(media_type) ? media_type : 'image/png';
 
   try {
+    // ── Step 1: Validate this is a LinkedIn screenshot ──
+    const validationResponse = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 50,
+        messages: [
+          {
+            role: 'user',
+            content: [
+              {
+                type: 'image',
+                source: {
+                  type: 'base64',
+                  media_type: resolvedType,
+                  data: image,
+                },
+              },
+              {
+                type: 'text',
+                text: 'Is this a screenshot of a LinkedIn profile or LinkedIn company page? Reply with ONLY "yes" or "no". Nothing else.',
+              },
+            ],
+          },
+        ],
+      }),
+    });
+
+    if (validationResponse.ok) {
+      const valResult = await validationResponse.json();
+      const valText = valResult.content?.[0]?.text?.trim().toLowerCase() || '';
+      if (valText.startsWith('no')) {
+        return json({
+          success: false,
+          error: 'This does not appear to be a LinkedIn profile screenshot. Please upload a screenshot of a LinkedIn personal profile or company page.',
+        }, 400);
+      }
+    }
+
+    // ── Step 2: Full analysis ──
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
