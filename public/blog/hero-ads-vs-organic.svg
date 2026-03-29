@@ -1,35 +1,110 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 500" fill="none">
-  <rect width="1400" height="500" fill="#001840"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
   <defs>
-    <linearGradient id="g3a" x1="0" y1="0" x2="700" y2="500">
-      <stop offset="0%" stop-color="#0A66C2" stop-opacity="0.10"/>
-      <stop offset="100%" stop-color="transparent"/>
-    </linearGradient>
-    <linearGradient id="g3b" x1="1400" y1="0" x2="700" y2="500">
-      <stop offset="0%" stop-color="#00A8DC" stop-opacity="0.10"/>
-      <stop offset="100%" stop-color="transparent"/>
-    </linearGradient>
+    <filter id="s1" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
   </defs>
-  <rect x="0" y="0" width="700" height="500" fill="url(#g3a)"/>
-  <rect x="700" y="0" width="700" height="500" fill="url(#g3b)"/>
-  <!-- Divider -->
-  <line x1="700" y1="60" x2="700" y2="440" stroke="#fff" stroke-width="1" opacity="0.06"/>
-  <!-- Left side - organic circles -->
-  <circle cx="350" cy="250" r="120" stroke="#0A66C2" stroke-width="1" fill="none" opacity="0.12"/>
-  <circle cx="350" cy="250" r="80" stroke="#0A66C2" stroke-width="1" fill="none" opacity="0.08"/>
-  <circle cx="350" cy="250" r="40" fill="#0A66C2" opacity="0.06"/>
-  <!-- Right side - paid arrows -->
-  <path d="M950 200 L1100 200" stroke="#00A8DC" stroke-width="2" opacity="0.15" marker-end="url(#arrow)"/>
-  <path d="M950 250 L1150 250" stroke="#00A8DC" stroke-width="2" opacity="0.12" marker-end="url(#arrow)"/>
-  <path d="M950 300 L1050 300" stroke="#00A8DC" stroke-width="2" opacity="0.10" marker-end="url(#arrow)"/>
-  <!-- Nodes -->
-  <g fill="#fff" opacity="0.06">
-    <circle cx="250" cy="180" r="4"/><circle cx="450" cy="180" r="4"/><circle cx="300" cy="320" r="4"/><circle cx="400" cy="320" r="4"/>
-    <circle cx="1000" cy="150" r="4"/><circle cx="1100" cy="350" r="4"/><circle cx="1050" cy="250" r="4"/>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#001840"/>
+  <radialGradient id="bg3" cx="50%" cy="50%"><stop offset="0%" stop-color="#002860" stop-opacity="0.4"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+  <rect width="1200" height="630" fill="url(#bg3)"/>
+
+  <!-- Left label -->
+  <rect x="95" y="38" width="180" height="28" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <text x="185" y="57" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.6)" text-anchor="middle" letter-spacing="0.1em">ORGANIC POST</text>
+
+  <!-- Right label -->
+  <rect x="660" y="38" width="180" height="28" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <text x="750" y="57" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.6)" text-anchor="middle" letter-spacing="0.1em">SPONSORED POST</text>
+
+  <!-- Organic Post Card -->
+  <g filter="url(#s1)" transform="translate(55, 80) rotate(-1)">
+    <rect width="440" height="490" rx="12" fill="#fff"/>
+    <!-- Profile -->
+    <circle cx="42" cy="42" r="22" fill="#1A3A5C"/>
+    <text x="42" y="47" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">CD</text>
+    <text x="74" y="36" font-family="system-ui,sans-serif" font-size="13.5" font-weight="700" fill="#191919">Cyril Drouin</text>
+    <text x="74" y="52" font-family="system-ui,sans-serif" font-size="11" fill="#666">Founder at Nuvora Studio | LinkedIn for B2B</text>
+    <text x="74" y="67" font-family="system-ui,sans-serif" font-size="10.5" fill="#999">3d · 🌐</text>
+
+    <!-- Post text -->
+    <text x="24" y="100" font-family="system-ui,sans-serif" font-size="13.5" fill="#191919" font-weight="600">Stop posting "thought leadership" that</text>
+    <text x="24" y="118" font-family="system-ui,sans-serif" font-size="13.5" fill="#191919" font-weight="600">sounds like everyone else's.</text>
+    <text x="24" y="143" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">I reviewed 50 B2B company pages last week.</text>
+    <text x="24" y="160" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">43 of them had the exact same format:</text>
+    <text x="24" y="184" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">→ Generic hook</text>
+    <text x="24" y="201" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">→ 3 bullet points with buzzwords</text>
+    <text x="24" y="218" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">→ "What do you think?" at the end</text>
+    <text x="24" y="242" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">The 7 pages that stood out shared one trait:</text>
+    <text x="24" y="259" font-family="system-ui,sans-serif" font-size="12.5" fill="#191919" font-weight="600">they said something only they could say.</text>
+    <text x="24" y="283" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">Real client stories. Actual numbers from their</text>
+    <text x="24" y="300" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">campaigns. Honest mistakes they made.</text>
+    <text x="24" y="324" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">That's what 360Brew rewards now.</text>
+    <text x="24" y="341" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">Not volume. Not polish. Specificity.</text>
+
+    <!-- Stats banner -->
+    <rect x="24" y="365" width="392" height="44" rx="8" fill="#EEF5FF"/>
+    <text x="40" y="392" font-family="system-ui,sans-serif" font-size="12" font-weight="600" fill="#0A66C2">CPL: ~$164</text>
+    <text x="160" y="392" font-family="system-ui,sans-serif" font-size="12" font-weight="600" fill="#0A66C2">Engagement: 4.8%</text>
+    <text x="320" y="392" font-family="system-ui,sans-serif" font-size="12" font-weight="600" fill="#0A66C2">Free reach</text>
+
+    <!-- Engagement -->
+    <line x1="24" y1="425" x2="416" y2="425" stroke="#E8E8E8" stroke-width="1"/>
+    <text x="24" y="444" font-family="system-ui,sans-serif" font-size="11" fill="#666">👍 💡 ❤️  347 · 💬 58 comments · ↗ 24 reposts</text>
+    <line x1="24" y1="458" x2="416" y2="458" stroke="#E8E8E8" stroke-width="1"/>
+    <text x="75" y="479" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">👍 Like</text>
+    <text x="180" y="479" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">💬 Comment</text>
+    <text x="295" y="479" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">↗ Repost</text>
+    <text x="390" y="479" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">📤 Send</text>
   </g>
-  <!-- VS text -->
-  <text x="670" y="260" font-family="system-ui,sans-serif" font-size="24" font-weight="600" fill="#fff" opacity="0.06">vs</text>
-  <!-- Accent glows -->
-  <circle cx="350" cy="250" r="200" fill="#0A66C2" opacity="0.03"/>
-  <circle cx="1050" cy="250" r="200" fill="#00A8DC" opacity="0.03"/>
+
+  <!-- Sponsored Post Card -->
+  <g filter="url(#s1)" transform="translate(610, 80) rotate(1)">
+    <rect width="440" height="490" rx="12" fill="#fff"/>
+    <!-- Promoted label -->
+    <text x="395" y="22" font-family="system-ui,sans-serif" font-size="10" fill="#999" text-anchor="end">Promoted</text>
+    <!-- Profile -->
+    <circle cx="42" cy="42" r="22" fill="#E8E8E8"/>
+    <circle cx="42" cy="42" r="22" fill="#0A66C2" opacity="0.12"/>
+    <text x="42" y="47" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#0A66C2" text-anchor="middle">NS</text>
+    <text x="74" y="36" font-family="system-ui,sans-serif" font-size="13.5" font-weight="700" fill="#191919">Nuvora Studio</text>
+    <text x="74" y="52" font-family="system-ui,sans-serif" font-size="11" fill="#666">B2B LinkedIn Agency · 1,200 followers</text>
+    <text x="74" y="67" font-family="system-ui,sans-serif" font-size="10.5" fill="#999">Sponsored · 🌐</text>
+
+    <!-- Ad content -->
+    <text x="24" y="100" font-family="system-ui,sans-serif" font-size="13.5" fill="#191919" font-weight="600">Struggling with LinkedIn reach in 2026?</text>
+    <text x="24" y="120" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">360Brew changed everything. Download our</text>
+    <text x="24" y="137" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">free guide to the new LinkedIn playbook.</text>
+
+    <!-- Ad image placeholder -->
+    <rect x="24" y="155" width="392" height="195" rx="8" fill="#0A66C2"/>
+    <text x="220" y="230" font-family="system-ui,sans-serif" font-size="22" font-weight="800" fill="#fff" text-anchor="middle">THE 2026</text>
+    <text x="220" y="258" font-family="system-ui,sans-serif" font-size="22" font-weight="800" fill="#fff" text-anchor="middle">LINKEDIN PLAYBOOK</text>
+    <text x="220" y="285" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.7)" text-anchor="middle">What changed. What works now.</text>
+    <rect x="160" y="300" width="120" height="32" rx="16" fill="#fff"/>
+    <text x="220" y="321" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#0A66C2" text-anchor="middle">Download free</text>
+
+    <!-- Stats banner -->
+    <rect x="24" y="365" width="392" height="44" rx="8" fill="#FFF8F0"/>
+    <text x="40" y="392" font-family="system-ui,sans-serif" font-size="12" font-weight="600" fill="#CC6600">CPL: ~$310</text>
+    <text x="160" y="392" font-family="system-ui,sans-serif" font-size="12" font-weight="600" fill="#CC6600">CTR: 0.5%</text>
+    <text x="285" y="392" font-family="system-ui,sans-serif" font-size="12" font-weight="600" fill="#CC6600">$5-12/click</text>
+
+    <!-- Engagement -->
+    <line x1="24" y1="425" x2="416" y2="425" stroke="#E8E8E8" stroke-width="1"/>
+    <text x="24" y="444" font-family="system-ui,sans-serif" font-size="11" fill="#999">👍 23 · 💬 3 comments · ↗ 1 repost</text>
+    <line x1="24" y1="458" x2="416" y2="458" stroke="#E8E8E8" stroke-width="1"/>
+    <text x="75" y="479" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">👍 Like</text>
+    <text x="180" y="479" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">💬 Comment</text>
+    <text x="295" y="479" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">↗ Repost</text>
+    <text x="390" y="479" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">📤 Send</text>
+  </g>
+
+  <!-- VS divider -->
+  <circle cx="600" cy="340" r="24" fill="#001840" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+  <text x="600" y="346" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="rgba(255,255,255,0.5)" text-anchor="middle">VS</text>
+
+  <!-- Bottom -->
+  <text x="600" y="598" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="middle" letter-spacing="0.06em">ORGANIC BUILDS CREDIBILITY. ADS BUY SPEED. BOTH HAVE A ROLE.</text>
 </svg>

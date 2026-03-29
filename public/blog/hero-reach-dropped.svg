@@ -1,31 +1,138 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 500" fill="none">
-  <rect width="1400" height="500" fill="#001840"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
   <defs>
-    <linearGradient id="g1" x1="0" y1="0" x2="1400" y2="500">
-      <stop offset="0%" stop-color="#0A66C2" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#00A8DC" stop-opacity="0.05"/>
-    </linearGradient>
-    <linearGradient id="line1" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#0A66C2" stop-opacity="0.6"/>
-      <stop offset="60%" stop-color="#00A8DC" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#00A8DC" stop-opacity="0.1"/>
-    </linearGradient>
+    <filter id="shadow1" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+    <filter id="shadow2" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.30"/>
+    </filter>
+    <clipPath id="avatarClip1"><circle cx="32" cy="32" r="24"/></clipPath>
+    <clipPath id="avatarClip2"><circle cx="32" cy="32" r="24"/></clipPath>
   </defs>
-  <rect width="1400" height="500" fill="url(#g1)"/>
-  <!-- Declining reach chart lines -->
-  <path d="M100 120 Q300 130 500 180 T900 320 T1300 420" stroke="url(#line1)" stroke-width="3" fill="none" opacity="0.5"/>
-  <path d="M100 160 Q350 170 550 220 T950 350 T1350 440" stroke="#0077B5" stroke-width="1.5" fill="none" opacity="0.25"/>
-  <path d="M100 90 Q280 100 480 140 T880 280 T1280 390" stroke="#00A8DC" stroke-width="1" fill="none" opacity="0.2"/>
-  <!-- Grid dots -->
-  <g opacity="0.08" fill="#fff">
-    <circle cx="200" cy="100" r="2"/><circle cx="400" cy="100" r="2"/><circle cx="600" cy="100" r="2"/><circle cx="800" cy="100" r="2"/><circle cx="1000" cy="100" r="2"/><circle cx="1200" cy="100" r="2"/>
-    <circle cx="200" cy="200" r="2"/><circle cx="400" cy="200" r="2"/><circle cx="600" cy="200" r="2"/><circle cx="800" cy="200" r="2"/><circle cx="1000" cy="200" r="2"/><circle cx="1200" cy="200" r="2"/>
-    <circle cx="200" cy="300" r="2"/><circle cx="400" cy="300" r="2"/><circle cx="600" cy="300" r="2"/><circle cx="800" cy="300" r="2"/><circle cx="1000" cy="300" r="2"/><circle cx="1200" cy="300" r="2"/>
-    <circle cx="200" cy="400" r="2"/><circle cx="400" cy="400" r="2"/><circle cx="600" cy="400" r="2"/><circle cx="800" cy="400" r="2"/><circle cx="1000" cy="400" r="2"/><circle cx="1200" cy="400" r="2"/>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#001840"/>
+  <rect width="1200" height="630" fill="url(#bgGrad1)" opacity="0.5"/>
+  <radialGradient id="bgGrad1" cx="30%" cy="50%"><stop offset="0%" stop-color="#003080" stop-opacity="0.3"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+
+  <!-- Label: BEFORE -->
+  <rect x="100" y="42" width="120" height="28" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <text x="160" y="61" font-family="system-ui,-apple-system,sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.6)" text-anchor="middle" letter-spacing="0.1em">BEFORE</text>
+
+  <!-- Label: AFTER 360BREW -->
+  <rect x="640" y="42" width="180" height="28" rx="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <text x="730" y="61" font-family="system-ui,-apple-system,sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.6)" text-anchor="middle" letter-spacing="0.1em">AFTER 360BREW</text>
+
+  <!-- Card 1: Before - High Reach Post -->
+  <g filter="url(#shadow1)" transform="translate(60, 85) rotate(-1.5)">
+    <rect width="420" height="460" rx="12" fill="#fff"/>
+    <!-- Header bar -->
+    <rect width="420" height="4" rx="2" fill="#0A66C2" y="0"/>
+    <!-- Profile section -->
+    <circle cx="40" cy="44" r="22" fill="#E8E8E8"/>
+    <circle cx="40" cy="44" r="22" fill="#0A66C2" opacity="0.15"/>
+    <text x="40" y="49" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#0A66C2" text-anchor="middle">NS</text>
+    <text x="72" y="38" font-family="system-ui,sans-serif" font-size="13.5" font-weight="700" fill="#191919">Nuvora Studio</text>
+    <text x="72" y="54" font-family="system-ui,sans-serif" font-size="11" fill="#666">B2B LinkedIn Agency · 1,200 followers</text>
+    <text x="72" y="68" font-family="system-ui,sans-serif" font-size="10.5" fill="#999">6 months ago · 🌐</text>
+
+    <!-- Post content -->
+    <text x="24" y="105" font-family="system-ui,sans-serif" font-size="13.5" fill="#191919" font-weight="600">Most B2B companies treat LinkedIn like a</text>
+    <text x="24" y="123" font-family="system-ui,sans-serif" font-size="13.5" fill="#191919" font-weight="600">billboard. Here's why that kills your reach.</text>
+    <text x="24" y="148" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">We analyzed 200+ B2B company pages and</text>
+    <text x="24" y="165" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">found that the ones winning on LinkedIn</text>
+    <text x="24" y="182" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">share 3 traits that most brands ignore...</text>
+    <text x="24" y="204" font-family="system-ui,sans-serif" font-size="12.5" fill="#0A66C2">...see more</text>
+
+    <!-- Analytics box -->
+    <rect x="24" y="225" width="372" height="145" rx="8" fill="#F8FAFB" stroke="#E8E8E8" stroke-width="1"/>
+    <text x="40" y="250" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="#666" letter-spacing="0.05em">POST ANALYTICS</text>
+    <!-- Impressions -->
+    <text x="40" y="278" font-family="system-ui,sans-serif" font-size="11" fill="#666">Impressions</text>
+    <text x="340" y="278" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#191919" text-anchor="end">12,847</text>
+    <!-- Engagement -->
+    <text x="40" y="302" font-family="system-ui,sans-serif" font-size="11" fill="#666">Engagement rate</text>
+    <text x="340" y="302" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#191919" text-anchor="end">4.2%</text>
+    <!-- Profile visits -->
+    <text x="40" y="326" font-family="system-ui,sans-serif" font-size="11" fill="#666">Profile visits</text>
+    <text x="340" y="326" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#191919" text-anchor="end">89</text>
+    <!-- Mini chart showing good performance -->
+    <rect x="40" y="340" width="40" height="16" rx="3" fill="#0A66C2" opacity="0.15"/>
+    <rect x="84" y="340" width="55" height="16" rx="3" fill="#0A66C2" opacity="0.25"/>
+    <rect x="143" y="340" width="70" height="16" rx="3" fill="#0A66C2" opacity="0.4"/>
+    <rect x="217" y="340" width="90" height="16" rx="3" fill="#0A66C2" opacity="0.6"/>
+    <rect x="311" y="340" width="60" height="16" rx="3" fill="#0A66C2" opacity="0.8"/>
+
+    <!-- Engagement bar -->
+    <line x1="24" y1="387" x2="396" y2="387" stroke="#E8E8E8" stroke-width="1"/>
+    <text x="24" y="407" font-family="system-ui,sans-serif" font-size="11" fill="#666">👍 286 · 💬 42 comments · ↗ 18 reposts</text>
+    <!-- Action buttons -->
+    <line x1="24" y1="422" x2="396" y2="422" stroke="#E8E8E8" stroke-width="1"/>
+    <text x="70" y="445" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">👍 Like</text>
+    <text x="168" y="445" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">💬 Comment</text>
+    <text x="275" y="445" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">↗ Repost</text>
+    <text x="365" y="445" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">📤 Send</text>
   </g>
-  <!-- Accent glow -->
-  <circle cx="1100" cy="150" r="200" fill="#00A8DC" opacity="0.04"/>
-  <circle cx="300" cy="400" r="150" fill="#0A66C2" opacity="0.06"/>
-  <!-- Percentage indicator -->
-  <text x="1050" y="180" font-family="system-ui,sans-serif" font-size="72" font-weight="700" fill="#fff" opacity="0.06">-50%</text>
+
+  <!-- Card 2: After - Crushed Reach Post -->
+  <g filter="url(#shadow1)" transform="translate(580, 85) rotate(1.5)">
+    <rect width="420" height="460" rx="12" fill="#fff"/>
+    <rect width="420" height="4" rx="2" fill="#E8E8E8" y="0"/>
+    <!-- Profile section -->
+    <circle cx="40" cy="44" r="22" fill="#E8E8E8"/>
+    <circle cx="40" cy="44" r="22" fill="#0A66C2" opacity="0.15"/>
+    <text x="40" y="49" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#0A66C2" text-anchor="middle">NS</text>
+    <text x="72" y="38" font-family="system-ui,sans-serif" font-size="13.5" font-weight="700" fill="#191919">Nuvora Studio</text>
+    <text x="72" y="54" font-family="system-ui,sans-serif" font-size="11" fill="#666">B2B LinkedIn Agency · 1,200 followers</text>
+    <text x="72" y="68" font-family="system-ui,sans-serif" font-size="10.5" fill="#999">2 weeks ago · 🌐</text>
+
+    <!-- Same post content -->
+    <text x="24" y="105" font-family="system-ui,sans-serif" font-size="13.5" fill="#191919" font-weight="600">Most B2B companies treat LinkedIn like a</text>
+    <text x="24" y="123" font-family="system-ui,sans-serif" font-size="13.5" fill="#191919" font-weight="600">billboard. Here's why that kills your reach.</text>
+    <text x="24" y="148" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">We analyzed 200+ B2B company pages and</text>
+    <text x="24" y="165" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">found that the ones winning on LinkedIn</text>
+    <text x="24" y="182" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">share 3 traits that most brands ignore...</text>
+    <text x="24" y="204" font-family="system-ui,sans-serif" font-size="12.5" fill="#0A66C2">...see more</text>
+
+    <!-- Analytics box - CRASHED -->
+    <rect x="24" y="225" width="372" height="145" rx="8" fill="#FEF6F6" stroke="#F0D0D0" stroke-width="1"/>
+    <text x="40" y="250" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="#666" letter-spacing="0.05em">POST ANALYTICS</text>
+    <!-- Impressions crashed -->
+    <text x="40" y="278" font-family="system-ui,sans-serif" font-size="11" fill="#666">Impressions</text>
+    <text x="280" y="278" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#CC3333" text-anchor="end">2,140</text>
+    <text x="340" y="278" font-family="system-ui,sans-serif" font-size="10" font-weight="600" fill="#CC3333" text-anchor="end">▼ -83%</text>
+    <!-- Engagement -->
+    <text x="40" y="302" font-family="system-ui,sans-serif" font-size="11" fill="#666">Engagement rate</text>
+    <text x="280" y="302" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#CC3333" text-anchor="end">1.1%</text>
+    <text x="340" y="302" font-family="system-ui,sans-serif" font-size="10" font-weight="600" fill="#CC3333" text-anchor="end">▼ -74%</text>
+    <!-- Profile visits -->
+    <text x="40" y="326" font-family="system-ui,sans-serif" font-size="11" fill="#666">Profile visits</text>
+    <text x="280" y="326" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#CC3333" text-anchor="end">12</text>
+    <text x="340" y="326" font-family="system-ui,sans-serif" font-size="10" font-weight="600" fill="#CC3333" text-anchor="end">▼ -87%</text>
+    <!-- Mini chart showing decline -->
+    <rect x="40" y="340" width="90" height="16" rx="3" fill="#CC3333" opacity="0.5"/>
+    <rect x="134" y="340" width="70" height="16" rx="3" fill="#CC3333" opacity="0.35"/>
+    <rect x="208" y="340" width="55" height="16" rx="3" fill="#CC3333" opacity="0.25"/>
+    <rect x="267" y="340" width="40" height="16" rx="3" fill="#CC3333" opacity="0.15"/>
+    <rect x="311" y="340" width="25" height="16" rx="3" fill="#CC3333" opacity="0.1"/>
+
+    <!-- Engagement bar -->
+    <line x1="24" y1="387" x2="396" y2="387" stroke="#E8E8E8" stroke-width="1"/>
+    <text x="24" y="407" font-family="system-ui,sans-serif" font-size="11" fill="#999">👍 14 · 💬 2 comments · ↗ 0 reposts</text>
+    <!-- Action buttons -->
+    <line x1="24" y1="422" x2="396" y2="422" stroke="#E8E8E8" stroke-width="1"/>
+    <text x="70" y="445" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">👍 Like</text>
+    <text x="168" y="445" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">💬 Comment</text>
+    <text x="275" y="445" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">↗ Repost</text>
+    <text x="365" y="445" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">📤 Send</text>
+  </g>
+
+  <!-- Big -50% overlay on right card -->
+  <g transform="translate(870, 350)">
+    <rect x="-55" y="-30" width="110" height="50" rx="25" fill="#CC3333" opacity="0.9"/>
+    <text x="0" y="-1" font-family="system-ui,sans-serif" font-size="26" font-weight="800" fill="#fff" text-anchor="middle">-50%</text>
+  </g>
+
+  <!-- Bottom caption -->
+  <text x="600" y="595" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.35)" text-anchor="middle" letter-spacing="0.06em">SAME CONTENT. SAME PROFILE. DIFFERENT ALGORITHM.</text>
 </svg>

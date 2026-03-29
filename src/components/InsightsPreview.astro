@@ -2,19 +2,30 @@
 const posts = [
   {
     category: 'LinkedIn Strategy',
-    tags: ['Surface'],
-    title: "Your LinkedIn Post Is Already Dead. Here Is How to Bring It Back to Life.",
-    excerpt: "The feed is drowning in AI-generated content. Your window to be seen is two hours. The companies that survive this know something most brands don't.",
-    date: '2026-03-23',
-    slug: 'your-linkedin-post-is-already-dead',
+    tags: ['Algorithm', 'Reach'],
+    title: "Why Your Reach Dropped 50%+ in 2026 (And It's Not Your Content)",
+    excerpt: "LinkedIn replaced its entire algorithm with 360Brew. Reach dropped 50%, company pages lost 60%. Your content isn't the problem. The system changed.",
+    date: '2026-03-29',
+    slug: 'why-your-reach-dropped',
+    image: '/blog/hero-reach-dropped.svg',
+  },
+  {
+    category: 'LinkedIn Advertising',
+    tags: ['Ads', 'Budget'],
+    title: "Why LinkedIn Ads Cost 4 to 6x More Per Click (And When It's Still Worth It)",
+    excerpt: "LinkedIn charges $5 to $12 per click. Meta charges $0.50. But clicks don't close deals. LinkedIn leads convert at 2 to 3x the rate of other platforms.",
+    date: '2026-03-29',
+    slug: 'why-linkedin-ads-cost-more',
+    image: '/blog/hero-ads-cost.svg',
   },
   {
     category: 'LinkedIn Strategy',
-    tags: ['Strategy', 'Challenge'],
-    title: "The Real LinkedIn Problem Isn't Writing. It's Thinking.",
-    excerpt: "AI can clean up your sentences. It cannot tell you what to say. That gap is where most B2B companies quietly fail.",
-    date: '2026-03-23',
-    slug: 'the-real-linkedin-problem',
+    tags: ['Ads', 'Organic', 'Budget'],
+    title: "LinkedIn Ads vs. Organic Content: Where to Put Your Budget in 2026",
+    excerpt: "Organic LinkedIn content generates leads at half the cost of ads. But ads close gaps fast. The right split depends on your stage and deal size.",
+    date: '2026-03-29',
+    slug: 'linkedin-ads-vs-organic-content',
+    image: '/blog/hero-ads-vs-organic.svg',
   },
 ];
 ---
@@ -36,9 +47,13 @@ const posts = [
     <div class="insights__grid">
       {posts.map((post, i) => (
         <article class="insights__card reveal" style={`transition-delay: ${i * 0.08}s`}>
-          <div class="vis-placeholder insights__thumb" aria-hidden="true">
-            <span>Visual placeholder</span>
-          </div>
+          {post.image ? (
+            <div class="insights__thumb insights__thumb--img" style={`background-image: url('${post.image}')`} aria-hidden="true"></div>
+          ) : (
+            <div class="vis-placeholder insights__thumb" aria-hidden="true">
+              <span>Visual placeholder</span>
+            </div>
+          )}
           <div class="insights__card-top">
             <div class="insights__tags">
               {post.tags.map(t => <span class="insights__tag">{t}</span>)}
@@ -84,7 +99,7 @@ const posts = [
 
   .insights__grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--sp-6);
   }
 
@@ -124,6 +139,18 @@ const posts = [
     letter-spacing: 0.10em;
     text-transform: uppercase;
     color: rgba(10,102,194,0.25);
+  }
+
+  .insights__thumb--img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 160px;
+    margin-bottom: var(--sp-6);
+    border-radius: var(--r-lg);
+    background-color: var(--deep-navy);
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
   }
 
   .insights__card-top {
@@ -190,6 +217,9 @@ const posts = [
 
   @media (max-width: 1024px) {
     .insights__head { grid-template-columns: 1fr; gap: var(--sp-6); }
+  }
+  @media (max-width: 1024px) {
+    .insights__grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 640px) {
     .insights__grid { grid-template-columns: 1fr; }

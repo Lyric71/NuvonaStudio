@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <filter id="s1" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+    <filter id="s2" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#001840"/>
+  <radialGradient id="bg2" cx="50%" cy="45%"><stop offset="0%" stop-color="#002860" stop-opacity="0.3"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+  <rect width="1200" height="630" fill="url(#bg2)"/>
+
+  <!-- Left label -->
+  <rect x="85" y="30" width="250" height="28" rx="14" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+  <text x="210" y="49" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.45)" text-anchor="middle" letter-spacing="0.1em">AI-POLISHED. NO POINT OF VIEW.</text>
+
+  <!-- Right label -->
+  <rect x="680" y="30" width="250" height="28" rx="14" fill="rgba(0,168,220,0.12)" stroke="rgba(0,168,220,0.3)" stroke-width="1"/>
+  <text x="805" y="49" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="#00A8DC" text-anchor="middle" letter-spacing="0.1em">REAL THINKING. REAL RESULTS.</text>
+
+  <!-- AI-generated post (left, faded, generic) -->
+  <g filter="url(#s1)" transform="translate(45, 70) rotate(-1.5)">
+    <rect width="420" height="480" rx="12" fill="#fff"/>
+    <rect width="420" height="4" rx="2" fill="#E0E0E0" y="0"/>
+    <!-- Profile -->
+    <circle cx="38" cy="40" r="20" fill="#E8E8E8"/>
+    <rect x="18" y="24" width="40" height="32" rx="4" fill="#ddd"/>
+    <text x="38" y="45" font-family="system-ui,sans-serif" font-size="8" font-weight="700" fill="#bbb" text-anchor="middle">LOGO</text>
+    <text x="68" y="34" font-family="system-ui,sans-serif" font-size="12.5" font-weight="700" fill="#191919">TechForward Inc.</text>
+    <text x="68" y="49" font-family="system-ui,sans-serif" font-size="10.5" fill="#666">B2B SaaS · 4,800 followers</text>
+    <text x="68" y="62" font-family="system-ui,sans-serif" font-size="9.5" fill="#999">3d · 🌐</text>
+
+    <!-- Generic AI content -->
+    <text x="20" y="92" font-family="system-ui,sans-serif" font-size="12.5" fill="#191919" font-weight="600">5 Ways to Improve Your B2B Marketing</text>
+    <text x="20" y="110" font-family="system-ui,sans-serif" font-size="12.5" fill="#191919" font-weight="600">Strategy in 2026 🚀</text>
+    <text x="20" y="134" font-family="system-ui,sans-serif" font-size="11.5" fill="#333">In today's rapidly evolving business</text>
+    <text x="20" y="151" font-family="system-ui,sans-serif" font-size="11.5" fill="#333">landscape, it's more important than ever</text>
+    <text x="20" y="168" font-family="system-ui,sans-serif" font-size="11.5" fill="#333">to stay ahead of the curve.</text>
+    <text x="20" y="192" font-family="system-ui,sans-serif" font-size="11.5" fill="#333">1. Leverage AI-powered tools</text>
+    <text x="20" y="209" font-family="system-ui,sans-serif" font-size="11.5" fill="#333">2. Focus on customer-centric approaches</text>
+    <text x="20" y="226" font-family="system-ui,sans-serif" font-size="11.5" fill="#333">3. Embrace data-driven decision making</text>
+    <text x="20" y="243" font-family="system-ui,sans-serif" font-size="11.5" fill="#333">4. Build authentic relationships</text>
+    <text x="20" y="260" font-family="system-ui,sans-serif" font-size="11.5" fill="#333">5. Invest in thought leadership</text>
+    <text x="20" y="284" font-family="system-ui,sans-serif" font-size="11.5" fill="#333">What strategies are you using? Let us</text>
+    <text x="20" y="301" font-family="system-ui,sans-serif" font-size="11.5" fill="#333">know in the comments! 👇</text>
+    <text x="20" y="325" font-family="system-ui,sans-serif" font-size="11.5" fill="#333">#B2BMarketing #Strategy #Leadership</text>
+    <text x="20" y="342" font-family="system-ui,sans-serif" font-size="11.5" fill="#333">#Innovation #Growth #2026</text>
+
+    <!-- AI badge -->
+    <rect x="20" y="360" width="380" height="36" rx="6" fill="#F5F0FF" stroke="#E0D0F0" stroke-width="1"/>
+    <text x="35" y="383" font-family="system-ui,sans-serif" font-size="10" fill="#8855BB" font-weight="600">🤖 Detected pattern: AI-generated template content</text>
+
+    <!-- Poor engagement -->
+    <line x1="20" y1="410" x2="400" y2="410" stroke="#E8E8E8" stroke-width="1"/>
+    <text x="20" y="430" font-family="system-ui,sans-serif" font-size="10.5" fill="#bbb">👍 8 · 💬 1 comment · ↗ 0 reposts</text>
+    <line x1="20" y1="445" x2="400" y2="445" stroke="#E8E8E8" stroke-width="1"/>
+    <text x="70" y="467" font-family="system-ui,sans-serif" font-size="11" fill="#999" text-anchor="middle">👍 Like</text>
+    <text x="165" y="467" font-family="system-ui,sans-serif" font-size="11" fill="#999" text-anchor="middle">💬 Comment</text>
+    <text x="270" y="467" font-family="system-ui,sans-serif" font-size="11" fill="#999" text-anchor="middle">↗ Repost</text>
+    <text x="365" y="467" font-family="system-ui,sans-serif" font-size="11" fill="#999" text-anchor="middle">📤 Send</text>
+  </g>
+
+  <!-- Thinking-first post (right, prominent, winning) -->
+  <g filter="url(#s1)" transform="translate(580, 55) rotate(1.5)">
+    <rect width="460" height="510" rx="12" fill="#fff"/>
+    <rect width="460" height="4" rx="2" fill="#0A66C2" y="0"/>
+    <!-- Profile -->
+    <circle cx="40" cy="42" r="22" fill="#1A3A5C"/>
+    <text x="40" y="47" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">CD</text>
+    <text x="72" y="36" font-family="system-ui,sans-serif" font-size="13.5" font-weight="700" fill="#191919">Cyril Drouin</text>
+    <text x="72" y="52" font-family="system-ui,sans-serif" font-size="11" fill="#666">Founder at Nuvora Studio | LinkedIn for B2B</text>
+    <text x="72" y="66" font-family="system-ui,sans-serif" font-size="10.5" fill="#999">2d · 🌐</text>
+
+    <!-- Specific, opinionated content -->
+    <text x="22" y="98" font-family="system-ui,sans-serif" font-size="13" fill="#191919" font-weight="600">The real LinkedIn problem isn't writing.</text>
+    <text x="22" y="116" font-family="system-ui,sans-serif" font-size="13" fill="#191919" font-weight="600">It's not having anything to say.</text>
+    <text x="22" y="140" font-family="system-ui,sans-serif" font-size="12" fill="#333">I spent 3 hours this week reviewing a</text>
+    <text x="22" y="157" font-family="system-ui,sans-serif" font-size="12" fill="#333">client's last 30 LinkedIn posts.</text>
+    <text x="22" y="180" font-family="system-ui,sans-serif" font-size="12" fill="#333">Every single one was well-written.</text>
+    <text x="22" y="197" font-family="system-ui,sans-serif" font-size="12" fill="#333">Clean structure. Good grammar. Nice</text>
+    <text x="22" y="214" font-family="system-ui,sans-serif" font-size="12" fill="#333">formatting. Probably AI-assisted.</text>
+    <text x="22" y="237" font-family="system-ui,sans-serif" font-size="12" fill="#191919" font-weight="600">And not a single one had a point of view.</text>
+    <text x="22" y="261" font-family="system-ui,sans-serif" font-size="12" fill="#333">No opinion that would make someone</text>
+    <text x="22" y="278" font-family="system-ui,sans-serif" font-size="12" fill="#333">disagree. No insight from actual client</text>
+    <text x="22" y="295" font-family="system-ui,sans-serif" font-size="12" fill="#333">work. No specific number, framework,</text>
+    <text x="22" y="312" font-family="system-ui,sans-serif" font-size="12" fill="#333">or lesson learned the hard way.</text>
+    <text x="22" y="336" font-family="system-ui,sans-serif" font-size="12" fill="#333">AI can fix your sentences.</text>
+    <text x="22" y="353" font-family="system-ui,sans-serif" font-size="12" fill="#191919" font-weight="600">It cannot give you something worth saying.</text>
+    <text x="22" y="377" font-family="system-ui,sans-serif" font-size="12" fill="#333">That's on you. And that's the work most</text>
+    <text x="22" y="394" font-family="system-ui,sans-serif" font-size="12" fill="#333">companies skip.</text>
+
+    <!-- Strong engagement -->
+    <line x1="22" y1="418" x2="438" y2="418" stroke="#E8E8E8" stroke-width="1"/>
+    <text x="22" y="438" font-family="system-ui,sans-serif" font-size="11" fill="#666">👍 💡 ❤️  523 · 💬 87 comments · ↗ 42 reposts</text>
+    <line x1="22" y1="452" x2="438" y2="452" stroke="#E8E8E8" stroke-width="1"/>
+    <text x="75" y="475" font-family="system-ui,sans-serif" font-size="11.5" fill="#666" text-anchor="middle">👍 Like</text>
+    <text x="185" y="475" font-family="system-ui,sans-serif" font-size="11.5" fill="#666" text-anchor="middle">💬 Comment</text>
+    <text x="305" y="475" font-family="system-ui,sans-serif" font-size="11.5" fill="#666" text-anchor="middle">↗ Repost</text>
+    <text x="405" y="475" font-family="system-ui,sans-serif" font-size="11.5" fill="#666" text-anchor="middle">📤 Send</text>
+
+    <!-- Top comment preview -->
+    <rect x="22" y="488" width="416" height="16" rx="4" fill="#F8FAFB"/>
+    <text x="30" y="500" font-family="system-ui,sans-serif" font-size="9" fill="#666">💬 "This is the best post I've read on LinkedIn this month. Saved."</text>
+  </g>
+
+  <!-- Bottom stats row -->
+  <g transform="translate(0, 555)">
+    <rect x="160" y="0" width="340" height="48" rx="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+    <text x="185" y="30" font-family="system-ui,sans-serif" font-size="11" fill="rgba(255,255,255,0.25)">🤖 Well-written + no POV</text>
+    <text x="460" y="30" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#CC3333" text-anchor="end">= Invisible</text>
+
+    <rect x="560" y="0" width="340" height="48" rx="10" fill="rgba(0,168,220,0.06)" stroke="rgba(0,168,220,0.15)" stroke-width="1"/>
+    <text x="585" y="30" font-family="system-ui,sans-serif" font-size="11" fill="rgba(255,255,255,0.35)">🧠 Real thinking + specificity</text>
+    <text x="860" y="30" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#00A8DC" text-anchor="end">= Pipeline</text>
+  </g>
+</svg>

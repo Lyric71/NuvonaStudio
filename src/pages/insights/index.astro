@@ -6,6 +6,61 @@ import ContactCTA from '../../components/ContactCTA.astro';
 
 const posts = [
   {
+    slug: 'why-your-reach-dropped',
+    category: 'LinkedIn Strategy',
+    tags: ['Algorithm', 'Reach'],
+    title: "Why Your Reach Dropped 50%+ in 2026 (And It's Not Your Content)",
+    excerpt: "LinkedIn replaced its entire algorithm with 360Brew. Reach dropped 50%, company pages lost 60%. Your content isn't the problem. The system changed.",
+    date: '2026-03-29',
+    readTime: '8 min read',
+    featured: true,
+    image: '/blog/hero-reach-dropped.svg',
+  },
+  {
+    slug: 'why-linkedin-ads-cost-more',
+    category: 'LinkedIn Advertising',
+    tags: ['Ads', 'Budget'],
+    title: "Why LinkedIn Ads Cost 4 to 6x More Per Click — And When It's Still Worth It",
+    excerpt: "LinkedIn charges $5 to $12 per click. Meta charges $0.50. But clicks don't close deals. LinkedIn leads convert at 2 to 3x the rate of other platforms.",
+    date: '2026-03-29',
+    readTime: '8 min read',
+    featured: false,
+    image: '/blog/hero-ads-cost.svg',
+  },
+  {
+    slug: 'linkedin-ads-vs-organic-content',
+    category: 'LinkedIn Strategy',
+    tags: ['Ads', 'Organic', 'Budget'],
+    title: "LinkedIn Ads vs. Organic Content: Where to Put Your Budget in 2026",
+    excerpt: "Organic LinkedIn content generates leads at half the cost of ads. But ads close gaps fast. The right split depends on your stage and deal size.",
+    date: '2026-03-29',
+    readTime: '9 min read',
+    featured: false,
+    image: '/blog/hero-ads-vs-organic.svg',
+  },
+  {
+    slug: 'algorithm-change-small-vs-large-accounts',
+    category: 'LinkedIn Strategy',
+    tags: ['Algorithm', 'Growth'],
+    title: "What LinkedIn's Algorithm Change Means for Small Accounts vs. Large Ones",
+    excerpt: "LinkedIn's new algorithm rewards engagement quality over follower count. Small accounts with active networks now outperform large accounts with passive audiences.",
+    date: '2026-03-29',
+    readTime: '9 min read',
+    featured: false,
+    image: '/blog/hero-small-vs-large.svg',
+  },
+  {
+    slug: 'how-to-grow-on-linkedin',
+    category: 'LinkedIn Strategy',
+    tags: ['Growth', 'Content'],
+    title: "How to Grow on LinkedIn When There Are 5x More Creators Than 3 Years Ago",
+    excerpt: "LinkedIn has 5x more creators than 2023. Two million posts go live daily. But less than 3% of members post weekly. Specificity wins the attention war.",
+    date: '2026-03-29',
+    readTime: '10 min read',
+    featured: false,
+    image: '/blog/hero-grow-linkedin.svg',
+  },
+  {
     slug: 'your-linkedin-post-is-already-dead',
     category: 'LinkedIn Strategy',
     tags: ['Surface'],
@@ -23,7 +78,7 @@ const posts = [
     excerpt: "AI can clean up your sentences. It cannot tell you what to say. That gap is where most B2B companies quietly fail.",
     date: '2026-03-23',
     readTime: '5 min read',
-    featured: true,
+    featured: false,
   },
 ];
 
@@ -73,6 +128,13 @@ const allTags = [...new Set(posts.flatMap(p => p.tags))].sort();
               data-tags={post.tags.join(',')}
               style={`transition-delay: ${i * 0.07}s`}
             >
+              {post.image ? (
+                <div class="post-card__thumb" style={`background-image: url('${post.image}')`}></div>
+              ) : (
+                <div class="post-card__thumb post-card__thumb--empty">
+                  <span>Visual placeholder</span>
+                </div>
+              )}
               <div class="post-card__top">
                 <div class="post-card__tags">
                   {post.tags.map(tag => (
@@ -201,6 +263,32 @@ const allTags = [...new Set(posts.flatMap(p => p.tags))].sort();
   }
   .post-card.is-hidden {
     display: none;
+  }
+
+  .post-card__thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--r-lg);
+    background-color: var(--deep-navy);
+    background-size: cover;
+    background-position: center;
+    margin-bottom: var(--sp-2);
+  }
+
+  .post-card__thumb--empty {
+    background: linear-gradient(135deg, rgba(10,102,194,0.04) 0%, rgba(0,168,220,0.07) 100%);
+    border: 1.5px dashed rgba(10,102,194,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .post-card__thumb--empty span {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: rgba(10,102,194,0.25);
   }
 
 

@@ -253,22 +253,26 @@ const allServices = [...new Set(caseStudies.flatMap(cs => cs.services))].sort();
               href="https://www.linkedin.com/in/cyril-d-68835729/"
               target="_blank"
               rel="noopener noreferrer"
-              class="founder-card__screenshot-link"
+              class="founder-card__profile-link"
             >
-              <div class="founder-card__browser">
-                <div class="browser__dots" aria-hidden="true">
-                  <span></span><span></span><span></span>
-                </div>
-                <span class="browser__url">linkedin.com/in/cyril-d-68835729</span>
+              <div class="founder-card__photo-wrap">
+                <img
+                  src="/Cyril-Drouin.jpg"
+                  alt="Cyril Drouin, Founder & CEO of Nuvora Studio"
+                  class="founder-card__photo"
+                  loading="lazy"
+                  width="480"
+                  height="640"
+                />
               </div>
-              <img
-                src="/Cyril-Drouin-LinkedIn-03-29-2026_09_55_AM.png"
-                alt="Cyril Drouin's LinkedIn profile showing an active, optimized presence with consistent content and engagement"
-                class="founder-card__img"
-                loading="lazy"
-                width="960"
-                height="600"
-              />
+              <div class="founder-card__profile-info">
+                <strong class="founder-card__profile-name">Cyril Drouin</strong>
+                <span class="founder-card__profile-role">Founder & CEO, Nuvora Studio</span>
+                <span class="founder-card__profile-cta">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                  View profile
+                </span>
+              </div>
             </a>
           </div>
         </div>
@@ -800,62 +804,57 @@ const allServices = [...new Set(caseStudies.flatMap(cs => cs.services))].sort();
     z-index: 1;
   }
 
-  .founder-card__screenshot-link {
+  .founder-card__profile-link {
     display: block;
     border-radius: var(--r-xl);
     overflow: hidden;
     border: 1px solid rgba(255,255,255,0.12);
     box-shadow: 0 16px 48px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.06);
     transition: transform 0.35s ease, box-shadow 0.35s ease;
-    background: #f0f0f0;
+    background: var(--white);
   }
-  .founder-card__screenshot-link:hover {
+  .founder-card__profile-link:hover {
     transform: translateY(-6px) scale(1.01);
     box-shadow: 0 24px 64px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.1);
   }
 
-  /* Fake browser chrome */
-  .founder-card__browser {
-    display: flex;
-    align-items: center;
-    gap: var(--sp-3);
-    padding: 10px var(--sp-4);
-    background: #1a1a2e;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .browser__dots {
-    display: flex;
-    gap: 5px;
-  }
-  .browser__dots span {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.15);
-  }
-  .browser__dots span:first-child { background: #ff5f57; }
-  .browser__dots span:nth-child(2) { background: #ffbd2e; }
-  .browser__dots span:nth-child(3) { background: #28c840; }
-
-  .browser__url {
-    flex: 1;
-    font-size: 0.65rem;
-    color: rgba(255,255,255,0.4);
-    background: rgba(255,255,255,0.06);
-    padding: 3px var(--sp-3);
-    border-radius: 4px;
-    letter-spacing: 0.02em;
-    font-family: monospace;
-  }
-
-  .founder-card__img {
-    display: block;
+  .founder-card__photo-wrap {
     width: 100%;
-    height: auto;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background: #f5f5f5;
+  }
+  .founder-card__photo {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: top;
-    max-height: 420px;
+    display: block;
+  }
+
+  .founder-card__profile-info {
+    padding: var(--sp-5) var(--sp-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-1);
+  }
+  .founder-card__profile-name {
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    color: var(--text);
+  }
+  .founder-card__profile-role {
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+  }
+  .founder-card__profile-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    margin-top: var(--sp-3);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--blue);
   }
 
   @media (max-width: 768px) {

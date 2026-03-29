@@ -52,14 +52,6 @@ const whyWorkWithUs = [
   },
 ];
 
-const services = [
-  { num: '01', title: 'Strategy & Account Management', body: 'We own your LinkedIn presence end-to-end. Page governance, content calendar, KPI tracking. One dedicated strategist per account.' },
-  { num: '02', title: 'B2B Content Production', body: 'Thought leadership, carousels, newsletters, video scripts. Written by people who understand B2B and can work in 10+ languages.' },
-  { num: '03', title: 'LinkedIn Ads', body: 'Sponsored Content, Lead Gen Forms, retargeting. Run by certified campaign specialists with full transparency on spend and results.' },
-  { num: '04', title: 'AI-Assisted Production', body: 'Integrated AIGC workflows for brand-aligned content at scale. Faster turnaround. Consistent quality. Lower production cost.' },
-  { num: '05', title: 'Executive & Personal Branding', body: 'Ghostwriting and positioning for C-suite leaders. Your executives become visible to the buyers and decision-makers who matter. Every post reinforces the company story.' },
-];
-
 const faqs = [
   { q: 'What kind of companies do you work with?', a: 'B2B companies across manufacturing, healthcare, tech, FMCG, retail, and professional services. If your buyers are on LinkedIn, we can help.' },
   { q: 'How long before we see results?', a: 'It depends on where you\'re starting. Companies with an existing LinkedIn presence tend to see traction faster than those building from zero. We set specific benchmarks in our first strategy session and report against them monthly.' },
@@ -108,11 +100,7 @@ const faqs = [
 
           <div class="ab-hero__visual reveal reveal-delay-2" aria-hidden="true">
             <div class="ab-hero__img-wrap">
-              <img src="/images/placeholder-about-hero.jpg" alt="Nuvora Studio team" class="ab-hero__img" width="600" height="400" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-              <div class="ab-hero__img-ph">
-                <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="12" fill="rgba(0,168,220,0.12)"/><path d="M20 44l10-14 8 10 6-8 10 12H20z" fill="rgba(0,168,220,0.2)"/><circle cx="44" cy="24" r="5" fill="rgba(0,168,220,0.25)"/></svg>
-                <span>Visual coming soon</span>
-              </div>
+              <img src="/lighthouse-hero.png" alt="Modern glass lighthouse rising above a fog of social media noise — Nuvora Studio guides B2B brands through the clutter" class="ab-hero__img" width="600" height="600" />
             </div>
           </div>
         </div>
@@ -142,12 +130,17 @@ const faqs = [
 
           <div class="ab-exist__visual reveal reveal-delay-1">
             <div class="ab-exist__sig-card">
-              <div class="ab-exist__sig-photo">
-                <img src="/Cyril-Drouin-LinkedIn-03-29-2026_09_55_AM.png" alt="Cyril Drouin, CEO" class="ab-exist__sig-img" width="80" height="80" loading="lazy" />
+              <div class="ab-exist__sig-visual">
+                <img src="/signal-vs-noise.png" alt="From noise to clarity — signal vs noise on LinkedIn" class="ab-exist__sig-hero" width="600" height="600" loading="lazy" />
               </div>
-              <div class="ab-exist__sig-info">
-                <strong class="ab-exist__sig-name">Cyril Drouin</strong>
-                <span class="ab-exist__sig-title">CEO & Chief Strategy Officer</span>
+              <div class="ab-exist__sig-footer">
+                <div class="ab-exist__sig-photo">
+                  <img src="/Cyril-Drouin.jpg" alt="Cyril Drouin, CEO" class="ab-exist__sig-img" width="80" height="80" loading="lazy" />
+                </div>
+                <div class="ab-exist__sig-info">
+                  <strong class="ab-exist__sig-name">Cyril Drouin</strong>
+                  <span class="ab-exist__sig-title">CEO & Chief Strategy Officer</span>
+                </div>
               </div>
               <img src="https://beyondbordergroup.com/wp-content/compressx-nextgen/uploads/2026/02/Cyril-Drouin-Signature-Transparent.png.avif" alt="Cyril Drouin signature" class="ab-exist__sig-mark" width="180" height="60" loading="lazy" />
             </div>
@@ -201,33 +194,6 @@ const faqs = [
     </section>
 
 
-    <!-- ── What We Do ──────────────────────────────────────── -->
-    <section class="section ab-services" aria-labelledby="svc-h" style="background: var(--off-white);">
-      <div class="container">
-        <div class="ab-svc__head reveal">
-          <p class="eyebrow">What We Do</p>
-          <h2 id="svc-h">What We Do</h2>
-        </div>
-
-        <div class="ab-svc__list">
-          {services.map((s, i) => (
-            <div class={`ab-svc-item reveal${i > 0 ? ` reveal-delay-${Math.min(i, 3)}` : ''}`}>
-              <span class="ab-svc-item__num" aria-hidden="true">{s.num}</span>
-              <div class="ab-svc-item__content">
-                <strong class="ab-svc-item__title">{s.title}</strong>
-                <p class="ab-svc-item__body">{s.body}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div class="ab-svc__cta reveal">
-          <a href="/services/content" class="btn btn--outline">Explore our services</a>
-        </div>
-      </div>
-    </section>
-
-
     <!-- ── Our Leadership ──────────────────────────────────── -->
     <section class="section ab-team" aria-labelledby="team-h">
       <div class="container">
@@ -241,7 +207,7 @@ const faqs = [
         <div class="ab-leader reveal">
           <div class="ab-leader__visual">
             <div class="ab-leader__photo-wrap">
-              <img src="/Cyril-Drouin-LinkedIn-03-29-2026_09_55_AM.png" alt="Cyril Drouin" class="ab-leader__photo" width="400" height="480" loading="lazy" />
+              <img src="/Cyril-Drouin.jpg" alt="Cyril Drouin" class="ab-leader__photo" width="400" height="480" loading="lazy" />
             </div>
             <div class="ab-leader__badge-wrap">
               <img src="/images/placeholder-linkedin-badge.png" alt="LinkedIn Certified Marketing Expert" class="ab-leader__badge" width="120" height="120" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
@@ -406,7 +372,7 @@ const faqs = [
     position: relative;
     border-radius: var(--r-2xl);
     overflow: hidden;
-    aspect-ratio: 3/2;
+    aspect-ratio: 1/1;
     width: 100%;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.10);
@@ -489,34 +455,42 @@ const faqs = [
     background: var(--off-white);
     border: 1px solid var(--border);
     border-radius: var(--r-xl);
-    padding: var(--sp-8);
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--sp-5);
+    gap: 0;
     text-align: center;
   }
+  .ab-exist__sig-visual {
+    width: 100%;
+    overflow: hidden;
+  }
+  .ab-exist__sig-hero {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+  .ab-exist__sig-footer {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+    padding: var(--sp-5) var(--sp-6);
+    width: 100%;
+    text-align: left;
+  }
   .ab-exist__sig-photo {
-    width: 80px; height: 80px;
+    width: 56px; height: 56px;
     border-radius: 50%;
     overflow: hidden;
     border: 2px solid var(--border);
+    flex-shrink: 0;
   }
   .ab-exist__sig-img {
     width: 100%; height: 100%;
     object-fit: cover; display: block;
   }
-  .ab-exist__sig-img-ph {
-    display: none;
-    width: 100%; height: 100%;
-    align-items: center;
-    justify-content: center;
-    background: var(--off-white);
-  }
-  /* Show placeholder */
-  .ab-exist__sig-photo .ab-exist__sig-img { display: none; }
-  .ab-exist__sig-photo .ab-exist__sig-img-ph { display: flex; }
-
   .ab-exist__sig-name {
     font-size: var(--fs-base);
     font-weight: 600;
@@ -533,6 +507,7 @@ const faqs = [
     max-width: 180px;
     height: auto;
     opacity: 0.75;
+    padding-bottom: var(--sp-6);
   }
 
 
@@ -824,9 +799,6 @@ const faqs = [
     text-transform: uppercase;
     font-weight: 500;
   }
-  /* Show placeholder for Cyril since image is a placeholder */
-  .ab-leader:not(.ab-leader--flip) .ab-leader__photo { display: none; }
-  .ab-leader:not(.ab-leader--flip) .ab-leader__photo-ph { display: flex; }
 
   .ab-leader__badge-wrap {
     display: flex;

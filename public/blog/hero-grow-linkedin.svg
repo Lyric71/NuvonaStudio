@@ -1,38 +1,131 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 500" fill="none">
-  <rect width="1400" height="500" fill="#001840"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
   <defs>
-    <linearGradient id="g5" x1="200" y1="500" x2="1200" y2="0">
-      <stop offset="0%" stop-color="#0A66C2" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="#00A8DC" stop-opacity="0.06"/>
-    </linearGradient>
+    <filter id="d1" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+    <filter id="d2" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
   </defs>
-  <rect width="1400" height="500" fill="url(#g5)"/>
-  <!-- Network nodes representing 5x creators -->
-  <g stroke="#0077B5" stroke-width="0.5" opacity="0.10">
-    <line x1="300" y1="150" x2="500" y2="200"/><line x1="500" y1="200" x2="700" y2="180"/>
-    <line x1="700" y1="180" x2="900" y2="220"/><line x1="900" y1="220" x2="1100" y2="170"/>
-    <line x1="300" y1="150" x2="400" y2="300"/><line x1="500" y1="200" x2="600" y2="350"/>
-    <line x1="700" y1="180" x2="800" y2="330"/><line x1="900" y1="220" x2="1000" y2="370"/>
-    <line x1="400" y1="300" x2="600" y2="350"/><line x1="600" y1="350" x2="800" y2="330"/>
-    <line x1="800" y1="330" x2="1000" y2="370"/><line x1="1000" y1="370" x2="1100" y2="170"/>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#001840"/>
+  <radialGradient id="bg5a" cx="25%" cy="45%"><stop offset="0%" stop-color="#003080" stop-opacity="0.3"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+  <radialGradient id="bg5b" cx="80%" cy="60%"><stop offset="0%" stop-color="#00406A" stop-opacity="0.2"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+  <rect width="1200" height="630" fill="url(#bg5a)"/>
+  <rect width="1200" height="630" fill="url(#bg5b)"/>
+
+  <!-- Center label -->
+  <rect x="410" y="20" width="380" height="28" rx="14" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+  <text x="600" y="39" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.5)" text-anchor="middle" letter-spacing="0.1em">THE DEAD POST vs. THE POST THAT DOMINATES</text>
+
+  <!-- Dead Post Card (left, tilted, faded) -->
+  <g filter="url(#d2)" transform="translate(40, 70) rotate(-3)" opacity="0.85">
+    <rect width="380" height="390" rx="12" fill="#fff"/>
+    <rect width="380" height="4" rx="2" fill="#E0E0E0" y="0"/>
+    <!-- Profile -->
+    <circle cx="38" cy="40" r="20" fill="#E8E8E8"/>
+    <rect x="18" y="24" width="40" height="32" rx="4" fill="#ddd"/>
+    <text x="38" y="45" font-family="system-ui,sans-serif" font-size="8" font-weight="700" fill="#bbb" text-anchor="middle">LOGO</text>
+    <text x="68" y="34" font-family="system-ui,sans-serif" font-size="12.5" font-weight="700" fill="#191919">Acme Solutions</text>
+    <text x="68" y="49" font-family="system-ui,sans-serif" font-size="10.5" fill="#666">Software Company · 3,200 followers</text>
+    <text x="68" y="62" font-family="system-ui,sans-serif" font-size="9.5" fill="#999">4 months ago · 🌐</text>
+
+    <!-- Generic content -->
+    <text x="20" y="92" font-family="system-ui,sans-serif" font-size="12" fill="#333">We're excited to announce that our team</text>
+    <text x="20" y="109" font-family="system-ui,sans-serif" font-size="12" fill="#333">has been working hard on some great</text>
+    <text x="20" y="126" font-family="system-ui,sans-serif" font-size="12" fill="#333">things. Stay tuned for more updates</text>
+    <text x="20" y="143" font-family="system-ui,sans-serif" font-size="12" fill="#333">coming soon!</text>
+    <text x="20" y="167" font-family="system-ui,sans-serif" font-size="12" fill="#333">#Innovation #Tech #Business #Growth</text>
+    <text x="20" y="184" font-family="system-ui,sans-serif" font-size="12" fill="#333">#Leadership #Future #Excited</text>
+
+    <!-- Image placeholder -->
+    <rect x="20" y="200" width="340" height="110" rx="6" fill="#F0F0F0"/>
+    <text x="190" y="260" font-family="system-ui,sans-serif" font-size="11" fill="#BBB" text-anchor="middle">Generic stock photo</text>
+
+    <!-- Sad engagement -->
+    <line x1="20" y1="325" x2="360" y2="325" stroke="#E8E8E8" stroke-width="1"/>
+    <text x="20" y="345" font-family="system-ui,sans-serif" font-size="11" fill="#BBB">👍 2 · 💬 0 comments · ↗ 0 reposts</text>
+    <line x1="20" y1="358" x2="360" y2="358" stroke="#E8E8E8" stroke-width="1"/>
+    <text x="65" y="378" font-family="system-ui,sans-serif" font-size="11" fill="#999" text-anchor="middle">👍 Like</text>
+    <text x="150" y="378" font-family="system-ui,sans-serif" font-size="11" fill="#999" text-anchor="middle">💬 Comment</text>
+    <text x="250" y="378" font-family="system-ui,sans-serif" font-size="11" fill="#999" text-anchor="middle">↗ Repost</text>
+    <text x="335" y="378" font-family="system-ui,sans-serif" font-size="11" fill="#999" text-anchor="middle">📤 Send</text>
   </g>
-  <!-- Outer nodes (crowd) -->
-  <g fill="#0077B5" opacity="0.08">
-    <circle cx="300" cy="150" r="6"/><circle cx="500" cy="200" r="6"/><circle cx="700" cy="180" r="6"/>
-    <circle cx="900" cy="220" r="6"/><circle cx="1100" cy="170" r="6"/>
-    <circle cx="400" cy="300" r="5"/><circle cx="600" cy="350" r="5"/><circle cx="800" cy="330" r="5"/>
-    <circle cx="1000" cy="370" r="5"/>
+
+  <!-- Small label on dead post -->
+  <g transform="translate(180, 475)">
+    <rect x="-90" y="-14" width="180" height="26" rx="13" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+    <text x="0" y="3" font-family="system-ui,sans-serif" font-size="10" font-weight="600" fill="rgba(255,255,255,0.4)" text-anchor="middle" letter-spacing="0.08em">MOST B2B COMPANIES</text>
   </g>
-  <!-- Highlighted "you" node -->
-  <circle cx="700" cy="250" r="20" fill="#00A8DC" opacity="0.12"/>
-  <circle cx="700" cy="250" r="12" fill="#00A8DC" opacity="0.08"/>
-  <circle cx="700" cy="250" r="40" stroke="#00A8DC" stroke-width="1" fill="none" opacity="0.08"/>
-  <circle cx="700" cy="250" r="60" stroke="#00A8DC" stroke-width="0.5" fill="none" opacity="0.05"/>
-  <!-- 5x text -->
-  <text x="1050" y="400" font-family="system-ui,sans-serif" font-size="90" font-weight="700" fill="#fff" opacity="0.04">5x</text>
-  <!-- Growth arrow -->
-  <path d="M200 380 Q500 370 700 300 T1200 140" stroke="#00A8DC" stroke-width="2" fill="none" opacity="0.12"/>
-  <!-- Accent -->
-  <circle cx="200" cy="400" r="180" fill="#0A66C2" opacity="0.04"/>
-  <circle cx="1200" cy="100" r="150" fill="#00A8DC" opacity="0.04"/>
+
+  <!-- Winning Post Card (right, prominent) -->
+  <g filter="url(#d1)" transform="translate(520, 55) rotate(1.5)">
+    <rect width="480" height="510" rx="12" fill="#fff"/>
+    <rect width="480" height="4" rx="2" fill="#0A66C2" y="0"/>
+    <!-- Connection requests badge -->
+    <g transform="translate(380, -8)">
+      <rect x="0" y="0" width="105" height="24" rx="12" fill="#0A66C2"/>
+      <text x="52" y="16" font-family="system-ui,sans-serif" font-size="10" font-weight="600" fill="#fff" text-anchor="middle">+12 connections</text>
+    </g>
+    <!-- Profile -->
+    <circle cx="42" cy="44" r="22" fill="#1A3A5C"/>
+    <text x="42" y="49" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">CD</text>
+    <text x="74" y="38" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#191919">Cyril Drouin</text>
+    <text x="74" y="54" font-family="system-ui,sans-serif" font-size="11" fill="#666">Founder at Nuvora Studio | LinkedIn for B2B</text>
+    <text x="74" y="68" font-family="system-ui,sans-serif" font-size="10.5" fill="#999">2d · 🌐</text>
+
+    <!-- Specific, valuable content -->
+    <text x="24" y="102" font-family="system-ui,sans-serif" font-size="13.5" fill="#191919" font-weight="600">Most B2B leaders think LinkedIn is about</text>
+    <text x="24" y="120" font-family="system-ui,sans-serif" font-size="13.5" fill="#191919" font-weight="600">posting. It is not.</text>
+    <text x="24" y="144" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">It is about showing up with a point of view.</text>
+    <text x="24" y="161" font-family="system-ui,sans-serif" font-size="12.5" fill="#191919" font-weight="600">Every single week. No exceptions.</text>
+    <text x="24" y="185" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">We did this for 90 days straight with a client</text>
+    <text x="24" y="202" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">in civil engineering. Here is what happened:</text>
+    <text x="24" y="226" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">→ Profile visits: 34/week → 312/week</text>
+    <text x="24" y="243" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">→ Inbound messages: 2/month → 18/month</text>
+    <text x="24" y="260" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">→ Connection requests: 8/week → 67/week</text>
+    <text x="24" y="277" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">→ Pipeline generated: $0 → $124K</text>
+    <text x="24" y="301" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">The secret? Nothing fancy. One topic.</text>
+    <text x="24" y="318" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">Consistent depth. Real stories from the field.</text>
+    <text x="24" y="342" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">360Brew doesn't reward volume.</text>
+    <text x="24" y="359" font-family="system-ui,sans-serif" font-size="12.5" fill="#191919" font-weight="600">It rewards specificity and consistency.</text>
+
+    <!-- Engagement -->
+    <line x1="24" y1="385" x2="456" y2="385" stroke="#E8E8E8" stroke-width="1"/>
+    <!-- Reaction icons row -->
+    <text x="24" y="408" font-family="system-ui,sans-serif" font-size="12" fill="#666">👍 💡 ❤️ 🎉  847 · 💬 156 comments · ↗ 89 reposts</text>
+
+    <!-- Reaction avatars -->
+    <circle cx="370" cy="400" r="12" fill="#2E7D32" opacity="0.2"/>
+    <circle cx="386" cy="400" r="12" fill="#1565C0" opacity="0.2"/>
+    <circle cx="402" cy="400" r="12" fill="#E65100" opacity="0.2"/>
+    <circle cx="418" cy="400" r="12" fill="#6A1B9A" opacity="0.2"/>
+    <circle cx="434" cy="400" r="12" fill="#00695C" opacity="0.2"/>
+
+    <line x1="24" y1="420" x2="456" y2="420" stroke="#E8E8E8" stroke-width="1"/>
+    <text x="80" y="445" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">👍 Like</text>
+    <text x="195" y="445" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">💬 Comment</text>
+    <text x="320" y="445" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">↗ Repost</text>
+    <text x="425" y="445" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">📤 Send</text>
+
+    <!-- Comment preview -->
+    <rect x="24" y="460" width="432" height="42" rx="6" fill="#F8FAFB"/>
+    <circle cx="44" cy="481" r="12" fill="#8B5E3C" opacity="0.3"/>
+    <text x="44" y="485" font-family="system-ui,sans-serif" font-size="8" font-weight="700" fill="#8B5E3C" text-anchor="middle">MR</text>
+    <text x="64" y="476" font-family="system-ui,sans-serif" font-size="10.5" font-weight="600" fill="#191919">Marc Renaud</text>
+    <text x="64" y="490" font-family="system-ui,sans-serif" font-size="10" fill="#666">This is exactly what we experienced. Can I DM you?</text>
+  </g>
+
+  <!-- Small label on winning post -->
+  <g transform="translate(800, 585)">
+    <rect x="-80" y="-14" width="160" height="26" rx="13" fill="rgba(0,168,220,0.12)" stroke="rgba(0,168,220,0.3)" stroke-width="1"/>
+    <text x="0" y="3" font-family="system-ui,sans-serif" font-size="10" font-weight="600" fill="#00A8DC" text-anchor="middle" letter-spacing="0.08em">YOUR COMPETITOR</text>
+  </g>
+
+  <!-- 5x badge -->
+  <g transform="translate(480, 315)">
+    <circle r="32" fill="#0A66C2" opacity="0.9"/>
+    <text x="0" y="7" font-family="system-ui,sans-serif" font-size="20" font-weight="800" fill="#fff" text-anchor="middle">5x</text>
+  </g>
 </svg>

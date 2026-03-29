@@ -1,39 +1,114 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 500" fill="none">
-  <rect width="1400" height="500" fill="#001840"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
   <defs>
-    <linearGradient id="g4" x1="0" y1="0" x2="1400" y2="500">
-      <stop offset="0%" stop-color="#00A8DC" stop-opacity="0.08"/>
-      <stop offset="50%" stop-color="#001840"/>
-      <stop offset="100%" stop-color="#0A66C2" stop-opacity="0.08"/>
-    </linearGradient>
-    <radialGradient id="rg4a" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0%" stop-color="#0A66C2" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="transparent"/>
-    </radialGradient>
-    <radialGradient id="rg4b" cx="0.5" cy="0.5" r="0.5">
-      <stop offset="0%" stop-color="#00A8DC" stop-opacity="0.20"/>
-      <stop offset="100%" stop-color="transparent"/>
-    </radialGradient>
+    <filter id="ds1" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
   </defs>
-  <rect width="1400" height="500" fill="url(#g4)"/>
-  <!-- Large account circle (big but faded) -->
-  <circle cx="900" cy="250" r="180" stroke="#0077B5" stroke-width="1" fill="url(#rg4a)" opacity="0.4"/>
-  <circle cx="900" cy="250" r="120" stroke="#0077B5" stroke-width="0.5" fill="none" opacity="0.15"/>
-  <circle cx="900" cy="250" r="60" stroke="#0077B5" stroke-width="0.5" fill="none" opacity="0.1"/>
-  <!-- Small account circle (small but bright) -->
-  <circle cx="450" cy="250" r="70" stroke="#00A8DC" stroke-width="2" fill="url(#rg4b)" opacity="0.6"/>
-  <circle cx="450" cy="250" r="35" fill="#00A8DC" opacity="0.08"/>
-  <!-- Engagement pulses from small -->
-  <circle cx="450" cy="250" r="90" stroke="#00A8DC" stroke-width="1" fill="none" opacity="0.12"/>
-  <circle cx="450" cy="250" r="110" stroke="#00A8DC" stroke-width="0.5" fill="none" opacity="0.08"/>
-  <circle cx="450" cy="250" r="130" stroke="#00A8DC" stroke-width="0.5" fill="none" opacity="0.04"/>
-  <!-- Connection dots -->
-  <g fill="#fff" opacity="0.08">
-    <circle cx="420" cy="200" r="3"/><circle cx="480" cy="210" r="3"/><circle cx="440" cy="290" r="3"/><circle cx="470" cy="270" r="3"/>
-    <circle cx="430" cy="240" r="3"/><circle cx="460" cy="260" r="3"/>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#001840"/>
+  <radialGradient id="bg4" cx="40%" cy="50%"><stop offset="0%" stop-color="#002060" stop-opacity="0.35"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+  <rect width="1200" height="630" fill="url(#bg4)"/>
+
+  <!-- Left label -->
+  <rect x="115" y="35" width="210" height="28" rx="14" fill="rgba(0,168,220,0.12)" stroke="rgba(0,168,220,0.3)" stroke-width="1"/>
+  <text x="220" y="54" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="#00A8DC" text-anchor="middle" letter-spacing="0.1em">SMALL ACCOUNT · 800 FOLLOWERS</text>
+
+  <!-- Right label -->
+  <rect x="655" y="35" width="240" height="28" rx="14" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+  <text x="775" y="54" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.5)" text-anchor="middle" letter-spacing="0.1em">LARGE ACCOUNT · 48,000 FOLLOWERS</text>
+
+  <!-- Small Account Card (Winner) -->
+  <g filter="url(#ds1)" transform="translate(55, 75) rotate(-1)">
+    <rect width="440" height="500" rx="12" fill="#fff"/>
+    <rect width="440" height="4" rx="2" fill="#00A8DC" y="0"/>
+    <!-- Profile -->
+    <circle cx="42" cy="44" r="22" fill="#1A3A5C"/>
+    <text x="42" y="49" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">SL</text>
+    <text x="74" y="38" font-family="system-ui,sans-serif" font-size="13.5" font-weight="700" fill="#191919">Sarah Laurent</text>
+    <text x="74" y="54" font-family="system-ui,sans-serif" font-size="11" fill="#666">Supply Chain Consultant · 800 followers</text>
+    <text x="74" y="68" font-family="system-ui,sans-serif" font-size="10.5" fill="#999">2d · 🌐</text>
+
+    <!-- Post content -->
+    <text x="24" y="102" font-family="system-ui,sans-serif" font-size="13" fill="#191919" font-weight="600">We just helped a manufacturing client cut</text>
+    <text x="24" y="119" font-family="system-ui,sans-serif" font-size="13" fill="#191919" font-weight="600">their procurement cycle from 14 weeks to 6.</text>
+    <text x="24" y="143" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">Here's what nobody tells you about</text>
+    <text x="24" y="160" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">streamlining supply chain for mid-market</text>
+    <text x="24" y="177" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">manufacturers (50-200 employees):</text>
+    <text x="24" y="201" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">1. The bottleneck is never where you think</text>
+    <text x="24" y="218" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">2. Legacy ERP is usually the real problem</text>
+    <text x="24" y="235" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">3. Start with the vendor relationship, not</text>
+    <text x="24" y="252" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">    the software...</text>
+    <text x="24" y="274" font-family="system-ui,sans-serif" font-size="12.5" fill="#0A66C2">...see more</text>
+
+    <!-- Engagement metrics box -->
+    <rect x="24" y="295" width="392" height="115" rx="8" fill="#F0FAF5" stroke="#C0E8D8" stroke-width="1"/>
+    <text x="40" y="320" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="#1A8A5A" letter-spacing="0.05em">PERFORMANCE</text>
+    <text x="40" y="345" font-family="system-ui,sans-serif" font-size="12" fill="#666">Impressions</text>
+    <text x="370" y="345" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#191919" text-anchor="end">4,200</text>
+    <text x="40" y="368" font-family="system-ui,sans-serif" font-size="12" fill="#666">Engagement rate</text>
+    <rect x="260" y="355" width="50" height="20" rx="10" fill="#1A8A5A" opacity="0.1"/>
+    <text x="285" y="370" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#1A8A5A" text-anchor="middle">5.2%</text>
+    <text x="370" y="368" font-family="system-ui,sans-serif" font-size="10" font-weight="600" fill="#1A8A5A" text-anchor="end">▲ Top 5%</text>
+    <text x="40" y="391" font-family="system-ui,sans-serif" font-size="12" fill="#666">Connection requests</text>
+    <text x="370" y="391" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#1A8A5A" text-anchor="end">+12</text>
+
+    <!-- Engagement bar -->
+    <line x1="24" y1="425" x2="416" y2="425" stroke="#E8E8E8" stroke-width="1"/>
+    <text x="24" y="445" font-family="system-ui,sans-serif" font-size="11" fill="#666">👍 💡 ❤️  218 · 💬 34 comments · ↗ 12 reposts</text>
+    <line x1="24" y1="460" x2="416" y2="460" stroke="#E8E8E8" stroke-width="1"/>
+    <text x="75" y="482" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">👍 Like</text>
+    <text x="180" y="482" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">💬 Comment</text>
+    <text x="295" y="482" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">↗ Repost</text>
+    <text x="390" y="482" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">📤 Send</text>
   </g>
-  <g fill="#fff" opacity="0.03">
-    <circle cx="830" cy="180" r="2"/><circle cx="970" cy="190" r="2"/><circle cx="860" cy="320" r="2"/><circle cx="940" cy="310" r="2"/>
-    <circle cx="850" cy="230" r="2"/><circle cx="950" cy="270" r="2"/><circle cx="880" cy="150" r="2"/><circle cx="920" cy="350" r="2"/>
+
+  <!-- Large Account Card (Underperforming) -->
+  <g filter="url(#ds1)" transform="translate(610, 75) rotate(1)">
+    <rect width="440" height="500" rx="12" fill="#fff"/>
+    <rect width="440" height="4" rx="2" fill="#E0E0E0" y="0"/>
+    <!-- Profile -->
+    <circle cx="42" cy="44" r="22" fill="#E8E8E8"/>
+    <rect x="20" y="26" width="44" height="36" rx="4" fill="#ddd"/>
+    <text x="42" y="49" font-family="system-ui,sans-serif" font-size="9" font-weight="700" fill="#999" text-anchor="middle">LOGO</text>
+    <text x="74" y="38" font-family="system-ui,sans-serif" font-size="13.5" font-weight="700" fill="#191919">GlobalTech Solutions</text>
+    <text x="74" y="54" font-family="system-ui,sans-serif" font-size="11" fill="#666">Enterprise IT Solutions · 48,000 followers</text>
+    <text x="74" y="68" font-family="system-ui,sans-serif" font-size="10.5" fill="#999">1d · 🌐</text>
+
+    <!-- Generic post content -->
+    <text x="24" y="102" font-family="system-ui,sans-serif" font-size="13" fill="#191919" font-weight="600">We're excited to announce our latest</text>
+    <text x="24" y="119" font-family="system-ui,sans-serif" font-size="13" fill="#191919" font-weight="600">partnership with industry leaders! 🎉</text>
+    <text x="24" y="143" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">At GlobalTech Solutions, we believe in the</text>
+    <text x="24" y="160" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">power of innovation and collaboration. Our</text>
+    <text x="24" y="177" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">team is committed to delivering cutting-edge</text>
+    <text x="24" y="194" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">solutions that drive digital transformation</text>
+    <text x="24" y="211" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">across enterprises worldwide.</text>
+    <text x="24" y="235" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">Stay tuned for more updates! 🚀</text>
+    <text x="24" y="259" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">#Innovation #DigitalTransformation #IT</text>
+    <text x="24" y="276" font-family="system-ui,sans-serif" font-size="12.5" fill="#333">#Leadership #Partnership #TechNews</text>
+
+    <!-- Engagement metrics box -->
+    <rect x="24" y="295" width="392" height="115" rx="8" fill="#FEF6F6" stroke="#F0D0D0" stroke-width="1"/>
+    <text x="40" y="320" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="#CC3333" letter-spacing="0.05em">PERFORMANCE</text>
+    <text x="40" y="345" font-family="system-ui,sans-serif" font-size="12" fill="#666">Impressions</text>
+    <text x="370" y="345" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#191919" text-anchor="end">768</text>
+    <text x="40" y="368" font-family="system-ui,sans-serif" font-size="12" fill="#666">Engagement rate</text>
+    <rect x="260" y="355" width="50" height="20" rx="10" fill="#CC3333" opacity="0.1"/>
+    <text x="285" y="370" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#CC3333" text-anchor="middle">0.6%</text>
+    <text x="370" y="368" font-family="system-ui,sans-serif" font-size="10" font-weight="600" fill="#CC3333" text-anchor="end">▼ Bottom 20%</text>
+    <text x="40" y="391" font-family="system-ui,sans-serif" font-size="12" fill="#666">Connection requests</text>
+    <text x="370" y="391" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#CC3333" text-anchor="end">+0</text>
+
+    <!-- Engagement bar -->
+    <line x1="24" y1="425" x2="416" y2="425" stroke="#E8E8E8" stroke-width="1"/>
+    <text x="24" y="445" font-family="system-ui,sans-serif" font-size="11" fill="#999">👍 5 · 💬 0 comments · ↗ 0 reposts</text>
+    <line x1="24" y1="460" x2="416" y2="460" stroke="#E8E8E8" stroke-width="1"/>
+    <text x="75" y="482" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">👍 Like</text>
+    <text x="180" y="482" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">💬 Comment</text>
+    <text x="295" y="482" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">↗ Repost</text>
+    <text x="390" y="482" font-family="system-ui,sans-serif" font-size="12" fill="#666" text-anchor="middle">📤 Send</text>
   </g>
+
+  <!-- Bottom caption -->
+  <text x="600" y="600" font-family="system-ui,sans-serif" font-size="13" fill="rgba(255,255,255,0.3)" text-anchor="middle" letter-spacing="0.06em">800 ENGAGED FOLLOWERS BEAT 48,000 PASSIVE ONES. EVERY TIME.</text>
 </svg>
