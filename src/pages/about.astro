@@ -100,7 +100,7 @@ const faqs = [
 
           <div class="ab-hero__visual reveal reveal-delay-2" aria-hidden="true">
             <div class="ab-hero__img-wrap">
-              <img src="/lighthouse-hero.png" alt="Modern glass lighthouse rising above a fog of social media noise — Nuvora Studio guides B2B brands through the clutter" class="ab-hero__img" width="600" height="600" />
+              <img src="/lighthouse-hero.png" alt="Modern glass lighthouse rising above a fog of social media noise as Nuvora Studio guides B2B brands through the clutter" class="ab-hero__img" width="600" height="600" />
             </div>
           </div>
         </div>
@@ -131,7 +131,7 @@ const faqs = [
           <div class="ab-exist__visual reveal reveal-delay-1">
             <div class="ab-exist__sig-card">
               <div class="ab-exist__sig-visual">
-                <img src="/signal-vs-noise.png" alt="From noise to clarity — signal vs noise on LinkedIn" class="ab-exist__sig-hero" width="600" height="600" loading="lazy" />
+                <img src="/signal-vs-noise.png" alt="From noise to clarity, signal vs noise on LinkedIn" class="ab-exist__sig-hero" width="600" height="600" loading="lazy" />
               </div>
               <div class="ab-exist__sig-footer">
                 <div class="ab-exist__sig-photo">
@@ -209,12 +209,19 @@ const faqs = [
             <div class="ab-leader__photo-wrap">
               <img src="/Cyril-Drouin.jpg" alt="Cyril Drouin" class="ab-leader__photo" width="400" height="480" loading="lazy" />
             </div>
-            <div class="ab-leader__badge-wrap">
-              <img src="/images/placeholder-linkedin-badge.png" alt="LinkedIn Certified Marketing Expert" class="ab-leader__badge" width="120" height="120" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-              <div class="ab-leader__badge-ph" aria-hidden="true">
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="rgba(10,102,194,0.10)"/><path d="M20 8l3 6h6l-5 4 2 6-6-4-6 4 2-6-5-4h6l3-6z" fill="rgba(10,102,194,0.2)"/></svg>
-                <span>Badge</span>
-              </div>
+            <div class="ab-leader__certs">
+              <a href="https://verify.skilljar.com/c/owpjectbjz4m" target="_blank" rel="noopener noreferrer" class="ab-leader__cert">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l3 6h6l-5 4 2 6-6-4-6 4 2-6-5-4h6l3-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                Marketing Strategy
+              </a>
+              <a href="https://verify.skilljar.com/c/44sf7pp965dk" target="_blank" rel="noopener noreferrer" class="ab-leader__cert">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l3 6h6l-5 4 2 6-6-4-6 4 2-6-5-4h6l3-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                Advertising Fundamentals
+              </a>
+              <a href="https://verify.skilljar.com/c/o4g7hsuokjyp" target="_blank" rel="noopener noreferrer" class="ab-leader__cert">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l3 6h6l-5 4 2 6-6-4-6 4 2-6-5-4h6l3-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                Content & Creative Design
+              </a>
             </div>
           </div>
 
@@ -800,36 +807,30 @@ const faqs = [
     font-weight: 500;
   }
 
-  .ab-leader__badge-wrap {
+  .ab-leader__certs {
     display: flex;
-    align-items: center;
-    gap: var(--sp-3);
-  }
-  .ab-leader__badge {
-    width: 80px; height: 80px;
-    object-fit: contain;
-    border-radius: var(--r-md);
-  }
-  .ab-leader__badge-ph {
-    display: none;
     flex-direction: column;
+    gap: var(--sp-2);
+    margin-top: var(--sp-4);
+  }
+  .ab-leader__cert {
+    display: inline-flex;
     align-items: center;
-    gap: var(--sp-1);
-    padding: var(--sp-3);
-    background: var(--off-white);
-    border: 1px solid var(--border);
-    border-radius: var(--r-md);
-  }
-  .ab-leader__badge-ph span {
+    gap: var(--sp-2);
     font-size: var(--fs-xs);
-    color: var(--text-3);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
     font-weight: 500;
+    color: var(--blue);
+    background: rgba(10, 102, 194, 0.06);
+    border: 1px solid rgba(10, 102, 194, 0.15);
+    border-radius: 999px;
+    padding: var(--sp-1) var(--sp-3);
+    transition: background var(--t-fast), border-color var(--t-fast);
+    white-space: nowrap;
   }
-  /* Show badge placeholder */
-  .ab-leader__badge-wrap .ab-leader__badge { display: none; }
-  .ab-leader__badge-wrap .ab-leader__badge-ph { display: flex; }
+  .ab-leader__cert:hover {
+    background: rgba(10, 102, 194, 0.12);
+    border-color: var(--blue);
+  }
 
   .ab-leader__name {
     font-size: var(--fs-2xl);

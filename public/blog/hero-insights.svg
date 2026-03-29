@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 500" fill="none">
+  <defs>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="sh" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#0A66C2" flood-opacity="0.35"/>
+    </filter>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1040"/>
+      <stop offset="35%" stop-color="#0D1B3E"/>
+      <stop offset="60%" stop-color="#1A2A50"/>
+      <stop offset="80%" stop-color="#3A2520"/>
+      <stop offset="95%" stop-color="#8A4020"/>
+      <stop offset="100%" stop-color="#CC6530"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="75%" cy="82%">
+      <stop offset="0%" stop-color="#FF8844" stop-opacity="0.4"/>
+      <stop offset="40%" stop-color="#CC5522" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <linearGradient id="phoneGlow" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#0A66C2" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#0A66C2" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky gradient background -->
+  <rect width="1400" height="500" fill="url(#skyGrad)"/>
+  <!-- Sun glow -->
+  <rect width="1400" height="500" fill="url(#sunGlow)"/>
+
+  <!-- City skyline silhouette (blurred, background) -->
+  <g opacity="0.25">
+    <!-- Building silhouettes -->
+    <rect x="650" y="280" width="45" height="220" fill="#0A0F1A"/>
+    <rect x="700" y="240" width="55" height="260" fill="#0D1220"/>
+    <rect x="760" y="300" width="35" height="200" fill="#0A0F1A"/>
+    <rect x="800" y="200" width="50" height="300" fill="#0D1220"/>
+    <rect x="855" y="260" width="40" height="240" fill="#0A0F1A"/>
+    <rect x="900" y="180" width="60" height="320" fill="#0D1220"/>
+    <rect x="965" y="250" width="45" height="250" fill="#0A0F1A"/>
+    <rect x="1015" y="220" width="55" height="280" fill="#0D1220"/>
+    <rect x="1075" y="290" width="40" height="210" fill="#0A0F1A"/>
+    <rect x="1120" y="240" width="50" height="260" fill="#0D1220"/>
+    <rect x="1175" y="270" width="35" height="230" fill="#0A0F1A"/>
+    <rect x="1215" y="230" width="60" height="270" fill="#0D1220"/>
+    <rect x="1280" y="280" width="45" height="220" fill="#0A0F1A"/>
+    <!-- Windows (tiny dots of light) -->
+    <g fill="#FFCC66" opacity="0.4">
+      <rect x="710" y="260" width="4" height="3"/><rect x="720" y="270" width="4" height="3"/><rect x="730" y="255" width="4" height="3"/>
+      <rect x="810" y="220" width="4" height="3"/><rect x="820" y="240" width="4" height="3"/><rect x="830" y="230" width="4" height="3"/>
+      <rect x="910" y="200" width="4" height="3"/><rect x="920" y="220" width="4" height="3"/><rect x="935" y="210" width="4" height="3"/>
+      <rect x="910" y="260" width="4" height="3"/><rect x="925" y="280" width="4" height="3"/><rect x="940" y="250" width="4" height="3"/>
+      <rect x="1025" y="240" width="4" height="3"/><rect x="1035" y="260" width="4" height="3"/><rect x="1045" y="250" width="4" height="3"/>
+      <rect x="1130" y="260" width="4" height="3"/><rect x="1140" y="280" width="4" height="3"/><rect x="1150" y="270" width="4" height="3"/>
+      <rect x="1225" y="250" width="4" height="3"/><rect x="1235" y="270" width="4" height="3"/><rect x="1245" y="260" width="4" height="3"/>
+    </g>
+  </g>
+
+  <!-- Bokeh circles (blurred city lights) -->
+  <g opacity="0.12">
+    <circle cx="750" cy="350" r="20" fill="#FFAA44"/>
+    <circle cx="850" cy="330" r="15" fill="#FF8833"/>
+    <circle cx="950" cy="360" r="25" fill="#FFCC66"/>
+    <circle cx="1050" cy="340" r="18" fill="#FF9944"/>
+    <circle cx="1150" cy="355" r="22" fill="#FFBB55"/>
+    <circle cx="800" cy="380" r="12" fill="#FFAA44"/>
+    <circle cx="1000" cy="390" r="16" fill="#FF8833"/>
+    <circle cx="1200" cy="370" r="14" fill="#FFCC66"/>
+    <circle cx="700" cy="400" r="10" fill="#FF9944"/>
+    <circle cx="1100" cy="395" r="13" fill="#FFBB55"/>
+  </g>
+
+  <!-- Glass window frame (subtle vertical lines suggesting floor-to-ceiling windows) -->
+  <g stroke="rgba(255,255,255,0.03)" stroke-width="1">
+    <line x1="650" y1="0" x2="650" y2="500"/>
+    <line x1="850" y1="0" x2="850" y2="500"/>
+    <line x1="1050" y1="0" x2="1050" y2="500"/>
+    <line x1="1250" y1="0" x2="1250" y2="500"/>
+  </g>
+
+  <!-- Person silhouette (from behind, right side) -->
+  <g transform="translate(950, 80)" opacity="0.5">
+    <!-- Head -->
+    <ellipse cx="60" cy="30" rx="28" ry="32" fill="#0A0F1A"/>
+    <!-- Shoulders/upper body -->
+    <path d="M0 80 Q10 55 35 50 Q55 45 60 30 Q65 45 85 50 Q110 55 120 80 L120 420 L0 420 Z" fill="#0A0F1A"/>
+    <!-- Suit collar detail -->
+    <path d="M40 55 L60 70 L80 55" stroke="#1A2540" stroke-width="1.5" fill="none"/>
+  </g>
+
+  <!-- Hands holding phone -->
+  <g transform="translate(920, 250)">
+    <!-- Left hand silhouette -->
+    <path d="M50 60 Q40 50 35 30 Q32 20 40 15 Q45 12 48 20 L50 40 Q52 35 55 25 Q58 15 63 18 Q66 22 62 35 L58 50 Z" fill="#2A1A10" opacity="0.7"/>
+    <!-- Right hand silhouette -->
+    <path d="M120 60 Q130 50 135 30 Q138 20 130 15 Q125 12 122 20 L120 40 Q118 35 115 25 Q112 15 107 18 Q104 22 108 35 L112 50 Z" fill="#2A1A10" opacity="0.7"/>
+
+    <!-- Phone body -->
+    <rect x="52" y="0" width="66" height="130" rx="8" fill="#1A1A1A" filter="url(#sh)"/>
+    <rect x="52" y="0" width="66" height="130" rx="8" stroke="#333" stroke-width="1" fill="none"/>
+
+    <!-- Phone screen -->
+    <rect x="55" y="4" width="60" height="122" rx="6" fill="#0D1B3E"/>
+
+    <!-- LinkedIn feed on screen -->
+    <!-- Top bar -->
+    <rect x="55" y="4" width="60" height="10" rx="3" fill="#0A66C2"/>
+    <text x="72" y="12" font-family="system-ui,sans-serif" font-size="4.5" font-weight="700" fill="#fff" text-anchor="middle">in</text>
+
+    <!-- Feed post 1 -->
+    <rect x="58" y="18" width="54" height="32" rx="2" fill="rgba(255,255,255,0.08)"/>
+    <circle cx="64" cy="25" r="3" fill="rgba(255,255,255,0.3)"/>
+    <rect x="70" y="22" width="20" height="2" rx="1" fill="rgba(255,255,255,0.25)"/>
+    <rect x="70" y="26" width="15" height="1.5" rx="0.75" fill="rgba(255,255,255,0.15)"/>
+    <rect x="58" y="32" width="54" height="1" fill="rgba(255,255,255,0.05)"/>
+    <rect x="60" y="35" width="40" height="2" rx="1" fill="rgba(255,255,255,0.12)"/>
+    <rect x="60" y="39" width="35" height="2" rx="1" fill="rgba(255,255,255,0.08)"/>
+    <rect x="60" y="43" width="28" height="2" rx="1" fill="rgba(255,255,255,0.06)"/>
+    <!-- Engagement icons -->
+    <circle cx="62" cy="47" r="1.5" fill="#0A66C2" opacity="0.5"/>
+    <circle cx="67" cy="47" r="1.5" fill="#CC3333" opacity="0.3"/>
+    <text x="74" y="48.5" font-family="system-ui,sans-serif" font-size="2.5" fill="rgba(255,255,255,0.3)">247</text>
+
+    <!-- Feed post 2 (highlighted - "the signal") -->
+    <rect x="58" y="54" width="54" height="38" rx="2" fill="rgba(10,102,194,0.15)" stroke="rgba(10,102,194,0.3)" stroke-width="0.5"/>
+    <circle cx="64" cy="61" r="3" fill="rgba(10,102,194,0.5)"/>
+    <rect x="70" y="58" width="22" height="2" rx="1" fill="rgba(255,255,255,0.35)"/>
+    <rect x="70" y="62" width="16" height="1.5" rx="0.75" fill="rgba(255,255,255,0.2)"/>
+    <rect x="58" y="68" width="54" height="1" fill="rgba(255,255,255,0.05)"/>
+    <rect x="60" y="72" width="45" height="2" rx="1" fill="rgba(255,255,255,0.2)"/>
+    <rect x="60" y="76" width="40" height="2" rx="1" fill="rgba(255,255,255,0.15)"/>
+    <rect x="60" y="80" width="32" height="2" rx="1" fill="rgba(255,255,255,0.10)"/>
+    <!-- Engagement icons -->
+    <circle cx="62" cy="86" r="1.5" fill="#0A66C2" opacity="0.7"/>
+    <circle cx="67" cy="86" r="1.5" fill="#CC3333" opacity="0.5"/>
+    <circle cx="72" cy="86" r="1.5" fill="#FFAA00" opacity="0.4"/>
+    <text x="79" y="87.5" font-family="system-ui,sans-serif" font-size="2.5" fill="rgba(255,255,255,0.4)">1,247</text>
+
+    <!-- Feed post 3 -->
+    <rect x="58" y="96" width="54" height="26" rx="2" fill="rgba(255,255,255,0.06)"/>
+    <circle cx="64" cy="103" r="3" fill="rgba(255,255,255,0.2)"/>
+    <rect x="70" y="100" width="18" height="2" rx="1" fill="rgba(255,255,255,0.18)"/>
+    <rect x="70" y="104" width="14" height="1.5" rx="0.75" fill="rgba(255,255,255,0.10)"/>
+    <rect x="60" y="112" width="38" height="2" rx="1" fill="rgba(255,255,255,0.08)"/>
+    <rect x="60" y="116" width="30" height="2" rx="1" fill="rgba(255,255,255,0.06)"/>
+
+    <!-- Phone screen glow effect on surroundings -->
+    <ellipse cx="85" cy="65" rx="80" ry="100" fill="url(#phoneGlow)" opacity="0.15"/>
+  </g>
+
+  <!-- Blue glow reflection on the left side (from phone) -->
+  <ellipse cx="970" cy="350" rx="200" ry="200" fill="#0A66C2" opacity="0.04"/>
+
+  <!-- Subtle text overlay area (left side, where the actual page text will go) -->
+  <!-- Dark overlay on left for text readability -->
+  <rect x="0" y="0" width="600" height="500" fill="url(#leftFade)"/>
+  <linearGradient id="leftFade" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#0D1B3E" stop-opacity="0.95"/>
+    <stop offset="60%" stop-color="#0D1B3E" stop-opacity="0.8"/>
+    <stop offset="85%" stop-color="#0D1B3E" stop-opacity="0.3"/>
+    <stop offset="100%" stop-color="transparent"/>
+  </linearGradient>
+</svg>
