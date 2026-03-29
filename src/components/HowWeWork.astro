@@ -31,9 +31,8 @@ const steps = [
     <div class="process__grid">
       {steps.map((s, i) => (
         <div class="process__step reveal" style={`transition-delay: ${i * 0.1}s`}>
-          {i < steps.length - 1 && <div class="process__line-horizontal" aria-hidden="true"></div>}
+          <div class="process__line-horizontal" aria-hidden="true"></div>
           <div class="process__content">
-            <span class="process__number" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
             <span class="process__detail">{s.detail}</span>
             <h3 class="process__title">{s.title}</h3>
             <p class="process__body">{s.body}</p>
@@ -97,15 +96,7 @@ const steps = [
     display: flex;
     flex-direction: column;
     gap: var(--sp-3);
-  }
-
-  .process__number {
-    font-family: var(--font-display);
-    font-size: var(--fs-4xl);
-    font-weight: 700;
-    color: rgba(255,255,255,0.06);
-    line-height: 1;
-    letter-spacing: -0.03em;
+    flex: 1;
   }
 
   .process__detail {
@@ -136,7 +127,7 @@ const steps = [
     width: 100%;
     aspect-ratio: 16 / 10;
     min-height: 100px;
-    margin-top: var(--sp-2);
+    margin-top: auto;
     border-radius: var(--r-lg);
     background: rgba(255,255,255,0.02);
     border: 1px solid rgba(255,255,255,0.06);

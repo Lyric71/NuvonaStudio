@@ -50,7 +50,7 @@ export const ui = {
     'nav.consulting':   'Conseil',
     'nav.pricing':      'Tarifs',
     'nav.work':         'Réalisations',
-    'nav.insights':     'Insights',
+    'nav.insights':     'Publications',
     'nav.about':        'À propos',
     'nav.optimizer':    'Optimiseur de Profil',
     'nav.book_call':    'Prendre rendez-vous',
