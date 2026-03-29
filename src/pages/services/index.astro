@@ -1,7 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import NavBar from '../../components/NavBar.astro';
-import Footer from '../../components/Footer.astro';
 
 /* ── Data ───────────────────────────────────────────────── */
 
@@ -157,7 +156,7 @@ const consultingServices = [
             <div class="s-pillar__img-wrap">
               <div class="s-pillar__img-ph" aria-hidden="true">
                 <div class="s-ph__icon">
-                  <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill="rgba(0,168,220,0.10)"/><path d="M16 40l10-14 8 10 6-8 10 12H16z" fill="rgba(0,168,220,0.18)"/><circle cx="40" cy="20" r="5" fill="rgba(0,168,220,0.22)"/></svg>
+                  <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill="rgba(6,182,212,.08)"/><path d="M16 40l10-14 8 10 6-8 10 12H16z" fill="rgba(6,182,212,.16)"/><circle cx="40" cy="20" r="5" fill="rgba(6,182,212,.20)"/></svg>
                 </div>
                 <span class="s-ph__label">Content Services</span>
               </div>
@@ -199,7 +198,7 @@ const consultingServices = [
             <div class="s-pillar__img-wrap s-pillar__img-wrap--dark">
               <div class="s-pillar__img-ph s-pillar__img-ph--dark" aria-hidden="true">
                 <div class="s-ph__icon">
-                  <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill="rgba(0,168,220,0.12)"/><circle cx="28" cy="28" r="12" stroke="rgba(0,168,220,0.35)" stroke-width="2"/><circle cx="28" cy="28" r="6" fill="rgba(0,168,220,0.25)"/><circle cx="28" cy="28" r="2" fill="rgba(0,168,220,0.5)"/></svg>
+                  <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill="rgba(6,182,212,.10)"/><circle cx="28" cy="28" r="12" stroke="rgba(6,182,212,.30)" stroke-width="2"/><circle cx="28" cy="28" r="6" fill="rgba(6,182,212,.22)"/><circle cx="28" cy="28" r="2" fill="rgba(6,182,212,.45)"/></svg>
                 </div>
                 <span class="s-ph__label s-ph__label--dark">Advertising Services</span>
               </div>
@@ -237,7 +236,7 @@ const consultingServices = [
             <div class="s-pillar__img-wrap">
               <div class="s-pillar__img-ph" aria-hidden="true">
                 <div class="s-ph__icon">
-                  <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill="rgba(0,168,220,0.10)"/><path d="M14 18h10a4 4 0 0 1 4 4v16a3 3 0 0 0-3-3H14V18z" fill="rgba(0,168,220,0.15)"/><path d="M42 18H32a4 4 0 0 0-4 4v16a3 3 0 0 1 3-3h11V18z" fill="rgba(0,168,220,0.20)"/></svg>
+                  <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><rect width="56" height="56" rx="14" fill="rgba(6,182,212,.08)"/><path d="M14 18h10a4 4 0 0 1 4 4v16a3 3 0 0 0-3-3H14V18z" fill="rgba(6,182,212,.12)"/><path d="M42 18H32a4 4 0 0 0-4 4v16a3 3 0 0 1 3-3h11V18z" fill="rgba(6,182,212,.18)"/></svg>
                 </div>
                 <span class="s-ph__label">Consulting Services</span>
               </div>
@@ -289,7 +288,6 @@ const consultingServices = [
     </section>
 
   </main>
-  <Footer />
 </Layout>
 
 
@@ -313,8 +311,8 @@ const consultingServices = [
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 60% 50% at 50% 30%, rgba(0,168,220,0.10) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 50% at 80% 80%, rgba(10,102,194,0.08) 0%, transparent 60%);
+      radial-gradient(ellipse 60% 50% at 50% 30%, rgba(6,182,212,.08) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 50% at 80% 80%, rgba(3,105,161,.06) 0%, transparent 60%);
     pointer-events: none;
   }
 
@@ -327,19 +325,19 @@ const consultingServices = [
   .s-hero__orb--1 {
     width: 600px; height: 600px;
     top: -220px; left: -120px;
-    background: radial-gradient(circle, rgba(0,168,220,0.14) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(6,182,212,.12) 0%, transparent 70%);
     animation: orbDrift 14s ease-in-out infinite;
   }
   .s-hero__orb--2 {
     width: 450px; height: 450px;
     bottom: -120px; right: -80px;
-    background: radial-gradient(circle, rgba(10,102,194,0.12) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(3,105,161,.10) 0%, transparent 70%);
     animation: orbDrift 18s ease-in-out infinite reverse;
   }
   .s-hero__orb--3 {
     width: 300px; height: 300px;
     top: 40%; right: 20%;
-    background: radial-gradient(circle, rgba(0,168,220,0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(6,182,212,.06) 0%, transparent 70%);
     animation: orbDrift 20s ease-in-out infinite;
   }
   @keyframes orbDrift {
@@ -366,7 +364,7 @@ const consultingServices = [
   .s-hero__h1 em {
     font-style: normal;
     display: block;
-    background: linear-gradient(135deg, var(--cyan) 0%, #60d4f0 100%);
+    background: linear-gradient(135deg, var(--cyan) 0%, var(--sky) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -375,7 +373,7 @@ const consultingServices = [
 
   .s-hero__sub {
     font-size: var(--fs-md);
-    color: rgba(255,255,255,0.60);
+    color: rgba(255,255,255,0.58);
     max-width: 580px;
     margin-inline: auto;
     line-height: 1.75;
@@ -400,19 +398,19 @@ const consultingServices = [
     align-items: center;
     gap: var(--sp-2);
     padding: var(--sp-2) var(--sp-4);
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.10);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
     border-radius: var(--r-full);
-    color: rgba(255,255,255,0.55);
+    color: rgba(255,255,255,0.52);
     font-size: var(--fs-xs);
     font-weight: 500;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    transition: all var(--t-base);
+    transition: background var(--t-base), border-color var(--t-base), color var(--t-base);
   }
   .s-hero-badge:hover {
-    background: rgba(255,255,255,0.10);
-    border-color: rgba(0,168,220,0.30);
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(6,182,212,.28);
     color: var(--cyan);
   }
   .s-hero-badge svg { color: var(--cyan); flex-shrink: 0; }
@@ -471,8 +469,8 @@ const consultingServices = [
     inset: 0;
     pointer-events: none;
     background:
-      radial-gradient(ellipse 50% 60% at 0% 100%, rgba(0,168,220,0.10) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 50% at 100% 0%, rgba(10,102,194,0.08) 0%, transparent 60%);
+      radial-gradient(ellipse 50% 60% at 0% 100%, rgba(6,182,212,.08) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 50% at 100% 0%, rgba(3,105,161,.06) 0%, transparent 60%);
   }
 
   .s-pillar__layout {
@@ -494,14 +492,14 @@ const consultingServices = [
     justify-content: center;
     width: 56px; height: 56px;
     border-radius: var(--r-xl);
-    background: linear-gradient(135deg, rgba(10,102,194,0.10), rgba(0,168,220,0.08));
-    color: var(--blue);
+    background: linear-gradient(135deg, rgba(3,105,161,.08), rgba(6,182,212,.06));
+    color: var(--sky);
     margin-bottom: var(--sp-5);
     transition: transform var(--t-base);
   }
   .s-pillar__icon-wrap:hover { transform: scale(1.05); }
   .s-pillar__icon-wrap--light {
-    background: linear-gradient(135deg, rgba(0,168,220,0.15), rgba(10,102,194,0.10));
+    background: linear-gradient(135deg, rgba(6,182,212,.12), rgba(3,105,161,.08));
     color: var(--cyan);
   }
 
@@ -522,7 +520,7 @@ const consultingServices = [
     margin-bottom: var(--sp-4);
     font-weight: 500;
   }
-  .s-pillar--dark .s-pillar__lead { color: rgba(255,255,255,0.70); }
+  .s-pillar--dark .s-pillar__lead { color: rgba(255,255,255,0.68); }
 
   .s-pillar__body {
     font-size: var(--fs-base);
@@ -530,7 +528,7 @@ const consultingServices = [
     line-height: 1.75;
     margin-bottom: var(--sp-8);
   }
-  .s-pillar--dark .s-pillar__body { color: rgba(255,255,255,0.50); }
+  .s-pillar--dark .s-pillar__body { color: rgba(255,255,255,0.48); }
 
   /* Visual placeholder */
   .s-pillar__img-wrap {
@@ -545,7 +543,7 @@ const consultingServices = [
   .s-pillar__img-wrap--dark {
     background: rgba(255,255,255,0.04);
     border-color: rgba(255,255,255,0.08);
-    box-shadow: 0 24px 64px rgba(0,0,0,0.30);
+    box-shadow: var(--shadow-lg);
   }
 
   .s-pillar__img-ph {
@@ -555,10 +553,10 @@ const consultingServices = [
     justify-content: center;
     gap: var(--sp-4);
     height: 100%;
-    background: linear-gradient(135deg, #f0f4f8 0%, #e4ebf3 100%);
+    background: linear-gradient(135deg, var(--off-white) 0%, var(--border) 100%);
   }
   .s-pillar__img-ph--dark {
-    background: linear-gradient(135deg, rgba(0,24,64,0.9) 0%, rgba(10,102,194,0.25) 100%);
+    background: linear-gradient(135deg, rgba(15,23,42,0.9) 0%, rgba(3,105,161,0.20) 100%);
   }
 
   .s-ph__icon {
@@ -607,14 +605,14 @@ const consultingServices = [
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--blue), var(--cyan));
+    background: linear-gradient(90deg, var(--sky), var(--cyan));
     opacity: 0;
     transition: opacity var(--t-base);
   }
   .s-card:hover {
-    border-color: rgba(10,102,194,0.20);
-    box-shadow: 0 12px 40px rgba(0,24,64,0.08);
-    transform: translateY(-4px);
+    border-color: rgba(3,105,161,.18);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
   }
   .s-card:hover::before { opacity: 1; }
 
@@ -630,8 +628,8 @@ const consultingServices = [
     justify-content: center;
     width: 44px; height: 44px;
     border-radius: var(--r-lg);
-    background: linear-gradient(135deg, rgba(10,102,194,0.10), rgba(0,168,220,0.08));
-    color: var(--blue);
+    background: linear-gradient(135deg, rgba(3,105,161,.08), rgba(6,182,212,.06));
+    color: var(--sky);
     flex-shrink: 0;
   }
   .s-card__num {
@@ -676,7 +674,7 @@ const consultingServices = [
   }
   .s-ad-card:hover {
     background: rgba(255,255,255,0.08);
-    border-color: rgba(0,168,220,0.25);
+    border-color: rgba(6,182,212,.22);
     transform: translateY(-3px);
   }
 
@@ -686,7 +684,7 @@ const consultingServices = [
     justify-content: center;
     width: 44px; height: 44px;
     border-radius: var(--r-lg);
-    background: rgba(0,168,220,0.12);
+    background: rgba(6,182,212,.10);
     color: var(--cyan);
     flex-shrink: 0;
     margin-bottom: var(--sp-2);
@@ -698,7 +696,7 @@ const consultingServices = [
   }
   .s-ad-card__text {
     font-size: var(--fs-sm);
-    color: rgba(255,255,255,0.50);
+    color: rgba(255,255,255,0.48);
     line-height: 1.7;
   }
 
@@ -724,9 +722,9 @@ const consultingServices = [
     transition: border-color var(--t-base), box-shadow var(--t-base), transform var(--t-base);
   }
   .s-consult-card:hover {
-    border-color: rgba(10,102,194,0.20);
-    box-shadow: 0 12px 40px rgba(0,24,64,0.08);
-    transform: translateY(-4px);
+    border-color: rgba(3,105,161,.18);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
   }
 
   .s-consult-card__icon {
@@ -735,7 +733,7 @@ const consultingServices = [
     justify-content: center;
     width: 48px; height: 48px;
     border-radius: var(--r-lg);
-    background: linear-gradient(135deg, rgba(10,102,194,0.10), rgba(0,168,220,0.08));
+    background: linear-gradient(135deg, rgba(3,105,161,.08), rgba(6,182,212,.06));
     color: var(--blue);
     flex-shrink: 0;
     margin-bottom: var(--sp-2);
@@ -799,12 +797,12 @@ const consultingServices = [
   .s-cta__orb--1 {
     width: 420px; height: 420px;
     top: -120px; right: 15%;
-    background: radial-gradient(circle, rgba(0,168,220,0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(6,182,212,.12) 0%, transparent 70%);
   }
   .s-cta__orb--2 {
     width: 300px; height: 300px;
     bottom: -80px; left: 5%;
-    background: radial-gradient(circle, rgba(10,102,194,0.12) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(3,105,161,.10) 0%, transparent 70%);
   }
 
   .s-cta__inner {
@@ -825,7 +823,7 @@ const consultingServices = [
 
   .s-cta__sub {
     font-size: var(--fs-md);
-    color: rgba(255,255,255,0.55);
+    color: rgba(255,255,255,0.52);
     line-height: 1.75;
     margin-bottom: var(--sp-10);
   }

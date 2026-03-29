@@ -1,7 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import NavBar from '../../components/NavBar.astro';
-import Footer from '../../components/Footer.astro';
 import FAQ from '../../components/FAQ.astro';
 
 /* ── Data ───────────────────────────────────────────────── */
@@ -64,6 +63,7 @@ const faqs = [
          HERO
          ═══════════════════════════════════════════════════════ -->
     <section class="c-hero" aria-labelledby="c-hero-h">
+      <div class="c-hero__bg" aria-hidden="true"></div>
       <div class="c-hero__orb c-hero__orb--1" aria-hidden="true"></div>
       <div class="c-hero__orb c-hero__orb--2" aria-hidden="true"></div>
       <div class="container">
@@ -104,8 +104,7 @@ const faqs = [
           </div>
           <div class="c-svc__visual reveal reveal-delay-2">
             <div class="c-svc__img-wrap">
-              <img src="/images/placeholder-advocacy.jpg" alt="Employee advocacy program" class="c-svc__img" width="560" height="420" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-              <div class="ph" aria-hidden="true"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="8" fill="rgba(0,90,156,0.08)"/><path d="M12 36l9-12 7 9 5-6 9 9H12z" fill="rgba(0,90,156,0.15)"/><circle cx="34" cy="18" r="4" fill="rgba(0,90,156,0.18)"/></svg><span>Visual coming soon</span></div>
+              <img src="/generated-1774795193053.png" alt="Diverse employees actively sharing content on LinkedIn from a modern open-plan office" class="c-svc__img" width="560" height="420" loading="lazy" />
             </div>
           </div>
         </div>
@@ -144,8 +143,7 @@ const faqs = [
           </div>
           <div class="c-svc__visual reveal reveal-delay-2">
             <div class="c-svc__img-wrap">
-              <img src="/images/placeholder-branding.jpg" alt="Executive personal branding on LinkedIn" class="c-svc__img" width="560" height="420" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-              <div class="ph" aria-hidden="true"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="8" fill="rgba(0,90,156,0.08)"/><path d="M12 36l9-12 7 9 5-6 9 9H12z" fill="rgba(0,90,156,0.15)"/><circle cx="34" cy="18" r="4" fill="rgba(0,90,156,0.18)"/></svg><span>Visual coming soon</span></div>
+              <img src="/generated-1774795266442.png" alt="Executive checking LinkedIn engagement on phone in modern corner office at golden hour" class="c-svc__img" width="560" height="420" loading="lazy" />
             </div>
           </div>
         </div>
@@ -242,7 +240,6 @@ const faqs = [
     </section>
 
   </main>
-  <Footer />
 </Layout>
 
 
@@ -251,7 +248,7 @@ const faqs = [
      ═══════════════════════════════════════════════════════════ -->
 <style>
   /* ── shared placeholder ── */
-  .ph{display:none;position:absolute;inset:0;flex-direction:column;align-items:center;justify-content:center;gap:var(--sp-3);background:linear-gradient(135deg,#f0f4f8,#e8eef5);border-radius:var(--r-xl)}
+  .ph{display:none;position:absolute;inset:0;flex-direction:column;align-items:center;justify-content:center;gap:var(--sp-3);background:linear-gradient(135deg,var(--off-white),var(--border));border-radius:var(--r-xl)}
   .ph span{font-size:var(--fs-xs);color:var(--text-3);letter-spacing:.06em;text-transform:uppercase;font-weight:500}
 
 
@@ -264,17 +261,24 @@ const faqs = [
     position:relative;overflow:hidden;
     text-align:center;
   }
+  .c-hero__bg{
+    position:absolute;inset:0;
+    background:url('/generated-1774794901935.png') center/cover no-repeat;
+    opacity:0.18;
+    pointer-events:none;
+  }
   .c-hero::before{
-    content:'';position:absolute;inset:0;
+    content:'';position:absolute;inset:0;z-index:1;
     background:
-      radial-gradient(ellipse 55% 60% at 50% 30%,rgba(0,168,220,.12) 0%,transparent 60%),
-      radial-gradient(ellipse 40% 50% at 80% 80%,rgba(10,102,194,.08) 0%,transparent 60%);
+      linear-gradient(to bottom,rgba(3,7,18,.55) 0%,rgba(3,7,18,.35) 40%,rgba(3,7,18,.70) 100%),
+      radial-gradient(ellipse 55% 60% at 50% 30%,rgba(6,182,212,.12) 0%,transparent 60%),
+      radial-gradient(ellipse 40% 50% at 80% 80%,rgba(3,105,161,.08) 0%,transparent 60%);
     pointer-events:none;
   }
 
   .c-hero__orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(90px)}
-  .c-hero__orb--1{width:600px;height:600px;top:-200px;left:-100px;background:radial-gradient(circle,rgba(0,168,220,.14) 0%,transparent 70%)}
-  .c-hero__orb--2{width:400px;height:400px;bottom:-100px;right:-60px;background:radial-gradient(circle,rgba(10,102,194,.10) 0%,transparent 70%)}
+  .c-hero__orb--1{width:600px;height:600px;top:-200px;left:-100px;background:radial-gradient(circle,rgba(6,182,212,.14) 0%,transparent 70%)}
+  .c-hero__orb--2{width:400px;height:400px;bottom:-100px;right:-60px;background:radial-gradient(circle,rgba(3,105,161,.10) 0%,transparent 70%)}
 
   .c-hero__inner{position:relative;z-index:1;max-width:820px;margin-inline:auto}
 
@@ -348,12 +352,12 @@ const faqs = [
     transition:border-color var(--t-fast),box-shadow var(--t-fast),transform var(--t-base);
   }
   .c-svc--alt .c-card{background:var(--white)}
-  .c-card:hover{border-color:var(--border-2);box-shadow:var(--shadow-md);transform:translateY(-2px)}
+  .c-card:hover{border-color:var(--border-2);box-shadow:var(--shadow-md);transform:translateY(-3px)}
 
   .c-card__num{
     position:absolute;top:var(--sp-3);right:var(--sp-5);
     font-family:var(--font-display);font-size:var(--fs-5xl);font-weight:700;
-    color:rgba(10,102,194,.05);line-height:1;pointer-events:none;
+    color:rgba(3,105,161,.05);line-height:1;pointer-events:none;
   }
   .c-card__title{display:block;font-size:var(--fs-base);font-weight:600;color:var(--text);margin-bottom:var(--sp-3);position:relative;z-index:1}
   .c-card__desc{font-size:var(--fs-sm);color:var(--text-2);line-height:1.7;position:relative;z-index:1}
@@ -368,8 +372,8 @@ const faqs = [
   .c-training__bg{
     position:absolute;inset:0;pointer-events:none;
     background:
-      radial-gradient(ellipse 50% 60% at 0% 100%,rgba(0,168,220,.12) 0%,transparent 60%),
-      radial-gradient(ellipse 40% 50% at 100% 0%,rgba(10,102,194,.10) 0%,transparent 60%);
+      radial-gradient(ellipse 50% 60% at 0% 100%,rgba(6,182,212,.12) 0%,transparent 60%),
+      radial-gradient(ellipse 40% 50% at 100% 0%,rgba(3,105,161,.10) 0%,transparent 60%);
   }
 
   .c-training__head{position:relative;z-index:1;max-width:720px;margin-bottom:var(--sp-12)}
@@ -379,7 +383,7 @@ const faqs = [
     color:var(--cyan);letter-spacing:-.01em;
     margin-bottom:var(--sp-3);
     padding-bottom:var(--sp-2);
-    border-bottom:3px solid rgba(0,168,220,.40);
+    border-bottom:3px solid rgba(6,182,212,.40);
   }
 
   .c-training__h2{
@@ -402,7 +406,7 @@ const faqs = [
     border-radius:var(--r-xl);
     transition:background var(--t-fast),border-color var(--t-fast),transform var(--t-base);
   }
-  .c-workshop:hover{background:rgba(255,255,255,.08);border-color:rgba(0,168,220,.30);transform:translateY(-3px)}
+  .c-workshop:hover{background:rgba(255,255,255,.08);border-color:rgba(6,182,212,.30);transform:translateY(-3px)}
 
   .c-workshop__tag{
     display:inline-flex;align-items:center;
@@ -411,8 +415,8 @@ const faqs = [
     letter-spacing:0.10em;text-transform:uppercase;
     border-radius:var(--r-full);margin-bottom:var(--sp-4);
   }
-  .c-workshop__tag--cyan{background:rgba(0,168,220,.15);color:var(--cyan)}
-  .c-workshop__tag--blue{background:rgba(10,102,194,.15);color:rgba(255,255,255,.80)}
+  .c-workshop__tag--cyan{background:rgba(6,182,212,.15);color:var(--cyan)}
+  .c-workshop__tag--blue{background:rgba(3,105,161,.15);color:rgba(255,255,255,.80)}
 
   .c-workshop__title{display:block;font-size:var(--fs-lg);font-weight:600;color:var(--white);margin-bottom:var(--sp-3)}
   .c-workshop__desc{font-size:var(--fs-sm);color:rgba(255,255,255,.58);line-height:1.7}
@@ -427,7 +431,7 @@ const faqs = [
 
   .c-num__glow{
     position:absolute;inset:0;pointer-events:none;
-    background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(10,102,194,.04) 0%,transparent 60%);
+    background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(3,105,161,.04) 0%,transparent 60%);
   }
 
   .c-num__head{position:relative;z-index:1;text-align:center;max-width:680px;margin-inline:auto;margin-bottom:var(--sp-12)}
@@ -465,8 +469,8 @@ const faqs = [
   .c-bcta{background:var(--deep-navy);position:relative;overflow:hidden;text-align:center}
 
   .c-bcta__orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px)}
-  .c-bcta__orb--1{width:420px;height:420px;top:-120px;right:15%;background:radial-gradient(circle,rgba(0,168,220,.15) 0%,transparent 70%)}
-  .c-bcta__orb--2{width:300px;height:300px;bottom:-80px;left:5%;background:radial-gradient(circle,rgba(10,102,194,.12) 0%,transparent 70%)}
+  .c-bcta__orb--1{width:420px;height:420px;top:-120px;right:15%;background:radial-gradient(circle,rgba(6,182,212,.15) 0%,transparent 70%)}
+  .c-bcta__orb--2{width:300px;height:300px;bottom:-80px;left:5%;background:radial-gradient(circle,rgba(3,105,161,.12) 0%,transparent 70%)}
 
   .c-bcta__inner{position:relative;z-index:1;max-width:720px;margin-inline:auto}
 

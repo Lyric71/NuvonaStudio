@@ -22,7 +22,7 @@ const legalLinks = [
 const year = new Date().getFullYear();
 ---
 
-<footer class="footer" role="contentinfo" style="background: var(--deep-navy);">
+<footer class="footer" role="contentinfo">
   <div class="container">
 
     <div class="footer__main">
@@ -80,13 +80,16 @@ const year = new Date().getFullYear();
   </div>
 </footer>
 
-<style>
-  .footer { padding-block: var(--sp-16) var(--sp-8); }
+<style is:global>
+  .footer {
+    background: var(--deep-navy);
+    padding-block: var(--sp-16) var(--sp-8);
+  }
 
   .footer__main {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
-    gap: var(--sp-10);
+    gap: var(--sp-12);
     align-items: start;
     padding-bottom: var(--sp-12);
   }
@@ -94,11 +97,11 @@ const year = new Date().getFullYear();
   /* Brand */
   .footer__logo-link { display: inline-block; margin-bottom: var(--sp-4); }
   .footer__logo {
-    height: 40px;
+    height: 36px;
     width: auto;
     display: block;
     filter: brightness(0) invert(1);
-    opacity: 0.90;
+    opacity: 0.85;
   }
   .footer__tagline {
     font-size: var(--fs-sm);
@@ -109,9 +112,10 @@ const year = new Date().getFullYear();
 
   /* Columns */
   .footer__col-label {
+    font-family: var(--font-body);
     font-size: var(--fs-xs);
-    font-weight: 500;
-    letter-spacing: 0.14em;
+    font-weight: 600;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--navy-text-3);
     margin-bottom: var(--sp-5);
@@ -122,7 +126,7 @@ const year = new Date().getFullYear();
     color: var(--navy-text-2);
     transition: color var(--t-fast);
   }
-  .footer__link:hover { color: var(--cyan); }
+  .footer__link:hover { color: var(--white); }
 
   .footer__see-all {
     display: inline-block;
@@ -135,7 +139,7 @@ const year = new Date().getFullYear();
   .footer__see-all:hover { opacity: 0.75; }
 
   /* Bottom bar */
-  .footer__rule { height: 1px; background: rgba(255,255,255,0.08); }
+  .footer__rule { height: 1px; background: rgba(255,255,255,0.06); }
   .footer__bottom {
     display: flex;
     align-items: center;
@@ -147,7 +151,7 @@ const year = new Date().getFullYear();
   .footer__badges {
     font-size: var(--fs-xs);
     color: var(--navy-text-3);
-    letter-spacing: 0.06em;
+    letter-spacing: 0.04em;
     white-space: nowrap;
   }
   .footer__copy {

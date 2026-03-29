@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import NavBar from '../components/NavBar.astro';
-import Footer from '../components/Footer.astro';
 ---
 
 <Layout
@@ -310,7 +309,6 @@ import Footer from '../components/Footer.astro';
     </section>
 
   </main>
-  <Footer />
 </Layout>
 
 <style>
@@ -332,7 +330,7 @@ import Footer from '../components/Footer.astro';
     inset: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.6;
+    opacity: 0.5;
   }
 
   .hero-circle {
@@ -342,23 +340,23 @@ import Footer from '../components/Footer.astro';
     transform: translateY(-50%);
     width: 520px;
     height: 520px;
-    opacity: 0.7;
+    opacity: 0.6;
   }
 
   .hero-glow {
     position: absolute;
     border-radius: 50%;
-    filter: blur(80px);
+    filter: blur(90px);
     pointer-events: none;
   }
   .hero-glow--1 {
     width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(0,168,220,0.12) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(6,182,212,0.10) 0%, transparent 70%);
     right: 5%; top: -10%;
   }
   .hero-glow--2 {
     width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(10,102,194,0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(14,165,233,0.12) 0%, transparent 70%);
     left: 10%; bottom: -5%;
   }
 
@@ -382,14 +380,15 @@ import Footer from '../components/Footer.astro';
     margin-block: var(--sp-5) var(--sp-6);
   }
   .contact-hero__h1 em {
-    color: rgba(255,255,255,0.38);
+    color: rgba(255,255,255,0.35);
     font-weight: 300;
     font-style: normal;
   }
 
   .contact-hero__sub {
+    font-family: var(--font-body);
     font-size: var(--fs-md);
-    color: rgba(255,255,255,0.60);
+    color: rgba(255,255,255,0.58);
     line-height: 1.75;
     margin-bottom: var(--sp-8);
   }
@@ -407,12 +406,18 @@ import Footer from '../components/Footer.astro';
     gap: var(--sp-2);
     font-size: var(--fs-xs);
     font-weight: 500;
-    color: rgba(255,255,255,0.65);
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.10);
+    color: rgba(255,255,255,0.62);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
     border-radius: var(--r-full);
     padding: var(--sp-2) var(--sp-4);
     letter-spacing: 0.02em;
+    transition: background var(--t-fast), border-color var(--t-fast);
+  }
+
+  .hero-chip:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.14);
   }
 
   /* Right visual */
@@ -428,12 +433,13 @@ import Footer from '../components/Footer.astro';
     display: flex;
     align-items: center;
     gap: var(--sp-4);
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.10);
     border-radius: var(--r-xl);
     padding: var(--sp-5) var(--sp-7);
     min-width: 240px;
     position: relative;
+    backdrop-filter: blur(10px);
   }
 
   .hero-visual-card__icon {
@@ -452,13 +458,15 @@ import Footer from '../components/Footer.astro';
     gap: 2px;
   }
   .hero-visual-card__label {
+    font-family: var(--font-display);
     font-size: var(--fs-sm);
     font-weight: 600;
     color: var(--white);
   }
   .hero-visual-card__sub {
+    font-family: var(--font-body);
     font-size: var(--fs-xs);
-    color: rgba(255,255,255,0.50);
+    color: rgba(255,255,255,0.45);
   }
 
   /* Online dot */
@@ -482,7 +490,7 @@ import Footer from '../components/Footer.astro';
     position: absolute;
     bottom: 0; left: 0; right: 0;
     height: 80px;
-    background: linear-gradient(to bottom, transparent, rgba(0,24,64,0.5));
+    background: linear-gradient(to bottom, transparent, rgba(15,23,42,0.5));
     pointer-events: none;
   }
 
@@ -517,12 +525,12 @@ import Footer from '../components/Footer.astro';
   .contact-success__icon {
     width: 64px; height: 64px;
     border-radius: 50%;
-    background: var(--blue);
+    background: var(--sky);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: var(--sp-6);
-    box-shadow: 0 0 0 10px rgba(10,102,194,0.12);
+    box-shadow: 0 0 0 10px rgba(14,165,233,0.10);
   }
 
   .contact-success__title {
@@ -534,6 +542,7 @@ import Footer from '../components/Footer.astro';
   }
 
   .contact-success__body {
+    font-family: var(--font-body);
     font-size: var(--fs-md);
     color: var(--text-2);
     max-width: 360px;
@@ -545,7 +554,7 @@ import Footer from '../components/Footer.astro';
     border: 1px solid var(--border);
     border-radius: var(--r-2xl);
     overflow: hidden;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-sm);
   }
 
   .contact-card__header {
@@ -559,7 +568,7 @@ import Footer from '../components/Footer.astro';
   .contact-card__header-icon {
     width: 40px; height: 40px;
     flex-shrink: 0;
-    background: rgba(10,102,194,0.07);
+    background: rgba(14,165,233,0.07);
     border-radius: var(--r-lg);
     display: flex;
     align-items: center;
@@ -576,6 +585,7 @@ import Footer from '../components/Footer.astro';
   }
 
   .contact-card__note {
+    font-family: var(--font-body);
     font-size: var(--fs-xs);
     color: var(--text-3);
   }
@@ -594,7 +604,7 @@ import Footer from '../components/Footer.astro';
   }
 
   .contact-form__full { grid-column: 1 / -1; }
-  .required-mark { color: var(--blue); margin-left: 2px; }
+  .required-mark { color: var(--sky); margin-left: 2px; }
   .form-optional { color: var(--text-3); font-weight: 400; font-size: var(--fs-xs); }
 
   .form-error {
@@ -607,14 +617,14 @@ import Footer from '../components/Footer.astro';
   .form-input.is-invalid,
   .form-textarea.is-invalid {
     border-color: #c0392b;
-    box-shadow: 0 0 0 3px rgba(192,57,43,0.10);
+    box-shadow: 0 0 0 3px rgba(192,57,43,0.08);
   }
 
   .form-banner {
     display: none;
     padding: var(--sp-4);
     background: #FEF2F2;
-    border: 1px solid rgba(192,57,43,0.20);
+    border: 1px solid rgba(192,57,43,0.15);
     border-radius: var(--r-md);
     font-size: var(--fs-sm);
     color: #c0392b;
@@ -632,6 +642,7 @@ import Footer from '../components/Footer.astro';
     display: flex;
     align-items: center;
     gap: var(--sp-2);
+    font-family: var(--font-body);
     font-size: var(--fs-xs);
     color: var(--text-3);
   }
@@ -662,8 +673,13 @@ import Footer from '../components/Footer.astro';
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: var(--r-2xl);
-    padding: var(--sp-6);
+    padding: var(--sp-7);
     box-shadow: var(--shadow-sm);
+    transition: box-shadow var(--t-base);
+  }
+
+  .sidebar-card:hover {
+    box-shadow: var(--shadow-md);
   }
 
   .sidebar-card__title {
@@ -709,6 +725,7 @@ import Footer from '../components/Footer.astro';
     border-radius: 50%;
     background: var(--deep-navy);
     color: var(--white);
+    font-family: var(--font-display);
     font-size: var(--fs-xs);
     font-weight: 700;
     display: flex;
@@ -725,15 +742,17 @@ import Footer from '../components/Footer.astro';
   }
   .step-item__content strong {
     display: block;
+    font-family: var(--font-body);
     font-size: var(--fs-sm);
     font-weight: 600;
     color: var(--deep-navy);
     margin-bottom: var(--sp-1);
   }
   .step-item__content p {
+    font-family: var(--font-body);
     font-size: var(--fs-xs);
     color: var(--text-2);
-    line-height: 1.65;
+    line-height: 1.7;
   }
 
   /* Trust list */
@@ -747,6 +766,7 @@ import Footer from '../components/Footer.astro';
     display: flex;
     align-items: flex-start;
     gap: var(--sp-3);
+    font-family: var(--font-body);
     font-size: var(--fs-sm);
     color: var(--text-2);
     line-height: 1.5;
@@ -755,7 +775,7 @@ import Footer from '../components/Footer.astro';
   .trust-item__icon {
     flex-shrink: 0;
     width: 28px; height: 28px;
-    background: rgba(0,168,220,0.08);
+    background: rgba(6,182,212,0.08);
     border-radius: var(--r-md);
     display: flex;
     align-items: center;
@@ -767,6 +787,10 @@ import Footer from '../components/Footer.astro';
   .sidebar-card--pricing {
     background: var(--deep-navy);
     border-color: rgba(255,255,255,0.08);
+  }
+
+  .sidebar-card--pricing:hover {
+    box-shadow: var(--shadow-lg);
   }
 
   .pricing-anchor__top {
@@ -793,11 +817,12 @@ import Footer from '../components/Footer.astro';
   .pricing-anchor__value span {
     font-size: var(--fs-lg);
     font-weight: 400;
-    color: rgba(255,255,255,0.45);
+    color: rgba(255,255,255,0.42);
   }
   .pricing-anchor__note {
+    font-family: var(--font-body);
     font-size: var(--fs-xs);
-    color: rgba(255,255,255,0.40);
+    color: rgba(255,255,255,0.38);
     margin-bottom: var(--sp-5);
     line-height: 1.5;
   }
@@ -808,9 +833,9 @@ import Footer from '../components/Footer.astro';
     font-size: var(--fs-sm);
     font-weight: 600;
     color: var(--cyan);
-    transition: gap var(--t-fast);
+    transition: gap var(--t-fast), color var(--t-fast);
   }
-  .pricing-anchor__link:hover { gap: var(--sp-3); }
+  .pricing-anchor__link:hover { gap: var(--sp-3); color: var(--sky); }
 
   /* ══════════════════════════════════════════
      RESPONSIVE

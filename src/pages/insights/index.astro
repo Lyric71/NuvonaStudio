@@ -1,7 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import NavBar from '../../components/NavBar.astro';
-import Footer from '../../components/Footer.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
 
 const posts = [
@@ -235,7 +234,6 @@ const allTags = [...new Set(posts.flatMap(p => p.tags))].sort();
 
     <ContactCTA />
   </main>
-  <Footer />
 </Layout>
 
 <style>
@@ -250,29 +248,31 @@ const allTags = [...new Set(posts.flatMap(p => p.tags))].sort();
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 60% 70% at 75% 40%, rgba(0,168,220,0.10) 0%, transparent 60%);
+    background: radial-gradient(ellipse 60% 70% at 75% 40%, rgba(6,182,212,0.08) 0%, transparent 60%);
     pointer-events: none;
   }
   .insights-hero .container { position: relative; z-index: 1; }
 
   .insights-hero__h1 {
+    font-family: var(--font-display), sans-serif;
     font-size: clamp(2.25rem, 4.5vw, 3.5rem);
     font-weight: 700;
     color: var(--white);
     line-height: 1.12;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
     margin-block: var(--sp-5) var(--sp-6);
   }
   .insights-hero__h1 em {
-    color: rgba(255,255,255,0.42);
+    color: rgba(255,255,255,0.38);
     font-weight: 300;
     font-style: normal;
   }
   .insights-hero__sub {
+    font-family: var(--font-body), sans-serif;
     font-size: var(--fs-md);
-    color: rgba(255,255,255,0.65);
+    color: rgba(255,255,255,0.58);
     max-width: 540px;
-    line-height: 1.75;
+    line-height: 1.7;
   }
 
   /* ── Tag filters ── */
@@ -289,18 +289,20 @@ const allTags = [...new Set(posts.flatMap(p => p.tags))].sort();
     gap: var(--sp-2);
     padding: var(--sp-2) var(--sp-4);
     border-radius: 999px;
-    border: 1px solid var(--border-2);
+    border: 1px solid var(--border);
     background: var(--white);
+    font-family: var(--font-body), sans-serif;
     font-size: var(--fs-xs);
     font-weight: 500;
     color: var(--text-2);
     cursor: pointer;
-    transition: all 0.18s ease;
+    transition: all var(--t-base) ease;
     letter-spacing: 0.02em;
   }
   .tag-btn:hover {
-    border-color: var(--blue);
-    color: var(--blue);
+    border-color: var(--sky);
+    color: var(--sky);
+    box-shadow: 0 2px 8px rgba(14,165,233,0.1);
   }
   .tag-btn--active {
     background: var(--deep-navy);
@@ -324,12 +326,16 @@ const allTags = [...new Set(posts.flatMap(p => p.tags))].sort();
     display: flex;
     flex-direction: column;
     gap: var(--sp-5);
-    transition: box-shadow 0.22s ease, border-color 0.22s ease, transform 0.22s ease, opacity 0.25s ease;
+    transition:
+      box-shadow var(--t-base) ease,
+      border-color var(--t-base) ease,
+      transform var(--t-base) ease,
+      opacity var(--t-base) ease;
   }
   .post-card:hover {
     box-shadow: var(--shadow-md);
     border-color: var(--border-2);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
   }
   .post-card.is-hidden {
     display: none;
@@ -346,19 +352,20 @@ const allTags = [...new Set(posts.flatMap(p => p.tags))].sort();
   }
 
   .post-card__thumb--empty {
-    background: linear-gradient(135deg, rgba(10,102,194,0.04) 0%, rgba(0,168,220,0.07) 100%);
-    border: 1.5px dashed rgba(10,102,194,0.15);
+    background: linear-gradient(135deg, rgba(14,165,233,0.04) 0%, rgba(6,182,212,0.06) 100%);
+    border: 1.5px dashed rgba(14,165,233,0.12);
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
   .post-card__thumb--empty span {
+    font-family: var(--font-body), sans-serif;
     font-size: var(--fs-xs);
     font-weight: 600;
     letter-spacing: 0.10em;
     text-transform: uppercase;
-    color: rgba(10,102,194,0.25);
+    color: rgba(14,165,233,0.2);
   }
 
 
@@ -379,9 +386,10 @@ const allTags = [...new Set(posts.flatMap(p => p.tags))].sort();
   .post-tag {
     display: inline-block;
     padding: 2px var(--sp-3);
-    border-radius: 999px;
-    background: rgba(10,102,194,0.08);
-    color: var(--blue);
+    border-radius: var(--r-sm);
+    background: rgba(14,165,233,0.07);
+    color: var(--sky);
+    font-family: var(--font-body), sans-serif;
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.06em;
@@ -389,25 +397,28 @@ const allTags = [...new Set(posts.flatMap(p => p.tags))].sort();
   }
 
   .post-card__category {
+    font-family: var(--font-body), sans-serif;
     font-size: var(--fs-xs);
     color: var(--text-3);
     letter-spacing: 0.04em;
   }
 
   .post-card__title {
+    font-family: var(--font-display), sans-serif;
     font-size: var(--fs-xl);
     font-weight: 700;
     color: var(--text);
     line-height: 1.3;
     letter-spacing: -0.01em;
   }
-  .post-card__title a { color: inherit; transition: color 0.15s ease; }
-  .post-card__title a:hover { color: var(--blue); }
+  .post-card__title a { color: inherit; transition: color var(--t-fast) ease; }
+  .post-card__title a:hover { color: var(--sky); }
 
   .post-card__excerpt {
+    font-family: var(--font-body), sans-serif;
     font-size: var(--fs-base);
     color: var(--text-2);
-    line-height: 1.85;
+    line-height: 1.8;
     flex: 1;
   }
 
@@ -422,24 +433,27 @@ const allTags = [...new Set(posts.flatMap(p => p.tags))].sort();
   }
 
   .post-card__read-time {
+    font-family: var(--font-body), sans-serif;
     font-size: var(--fs-xs);
     color: var(--text-3);
   }
 
   .post-card__cta {
+    font-family: var(--font-body), sans-serif;
     font-size: var(--fs-xs);
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--blue);
-    transition: color 0.15s ease;
+    color: var(--sky);
+    transition: color var(--t-fast) ease;
   }
-  .post-card__cta:hover { color: var(--mid-blue); }
+  .post-card__cta:hover { color: var(--cyan); }
 
   .posts-empty {
     text-align: center;
     color: var(--text-3);
     padding-block: var(--sp-20);
+    font-family: var(--font-body), sans-serif;
     font-size: var(--fs-md);
   }
 

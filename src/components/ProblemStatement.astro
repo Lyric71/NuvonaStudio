@@ -22,7 +22,7 @@ const painPoints = [
   <div class="container">
 
     <div class="problem__head reveal">
-      <p class="eyebrow">The problem</p>
+      <p class="eyebrow eyebrow--light">The problem</p>
       <h2 id="problem-heading">
         Most B2B companies are<br />invisible on LinkedIn.
       </h2>
@@ -65,7 +65,7 @@ const painPoints = [
 
   .problem__head {
     text-align: center;
-    max-width: 680px;
+    max-width: 660px;
     margin-inline: auto;
     margin-bottom: var(--sp-12);
   }
@@ -90,12 +90,13 @@ const painPoints = [
     max-width: 860px;
     margin-inline: auto;
     margin-bottom: var(--sp-16);
+    border-radius: var(--r-xl);
+    overflow: hidden;
   }
 
   .problem__img {
     width: 100%;
     height: auto;
-    border-radius: var(--r-xl);
     display: block;
   }
 
@@ -107,17 +108,17 @@ const painPoints = [
   }
 
   .problem__card {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: var(--r-xl);
     padding: var(--sp-8);
     transition: all var(--t-base);
   }
 
   .problem__card:hover {
-    background: rgba(255, 255, 255, 0.07);
-    border-color: rgba(255, 255, 255, 0.14);
-    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-3px);
   }
 
   .problem__stat {

@@ -30,7 +30,7 @@ const posts = [
 ];
 ---
 
-<section class="section" aria-labelledby="insights-heading">
+<section class="section" style="background: var(--off-white);" aria-labelledby="insights-heading">
   <div class="container">
 
     <div class="insights__head reveal">
@@ -115,22 +115,23 @@ const posts = [
   .insights__card:hover {
     box-shadow: var(--shadow-md);
     border-color: var(--border-2);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
   }
 
-  /* ── Thumbnail placeholder ── */
+  /* ── Thumbnail ── */
   .insights__thumb {
     width: 100%;
     aspect-ratio: 16 / 9;
     min-height: 160px;
     margin-bottom: var(--sp-6);
     border-radius: var(--r-lg);
-    background: linear-gradient(135deg, rgba(10,102,194,0.04) 0%, rgba(0,168,220,0.07) 100%);
-    border: 1.5px dashed rgba(10,102,194,0.15);
+    background: var(--off-white);
+    border: 1px solid var(--border);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    overflow: hidden;
   }
 
   .insights__thumb span {
@@ -138,7 +139,7 @@ const posts = [
     font-weight: 600;
     letter-spacing: 0.10em;
     text-transform: uppercase;
-    color: rgba(10,102,194,0.25);
+    color: var(--text-3);
   }
 
   .insights__thumb--img {
@@ -151,6 +152,7 @@ const posts = [
     background-size: cover;
     background-position: center;
     flex-shrink: 0;
+    border: none;
   }
 
   .insights__card-top {
@@ -170,10 +172,10 @@ const posts = [
 
   .insights__tag {
     display: inline-block;
-    padding: 2px var(--sp-3);
-    border-radius: 999px;
-    background: rgba(10,102,194,0.08);
-    color: var(--blue);
+    padding: 3px var(--sp-3);
+    border-radius: var(--r-full);
+    background: rgba(14,165,233,0.08);
+    color: var(--sky);
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.06em;
@@ -191,7 +193,7 @@ const posts = [
     flex: 1;
   }
   .insights__title a { color: inherit; transition: color var(--t-fast); }
-  .insights__title a:hover { color: var(--blue); }
+  .insights__title a:hover { color: var(--sky); }
 
   .insights__excerpt {
     font-size: var(--fs-sm);
@@ -209,16 +211,14 @@ const posts = [
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--blue);
+    color: var(--sky);
     margin-top: auto;
     transition: color var(--t-fast), gap var(--t-fast);
   }
-  .insights__read:hover { color: var(--mid-blue); gap: var(--sp-3); }
+  .insights__read:hover { color: var(--blue); gap: var(--sp-3); }
 
   @media (max-width: 1024px) {
     .insights__head { grid-template-columns: 1fr; gap: var(--sp-6); }
-  }
-  @media (max-width: 1024px) {
     .insights__grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 640px) {

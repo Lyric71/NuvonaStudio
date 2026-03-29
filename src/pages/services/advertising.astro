@@ -357,9 +357,9 @@ const faqs = [
                 />
                 <div class="fmt-block__img-placeholder" aria-hidden="true">
                   <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                    <rect width="48" height="48" rx="8" fill="rgba(0,90,156,0.08)"/>
-                    <path d="M12 36l9-12 7 9 5-6 9 9H12z" fill="rgba(0,90,156,0.15)"/>
-                    <circle cx="34" cy="18" r="4" fill="rgba(0,90,156,0.18)"/>
+                    <rect width="48" height="48" rx="8" fill="rgba(3,105,161,0.08)"/>
+                    <path d="M12 36l9-12 7 9 5-6 9 9H12z" fill="rgba(3,105,161,0.15)"/>
+                    <circle cx="34" cy="18" r="4" fill="rgba(3,105,161,0.18)"/>
                   </svg>
                   <span>Visual coming soon</span>
                 </div>
@@ -587,13 +587,13 @@ const faqs = [
   }
   .ads-hero__orb--1 {
     width: 600px; height: 600px;
-    background: rgba(10,102,194,0.18);
+    background: rgba(3,105,161,0.18);
     top: -200px; right: -100px;
     animation: orbFloat 12s ease-in-out infinite;
   }
   .ads-hero__orb--2 {
     width: 400px; height: 400px;
-    background: rgba(0,168,220,0.10);
+    background: rgba(6,182,212,0.10);
     bottom: -150px; left: -100px;
     animation: orbFloat 16s ease-in-out infinite reverse;
   }
@@ -622,7 +622,7 @@ const faqs = [
   }
 
   .ads-hero__h1 .text-gradient {
-    background: linear-gradient(135deg, var(--cyan) 0%, #60d4f0 100%);
+    background: linear-gradient(135deg, var(--cyan) 0%, var(--sky) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -657,7 +657,7 @@ const faqs = [
     width: 100%;
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.10);
-    box-shadow: 0 24px 64px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.05) inset;
+    box-shadow: var(--shadow-lg), 0 0 0 1px rgba(255,255,255,0.05) inset;
   }
 
   .ads-hero__img {
@@ -672,7 +672,7 @@ const faqs = [
     align-items: center;
     justify-content: center;
     gap: var(--sp-4);
-    background: linear-gradient(135deg, rgba(0,24,64,0.8) 0%, rgba(10,102,194,0.4) 100%);
+    background: linear-gradient(135deg, rgba(15,23,42,0.8) 0%, rgba(3,105,161,0.4) 100%);
   }
 
   .ads-hero__img-placeholder span {
@@ -690,14 +690,14 @@ const faqs = [
   .hero-badge {
     position: absolute;
     padding: var(--sp-3) var(--sp-5);
-    background: rgba(0,24,64,0.85);
+    background: rgba(15,23,42,0.85);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(0,168,220,0.3);
+    border: 1px solid rgba(6,182,212,0.3);
     border-radius: var(--r-lg);
     display: flex;
     flex-direction: column;
     gap: 2px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    box-shadow: var(--shadow-md);
     z-index: 2;
   }
   .hero-badge--1 { bottom: -16px; left: -24px; }
@@ -726,7 +726,7 @@ const faqs = [
   .problem::before {
     content: '';
     position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(10,102,194,0.06) 0%, transparent 50%);
+    background: linear-gradient(135deg, rgba(3,105,161,0.06) 0%, transparent 50%);
     pointer-events: none;
   }
 
@@ -883,9 +883,9 @@ const faqs = [
     transition: opacity var(--t-base);
   }
   .wwd-card:hover {
-    border-color: rgba(10,102,194,0.25);
-    box-shadow: 0 12px 40px rgba(0,24,64,0.08);
-    transform: translateY(-4px);
+    border-color: rgba(3,105,161,0.25);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
   }
   .wwd-card:hover::before {
     opacity: 1;
@@ -905,7 +905,7 @@ const faqs = [
     width: 48px;
     height: 48px;
     border-radius: var(--r-lg);
-    background: linear-gradient(135deg, rgba(10,102,194,0.10), rgba(0,168,220,0.08));
+    background: linear-gradient(135deg, rgba(3,105,161,0.10), rgba(6,182,212,0.08));
     color: var(--blue);
     flex-shrink: 0;
   }
@@ -984,7 +984,7 @@ const faqs = [
     width: 48px;
     height: 48px;
     border-radius: var(--r-lg);
-    background: linear-gradient(135deg, rgba(10,102,194,0.10), rgba(0,168,220,0.08));
+    background: linear-gradient(135deg, rgba(3,105,161,0.10), rgba(6,182,212,0.08));
     color: var(--blue);
   }
   .fmt-block__icon svg { display: block; }
@@ -1025,7 +1025,7 @@ const faqs = [
     aspect-ratio: 16/11;
     background: var(--off-white);
     border: 1px solid var(--border);
-    box-shadow: 0 16px 48px rgba(0,24,64,0.06);
+    box-shadow: var(--shadow-md);
   }
 
   .fmt-block__img {
@@ -1040,7 +1040,7 @@ const faqs = [
     align-items: center;
     justify-content: center;
     gap: var(--sp-3);
-    background: linear-gradient(135deg, #f0f4f8 0%, #e8eef5 100%);
+    background: linear-gradient(135deg, var(--off-white) 0%, var(--border) 100%);
   }
 
   .fmt-block__img-placeholder span {
@@ -1064,8 +1064,8 @@ const faqs = [
   .why-us__bg {
     position: absolute; inset: 0;
     background:
-      radial-gradient(ellipse 50% 60% at 90% 20%, rgba(0,168,220,0.12) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 50% at 10% 80%, rgba(10,102,194,0.10) 0%, transparent 60%);
+      radial-gradient(ellipse 50% 60% at 90% 20%, rgba(6,182,212,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 50% at 10% 80%, rgba(3,105,161,0.10) 0%, transparent 60%);
     pointer-events: none;
   }
 
@@ -1108,7 +1108,7 @@ const faqs = [
     aspect-ratio: 4/5;
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.10);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    box-shadow: var(--shadow-lg);
   }
 
   .why__photo {
@@ -1123,7 +1123,7 @@ const faqs = [
     align-items: center;
     justify-content: center;
     gap: var(--sp-4);
-    background: linear-gradient(160deg, rgba(0,24,64,0.8) 0%, rgba(10,102,194,0.35) 100%);
+    background: linear-gradient(160deg, rgba(15,23,42,0.8) 0%, rgba(3,105,161,0.35) 100%);
   }
 
   .why__photo-placeholder span {
@@ -1143,8 +1143,8 @@ const faqs = [
     align-items: center;
     gap: var(--sp-4);
     padding: var(--sp-5) var(--sp-6);
-    background: linear-gradient(135deg, rgba(0,168,220,0.12) 0%, rgba(10,102,194,0.08) 100%);
-    border: 1px solid rgba(0,168,220,0.25);
+    background: linear-gradient(135deg, rgba(6,182,212,0.12) 0%, rgba(3,105,161,0.08) 100%);
+    border: 1px solid rgba(6,182,212,0.25);
     border-radius: var(--r-xl);
   }
 
@@ -1152,7 +1152,7 @@ const faqs = [
     width: 52px;
     height: 52px;
     border-radius: var(--r-lg);
-    background: rgba(0,168,220,0.15);
+    background: rgba(6,182,212,0.15);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1239,7 +1239,7 @@ const faqs = [
   }
   .why-card:hover {
     background: rgba(255,255,255,0.07);
-    border-color: rgba(0,168,220,0.30);
+    border-color: rgba(6,182,212,0.30);
     transform: translateX(4px);
   }
 
@@ -1247,8 +1247,8 @@ const faqs = [
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: linear-gradient(135deg, rgba(0,168,220,0.15), rgba(10,102,194,0.10));
-    border: 1px solid rgba(0,168,220,0.25);
+    background: linear-gradient(135deg, rgba(6,182,212,0.15), rgba(3,105,161,0.10));
+    border: 1px solid rgba(6,182,212,0.25);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1335,7 +1335,7 @@ const faqs = [
     margin: 0 auto var(--sp-4);
     position: relative;
     z-index: 1;
-    box-shadow: 0 4px 20px rgba(10,102,194,0.3);
+    box-shadow: var(--shadow-sm);
   }
   .step-card__dot span {
     font-family: var(--font-display);
@@ -1367,7 +1367,7 @@ const faqs = [
   .stats-section::before {
     content: '';
     position: absolute; inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 20% 80%, rgba(0,168,220,0.06) 0%, transparent 60%);
+    background: radial-gradient(ellipse 80% 60% at 20% 80%, rgba(6,182,212,0.06) 0%, transparent 60%);
     pointer-events: none;
   }
 
@@ -1406,15 +1406,15 @@ const faqs = [
   }
   .stat-card:hover {
     background: rgba(255,255,255,0.07);
-    border-color: rgba(0,168,220,0.25);
+    border-color: rgba(6,182,212,0.25);
     transform: translateY(-3px);
   }
 
   .stat-card--featured {
     grid-row: span 2;
     padding: var(--sp-10) var(--sp-8);
-    background: linear-gradient(135deg, rgba(0,168,220,0.12) 0%, rgba(10,102,194,0.08) 100%);
-    border-color: rgba(0,168,220,0.25);
+    background: linear-gradient(135deg, rgba(6,182,212,0.12) 0%, rgba(3,105,161,0.08) 100%);
+    border-color: rgba(6,182,212,0.25);
     justify-content: center;
   }
   .stat-card--featured .stat-card__number {
@@ -1496,15 +1496,15 @@ const faqs = [
     transition: border-color var(--t-fast), box-shadow var(--t-fast);
   }
   .fit-item:hover {
-    border-color: rgba(0,168,220,0.3);
-    box-shadow: 0 8px 24px rgba(0,24,64,0.05);
+    border-color: rgba(6,182,212,0.3);
+    box-shadow: var(--shadow-sm);
   }
 
   .fit-item__check {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: rgba(0,168,220,0.10);
+    background: rgba(6,182,212,0.10);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1541,12 +1541,12 @@ const faqs = [
   }
   .cta__orb--1 {
     width: 400px; height: 400px;
-    background: rgba(10,102,194,0.15);
+    background: rgba(3,105,161,0.15);
     top: -100px; right: -50px;
   }
   .cta__orb--2 {
     width: 300px; height: 300px;
-    background: rgba(0,168,220,0.10);
+    background: rgba(6,182,212,0.10);
     bottom: -100px; left: 10%;
   }
 

@@ -138,15 +138,15 @@ const services = [
   }
 
   .services__card:hover {
-    border-color: var(--mid-blue);
-    box-shadow: var(--shadow-md);
-    transform: translateY(-3px);
+    border-color: var(--border-2);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
   }
 
   .services__card:hover .services__arrow {
-    background: var(--blue);
+    background: var(--deep-navy);
     color: var(--white);
-    border-color: var(--blue);
+    border-color: var(--deep-navy);
   }
 
   .services__card-top {
@@ -169,25 +169,25 @@ const services = [
     flex-shrink: 0;
   }
 
-  /* ── Visual placeholder ── */
+  /* ── Visual ── */
   .services__vis {
     width: 100%;
     aspect-ratio: 16 / 9;
     min-height: 120px;
     margin-bottom: var(--sp-6);
     border-radius: var(--r-lg);
-    background: linear-gradient(135deg, rgba(10,102,194,0.04) 0%, rgba(0,168,220,0.07) 100%);
-    border: 1.5px dashed rgba(10,102,194,0.15);
+    background: var(--off-white);
+    border: 1px solid var(--border);
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
   }
 
   .services__vis--content {
     background: none;
     border: none;
     padding: 0;
-    overflow: hidden;
   }
 
   .services__vis--content img {
@@ -202,7 +202,7 @@ const services = [
     font-weight: 600;
     letter-spacing: 0.10em;
     text-transform: uppercase;
-    color: rgba(10,102,194,0.25);
+    color: var(--text-3);
   }
 
   .services__card-title {
@@ -247,8 +247,8 @@ const services = [
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
     background: var(--cyan);
   }

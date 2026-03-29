@@ -42,7 +42,7 @@ const pillars = [
           </p>
         </div>
 
-        <!-- Visual placeholder: comparison graphic -->
+        <!-- Visual: comparison graphic -->
         <div class="apart__visual reveal reveal-delay-1" aria-hidden="true">
           <div class="apart__visual-inner">
             <div class="apart__vis-compare">
@@ -139,6 +139,7 @@ const pillars = [
   }
 
   .apart__vis-label {
+    font-family: var(--font-body);
     font-size: var(--fs-xs);
     font-weight: 600;
     letter-spacing: 0.06em;
@@ -147,7 +148,7 @@ const pillars = [
   }
 
   .apart__vis-col--us .apart__vis-label {
-    color: var(--blue);
+    color: var(--sky);
   }
 
   .apart__vis-bars {
@@ -163,7 +164,7 @@ const pillars = [
   }
 
   .apart__vis-dot {
-    width: 6px; height: 6px; border-radius: 50%;
+    width: 5px; height: 5px; border-radius: 50%;
     background: var(--cyan);
     flex-shrink: 0;
   }
@@ -172,14 +173,13 @@ const pillars = [
   }
 
   .apart__vis-bar {
-    height: 8px;
-    background: linear-gradient(90deg, var(--blue), var(--cyan));
-    border-radius: 4px;
-    opacity: 0.7;
+    height: 6px;
+    background: var(--gradient-accent);
+    border-radius: 3px;
   }
   .apart__vis-bar--muted {
-    background: var(--border-2);
-    opacity: 0.5;
+    background: var(--border);
+    opacity: 0.6;
   }
 
   .apart__vis-divider {
@@ -192,8 +192,8 @@ const pillars = [
     width: fit-content;
     padding: 3px 10px;
     border-radius: var(--r-full);
-    background: rgba(10,102,194,0.08);
-    color: var(--blue);
+    background: rgba(14,165,233,0.08);
+    color: var(--sky);
     font-size: 0.65rem;
     font-weight: 600;
     letter-spacing: 0.08em;
@@ -221,7 +221,7 @@ const pillars = [
   .apart__card:hover {
     border-color: var(--border-2);
     box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
   }
 
   .apart__card-metric {
@@ -237,15 +237,16 @@ const pillars = [
     font-family: var(--font-display);
     font-size: var(--fs-2xl);
     font-weight: 700;
-    color: var(--blue);
+    color: var(--sky);
     line-height: 1;
     letter-spacing: -0.03em;
   }
 
   .apart__metric-label {
+    font-family: var(--font-body);
     font-size: var(--fs-xs);
     font-weight: 500;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--text-3);
   }

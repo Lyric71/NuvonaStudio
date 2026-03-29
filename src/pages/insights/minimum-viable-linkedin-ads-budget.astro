@@ -1,7 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import NavBar from '../../components/NavBar.astro';
-import Footer from '../../components/Footer.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
 ---
 
@@ -360,7 +359,6 @@ import ContactCTA from '../../components/ContactCTA.astro';
 
     <ContactCTA />
   </main>
-  <Footer />
 </Layout>
 
 <style>
@@ -393,6 +391,7 @@ import ContactCTA from '../../components/ContactCTA.astro';
   }
 
   .post-hero__date {
+    font-family: var(--font-body);
     font-size: var(--fs-xs);
     color: rgba(255,255,255,0.45);
     letter-spacing: 0.04em;
@@ -406,6 +405,7 @@ import ContactCTA from '../../components/ContactCTA.astro';
     border: 1px solid rgba(255,255,255,0.16);
     color: rgba(255,255,255,0.75);
     font-size: 0.7rem;
+    font-family: var(--font-display);
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -413,6 +413,7 @@ import ContactCTA from '../../components/ContactCTA.astro';
 
   .post-hero__h1 {
     font-size: clamp(2rem, 4.5vw, 3.25rem);
+    font-family: var(--font-display);
     font-weight: 700;
     line-height: 1.12;
     letter-spacing: -0.01em;
@@ -426,6 +427,7 @@ import ContactCTA from '../../components/ContactCTA.astro';
   }
 
   .post-hero__deck {
+    font-family: var(--font-body);
     font-size: var(--fs-md);
     color: rgba(255,255,255,0.68);
     line-height: 1.75;
@@ -437,6 +439,7 @@ import ContactCTA from '../../components/ContactCTA.astro';
     display: flex;
     align-items: center;
     gap: var(--sp-3);
+    font-family: var(--font-body);
     font-size: var(--fs-xs);
     color: rgba(255,255,255,0.40);
     letter-spacing: 0.04em;
@@ -464,6 +467,7 @@ import ContactCTA from '../../components/ContactCTA.astro';
 
   .post-toc__label {
     font-size: var(--fs-xs);
+    font-family: var(--font-display);
     font-weight: 600;
     letter-spacing: 0.10em;
     text-transform: uppercase;
@@ -485,17 +489,18 @@ import ContactCTA from '../../components/ContactCTA.astro';
   }
 
   .post-toc__list a {
+    font-family: var(--font-body);
     font-size: var(--fs-xs);
     color: var(--text-2);
     line-height: 1.5;
-    transition: color var(--t-fast);
+    transition: color var(--t-fast), border-left-color var(--t-fast);
     display: block;
     padding-left: var(--sp-4);
     border-left: 2px solid transparent;
   }
   .post-toc__list a:hover {
-    color: var(--blue);
-    border-left-color: var(--blue);
+    color: var(--sky);
+    border-left-color: var(--sky);
   }
 
   /* ── Content ── */
@@ -509,6 +514,7 @@ import ContactCTA from '../../components/ContactCTA.astro';
 
   .post-content h2 {
     font-size: clamp(1.25rem, 2vw, 1.6rem);
+    font-family: var(--font-display);
     font-weight: 700;
     color: var(--deep-navy);
     letter-spacing: -0.01em;
@@ -517,6 +523,7 @@ import ContactCTA from '../../components/ContactCTA.astro';
   }
 
   .post-content p {
+    font-family: var(--font-body);
     font-size: var(--fs-md);
     color: var(--text);
     line-height: 1.85;
@@ -524,9 +531,10 @@ import ContactCTA from '../../components/ContactCTA.astro';
   }
 
   .post-content blockquote {
-    border-left: 3px solid var(--blue);
+    border-left: 3px solid var(--sky);
     margin: var(--sp-8) 0;
     padding: var(--sp-1) var(--sp-6);
+    font-family: var(--font-body);
     font-size: var(--fs-md);
     font-style: italic;
     color: var(--text-2);
@@ -545,6 +553,7 @@ import ContactCTA from '../../components/ContactCTA.astro';
   }
 
   .post-content .post-inline-cta__text {
+    font-family: var(--font-body);
     font-size: var(--fs-md);
     color: rgba(255,255,255,0.85);
     line-height: 1.75;
@@ -560,11 +569,16 @@ import ContactCTA from '../../components/ContactCTA.astro';
 
   .post-back__link {
     font-size: var(--fs-sm);
+    font-family: var(--font-body);
     font-weight: 500;
     color: var(--text-2);
-    transition: color var(--t-fast);
+    transition: color var(--t-fast), transform var(--t-fast);
   }
-  .post-back__link:hover { color: var(--blue); }
+  .post-back__link:hover {
+    color: var(--sky);
+    transform: translateY(-3px);
+    text-shadow: var(--shadow-sm);
+  }
 
   /* ── Responsive ── */
   @media (max-width: 900px) {

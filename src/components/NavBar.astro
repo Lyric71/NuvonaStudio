@@ -114,7 +114,7 @@ const contactHref = `${prefix}/contact?intent=call`;
 
 <style>
   .nav__logo-img {
-    height: 44px;
+    height: 40px;
     width: auto;
     display: block;
   }
@@ -127,7 +127,7 @@ const contactHref = `${prefix}/contact?intent=call`;
     align-items: center;
     gap: 4px;
     font-size: var(--fs-sm);
-    font-weight: 400;
+    font-weight: 500;
     color: var(--text-2);
     background: none;
     border: none;
@@ -136,7 +136,7 @@ const contactHref = `${prefix}/contact?intent=call`;
     transition: color var(--t-fast);
   }
   .nav__link--dropdown:hover,
-  .nav__link--dropdown.nav__link--active { color: var(--blue); }
+  .nav__link--dropdown.nav__link--active { color: var(--text); }
 
   .nav__chevron { transition: transform var(--t-fast); }
   .nav__item--has-dropdown:hover .nav__chevron,
@@ -145,19 +145,19 @@ const contactHref = `${prefix}/contact?intent=call`;
   /* Dropdown */
   .nav__dropdown {
     position: absolute;
-    top: calc(100% + 12px);
+    top: calc(100% + 14px);
     left: 50%;
     transform: translateX(-50%) translateY(-6px);
-    min-width: 180px;
+    min-width: 200px;
     background: var(--white);
-    border: 1px solid var(--border-2);
+    border: 1px solid var(--border);
     border-radius: var(--r-lg);
     box-shadow: var(--shadow-lg);
     padding: var(--sp-2);
     opacity: 0;
     visibility: hidden;
     transition: opacity var(--t-fast), transform var(--t-fast), visibility var(--t-fast);
-    z-index: 100;
+    z-index: var(--z-dropdown);
   }
   .nav__item--has-dropdown:hover .nav__dropdown,
   .nav__item--has-dropdown.is-open .nav__dropdown {
@@ -167,15 +167,16 @@ const contactHref = `${prefix}/contact?intent=call`;
 
   .nav__dropdown-link {
     display: block;
-    padding: 0.5rem 1rem;
+    padding: 0.625rem 1rem;
     font-size: var(--fs-sm);
+    font-weight: 500;
     color: var(--text-2);
     border-radius: var(--r-md);
     transition: background var(--t-fast), color var(--t-fast);
     white-space: nowrap;
   }
   .nav__dropdown-link:hover,
-  .nav__dropdown-link--active { background: #EEF4FB; color: var(--blue); }
+  .nav__dropdown-link--active { background: var(--off-white); color: var(--text); }
 
 
   /* Language switcher */
@@ -187,12 +188,12 @@ const contactHref = `${prefix}/contact?intent=call`;
     font-weight: 500;
     color: var(--text-2);
     padding: var(--sp-1) var(--sp-3);
-    border: 1px solid var(--border-2);
-    border-radius: 999px;
+    border: 1px solid var(--border);
+    border-radius: var(--r-full);
     transition: border-color var(--t-fast), color var(--t-fast);
     white-space: nowrap;
   }
-  .nav__lang:hover { border-color: var(--blue); color: var(--blue); }
+  .nav__lang:hover { border-color: var(--text-3); color: var(--text); }
   .nav__lang-label { font-size: var(--fs-xs); }
 
   /* Burger */
@@ -222,14 +223,15 @@ const contactHref = `${prefix}/contact?intent=call`;
   .nav__mobile-link {
     display: block;
     font-size: var(--fs-base);
+    font-weight: 500;
     color: var(--text-2);
     padding-block: var(--sp-3);
     border-bottom: 1px solid var(--border);
     transition: color var(--t-fast);
   }
-  .nav__mobile-link:hover { color: var(--blue); }
-  .nav__mobile-link--child { font-size: var(--fs-sm); color: var(--text-3); padding-left: var(--sp-4); }
-  .nav__mobile-lang { color: var(--blue); }
+  .nav__mobile-link:hover { color: var(--text); }
+  .nav__mobile-link--child { font-size: var(--fs-sm); font-weight: 400; color: var(--text-3); padding-left: var(--sp-4); }
+  .nav__mobile-lang { color: var(--sky); font-weight: 500; }
 
   @media (max-width: 768px) {
     .nav__links, .nav__actions { display: none; }
