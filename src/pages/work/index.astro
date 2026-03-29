@@ -291,6 +291,14 @@ const allServices = [...new Set(caseStudies.flatMap(cs => cs.services))].sort();
     position: relative;
     overflow: hidden;
   }
+  .work-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/generated-1774781281011.png') center/cover no-repeat;
+    opacity: 0.18;
+    z-index: 0;
+  }
 
   /* Subtle grid pattern */
   .work-hero__grid {
