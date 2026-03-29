@@ -1,7 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import NavBar from '../../components/NavBar.astro';
-import Footer from '../../components/Footer.astro';
 import FAQ from '../../components/FAQ.astro';
 
 const capabilities = [
@@ -64,7 +63,7 @@ const adFormats = [
       <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
       <path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
     </svg>`,
-    image: '/images/placeholder-sponsored-content.jpg',
+    image: '/images/advertising-sponsored-content.png',
     imageAlt: 'Sponsored content campaign visual',
   },
   {
@@ -74,7 +73,7 @@ const adFormats = [
       <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/>
       <path d="M2 7l10 7 10-7" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
     </svg>`,
-    image: '/images/placeholder-sponsored-messaging.jpg',
+    image: '/images/advertising-sponsored-messaging.png',
     imageAlt: 'Sponsored messaging campaign visual',
   },
   {
@@ -83,7 +82,7 @@ const adFormats = [
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M12 2l2.09 6.26L20 10l-5.91 1.74L12 18l-2.09-6.26L4 10l5.91-1.74L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
     </svg>`,
-    image: '/images/placeholder-dynamic-ads.jpg',
+    image: '/images/advertising-dynamic-ads.png',
     imageAlt: 'Dynamic ads campaign visual',
   },
   {
@@ -93,7 +92,7 @@ const adFormats = [
       <path d="M4 6h16M4 10h16M4 14h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
       <rect x="16" y="14" width="5" height="7" rx="1" stroke="currentColor" stroke-width="1.6"/>
     </svg>`,
-    image: '/images/placeholder-text-ads.jpg',
+    image: '/images/advertising-text-ads.png',
     imageAlt: 'Text ads campaign visual',
   },
   {
@@ -103,7 +102,7 @@ const adFormats = [
       <rect x="5" y="3" width="14" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/>
       <path d="M9 7h6M9 11h6M9 15h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
     </svg>`,
-    image: '/images/placeholder-lead-gen-forms.jpg',
+    image: '/images/advertising-lead-gen-forms.png',
     imageAlt: 'Lead gen forms visual',
   },
 ];
@@ -227,51 +226,19 @@ const faqs = [
 
     <!-- ── Hero ─────────────────────────────────────────────── -->
     <section class="ads-hero" aria-labelledby="ads-heading">
-      <div class="ads-hero__orb ads-hero__orb--1" aria-hidden="true"></div>
-      <div class="ads-hero__orb ads-hero__orb--2" aria-hidden="true"></div>
-      <div class="container">
-        <div class="ads-hero__inner">
-          <div class="ads-hero__text">
-            <p class="eyebrow eyebrow--light reveal">Services / Advertising</p>
-            <h1 id="ads-heading" class="ads-hero__h1 reveal reveal-delay-1">
-              LinkedIn Ads That Turn Clicks Into <span class="text-gradient">Pipeline</span>
-            </h1>
-            <p class="ads-hero__sub reveal reveal-delay-2">
-              You already know LinkedIn is where your buyers are. We make sure your ads reach the right ones, at the right time, with the right message. Then we turn that into leads you can close.
-            </p>
-            <div class="ads-hero__actions reveal reveal-delay-3">
-              <a href="/contact?intent=call" class="btn btn--primary btn--lg">Book a call</a>
-            </div>
-          </div>
-
-          <div class="ads-hero__visual reveal reveal-delay-2">
-            <div class="ads-hero__img-wrap">
-              <img
-                src="/images/placeholder-ads-hero.jpg"
-                alt="LinkedIn advertising campaign dashboard"
-                class="ads-hero__img"
-                width="600"
-                height="400"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-              />
-              <div class="ads-hero__img-placeholder" aria-hidden="true">
-                <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-                  <rect width="64" height="64" rx="12" fill="rgba(0,168,220,0.12)"/>
-                  <path d="M20 44l10-14 8 10 6-8 10 12H20z" fill="rgba(0,168,220,0.2)"/>
-                  <circle cx="44" cy="24" r="5" fill="rgba(0,168,220,0.25)"/>
-                </svg>
-                <span>Visual coming soon</span>
-              </div>
-            </div>
-            <!-- Floating badges -->
-            <div class="hero-badge hero-badge--1 reveal reveal-delay-3">
-              <span class="hero-badge__num">121%</span>
-              <span class="hero-badge__label">ROAS</span>
-            </div>
-            <div class="hero-badge hero-badge--2 reveal reveal-delay-4">
-              <span class="hero-badge__num">10-13%</span>
-              <span class="hero-badge__label">Lead Gen CVR</span>
-            </div>
+      <div class="ads-hero__bg" aria-hidden="true"></div>
+      <div class="ads-hero__overlay" aria-hidden="true"></div>
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="ads-hero__content">
+          <p class="eyebrow eyebrow--light reveal">LinkedIn Advertising</p>
+          <h1 id="ads-heading" class="ads-hero__h1 reveal reveal-delay-1">
+            LinkedIn Ads that turn clicks into <span class="text-gradient">pipeline.</span>
+          </h1>
+          <p class="ads-hero__sub reveal reveal-delay-2">
+            You already know LinkedIn is where your buyers are. We make sure your ads reach the right ones, at the right time, with the right message. Then we turn that into leads you can close.
+          </p>
+          <div class="ads-hero__actions reveal reveal-delay-3">
+            <a href="/contact?intent=call" class="btn btn--primary btn--lg">Book a call</a>
           </div>
         </div>
       </div>
@@ -315,7 +282,6 @@ const faqs = [
             <div class={`wwd-card reveal${i > 0 ? ` reveal-delay-${Math.min(i, 3)}` : ''}`}>
               <div class="wwd-card__top">
                 <span class="wwd-card__icon" aria-hidden="true" set:html={cap.icon} />
-                <span class="wwd-card__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
               </div>
               <strong class="wwd-card__title">{cap.title}</strong>
               <p class="wwd-card__body">{cap.body}</p>
@@ -339,7 +305,6 @@ const faqs = [
             <div class="fmt-block__text">
               <div class="fmt-block__label">
                 <span class="fmt-block__icon" aria-hidden="true" set:html={fmt.icon} />
-                <span class="fmt-block__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
               </div>
               <h3 class="fmt-block__title">{fmt.title}</h3>
               <p class="fmt-block__body">{fmt.body}</p>
@@ -353,16 +318,7 @@ const faqs = [
                   width="560"
                   height="380"
                   loading="lazy"
-                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
                 />
-                <div class="fmt-block__img-placeholder" aria-hidden="true">
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                    <rect width="48" height="48" rx="8" fill="rgba(3,105,161,0.08)"/>
-                    <path d="M12 36l9-12 7 9 5-6 9 9H12z" fill="rgba(3,105,161,0.15)"/>
-                    <circle cx="34" cy="18" r="4" fill="rgba(3,105,161,0.18)"/>
-                  </svg>
-                  <span>Visual coming soon</span>
-                </div>
               </div>
             </div>
           </div>
@@ -386,21 +342,13 @@ const faqs = [
             <!-- Team photo placeholder -->
             <div class="why__photo-wrap">
               <img
-                src="/images/placeholder-team.jpg"
+                src="/images/advertising-team.png"
                 alt="Nuvora Studio team"
                 class="why__photo"
                 width="480"
                 height="560"
                 loading="lazy"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
               />
-              <div class="why__photo-placeholder" aria-hidden="true">
-                <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-                  <circle cx="32" cy="22" r="12" fill="rgba(0,168,220,0.2)"/>
-                  <ellipse cx="32" cy="52" rx="20" ry="12" fill="rgba(0,168,220,0.15)"/>
-                </svg>
-                <span>Team photo coming soon</span>
-              </div>
             </div>
 
             <!-- Certification badge -->
@@ -441,7 +389,6 @@ const faqs = [
           <div class="why__cards">
             {differentiators.map((d, i) => (
               <div class={`why-card reveal${i > 0 ? ` reveal-delay-${Math.min(i, 3)}` : ''}`}>
-                <div class="why-card__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</div>
                 <div class="why-card__content">
                   <strong class="why-card__title">{d.title}</strong>
                   <p class="why-card__body">{d.body}</p>
@@ -568,47 +515,40 @@ const faqs = [
     </section>
 
   </main>
-  <Footer />
 </Layout>
 
 <style>
   /* ── Hero ── */
   .ads-hero {
-    background: var(--deep-navy);
-    padding-block: var(--sp-24) var(--sp-20);
     position: relative;
     overflow: hidden;
-  }
-  .ads-hero__orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    pointer-events: none;
-  }
-  .ads-hero__orb--1 {
-    width: 600px; height: 600px;
-    background: rgba(3,105,161,0.18);
-    top: -200px; right: -100px;
-    animation: orbFloat 12s ease-in-out infinite;
-  }
-  .ads-hero__orb--2 {
-    width: 400px; height: 400px;
-    background: rgba(6,182,212,0.10);
-    bottom: -150px; left: -100px;
-    animation: orbFloat 16s ease-in-out infinite reverse;
-  }
-  @keyframes orbFloat {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(30px, -20px); }
+    padding-block: var(--sp-32) var(--sp-24);
+    min-height: 520px;
+    display: flex;
+    align-items: center;
   }
 
-  .ads-hero__inner {
-    position: relative;
+  .ads-hero__bg {
+    position: absolute;
+    inset: 0;
+    background: url('/images/advertising-hero.png') center center / cover no-repeat;
+    z-index: 0;
+  }
+
+  .ads-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(15,23,42, 0.92) 0%,
+      rgba(15,23,42, 0.75) 50%,
+      rgba(15,23,42, 0.45) 100%
+    );
     z-index: 1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--sp-16);
-    align-items: center;
+  }
+
+  .ads-hero__content {
+    max-width: 680px;
   }
 
   .ads-hero__h1 {
@@ -630,7 +570,7 @@ const faqs = [
 
   .ads-hero__sub {
     font-size: var(--fs-md);
-    color: rgba(255,255,255,0.68);
+    color: rgba(255, 255, 255, 0.68);
     max-width: 520px;
     line-height: 1.75;
     margin-bottom: var(--sp-10);
@@ -642,79 +582,8 @@ const faqs = [
     gap: var(--sp-4);
   }
 
-  .ads-hero__visual {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .ads-hero__img-wrap {
-    position: relative;
-    border-radius: var(--r-2xl);
-    overflow: hidden;
-    aspect-ratio: 3/2;
-    width: 100%;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.10);
-    box-shadow: var(--shadow-lg), 0 0 0 1px rgba(255,255,255,0.05) inset;
-  }
-
-  .ads-hero__img {
-    width: 100%; height: 100%;
-    object-fit: cover; display: block;
-  }
-
-  .ads-hero__img-placeholder {
-    display: none;
-    position: absolute; inset: 0;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--sp-4);
-    background: linear-gradient(135deg, rgba(15,23,42,0.8) 0%, rgba(3,105,161,0.4) 100%);
-  }
-
-  .ads-hero__img-placeholder span {
-    font-size: var(--fs-xs);
-    color: rgba(255,255,255,0.35);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-
-  .ads-hero__img-wrap .ads-hero__img { display: none; }
-  .ads-hero__img-wrap .ads-hero__img-placeholder { display: flex; }
-
-  /* Floating stat badges */
-  .hero-badge {
-    position: absolute;
-    padding: var(--sp-3) var(--sp-5);
-    background: rgba(15,23,42,0.85);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(6,182,212,0.3);
-    border-radius: var(--r-lg);
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    box-shadow: var(--shadow-md);
-    z-index: 2;
-  }
-  .hero-badge--1 { bottom: -16px; left: -24px; }
-  .hero-badge--2 { top: 20px; right: -20px; }
-  .hero-badge__num {
-    font-family: var(--font-display);
-    font-size: var(--fs-xl);
-    font-weight: 700;
-    color: var(--cyan);
-    line-height: 1.1;
-  }
-  .hero-badge__label {
-    font-size: var(--fs-xs);
-    color: rgba(255,255,255,0.5);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-weight: 500;
+  @media (max-width: 640px) {
+    .ads-hero { padding-block: var(--sp-16) var(--sp-12); }
   }
 
   /* ── The Problem ── */
@@ -1051,8 +920,6 @@ const faqs = [
     font-weight: 500;
   }
 
-  .fmt-block__img-wrap .fmt-block__img { display: none; }
-  .fmt-block__img-wrap .fmt-block__img-placeholder { display: flex; }
 
   /* ── Why Work With Us ── */
   .why-us {
@@ -1134,8 +1001,6 @@ const faqs = [
     font-weight: 500;
   }
 
-  .why__photo-wrap .why__photo { display: none; }
-  .why__photo-wrap .why__photo-placeholder { display: flex; }
 
   /* Certification badge */
   .why__cert {
@@ -1590,10 +1455,6 @@ const faqs = [
 
   /* ── Responsive ── */
   @media (max-width: 1024px) {
-    .ads-hero__inner { grid-template-columns: 1fr; gap: var(--sp-10); }
-    .ads-hero__visual { max-width: 500px; }
-    .hero-badge--1 { left: 0; bottom: -12px; }
-    .hero-badge--2 { right: 0; top: 10px; }
     .problem__inner { grid-template-columns: 1fr; gap: var(--sp-10); }
     .problem__visual { display: none; }
     .wwd__grid { grid-template-columns: repeat(2, 1fr); }

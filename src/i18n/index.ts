@@ -57,8 +57,8 @@ export const ui = {
     'common.read_article':    'Lire l\'article →',
     'common.back_to_articles': '← Retour aux articles',
     'common.read_all':        'Tous les articles',
-    'common.book_discovery':  '[FR] Book a discovery call',
-    'common.view_results':    '[FR] View client results',
+    'common.book_discovery':  'Réserver un appel découverte',
+    'common.view_results':    'Voir les résultats clients',
     'common.min_read':        'min de lecture',
 
     // Contact form

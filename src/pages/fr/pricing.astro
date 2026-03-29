@@ -22,14 +22,18 @@ const t = useTranslations('fr');
   <main id="main-content">
 
     <section class="pricing-hero" aria-labelledby="pricing-heading">
-      <div class="container">
-        <p class="eyebrow eyebrow--light">Tarifs</p>
-        <h1 id="pricing-heading" class="pricing-hero__h1">
-          [FR] Transparent pricing.<br /><em>[FR] No surprises.</em>
-        </h1>
-        <p class="pricing-hero__sub">
-          [FR] Three retainer tiers. One platform. Clear deliverables at every level.
-        </p>
+      <div class="pricing-hero__bg" aria-hidden="true"></div>
+      <div class="pricing-hero__overlay" aria-hidden="true"></div>
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="pricing-hero__content">
+          <p class="eyebrow eyebrow--light reveal">Tarifs</p>
+          <h1 id="pricing-heading" class="pricing-hero__h1 reveal reveal-delay-1">
+            Des tarifs transparents. <span class="text-gradient">Sans surprises.</span>
+          </h1>
+          <p class="pricing-hero__sub reveal reveal-delay-2">
+            Trois formules d'accompagnement. Une seule plateforme. Des livrables clairs à chaque niveau.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -48,33 +52,62 @@ const t = useTranslations('fr');
 
 <style>
   .pricing-hero {
-    background: var(--deep-navy);
-    padding-block: clamp(3rem, 6vw, 5rem);
     position: relative;
     overflow: hidden;
+    padding-block: var(--sp-32) var(--sp-24);
+    min-height: 520px;
+    display: flex;
+    align-items: center;
   }
-  .pricing-hero::before {
-    content: '';
+
+  .pricing-hero__bg {
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 60% 70% at 75% 40%, rgba(6,182,212,0.10) 0%, transparent 60%);
-    pointer-events: none;
+    background: url('/hero-network.webp') center center / cover no-repeat;
+    z-index: 0;
   }
-  .pricing-hero .container { position: relative; z-index: 1; }
+
+  .pricing-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(15,23,42, 0.92) 0%,
+      rgba(15,23,42, 0.75) 50%,
+      rgba(15,23,42, 0.45) 100%
+    );
+    z-index: 1;
+  }
+
+  .pricing-hero__content {
+    max-width: 680px;
+  }
+
   .pricing-hero__h1 {
-    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4.5vw, 3.75rem);
     font-weight: 700;
     color: var(--white);
-    line-height: 1.12;
-    letter-spacing: -0.01em;
+    line-height: 1.10;
+    letter-spacing: -0.02em;
     margin-block: var(--sp-5) var(--sp-6);
   }
-  .pricing-hero__h1 em { color: rgba(255,255,255,0.42); font-weight: 300; font-style: normal; }
+  .pricing-hero__h1 .text-gradient {
+    background: linear-gradient(135deg, var(--cyan) 0%, var(--sky) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
   .pricing-hero__sub {
     font-size: var(--fs-md);
-    color: rgba(255,255,255,0.65);
-    max-width: 540px;
+    color: rgba(255, 255, 255, 0.68);
+    max-width: 520px;
     line-height: 1.75;
+  }
+
+  @media (max-width: 640px) {
+    .pricing-hero { padding-block: var(--sp-16) var(--sp-12); }
   }
   .placeholder-notice {
     background: var(--white);

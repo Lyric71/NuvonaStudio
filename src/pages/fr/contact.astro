@@ -21,31 +21,19 @@ const t = useTranslations('fr');
   <main id="main-content">
 
     <section class="contact-hero" aria-labelledby="contact-heading">
-      <div class="container">
-        <div class="contact-hero__inner">
-          <div class="contact-hero__text">
-            <p class="eyebrow eyebrow--light reveal">Nous contacter</p>
-            <h1 id="contact-heading" class="contact-hero__h1 reveal reveal-delay-1">
-              Parlons<br /><em>LinkedIn.</em>
-            </h1>
-            <p class="contact-hero__sub reveal reveal-delay-2">
-              [FR] Tell us about your project. We read every message and reply within one business day.
-            </p>
-          </div>
-          <div class="contact-hero__info reveal reveal-delay-2">
-            <div class="contact-info-item">
-              <span class="contact-info-item__label">Délai de réponse</span>
-              <span class="contact-info-item__value">1 jour ouvrable</span>
-            </div>
-            <div class="contact-info-item">
-              <span class="contact-info-item__label">[FR] We work with</span>
-              <span class="contact-info-item__value">[FR] B2B companies worldwide</span>
-            </div>
-            <div class="contact-info-item">
-              <span class="contact-info-item__label">[FR] Engagements from</span>
-              <span class="contact-info-item__value">$1,800 / mois</span>
-              <a href="/fr/pricing" class="contact-info-item__link">[FR] See full pricing →</a>
-            </div>
+      <div class="contact-hero__bg" aria-hidden="true"></div>
+      <div class="contact-hero__overlay" aria-hidden="true"></div>
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="contact-hero__content">
+          <p class="eyebrow eyebrow--light reveal">Nous contacter</p>
+          <h1 id="contact-heading" class="contact-hero__h1 reveal reveal-delay-1">
+            Parlons <span class="text-gradient">LinkedIn.</span>
+          </h1>
+          <p class="contact-hero__sub reveal reveal-delay-2">
+            Parlez-nous de votre projet. Nous lisons chaque message et répondons sous un jour ouvrable.
+          </p>
+          <div class="contact-hero__actions reveal reveal-delay-3">
+            <a href="#contact-card" class="btn btn--primary btn--lg">Envoyer un message</a>
           </div>
         </div>
       </div>
@@ -113,76 +101,70 @@ const t = useTranslations('fr');
 
 <style>
   .contact-hero {
-    background: var(--deep-navy);
-    padding-block: var(--sp-24) var(--sp-20);
     position: relative;
     overflow: hidden;
-  }
-  .contact-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 60% 70% at 90% 50%, rgba(6,182,212,0.10) 0%, transparent 60%);
-    pointer-events: none;
-  }
-  .contact-hero__inner {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: var(--sp-16);
+    padding-block: var(--sp-32) var(--sp-24);
+    min-height: 520px;
+    display: flex;
     align-items: center;
   }
+
+  .contact-hero__bg {
+    position: absolute;
+    inset: 0;
+    background: url('/hero-network.webp') center center / cover no-repeat;
+    z-index: 0;
+  }
+
+  .contact-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(15,23,42, 0.92) 0%,
+      rgba(15,23,42, 0.75) 50%,
+      rgba(15,23,42, 0.45) 100%
+    );
+    z-index: 1;
+  }
+
+  .contact-hero__content {
+    max-width: 680px;
+  }
+
   .contact-hero__h1 {
-    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4.5vw, 3.75rem);
     font-weight: 700;
     color: var(--white);
-    line-height: 1.15;
-    letter-spacing: -0.01em;
+    line-height: 1.10;
+    letter-spacing: -0.02em;
     margin-block: var(--sp-5) var(--sp-6);
   }
-  .contact-hero__h1 em { color: rgba(255,255,255,0.48); font-weight: 300; font-style: normal; }
+  .contact-hero__h1 .text-gradient {
+    background: linear-gradient(135deg, var(--cyan) 0%, var(--sky) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
   .contact-hero__sub {
     font-size: var(--fs-md);
-    color: rgba(255,255,255,0.65);
-    max-width: 480px;
+    color: rgba(255, 255, 255, 0.68);
+    max-width: 520px;
     line-height: 1.75;
+    margin-bottom: var(--sp-10);
   }
-  .contact-hero__info {
+
+  .contact-hero__actions {
     display: flex;
-    flex-direction: column;
-    gap: var(--sp-1);
-    flex-shrink: 0;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
   }
-  .contact-info-item {
-    display: flex;
-    flex-direction: column;
-    gap: var(--sp-1);
-    padding: var(--sp-5) var(--sp-7);
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.10);
-    border-radius: var(--r-xl);
-    min-width: 200px;
+
+  @media (max-width: 640px) {
+    .contact-hero { padding-block: var(--sp-16) var(--sp-12); }
   }
-  .contact-info-item__label {
-    font-size: var(--fs-xs);
-    color: var(--cyan);
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-  .contact-info-item__value {
-    font-size: var(--fs-lg);
-    font-weight: 600;
-    color: var(--white);
-  }
-  .contact-info-item__link {
-    font-size: var(--fs-xs);
-    color: rgba(255,255,255,0.45);
-    margin-top: var(--sp-1);
-    transition: color var(--t-fast);
-  }
-  .contact-info-item__link:hover { color: var(--cyan); }
   .container--contact { max-width: 760px; }
   .contact-card {
     background: var(--white);

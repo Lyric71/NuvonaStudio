@@ -119,21 +119,21 @@ const faqs = [
   <main id="main-content">
 
     <!-- ═══ HERO ═══ -->
-    <section class="section section--dark pricing-hero" aria-labelledby="pricing-heading">
+    <section class="pricing-hero" aria-labelledby="pricing-heading">
       <div class="pricing-hero__bg" aria-hidden="true"></div>
       <div class="pricing-hero__overlay" aria-hidden="true"></div>
       <div class="container" style="position: relative; z-index: 2;">
         <div class="pricing-hero__content">
-          <p class="eyebrow eyebrow--light anim-fade-up">Pricing</p>
-          <h1 id="pricing-heading" class="pricing-hero__title anim-fade-up anim-delay-1">
-            One goal: get you more leads<br />on LinkedIn.
+          <p class="eyebrow eyebrow--light reveal">Pricing</p>
+          <h1 id="pricing-heading" class="pricing-hero__title reveal reveal-delay-1">
+            One goal: get you more <span class="text-gradient">leads on LinkedIn.</span>
           </h1>
-          <p class="pricing-hero__sub anim-fade-up anim-delay-2">
+          <p class="pricing-hero__sub reveal reveal-delay-2">
             Pick the plan that fits where you are today. Every tier includes strategy, content,
             reporting, and a dedicated point of contact. No hidden fees. No long-term lock-in
             after the first three months.
           </p>
-          <div class="pricing-hero__actions anim-fade-up anim-delay-3">
+          <div class="pricing-hero__actions reveal reveal-delay-3">
             <a href="#retainer" class="btn btn--primary btn--lg">See plans</a>
             <a href="/contact?intent=call" class="btn btn--outline-white btn--lg">Book a call</a>
           </div>
@@ -411,9 +411,9 @@ const faqs = [
       </div>
     </div>
 
-    <ContactCTA />
-
     <FAQ heading="Pricing questions, answered." faqs={faqs} id="pfaq" />
+
+    <ContactCTA />
 
   </main>
 </Layout>
@@ -454,19 +454,24 @@ const faqs = [
 
   .pricing-hero__title {
     font-family: var(--font-display);
-    font-size: clamp(var(--fs-2xl), 5vw, var(--fs-4xl));
+    font-size: clamp(2.25rem, 4.5vw, 3.75rem);
     font-weight: 700;
     color: var(--white);
-    line-height: 1.1;
+    line-height: 1.10;
     letter-spacing: -0.02em;
     margin-block: var(--sp-5) var(--sp-6);
   }
+  .pricing-hero__title .text-gradient {
+    background: linear-gradient(135deg, var(--cyan) 0%, var(--sky) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 
   .pricing-hero__sub {
-    font-family: var(--font-body);
     font-size: var(--fs-md);
-    color: var(--navy-text-2);
-    max-width: 580px;
+    color: rgba(255, 255, 255, 0.68);
+    max-width: 520px;
     line-height: 1.75;
   }
 
@@ -475,6 +480,10 @@ const faqs = [
     flex-wrap: wrap;
     gap: var(--sp-4);
     margin-top: var(--sp-10);
+  }
+
+  @media (max-width: 640px) {
+    .pricing-hero { padding-block: var(--sp-16) var(--sp-12); }
   }
 
   /* ── Section visuals ── */

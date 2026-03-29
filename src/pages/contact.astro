@@ -13,82 +13,22 @@ import NavBar from '../components/NavBar.astro';
 
     <!-- ── Hero ─────────────────────────────────────────────── -->
     <section class="contact-hero" aria-labelledby="contact-heading">
-
-      <!-- Decorative background layer -->
-      <div class="hero-bg" aria-hidden="true">
-        <!-- Dot grid -->
-        <svg class="hero-dots" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <pattern id="dots" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
-              <circle cx="2" cy="2" r="1.5" fill="rgba(255,255,255,0.12)" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#dots)" />
-        </svg>
-        <!-- Large decorative circle -->
-        <svg class="hero-circle" viewBox="0 0 480 480" fill="none">
-          <circle cx="240" cy="240" r="220" stroke="rgba(0,168,220,0.13)" stroke-width="1.5"/>
-          <circle cx="240" cy="240" r="170" stroke="rgba(0,168,220,0.08)" stroke-width="1"/>
-          <circle cx="240" cy="240" r="100" stroke="rgba(0,168,220,0.06)" stroke-width="1"/>
-        </svg>
-        <!-- Glow blobs -->
-        <div class="hero-glow hero-glow--1"></div>
-        <div class="hero-glow hero-glow--2"></div>
-      </div>
-
-      <div class="container">
-        <div class="contact-hero__inner">
-
-          <!-- Left: headline -->
-          <div class="contact-hero__text reveal">
-            <p class="eyebrow eyebrow--light">Get in touch</p>
-            <h1 id="contact-heading" class="contact-hero__h1">
-              Let's talk<br /><em>LinkedIn.</em>
-            </h1>
-            <p class="contact-hero__sub">
-              Tell us about your project. We read every message<br />and reply within one business day.
-            </p>
-            <div class="contact-hero__chips">
-              <span class="hero-chip">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="6" stroke="rgba(0,168,220,0.7)" stroke-width="1.5"/><path d="M4.5 7l1.8 1.8 3.2-3.6" stroke="rgba(0,168,220,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Replies within 1 business day
-              </span>
-              <span class="hero-chip">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="6" stroke="rgba(0,168,220,0.7)" stroke-width="1.5"/><path d="M4.5 7l1.8 1.8 3.2-3.6" stroke="rgba(0,168,220,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                No sales pitch
-              </span>
-              <span class="hero-chip">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="6" stroke="rgba(0,168,220,0.7)" stroke-width="1.5"/><path d="M4.5 7l1.8 1.8 3.2-3.6" stroke="rgba(0,168,220,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                Engagements from $1,800/mo
-              </span>
-            </div>
+      <div class="contact-hero__bg" aria-hidden="true"></div>
+      <div class="contact-hero__overlay" aria-hidden="true"></div>
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="contact-hero__content">
+          <p class="eyebrow eyebrow--light reveal">Get in touch</p>
+          <h1 id="contact-heading" class="contact-hero__h1 reveal reveal-delay-1">
+            Let's talk <span class="text-gradient">LinkedIn.</span>
+          </h1>
+          <p class="contact-hero__sub reveal reveal-delay-2">
+            Tell us about your project. We read every message and reply within one business day.
+          </p>
+          <div class="contact-hero__actions reveal reveal-delay-3">
+            <a href="#contact-form" class="btn btn--primary btn--lg">Send a message</a>
           </div>
-
-          <!-- Right: floating visual card -->
-          <div class="contact-hero__visual reveal reveal-delay-1" aria-hidden="true">
-            <div class="hero-visual-card">
-              <div class="hero-visual-card__icon">
-                <!-- LinkedIn-inspired icon -->
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                  <rect width="32" height="32" rx="8" fill="#0A66C2"/>
-                  <rect x="7" y="12" width="4" height="13" fill="white"/>
-                  <circle cx="9" cy="8.5" r="2.5" fill="white"/>
-                  <path d="M14 25V18.5c0-3.5 5-3.5 5 0V25h4V18c0-6-9-6.5-9-1v-6h-4v14h4z" fill="white"/>
-                </svg>
-              </div>
-              <div class="hero-visual-card__body">
-                <span class="hero-visual-card__label">Nuvora Studio</span>
-                <span class="hero-visual-card__sub">LinkedIn Growth Partner</span>
-              </div>
-              <div class="hero-visual-card__dot"></div>
-            </div>
-          </div>
-
         </div>
       </div>
-
-      <!-- Bottom fade -->
-      <div class="hero-fade-bottom" aria-hidden="true"></div>
     </section>
 
     <!-- ── Form + Sidebar ────────────────────────────────────── -->
@@ -316,182 +256,69 @@ import NavBar from '../components/NavBar.astro';
      HERO
   ══════════════════════════════════════════ */
   .contact-hero {
-    background: var(--deep-navy);
-    padding-block: var(--sp-24) var(--sp-20);
     position: relative;
     overflow: hidden;
-  }
-
-  /* Decorative bg layer */
-  .hero-bg { position: absolute; inset: 0; pointer-events: none; }
-
-  .hero-dots {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.5;
-  }
-
-  .hero-circle {
-    position: absolute;
-    right: -80px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 520px;
-    height: 520px;
-    opacity: 0.6;
-  }
-
-  .hero-glow {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(90px);
-    pointer-events: none;
-  }
-  .hero-glow--1 {
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(6,182,212,0.10) 0%, transparent 70%);
-    right: 5%; top: -10%;
-  }
-  .hero-glow--2 {
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(14,165,233,0.12) 0%, transparent 70%);
-    left: 10%; bottom: -5%;
-  }
-
-  .contact-hero__inner {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: var(--sp-16);
+    padding-block: var(--sp-32) var(--sp-24);
+    min-height: 520px;
+    display: flex;
     align-items: center;
   }
 
-  /* Headline */
+  .contact-hero__bg {
+    position: absolute;
+    inset: 0;
+    background: url('/hero-network.webp') center center / cover no-repeat;
+    z-index: 0;
+  }
+
+  .contact-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(15,23,42, 0.92) 0%,
+      rgba(15,23,42, 0.75) 50%,
+      rgba(15,23,42, 0.45) 100%
+    );
+    z-index: 1;
+  }
+
+  .contact-hero__content {
+    max-width: 680px;
+  }
+
   .contact-hero__h1 {
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2.25rem, 4.5vw, 3.75rem);
     font-weight: 700;
     color: var(--white);
-    line-height: 1.1;
+    line-height: 1.10;
     letter-spacing: -0.02em;
     margin-block: var(--sp-5) var(--sp-6);
   }
-  .contact-hero__h1 em {
-    color: rgba(255,255,255,0.35);
-    font-weight: 300;
-    font-style: normal;
+  .contact-hero__h1 .text-gradient {
+    background: linear-gradient(135deg, var(--cyan) 0%, var(--sky) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .contact-hero__sub {
-    font-family: var(--font-body);
     font-size: var(--fs-md);
-    color: rgba(255,255,255,0.58);
+    color: rgba(255, 255, 255, 0.68);
+    max-width: 520px;
     line-height: 1.75;
-    margin-bottom: var(--sp-8);
+    margin-bottom: var(--sp-10);
   }
 
-  /* Chips row */
-  .contact-hero__chips {
+  .contact-hero__actions {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--sp-3);
-  }
-
-  .hero-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--sp-2);
-    font-size: var(--fs-xs);
-    font-weight: 500;
-    color: rgba(255,255,255,0.62);
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: var(--r-full);
-    padding: var(--sp-2) var(--sp-4);
-    letter-spacing: 0.02em;
-    transition: background var(--t-fast), border-color var(--t-fast);
-  }
-
-  .hero-chip:hover {
-    background: rgba(255,255,255,0.08);
-    border-color: rgba(255,255,255,0.14);
-  }
-
-  /* Right visual */
-  .contact-hero__visual {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: var(--sp-4);
-    flex-shrink: 0;
   }
 
-  .hero-visual-card {
-    display: flex;
-    align-items: center;
-    gap: var(--sp-4);
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.10);
-    border-radius: var(--r-xl);
-    padding: var(--sp-5) var(--sp-7);
-    min-width: 240px;
-    position: relative;
-    backdrop-filter: blur(10px);
-  }
-
-  .hero-visual-card__icon {
-    flex-shrink: 0;
-    width: 48px; height: 48px;
-    border-radius: var(--r-lg);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .hero-visual-card__body {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-  .hero-visual-card__label {
-    font-family: var(--font-display);
-    font-size: var(--fs-sm);
-    font-weight: 600;
-    color: var(--white);
-  }
-  .hero-visual-card__sub {
-    font-family: var(--font-body);
-    font-size: var(--fs-xs);
-    color: rgba(255,255,255,0.45);
-  }
-
-  /* Online dot */
-  .hero-visual-card__dot {
-    position: absolute;
-    top: 14px; right: 14px;
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: #22c55e;
-    box-shadow: 0 0 0 3px rgba(34,197,94,0.25);
-    animation: pulse-dot 2s ease-in-out infinite;
-  }
-  @keyframes pulse-dot {
-    0%, 100% { box-shadow: 0 0 0 3px rgba(34,197,94,0.25); }
-    50%       { box-shadow: 0 0 0 6px rgba(34,197,94,0.10); }
-  }
-
-
-  /* Bottom fade from navy to off-white */
-  .hero-fade-bottom {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 80px;
-    background: linear-gradient(to bottom, transparent, rgba(15,23,42,0.5));
-    pointer-events: none;
+  @media (max-width: 640px) {
+    .contact-hero { padding-block: var(--sp-16) var(--sp-12); }
   }
 
   /* ══════════════════════════════════════════
