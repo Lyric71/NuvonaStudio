@@ -121,30 +121,22 @@ const faqs = [
 
     <!-- ═══ HERO ═══ -->
     <section class="section section--dark pricing-hero" aria-labelledby="pricing-heading">
-      <div class="pricing-hero__orb pricing-hero__orb--1" aria-hidden="true"></div>
-      <div class="pricing-hero__orb pricing-hero__orb--2" aria-hidden="true"></div>
-      <div class="container" style="position: relative; z-index: 1;">
-        <div class="pricing-hero__grid">
-          <div class="pricing-hero__text">
-            <p class="eyebrow eyebrow--light anim-fade-up">Pricing</p>
-            <h1 id="pricing-heading" class="pricing-hero__title anim-fade-up anim-delay-1">
-              One goal: get you more leads<br />on LinkedIn.
-            </h1>
-            <p class="pricing-hero__sub anim-fade-up anim-delay-2">
-              Pick the plan that fits where you are today. Every tier includes strategy, content,
-              reporting, and a dedicated point of contact. No hidden fees. No long-term lock-in
-              after the first three months.
-            </p>
-            <div class="pricing-hero__actions anim-fade-up anim-delay-3">
-              <a href="#retainer" class="btn btn--primary btn--lg">See plans</a>
-              <a href="/contact?intent=call" class="btn btn--outline-white btn--lg">Book a call</a>
-            </div>
-          </div>
-
-          <div class="pricing-hero__visual anim-fade-up anim-delay-2">
-            <div class="hero-placeholder">
-              <span class="hero-placeholder__label">Visual placeholder</span>
-            </div>
+      <div class="pricing-hero__bg" aria-hidden="true"></div>
+      <div class="pricing-hero__overlay" aria-hidden="true"></div>
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="pricing-hero__content">
+          <p class="eyebrow eyebrow--light anim-fade-up">Pricing</p>
+          <h1 id="pricing-heading" class="pricing-hero__title anim-fade-up anim-delay-1">
+            One goal: get you more leads<br />on LinkedIn.
+          </h1>
+          <p class="pricing-hero__sub anim-fade-up anim-delay-2">
+            Pick the plan that fits where you are today. Every tier includes strategy, content,
+            reporting, and a dedicated point of contact. No hidden fees. No long-term lock-in
+            after the first three months.
+          </p>
+          <div class="pricing-hero__actions anim-fade-up anim-delay-3">
+            <a href="#retainer" class="btn btn--primary btn--lg">See plans</a>
+            <a href="/contact?intent=call" class="btn btn--outline-white btn--lg">Book a call</a>
           </div>
         </div>
       </div>
@@ -182,8 +174,10 @@ const faqs = [
     </section>
 
     <!-- ═══ EXECUTIVE PERSONAL BRANDING ═══ -->
-    <section class="section" style="background: var(--off-white);" aria-labelledby="exec-heading">
-      <div class="container">
+    <section class="section exec-section" aria-labelledby="exec-heading">
+      <div class="exec-section__bg" aria-hidden="true"></div>
+      <div class="exec-section__overlay" aria-hidden="true"></div>
+      <div class="container" style="position: relative; z-index: 2;">
         <div class="exec-split">
           <div class="exec-split__text reveal">
             <p class="eyebrow">Add-on or standalone</p>
@@ -264,8 +258,9 @@ const faqs = [
 
     <!-- ═══ ENTERPRISE ═══ -->
     <section class="section section--dark enterprise" aria-labelledby="enterprise-heading">
-      <div class="enterprise__orb enterprise__orb--1" aria-hidden="true"></div>
-      <div class="container" style="position: relative; z-index: 1;">
+      <div class="enterprise__bg" aria-hidden="true"></div>
+      <div class="enterprise__overlay" aria-hidden="true"></div>
+      <div class="container" style="position: relative; z-index: 2;">
 
         <div class="ent-top reveal">
           <p class="eyebrow eyebrow--light">Custom engagement</p>
@@ -431,25 +426,32 @@ const faqs = [
     position: relative;
     overflow: hidden;
     padding-block: var(--sp-32) var(--sp-24);
+    min-height: 520px;
+    display: flex;
+    align-items: center;
   }
 
-  .pricing-hero__orb {
+  .pricing-hero__bg {
     position: absolute;
-    border-radius: 50%;
-    pointer-events: none;
-    filter: blur(80px);
+    inset: 0;
+    background: url('/pricing/hero-pipeline.png') center center / cover no-repeat;
+    z-index: 0;
   }
 
-  .pricing-hero__orb--1 {
-    width: 500px; height: 500px;
-    background: rgba(0, 168, 220, 0.12);
-    top: -20%; right: -8%;
+  .pricing-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(11, 18, 35, 0.92) 0%,
+      rgba(11, 18, 35, 0.75) 50%,
+      rgba(11, 18, 35, 0.45) 100%
+    );
+    z-index: 1;
   }
 
-  .pricing-hero__orb--2 {
-    width: 350px; height: 350px;
-    background: rgba(10, 102, 194, 0.10);
-    bottom: -15%; left: -5%;
+  .pricing-hero__content {
+    max-width: 680px;
   }
 
   .pricing-hero__title {
@@ -458,7 +460,6 @@ const faqs = [
     color: var(--white);
     line-height: 1.1;
     letter-spacing: -0.02em;
-    max-width: 680px;
     margin-block: var(--sp-5) var(--sp-6);
   }
 
@@ -469,13 +470,6 @@ const faqs = [
     line-height: 1.75;
   }
 
-  .pricing-hero__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--sp-16);
-    align-items: center;
-  }
-
   .pricing-hero__actions {
     display: flex;
     flex-wrap: wrap;
@@ -483,29 +477,27 @@ const faqs = [
     margin-top: var(--sp-10);
   }
 
-  /* ── Hero visual placeholder ── */
-  .pricing-hero__visual {
-    display: flex;
-    justify-content: center;
-  }
-
-  .hero-placeholder {
+  /* ── Section visuals ── */
+  .section-visual {
     width: 100%;
-    aspect-ratio: 4 / 3;
+    height: auto;
     border-radius: var(--r-xl);
-    border: 1.5px dashed rgba(0, 168, 220, 0.25);
-    background: linear-gradient(135deg, rgba(10, 102, 194, 0.08) 0%, rgba(0, 168, 220, 0.12) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    object-fit: cover;
   }
 
-  .hero-placeholder__label {
-    font-size: var(--fs-xs);
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.25);
+  .section-visual--rounded {
+    border-radius: var(--r-xl);
+    margin-top: var(--sp-8);
+  }
+
+  .retainer-visual,
+  .ads-visual,
+  .addon-visual,
+  .bonus-visual,
+  .exec-visual {
+    max-width: 820px;
+    margin-inline: auto;
+    margin-bottom: var(--sp-12);
   }
 
   /* ═══════════ SECTION HEADS ═══════════ */
@@ -588,6 +580,31 @@ const faqs = [
 
   .s-footnote a:hover { color: var(--mid-blue); }
 
+  /* ═══════════ EXEC SECTION ═══════════ */
+  .exec-section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .exec-section__bg {
+    position: absolute;
+    inset: 0;
+    background: url('/pricing/exec-signature.png') center center / cover no-repeat;
+    z-index: 0;
+  }
+
+  .exec-section__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(11, 18, 35, 0.88) 0%,
+      rgba(11, 18, 35, 0.72) 50%,
+      rgba(11, 18, 35, 0.50) 100%
+    );
+    z-index: 1;
+  }
+
   /* ═══════════ EXEC SPLIT ═══════════ */
   .exec-split {
     display: grid;
@@ -596,12 +613,22 @@ const faqs = [
     align-items: center;
   }
 
+  .exec-section .eyebrow {
+    color: var(--cyan);
+  }
+
   .exec-split__text h2 {
     font-size: clamp(var(--fs-xl), 3vw, var(--fs-2xl));
     font-weight: 600;
     letter-spacing: -0.01em;
     line-height: 1.15;
     margin-top: var(--sp-4);
+    color: var(--white);
+  }
+
+  .exec-section .s-head__sub,
+  .exec-section .s-head__note {
+    color: var(--navy-text-2);
   }
 
   .exec-split__cards {
@@ -611,25 +638,26 @@ const faqs = [
   }
 
   .exec-card {
-    background: var(--white);
-    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: var(--r-xl);
     padding: var(--sp-6) var(--sp-8);
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: var(--sp-6);
-    transition: box-shadow var(--t-base), border-color var(--t-base);
+    backdrop-filter: blur(8px);
+    transition: background var(--t-base), border-color var(--t-base);
   }
 
   .exec-card:hover {
-    box-shadow: var(--shadow-md);
-    border-color: var(--border-2);
+    background: rgba(255, 255, 255, 0.10);
+    border-color: rgba(255, 255, 255, 0.20);
   }
 
   .exec-card__label {
     font-size: var(--fs-sm);
-    color: var(--text);
+    color: var(--white);
     font-weight: 500;
     line-height: 1.5;
   }
@@ -647,14 +675,23 @@ const faqs = [
     overflow: hidden;
   }
 
-  .enterprise__orb--1 {
+  .enterprise__bg {
     position: absolute;
-    width: 600px; height: 600px;
-    border-radius: 50%;
-    background: rgba(0, 168, 220, 0.06);
-    filter: blur(100px);
-    top: -15%; right: -10%;
-    pointer-events: none;
+    inset: 0;
+    background: url('/pricing/enterprise-constellation.png') center center / cover no-repeat;
+    z-index: 0;
+  }
+
+  .enterprise__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(11, 18, 35, 0.82) 0%,
+      rgba(11, 18, 35, 0.70) 40%,
+      rgba(11, 18, 35, 0.85) 100%
+    );
+    z-index: 1;
   }
 
   .ent-top {
@@ -957,16 +994,10 @@ const faqs = [
       grid-template-columns: 1fr;
     }
 
-    .pricing-hero__grid,
     .exec-split,
     .ent-grid {
       grid-template-columns: 1fr;
       gap: var(--sp-10);
-    }
-
-    .hero-placeholder {
-      max-width: 400px;
-      margin-inline: auto;
     }
 
     .addon-grid {
@@ -979,6 +1010,14 @@ const faqs = [
 
   @media (max-width: 768px) {
     .pricing-hero { padding-block: var(--sp-24) var(--sp-16); }
+
+    .pricing-hero__overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(11, 18, 35, 0.88) 0%,
+        rgba(11, 18, 35, 0.80) 100%
+      );
+    }
 
     .pricing-hero__actions {
       flex-direction: column;

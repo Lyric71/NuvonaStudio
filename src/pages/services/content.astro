@@ -63,7 +63,7 @@ const services = [
     trust: 'AI-powered. Human-led. Speed from AI. Quality from our team.',
     footnote: 'Nothing goes live without your approval. Everything we build belongs to you.',
     stat: null,
-    image: '/images/placeholder-company-page.jpg',
+    image: '/images/content-company-page.png',
     imageAlt: 'Company page management dashboard',
   },
   {
@@ -79,7 +79,7 @@ const services = [
     trust: 'AI accelerates research, drafting, and multilingual production. Our editorial team ensures every output meets the standard your brand requires.',
     footnote: 'You approve every piece. If it is not right, we rewrite it. No exceptions.',
     stat: null,
-    image: '/images/placeholder-content-production.jpg',
+    image: '/images/content-production.png',
     imageAlt: 'Content production workflow',
   },
   {
@@ -95,7 +95,7 @@ const services = [
     trust: 'AI accelerates topic research, audience analysis, and multilingual drafting. The voice and the final copy are always human.',
     footnote: 'Your subscriber list belongs to you entirely. Always.',
     stat: null,
-    image: '/images/placeholder-newsletter.jpg',
+    image: '/images/content-newsletter.png',
     imageAlt: 'LinkedIn newsletter design',
   },
   {
@@ -113,7 +113,7 @@ const services = [
     trust: 'AI processes recordings, generates clips, and repurposes key moments across every LinkedIn format available.',
     footnote: 'All assets and registrant data belong to you. If the concept will not drive registration, we say so in week one.',
     stat: '100% Registrant Data Ownership',
-    image: '/images/placeholder-events.jpg',
+    image: '/images/content-events.png',
     imageAlt: 'LinkedIn event promotion visual',
   },
 ];
@@ -157,47 +157,20 @@ const faqs = [
 
     <!-- ── Hero ─────────────────────────────────────────────── -->
     <section class="c-hero" aria-labelledby="hero-h">
-      <div class="c-hero__orb c-hero__orb--1" aria-hidden="true"></div>
-      <div class="c-hero__orb c-hero__orb--2" aria-hidden="true"></div>
-      <div class="container">
-        <div class="c-hero__inner">
-
-          <div class="c-hero__text">
-            <p class="eyebrow eyebrow--light reveal">LinkedIn Content Services</p>
-            <h1 id="hero-h" class="c-hero__h1 reveal reveal-delay-1">
-              LinkedIn content that earns attention and generates <span class="text-gradient">leads.</span>
-            </h1>
-            <p class="c-hero__sub reveal reveal-delay-2">
-              We produce every piece of content your LinkedIn presence needs. Strategy, production, publishing, reporting. All handled.
-            </p>
-            <div class="c-hero__actions reveal reveal-delay-3">
-              <a href="/contact" class="btn btn--primary btn--lg">Book a call</a>
-            </div>
+      <div class="c-hero__bg" aria-hidden="true"></div>
+      <div class="c-hero__overlay" aria-hidden="true"></div>
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="c-hero__content">
+          <p class="eyebrow eyebrow--light reveal">LinkedIn Content Services</p>
+          <h1 id="hero-h" class="c-hero__h1 reveal reveal-delay-1">
+            LinkedIn content that earns attention and generates <span class="text-gradient">leads.</span>
+          </h1>
+          <p class="c-hero__sub reveal reveal-delay-2">
+            We produce every piece of content your LinkedIn presence needs. Strategy, production, publishing, reporting. All handled.
+          </p>
+          <div class="c-hero__actions reveal reveal-delay-3">
+            <a href="/contact" class="btn btn--primary btn--lg">Book a call</a>
           </div>
-
-          <div class="c-hero__visual reveal reveal-delay-2">
-            <div class="c-hero__img-wrap">
-              <img src="/images/placeholder-content-hero.jpg" alt="LinkedIn content strategy dashboard" class="c-hero__img" width="600" height="400" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-              <div class="c-hero__img-ph" aria-hidden="true">
-                <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-                  <rect width="64" height="64" rx="12" fill="rgba(0,168,220,0.12)"/>
-                  <path d="M20 44l10-14 8 10 6-8 10 12H20z" fill="rgba(0,168,220,0.2)"/>
-                  <circle cx="44" cy="24" r="5" fill="rgba(0,168,220,0.25)"/>
-                </svg>
-                <span>Visual coming soon</span>
-              </div>
-            </div>
-            <!-- Floating badges -->
-            <div class="c-hero-badge c-hero-badge--1 reveal reveal-delay-3">
-              <span class="c-hero-badge__num">80%</span>
-              <span class="c-hero-badge__label">B2B leads from LinkedIn</span>
-            </div>
-            <div class="c-hero-badge c-hero-badge--2 reveal reveal-delay-4">
-              <span class="c-hero-badge__num">4 services</span>
-              <span class="c-hero-badge__label">End-to-end</span>
-            </div>
-          </div>
-
         </div>
       </div>
     </section>
@@ -211,7 +184,6 @@ const faqs = [
             <a href={card.href} class={`c-ov-card reveal${i > 0 ? ` reveal-delay-${Math.min(i, 3)}` : ''}`}>
               <div class="c-ov-card__top">
                 <span class="c-ov-card__icon" set:html={card.icon} />
-                <span class="c-ov-card__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
               </div>
               <strong class="c-ov-card__title">{card.title}</strong>
               <p class="c-ov-card__text">{card.text}</p>
@@ -237,7 +209,6 @@ const faqs = [
             <div class={`c-wwd-card reveal${i > 0 ? ` reveal-delay-${Math.min(i, 3)}` : ''}`}>
               <div class="c-wwd-card__top">
                 <span class="c-wwd-card__icon" aria-hidden="true" set:html={item.icon} />
-                <span class="c-wwd-card__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
               </div>
               <strong class="c-wwd-card__title">{item.title}</strong>
               <p class="c-wwd-card__body">{item.body}</p>
@@ -261,14 +232,7 @@ const faqs = [
           <!-- Left: visual column -->
           <div class="c-why__visual reveal">
             <div class="c-why__photo-wrap">
-              <img src="/images/placeholder-team.jpg" alt="Nuvora Studio team" class="c-why__photo" width="480" height="560" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-              <div class="c-why__photo-ph" aria-hidden="true">
-                <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-                  <circle cx="32" cy="22" r="12" fill="rgba(0,168,220,0.2)"/>
-                  <ellipse cx="32" cy="52" rx="20" ry="12" fill="rgba(0,168,220,0.15)"/>
-                </svg>
-                <span>Visual coming soon</span>
-              </div>
+              <img src="/images/content-team.png" alt="Nuvora Studio team" class="c-why__photo" width="480" height="560" loading="lazy" />
             </div>
             <div class="c-why__trust-row">
               <div class="c-why__trust-item">
@@ -292,7 +256,6 @@ const faqs = [
           <div class="c-why__cards">
             {whyBlocks.map((b, i) => (
               <div class={`c-why-card reveal${i > 0 ? ` reveal-delay-${Math.min(i, 3)}` : ''}`}>
-                <div class="c-why-card__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</div>
                 <div class="c-why-card__content">
                   <strong class="c-why-card__title">{b.title}</strong>
                   <p class="c-why-card__body">{b.body}</p>
@@ -319,7 +282,6 @@ const faqs = [
             <div class="c-svc-block__text">
               <div class="c-svc-block__label">
                 <span class="c-svc-block__icon" set:html={cardIcons[i]} />
-                <span class="c-svc-block__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
               </div>
               <h3 class="c-svc-block__title">{s.title}</h3>
               <p class="c-svc-block__short">{s.short}</p>
@@ -348,11 +310,7 @@ const faqs = [
 
             <div class="c-svc-block__visual">
               <div class="c-svc-block__img-wrap">
-                <img src={s.image} alt={s.imageAlt} class="c-svc-block__img" width="560" height="400" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                <div class="c-svc-block__img-ph" aria-hidden="true">
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="8" fill="rgba(0,90,156,0.08)"/><path d="M12 36l9-12 7 9 5-6 9 9H12z" fill="rgba(0,90,156,0.15)"/><circle cx="34" cy="18" r="4" fill="rgba(0,90,156,0.18)"/></svg>
-                  <span>Visual coming soon</span>
-                </div>
+                <img src={s.image} alt={s.imageAlt} class="c-svc-block__img" width="560" height="400" loading="lazy" />
               </div>
             </div>
           </div>
@@ -425,26 +383,39 @@ const faqs = [
      HERO
      ──────────────────────────────────────────────────────────── */
   .c-hero {
-    background: var(--deep-navy);
-    padding-block: var(--sp-24) var(--sp-20);
     position: relative;
     overflow: hidden;
+    padding-block: var(--sp-32) var(--sp-24);
+    min-height: 520px;
+    display: flex;
+    align-items: center;
   }
 
-  .c-hero__orb {
+  .c-hero__bg {
     position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    pointer-events: none;
+    inset: 0;
+    background: url('/images/content-hero.png') center center / cover no-repeat;
+    z-index: 0;
   }
-  .c-hero__orb--1 {
-    width: 600px; height: 600px;
-    background: rgba(10, 102, 194, 0.18);
-    top: -200px; right: -100px;
-    animation: orbFloat 12s ease-in-out infinite;
+
+  .c-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(11, 18, 35, 0.92) 0%,
+      rgba(11, 18, 35, 0.75) 50%,
+      rgba(11, 18, 35, 0.45) 100%
+    );
+    z-index: 1;
   }
-  .c-hero__orb--2 {
-    width: 400px; height: 400px;
+
+  .c-hero__content {
+    max-width: 680px;
+  }
+
+  .c-hero__orb-placeholder {
+    display: none;
     background: rgba(0, 168, 220, 0.10);
     bottom: -150px; left: -100px;
     animation: orbFloat 16s ease-in-out infinite reverse;
@@ -452,15 +423,6 @@ const faqs = [
   @keyframes orbFloat {
     0%, 100% { transform: translate(0, 0); }
     50% { transform: translate(30px, -20px); }
-  }
-
-  .c-hero__inner {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--sp-16);
-    align-items: center;
   }
 
   .c-hero__h1 {
@@ -493,60 +455,8 @@ const faqs = [
     gap: var(--sp-4);
   }
 
-  /* Hero visual */
-  .c-hero__visual {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .c-hero__img-wrap {
-    position: relative;
-    border-radius: var(--r-2xl);
-    overflow: hidden;
-    aspect-ratio: 3/2;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
-  }
-
-  .c-hero__img {
-    width: 100%; height: 100%;
-    object-fit: cover; display: block;
-  }
-
-  .c-hero__img-ph {
+  .c-hero-badge-placeholder {
     display: none;
-    position: absolute; inset: 0;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--sp-4);
-    background: linear-gradient(135deg, rgba(0, 24, 64, 0.8) 0%, rgba(10, 102, 194, 0.4) 100%);
-  }
-  .c-hero__img-ph span {
-    font-size: var(--fs-xs);
-    color: rgba(255, 255, 255, 0.35);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-  .c-hero__img-wrap .c-hero__img { display: none; }
-  .c-hero__img-wrap .c-hero__img-ph { display: flex; }
-
-  /* Floating stat badges */
-  .c-hero-badge {
-    position: absolute;
-    padding: var(--sp-3) var(--sp-5);
-    background: rgba(0, 24, 64, 0.85);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(0, 168, 220, 0.3);
-    border-radius: var(--r-lg);
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     z-index: 2;
   }
@@ -837,8 +747,7 @@ const faqs = [
     text-transform: uppercase;
     font-weight: 500;
   }
-  .c-why__photo-wrap .c-why__photo { display: none; }
-  .c-why__photo-wrap .c-why__photo-ph { display: flex; }
+  .c-why__photo-wrap .c-why__photo { display: block; }
 
   /* Trust row */
   .c-why__trust-row {
@@ -1109,8 +1018,7 @@ const faqs = [
     text-transform: uppercase;
     font-weight: 500;
   }
-  .c-svc-block__img-wrap .c-svc-block__img { display: none; }
-  .c-svc-block__img-wrap .c-svc-block__img-ph { display: flex; }
+  .c-svc-block__img-wrap .c-svc-block__img { display: block; }
 
   .c-svc__cta {
     display: flex;
@@ -1287,8 +1195,13 @@ const faqs = [
      RESPONSIVE
      ──────────────────────────────────────────────────────────── */
   @media (max-width: 1024px) {
-    .c-hero__inner { grid-template-columns: 1fr; gap: var(--sp-12); }
-    .c-hero__visual { max-width: 520px; }
+    .c-hero__overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(11, 18, 35, 0.88) 0%,
+        rgba(11, 18, 35, 0.80) 100%
+      );
+    }
 
     .c-ov__grid { grid-template-columns: repeat(2, 1fr); }
 

@@ -52,7 +52,7 @@ async function generate() {
     await new Promise((r) => setTimeout(r, 1000));
     process.stdout.write('.');
 
-    const statusRes = await fetch(`${API_URL}/predictions/${taskId}`, {
+    const statusRes = await fetch(`${API_URL}/predictions/${taskId}/result`, {
       headers: { 'Authorization': `Bearer ${API_KEY}` },
     });
 
