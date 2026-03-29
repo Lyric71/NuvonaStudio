@@ -404,9 +404,9 @@ p { line-height: 1.7; }
   max-width: var(--max-w);
   margin-inline: auto;
   padding-inline: var(--gutter);
-  gap: var(--sp-8);
+  gap: var(--sp-6);
 }
-.nav__links { display: flex; align-items: center; gap: var(--sp-8); }
+.nav__links { display: flex; align-items: center; gap: var(--sp-6); }
 .nav__link  { font-size: var(--fs-sm); font-weight: 500; color: var(--text-2); transition: color var(--t-fast); }
 .nav__link:hover, .nav__link--active { color: var(--text); }
 .nav__actions { display: flex; align-items: center; gap: var(--sp-4); }

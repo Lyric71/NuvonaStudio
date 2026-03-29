@@ -1,4 +1,12 @@
 ---
+import { useTranslations, type Lang } from '../i18n/index.ts';
+
+interface Props {
+  lang?: Lang;
+}
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+const prefix = lang === 'fr' ? '/fr' : '';
 ---
 
 <section class="section cta" aria-labelledby="cta-heading" style="background: var(--deep-navy);">
@@ -6,22 +14,22 @@
     <div class="cta__layout">
 
       <div class="cta__left reveal">
-        <p class="eyebrow eyebrow--light">Start here</p>
+        <p class="eyebrow eyebrow--light">{t('cta.eyebrow')}</p>
         <h2 id="cta-heading" class="cta__headline">
-          Ready to make LinkedIn<br />
-          <em>work for your business?</em>
+          {t('cta.headline')}<br />
+          <em>{t('cta.headline2')}</em>
         </h2>
       </div>
 
       <div class="cta__right reveal reveal-delay-2">
         <p class="cta__sub">
-          Tell us about your company. We'll show you exactly where the opportunity is.
+          {t('cta.sub')}
         </p>
         <div class="cta__actions">
-          <a href="/contact?intent=call" class="btn btn--primary btn--lg">Book a call</a>
-          <a href="/pricing" class="btn btn--outline-white btn--lg">View pricing</a>
+          <a href={`${prefix}/contact?intent=call`} class="btn btn--primary btn--lg">{t('cta.book')}</a>
+          <a href={`${prefix}/pricing`} class="btn btn--outline-white btn--lg">{t('cta.pricing')}</a>
         </div>
-        <p class="cta__note">30 minutes. No pitch. Straight answers.</p>
+        <p class="cta__note">{t('cta.note')}</p>
       </div>
 
     </div>

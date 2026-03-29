@@ -37,6 +37,7 @@ const {
     <meta name="twitter:description" content={description} />
 
     <link rel="canonical" href="https://nuvora.studio" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
@@ -59,7 +60,7 @@ const {
   </head>
   <body>
     <slot />
-    <Footer />
+    <Footer lang={lang} />
 
     <!-- Scroll-reveal observer -->
     <script>

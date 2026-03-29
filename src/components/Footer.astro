@@ -1,24 +1,34 @@
 ---
+import { useTranslations, type Lang } from '../i18n/index.ts';
+
+interface Props {
+  lang?: Lang;
+}
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+const prefix = lang === 'fr' ? '/fr' : '';
+
 const servicesLinks = [
-  { label: 'Content',            href: '/services/content' },
-  { label: 'Advertising',        href: '/services/advertising' },
-  { label: 'Consulting',          href: '/services/consulting' },
+  { label: t('footer.content'),      href: `${prefix}/services/content` },
+  { label: t('footer.advertising'),  href: `${prefix}/services/advertising` },
+  { label: t('footer.consulting'),   href: `${prefix}/services/consulting` },
 ];
 
 const companyLinks = [
-  { label: 'About',    href: '/about' },
-  { label: 'Work',     href: '/work' },
-  { label: 'Insights', href: '/insights' },
-  { label: 'Pricing',  href: '/pricing' },
-  { label: 'Contact',  href: '/contact' },
+  { label: t('footer.about'),    href: `${prefix}/about` },
+  { label: t('footer.work'),     href: `${prefix}/work` },
+  { label: t('footer.insights'), href: `${prefix}/insights` },
+  { label: t('footer.pricing'),  href: `${prefix}/pricing` },
+  { label: t('footer.contact'),  href: `${prefix}/contact` },
 ];
 
 const legalLinks = [
-  { label: 'Privacy Policy',   href: '/privacy' },
-  { label: 'Terms of Service', href: '/terms' },
-  { label: 'Cookie Policy',    href: '/cookies' },
+  { label: t('footer.privacy'), href: `${prefix}/privacy` },
+  { label: t('footer.terms'),   href: `${prefix}/terms` },
+  { label: t('footer.cookies'), href: `${prefix}/cookies` },
 ];
 
+const homeHref = lang === 'fr' ? '/fr/' : '/';
 const year = new Date().getFullYear();
 ---
 
@@ -29,7 +39,7 @@ const year = new Date().getFullYear();
 
       <!-- Brand -->
       <div class="footer__brand">
-        <a href="/" class="footer__logo-link" aria-label="Nuvora Studio, home">
+        <a href={homeHref} class="footer__logo-link" aria-label="Nuvora Studio, home">
           <img
             src="/nuvora-logo.png"
             alt="Nuvora Studio"
@@ -38,23 +48,23 @@ const year = new Date().getFullYear();
             height="78"
           />
         </a>
-        <p class="footer__tagline">LinkedIn without a noise.</p>
+        <p class="footer__tagline">{t('footer.tagline')}</p>
       </div>
 
       <!-- Services -->
-      <nav class="footer__col" aria-label="Services">
-        <p class="footer__col-label">Services</p>
+      <nav class="footer__col" aria-label={t('footer.services')}>
+        <p class="footer__col-label">{t('footer.services')}</p>
         <ul role="list" class="footer__links">
           {servicesLinks.map(l => (
             <li><a href={l.href} class="footer__link">{l.label}</a></li>
           ))}
         </ul>
-        <a href="/services" class="footer__see-all">See all services →</a>
+        <a href={`${prefix}/services`} class="footer__see-all">{t('footer.see_all')}</a>
       </nav>
 
       <!-- Company -->
-      <nav class="footer__col" aria-label="Company">
-        <p class="footer__col-label">Company</p>
+      <nav class="footer__col" aria-label={t('footer.company')}>
+        <p class="footer__col-label">{t('footer.company')}</p>
         <ul role="list" class="footer__links">
           {companyLinks.map(l => (
             <li><a href={l.href} class="footer__link">{l.label}</a></li>
@@ -68,8 +78,8 @@ const year = new Date().getFullYear();
     <div class="footer__rule"></div>
 
     <div class="footer__bottom">
-      <p class="footer__badges">Working globally&nbsp;&nbsp;|&nbsp;&nbsp;LinkedIn-only&nbsp;&nbsp;|&nbsp;&nbsp;B2B specialists</p>
-      <p class="footer__copy">© {year} Nuvora Studio. All rights reserved.</p>
+      <p class="footer__badges">{t('footer.badges')}</p>
+      <p class="footer__copy">&copy; {year} Nuvora Studio. {t('footer.rights')}</p>
       <ul class="footer__legal" role="list">
         {legalLinks.map(l => (
           <li><a href={l.href} class="footer__legal-link">{l.label}</a></li>
