@@ -30,6 +30,8 @@ const links = [
   { label: t('nav.about'),    href: `${prefix}/about` },
 ];
 
+const optimizerHref = `${prefix}/linkedin-optimizer`;
+
 const homeHref = lang === 'fr' ? '/fr/' : '/';
 const contactHref = `${prefix}/contact?intent=call`;
 ---
@@ -76,6 +78,11 @@ const contactHref = `${prefix}/contact?intent=call`;
     </ul>
 
     <div class="nav__actions">
+      <a href={optimizerHref} class="nav__optimizer-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        {t('nav.optimizer')}
+      </a>
+
       <!-- Language switcher -->
       <a href={alternateUrl} class="nav__lang" aria-label={`Switch to ${alternateLabel}`}>
         <span class="nav__lang-flag" aria-hidden="true">{lang === 'en' ? '🇫🇷' : '🇬🇧'}</span>
@@ -100,6 +107,11 @@ const contactHref = `${prefix}/contact?intent=call`;
           ))}
         </>
       ))}
+      <li>
+        <a href={optimizerHref} class="nav__mobile-link" style="color:var(--sky);font-weight:600;">
+          {t('nav.optimizer')}
+        </a>
+      </li>
       <li>
         <a href={alternateUrl} class="nav__mobile-link nav__mobile-lang">
           {lang === 'en' ? '🇫🇷' : '🇬🇧'} {alternateLabel}
@@ -178,6 +190,25 @@ const contactHref = `${prefix}/contact?intent=call`;
   .nav__dropdown-link:hover,
   .nav__dropdown-link--active { background: var(--off-white); color: var(--text); }
 
+
+  /* Optimizer link */
+  .nav__optimizer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    color: var(--sky);
+    padding: var(--sp-1) var(--sp-3);
+    border: 1.5px solid var(--sky);
+    border-radius: var(--r-full);
+    white-space: nowrap;
+    transition: background var(--t-fast), color var(--t-fast);
+  }
+  .nav__optimizer-link:hover {
+    background: var(--sky);
+    color: var(--white);
+  }
 
   /* Language switcher */
   .nav__lang {

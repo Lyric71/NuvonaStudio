@@ -20,6 +20,7 @@ export const ui = {
     'nav.work':         'Work',
     'nav.insights':     'Insights',
     'nav.about':        'About',
+    'nav.optimizer':    'Profile Optimizer',
     'nav.book_call':    'Book a call',
 
     // Common
@@ -51,6 +52,7 @@ export const ui = {
     'nav.work':         'Réalisations',
     'nav.insights':     'Insights',
     'nav.about':        'À propos',
+    'nav.optimizer':    'Optimiseur de Profil',
     'nav.book_call':    'Prendre rendez-vous',
 
     // Common
