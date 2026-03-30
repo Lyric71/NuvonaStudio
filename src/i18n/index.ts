@@ -156,7 +156,7 @@ export const ui = {
     'form.send':    '提交',
     'form.sending': '提交中…',
     'form.success_title': '已收到您的留言。',
-    'form.success_body':  '感谢联系，我们将在一个工作日内回复您。',
+    'form.success_body':  '感谢联系，我们会在一个工作日内回复你。',
     'form.back_home':     '返回首页',
 
     // Footer
@@ -164,7 +164,7 @@ export const ui = {
     'footer.services':      '服务',
     'footer.company':       '关于',
     'footer.see_all':       '全部服务 \u2192',
-    'footer.badges':        '服务覆盖全球 | 专注LinkedIn | B2B专业团队',
+    'footer.badges':        '服务覆盖全球 | 专注Linkedin | B2B专业团队',
     'footer.rights':        '版权所有。',
     'footer.about':         '公司介绍',
     'footer.work':          '客户案例',
@@ -181,11 +181,11 @@ export const ui = {
     // CTA
     'cta.eyebrow':    '现在开始',
     'cta.headline':   '准备好让LinkedIn',
-    'cta.headline2':  '真正产生业务价值了吗？',
-    'cta.sub':        '说说你的情况，我们来看LinkedIn上有什么现成的机会。',
+    'cta.headline2':  '开始产生业务价值了吗？',
+    'cta.sub':        '说说你的情况，我们来看看Linkedin上有什么现成的机会。',
     'cta.book':       '预约沟通',
     'cta.pricing':    '查看价格',
-    'cta.note':       '30分钟，不推东西，聊实际的。',
+    'cta.note':       '30分钟，不推销，就聊实际的。',
 
     // Translation banner
     'lang.banner': '本页中文版本持续完善中，部分内容暂为英文。',
@@ -205,14 +205,12 @@ export function useTranslations(lang: Lang) {
 
 // ── URL helpers ───────────────────────────────────────────────────────────────
 export function getAlternateUrl(currentPath: string, targetLang: Lang): string {
+  // Strip any existing lang prefix and leading slash to get a clean segment
+  const stripped = currentPath.replace(/^\/(fr|zh)(\/|$)/, '/').replace(/^\//, '');
   if (targetLang === 'en') {
-    const stripped = currentPath.replace(/^\/(fr|zh)\/?/, '');
     return stripped ? `/${stripped}` : '/';
   }
-  // target is 'fr' or 'zh' — strip any existing lang prefix, then add new one
-  const stripped = currentPath.replace(/^\/(fr|zh)\/?/, '');
-  const base = stripped || '';
-  return base ? `/${targetLang}/${base}` : `/${targetLang}/`;
+  return stripped ? `/${targetLang}/${stripped}` : `/${targetLang}/`;
 }
 
 export function getLangFromPath(pathname: string): Lang {

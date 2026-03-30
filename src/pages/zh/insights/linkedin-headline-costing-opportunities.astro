@@ -1,0 +1,429 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import NavBar from '../../../components/NavBar.astro';
+import ContactCTA from '../../../components/ContactCTA.astro';
+---
+
+<Layout
+  lang="zh"
+  title="LinkedIn头条写错了,客户就从你眼前溜走 | Nuvora Studio"
+  description="LinkedIn给了你220个字符的头条空间,多数人只用了不到80个。头条跟着你出现在帖子、评论、搜索、私信里。写对这一行,主页访问量翻倍不是夸张。"
+  abstract="LinkedIn头条不是填职位的地方,而是全平台曝光最高的一行文案。220个字符,大部分人浪费了60%。本文给出一套可复用的改写公式。"
+>
+  <NavBar lang="zh" />
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="post-hero" aria-labelledby="post-heading">
+      <div class="container">
+        <div class="post-hero__inner">
+          <div class="post-hero__meta">
+            <span class="tag">LinkedIn策略</span>
+            <span class="post-tag-pill">个人主页</span>
+            <time class="post-hero__date" datetime="2026-03-29">2026年3月29日</time>
+          </div>
+          <h1 id="post-heading" class="post-hero__h1">
+            头条写错了<br />客户就从你眼前溜走。<br /><em>15分钟改好它。</em>
+          </h1>
+          <p class="post-hero__deck">
+            LinkedIn给了你220个字符的头条空间,多数人只用了不到80个。头条跟着你出现在帖子、评论、搜索、私信里。写对这一行,主页访问量翻倍不是夸张。
+          </p>
+          <div class="post-hero__byline">
+            <span>Nuvora Studio</span>
+            <span class="post-hero__sep" aria-hidden="true">&middot;</span>
+            <span>7 分钟阅读</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Article body -->
+    <article class="post-body" aria-label="Article content">
+      <div class="container">
+        <div class="post-layout">
+
+          <!-- Sticky TOC -->
+          <nav class="post-toc" aria-label="Table of contents">
+            <p class="post-toc__label">本文目录</p>
+            <ol class="post-toc__list" role="list">
+              <li><a href="#everywhere">头条无处不在</a></li>
+              <li><a href="#matters">被低估的第一行文案</a></li>
+              <li><a href="#bad">典型反面教材</a></li>
+              <li><a href="#formula">一套B2B通用公式</a></li>
+              <li><a href="#test">去掉上下文再看一遍</a></li>
+              <li><a href="#fix">15分钟改写流程</a></li>
+              <li><a href="#hardest">门面决定一切</a></li>
+            </ol>
+          </nav>
+
+          <!-- Main content -->
+          <div class="post-content">
+
+            <section id="everywhere">
+              <h2>头条无处不在</h2>
+              <p>
+                你在别人帖子下评论,头条紧跟名字出现。你出现在搜索结果里,潜在客户第一眼读到的就是它。你发连接请求,对方还没看你主页,头条已经替你开了口。
+              </p>
+              <p>
+                220个字符的空间,大多数人连80个都填不满。写个职位,加个公司名,完事。结果是什么?在LinkedIn上留下的每一个印象,全靠一行毫无价值主张的文字撑场面。
+              </p>
+              <p>
+                头条不是标签,是24小时替你跑业务的推销员。你在不在线,它都在工作。
+              </p>
+              <blockquote>
+                "Your headline is not your job title. It is the one line that decides whether someone clicks or scrolls past."
+              </blockquote>
+            </section>
+
+            <section id="matters">
+              <h2>被低估的第一行文案</h2>
+              <p>
+                注册那天随手填的头条,之后再没动过。这种情况太常见了。但事实是:头条是整个主页上曝光量最高的一行字,没有之一。
+              </p>
+              <p>
+                搜索结果里,别人还没点进你的主页就看到了它。评论区里,它跟在名字下面。连接请求里、推荐侧边栏里、你触发的每一条通知里,只要有人在LinkedIn上看到你的名字,头条就跟着。甩不掉的。
+              </p>
+              <p>
+                换句话说,头条每天替你做几百次自我介绍。写得好是加分,写不好是减分。一个弱头条不只是没吸引注意力,它在主动告诉潜在客户:"这个人不值得点进去。"
+              </p>
+              <blockquote>
+                "A headline that says 'Sales Manager at Company X' tells the reader nothing about why they should care."
+              </blockquote>
+            </section>
+
+            <section id="bad">
+              <h2>典型反面教材</h2>
+              <p>
+                差头条有个共性:只说"我是谁",不说"我能帮你什么"。回答的是身份问题,不是价值问题。
+              </p>
+              <p>
+                <strong>"Acme公司市场总监"</strong> 告诉了读者你的角色和雇主。然后呢?你解决什么问题?帮什么人?为什么值得连接?全是空白。这是名片,不是点击的理由。
+              </p>
+              <p>
+                <strong>"热衷于帮助企业增长"</strong> 模糊到毫无信息量。"热衷"二字人人都能写,"企业"什么都能指。没有具体性,没有证据,等于什么都没说。
+              </p>
+              <p>
+                <strong>"CEO | 演讲者 | 作者 | 投资人 | 顾问"</strong> 头衔堆砌,不是价值主张。罗列身份解决不了一个核心问题:你到底为客户做了什么?这像奖杯柜,不像对话入口。
+              </p>
+              <p>
+                <strong>"Open to new opportunities"</strong> 传递的信号是需求,不是价值。即使在找工作,头条也应该先亮出你能提供的东西,而不是你想得到的东西。
+              </p>
+              <blockquote>
+                "If your headline could belong to a thousand other people, it is not doing its job."
+              </blockquote>
+            </section>
+
+            <section id="formula">
+              <h2>一套B2B通用公式</h2>
+              <p>
+                不需要绞尽脑汁想创意。头条拼的是清晰度。一个能说清"帮谁、怎么帮、什么结果"的头条,轻松碾压那些有创意但含糊不清的写法。
+              </p>
+              <p>
+                公式很简单:我帮助[具体受众]通过[具体方法]实现[具体结果]。语气可以调整,骨架不要变。
+              </p>
+              <p>
+                举个例子:"帮B2B SaaS公司通过LinkedIn内容策略获取合格线索。"三秒读完,读者立刻判断自己是不是目标受众。服务对象清楚,交付物清楚,方法清楚。头条该干的事,就是这些。
+              </p>
+              <p>
+                220个字符,用满它。可以补一个背书、一个附加价值、一句个性化的话。但核心结构永远回答一个问题:"这个人跟我有关系吗?"
+              </p>
+              <blockquote>
+                "Clarity beats cleverness on LinkedIn. Every time."
+              </blockquote>
+            </section>
+
+            <section id="test">
+              <h2>去掉上下文再看一遍</h2>
+              <p>
+                最简单的测试:把名字、照片、主页全去掉,只留头条本身。它还说得通吗?它传递了价值吗?如果出现在陌生人名字下面,你会点进去看吗?
+              </p>
+              <p>
+                大多数头条过不了这一关。它们依赖根本不存在的上下文,默认读者已经知道你是谁、你公司干什么、你的头衔有多重要。但现实是:信息流里没有上下文,搜索结果里没有上下文,连接请求里也没有。只有头条。
+              </p>
+              <p>
+                试试这个方法:把头条粘到空白文档里,拿给一个不同行业的朋友看。问两个问题:"这个人做什么的?帮什么人?"答不上来,就该改了。
+              </p>
+              <blockquote>
+                "Your headline has to work without your profile. Because most of the time, that is exactly how people see it."
+              </blockquote>
+            </section>
+
+            <section id="fix">
+              <h2>15分钟改写流程</h2>
+              <p>
+                不需要文案高手,不需要品牌研讨会。15分钟加一点直面具体的勇气就够了。
+              </p>
+              <p>
+                <strong>第一步:列出客户最常找你解决的三个问题。</strong>不是你自己定义的问题,是客户第一次联系你时嘴里说的那些原话。那些词就是头条的原材料。
+              </p>
+              <p>
+                <strong>第二步:锁定你最常交付的核心结果。</strong>收入增长、管线拓展、运营提效、降低流失 - 选那个对目标客户最痛的。
+              </p>
+              <p>
+                <strong>第三步:把受众、结果和方法拼成一句话。</strong>控制在220字符以内。大声念一遍。听起来像正常人说话,就差不多了。
+              </p>
+              <p>
+                <strong>第四步:砍掉所有占位不出力的词。</strong>"热衷""结果导向""思想领袖" - 全是填充物。换成数字、行业、方法、成果。
+              </p>
+              <p>
+                <strong>第五步:更新,然后观察两周。</strong>盯三个指标:主页浏览量、连接请求通过率、主动私信数量。好的头条会同时拉动这三项。
+              </p>
+              <blockquote>
+                "The best headline you can write is the one that makes the right people stop scrolling and click."
+              </blockquote>
+            </section>
+
+            <section id="hardest">
+              <h2>门面决定一切</h2>
+              <p>
+                "关于"重要,"经历"重要,"精选"也重要。但如果没人点进主页,这些全是摆设。头条才是拿下那次点击的关键。
+              </p>
+              <p>
+                打个比方:头条是店铺门脸,其他内容是店内陈列。门脸不吸引人,再好的货也卖不动。
+              </p>
+              <p>
+                多数LinkedIn主页都是门面破旧、里面其实装修不错。先把门脸翻新。这一行改好了,后面所有内容都开始替你干活。
+              </p>
+              <blockquote>
+                "A great profile behind a weak headline is a store with no sign. Nobody walks in."
+              </blockquote>
+            </section>
+
+            <!-- CTA in article -->
+            <div class="post-inline-cta">
+              <p class="post-inline-cta__text">
+                Nuvora Studio帮B2B从业者写出能带线索的LinkedIn头条。15分钟的投入,日复一日地回报你。
+              </p>
+              <a href="/contact?intent=call" class="btn btn--primary">预约咨询</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Back to insights -->
+    <div class="post-back" aria-label="Navigation">
+      <div class="container">
+        <a href="/zh/insights" class="post-back__link">&larr; 返回全部文章</a>
+      </div>
+    </div>
+
+    <ContactCTA lang="zh" />
+  </main>
+</Layout>
+
+<style>
+  .post-hero {
+    background: var(--deep-navy) url('/blog/hero-headline-fix.png') center/cover no-repeat;
+    padding-block: clamp(3rem, 6vw, 5rem) clamp(3rem, 5vw, 4.5rem);
+    position: relative;
+    overflow: hidden;
+  }
+  .post-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.62);
+    pointer-events: none;
+  }
+
+  .post-hero__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+  }
+
+  .post-hero__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+    margin-bottom: var(--sp-6);
+    flex-wrap: wrap;
+  }
+
+  .post-hero__date {
+    font-family: var(--font-body);
+    font-size: var(--fs-xs);
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.04em;
+  }
+
+  .post-tag-pill {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.16);
+    color: rgba(255,255,255,0.75);
+    font-size: 0.7rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .post-hero__h1 {
+    font-size: clamp(2rem, 4.5vw, 3.25rem);
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    margin-bottom: var(--sp-6);
+  }
+  .post-hero__h1 em {
+    color: rgba(255,255,255,0.45);
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  .post-hero__deck {
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    color: rgba(255,255,255,0.68);
+    line-height: 1.75;
+    max-width: 600px;
+    margin-bottom: var(--sp-8);
+  }
+
+  .post-hero__byline {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    font-family: var(--font-body);
+    font-size: var(--fs-xs);
+    color: rgba(255,255,255,0.40);
+    letter-spacing: 0.04em;
+  }
+  .post-hero__sep { opacity: 0.4; }
+
+  .post-body {
+    padding-block: clamp(3rem, 6vw, 5rem);
+    background: var(--white);
+  }
+
+  .post-layout {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: clamp(2.5rem, 5vw, 5rem);
+    align-items: start;
+  }
+
+  .post-toc {
+    position: sticky;
+    top: calc(70px + var(--sp-8));
+  }
+
+  .post-toc__label {
+    font-size: var(--fs-xs);
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin-bottom: var(--sp-4);
+  }
+
+  .post-toc__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    padding: 0;
+  }
+
+  .post-toc__list a {
+    font-family: var(--font-body);
+    font-size: var(--fs-xs);
+    color: var(--text-2);
+    line-height: 1.5;
+    transition: color var(--t-fast), border-left-color var(--t-fast);
+    display: block;
+    padding-left: var(--sp-4);
+    border-left: 2px solid transparent;
+  }
+  .post-toc__list a:hover {
+    color: var(--sky);
+    border-left-color: var(--sky);
+  }
+
+  .post-content { max-width: 680px; }
+
+  .post-content section { margin-bottom: clamp(2.5rem, 4vw, 3.5rem); }
+
+  .post-content h2 {
+    font-size: clamp(1.25rem, 2vw, 1.6rem);
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--deep-navy);
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    margin-bottom: var(--sp-5);
+  }
+
+  .post-content p {
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    color: var(--text);
+    line-height: 1.85;
+    margin-bottom: var(--sp-5);
+  }
+
+  .post-content blockquote {
+    border-left: 3px solid var(--sky);
+    margin: var(--sp-8) 0;
+    padding: var(--sp-1) var(--sp-6);
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    font-style: italic;
+    color: var(--text-2);
+    line-height: 1.75;
+  }
+
+  .post-inline-cta {
+    margin-top: clamp(2.5rem, 4vw, 3.5rem);
+    padding: var(--sp-8) var(--sp-10);
+    background: var(--deep-navy);
+    border-radius: var(--r-2xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-6);
+  }
+
+  .post-content .post-inline-cta__text {
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    color: rgba(255,255,255,0.85);
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  .post-back {
+    padding-block: var(--sp-8);
+    background: var(--off-white);
+    border-top: 1px solid var(--border);
+  }
+
+  .post-back__link {
+    font-size: var(--fs-sm);
+    font-family: var(--font-body);
+    font-weight: 500;
+    color: var(--text-2);
+    transition: color var(--t-fast), transform var(--t-fast);
+  }
+  .post-back__link:hover {
+    color: var(--sky);
+    transform: translateY(-3px);
+    text-shadow: var(--shadow-sm);
+  }
+
+  @media (max-width: 900px) {
+    .post-layout { grid-template-columns: 1fr; }
+    .post-toc { display: none; }
+  }
+
+  @media (max-width: 640px) {
+    .post-inline-cta { padding: var(--sp-6); }
+  }
+</style>

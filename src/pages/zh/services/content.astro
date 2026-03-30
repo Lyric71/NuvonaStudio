@@ -1,0 +1,1235 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import NavBar from '../../../components/NavBar.astro';
+import FAQ from '../../../components/FAQ.astro';
+
+/* ── Data ───────────────────────────────────────────────── */
+
+const overviewCards = [
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="7" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.6"/><line x1="9" y1="12" x2="15" y2="12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="9" y1="16" x2="13" y2="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
+    title: '企业主页运营',
+    text: '你在LinkedIn上的全球门面,搭建和日常维护全包了。',
+    href: '#svc-company-page',
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
+    title: '内容生产与编审',
+    text: '各种格式都做,每周都出,覆盖所有目标市场。靠内容立住行业地位。',
+    href: '#svc-content-production',
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M2 7l10 7 10-7" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
+    title: 'LinkedIn 企业通讯',
+    text: '跟对业务最关键的那群人搭上直接联系,中间不隔任何平台。',
+    href: '#svc-newsletter',
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="1.6"/><rect x="7" y="14" width="3" height="3" rx="0.5" fill="currentColor" opacity="0.7"/></svg>`,
+    title: 'LinkedIn 线上活动',
+    text: '整个LinkedIn上互动率最高的形式。策划和执行我们来,风险我们扛。',
+    href: '#svc-events',
+  },
+];
+
+const whatWeDo = [
+  { title: '内容这条线,整个交给我们跑。', body: '策略怎么定、排期怎么排、内容谁来写、什么时候发、发完效果怎么样,统统是我们的活。你那边就一个动作:看完点头就行。团队该忙什么忙什么去。', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/></svg>` },
+  { title: '说的是你们的话。', body: '品牌调性这东西,每家都不一样。我们写之前会先花功夫搞清楚你们团队平时怎么讲话、市场在乎哪些点。最后写出来的东西,读者看完会觉得"这就是他们自己写的吧",那种信任感是装不出来的。', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>` },
+  { title: '买家看什么语言,就拿什么语言写。', body: '不是拿英文版翻一遍就完事那种。德语、中文、西语、葡语,目标市场用什么语言我们就安排母语写手从头来。', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 9h17M3.5 15h17" stroke="currentColor" stroke-width="1.6"/><ellipse cx="12" cy="12" rx="4" ry="9" stroke="currentColor" stroke-width="1.6"/></svg>` },
+  { title: '有AI,但品质这事不含糊。', body: '能用AI的地方我们基本都用了,调研、初稿、多语种、出图、剪辑。但每一条东西最后还是会过编辑那关,你不点头也不会发出去。AI其实就是干活快,真正拿主意的还得是人。', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.09 6.26L20 10l-5.91 1.74L12 18l-2.09-6.26L4 10l5.91-1.74L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>` },
+  { title: '数据只说跟生意有关的。', body: '月报就围绕你的商业指标来,这个月干了啥,数据为什么变了,下个月准备调什么。那种满屏花花绿绿的图表,销售看了半天也不知道跟自己有什么关系,这种报告不会出现。', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7 17V13M12 17V9M17 17V7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>` },
+];
+
+const whyBlocks = [
+  { title: '我们就干LinkedIn这一件事。', body: '不是那种什么都接的数字营销公司。LinkedIn就是我们全部的生意,流程也好、编辑规范也好、考核怎么打分,都是专门围绕这一个平台设计的。' },
+  { title: '多语种是标配,不是加钱项。', body: '行业里常见的操作你应该也知道,拿英文版丢进去翻一遍就叫"本地化"了。我们不是这样。每种语言重新找母语的人写。德语内容你拿去看,就是个德国人坐在那一字一字敲出来的,因为确实就是。' },
+  { title: 'AI用得狠,但编辑那关不能省。', body: '从调研到初稿到视觉素材到视频片段,AI上的地方挺多的。但不管AI给出来什么东西,编辑团队都要拉回来重新看一遍。快的部分让技术去解决,质量得靠人守。' },
+  { title: '做出来的东西都是你的。', body: '内容、订阅者名单、活动报名数据、设计源文件,这些东西的归属权没有什么模糊地带,全在客户手上。哪天觉得不想做了,拿走就行。我们不搞这种靠扣东西留人的事。' },
+];
+
+const services = [
+  {
+    id: 'svc-company-page',
+    title: '企业主页运营',
+    short: '你在LinkedIn上面向全球的门面,搭建和日常打理都由我们来。',
+    details: [
+      '先整体诊断一遍:横幅、简介区、精选内容、行业标签,该调的调该换的换',
+      '每个月发什么、什么节奏发,既要看LinkedIn算法那边的规律,也得配合你们自己的业务重点',
+      '文字帖、轮播、短视频、PDF文档、投票,能用的格式基本都会用到',
+      '涨粉这件事靠几条路一起走,员工帮转、广告定投、加上内容本身得有人愿意分享',
+      '月底给一份复盘,干了什么、跑出来什么数、下个月打算怎么改',
+    ],
+    trust: '快的部分交给AI跑,质量上的事情团队来把关。就这么个分工。',
+    footnote: '没签字的东西不会发出去。做出来的所有内容,归属权在你这边。',
+    stat: null,
+    image: '/images/content-company-page.png',
+    imageAlt: '企业主页管理界面',
+  },
+  {
+    id: 'svc-content-production',
+    title: '内容生产与编审',
+    short: '什么格式都做,每周都出,哪个市场都管。',
+    details: [
+      '用哪种格式发不是随便选的,是根据策略来定的',
+      '高管代笔这块,管理层有想法有观点,我们负责帮他们表达出来、推出去',
+      '多语种不走翻译那条路,每种语言都安排母语的人直接写',
+      '编辑排期提前一个月定死:写稿、审稿、你批完、准时上线',
+    ],
+    trust: '调研和初稿环节AI帮了不少忙,多语种也靠它拉速度。但出品质量编辑团队一直在盯。',
+    footnote: '发之前必须过你这关。不满意就改,没什么好说的。',
+    stat: null,
+    image: '/images/content-production.png',
+    imageAlt: '内容生产工作流',
+  },
+  {
+    id: 'svc-newsletter',
+    title: 'LinkedIn 企业通讯',
+    short: '跟对业务真正要紧的那群人之间,拉一条直线出来。',
+    details: [
+      '定位先想清楚,这份通讯讲什么、给谁看、凭什么让人一直订下去',
+      '选题到写稿到编辑到最后推出去,中间包括标题怎么起、读者看完该做什么,全部我们来',
+      '订阅量的拉动:企业主页导流、高管个人号带、再配上定向推广,有机的和花钱的一起推',
+      '每期发完出一份数据,打开率、点击率、新增多少人订阅,都给你写清楚',
+    ],
+    trust: '选题研究、受众分析、多语种的初稿,这几个环节AI介入比较多。不过品牌调性和最终定稿,决定权一直在人手里。',
+    footnote: '订阅者名单属于你,这条不接受讨论。',
+    stat: null,
+    image: '/images/content-newsletter.png',
+    imageAlt: 'LinkedIn企业通讯设计',
+  },
+  {
+    id: 'svc-events',
+    title: 'LinkedIn 线上活动',
+    short: 'LinkedIn上互动最猛的形式。报名的每一个人,都带着真实姓名和职位。',
+    details: [
+      '选题定位必须想好:切入角度要够尖,目标人群要清楚,办就得办满',
+      '推广提前四个星期开始铺,多个触点同时推,自然曝光和付费投放都上',
+      '嘉宾不是丢上去就开聊的,每个人事先都要对一遍内容,设备也会提前调好',
+      '直播当天我们盯全场,你安心做分享就好',
+      '活动完了还没完。录像要剪、精华要出、文字版要写,社交媒体上的帖子也得跟上',
+      '报名者数据整理好以后,配一套后续跟进的方案,直接递给你的商务团队',
+    ],
+    trust: '录像处理和精华剪辑这块AI帮了大忙。活动里值得拿出来说的内容,会被拆成好几种格式在LinkedIn上分批发。',
+    footnote: '素材和报名者信息全部归你。如果我们觉得选题方向拉不动报名,第一周就会老实跟你讲。',
+    stat: '100% 报名数据归属权',
+    image: '/images/content-events.png',
+    imageAlt: 'LinkedIn活动推广视觉',
+  },
+];
+
+const cardIcons = overviewCards.map(c => c.icon);
+
+const stats = [
+  { value: '80%', label: 'B2B企业在社交媒体上拿到的销售线索,八成来自LinkedIn。', context: '其他平台跟它差距不小。', source: 'LinkedIn Marketing Solutions / Cognism' },
+  { value: '7x', label: '每周都在更新的企业主页,粉丝涨速快了将近7倍。', context: '其实最有效的增长策略就一个字:发。持续地发。', source: 'LinkedIn' },
+  { value: '5x', label: '视频帖的互动数据差不多是图文帖的5倍。', context: '所以说格式选对了,效果差距是很明显的。', source: 'LinkedIn' },
+  { value: '59%', label: '将近六成B2B决策者认为,判断一家公司是否值得信任,看他们的专业内容最直接。', context: '比广告和白皮书都管用。', source: 'LinkedIn / Edelman' },
+  { value: '4/5', label: 'LinkedIn上每五个用户里就有四个参与所在公司的采购。', context: '也就是说,你发的内容,看到的人大概率是能拍板的。', source: 'LinkedIn' },
+  { value: '2x', label: 'LinkedIn的转化率大概是其他社交平台的两倍。', context: '用户上来就是带着工作状态的,接受度本来就高一些。', source: 'LinkedIn Marketing Solutions' },
+  { value: '277%', label: '获客效率比Facebook和X(Twitter)加在一起还高出将近三倍。', context: '说实话不太像是在同一个赛道竞争。', source: 'HubSpot' },
+  { value: '46%', label: 'B2B企业网站从社交渠道来的流量,差不多一半是LinkedIn给的。', context: '好的内容不只是做品牌的事,它真的会往网站引人过来。', source: 'LinkedIn' },
+  { value: '28%', label: '和Google Ads比,LinkedIn上获取一条线索的成本少了28%左右。', context: '而且如果你同时在做自然内容,这个成本还能再降。', source: 'HubSpot' },
+  { value: '61%', label: '先看过品牌自然内容、后来又看到广告的用户,转化概率高了61%。', context: '内容跟广告一块做的公司,两头的回报都更好看。', source: 'LinkedIn内部数据' },
+];
+
+const faqs = [
+  { q: '合作刚开始第一个月,一般怎么走?', a: '上来先摸底。企业主页什么情况、高管的号怎么样、以前发过些什么内容、粉丝是什么结构。看完了再出策略,把第一个月的内容排好给你过目,你觉得行就开始发。大部分客户差不多两三周能进入状态。' },
+  { q: '签约周期怎么算?', a: '前面三个月是启动阶段,这段时间够把体系搭起来,也能初步看到数据上的变化。三个月之后按月续,想走随时可以。留下来的客户是因为东西确实在起作用,不是因为合同没到期。' },
+  { q: 'AI在你们的流程里到底怎么用?', a: '用得挺深的。调研、初稿、多语种内容、图片生成、视频剪辑,AI基本都参与了。但是出来的东西不会直接用,编辑要审文字,设计要审视觉,最后还得你点头。整体的效果就是产量上来了、速度快了、成本低了,但质量没放松过。AI干体力活,标准是人定的。' },
+  { q: '做出来的东西不满意怎么办?', a: '那就改,没什么好说的。不用你解释为什么不满意,也不会加钱。我们的原则很简单,宁可一篇内容改三遍,也不会硬把一个凑合的东西发出去。' },
+  { q: '必须四个服务一起签?还是能先试一个?', a: '先签一个完全没问题,后面觉得需要了再加。' },
+  { q: '我们团队每周需要配合多久?', a: '其实花不了多少时间。内容我们提前一个月排好了,你们团队就看一看、批一批。一般一周二三十分钟差不多了。我记得有个客户跟我们说,他每周一早上喝咖啡的功夫就顺手处理掉了。' },
+  { q: '能按照我们自己的品牌规范做吗?', a: '当然可以,这是基本操作。品牌手册你拿来就行,语言怎么说、视觉什么风格、审批怎么走,我们按你们的规矩来。要是有合规上的限制或者术语方面的要求,也会严格照办。' },
+  { q: '月报一般都包含什么?', a: '围绕商业目标写的。粉丝涨了多少、互动表现怎么样、哪条内容跑出了好数据,线索那边有没有动静。然后会告诉你哪些做法有效、哪些没效、下个月准备怎么调整。不会塞一堆好看但没人看得懂的东西进去。' },
+  { q: '大概要多长时间能见到效果?', a: '多数客户两个月左右就能感受到变化了,主页浏览量在涨、粉丝在涨、互动数据也开始动。线索转化这块会慢一点,一般三个月左右才开始起量。内容这种事情急不来的,它需要沉淀。LinkedIn这个平台本身就奖励那些坚持在做的人。' },
+  { q: '到时候想停了怎么办?', a: '三个月启动期过了以后,提前一个月跟我们说就行。内容、订阅者名单、设计文件这些全打包给你。合作期间做出来的东西,全部都是你的。' },
+];
+---
+
+<Layout
+  title="LinkedIn内容服务 | 帮B2B企业在LinkedIn上拿到客户"
+  description="LinkedIn内容全流程代运营 - 策略、生产、发布、复盘。专门服务B2B企业,帮你把LinkedIn做成一个能出商机的地方。"
+  abstract="我们替B2B企业打理LinkedIn上的所有内容。四项服务,一个目标:让LinkedIn真正帮你拿到客户。"
+  lang="zh"
+>
+  <NavBar lang="zh" />
+  <main id="main-content">
+
+    <!-- ── Hero ─────────────────────────────────────────────── -->
+    <section class="c-hero" aria-labelledby="hero-h">
+      <div class="c-hero__bg" aria-hidden="true"></div>
+      <div class="c-hero__overlay" aria-hidden="true"></div>
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="c-hero__content">
+          <p class="eyebrow eyebrow--light reveal">LinkedIn 内容服务</p>
+          <h1 id="hero-h" class="c-hero__h1 reveal reveal-delay-1">
+            做LinkedIn内容,既要人看,也要能带<span class="text-gradient">生意。</span>
+          </h1>
+          <p class="c-hero__sub reveal reveal-delay-2">
+            你在LinkedIn上需要发的每一条内容,从想选题到出效果报告,全程不用自己操心。
+          </p>
+          <div class="c-hero__actions reveal reveal-delay-3">
+            <a href="/zh/contact" class="btn btn--primary btn--lg">预约沟通</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── Service Overview Cards ──────────────────────────── -->
+    <section class="section c-overview" aria-label="服务总览">
+      <div class="container">
+        <div class="c-ov__grid">
+          {overviewCards.map((card, i) => (
+            <a href={card.href} class={`c-ov-card reveal${i > 0 ? ` reveal-delay-${Math.min(i, 3)}` : ''}`}>
+              <div class="c-ov-card__top">
+                <span class="c-ov-card__icon" set:html={card.icon} />
+              </div>
+              <strong class="c-ov-card__title">{card.title}</strong>
+              <p class="c-ov-card__text">{card.text}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── What We Do ──────────────────────────────────────── -->
+    <section class="section c-wwd" aria-labelledby="wwd-h">
+      <div class="container">
+        <div class="c-wwd__head reveal">
+          <p class="eyebrow">我们做的事</p>
+          <h2 id="wwd-h" class="c-wwd__h2">LinkedIn不应该只是个展示页面。它可以帮你拿客户。</h2>
+          <p class="c-wwd__intro">你的团队有硬功夫,公司也有好故事可以讲。但这些东西如果一直闷在公司里面,销售管线是填不满的。</p>
+          <p class="c-wwd__intro">我们干的事情说穿了就一件:把品牌里最能打动人的部分提出来,做成一套每周在LinkedIn上转的内容体系。帖子、长文、企业通讯、线上活动,全都奔着同一件事去,就是让该看到你的人看到你。</p>
+        </div>
+
+        <div class="c-wwd__grid">
+          {whatWeDo.map((item, i) => (
+            <div class={`c-wwd-card reveal${i > 0 ? ` reveal-delay-${Math.min(i, 3)}` : ''}`}>
+              <div class="c-wwd-card__top">
+                <span class="c-wwd-card__icon" aria-hidden="true" set:html={item.icon} />
+              </div>
+              <strong class="c-wwd-card__title">{item.title}</strong>
+              <p class="c-wwd-card__body">{item.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── Why Brands Work With Us ─────────────────────────── -->
+    <section class="section c-why" aria-labelledby="why-h">
+      <div class="c-why__bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="c-why__head reveal">
+          <p class="eyebrow eyebrow--light">为什么找我们</p>
+          <h2 id="why-h" class="c-why__h2">我们只做B2B这条线,天生面向全球市场。</h2>
+        </div>
+
+        <div class="c-why__layout">
+          <!-- Left: visual column -->
+          <div class="c-why__visual reveal">
+            <div class="c-why__photo-wrap">
+              <img src="/images/content-team.png" alt="Nuvora Studio 团队" class="c-why__photo" width="480" height="560" loading="lazy" />
+            </div>
+            <div class="c-why__trust-row">
+              <div class="c-why__trust-item">
+                <span class="c-why__trust-num">100%</span>
+                <span class="c-why__trust-label">只做LinkedIn</span>
+              </div>
+              <div class="c-why__trust-divider"></div>
+              <div class="c-why__trust-item">
+                <span class="c-why__trust-num">B2B</span>
+                <span class="c-why__trust-label">垂直聚焦</span>
+              </div>
+              <div class="c-why__trust-divider"></div>
+              <div class="c-why__trust-item">
+                <span class="c-why__trust-num">全球</span>
+                <span class="c-why__trust-label">多语种覆盖</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: differentiator cards -->
+          <div class="c-why__cards">
+            {whyBlocks.map((b, i) => (
+              <div class={`c-why-card reveal${i > 0 ? ` reveal-delay-${Math.min(i, 3)}` : ''}`}>
+                <div class="c-why-card__content">
+                  <strong class="c-why-card__title">{b.title}</strong>
+                  <p class="c-why-card__body">{b.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── Our LinkedIn Content Services ───────────────────── -->
+    <section class="section c-svc" aria-labelledby="svc-h">
+      <div class="container">
+        <div class="c-svc__head reveal">
+          <p class="eyebrow">四项服务</p>
+          <h2 id="svc-h" class="c-svc__h2">四个模块,围绕的都是同一件事:帮你从LinkedIn拿到商机。</h2>
+          <p class="c-svc__intro">单独签一个也能跑起来。但四个拼到一起以后,LinkedIn就不只是个页面了,变成销售团队实实在在能靠得住的获客渠道。</p>
+        </div>
+
+        {services.map((s, i) => (
+          <div class={`c-svc-block${i % 2 === 1 ? ' c-svc-block--flip' : ''} reveal`} id={s.id}>
+            <div class="c-svc-block__text">
+              <div class="c-svc-block__label">
+                <span class="c-svc-block__icon" set:html={cardIcons[i]} />
+              </div>
+              <h3 class="c-svc-block__title">{s.title}</h3>
+              <p class="c-svc-block__short">{s.short}</p>
+
+              <ul class="c-svc-block__details" role="list">
+                {s.details.map(d => (
+                  <li>
+                    <svg class="c-svc-check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="var(--blue)" opacity="0.10"/><path d="M5 8l2.2 2.2L11.4 6" stroke="var(--blue)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>{d}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div class="c-svc-block__trust">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1l1.76 3.58L13 5.24l-3 2.88.72 4.12L7 10.36 3.28 12.24 4 8.12 1 5.24l4.24-.66L7 1z" fill="var(--cyan)" opacity="0.85"/></svg>
+                <p>{s.trust}</p>
+              </div>
+              <p class="c-svc-block__footnote"><em>{s.footnote}</em></p>
+
+              {s.stat && (
+                <div class="c-svc-block__stat">
+                  <span>{s.stat}</span>
+                </div>
+              )}
+            </div>
+
+            <div class="c-svc-block__visual">
+              <div class="c-svc-block__img-wrap">
+                <img src={s.image} alt={s.imageAlt} class="c-svc-block__img" width="560" height="400" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        ))}
+
+        <div class="c-svc__cta reveal">
+          <a href="/zh/contact" class="btn btn--primary btn--lg">开始拿线索</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── LinkedIn Content by the Numbers ─────────────────── -->
+    <section class="section c-stats" aria-labelledby="stats-h">
+      <div class="container">
+        <div class="c-stats__head reveal">
+          <p class="eyebrow eyebrow--light">看看数据</p>
+          <h2 id="stats-h" class="c-stats__h2">认真投入LinkedIn内容的公司,回报长什么样。</h2>
+          <p class="c-stats__sub">LinkedIn对B2B到底有多重要,这件事不需要再争了。下面这些数字来自真金白银投过的企业。</p>
+        </div>
+
+        <div class="c-stats__grid">
+          {stats.map((s, i) => (
+            <div class={`c-stat${i === 0 ? ' c-stat--featured' : ''} reveal${i > 0 ? ` reveal-delay-${(i % 3) === 0 ? '' : i % 3}` : ''}`}>
+              <span class="c-stat__value">{s.value}</span>
+              <span class="c-stat__label">{s.label}</span>
+              <p class="c-stat__context">{s.context}</p>
+              {s.source && <p class="c-stat__source">{s.source}</p>}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+
+    <FAQ heading="客户经常会问到的几件事。" faqs={faqs} background="var(--off-white)" cta={{ text: '预约沟通', href: '/zh/contact' }} id="content-faq" />
+
+
+    <!-- ── Bottom CTA ────────────────────────────────────────── -->
+    <section class="section c-cta" aria-labelledby="bcta-h">
+      <div class="c-cta__orb c-cta__orb--1" aria-hidden="true"></div>
+      <div class="c-cta__orb c-cta__orb--2" aria-hidden="true"></div>
+      <div class="container">
+        <div class="c-cta__layout">
+          <div class="c-cta__left reveal">
+            <p class="eyebrow eyebrow--light">下一步</p>
+            <h2 id="bcta-h" class="c-cta__headline">
+              你的客户早就在LinkedIn上了。<br />
+              <em>是时候让他们注意到你。</em>
+            </h2>
+          </div>
+          <div class="c-cta__right reveal reveal-delay-2">
+            <p class="c-cta__sub">先聊一次就好。我们看看你LinkedIn现在是什么状况,直接跟你说机会在哪。</p>
+            <div class="c-cta__actions">
+              <a href="/zh/contact" class="btn btn--primary btn--lg">预约沟通</a>
+            </div>
+            <p class="c-cta__note">30分钟,不卖东西,有什么说什么。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Layout>
+
+
+<style>
+  /* ────────────────────────────────────────────────────────────
+     HERO
+     ──────────────────────────────────────────────────────────── */
+  .c-hero {
+    position: relative;
+    overflow: hidden;
+    padding-block: var(--sp-32) var(--sp-24);
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+  }
+
+  .c-hero__bg {
+    position: absolute;
+    inset: 0;
+    background: url('/images/content-hero.png') center center / cover no-repeat;
+    z-index: 0;
+  }
+
+  .c-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(15,23,42, 0.92) 0%,
+      rgba(15,23,42, 0.75) 50%,
+      rgba(15,23,42, 0.45) 100%
+    );
+    z-index: 1;
+  }
+
+  .c-hero__content {
+    max-width: 680px;
+  }
+
+  .c-hero__orb-placeholder {
+    display: none;
+    background: rgba(6,182,212, 0.10);
+    bottom: -150px; left: -100px;
+    animation: orbFloat 16s ease-in-out infinite reverse;
+  }
+  @keyframes orbFloat {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(30px, -20px); }
+  }
+
+  .c-hero__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.10;
+    letter-spacing: -0.02em;
+    margin-block: var(--sp-5) var(--sp-6);
+  }
+  .c-hero__h1 .text-gradient {
+    background: linear-gradient(135deg, var(--cyan) 0%, var(--sky) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .c-hero__sub {
+    font-size: var(--fs-md);
+    color: rgba(255, 255, 255, 0.68);
+    max-width: 520px;
+    line-height: 1.75;
+    margin-bottom: var(--sp-10);
+  }
+
+  .c-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+  }
+
+  .c-hero-badge-placeholder {
+    display: none;
+    box-shadow: var(--shadow-md);
+    z-index: 2;
+  }
+  .c-hero-badge--1 { bottom: -16px; left: -24px; }
+  .c-hero-badge--2 { top: 20px; right: -20px; }
+
+  .c-hero-badge__num {
+    font-family: var(--font-display);
+    font-size: var(--fs-xl);
+    font-weight: 700;
+    color: var(--cyan);
+    line-height: 1.1;
+  }
+  .c-hero-badge__label {
+    font-size: var(--fs-xs);
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+  }
+
+
+  /* ────────────────────────────────────────────────────────────
+     OVERVIEW CARDS
+     ──────────────────────────────────────────────────────────── */
+  .c-overview {
+    background: var(--off-white);
+  }
+
+  .c-ov__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-6);
+  }
+
+  .c-ov-card {
+    padding: var(--sp-8);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: border-color var(--t-base), box-shadow var(--t-base), transform var(--t-base);
+  }
+  .c-ov-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--cyan));
+    opacity: 0;
+    transition: opacity var(--t-base);
+  }
+  .c-ov-card:hover {
+    border-color: rgba(3,105,161, 0.25);
+    box-shadow: 0 12px 40px rgba(15,23,42, 0.08);
+    transform: translateY(-3px);
+  }
+  .c-ov-card:hover::before {
+    opacity: 1;
+  }
+
+  .c-ov-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--sp-2);
+  }
+
+  .c-ov-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px; height: 48px;
+    border-radius: var(--r-lg);
+    background: linear-gradient(135deg, rgba(3,105,161, 0.10), rgba(6,182,212, 0.08));
+    color: var(--blue);
+    flex-shrink: 0;
+  }
+  .c-ov-card__icon svg { display: block; }
+
+  .c-ov-card__num {
+    font-family: var(--font-display);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--text-3);
+    letter-spacing: -0.02em;
+  }
+
+  .c-ov-card__title {
+    font-size: var(--fs-base);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  .c-ov-card__text {
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.65;
+  }
+
+
+  /* ────────────────────────────────────────────────────────────
+     WHAT WE DO
+     ──────────────────────────────────────────────────────────── */
+  .c-wwd {
+    background: var(--white);
+  }
+
+  .c-wwd__head {
+    margin-bottom: var(--sp-12);
+    max-width: 720px;
+  }
+
+  .c-wwd__h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-block: var(--sp-4) var(--sp-5);
+  }
+
+  .c-wwd__intro {
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    line-height: 1.75;
+    margin-bottom: var(--sp-3);
+  }
+
+  .c-wwd__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-6);
+  }
+
+  .c-wwd-card {
+    padding: var(--sp-8);
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    position: relative;
+    overflow: hidden;
+    transition: border-color var(--t-base), box-shadow var(--t-base), transform var(--t-base);
+  }
+  .c-wwd-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--cyan));
+    opacity: 0;
+    transition: opacity var(--t-base);
+  }
+  .c-wwd-card:hover {
+    border-color: rgba(3,105,161, 0.25);
+    box-shadow: 0 12px 40px rgba(15,23,42, 0.08);
+    transform: translateY(-3px);
+  }
+  .c-wwd-card:hover::before { opacity: 1; }
+
+  .c-wwd-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--sp-2);
+  }
+
+  .c-wwd-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px; height: 48px;
+    border-radius: var(--r-lg);
+    background: linear-gradient(135deg, rgba(3,105,161, 0.10), rgba(6,182,212, 0.08));
+    color: var(--blue);
+  }
+  .c-wwd-card__icon svg { display: block; }
+
+  .c-wwd-card__num {
+    font-family: var(--font-display);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--text-3);
+    letter-spacing: -0.02em;
+  }
+
+  .c-wwd-card__title {
+    font-size: var(--fs-base);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  .c-wwd-card__body {
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.65;
+  }
+
+
+  /* ────────────────────────────────────────────────────────────
+     WHY BRANDS WORK WITH US
+     ──────────────────────────────────────────────────────────── */
+  .c-why {
+    background: var(--deep-navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .c-why__bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 50% 60% at 90% 20%, rgba(6,182,212, 0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 50% at 10% 80%, rgba(3,105,161, 0.10) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .c-why__head {
+    position: relative; z-index: 1;
+    margin-bottom: var(--sp-12);
+  }
+
+  .c-why__h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-top: var(--sp-4);
+  }
+
+  .c-why__layout {
+    position: relative; z-index: 1;
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: var(--sp-12);
+    align-items: start;
+  }
+
+  /* Visual column */
+  .c-why__visual {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-6);
+    position: sticky;
+    top: 100px;
+  }
+
+  .c-why__photo-wrap {
+    position: relative;
+    border-radius: var(--r-2xl);
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .c-why__photo {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+
+  .c-why__photo-ph {
+    display: none;
+    position: absolute; inset: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-4);
+    background: linear-gradient(160deg, rgba(15,23,42, 0.8) 0%, rgba(3,105,161, 0.35) 100%);
+  }
+  .c-why__photo-ph span {
+    font-size: var(--fs-xs);
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .c-why__photo-wrap .c-why__photo { display: block; }
+
+  /* Trust row */
+  .c-why__trust-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-5);
+    padding: var(--sp-4) var(--sp-5);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--r-xl);
+  }
+
+  .c-why__trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    flex: 1;
+  }
+
+  .c-why__trust-num {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+  }
+
+  .c-why__trust-label {
+    font-size: var(--fs-xs);
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+  }
+
+  .c-why__trust-divider {
+    width: 1px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.10);
+    flex-shrink: 0;
+  }
+
+  /* Differentiator cards */
+  .c-why__cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+  }
+
+  .c-why-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-5);
+    padding: var(--sp-6);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--r-xl);
+    transition: background var(--t-base), border-color var(--t-base), transform var(--t-base);
+  }
+  .c-why-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(6,182,212, 0.30);
+    transform: translateX(4px);
+  }
+
+  .c-why-card__num {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(6,182,212, 0.15), rgba(3,105,161, 0.10));
+    border: 1px solid rgba(6,182,212, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-family: var(--font-display);
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    color: var(--cyan);
+    letter-spacing: -0.02em;
+  }
+
+  .c-why-card__title {
+    display: block;
+    font-size: var(--fs-base);
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: var(--sp-2);
+    line-height: 1.3;
+  }
+
+  .c-why-card__body {
+    font-size: var(--fs-sm);
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.65;
+  }
+
+
+  /* ────────────────────────────────────────────────────────────
+     SERVICES (detailed alternating blocks)
+     ──────────────────────────────────────────────────────────── */
+  .c-svc {
+    background: var(--white);
+  }
+
+  .c-svc__head {
+    margin-bottom: var(--sp-16);
+    max-width: 760px;
+  }
+
+  .c-svc__h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-block: var(--sp-4) var(--sp-5);
+  }
+
+  .c-svc__intro {
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    line-height: 1.75;
+  }
+
+  .c-svc-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-16);
+    align-items: center;
+    margin-bottom: var(--sp-16);
+  }
+  .c-svc-block:last-of-type { margin-bottom: 0; }
+  .c-svc-block--flip { direction: rtl; }
+  .c-svc-block--flip .c-svc-block__text,
+  .c-svc-block--flip .c-svc-block__visual { direction: ltr; }
+
+  .c-svc-block__label {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+    margin-bottom: var(--sp-5);
+  }
+
+  .c-svc-block__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px; height: 48px;
+    border-radius: var(--r-lg);
+    background: linear-gradient(135deg, rgba(3,105,161, 0.10), rgba(6,182,212, 0.08));
+    color: var(--blue);
+  }
+  .c-svc-block__icon svg { display: block; }
+
+  .c-svc-block__num {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xl);
+    font-weight: 700;
+    color: var(--blue);
+    opacity: 0.10;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .c-svc-block__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+    margin-bottom: var(--sp-3);
+  }
+
+  .c-svc-block__short {
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    line-height: 1.65;
+    margin-bottom: var(--sp-6);
+  }
+
+  .c-svc-block__details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    margin-bottom: var(--sp-6);
+  }
+  .c-svc-block__details li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-3);
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.65;
+  }
+  .c-svc-check { flex-shrink: 0; margin-top: 3px; }
+
+  .c-svc-block__trust {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-3);
+    padding: var(--sp-4) var(--sp-5);
+    background: rgba(3,105,161, 0.05);
+    border-left: 3px solid var(--blue);
+    border-radius: 0 var(--r-md) var(--r-md) 0;
+    margin-bottom: var(--sp-4);
+  }
+  .c-svc-block__trust svg { flex-shrink: 0; margin-top: 2px; }
+  .c-svc-block__trust p { font-size: var(--fs-sm); color: var(--text-2); line-height: 1.65; }
+
+  .c-svc-block__footnote {
+    font-size: var(--fs-sm);
+    color: var(--text-3);
+    line-height: 1.65;
+    margin-bottom: var(--sp-4);
+  }
+
+  .c-svc-block__stat {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--sp-3) var(--sp-5);
+    background: var(--deep-navy);
+    border-radius: var(--r-lg);
+  }
+  .c-svc-block__stat span {
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    color: var(--cyan);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* Visual side */
+  .c-svc-block__visual {
+    position: relative;
+  }
+
+  .c-svc-block__img-wrap {
+    position: relative;
+    border-radius: var(--r-2xl);
+    overflow: hidden;
+    aspect-ratio: 16/11;
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    box-shadow: 0 16px 48px rgba(15,23,42, 0.06);
+  }
+
+  .c-svc-block__img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+
+  .c-svc-block__img-ph {
+    display: none;
+    position: absolute; inset: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-3);
+    background: linear-gradient(135deg, var(--off-white) 0%, var(--border) 100%);
+  }
+  .c-svc-block__img-ph span {
+    font-size: var(--fs-xs);
+    color: var(--text-3);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .c-svc-block__img-wrap .c-svc-block__img { display: block; }
+
+  .c-svc__cta {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--sp-16);
+  }
+
+
+  /* ────────────────────────────────────────────────────────────
+     STATS
+     ──────────────────────────────────────────────────────────── */
+  .c-stats {
+    background: var(--deep-navy);
+    position: relative;
+    overflow: hidden;
+  }
+  .c-stats::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(6,182,212, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .c-stats__head {
+    position: relative; z-index: 1;
+    margin-bottom: var(--sp-12);
+  }
+
+  .c-stats__h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-block: var(--sp-4) var(--sp-5);
+  }
+
+  .c-stats__sub {
+    font-size: var(--fs-md);
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.75;
+    max-width: 620px;
+  }
+
+  .c-stats__grid {
+    position: relative; z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-5);
+  }
+
+  .c-stat {
+    padding: var(--sp-6);
+    background: linear-gradient(135deg, var(--deep-navy), var(--navy));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--r-xl);
+    transition: border-color var(--t-base), transform var(--t-base);
+  }
+  .c-stat:hover {
+    border-color: rgba(6,182,212, 0.30);
+    transform: translateY(-3px);
+  }
+
+  .c-stat--featured {
+    background: linear-gradient(135deg, rgba(6,182,212, 0.15) 0%, rgba(3,105,161, 0.10) 100%);
+    border-color: rgba(6,182,212, 0.25);
+  }
+
+  .c-stat__value {
+    display: block;
+    font-family: var(--font-display);
+    font-size: var(--fs-4xl);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--white);
+  }
+
+  .c-stat__label {
+    display: block;
+    font-size: var(--fs-sm);
+    font-weight: 300;
+    color: var(--cyan);
+    margin-top: var(--sp-2);
+    line-height: 1.5;
+  }
+
+  .c-stat__context {
+    font-size: var(--fs-sm);
+    color: rgba(255, 255, 255, 0.45);
+    line-height: 1.55;
+    margin-top: var(--sp-3);
+  }
+
+  .c-stat__source {
+    font-size: var(--fs-xs);
+    color: rgba(255, 255, 255, 0.25);
+    font-style: italic;
+    margin-top: var(--sp-2);
+  }
+
+
+
+  /* ────────────────────────────────────────────────────────────
+     BOTTOM CTA
+     ──────────────────────────────────────────────────────────── */
+  .c-cta {
+    background: var(--deep-navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .c-cta__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+  .c-cta__orb--1 {
+    width: 420px; height: 420px;
+    top: -120px; right: 10%;
+    background: radial-gradient(circle, rgba(6,182,212, 0.15) 0%, transparent 70%);
+  }
+  .c-cta__orb--2 {
+    width: 300px; height: 300px;
+    bottom: -80px; left: -50px;
+    background: radial-gradient(circle, rgba(3,105,161, 0.12) 0%, transparent 70%);
+  }
+
+  .c-cta__layout {
+    position: relative; z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-16);
+    align-items: center;
+  }
+
+  .c-cta__headline {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.10;
+    letter-spacing: -0.02em;
+  }
+  .c-cta__headline em {
+    color: rgba(255, 255, 255, 0.45);
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  .c-cta__sub {
+    font-size: var(--fs-md);
+    color: rgba(255, 255, 255, 0.60);
+    line-height: 1.75;
+    margin-bottom: var(--sp-8);
+  }
+
+  .c-cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+    align-items: center;
+    margin-bottom: var(--sp-5);
+  }
+
+  .c-cta__note {
+    font-size: var(--fs-sm);
+    color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 0.02em;
+  }
+
+
+  /* ────────────────────────────────────────────────────────────
+     RESPONSIVE
+     ──────────────────────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .c-hero__overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(15,23,42, 0.88) 0%,
+        rgba(15,23,42, 0.80) 100%
+      );
+    }
+
+    .c-ov__grid { grid-template-columns: repeat(2, 1fr); }
+
+    .c-wwd__grid { grid-template-columns: repeat(2, 1fr); }
+
+    .c-why__layout { grid-template-columns: 1fr; gap: var(--sp-10); }
+    .c-why__visual { position: static; max-width: 400px; }
+
+    .c-svc-block { grid-template-columns: 1fr; gap: var(--sp-10); }
+    .c-svc-block--flip { direction: ltr; }
+
+    .c-cta__layout { grid-template-columns: 1fr; gap: var(--sp-10); }
+  }
+
+  @media (max-width: 768px) {
+    .c-hero { padding-block: var(--sp-16) var(--sp-12); }
+    .c-hero-badge--1 { left: 0; bottom: -12px; }
+    .c-hero-badge--2 { right: 0; top: 12px; }
+
+    .c-ov__grid { grid-template-columns: 1fr; }
+    .c-wwd__grid { grid-template-columns: 1fr; }
+    .c-stats__grid { grid-template-columns: 1fr; }
+
+
+  }
+
+  @media (max-width: 640px) {
+    .c-hero-badge { display: none; }
+    .c-cta__actions { flex-direction: column; align-items: stretch; }
+    .c-cta__actions .btn { justify-content: center; }
+  }
+</style>

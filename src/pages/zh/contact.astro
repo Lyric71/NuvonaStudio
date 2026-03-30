@@ -1,0 +1,805 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import NavBar from '../../components/NavBar.astro';
+---
+
+<Layout
+  lang="zh"
+  title="联系Nuvora Studio | 聊聊您的LinkedIn计划"
+  description="有关LinkedIn的想法？可以先约30分钟聊一下,不收费不推销。直接留言也行,工作日24小时之内肯定回复。"
+  abstract="约个30分钟聊一下,或者留言也可以。工作日内回复,不绕弯。"
+>
+  <NavBar lang="zh" />
+  <main id="main-content">
+
+    <!-- ── Hero ─────────────────────────────────────────────── -->
+    <section class="contact-hero" aria-labelledby="contact-heading">
+      <div class="contact-hero__bg" aria-hidden="true"></div>
+      <div class="contact-hero__overlay" aria-hidden="true"></div>
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="contact-hero__content">
+          <p class="eyebrow eyebrow--light reveal">找我们聊聊</p>
+          <h1 id="contact-heading" class="contact-hero__h1 reveal reveal-delay-1">
+            聊聊LinkedIn<span class="text-gradient">的事。</span>
+          </h1>
+          <p class="contact-hero__sub reveal reveal-delay-2">
+            有什么想法跟我们说就好。每一条留言都会有人看的,一个工作日内给您回复。
+          </p>
+          <div class="contact-hero__actions reveal reveal-delay-3">
+            <a href="#contact-form" class="btn btn--primary btn--lg">开始对话</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 表单 + 侧边栏 ────────────────────────────────────── -->
+    <section class="section contact-section" style="background: var(--off-white);">
+      <div class="container">
+        <div class="contact-layout">
+
+          <!-- ── 左侧：表单 ── -->
+          <div class="contact-form-col">
+
+            <!-- 提交成功 -->
+            <div class="contact-success" id="contact-success" aria-live="polite">
+              <div class="contact-success__icon">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                  <path d="M5 14l6.5 6.5L23 8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h2 class="contact-success__title">已发送。</h2>
+              <p class="contact-success__body">
+                已经收到了,一个工作日内会有人回复您的。
+              </p>
+              <a href="/zh/" class="btn btn--primary" style="margin-top: var(--sp-6)">回到首页</a>
+            </div>
+
+            <!-- 表单卡片 -->
+            <div class="contact-card" id="contact-card">
+              <div class="contact-card__header">
+                <div class="contact-card__header-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M2 5a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V5z" stroke="var(--blue)" stroke-width="1.5"/>
+                    <path d="M2 7l8 5 8-5" stroke="var(--blue)" stroke-width="1.5" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <h2 class="contact-card__title">跟我们说说您的项目</h2>
+                  <p class="contact-card__note">
+                    标注 <span aria-hidden="true">*</span><span class="sr-only">星号</span> 的为必填项。
+                  </p>
+                </div>
+              </div>
+
+              <form id="contact-form" class="contact-form" novalidate aria-label="联系表单">
+                <div class="contact-form__grid">
+
+                  <!-- 姓名 -->
+                  <div class="form-group">
+                    <label class="form-label" for="name">
+                      姓名 <span class="required-mark" aria-hidden="true">*</span>
+                    </label>
+                    <input class="form-input" type="text" id="name" name="name"
+                      autocomplete="name" required placeholder="张薇" />
+                    <span class="form-error" id="name-error" role="alert"></span>
+                  </div>
+
+                  <!-- 邮箱 -->
+                  <div class="form-group">
+                    <label class="form-label" for="email">
+                      邮箱 <span class="required-mark" aria-hidden="true">*</span>
+                    </label>
+                    <input class="form-input" type="email" id="email" name="email"
+                      autocomplete="email" required placeholder="zhangwei@boyan.com" />
+                    <span class="form-error" id="email-error" role="alert"></span>
+                  </div>
+
+                  <!-- 电话 -->
+                  <div class="form-group">
+                    <label class="form-label" for="phone">
+                      手机号 <span class="form-optional">(选填)</span>
+                    </label>
+                    <input class="form-input" type="tel" id="phone" name="phone"
+                      autocomplete="tel" placeholder="+86 185 1234 5678" />
+                  </div>
+
+                  <!-- 网站 -->
+                  <div class="form-group">
+                    <label class="form-label" for="website">
+                      公司网址 <span class="required-mark" aria-hidden="true">*</span>
+                    </label>
+                    <input class="form-input" type="url" id="website" name="website"
+                      autocomplete="url" required placeholder="https://boyan.com" />
+                    <span class="form-error" id="website-error" role="alert"></span>
+                  </div>
+
+                  <!-- 公司 -->
+                  <div class="form-group contact-form__full">
+                    <label class="form-label" for="company">
+                      公司名称 <span class="required-mark" aria-hidden="true">*</span>
+                    </label>
+                    <input class="form-input" type="text" id="company" name="company"
+                      autocomplete="organization" required placeholder="博研科技" />
+                    <span class="form-error" id="company-error" role="alert"></span>
+                  </div>
+
+                  <!-- 项目 -->
+                  <div class="form-group contact-form__full">
+                    <label class="form-label" for="project">
+                      项目情况 <span class="required-mark" aria-hidden="true">*</span>
+                    </label>
+                    <textarea class="form-textarea" id="project" name="project"
+                      required rows="5"
+                      placeholder="我们做工业自动化的,大概200人左右。想让高管团队在LinkedIn上活跃起来,主要面向欧洲和东南亚的潜在客户..."
+                    ></textarea>
+                    <span class="form-error" id="project-error" role="alert"></span>
+                  </div>
+                </div>
+
+                <!-- 错误提示 -->
+                <div class="form-banner" id="form-error-banner" role="alert">
+                  <span id="form-error-message"></span>
+                </div>
+
+                <div class="contact-form__actions">
+                  <button type="submit" class="btn btn--primary btn--lg" id="submit-btn">
+                    <span id="submit-label">发送</span>
+                    <span id="submit-spinner" class="submit-spinner" style="display:none" aria-hidden="true"></span>
+                  </button>
+                  <p class="contact-form__privacy">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 1L2 3v3c0 2.5 1.7 4.7 4 5.4C8.3 10.7 10 8.5 10 6V3L6 1z" stroke="var(--text-3)" stroke-width="1.2" fill="none"/></svg>
+                    您的信息不会给到第三方。
+                  </p>
+                </div>
+              </form>
+            </div>
+
+          </div>
+
+          <!-- ── 右侧：侧边栏 ── -->
+          <aside class="contact-sidebar" aria-label="联系信息">
+
+            <!-- 接下来会发生什么 -->
+            <div class="sidebar-card sidebar-card--steps reveal">
+              <h3 class="sidebar-card__title">接下来会怎样</h3>
+              <ol class="steps-list">
+                <li class="step-item">
+                  <div class="step-item__number" aria-hidden="true">1</div>
+                  <div class="step-item__content">
+                    <strong>我们先看您的留言</strong>
+                    <p>真人看的,不是机器人。一个工作日内我们会看完然后联系您。</p>
+                  </div>
+                </li>
+                <li class="step-item">
+                  <div class="step-item__number" aria-hidden="true">2</div>
+                  <div class="step-item__content">
+                    <strong>约个时间聊一聊</strong>
+                    <p>大概30分钟,不用准备什么东西。就聊聊你那边的情况,看看我们这边能怎么帮。</p>
+                  </div>
+                </li>
+                <li class="step-item">
+                  <div class="step-item__number" aria-hidden="true">3</div>
+                  <div class="step-item__content">
+                    <strong>给您出一份方案</strong>
+                    <p>聊完了我们会根据您公司情况写份方案。不是那种通用模板,是专门给你们写的。</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+
+            <!-- 信任要素 -->
+            <div class="sidebar-card sidebar-card--trust reveal reveal-delay-1">
+              <h3 class="sidebar-card__title">为什么选择Nuvora</h3>
+              <ul class="trust-list">
+                <li class="trust-item">
+                  <div class="trust-item__icon" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M8 1.5l1.8 3.6 4 .58-2.9 2.83.69 3.99L8 10.27l-3.59 1.88.69-3.99-2.9-2.83 4-.58L8 1.5z" fill="var(--cyan)" opacity="0.9"/>
+                    </svg>
+                  </div>
+                  <span>有用到AI,但品质这块还是靠人把关的</span>
+                </li>
+                <li class="trust-item">
+                  <div class="trust-item__icon" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <rect x="2" y="4" width="12" height="9" rx="1.5" stroke="var(--cyan)" stroke-width="1.4"/>
+                      <path d="M5 4V3a3 3 0 016 0v1" stroke="var(--cyan)" stroke-width="1.4"/>
+                    </svg>
+                  </div>
+                  <span>发布之前都会先给您过目</span>
+                </li>
+                <li class="trust-item">
+                  <div class="trust-item__icon" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M8 2C5.24 2 3 4.24 3 7c0 2.76 2.24 5 5 5s5-2.24 5-5-2.24-5-5-5z" stroke="var(--cyan)" stroke-width="1.4"/>
+                      <path d="M8 5v3l2 1" stroke="var(--cyan)" stroke-width="1.4" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <span>客户分布在好几个时区,都能配合</span>
+                </li>
+                <li class="trust-item">
+                  <div class="trust-item__icon" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M13 5L6 12 3 9" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <span>内容版权归您,这个没得商量</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 价格锚点 -->
+            <div class="sidebar-card sidebar-card--pricing reveal reveal-delay-2">
+              <div class="pricing-anchor__top">
+                <span class="pricing-anchor__label">合作起步价</span>
+                <span class="pricing-anchor__value">$1,800<span>/月</span></span>
+              </div>
+              <p class="pricing-anchor__note">月付就行,不用签长期合同。</p>
+              <a href="/zh/pricing" class="pricing-anchor__link">
+                查看详细价格
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Layout>
+
+<style>
+  /* ══════════════════════════════════════════
+     HERO
+  ══════════════════════════════════════════ */
+  .contact-hero {
+    position: relative;
+    overflow: hidden;
+    padding-block: var(--sp-32) var(--sp-24);
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+  }
+
+  .contact-hero__bg {
+    position: absolute;
+    inset: 0;
+    background: url('/contact-hero-people.webp') center center / cover no-repeat;
+    z-index: 0;
+  }
+
+  .contact-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(15,23,42, 0.92) 0%,
+      rgba(15,23,42, 0.75) 50%,
+      rgba(15,23,42, 0.45) 100%
+    );
+    z-index: 1;
+  }
+
+  .contact-hero__content {
+    max-width: 680px;
+  }
+
+  .contact-hero__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.10;
+    letter-spacing: -0.02em;
+    margin-block: var(--sp-5) var(--sp-6);
+  }
+  .contact-hero__h1 .text-gradient {
+    background: linear-gradient(135deg, var(--cyan) 0%, var(--sky) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .contact-hero__sub {
+    font-size: var(--fs-md);
+    color: rgba(255, 255, 255, 0.68);
+    max-width: 520px;
+    line-height: 1.75;
+    margin-bottom: var(--sp-10);
+  }
+
+  .contact-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+  }
+
+  @media (max-width: 640px) {
+    .contact-hero { padding-block: var(--sp-16) var(--sp-12); }
+  }
+
+  /* ══════════════════════════════════════════
+     LAYOUT: two columns
+  ══════════════════════════════════════════ */
+  .contact-section { padding-block: var(--sp-16) var(--sp-24); }
+
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: var(--sp-10);
+    align-items: start;
+  }
+
+  /* ══════════════════════════════════════════
+     FORM CARD
+  ══════════════════════════════════════════ */
+  .contact-success {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--sp-20) var(--sp-10);
+    background: var(--white);
+    border-radius: var(--r-2xl);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+  }
+  .contact-success.is-visible { display: flex; }
+
+  .contact-success__icon {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: var(--sky);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--sp-6);
+    box-shadow: 0 0 0 10px rgba(14,165,233,0.10);
+  }
+
+  .contact-success__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    color: var(--deep-navy);
+    margin-bottom: var(--sp-3);
+    letter-spacing: -0.02em;
+  }
+
+  .contact-success__body {
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    max-width: 360px;
+    line-height: 1.75;
+  }
+
+  .contact-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-2xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .contact-card__header {
+    padding: var(--sp-8) var(--sp-10) var(--sp-6);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+  }
+
+  .contact-card__header-icon {
+    width: 40px; height: 40px;
+    flex-shrink: 0;
+    background: rgba(14,165,233,0.07);
+    border-radius: var(--r-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-card__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 600;
+    color: var(--deep-navy);
+    letter-spacing: -0.01em;
+    margin-bottom: 2px;
+  }
+
+  .contact-card__note {
+    font-family: var(--font-body);
+    font-size: var(--fs-xs);
+    color: var(--text-3);
+  }
+
+  .contact-form {
+    padding: var(--sp-8) var(--sp-10);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-6);
+  }
+
+  .contact-form__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-5);
+  }
+
+  .contact-form__full { grid-column: 1 / -1; }
+  .required-mark { color: var(--sky); margin-left: 2px; }
+  .form-optional { color: var(--text-3); font-weight: 400; font-size: var(--fs-xs); }
+
+  .form-error {
+    font-size: var(--fs-xs);
+    color: #c0392b;
+    min-height: 16px;
+    display: block;
+  }
+
+  .form-input.is-invalid,
+  .form-textarea.is-invalid {
+    border-color: #c0392b;
+    box-shadow: 0 0 0 3px rgba(192,57,43,0.08);
+  }
+
+  .form-banner {
+    display: none;
+    padding: var(--sp-4);
+    background: #FEF2F2;
+    border: 1px solid rgba(192,57,43,0.15);
+    border-radius: var(--r-md);
+    font-size: var(--fs-sm);
+    color: #c0392b;
+  }
+  .form-banner.is-visible { display: block; }
+
+  .contact-form__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-6);
+    flex-wrap: wrap;
+  }
+
+  .contact-form__privacy {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    font-family: var(--font-body);
+    font-size: var(--fs-xs);
+    color: var(--text-3);
+  }
+
+  .submit-spinner {
+    display: inline-block;
+    width: 16px; height: 16px;
+    border: 2px solid rgba(255,255,255,0.30);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    margin-left: var(--sp-2);
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ══════════════════════════════════════════
+     SIDEBAR
+  ══════════════════════════════════════════ */
+  .contact-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+    position: sticky;
+    top: 96px;
+  }
+
+  .sidebar-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-2xl);
+    padding: var(--sp-5) var(--sp-6);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow var(--t-base);
+  }
+
+  .sidebar-card:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .sidebar-card__title {
+    font-family: var(--font-display);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--deep-navy);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin-bottom: var(--sp-3);
+    opacity: 0.55;
+  }
+
+  /* Steps */
+  .steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .step-item {
+    display: flex;
+    gap: var(--sp-3);
+    position: relative;
+  }
+
+  /* vertical connector line between steps */
+  .step-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 30px;
+    bottom: -4px;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .step-item + .step-item { margin-top: var(--sp-2); }
+
+  .step-item__number {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--deep-navy);
+    color: var(--white);
+    font-family: var(--font-display);
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-item__content {
+    padding-top: 3px;
+    padding-bottom: var(--sp-2);
+  }
+  .step-item__content strong {
+    display: block;
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--deep-navy);
+    margin-bottom: var(--sp-1);
+  }
+  .step-item__content p {
+    font-family: var(--font-body);
+    font-size: var(--fs-xs);
+    color: var(--text-2);
+    line-height: 1.7;
+  }
+
+  /* Trust list */
+  .trust-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-3);
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.5;
+  }
+
+  .trust-item__icon {
+    flex-shrink: 0;
+    width: 26px; height: 26px;
+    background: rgba(6,182,212,0.08);
+    border-radius: var(--r-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+
+  /* Pricing anchor card */
+  .sidebar-card--pricing {
+    background: var(--deep-navy);
+    border-color: rgba(255,255,255,0.08);
+  }
+
+  .sidebar-card--pricing:hover {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .pricing-anchor__top {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-1);
+    margin-bottom: var(--sp-2);
+  }
+  .pricing-anchor__label {
+    font-size: var(--fs-xs);
+    color: var(--cyan);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .pricing-anchor__value {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xl);
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .pricing-anchor__value span {
+    font-size: var(--fs-lg);
+    font-weight: 400;
+    color: rgba(255,255,255,0.42);
+  }
+  .pricing-anchor__note {
+    font-family: var(--font-body);
+    font-size: var(--fs-xs);
+    color: rgba(255,255,255,0.38);
+    margin-bottom: var(--sp-3);
+    line-height: 1.5;
+  }
+  .pricing-anchor__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--cyan);
+    transition: gap var(--t-fast), color var(--t-fast);
+  }
+  .pricing-anchor__link:hover { gap: var(--sp-3); color: var(--sky); }
+
+  /* ══════════════════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════════════════ */
+  @media (max-width: 1100px) {
+    .contact-layout { grid-template-columns: 1fr; }
+    .contact-sidebar { position: static; }
+    .contact-sidebar { flex-direction: row; flex-wrap: wrap; }
+    .sidebar-card { flex: 1; min-width: 260px; }
+  }
+
+  @media (max-width: 1024px) {
+    .contact-hero__inner { grid-template-columns: 1fr; }
+    .contact-hero__visual { display: none; }
+    .hero-circle { display: none; }
+  }
+
+  @media (max-width: 640px) {
+    .contact-hero { padding-block: var(--sp-16) var(--sp-12); }
+    .contact-hero__chips { gap: var(--sp-2); }
+    .contact-form { padding: var(--sp-6); }
+    .contact-card__header { padding: var(--sp-6); }
+    .contact-form__grid { grid-template-columns: 1fr; }
+    .contact-sidebar { flex-direction: column; }
+    .sidebar-card { min-width: unset; }
+  }
+</style>
+
+<script is:inline src="https://www.google.com/recaptcha/api.js?render=6LfeTpQsAAAAAH-_V7o9bJuu4PO_kfgGcGMCuSiE"></script>
+
+<script>
+  const form    = document.getElementById('contact-form') as HTMLFormElement | null;
+  const card    = document.getElementById('contact-card') as HTMLElement | null;
+  const success = document.getElementById('contact-success') as HTMLElement | null;
+  const submitBtn   = document.getElementById('submit-btn') as HTMLButtonElement | null;
+  const submitLabel = document.getElementById('submit-label') as HTMLElement | null;
+  const submitSpinner = document.getElementById('submit-spinner') as HTMLElement | null;
+  const errorBanner  = document.getElementById('form-error-banner') as HTMLElement | null;
+  const errorMessage = document.getElementById('form-error-message') as HTMLElement | null;
+
+  function setFieldError(fieldId: string, message: string) {
+    const field = document.getElementById(fieldId) as HTMLInputElement | HTMLTextAreaElement | null;
+    const error = document.getElementById(`${fieldId}-error`);
+    field?.classList.toggle('is-invalid', !!message);
+    if (error) error.textContent = message;
+  }
+
+  function clearErrors() {
+    ['name', 'email', 'website', 'company', 'project'].forEach(id => setFieldError(id, ''));
+    if (errorBanner) errorBanner.classList.remove('is-visible');
+  }
+
+  function validate(data: FormData): boolean {
+    let valid = true;
+
+    const required: { id: string; label: string }[] = [
+      { id: 'name',    label: '姓名不能空着。' },
+      { id: 'company', label: '请填写公司名称。' },
+      { id: 'project', label: '简单说下项目情况吧。' },
+    ];
+
+    required.forEach(({ id, label }) => {
+      if (!(data.get(id) as string)?.trim()) {
+        setFieldError(id, label);
+        valid = false;
+      }
+    });
+
+    const email = (data.get('email') as string)?.trim();
+    if (!email) {
+      setFieldError('email', '填一下邮箱吧,不然我们没法联系您。');
+      valid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+      setFieldError('email', '邮箱格式好像不对,再看看？');
+      valid = false;
+    }
+
+    const website = (data.get('website') as string)?.trim();
+    if (!website) {
+      setFieldError('website', '网址不能空着。');
+      valid = false;
+    } else {
+      try {
+        const url = new URL(website);
+        if (url.protocol !== 'http:' && url.protocol !== 'https:') {
+          setFieldError('website', '网址得以 https:// 或 http:// 开头才行');
+          valid = false;
+        }
+      } catch {
+        setFieldError('website', '这个网址好像不对,参考格式: https://boyan.com');
+        valid = false;
+      }
+    }
+
+    return valid;
+  }
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    clearErrors();
+
+    const data = new FormData(form);
+    if (!validate(data)) return;
+
+    if (submitBtn)     submitBtn.disabled = true;
+    if (submitLabel)   submitLabel.textContent = '发送中...';
+    if (submitSpinner) submitSpinner.style.display = 'inline-block';
+
+    try {
+      const token = await new Promise<string>((resolve, reject) => {
+        (window as any).grecaptcha.ready(() => {
+          (window as any).grecaptcha
+            .execute('6LfeTpQsAAAAAH-_V7o9bJuu4PO_kfgGcGMCuSiE', { action: 'contact' })
+            .then(resolve)
+            .catch(reject);
+        });
+      });
+      data.append('recaptcha_token', token);
+
+      const res = await fetch('/api/contact', { method: 'POST', body: data });
+      const json = await res.json();
+
+      if (res.ok) {
+        if (card)    card.style.display = 'none';
+        if (success) success.classList.add('is-visible');
+      } else {
+        if (errorBanner)  errorBanner.classList.add('is-visible');
+        if (errorMessage) errorMessage.textContent = json.error ?? '没发出去,稍后再试一下吧。';
+      }
+    } catch {
+      if (errorBanner)  errorBanner.classList.add('is-visible');
+      if (errorMessage) errorMessage.textContent = '网络好像断了,检查一下再试。';
+    } finally {
+      if (submitBtn)     submitBtn.disabled = false;
+      if (submitLabel)   submitLabel.textContent = '发送';
+      if (submitSpinner) submitSpinner.style.display = 'none';
+    }
+  });
+</script>

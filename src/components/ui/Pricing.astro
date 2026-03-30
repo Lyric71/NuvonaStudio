@@ -29,7 +29,8 @@ interface Props {
 const { plans, features, ctaLabel = 'Book a call', popularLabel = 'Most popular', periodLabel = '/mo' } = Astro.props;
 ---
 
-<div class="ptable">
+<!-- Desktop table -->
+<div class="ptable ptable--desktop">
   <div class="ptable__scroll">
     <table class="ptable__table" aria-label="Core retainer tier comparison">
       <thead>
@@ -78,6 +79,35 @@ const { plans, features, ctaLabel = 'Book a call', popularLabel = 'Most popular'
       </tfoot>
     </table>
   </div>
+</div>
+
+<!-- Mobile cards -->
+<div class="ptable-mobile">
+  {plans.map((plan, pi) => (
+    <div class={`pm-card ${plan.popular ? 'pm-card--pop' : ''}`}>
+      {plan.popular && <span class="pm-card__badge">{popularLabel}</span>}
+      <h3 class="pm-card__name">{plan.name}</h3>
+      <p class="pm-card__price">{plan.price}<span class="pm-card__period">{periodLabel}</span></p>
+      <ul class="pm-card__features" role="list">
+        {features.slice(1).map(f => {
+          const val = [f.foundation, f.growth, f.scale][pi];
+          return val !== '—' ? (
+            <li class="pm-card__feat">
+              <svg class="pm-card__check-icon" width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                <path d="M4 9.5l3.5 3.5L14 6" stroke="var(--sky)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>
+                {f.label}{val !== '✓' ? <strong class="pm-card__feat-val"> - {val}</strong> : null}
+              </span>
+            </li>
+          ) : null;
+        })}
+      </ul>
+      <a href={plan.href} class={`btn ${plan.popular ? 'btn--primary' : 'btn--outline'} pm-card__cta`}>
+        {ctaLabel}
+      </a>
+    </div>
+  ))}
 </div>
 
 <style>
@@ -222,23 +252,110 @@ const { plans, features, ctaLabel = 'Book a call', popularLabel = 'Most popular'
     font-size: var(--fs-sm);
   }
 
+  /* ── Mobile cards (hidden on desktop) ── */
+  .ptable-mobile {
+    display: none;
+  }
+
   /* ── Responsive ── */
-  @media (max-width: 640px) {
-    .ptable__label {
-      padding: var(--sp-3) var(--sp-4);
+  @media (max-width: 768px) {
+    .ptable--desktop {
+      display: none;
+    }
+
+    .ptable-mobile {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-5);
+    }
+
+    .pm-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: var(--sp-6);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-1);
+    }
+
+    .pm-card--pop {
+      border-color: var(--sky);
+      background: rgba(14, 165, 233, 0.02);
+      box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.12), var(--shadow-md);
+    }
+
+    .pm-card__badge {
+      display: inline-flex;
+      align-self: flex-start;
       font-size: var(--fs-xs);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--gradient-button);
+      padding: 3px var(--sp-3);
+      border-radius: var(--r-full);
+      margin-bottom: var(--sp-1);
     }
 
-    .ptable__val {
-      padding: var(--sp-3);
+    .pm-card__name {
+      font-family: var(--font-display);
+      font-size: var(--fs-lg);
+      font-weight: 600;
+      color: var(--text);
     }
 
-    .ptable__plan {
-      padding: var(--sp-4) var(--sp-3);
+    .pm-card__price {
+      font-family: var(--font-display);
+      font-size: var(--fs-2xl);
+      font-weight: 700;
+      color: var(--deep-navy);
+      line-height: 1;
+      margin-top: var(--sp-1);
+      margin-bottom: var(--sp-4);
     }
 
-    .ptable__plan-price {
-      font-size: var(--fs-xl);
+    .pm-card__period {
+      font-size: var(--fs-sm);
+      font-weight: 400;
+      color: var(--text-3);
+    }
+
+    .pm-card__features {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+      padding: var(--sp-4) 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: var(--sp-5);
+    }
+
+    .pm-card__feat {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sp-2);
+      font-family: var(--font-body);
+      font-size: var(--fs-sm);
+      color: var(--text-2);
+      line-height: 1.5;
+    }
+
+    .pm-card__check-icon {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .pm-card__feat-val {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .pm-card__cta {
+      width: 100%;
+      justify-content: center;
+      min-height: 44px;
     }
   }
 </style>
