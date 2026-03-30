@@ -7,12 +7,15 @@ interface Props {
 const { lang = 'en' } = Astro.props;
 const t = useTranslations(lang);
 
-const prefix = lang === 'fr' ? '/fr' : '';
+const prefix = lang === 'en' ? '' : `/${lang}`;
 const currentPath = Astro.url.pathname;
 
-const alternateLang = lang === 'en' ? 'fr' : 'en';
-const alternateLabel = lang === 'en' ? 'Français' : 'English';
-const alternateUrl = getAlternateUrl(currentPath, alternateLang as Lang);
+const langOptions = [
+  { code: 'en' as Lang, label: 'English', flag: '🇬🇧' },
+  { code: 'fr' as Lang, label: 'Français', flag: '🇫🇷' },
+  { code: 'zh' as Lang, label: '中文', flag: '🇨🇳' },
+].filter(l => l.code !== lang);
+
 
 const links = [
   {
@@ -32,7 +35,7 @@ const links = [
 
 const optimizerHref = `${prefix}/linkedin-optimizer`;
 
-const homeHref = lang === 'fr' ? '/fr/' : '/';
+const homeHref = lang === 'en' ? '/' : `/${lang}/`;
 const contactHref = `${prefix}/contact?intent=call`;
 ---
 
@@ -84,10 +87,14 @@ const contactHref = `${prefix}/contact?intent=call`;
       </a>
 
       <!-- Language switcher -->
-      <a href={alternateUrl} class="nav__lang" aria-label={`Switch to ${alternateLabel}`}>
-        <span class="nav__lang-flag" aria-hidden="true">{lang === 'en' ? '🇫🇷' : '🇬🇧'}</span>
-        <span class="nav__lang-label">{alternateLabel}</span>
-      </a>
+      <div class="nav__lang-group">
+        {langOptions.map(opt => (
+          <a href={getAlternateUrl(currentPath, opt.code)} class="nav__lang" aria-label={`Switch to ${opt.label}`}>
+            <span class="nav__lang-flag" aria-hidden="true">{opt.flag}</span>
+            <span class="nav__lang-label">{opt.label}</span>
+          </a>
+        ))}
+      </div>
 
       <a href={contactHref} class="btn btn--primary btn--sm">{t('nav.book_call')}</a>
     </div>
@@ -112,11 +119,13 @@ const contactHref = `${prefix}/contact?intent=call`;
           {t('nav.optimizer')}
         </a>
       </li>
-      <li>
-        <a href={alternateUrl} class="nav__mobile-link nav__mobile-lang">
-          {lang === 'en' ? '🇫🇷' : '🇬🇧'} {alternateLabel}
-        </a>
-      </li>
+      {langOptions.map(opt => (
+        <li>
+          <a href={getAlternateUrl(currentPath, opt.code)} class="nav__mobile-link nav__mobile-lang">
+            {opt.flag} {opt.label}
+          </a>
+        </li>
+      ))}
     </ul>
     <a href={contactHref} class="btn btn--primary w-full" style="justify-content:center; margin-top: 1.25rem;">
       {t('nav.book_call')}
@@ -211,6 +220,10 @@ const contactHref = `${prefix}/contact?intent=call`;
   }
 
   /* Language switcher */
+  .nav__lang-group {
+    display: inline-flex;
+    gap: var(--sp-2);
+  }
   .nav__lang {
     display: inline-flex;
     align-items: center;

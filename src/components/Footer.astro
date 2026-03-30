@@ -6,7 +6,7 @@ interface Props {
 }
 const { lang = 'en' } = Astro.props;
 const t = useTranslations(lang);
-const prefix = lang === 'fr' ? '/fr' : '';
+const prefix = lang === 'en' ? '' : `/${lang}`;
 
 const servicesLinks = [
   { label: t('footer.content'),      href: `${prefix}/services/content` },
@@ -28,7 +28,7 @@ const legalLinks = [
   { label: t('footer.cookies'), href: `${prefix}/cookies` },
 ];
 
-const homeHref = lang === 'fr' ? '/fr/' : '/';
+const homeHref = lang === 'en' ? '/' : `/${lang}/`;
 const year = new Date().getFullYear();
 ---
 

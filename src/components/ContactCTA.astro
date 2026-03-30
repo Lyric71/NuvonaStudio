@@ -6,7 +6,7 @@ interface Props {
 }
 const { lang = 'en' } = Astro.props;
 const t = useTranslations(lang);
-const prefix = lang === 'fr' ? '/fr' : '';
+const prefix = lang === 'en' ? '' : `/${lang}`;
 ---
 
 <section class="section cta" aria-labelledby="cta-heading" style="background: var(--deep-navy);">

@@ -1,0 +1,1478 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import NavBar from '../../components/NavBar.astro';
+import FAQ from '../../components/FAQ.astro';
+import Testimonials from '../../components/Testimonials.astro';
+
+const painPoints = [
+  {
+    stat: '3%',
+    label: '的B2B企业能在LinkedIn上保持稳定发布',
+    detail: '另外97%呢？发过一两条就不见了。隔段时间又问：LinkedIn到底有没有用？',
+  },
+  {
+    stat: '0',
+    label: '个高管在认真经营自己的LinkedIn',
+    detail: '翻一下大多数管理层的页面，基本跟招聘网站上的简历差不多。没有观点，也谈不上什么信任感。',
+  },
+  {
+    stat: '72%',
+    label: '的LinkedIn广告费花得不值',
+    detail: '人群没选对，形式不合适，转化环节断了。没有整体规划的广告账户，预算消耗会比想象中快很多。',
+  },
+];
+
+const services = [
+  {
+    title: '内容运营',
+    tag: '自然增长',
+    body: '企业主页交给我们打理，LinkedIn上能用的内容形式都会覆盖到，保持固定节奏更新。你的品牌一直出现在该出现的地方，团队可以腾出手专心做业务。',
+    href: '/zh/services/content',
+    subs: [
+      '企业主页全托管',
+      '内容策划与生产',
+      'LinkedIn Newsletter',
+      'LinkedIn线上活动运营',
+    ],
+  },
+  {
+    title: '广告投放',
+    tag: '付费增长',
+    body: '从Sponsored Content到Lead Gen Forms，广告账户的搭建和日常运营都由我们来。预算花在拍板的人身上，展示量变成实打实的业务机会。',
+    href: '/zh/services/advertising',
+    subs: [
+      '广告账户架构设计',
+      '受众定向与圈层筛选',
+      '广告素材与文案创作',
+      'CRM数据打通与效果归因',
+    ],
+  },
+  {
+    title: '策略咨询',
+    tag: '顾问服务',
+    body: '管理者个人品牌怎么做、员工怎么在LinkedIn上帮公司发声、团队需要哪些培训，这些我们都管。说到底就一个目标：让你自己的人变成最好的获客渠道。',
+    href: '/zh/services/consulting',
+    subs: [
+      '员工社交传播计划',
+      '高管个人品牌打造',
+      '企业内训工作坊',
+      'LinkedIn策略全面评估',
+    ],
+  },
+];
+
+const steps = [
+  {
+    title: '评估与规划',
+    body: '先把你的LinkedIn现状、竞品在做什么、目标受众长什么样摸清楚。然后给你一份标了优先级的执行方案，是为你这家公司写的，不是万能模板。',
+    detail: '第1-2周',
+  },
+  {
+    title: '搭建与上线',
+    body: '优化主页、把内容生产流程跑起来、广告开户投放，同步推进。上线之前每一步都过你的确认。',
+    detail: '第3-4周',
+  },
+  {
+    title: '迭代与增长',
+    body: '每月拿事先定好的指标来看效果。跑得好的方向加码，转化数据好看的加速。报告里只有跟业务挂钩的数据，没有凑数的内容。',
+    detail: '持续进行',
+  },
+];
+
+const pillars = [
+  {
+    title: '这一个领域，我们比谁都熟',
+    body: '所有服务都围绕LinkedIn，没有别的。算法怎么跑的、什么格式管用、广告定向怎么做、哪类内容能带来业务——天天在研究这些。',
+    metric: '100%',
+    metricLabel: '专注LinkedIn',
+  },
+  {
+    title: '写给你的客户看，不是写给你看',
+    body: '内容是给你的目标受众读的，不是给内部审批走流程的。B2B领域的读者不吃虚的，要的是看完有行动的冲动。',
+    metric: '3.2x',
+    metricLabel: '平均互动提升',
+  },
+  {
+    title: '账怎么算的，随时能查',
+    body: '报告写清楚，报价没暗门。做了什么、为什么这么做，任何时候问，都能给你说明白。',
+    metric: '0',
+    metricLabel: '隐性收费',
+  },
+  {
+    title: '用AI干活，但人盯着每一步',
+    body: 'AI帮我们提速、扩大产能。不过内容发出去之前，必须经过团队一条一条审过。这点没商量。',
+    metric: '100%',
+    metricLabel: '人工终审',
+  },
+];
+
+const industries = [
+  { label: '科技与SaaS' },
+  { label: '制造与工业' },
+  { label: '专业服务' },
+  { label: '医疗健康与生命科学' },
+  { label: '金融服务' },
+  { label: '物流与供应链' },
+];
+
+const posts = [
+  {
+    category: 'LinkedIn策略',
+    tags: ['算法', '触达率'],
+    title: '2026年LinkedIn触达率腰斩，跟你的内容没关系',
+    excerpt: 'LinkedIn换了一套叫360Brew的新算法，企业自然触达直接掉了一半，公司主页流量更是少了六成。内容质量没变差，是平台规则改了。',
+    date: '2026-03-29',
+    slug: 'why-your-reach-dropped',
+    image: '/blog/hero-reach-dropped.svg',
+  },
+  {
+    category: 'LinkedIn策略',
+    tags: ['内容', '线索'],
+    title: 'LinkedIn内容有了曝光，然后呢？怎么变成客户',
+    excerpt: '光有阅读量没人找上门，内容就是白做了。Inbound线索转化率14.6%，主动外呼才1.7%——这个差距，在内容体系的搭法上。',
+    date: '2026-03-29',
+    slug: 'content-to-inbound-leads',
+    image: '/blog/hero-ads-vs-organic.svg',
+  },
+  {
+    category: 'LinkedIn广告',
+    tags: ['广告', '归因'],
+    title: 'LinkedIn广告ROI难看？可能是你看数据的方式不对',
+    excerpt: 'B2B广告在LinkedIn上的实际回报率能到121%。问题是买家从接触到成交平均要272天。30天就看ROI，那肯定不好看。',
+    date: '2026-03-29',
+    slug: 'linkedin-ad-roi-measurement-problem',
+    image: '/blog/hero-ads-cost.svg',
+  },
+];
+
+const faqs = [
+  { q: '你们的客户主要在哪？', a: '哪里都有，欧洲、北美、亚太比较集中。LinkedIn本来就是全球平台，地理位置不影响合作。' },
+  { q: '真的只做LinkedIn？', a: '对。SEO不做，Instagram不碰，没有"全渠道套餐"这种东西。做得深的前提是只做一样。' },
+  { q: '合作起步大概多少钱？', a: 'Foundation方案月费1,800美元起，策略、内容、月度报告都包含在内。大部分客户先用这个方案，后面看情况再加。', link: { text: '完整定价在这里 →', href: '/zh/pricing' } },
+  { q: '只适合大公司吗？', a: '也不是。1,800美元/月拿到的就已经是完整的代运营了，成长期的公司用起来压力不大。要是暂时不需要全套服务，单独的培训或者广告管理也可以聊。' },
+  { q: '广告费包在月费里吗？', a: '不包。广告预算独立出来的。有客户只做内容，有的只投广告，大部分两边都做。钱是直接进你自己的LinkedIn广告账户，不过我们手里。' },
+  { q: '效果怎么看？', a: '开始之前先把指标定好——线索数量、线索质量、粉丝增长、获客成本这些。每个月出一份数据报告，对着这些数来看。不是给你一堆曝光量和点赞数凑出来的汇报。' },
+];
+
+---
+
+<Layout
+  lang="zh"
+  title="Nuvora Studio | 专注LinkedIn的B2B营销机构"
+  description="只给B2B企业做LinkedIn的营销咨询公司。内容运营、广告投放、高管品牌、团队培训，就做这一个平台。"
+  abstract="只做LinkedIn的B2B营销公司。策略、内容、广告、培训，全在一个平台上解决。"
+>
+  <NavBar lang="zh" />
+  <main id="main-content">
+
+    <!-- ═══════════════════════════ 1. HERO ═══════════════════════════ -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="hero__content">
+          <p class="eyebrow eyebrow--light reveal">专注LinkedIn的B2B营销机构</p>
+          <h1 id="hero-heading" class="hero__h1 reveal reveal-delay-1">
+            让LinkedIn成为你<span class="text-gradient">最能带来生意的渠道。</span>
+          </h1>
+          <p class="hero__sub reveal reveal-delay-2">
+            策略、内容、广告，只围绕LinkedIn一个平台做。
+            帮B2B企业在这里站稳脚跟，让对的人看到你，让生意主动找上来。
+          </p>
+          <div class="hero__actions reveal reveal-delay-3">
+            <a href="/zh/contact?intent=call" class="btn btn--primary btn--lg">预约策略通话</a>
+            <a href="/zh/services" class="btn btn--outline-white btn--lg">了解服务内容</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ 2. PROBLEM STATEMENT ═══════════════════════════ -->
+    <section class="section problem" aria-labelledby="problem-heading">
+      <div class="container">
+
+        <div class="problem__hero reveal">
+          <div class="problem__head">
+            <p class="eyebrow eyebrow--light">行业现状</p>
+            <h2 id="problem-heading">
+              大多数B2B企业<br />在LinkedIn上是隐形的。
+            </h2>
+            <p class="problem__sub">
+              内容发了上顿没下顿，公司主页几年没动过，管理层的个人页面像是注册完就忘了。
+              广告投出去也常常打不到做决定的人。LinkedIn是吃持续投入和专业深度的，
+              两样都缺，最好的B2B平台也帮不了你。
+            </p>
+          </div>
+
+          <div class="problem__visual">
+            <img
+              src="/problem-linkedin.png"
+              alt="两块屏幕对比：左侧是空白的LinkedIn通知、零曝光和平直的数据曲线；右侧是不断涌入的连接请求、新线索和12,400次展示"
+              class="problem__img"
+              width="1024"
+              height="1024"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+
+        <div class="problem__grid">
+          {painPoints.map((p, i) => (
+            <div class="problem__card reveal" style={`transition-delay: ${i * 0.1}s`}>
+              <p class="problem__stat">{p.stat}</p>
+              <p class="problem__label">{p.label}</p>
+              <p class="problem__detail">{p.detail}</p>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ 3. SERVICES GRID ═══════════════════════════ -->
+    <section id="services" class="section" style="background: var(--off-white);" aria-labelledby="services-heading">
+      <div class="container">
+
+        <div class="services__head reveal">
+          <div>
+            <p class="eyebrow">服务范围</p>
+            <h2 id="services-heading">LinkedIn运营所需的一切<br />都在这里。</h2>
+          </div>
+          <p class="services__intro">
+            做什么、花了多少、效果怎么样，全部摊开来讲。策略、诊断、报告是每个项目的标配，不额外加钱。
+          </p>
+        </div>
+
+        <div class="services__grid">
+          {services.map((s, i) => (
+            <a href={s.href} class="services__card reveal" style={`transition-delay: ${i * 0.08}s`}>
+              <div class="services__card-top">
+                <span class="tag tag--cyan">{s.tag}</span>
+                <span class="services__arrow" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M4.5 15.5L15.5 4.5M15.5 4.5H7.5M15.5 4.5V12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </div>
+              {s.title === '内容运营' ? (
+                <div class="services__vis services__vis--content" aria-hidden="true">
+                  <img src="/content-calendar-v2.png" alt="" width="600" height="338" loading="lazy" />
+                </div>
+              ) : s.title === '广告投放' ? (
+                <div class="services__vis services__vis--content" aria-hidden="true">
+                  <img src="/ad-creative-stack.png" alt="" width="600" height="338" loading="lazy" />
+                </div>
+              ) : s.title === '策略咨询' ? (
+                <div class="services__vis services__vis--content" aria-hidden="true">
+                  <img src="/consulting-workshop.png" alt="" width="600" height="338" loading="lazy" />
+                </div>
+              ) : (
+                <div class="vis-placeholder services__vis" aria-hidden="true">
+                  <span>视觉占位</span>
+                </div>
+              )}
+              <h3 class="services__card-title">{s.title}</h3>
+              <p class="services__card-desc">{s.body}</p>
+              <ul class="services__subs">
+                {s.subs.map(sub => (
+                  <li class="services__sub">{sub}</li>
+                ))}
+              </ul>
+            </a>
+          ))}
+        </div>
+
+        <div class="services__foot reveal">
+          <a href="/zh/services" class="btn btn--outline btn--lg">查看全部服务</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ 4. HOW WE WORK ═══════════════════════════ -->
+    <section class="section" style="background: var(--deep-navy);" aria-labelledby="process-heading">
+      <div class="container">
+
+        <div class="process__head reveal">
+          <p class="eyebrow eyebrow--light">合作方式</p>
+          <h2 id="process-heading" style="color: var(--white);">
+            从评估到业务增长<br /><em style="color: rgba(255,255,255,0.35); font-weight: 300;">只需三步。</em>
+          </h2>
+        </div>
+
+        <div class="process__grid">
+          {steps.map((s, i) => (
+            <div class="process__step reveal" style={`transition-delay: ${i * 0.1}s`}>
+              <div class="process__line-horizontal" aria-hidden="true"></div>
+              <div class="process__content">
+                <span class="process__detail">{s.detail}</span>
+                <h3 class="process__title">{s.title}</h3>
+                <p class="process__body">{s.body}</p>
+              </div>
+              {s.title === '评估与规划' ? (
+                <div class="process__vis process__vis--img" aria-hidden="true">
+                  <img src="/audit-strategy.png" alt="" width="600" height="375" loading="lazy" />
+                </div>
+              ) : s.title === '搭建与上线' ? (
+                <div class="process__vis process__vis--img" aria-hidden="true">
+                  <img src="/build-launch.png" alt="" width="600" height="375" loading="lazy" />
+                </div>
+              ) : s.title === '迭代与增长' ? (
+                <div class="process__vis process__vis--img" aria-hidden="true">
+                  <img src="/grow-report.png" alt="" width="600" height="375" loading="lazy" />
+                </div>
+              ) : (
+                <div class="vis-placeholder process__vis" aria-hidden="true">
+                  <span>视觉占位</span>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div class="process__cta reveal" style="transition-delay: 0.3s">
+          <a href="/zh/pricing" class="btn btn--outline-white btn--lg">查看报价</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ 5. WHAT SETS US APART ═══════════════════════════ -->
+    <section class="section" aria-labelledby="apart-heading">
+      <div class="container">
+        <div class="apart__layout">
+
+          <div class="apart__left">
+            <div class="apart__head reveal">
+              <p class="eyebrow">为什么选择我们</p>
+              <h2 id="apart-heading">只做一件事。<br />LinkedIn。</h2>
+              <div class="accent-bar"></div>
+              <p class="apart__lead">
+                不是什么数字营销都做然后顺便带一下LinkedIn那种公司。
+                LinkedIn就是全部的业务，没有其他的。做得深和做得浅，差距就在这里。
+              </p>
+            </div>
+
+            <!-- Visual: comparison graphic -->
+            <div class="apart__visual reveal reveal-delay-1" aria-hidden="true">
+              <div class="apart__visual-inner">
+                <div class="apart__vis-compare">
+                  <div class="apart__vis-col apart__vis-col--them">
+                    <span class="apart__vis-label">综合营销机构</span>
+                    <div class="apart__vis-bars">
+                      <div class="apart__vis-item"><span class="apart__vis-dot apart__vis-dot--muted"></span><div class="apart__vis-bar apart__vis-bar--muted" style="width: 30%"></div></div>
+                      <div class="apart__vis-item"><span class="apart__vis-dot apart__vis-dot--muted"></span><div class="apart__vis-bar apart__vis-bar--muted" style="width: 25%"></div></div>
+                      <div class="apart__vis-item"><span class="apart__vis-dot apart__vis-dot--muted"></span><div class="apart__vis-bar apart__vis-bar--muted" style="width: 20%"></div></div>
+                      <div class="apart__vis-item"><span class="apart__vis-dot apart__vis-dot--muted"></span><div class="apart__vis-bar apart__vis-bar--muted" style="width: 35%"></div></div>
+                      <div class="apart__vis-item"><span class="apart__vis-dot apart__vis-dot--muted"></span><div class="apart__vis-bar apart__vis-bar--muted" style="width: 15%"></div></div>
+                    </div>
+                  </div>
+                  <div class="apart__vis-divider"></div>
+                  <div class="apart__vis-col apart__vis-col--us">
+                    <span class="apart__vis-label">Nuvora Studio</span>
+                    <div class="apart__vis-bars">
+                      <div class="apart__vis-item"><span class="apart__vis-dot"></span><div class="apart__vis-bar" style="width: 100%"></div></div>
+                    </div>
+                    <span class="apart__vis-tag">只做LinkedIn</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="apart__right">
+            <div class="apart__grid">
+              {pillars.map((p, i) => (
+                <div class="apart__card reveal" style={`transition-delay: ${i * 0.08}s`}>
+                  <div class="apart__card-metric">
+                    <span class="apart__metric-value">{p.metric}</span>
+                    <span class="apart__metric-label">{p.metricLabel}</span>
+                  </div>
+                  <div class="apart__card-body">
+                    <div class="apart__card-header">
+                      <h3 class="apart__title">{p.title}</h3>
+                    </div>
+                    <p class="apart__body">{p.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ 6. TESTIMONIALS ═══════════════════════════ -->
+    <Testimonials
+      eyebrow="客户说的"
+      heading="合作过的人怎么看"
+      sub="不同行业的B2B团队，同一个标准：看结果。"
+      items={[
+        { text: "半年下来，40%的线索从LinkedIn过来的。之前这个渠道我们压根没当回事。", image: "https://randomuser.me/api/portraits/women/32.jpg", name: "Sophie Laurent", role: "CMO, SaaS公司" },
+        { text: "他们懂B2B的购买逻辑，不是随便帮你发发帖子那种。几个高管的LinkedIn从没人看变成了经常有人主动来聊业务。", image: "https://randomuser.me/api/portraits/men/45.jpg", name: "Marcus Webb", role: "销售VP, 工业技术" },
+        { text: "说实话最打动我的是透明。每个月清清楚楚，什么有用什么没用，钱花哪了。换了好几家都没见过这样的。", image: "https://randomuser.me/api/portraits/women/28.jpg", name: "Priya Sharma", role: "市场负责人, 金融科技" },
+        { text: "之前试过三家，效果一般。Nuvora不一样的地方是他们是真吃透了LinkedIn的算法和B2B买家习惯的，不是什么社交媒体都接那种。", image: "https://randomuser.me/api/portraits/men/22.jpg", name: "David Chen", role: "CEO, 管理咨询公司" },
+        { text: "广告费以前基本在打水漂。他们接手后重新搭了账户结构，现在线索质量上来了，获客成本差不多砍了一半。", image: "https://randomuser.me/api/portraits/women/44.jpg", name: "Emma Bergström", role: "数字营销负责人, 制造业" },
+        { text: "内容写得好是真的。发出去的东西一看就是我们自己的口吻，完全没有外包的那种感觉。B2B内容能做到这样的确实不多。", image: "https://randomuser.me/api/portraits/men/36.jpg", name: "James Okafor", role: "创始人, 专业服务" },
+        { text: "策略、内容、投放全部丢给他们了。我们从一个月发一条变成了一整套在跑：公司页面、高管页面、广告，都有人管。", image: "https://randomuser.me/api/portraits/women/51.jpg", name: "Ana Rodriguez", role: "市场总监, 医疗行业" },
+        { text: "他们帮我们做了个员工传播的项目，销售团队现在LinkedIn上挺活跃的，行业里也有了认知度，带来的线索能算出来。", image: "https://randomuser.me/api/portraits/men/53.jpg", name: "Ravi Patel", role: "CRO, 企业软件" },
+        { text: "报告给得实在。线索数、质量、成本，有就是有没有就是没有。不像以前那些服务商，给你一堆曝光数据就完了。", image: "https://randomuser.me/api/portraits/women/19.jpg", name: "Laura Koenig", role: "COO, 物流公司" },
+      ]}
+    />
+
+    <!-- ═══════════════════════════ 7. INDUSTRIES ═══════════════════════════ -->
+    <section class="section" aria-labelledby="industries-heading">
+      <div class="container">
+        <div class="industries__layout">
+
+          <div class="industries__text reveal">
+            <p class="eyebrow">服务行业</p>
+            <h2 id="industries-heading">面向B2B企业，<br /><em>横跨多个行业。</em></h2>
+            <div class="accent-bar"></div>
+            <p class="industries__body">
+              合作过的有做了很多年的跨国企业，也有正在快速长大的新公司。行业不一样，市场也不一样，共同点是都是做企业客户的。
+            </p>
+            <p class="industries__body">
+              你的客户在LinkedIn上，但你还没找到他们？聊聊看。
+            </p>
+            <a href="/zh/contact" class="btn btn--primary" style="margin-top: var(--sp-6);">
+              联系我们
+            </a>
+          </div>
+
+          <div class="industries__right reveal reveal-delay-2">
+            <div class="industries__visual" aria-hidden="true">
+              <img src="/global-connections.png" alt="" width="600" height="338" loading="lazy" />
+            </div>
+            <div class="industries__grid" aria-label="服务覆盖行业">
+              {industries.map(ind => (
+                <div class="industries__item">
+                  <span class="industries__dot" aria-hidden="true"></span>
+                  <span class="industries__label">{ind.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ 8. INSIGHTS PREVIEW ═══════════════════════════ -->
+    <section class="section" style="background: var(--off-white);" aria-labelledby="insights-heading">
+      <div class="container">
+
+        <div class="insights__head reveal">
+          <div>
+            <p class="eyebrow">专栏</p>
+            <h2 id="insights-heading">LinkedIn深度观察，<br /><em>来自实战。</em></h2>
+          </div>
+          <p class="insights__sub">
+            LinkedIn策略、B2B内容方法论、广告打法、平台最新变动，这些我们都写。
+            写的人自己天天在做这一行，不是那种攒稿子的内容团队。
+          </p>
+        </div>
+
+        <div class="insights__grid">
+          {posts.map((post, i) => (
+            <article class="insights__card reveal" style={`transition-delay: ${i * 0.08}s`}>
+              {post.image ? (
+                <div class="insights__thumb insights__thumb--img" style={`background-image: url('${post.image}')`} aria-hidden="true"></div>
+              ) : (
+                <div class="vis-placeholder insights__thumb" aria-hidden="true">
+                  <span>视觉占位</span>
+                </div>
+              )}
+              <div class="insights__card-top">
+                <div class="insights__tags">
+                  {post.tags.map(t => <span class="insights__tag">{t}</span>)}
+                </div>
+              </div>
+              <h3 class="insights__title">
+                <a href={`/insights/${post.slug}`}>{post.title}</a>
+              </h3>
+              <p class="insights__excerpt">{post.excerpt}</p>
+              <a href={`/insights/${post.slug}`} class="insights__read">
+                阅读全文
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M3 7h8m0 0L7.5 3.5M11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </article>
+          ))}
+        </div>
+
+        <div class="text-center reveal" style="margin-top: var(--sp-10);">
+          <a href="/zh/insights" class="btn btn--outline btn--lg">查看全部文章</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ 9. FAQ ═══════════════════════════ -->
+    <FAQ heading="常见问题" faqs={faqs} footer="还有其他疑问？" footerLink={{ text: '直接联系我们', href: '/zh/contact' }} id="faq-zh" />
+
+    <!-- ═══════════════════════════ 10. CONTACT CTA ═══════════════════════════ -->
+    <section class="section cta" aria-labelledby="cta-heading" style="background: var(--deep-navy);">
+      <div class="container">
+        <div class="cta__layout">
+
+          <div class="cta__left reveal">
+            <p class="eyebrow eyebrow--light">现在开始</p>
+            <h2 id="cta-heading" class="cta__headline">
+              准备好让LinkedIn<br />
+              <em>产生真正的业务价值了吗？</em>
+            </h2>
+          </div>
+
+          <div class="cta__right reveal reveal-delay-2">
+            <p class="cta__sub">
+              说说你们公司现在的情况，我们帮你看看LinkedIn上有哪些现成的机会可以抓。就是聊一下，不推东西。
+            </p>
+            <div class="cta__actions">
+              <a href="/zh/contact?intent=call" class="btn btn--primary btn--lg">预约30分钟通话</a>
+              <a href="/zh/contact" class="btn btn--outline-white btn--lg">在线留言</a>
+            </div>
+            <p class="cta__note">30分钟通话，不做推销，只谈实际问题。</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Layout>
+
+<style>
+  /* ═══════════════════════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════════════════════ */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding-block: var(--sp-32) var(--sp-24);
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    background: url('/hero-notification.png') center center / cover no-repeat;
+    z-index: 0;
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(15,23,42, 0.88) 0%,
+      rgba(15,23,42, 0.55) 50%,
+      rgba(15,23,42, 0.20) 100%
+    );
+    z-index: 1;
+  }
+
+  .hero__content {
+    max-width: 680px;
+  }
+
+  .hero__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.10;
+    letter-spacing: -0.02em;
+    margin-block: var(--sp-5) var(--sp-6);
+  }
+  .hero__h1 .text-gradient {
+    background: linear-gradient(135deg, var(--cyan) 0%, var(--sky) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero__sub {
+    font-size: var(--fs-md);
+    color: rgba(255, 255, 255, 0.68);
+    max-width: 520px;
+    line-height: 1.75;
+    margin-bottom: var(--sp-10);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+  }
+
+  @media (max-width: 640px) {
+    .hero { padding-block: var(--sp-16) var(--sp-12); }
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     PROBLEM STATEMENT
+     ═══════════════════════════════════════════════════════════ */
+  .problem {
+    background: var(--deep-navy);
+  }
+
+  /* ── Hero row ── */
+  .problem__hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-12);
+    align-items: center;
+    margin-bottom: var(--sp-16);
+  }
+
+  .problem__head {
+    max-width: 540px;
+  }
+
+  .problem__head :global(.eyebrow) {
+    color: var(--cyan);
+  }
+
+  .problem__head :global(h2) {
+    color: var(--white);
+    margin-bottom: var(--sp-6);
+  }
+
+  .problem__sub {
+    font-size: var(--fs-md);
+    color: var(--navy-text-2);
+    line-height: 1.75;
+  }
+
+  /* ── Visual ── */
+  .problem__visual {
+    border-radius: var(--r-xl);
+    overflow: hidden;
+  }
+
+  .problem__img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* ── Stat cards ── */
+  .problem__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-6);
+  }
+
+  .problem__card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--r-xl);
+    padding: var(--sp-8);
+    transition: all var(--t-base);
+  }
+
+  .problem__card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-3px);
+  }
+
+  .problem__stat {
+    font-family: var(--font-display);
+    font-size: var(--fs-5xl);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--cyan);
+    margin-bottom: var(--sp-4);
+    letter-spacing: -0.03em;
+  }
+
+  .problem__label {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.3;
+    margin-bottom: var(--sp-4);
+    letter-spacing: -0.01em;
+  }
+
+  .problem__detail {
+    font-size: var(--fs-sm);
+    color: var(--navy-text-2);
+    line-height: 1.7;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .problem__hero {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .problem__head { max-width: 660px; margin-inline: auto; }
+    .problem__visual { max-width: 480px; margin-inline: auto; }
+    .problem__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 640px) {
+    .problem__grid { grid-template-columns: 1fr; }
+    .problem__stat { font-size: var(--fs-4xl); }
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     SERVICES GRID
+     ═══════════════════════════════════════════════════════════ */
+  .services__head {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--sp-12);
+    align-items: end;
+    margin-bottom: var(--sp-12);
+  }
+
+  .services__intro {
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    line-height: 1.7;
+    max-width: 400px;
+    align-self: flex-end;
+    padding-bottom: 6px;
+  }
+
+  /* ── Card grid ── */
+  .services__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-6);
+    margin-bottom: var(--sp-12);
+  }
+
+  /* ── Card ── */
+  .services__card {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    padding: var(--sp-8);
+    transition: all var(--t-base);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .services__card:hover {
+    border-color: var(--border-2);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+  }
+
+  .services__card:hover .services__arrow {
+    background: var(--deep-navy);
+    color: var(--white);
+    border-color: var(--deep-navy);
+  }
+
+  .services__card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--sp-6);
+  }
+
+  .services__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    color: var(--text-3);
+    transition: all var(--t-base);
+    flex-shrink: 0;
+  }
+
+  /* ── Visual ── */
+  .services__vis {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 120px;
+    margin-bottom: var(--sp-6);
+    border-radius: var(--r-lg);
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .services__vis--content {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  .services__vis--content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--r-lg);
+  }
+
+  .services__vis span {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--text-3);
+  }
+
+  .services__card-title {
+    font-family: var(--font-display);
+    font-size: var(--fs-2xl);
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: var(--sp-4);
+  }
+
+  .services__card-desc {
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.75;
+    margin-bottom: var(--sp-6);
+  }
+
+  /* ── Sub-services list ── */
+  .services__subs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    margin-top: auto;
+    padding-top: var(--sp-6);
+    border-top: 1px solid var(--border);
+  }
+
+  .services__sub {
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    color: var(--text-2);
+    letter-spacing: 0.02em;
+    padding-left: var(--sp-4);
+    position: relative;
+  }
+
+  .services__sub::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--cyan);
+  }
+
+  .services__foot { text-align: center; }
+
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .services__head { grid-template-columns: 1fr; gap: var(--sp-6); }
+    .services__intro { max-width: 100%; }
+    .services__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 640px) {
+    .services__grid { grid-template-columns: 1fr; }
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     HOW WE WORK
+     ═══════════════════════════════════════════════════════════ */
+  .process__head {
+    text-align: center;
+    max-width: 580px;
+    margin-inline: auto;
+    margin-bottom: var(--sp-16);
+  }
+
+  .process__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-8);
+    margin-bottom: var(--sp-12);
+    align-items: start;
+  }
+
+  .process__step {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-5);
+  }
+
+  .process__line-horizontal {
+    height: 1px;
+    background: linear-gradient(to right, rgba(6, 182, 212, 0.25), transparent);
+    margin-bottom: var(--sp-2);
+  }
+
+  .process__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    flex: 1;
+  }
+
+  .process__detail {
+    font-family: var(--font-body);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cyan);
+  }
+
+  .process__title {
+    font-family: var(--font-display);
+    font-size: var(--fs-xl);
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+
+  .process__body {
+    font-size: var(--fs-sm);
+    color: var(--navy-text-2);
+    line-height: 1.75;
+  }
+
+  .process__vis {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    min-height: 100px;
+    margin-top: auto;
+    border-radius: var(--r-lg);
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .process__vis--img {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  .process__vis--img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--r-lg);
+  }
+
+  .process__vis span {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.12);
+  }
+
+  .process__cta { text-align: center; }
+
+  @media (max-width: 768px) {
+    .process__grid { grid-template-columns: 1fr; gap: var(--sp-10); }
+    .process__line-horizontal { display: none; }
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     WHAT SETS US APART
+     ═══════════════════════════════════════════════════════════ */
+  .apart__layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-12);
+    align-items: start;
+  }
+
+  .apart__left {
+    position: sticky;
+    top: calc(var(--sp-24));
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-8);
+  }
+
+  .apart__lead {
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    line-height: 1.75;
+  }
+
+  /* ── Comparison visual ── */
+  .apart__visual {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    overflow: hidden;
+  }
+
+  .apart__visual-inner {
+    padding: var(--sp-8);
+  }
+
+  .apart__vis-compare {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .apart__vis-col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .apart__vis-label {
+    font-family: var(--font-body);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-3);
+  }
+
+  .apart__vis-col--us .apart__vis-label {
+    color: var(--sky);
+  }
+
+  .apart__vis-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .apart__vis-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .apart__vis-dot {
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--cyan);
+    flex-shrink: 0;
+  }
+  .apart__vis-dot--muted {
+    background: var(--border-2);
+  }
+
+  .apart__vis-bar {
+    height: 6px;
+    background: var(--gradient-accent);
+    border-radius: 3px;
+  }
+  .apart__vis-bar--muted {
+    background: var(--border);
+    opacity: 0.6;
+  }
+
+  .apart__vis-divider {
+    height: 1px;
+    background: var(--border);
+  }
+
+  .apart__vis-tag {
+    display: inline-block;
+    width: fit-content;
+    padding: 3px 10px;
+    border-radius: var(--r-full);
+    background: rgba(14,165,233,0.08);
+    color: var(--sky);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* ── Cards grid ── */
+  .apart__grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-6);
+  }
+
+  .apart__card {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    overflow: hidden;
+    transition: all var(--t-base);
+  }
+
+  .apart__card:hover {
+    border-color: var(--border-2);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+  }
+
+  .apart__card-metric {
+    background: var(--off-white);
+    padding: var(--sp-5) var(--sp-8);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: baseline;
+    gap: var(--sp-3);
+  }
+
+  .apart__metric-value {
+    font-family: var(--font-display);
+    font-size: var(--fs-2xl);
+    font-weight: 700;
+    color: var(--sky);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .apart__metric-label {
+    font-family: var(--font-body);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-3);
+  }
+
+  .apart__card-body {
+    padding: var(--sp-5) var(--sp-8) var(--sp-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+  }
+
+  .apart__card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+  }
+
+  .apart__title {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .apart__body {
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.75;
+  }
+
+  @media (max-width: 1024px) {
+    .apart__layout { grid-template-columns: 1fr; }
+    .apart__left { position: static; }
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     INDUSTRIES
+     ═══════════════════════════════════════════════════════════ */
+  .industries__layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-16);
+    align-items: center;
+  }
+
+  .industries__body {
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    line-height: 1.75;
+    margin-bottom: var(--sp-4);
+  }
+
+  .industries__right { display: flex; flex-direction: column; gap: var(--sp-6); }
+
+  .industries__visual {
+    width: 100%;
+    flex-shrink: 0;
+    border-radius: var(--r-xl);
+    overflow: hidden;
+  }
+
+  .industries__visual img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--r-xl);
+  }
+
+  .industries__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-3);
+  }
+
+  .industries__item {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    padding: var(--sp-4) var(--sp-5);
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    transition: all var(--t-base);
+  }
+  .industries__item:hover {
+    border-color: var(--border-2);
+    background: var(--white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+  }
+  .industries__item:hover .industries__dot { background: var(--sky); }
+
+  .industries__dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--cyan);
+    flex-shrink: 0;
+    transition: background var(--t-fast);
+  }
+
+  .industries__label {
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: 0.01em;
+  }
+
+  @media (max-width: 1024px) {
+    .industries__layout { grid-template-columns: 1fr; gap: var(--sp-10); }
+  }
+  @media (max-width: 480px) {
+    .industries__grid { grid-template-columns: 1fr; }
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     INSIGHTS PREVIEW
+     ═══════════════════════════════════════════════════════════ */
+  .insights__head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-12);
+    align-items: end;
+    margin-bottom: var(--sp-12);
+  }
+
+  .insights__sub {
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    max-width: 400px;
+    line-height: 1.75;
+    align-self: flex-end;
+  }
+
+  .insights__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-6);
+  }
+
+  .insights__card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    padding: var(--sp-8);
+    display: flex;
+    flex-direction: column;
+    transition: all var(--t-base);
+  }
+  .insights__card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--border-2);
+    transform: translateY(-3px);
+  }
+
+  /* ── Thumbnail ── */
+  .insights__thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 160px;
+    margin-bottom: var(--sp-6);
+    border-radius: var(--r-lg);
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .insights__thumb span {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--text-3);
+  }
+
+  .insights__thumb--img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 160px;
+    margin-bottom: var(--sp-6);
+    border-radius: var(--r-lg);
+    background-color: var(--deep-navy);
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+    border: none;
+  }
+
+  .insights__card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--sp-5);
+    gap: var(--sp-3);
+    flex-wrap: wrap;
+  }
+
+  .insights__tags {
+    display: flex;
+    gap: var(--sp-2);
+    flex-wrap: wrap;
+  }
+
+  .insights__tag {
+    display: inline-block;
+    padding: 3px var(--sp-3);
+    border-radius: var(--r-full);
+    background: rgba(14,165,233,0.08);
+    color: var(--sky);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .insights__title {
+    font-family: var(--font-display);
+    font-size: var(--fs-xl);
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: var(--sp-3);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    flex: 1;
+  }
+  .insights__title a { color: inherit; transition: color var(--t-fast); }
+  .insights__title a:hover { color: var(--sky); }
+
+  .insights__excerpt {
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.75;
+    flex: 1;
+    margin-bottom: var(--sp-6);
+  }
+
+  .insights__read {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-top: auto;
+    transition: color var(--t-fast), gap var(--t-fast);
+  }
+  .insights__read:hover { color: var(--blue); gap: var(--sp-3); }
+
+  @media (max-width: 1024px) {
+    .insights__head { grid-template-columns: 1fr; gap: var(--sp-6); }
+    .insights__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .insights__grid { grid-template-columns: 1fr; }
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     CONTACT CTA
+     ═══════════════════════════════════════════════════════════ */
+  .cta { position: relative; overflow: hidden; }
+  .cta::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 55% 75% at 100% 50%, rgba(14,165,233,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .cta__layout {
+    position: relative; z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-16);
+    align-items: center;
+  }
+
+  .cta__headline {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.10;
+    letter-spacing: -0.025em;
+  }
+  .cta__headline em { color: rgba(255,255,255,0.35); font-weight: 300; }
+
+  .cta__sub {
+    font-size: var(--fs-md);
+    color: rgba(255,255,255,0.55);
+    line-height: 1.75;
+    margin-bottom: var(--sp-8);
+  }
+
+  .cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+    align-items: center;
+    margin-bottom: var(--sp-5);
+  }
+
+  .cta__note {
+    font-size: var(--fs-sm);
+    color: rgba(255,255,255,0.30);
+    letter-spacing: 0.02em;
+  }
+
+  @media (max-width: 1024px) {
+    .cta__layout { grid-template-columns: 1fr; gap: var(--sp-10); }
+  }
+  @media (max-width: 640px) {
+    .cta__actions { flex-direction: column; align-items: stretch; }
+    .cta__actions .btn { justify-content: center; }
+  }
+
+</style>
