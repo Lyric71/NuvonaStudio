@@ -1,0 +1,521 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import NavBar from '../../../components/NavBar.astro';
+import FAQ from '../../../components/FAQ.astro';
+import ContactCTA from '../../../components/ContactCTA.astro';
+
+/* ── Données ───────────────────────────────────────────── */
+
+const advocacyCards = [
+  { title: 'Conception et gestion du programme', description: 'On pose la structure, le calendrier éditorial, et on assure le suivi au quotidien. Le but c\'est que la participation soit tellement simple que vos équipes le font vraiment, sans qu\'on ait besoin de relancer.' },
+  { title: 'Refonte des profils collaborateurs', description: 'Chaque profil est réécrit pour parler aux acheteurs. Pas aux recruteurs. À la fin, un profil de collaborateur ressemble presque à une page de vente pour votre marque. Sauf que c\'est plus subtil que ça.' },
+  { title: 'Intégration des nouvelles recrues', description: 'Dès le premier jour, la nouvelle recrue a un profil LinkedIn propre. Avant la fin de sa première semaine elle est intégrée au programme et elle publie déjà.' },
+];
+
+const brandingCards = [
+  { title: 'Refonte des profils dirigeants', description: 'On reprend le profil de chaque dirigeant pour qu\'il rassure les prospects, les investisseurs, les futurs talents. Pas juste les anciens collègues de promo.' },
+  { title: 'Rédaction pour vos dirigeants', description: 'Leur voix, leur expertise, publiées à un rythme régulier. Brouillons, validation, publication, réponses aux commentaires, bref tout ce qui fait que ça tourne - c\'est nous qui gérons.' },
+  { title: 'LinkedIn Live et croissance d\'audience', description: 'Un Live LinkedIn génère 24 fois plus de commentaires qu\'une vidéo classique. On met en place des programmes de Live récurrents qui font grandir une audience fidèle, pas juste des vues à la volée.' },
+];
+
+const workshops = [
+  { tag: 'Demi-journée', title: 'Les fondamentaux LinkedIn', description: 'Comment la plateforme marche vraiment en 2026. On passe en revue la mécanique de l\'algorithme, le fil d\'actualité, ce qui produit des résultats et ce qui n\'en produit pas. Prévu pour les équipes qui démarrent ou celles qui ont besoin de repartir de zéro.' },
+  { tag: 'Journée', title: 'Atelier contenu', description: 'On construit ensemble un système de production qui tient dans la durée, sans épuiser vos équipes. Ça inclut les méthodes assistées par l\'IA. Chacun repart avec son plan de contenu sur 30 jours.' },
+  { tag: 'Journée', title: 'Publicité LinkedIn - niveau avancé', description: 'Ciblage, architecture de campagne, budget, attribution. Pour les équipes marketing qui mettent de l\'argent sur LinkedIn et qui en ont assez de pas vraiment savoir ce que ça donne.' },
+  { tag: 'Demi-journée', title: 'Visibilité des dirigeants', description: 'Une session resserrée pour les cadres dirigeants. On travaille la structure du profil, le rythme de publication, et surtout comment poser une crédibilité qui fait son travail avant même le premier rendez-vous.' },
+];
+
+const stats = [
+  { value: '80 %', caption: 'des prospects B2B issus des réseaux sociaux viennent de LinkedIn. Facebook, X et Instagram se partagent le reste - et il en reste pas beaucoup.' },
+  { value: '277 %', caption: 'de génération de prospects en plus que Facebook et X combinés.' },
+  { value: '2,74 %', caption: 'de conversion visiteur vers prospect. Facebook est à 0,77 %. On vous laisse comparer.' },
+  { value: '4 sur 5', caption: 'des membres LinkedIn participent aux décisions d\'achat dans leur entreprise.' },
+  { value: '561 %', caption: 'de portée en plus quand vos collaborateurs partagent un contenu, comparé à la page entreprise qui le publie elle-même.' },
+  { value: '10-15 %', caption: 'de conversion sur les formulaires de captation LinkedIn. Une page web classique tourne plutôt entre 2 et 5 %.' },
+  { value: '85 %', caption: 'des marketeurs B2B disent que LinkedIn leur rapporte plus que n\'importe quel autre réseau social.' },
+  { value: '28 %', caption: 'de moins par prospect, comparé à Google Ads en B2B.' },
+  { value: '7×', caption: 'plus de croissance en abonnés pour les pages qui publient toutes les semaines.' },
+  { value: '89 %', caption: 'des marketeurs B2B utilisent déjà LinkedIn pour trouver des prospects. Les autres rattrapent leur retard.' },
+];
+
+const faqs = [
+  { q: 'C\'est quoi exactement, la mobilisation des collaborateurs ?', a: 'En gros, vos collaborateurs relaient du contenu qu\'on a préparé pour eux, depuis leur profil LinkedIn perso. Nous on s\'occupe du programme, de la production de contenu, de la logistique. La seule chose qu\'on demande à vos équipes c\'est de cliquer sur « partager ». C\'est vraiment aussi simple que ça.' },
+  { q: 'Combien de temps avant de voir des résultats ?', a: 'La portée et les interactions bougent dès le premier mois en général. Les vrais prospects, ceux qui contactent ou qui répondent, arrivent plutôt sous 60 à 90 jours. Après, ça varie. Ça dépend de votre secteur, de combien de gens participent, de si votre marque est déjà connue ou pas. On met tout ça à plat dès le premier appel pour que vous sachiez à quoi vous attendre.' },
+  { q: 'Vous écrivez vraiment tout pour les dirigeants ?', a: 'Oui. Chaque mot. On les interviewe, on rédige dans leur ton, on fait valider. Rien ne sort sans leur accord.' },
+  { q: 'On n\'est pas basés en France, c\'est un problème ?', a: 'Pas du tout, on bosse avec des entreprises B2B sur à peu près tous les fuseaux horaires. Les ateliers se font en visio ou en présentiel selon ce qui vous arrange, et pour le contenu c\'est à distance de toute façon.' },
+  { q: 'Ça marche pour quelle taille d\'entreprise ?', a: 'De 20 à 20 000 salariés. Après ça dépend un peu du sujet. La mobilisation marche surtout bien à partir de la taille ETI ou grand groupe. Les formations s\'adaptent à toutes les tailles.' },
+  { q: 'Et la publicité LinkedIn, vous en faites ?', a: 'Ce qu\'on fait nous c\'est la croissance organique. Mobilisation des équipes, visibilité des dirigeants, formation. La pub on en parle dans l\'atelier publicité, mais c\'est de la stratégie, pas de la gestion de campagne. Si c\'est la gestion au quotidien que vous cherchez, parlez-nous en et on vous dit ce qu\'on peut proposer.' },
+  { q: 'En quoi vos formations sont différentes de ce qu\'on trouve sur internet ?', a: 'Tout repose sur des données de vraies campagnes B2B, pas sur du recyclage de conseils qu\'on voit partout sur LinkedIn. Et la grosse différence c\'est que votre équipe repart avec des livrables concrets. Des profils refaits, un calendrier éditorial, un plan de campagne. Pas un PowerPoint de 40 slides.' },
+  { q: 'Vous mesurez quoi au juste ?', a: 'Nombre d\'abonnés, taux d\'interaction, vues de profils, trafic renvoyé vers votre site, prospects entrants. Si un indicateur n\'a pas de lien direct avec votre activité commerciale on ne perd pas votre temps avec.' },
+  { q: 'On peut avoir une idée des tarifs ?', a: 'Tout est chiffré en fonction du périmètre - mobilisation, rédaction dirigeants, formation. On en discute par téléphone et vous recevez une proposition détaillée derrière. Pas d\'ambiguité là-dessus.' },
+  { q: 'On a jamais rien fait sur LinkedIn. C\'est gênant ?', a: 'Non. Beaucoup de nos clients en étaient là au démarrage. L\'atelier Fondamentaux a été pensé exactement pour ça.' },
+];
+---
+
+<Layout
+  lang="fr"
+  title="Conseil LinkedIn pour la génération de prospects B2B"
+  description="Mobilisation des collaborateurs, visibilité des dirigeants, formation LinkedIn. On aide les entreprises B2B à tirer plus de prospects de LinkedIn."
+  abstract="Conseil LinkedIn pour les entreprises B2B. Mobilisation des collaborateurs, visibilité des dirigeants et formations pratiques pour générer des prospects."
+>
+  <NavBar lang="fr" />
+  <main id="main-content">
+
+    <!-- ═══════════════════════════════════════════════════════
+         HERO
+         ═══════════════════════════════════════════════════════ -->
+    <section class="c-hero" aria-labelledby="c-hero-h">
+      <div class="c-hero__bg" aria-hidden="true"></div>
+      <div class="c-hero__overlay" aria-hidden="true"></div>
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="c-hero__content">
+          <p class="eyebrow eyebrow--light reveal">Conseil LinkedIn</p>
+          <h1 id="c-hero-h" class="c-hero__h1 reveal reveal-delay-1">
+            Plus de prospects sur LinkedIn. <span class="text-gradient">Moins de bruit.</span>
+          </h1>
+          <p class="c-hero__sub reveal reveal-delay-2">
+            Votre page entreprise ne touche qu'une fraction de votre audience. Les profils LinkedIn de vos collaborateurs touchent tout le reste. On construit les programmes qui permettent d'exploiter cet écart.
+          </p>
+          <div class="c-hero__actions reveal reveal-delay-3">
+            <a href="/fr/contact?intent=call" class="btn btn--primary btn--lg">Prendre rendez-vous</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         MOBILISATION DES COLLABORATEURS
+         ═══════════════════════════════════════════════════════ -->
+    <section class="section c-svc" aria-labelledby="c-advocacy-h">
+      <div class="container">
+        <div class="c-svc__layout">
+          <div class="c-svc__text reveal">
+            <span class="c-svc__label">Mobilisation des collaborateurs</span>
+            <h2 id="c-advocacy-h" class="c-svc__h2">Vos collaborateurs ont une portée que votre page entreprise n'aura jamais.</h2>
+            <div class="c-svc__body">
+              <p>L'algorithme de LinkedIn favorise les gens, pas les pages entreprise. C'est pas un bug, c'est le fonctionnement de la plateforme. Et ça change tout pour les entreprises qui ont compris comment en tirer parti.</p>
+              <p>Quand un collaborateur partage un contenu il génère 8 fois plus d'interactions que le même post publié depuis la page de la boîte. Les réseaux personnels de vos équipes, cumulés, font 10 fois la taille de votre base d'abonnés. Et 92 % des acheteurs B2B font davantage confiance à ce que disent les salariés qu'à ce que l'entreprise met dans ses publicités.</p>
+              <p>La plupart des boîtes le savent. Très peu font quoi que ce soit avec. Celles qui passent le cap voient 4,3 fois plus d'impressions et un impact direct sur le pipe commercial, souvent en moins de 90 jours.</p>
+              <p>Nous on conçoit le programme, on le lance et on le gère au quotidien. Vos équipes partagent, et retournent bosser.</p>
+            </div>
+          </div>
+          <div class="c-svc__visual reveal reveal-delay-2">
+            <div class="c-svc__img-wrap">
+              <img src="/consulting-employee-advocacy.png" alt="Collaborateurs partageant du contenu LinkedIn depuis un bureau en espace ouvert" class="c-svc__img" width="560" height="420" loading="lazy" />
+            </div>
+          </div>
+        </div>
+
+        <div class="c-cards">
+          {advocacyCards.map((card, i) => (
+            <div class={`c-card reveal${i > 0 ? ` reveal-delay-${i}` : ''}`}>
+              <span class="c-card__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <strong class="c-card__title">{card.title}</strong>
+              <p class="c-card__desc">{card.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="c-svc__cta reveal">
+          <a href="/fr/contact?intent=call" class="btn btn--primary btn--lg">Transformer vos équipes en canal d'acquisition</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         VISIBILITÉ DES DIRIGEANTS
+         ═══════════════════════════════════════════════════════ -->
+    <section class="section c-svc c-svc--alt" aria-labelledby="c-branding-h">
+      <div class="container">
+        <div class="c-svc__layout c-svc__layout--flip">
+          <div class="c-svc__text reveal">
+            <span class="c-svc__label">Visibilité des dirigeants</span>
+            <h2 id="c-branding-h" class="c-svc__h2">Un acheteur ira voir le LinkedIn de votre DG avant même d'aller sur votre site.</h2>
+            <div class="c-svc__body">
+              <p>82 % des acheteurs B2B accordent plus de crédit à une entreprise quand ses dirigeants prennent la parole sur LinkedIn. Et 64 % préfèrent lire un point de vue du DG plutôt qu'un post produit depuis la page entreprise. Les chiffres sont assez clairs là-dessus.</p>
+              <p>Sauf que personne au comité de direction n'a le temps d'écrire trois posts par semaine. Résultat, la grande majorité des dirigeants B2B sont tout simplement invisibles sur LinkedIn. C'est du gâchis pur.</p>
+              <p>Nous on prend le relais. On interviewe vos dirigeants, on rédige dans leur style, on publie, on répond aux commentaires. Ils restent visibles auprès des bonnes personnes, et ça ne leur prend pas une heure dans la semaine.</p>
+            </div>
+          </div>
+          <div class="c-svc__visual reveal reveal-delay-2">
+            <div class="c-svc__img-wrap">
+              <img src="/consulting-personal-branding.png" alt="Dirigeant consultant ses interactions LinkedIn sur son téléphone dans un bureau" class="c-svc__img" width="560" height="420" loading="lazy" />
+            </div>
+          </div>
+        </div>
+
+        <div class="c-cards">
+          {brandingCards.map((card, i) => (
+            <div class={`c-card reveal${i > 0 ? ` reveal-delay-${i}` : ''}`}>
+              <span class="c-card__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <strong class="c-card__title">{card.title}</strong>
+              <p class="c-card__desc">{card.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="c-svc__cta reveal">
+          <a href="/fr/contact?intent=call" class="btn btn--primary btn--lg">Mettre vos dirigeants face aux acheteurs</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         FORMATION
+         ═══════════════════════════════════════════════════════ -->
+    <section class="section c-training" aria-labelledby="c-training-h">
+      <div class="c-training__bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="c-training__head reveal">
+          <span class="c-training__label">Formation</span>
+          <h2 id="c-training-h" class="c-training__h2">Votre équipe est sur LinkedIn tous les jours. Mais est-ce qu'elle sait vraiment s'en servir ?</h2>
+          <div class="c-training__intro">
+            <p>68 % des marketeurs B2B ont augmenté leur activité LinkedIn l'an dernier. Le souci c'est que la majorité l'a fait sans aucune formation derrière.</p>
+            <p>Ça donne des publications que personne ne lit, des profils qui ressemblent encore à des CV de 2014, et du budget pub qui s'évapore sans que personne sache vraiment pourquoi. En face, les professionnels qui ont été formés à LinkedIn dépassent leurs objectifs commerciaux 51 % plus souvent.</p>
+            <p>Nos ateliers ce sont pas des webinaires où on écoute en faisant autre chose. C'est du travail concret. Votre équipe en repart avec des profils refaits, un plan de contenu, ou une stratégie publicitaire qu'elle peut lancer le lundi d'après.</p>
+          </div>
+        </div>
+
+        <div class="c-workshop-grid">
+          {workshops.map((w, i) => (
+            <div class={`c-workshop reveal${i > 0 ? ` reveal-delay-${Math.min(i, 3)}` : ''}`}>
+              <span class={`c-workshop__tag ${w.tag === 'Demi-journée' ? 'c-workshop__tag--cyan' : 'c-workshop__tag--blue'}`}>{w.tag}</span>
+              <strong class="c-workshop__title">{w.title}</strong>
+              <p class="c-workshop__desc">{w.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="c-training__cta reveal">
+          <a href="/fr/contact?intent=call" class="btn btn--primary btn--lg">Réserver un atelier</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         LINKEDIN EN CHIFFRES
+         ═══════════════════════════════════════════════════════ -->
+    <section class="section c-num" aria-labelledby="c-num-h">
+      <div class="c-num__glow" aria-hidden="true"></div>
+      <div class="container">
+        <div class="c-num__head reveal">
+          <p class="eyebrow eyebrow--light">En chiffres</p>
+          <h2 id="c-num-h" class="c-num__h2">Pourquoi LinkedIn. En chiffres.</h2>
+          <p class="c-num__intro">Ces chiffres ne sortent pas de chez nous. Ils viennent de LinkedIn, HubSpot, Edelman, et de plusieurs études B2B indépendantes. On les met ici parce que « pourquoi LinkedIn et pas autre chose ? » c'est la question qu'on entend le plus souvent. Et la réponse change jamais.</p>
+        </div>
+
+        <div class="c-num__grid">
+          {stats.map((s, i) => (
+            <div class={`c-num-card reveal${i > 0 ? ` reveal-delay-${(i % 4) + 1}` : ''}`}>
+              <span class="c-num-card__value">{s.value}</span>
+              <p class="c-num-card__caption">{s.caption}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+
+    <FAQ heading="Questions fréquentes" faqs={faqs} background="var(--off-white)" cta={{ text: 'Prendre rendez-vous', href: '/fr/contact' }} id="c-faq" />
+
+
+    <ContactCTA lang="fr" />
+
+  </main>
+</Layout>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     STYLES
+     ═══════════════════════════════════════════════════════════ -->
+<style>
+  /* ── shared placeholder ── */
+  .ph{display:none;position:absolute;inset:0;flex-direction:column;align-items:center;justify-content:center;gap:var(--sp-3);background:linear-gradient(135deg,var(--off-white),var(--border));border-radius:var(--r-xl)}
+  .ph span{font-size:var(--fs-xs);color:var(--text-3);letter-spacing:.06em;text-transform:uppercase;font-weight:500}
+
+
+  /* ╔═══════════════════════════════════════════╗
+     ║  HERO                                     ║
+     ╚═══════════════════════════════════════════╝ */
+  .c-hero {
+    position: relative;
+    overflow: hidden;
+    padding-block: var(--sp-32) var(--sp-24);
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+  }
+
+  .c-hero__bg {
+    position: absolute;
+    inset: 0;
+    background: url('/consulting-hero.png') center center / cover no-repeat;
+    z-index: 0;
+  }
+
+  .c-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(15,23,42, 0.92) 0%,
+      rgba(15,23,42, 0.75) 50%,
+      rgba(15,23,42, 0.45) 100%
+    );
+    z-index: 1;
+  }
+
+  .c-hero__content {
+    max-width: 680px;
+  }
+
+  .c-hero__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.10;
+    letter-spacing: -0.02em;
+    margin-block: var(--sp-5) var(--sp-6);
+  }
+  .c-hero__h1 .text-gradient {
+    background: linear-gradient(135deg, var(--cyan) 0%, var(--sky) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .c-hero__sub {
+    font-size: var(--fs-md);
+    color: rgba(255, 255, 255, 0.68);
+    max-width: 520px;
+    line-height: 1.75;
+    margin-bottom: var(--sp-10);
+  }
+
+  .c-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+  }
+
+  @media (max-width: 640px) {
+    .c-hero { padding-block: var(--sp-16) var(--sp-12); }
+  }
+
+
+  /* ╔═══════════════════════════════════════════╗
+     ║  SERVICE SECTIONS                         ║
+     ╚═══════════════════════════════════════════╝ */
+  .c-svc{background:var(--white)}
+  .c-svc--alt{background:var(--off-white)}
+
+  .c-svc__layout{
+    display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-16);
+    align-items:center;margin-bottom:var(--sp-12);
+  }
+  .c-svc__layout--flip{direction:rtl}
+  .c-svc__layout--flip .c-svc__text,
+  .c-svc__layout--flip .c-svc__visual{direction:ltr}
+
+  .c-svc__label{
+    display:inline-block;
+    font-family:var(--font-display);font-size:var(--fs-xl);font-weight:600;
+    color:var(--blue);letter-spacing:-.01em;
+    margin-bottom:var(--sp-3);
+    padding-bottom:var(--sp-2);
+    border-bottom:3px solid var(--cyan);
+  }
+
+  .c-svc__h2{
+    font-family:var(--font-display);font-size:clamp(1.75rem,3.5vw,2.5rem);
+    font-weight:700;color:var(--text);line-height:1.18;letter-spacing:-.01em;
+    margin-top:var(--sp-4);margin-bottom:var(--sp-8);
+  }
+
+  .c-svc__body{display:flex;flex-direction:column;gap:var(--sp-4)}
+  .c-svc__body p{font-size:var(--fs-md);color:var(--text-2);line-height:1.75}
+
+  .c-svc__img-wrap{
+    position:relative;border-radius:var(--r-xl);overflow:hidden;
+    aspect-ratio:4/3;background:var(--off-white);border:1px solid var(--border);
+    box-shadow:var(--shadow-lg);
+  }
+  .c-svc__img{width:100%;height:100%;object-fit:cover;display:block}
+
+  /* Service cards */
+  .c-cards{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5);
+    margin-bottom:var(--sp-8);
+  }
+
+  .c-card{
+    position:relative;padding:var(--sp-8) var(--sp-6);
+    background:var(--white);border:1px solid var(--border);
+    border-radius:var(--r-xl);overflow:hidden;
+    transition:border-color var(--t-fast),box-shadow var(--t-fast),transform var(--t-base);
+  }
+  .c-svc--alt .c-card{background:var(--white)}
+  .c-card:hover{border-color:var(--border-2);box-shadow:var(--shadow-md);transform:translateY(-3px)}
+
+  .c-card__num{
+    position:absolute;top:var(--sp-3);right:var(--sp-5);
+    font-family:var(--font-display);font-size:var(--fs-5xl);font-weight:700;
+    color:rgba(3,105,161,.05);line-height:1;pointer-events:none;
+  }
+  .c-card__title{display:block;font-size:var(--fs-base);font-weight:600;color:var(--text);margin-bottom:var(--sp-3);position:relative;z-index:1}
+  .c-card__desc{font-size:var(--fs-sm);color:var(--text-2);line-height:1.7;position:relative;z-index:1}
+
+  .c-svc__cta{display:flex;justify-content:center;padding-top:var(--sp-4)}
+
+
+  /* ╔═══════════════════════════════════════════╗
+     ║  FORMATION                                ║
+     ╚═══════════════════════════════════════════╝ */
+  .c-training{background:var(--deep-navy);position:relative;overflow:hidden}
+  .c-training__bg{
+    position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(ellipse 50% 60% at 0% 100%,rgba(6,182,212,.12) 0%,transparent 60%),
+      radial-gradient(ellipse 40% 50% at 100% 0%,rgba(3,105,161,.10) 0%,transparent 60%);
+  }
+
+  .c-training__head{position:relative;z-index:1;max-width:720px;margin-bottom:var(--sp-12)}
+  .c-training__label{
+    display:inline-block;
+    font-family:var(--font-display);font-size:var(--fs-xl);font-weight:600;
+    color:var(--cyan);letter-spacing:-.01em;
+    margin-bottom:var(--sp-3);
+    padding-bottom:var(--sp-2);
+    border-bottom:3px solid rgba(6,182,212,.40);
+  }
+
+  .c-training__h2{
+    font-family:var(--font-display);font-size:clamp(1.75rem,3.5vw,2.5rem);
+    font-weight:700;color:var(--white);line-height:1.18;letter-spacing:-.01em;
+    margin-top:var(--sp-4);margin-bottom:var(--sp-6);
+  }
+  .c-training__intro{display:flex;flex-direction:column;gap:var(--sp-4)}
+  .c-training__intro p{font-size:var(--fs-md);color:rgba(255,255,255,.58);line-height:1.75}
+
+  .c-workshop-grid{
+    position:relative;z-index:1;
+    display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-5);
+    margin-bottom:var(--sp-10);
+  }
+
+  .c-workshop{
+    padding:var(--sp-8) var(--sp-6);
+    background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+    border-radius:var(--r-xl);
+    transition:background var(--t-fast),border-color var(--t-fast),transform var(--t-base);
+  }
+  .c-workshop:hover{background:rgba(255,255,255,.08);border-color:rgba(6,182,212,.30);transform:translateY(-3px)}
+
+  .c-workshop__tag{
+    display:inline-flex;align-items:center;
+    padding:0.25rem 0.75rem;
+    font-size:var(--fs-xs);font-weight:500;
+    letter-spacing:0.10em;text-transform:uppercase;
+    border-radius:var(--r-full);margin-bottom:var(--sp-4);
+  }
+  .c-workshop__tag--cyan{background:rgba(6,182,212,.15);color:var(--cyan)}
+  .c-workshop__tag--blue{background:rgba(3,105,161,.15);color:rgba(255,255,255,.80)}
+
+  .c-workshop__title{display:block;font-size:var(--fs-lg);font-weight:600;color:var(--white);margin-bottom:var(--sp-3)}
+  .c-workshop__desc{font-size:var(--fs-sm);color:rgba(255,255,255,.58);line-height:1.7}
+
+  .c-training__cta{position:relative;z-index:1;display:flex;justify-content:center}
+
+
+  /* ╔═══════════════════════════════════════════╗
+     ║  LINKEDIN EN CHIFFRES                     ║
+     ╚═══════════════════════════════════════════╝ */
+  .c-num{background:var(--white);position:relative;overflow:hidden}
+
+  .c-num__glow{
+    position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(3,105,161,.04) 0%,transparent 60%);
+  }
+
+  .c-num__head{position:relative;z-index:1;text-align:center;max-width:680px;margin-inline:auto;margin-bottom:var(--sp-12)}
+  .c-num__h2{
+    font-family:var(--font-display);font-size:clamp(1.75rem,3.5vw,2.5rem);
+    font-weight:700;color:var(--text);line-height:1.18;letter-spacing:-.01em;
+    margin-top:var(--sp-4);margin-bottom:var(--sp-4);
+  }
+  .c-num__intro{font-size:var(--fs-md);color:var(--text-2);line-height:1.75}
+
+  .c-num__grid{
+    position:relative;z-index:1;
+    display:grid;grid-template-columns:repeat(5,1fr);gap:var(--sp-4);
+  }
+
+  .c-num-card{
+    padding:var(--sp-6);
+    background:var(--off-white);border:1px solid var(--border);
+    border-radius:var(--r-xl);
+    transition:border-color var(--t-fast),box-shadow var(--t-fast),transform var(--t-base);
+  }
+  .c-num-card:hover{border-color:var(--border-2);box-shadow:var(--shadow-md);transform:translateY(-3px)}
+
+  .c-num-card__value{
+    display:block;font-family:var(--font-display);
+    font-size:clamp(1.75rem,3vw,2.75rem);font-weight:700;
+    color:var(--blue);line-height:1.1;margin-bottom:var(--sp-3);
+  }
+  .c-num-card__caption{font-size:var(--fs-sm);color:var(--text-2);line-height:1.65}
+
+
+  /* ╔═══════════════════════════════════════════╗
+     ║  BOTTOM CTA                               ║
+     ╚═══════════════════════════════════════════╝ */
+  .c-bcta{background:var(--deep-navy);position:relative;overflow:hidden;text-align:center}
+
+  .c-bcta__orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px)}
+  .c-bcta__orb--1{width:420px;height:420px;top:-120px;right:15%;background:radial-gradient(circle,rgba(6,182,212,.15) 0%,transparent 70%)}
+  .c-bcta__orb--2{width:300px;height:300px;bottom:-80px;left:5%;background:radial-gradient(circle,rgba(3,105,161,.12) 0%,transparent 70%)}
+
+  .c-bcta__inner{position:relative;z-index:1;max-width:720px;margin-inline:auto}
+
+  .c-bcta__h2{
+    font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--white);
+    line-height:1.12;letter-spacing:-.02em;margin-bottom:var(--sp-10);
+  }
+  .c-bcta__h2 em{font-style:normal;display:block;color:rgba(255,255,255,.40);font-weight:300;margin-top:var(--sp-2)}
+
+
+  /* ╔═══════════════════════════════════════════╗
+     ║  RESPONSIVE                               ║
+     ╚═══════════════════════════════════════════╝ */
+  @media(max-width:1200px){
+    .c-num__grid{grid-template-columns:repeat(3,1fr)}
+  }
+
+  @media(max-width:1024px){
+    .c-svc__layout{grid-template-columns:1fr;gap:var(--sp-10)}
+    .c-svc__layout--flip{direction:ltr}
+    .c-cards{grid-template-columns:repeat(2,1fr)}
+    .c-num__grid{grid-template-columns:repeat(2,1fr)}
+    .c-workshop-grid{grid-template-columns:repeat(2,1fr)}
+  }
+
+  @media(max-width:768px){
+    .c-hero{padding-block:var(--sp-20) var(--sp-16)}
+    .c-hero__shape svg{height:40px}
+    .c-cards{grid-template-columns:1fr}
+    .c-num__grid{grid-template-columns:1fr}
+    .c-workshop-grid{grid-template-columns:1fr}
+    .c-card{padding:var(--sp-6)}
+    .c-workshop{padding:var(--sp-6)}
+    .c-num-card{padding:var(--sp-5)}
+  }
+
+  @media(max-width:640px){
+    .c-hero__h1{font-size:clamp(2rem,6vw,2.5rem)}
+  }
+</style>
