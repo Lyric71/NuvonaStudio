@@ -5,7 +5,8 @@
       "Bash(npm run:*)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4322/)",
-      "Read(//c/Users/cyril/**)"
+      "Read(//c/Users/cyril/**)",
+      "Bash(grep -r \"getStaticPaths\\\\|defineRoutes\\\\|createRoute\" /c/Users/cyril/NuvoraStudioWeb/src --include=*.ts --include=*.tsx --include=*.astro)"
     ],
     "additionalDirectories": [
       "C:\\Users\\cyril\\Downloads"
