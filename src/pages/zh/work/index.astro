@@ -8,8 +8,8 @@ const caseStudies = [
   {
     slug: 'japanese-medical-bed-maker-linkedin-leads',
     number: '01',
-    title: '日本病床厂商想打欧洲市场，没人脉没渠道。LinkedIn三个月交出了答卷。',
-    subtitle: '海外市场一片空白，连个像样的网页都没有。90天，管线从零搭到满。',
+    title: '日本病床厂商想做欧洲生意，没人脉没渠道。LinkedIn三个月交出了答卷。',
+    subtitle: '海外没有任何线上存在。90天之后，经销商管线搭起来了。',
     services: ['LinkedIn内容运营', 'LinkedIn广告投放', '高管IP打造'],
     region: '日本 → 欧洲',
     industry: '医疗科技',
@@ -24,8 +24,8 @@ const caseStudies = [
   {
     slug: 'chinese-cable-manufacturer-employee-advocacy',
     number: '02',
-    title: '中国线缆厂40个工程师，从微信群走上了LinkedIn。',
-    subtitle: '人撒在五个国家，但没人知道怎么在LinkedIn上开口。两个月搞定。',
+    title: '中国线缆厂40个工程师，从只会发微信到在LinkedIn上发帖了。',
+    subtitle: '五个国家，没一个人用过LinkedIn。两个月，这件事跑通了。',
     services: ['LinkedIn内容运营', '全员传播', '培训'],
     region: '中国 → 全球',
     industry: '制造业',
@@ -41,7 +41,7 @@ const caseStudies = [
     slug: 'swedish-polymer-brand-aerospace',
     number: '03',
     title: '瑞典聚合物厂商，怎么让航空采购第一个想到自己？',
-    subtitle: '产品装在飞机上，主页却像个空壳。我们重新讲了这个故事。',
+    subtitle: '材料装在飞机上飞，但LinkedIn主页看着像个空壳公司。',
     services: ['咨询', 'LinkedIn内容运营', 'LinkedIn广告投放'],
     region: '瑞典 → 全球',
     industry: '航空航天',
@@ -56,8 +56,8 @@ const caseStudies = [
   {
     slug: 'french-fragrance-lab-personal-branding',
     number: '04',
-    title: '法国调香实验室的创始人在LinkedIn上开了口，奢侈品客户自己找上来了。',
-    subtitle: '群发邮件没人理。她在LinkedIn上讲了自己的故事，局面就变了。',
+    title: '法国调香师在LinkedIn讲自己的手艺，奢侈品牌主动敲门了。',
+    subtitle: '群发邮件石沉大海。她开始在LinkedIn上写东西之后，局面完全不一样了。',
     services: ['高管IP打造', 'LinkedIn内容运营', '咨询'],
     region: '法国',
     industry: '奢侈品与香水',
@@ -72,8 +72,8 @@ const caseStudies = [
   {
     slug: 'french-accounting-firm-partner-linkedin',
     number: '05',
-    title: '法国会计事务所：合伙人终于愿意发LinkedIn了，线索跟着就来了。',
-    subtitle: '12个合伙人，0个活跃。三个月后，6个人每周雷打不动在发。',
+    title: '法国会计事务所的合伙人开始发LinkedIn之后，客户询盘跟着来了。',
+    subtitle: '12个合伙人，没有一个在LinkedIn上活跃。三个月后6个人在稳定更新。',
     services: ['LinkedIn内容运营', '培训', 'LinkedIn广告投放'],
     region: '法国 → 国际',
     industry: '专业服务',
@@ -88,8 +88,8 @@ const caseStudies = [
   {
     slug: 'hong-kong-law-firm-cross-border-deals',
     number: '06',
-    title: '香港律所的几位老合伙人，在LinkedIn上成了跨境案源入口。',
-    subtitle: '业务能力没问题，就是外面的人不知道。',
+    title: '香港律所几位资深合伙人开始用LinkedIn，跨境案子自己找上门了。',
+    subtitle: '能力从来不缺。缺的是让外面的人知道他们。',
     services: ['高管IP打造', 'LinkedIn内容运营', '全员传播'],
     region: '香港 → 大中华区',
     industry: '法律',
@@ -131,7 +131,7 @@ const allServices = [...new Set(caseStudies.flatMap(cs => cs.services))].sort();
               做出来的，<br /><em>不是吹出来的。</em>
             </h1>
             <p class="work-hero__sub reveal reveal-delay-2">
-              每个案例都有名有姓，每组数据都经得起查。没有虚构，没有注水。
+              每一个案例都有来有去，数据经得起查。不编故事，不注水。
             </p>
           </div>
 
@@ -231,7 +231,7 @@ const allServices = [...new Set(caseStudies.flatMap(cs => cs.services))].sort();
               给客户做的那一套，<br />我们自己也在用。
             </h2>
             <p class="founder-card__text">
-              Nuvora Studio创始人Cyril Drouin自己就经营着一个高活跃度的LinkedIn账号 - 跟我们帮客户做的一模一样。不是摆设，是一个真正在跑的获客渠道，每天都在验证我们输出的方法论。
+              Nuvora Studio的创始人Cyril Drouin，自己也在认真经营LinkedIn账号，跟我们给客户做的是同一套东西。不是摆在那好看的，是真的在跑，每天都在出内容、拿反馈。
             </p>
             <a
               href="https://www.linkedin.com/in/cyril-d-68835729/"
@@ -282,15 +282,15 @@ const allServices = [...new Set(caseStudies.flatMap(cs => cs.services))].sort();
       heading="不是我们自夸"
       sub="来自各行业B2B团队的一线反馈。"
       items={[
-        { text: "跟Nuvora合作半年，我们40%的销售线索开始从LinkedIn来。以前这个渠道我们压根没当回事。", image: "https://randomuser.me/api/portraits/women/32.jpg", name: "Sophie Laurent", role: "市场总监，SaaS公司" },
-        { text: "他们不是那种只会排期发帖的公司。B2B的采购流程、决策链路，他们是真懂。我们高管的号从僵尸号变成了能引流的资产。", image: "https://randomuser.me/api/portraits/men/45.jpg", name: "Marcus Webb", role: "销售总监，科技制造" },
-        { text: "每个月的汇报特别实在，哪个动作有用、哪个没用、钱花在哪了，一目了然。之前换了好几家供应商都做不到这样。", image: "https://randomuser.me/api/portraits/women/28.jpg", name: "Priya Sharma", role: "市场负责人，金融科技" },
-        { text: "换过三家代理才找到他们。差别就在这儿：他们真的吃透了LinkedIn的推荐机制，也明白B2B买家在这个平台上到底怎么做决定。", image: "https://randomuser.me/api/portraits/men/22.jpg", name: "David Chen", role: "CEO，咨询公司" },
-        { text: "以前LinkedIn广告的钱基本打水漂，现在线索质量上来了，获客成本降了差不多一半。他们搭的那套投放架构确实厉害。", image: "https://randomuser.me/api/portraits/women/44.jpg", name: "Emma Bergström", role: "数字化负责人，工业企业" },
-        { text: "内容质量是最让我们服气的地方。每一篇读起来都像我们团队自己写的，完全不像外包。B2B内容要做到这个程度，太少见了。", image: "https://randomuser.me/api/portraits/men/36.jpg", name: "James Okafor", role: "创始人，专业服务" },
-        { text: "策略、内容、投放，全给你拉通。我们从月更一篇变成了LinkedIn上真正有声量的品牌。", image: "https://randomuser.me/api/portraits/women/51.jpg", name: "Ana Rodriguez", role: "市场总监，医疗健康" },
-        { text: "他们帮我们做了一个全员传播项目，销售团队直接变成了行业KOL。对获客的拉动肉眼可见。", image: "https://randomuser.me/api/portraits/men/53.jpg", name: "Ravi Patel", role: "增长总监，软件公司" },
-        { text: "最让我服气的是他们看数据的方式。不跟你扯阅读量和点赞，直接聊获客、聊成本、聊转化。终于有人帮我们算清楚LinkedIn到底值不值了。", image: "https://randomuser.me/api/portraits/women/19.jpg", name: "Laura Koenig", role: "运营总监，物流行业" },
+        { text: "合作了大概半年吧，现在40%左右的线索是LinkedIn过来的。之前我们是真没把这个渠道当回事，现在回头看还挺后悔的。", image: "https://randomuser.me/api/portraits/women/32.jpg", name: "Sophie Laurent", role: "市场总监，SaaS公司" },
+        { text: "他们跟那种只帮你排排帖子的公司不一样。B2B的采购链他们是真的搞得清楚，我们几个高管的号之前完全是僵尸状态，现在居然能带来对话了，这个变化还蛮大的。", image: "https://randomuser.me/api/portraits/men/45.jpg", name: "Marcus Webb", role: "销售总监，科技制造" },
+        { text: "月报很实在，什么管用什么没用，钱花哪了，看一眼就知道。这一点之前合作过的几家都没做到过。", image: "https://randomuser.me/api/portraits/women/28.jpg", name: "Priya Sharma", role: "市场负责人，金融科技" },
+        { text: "我们之前换过三家代理都不太满意。Nuvora不一样在哪呢，他们是真的理解LinkedIn的分发逻辑，也清楚B2B买家在平台上的行为习惯。", image: "https://randomuser.me/api/portraits/men/22.jpg", name: "David Chen", role: "CEO，咨询公司" },
+        { text: "以前投LinkedIn广告基本就是在烧钱，现在线索质量上来了，成本砍了差不多一半。投放那块的搭建确实做得好。", image: "https://randomuser.me/api/portraits/women/44.jpg", name: "Emma Bergström", role: "数字化负责人，工业企业" },
+        { text: "内容这块是真的出乎意料。帖子发出来读着就像我们自己团队写的，完全看不出是外包的，B2B这个领域能做到这种程度的太少了。", image: "https://randomuser.me/api/portraits/men/36.jpg", name: "James Okafor", role: "创始人，专业服务" },
+        { text: "策略、内容、投放都给你串起来了。我们之前一个月才能憋出一篇帖子，现在总算在LinkedIn上有点样子了。", image: "https://randomuser.me/api/portraits/women/51.jpg", name: "Ana Rodriguez", role: "市场总监，医疗健康" },
+        { text: "他们帮我们做了个全员传播的项目。怎么说呢，销售团队在LinkedIn上开始有声量了，然后获客数据也确实跟着涨了一些。", image: "https://randomuser.me/api/portraits/men/53.jpg", name: "Ravi Patel", role: "增长总监，软件公司" },
+        { text: "最不一样的是他们看数据不跟你聊阅读量点赞这些虚的，直接上来讲线索质量讲获客成本。跟他们合作之后我们才算搞清楚LinkedIn对我们到底有没有用。", image: "https://randomuser.me/api/portraits/women/19.jpg", name: "Laura Koenig", role: "运营总监，物流行业" },
       ]}
     />
     <ContactCTA lang="zh" />

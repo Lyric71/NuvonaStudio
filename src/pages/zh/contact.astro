@@ -136,6 +136,12 @@ import NavBar from '../../components/NavBar.astro';
                   </div>
                 </div>
 
+                <!-- Honeypot — hidden from real users, bots auto-fill it -->
+                <div class="form-group contact-form__full" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden;opacity:0;pointer-events:none;tab-index:-1;">
+                  <label for="company_url">公司网址(请勿填写)</label>
+                  <input type="text" id="company_url" name="company_url" tabindex="-1" autocomplete="off" />
+                </div>
+
                 <!-- 错误提示 -->
                 <div class="form-banner" id="form-error-banner" role="alert">
                   <span id="form-error-message"></span>
@@ -692,8 +698,6 @@ import NavBar from '../../components/NavBar.astro';
   }
 </style>
 
-<script is:inline src="https://www.google.com/recaptcha/api.js?render=6LfeTpQsAAAAAH-_V7o9bJuu4PO_kfgGcGMCuSiE"></script>
-
 <script>
   const form    = document.getElementById('contact-form') as HTMLFormElement | null;
   const card    = document.getElementById('contact-card') as HTMLElement | null;
@@ -773,17 +777,7 @@ import NavBar from '../../components/NavBar.astro';
     if (submitSpinner) submitSpinner.style.display = 'inline-block';
 
     try {
-      const token = await new Promise<string>((resolve, reject) => {
-        (window as any).grecaptcha.ready(() => {
-          (window as any).grecaptcha
-            .execute('6LfeTpQsAAAAAH-_V7o9bJuu4PO_kfgGcGMCuSiE', { action: 'contact' })
-            .then(resolve)
-            .catch(reject);
-        });
-      });
-      data.append('recaptcha_token', token);
-
-      const res = await fetch('/api/contact', { method: 'POST', body: data });
+      const res = await fetch('/api/contact-zh', { method: 'POST', body: data });
       const json = await res.json();
 
       if (res.ok) {
