@@ -7,6 +7,9 @@ export default defineConfig({
   site: 'https://nuvora.studio',
   output: 'static',
   adapter: vercel(),
+  build: {
+    inlineStylesheets: 'always',
+  },
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'fr', 'zh'],
