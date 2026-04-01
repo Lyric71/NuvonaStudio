@@ -7,6 +7,7 @@ interface Props {
   description?: string;
   abstract?: string;
   lang?: 'en' | 'fr' | 'zh';
+  preloadHero?: string;
 }
 
 const {
@@ -14,6 +15,7 @@ const {
   description = 'Specialist LinkedIn-only consultancy for B2B companies. We build presences that generate pipeline, attract decision-makers, and establish lasting authority. One platform. Absolute focus.',
   abstract,
   lang = 'en',
+  preloadHero,
 } = Astro.props;
 ---
 
@@ -44,6 +46,9 @@ const {
     <!-- Preload critical fonts (self-hosted, no external requests) -->
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+    {/* Preload LCP hero image so the browser discovers it immediately */}
+    {preloadHero && <link rel="preload" href={preloadHero} as="image" type="image/webp" fetchpriority="high" />}
 
     {abstract && <meta name="abstract" content={abstract} />}
 
