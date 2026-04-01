@@ -15,15 +15,15 @@
   <div class="hero__overlay" aria-hidden="true"></div>
   <div class="container" style="position: relative; z-index: 2;">
     <div class="hero__content">
-      <p class="eyebrow eyebrow--light reveal">The LinkedIn-only B2B agency</p>
-      <h1 id="hero-heading" class="hero__h1 reveal reveal-delay-1">
+      <p class="eyebrow eyebrow--light hero__anim">The LinkedIn-only B2B agency</p>
+      <h1 id="hero-heading" class="hero__h1 hero__anim hero__anim--1">
         We turn LinkedIn into your <span class="text-gradient">best revenue channel.</span>
       </h1>
-      <p class="hero__sub reveal reveal-delay-2">
+      <p class="hero__sub hero__anim hero__anim--2">
         Strategy, content, and advertising. Built exclusively for LinkedIn.
         We help B2B companies show up, build authority, and generate pipeline.
       </p>
-      <div class="hero__actions reveal reveal-delay-3">
+      <div class="hero__actions hero__anim hero__anim--3">
         <a href="/contact?intent=call" class="btn btn--primary btn--lg">Book a strategy call</a>
         <a href="/services" class="btn btn--outline-white btn--lg">Explore services</a>
       </div>
@@ -95,6 +95,22 @@
     display: flex;
     flex-wrap: wrap;
     gap: var(--sp-4);
+  }
+
+  /* CSS-only entrance animation (no JS dependency, no render delay) */
+  @keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero__anim {
+    animation: heroFadeUp 0.7s var(--ease, ease) both;
+  }
+  .hero__anim--1 { animation-delay: 0.06s; }
+  .hero__anim--2 { animation-delay: 0.14s; }
+  .hero__anim--3 { animation-delay: 0.22s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero__anim { animation: none; opacity: 1; transform: none; }
   }
 
   @media (max-width: 640px) {

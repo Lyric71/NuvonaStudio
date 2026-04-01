@@ -317,6 +317,9 @@ h4 { font-size: var(--fs-xl); }
 h5 { font-size: var(--fs-lg); }
 h6 { font-size: var(--fs-base); font-weight: 500; }
 
+/* Decorative <em> in headings: keep normal style to avoid loading italic font files */
+h1 em, h2 em, h3 em, h4 em { font-style: normal; }
+
 p { line-height: 1.7; }
 
 /* On dark sections */
