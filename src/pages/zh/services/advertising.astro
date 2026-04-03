@@ -5,8 +5,9 @@ import FAQ from '../../../components/FAQ.astro';
 
 const capabilities = [
   {
-    title: '广告架构规划',
-    body: '广告架构围绕你的销售路径来设计。哪个格式负责引流、哪个管转化、哪个做收口，事先都排好了，不会出现两个广告抢同一批人的情况。',
+    title: '广告架构设计（Campaign Architecture）',
+    body: '围绕你的转化漏斗搭建广告结构。
+每一种形式、每一类受众、每一条信息，都有明确角色。',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
       <rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
@@ -15,8 +16,8 @@ const capabilities = [
     </svg>`,
   },
   {
-    title: '人群精准锁定',
-    body: '职位、层级、公司名称、规模、行业、技能标签这些定向维度全部用上。你特别想拿下的那几家客户，直接上ABM按名单投就行了，广告只出现在能拍板那个人的眼前。',
+    title: '受众定向',
+    body: '基于职位、资历、公司名称、公司规模、行业与技能，精准构建目标人群。你特别想拿下的那几家客户，直接上ABM按名单投就行了，广告只出现在能拍板那个人的眼前。',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/>
       <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6"/>
@@ -24,30 +25,32 @@ const capabilities = [
     </svg>`,
   },
   {
-    title: '创意内容生产',
-    body: '文案和设计都在内部做，不外包的。写出来的内容必须讲到买家真正头疼的事情，放到哪家公司都适用的那种套话我们不会写。素材也是针对LinkedIn信息流的实际展现逻辑去做的，放量之前先拿几组人群跑一下测试看看效果。',
+    title: '广告创意',
+    body: '从文案到设计全部负责。
+每一条广告，都直击你的目标客户痛点',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M12 20h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
       <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
     </svg>`,
   },
   {
-    title: '全格式打通执行',
-    body: 'LinkedIn的广告格式本来就不应该拆开来单独投。在我们这边，信息流、私信、动态广告、文字广告加上Lead Gen Forms，是当做一套完整的获客系统在跑的，从曝光到成交全程都能接得上。',
+    title: '全格式执行',
+    body: '整合所有 LinkedIn 广告形式，作为一个统一系统协同运行',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M4 6h16M4 10h16M4 14h16M4 18h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
     </svg>`,
   },
   {
-    title: 'AI加持的投放优化',
-    body: '用AI批量生成文案变体、消息版本和各种风格的素材，再按人群分组跑A/B测试。预算还没怎么花的时候，基本就知道哪套东西对哪类职位最管用了。效果是一周比一周好的。',
+    title: 'AI 优化',
+    body: '利用 AI 生成并测试不同文案、信息组合与创意，在不同受众之间持续优化表现预算还没怎么花的时候，基本就知道哪套东西对哪类职位最管用了。效果是一周比一周好的。',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M12 2l2.09 6.26L20 10l-5.91 1.74L12 18l-2.09-6.26L4 10l5.91-1.74L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
     </svg>`,
   },
   {
-    title: '对接CRM的效果报告',
-    body: '衡量标准是商机和成交，展示量多少说实话我们不怎么看。每周报告里会写清楚钱花去了哪里、试了哪些方向、转化情况好不好，不堆术语也不拿曝光量来充数。',
+    title: 'CRM 打通的数据报告',
+    body: '我们关注的是销售管道，而不是曝光量。
+所有数据，直接对应你的业务增长每周报告里会写清楚钱花去了哪里、试了哪些方向、转化情况好不好，不堆术语也不拿曝光量来充数。',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/>
       <path d="M7 17V13M12 17V9M17 17V7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
@@ -58,46 +61,46 @@ const capabilities = [
 const adFormats = [
   {
     title: '信息流广告 (Sponsored Content)',
-    body: 'LinkedIn广告里面用的最多的格式，底下一共有八个子类型：单图、轮播、视频、文档、活动推广、KOL合作、长文还有联网电视广告。功能上主要是拿来做品牌认知和拉互动的，把目标人群引到你的漏斗入口来。说是"信息流广告"其实覆盖面很广，大部分预算也花在这块。',
+    body: 'LinkedIn 广告的核心形式，包含多种子格式，覆盖不同内容与目标场景。',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
       <path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
     </svg>`,
     image: '/images/advertising-sponsored-content.webp',
-    imageAlt: '信息流广告投放示意',
+    imageAlt: '信息流LinkedIn广告服务示意',
   },
   {
     title: '站内私信广告 (Sponsored Messaging)',
-    body: '分两种，Message Ads和Conversation Ads，都是直接投到对方LinkedIn收件箱里去的。Message Ads就是一条消息配一个行动号召，很简单。Conversation Ads复杂一些，对方可以自己选感兴趣的分支，一次推好几个选项。发送时间会自动挑对方在线的时段。',
+    body: '通过 Message Ads 和 Conversation Ads，将信息直接送达目标客户的 LinkedIn 收件箱',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/>
       <path d="M2 7l10 7 10-7" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
     </svg>`,
     image: '/images/advertising-sponsored-messaging.webp',
-    imageAlt: '站内私信广告投放示意',
+    imageAlt: '站内私信LinkedIn广告服务示意',
   },
   {
     title: '动态广告 (Dynamic Ads)',
-    body: '会自动调用对方的LinkedIn个人资料来做个性化展示，不用你逐个制作素材。Follower Ads拿来涨公司页面粉丝，Spotlight Ads往官网引流，Content Ads可以在对方下载资料的时候顺带采集线索信息。',
+    body: '基于用户的 LinkedIn 资料数据自动个性化展示，提升相关性与点击率',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M12 2l2.09 6.26L20 10l-5.91 1.74L12 18l-2.09-6.26L4 10l5.91-1.74L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
     </svg>`,
     image: '/images/advertising-dynamic-ads.webp',
-    imageAlt: '动态广告投放示意',
+    imageAlt: '动态LinkedIn广告服务示意',
   },
   {
     title: '文字广告 (Text Ads)',
-    body: '桌面端右侧栏的按点击付费广告，门槛最低也不用签合约。整体策略里拿来当低成本补充用的，不会当主力',
+    body: '桌面侧边栏的自助式点击付费广告。成本低、门槛低，适合规模化测试',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M4 6h16M4 10h16M4 14h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
       <rect x="16" y="14" width="5" height="7" rx="1" stroke="currentColor" stroke-width="1.6"/>
     </svg>`,
     image: '/images/advertising-text-ads.webp',
-    imageAlt: '文字广告投放示意',
+    imageAlt: '文字LinkedIn广告服务示意',
   },
   {
     title: '站内获客表单 (Lead Gen Forms)',
-    body: 'LinkedIn平台里面自带的预填表单。对方点两下就提交了，不用跳到外面的落地页去。一般是嵌到信息流广告和私信广告里面一起用的，少一个跳转环节，转化率自然就高了。',
+    body: '内嵌于 LinkedIn 的预填表单。用户只需两步操作，即可提交信息，最大程度降低转化阻力',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <rect x="5" y="3" width="14" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/>
       <path d="M9 7h6M9 11h6M9 15h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
@@ -109,63 +112,69 @@ const adFormats = [
 
 const differentiators = [
   {
-    title: '团队持有LinkedIn广告官方认证',
-    body: '不是随便挂在网站上充门面的。这个认证考的是投放策略、广告格式、受众定向、数据衡量、优化手法，要整套通过才行。说白了你对接的团队是被LinkedIn自己认可过的。',
+    title: '我们获得 LinkedIn 广告官方认证',
+    body: '不是随便挂在网站上充门面的。这意味着我们的团队通过了 LinkedIn 官方在
+广告策略、广告形式、受众定向、数据衡量与优化方面的严格评估说白了你对接的团队是被LinkedIn自己认可过的。',
   },
   {
-    title: '按销售漏斗来规划，不按广告格式拼凑',
-    body: '很多代理机构是把信息流广告和Lead Gen Forms拆成一个个单独的服务来卖的，我们不是这样。我们会先把你的销售漏斗画清楚了，然后再去决定每种格式在哪个节点介入、解决什么问题。获客成本能降下来的同时线索质量也上去了，其实关键就是在于这个结构设计。',
+    title: '我们以“漏斗”思维，而不是“广告形式”思维来做投放',
+    body: '从认知、兴趣到转化，
+我们搭建完整的全漏斗体系，让每一种广告形式各司其职',
   },
   {
-    title: '盯的是营收，不是曝光量',
-    body: '展示次数再高也不能帮你回款。投放数据直接灌进CRM，哪条广告真的在产出商机，打开看一眼就知道了。每周做优化调整的时候团队只看一个东西，就是你销售那边最关心的那几个指标。',
+    title: '我们关注收入，而不是曝光',
+    body: '展示次数再高也不能帮你回款。通过将 LinkedIn 广告与您的 CRM 打通，
+清晰看到每一条广告如何转化为销售线索与业务机会每周做优化调整的时候团队只看一个东西，就是你销售那边最关心的那几个指标。',
   },
   {
-    title: '正式投之前先用小预算测一下',
-    body: '靠AI快速出几十组标题、正文、CTA的不同搭配，先拿小预算跑一圈。等你想放量的时候哪些内容对目标人群管用，数据已经告诉我们了。',
+    title: '先测试，再放量',
+    body: '借助 AI，我们在正式投放前生成并测试多版本文案、标题和 CTA，
+确保预算投入在已验证有效的方案上等你想放量的时候哪些内容对目标人群管用，数据已经告诉我们了。',
   },
   {
-    title: '全部环节在一个团队手上',
-    body: '策略、创意、定向、上线、日常优化、效果汇报这些全部在一个团队里完成。你不用分头对接策略顾问、设计师、投放执行三拨人。一条线一个对接人。',
+    title: '从策略到执行，一体化管理',
+    body: '策略、创意、定向、上线、优化、报告——
+一个团队，一个系统，全流程负责',
   },
   {
-    title: '只做B2B',
-    body: '电商不做，C端消费品也不接，LinkedIn上的B2B广告是我们唯一做的事情。销售周期长、采购决策要过好几个人、一条线索200美金但是合同可能值20万美金——这种项目我们做得太多了。',
+    title: '我们专注 B2B',
+    body: '不做电商广告，不做“顺带服务”。
+LinkedIn B2B 广告，就是我们的全部销售周期长、采购决策要过好几个人、一条线索200美金但是合同可能值20万美金——这种项目我们做得太多了。',
   },
 ];
 
 const steps = [
   {
     num: '01',
-    title: '摸底调研',
-    body: '先搞清楚你的业务是怎么跑的，目标买家长什么样，商机目标定在多少。然后看一下你现在LinkedIn主页的状态和以前投放的数据，哪些起了作用哪些在白花钱。',
+    title: '需求洞察',
+    body: '深入了解你的业务、目标客户，以及销售管道目标',
   },
   {
     num: '02',
-    title: '体系搭建',
-    body: '做广告架构设计、受众定向方案、文案和视觉素材。每一步都是贴着你的销售漏斗和成交周期来的。',
+    title: '策略搭建',
+    body: '设计广告结构，构建目标受众，撰写高转化广告文案',
   },
   {
     num: '03',
-    title: '上线即测试',
-    body: '广告一上线就同步跑测试。文案、素材、人群、格式、CTA这些同时测，AI在这一步帮的忙很大，找到最优组合的速度会快得多。',
+    title: '上线与测试',
+    body: '启动广告投放，并立即展开多维度测试与验证',
   },
   {
     num: '04',
-    title: '持续优化和放量',
-    body: '每周看数据复盘，看的是实际产生的商机不是光看点击量。效果好的加预算，效果不好的直接关。月底出一份报告把广告花费和带来的收入对上。',
+    title: '优化与放大',
+    body: '基于真正带来销售线索和管道增长的数据，每周持续优化并扩大效果。',
   },
 ];
 
 const stats = [
-  { number: '121%', label: '广告回报率', note: 'LinkedIn B2B广告的回报率是121%，Google搜索67%，Meta 51%。差距蛮大的。', source: '来源：Dreamdata 2026年基准报告' },
-  { number: '6.1%', label: '平均转化率', note: '美国市场上LinkedIn广告平均转化率6.1%。对比一下，Google搜索3.75%，Google展示广告才0.77%。' },
-  { number: '80%', label: 'B2B社交线索', note: '社交媒体上产出的B2B线索，十条里有八条是从LinkedIn来的。' },
-  { number: '41%', label: '预算占比', note: 'B2B广告的总花费里面LinkedIn一家占了41%，没有其他平台能到这个比例。' },
-  { number: '10-13%', label: '获客表单转化率', note: 'Lead Gen Form转化率在10%到13%之间。一般B2B落地页的平均转化率也就2.35%左右。' },
-  { number: '4/5', label: '决策参与者', note: '五个LinkedIn用户里面四个参与所在公司的采购决策。' },
-  { number: '211', label: '天', note: 'B2B从第一次接触到签合同平均要211天。所以你没办法靠短期冲量解决问题，得有一套能长期跑的投放体系才行。' },
-  { number: '33%', label: '购买意向', note: '在LinkedIn做了广告的品牌，目标受众购买意向平均涨了33%。' },
+  { number: '121%', label: '投资回报率（ROAS）', note: '高于 Google 搜索（67%）和 Meta（51%）', source: '来源：Dreamdata 2026年基准报告' },
+  { number: '6.1%', label: '转化率', note: '美国 LinkedIn 平均转化率，对比 Google 搜索 3.75%' },
+  { number: '80%', label: 'B2B 社交媒体线索', note: '来自 LinkedIn' },
+  { number: '41%', label: '广告预算占比', note: 'LinkedIn 在 B2B 广告总预算中的份额' },
+  { number: '10–13%', label: '表单转化率', note: 'Lead Gen 表单转化率，远高于传统落地页（2.35%）' },
+  { number: '4/5', label: '位用户中有 4 位参与决策', note: 'LinkedIn 用户高度集中于决策层' },
+  { number: '211', label: '天', note: '平均成交周期：211 天。典型 B2B 从首次接触到成交的周期' },
+  { number: '+33%', label: '购买意向提升', note: '在 LinkedIn 投放广告的品牌，购买意向显著提高' },
 ];
 
 const faqs = [
@@ -206,8 +215,8 @@ const faqs = [
     a: '可以的。LinkedIn的定向精度在B2B平台里面是最高的，职位、层级、公司名、规模、行业、技能标签都可以圈。预算花在真正有采购权那些人身上，这是我们比较擅长的。',
   },
   {
-    q: '一般服务哪些行业的客户？',
-    a: '科技、制造、专业服务、SaaS、医疗健康都做过。其实行业不是最关键的因素，关键看两条：你的目标客户在LinkedIn上活跃不活跃，单笔合同能不能到2万美元以上。这两条满足的话投放基本都能回本。',
+    q: '一般我们的服务哪些行业的客户？',
+    a: '科技、制造、专业我们的服务、SaaS、医疗健康都做过。其实行业不是最关键的因素，关键看两条：你的目标客户在LinkedIn上活跃不活跃，单笔合同能不能到2万美元以上。这两条满足的话投放基本都能回本。',
   },
   {
     q: '怎么开始？',
@@ -217,7 +226,7 @@ const faqs = [
 ---
 
 <Layout
-  title="LinkedIn广告投放服务 | B2B企业获客"
+  title="LinkedInLinkedIn广告服务我们的服务 | B2B企业获客"
   description="LinkedIn五种广告格式统一管理，面向B2B企业的获客体系。精准定向目标决策者，AI辅助测试优化，按商机数据衡量投放效果。"
   abstract="整合LinkedIn全部广告格式，为B2B企业搭建系统化的获客投放体系。按商机和营收衡量每一分钱的效果。"
   lang="zh"
@@ -231,7 +240,7 @@ const faqs = [
       <div class="ads-hero__overlay" aria-hidden="true"></div>
       <div class="container" style="position: relative; z-index: 2;">
         <div class="ads-hero__content">
-          <p class="eyebrow eyebrow--light reveal">LinkedIn 广告投放</p>
+          <p class="eyebrow eyebrow--light reveal">LinkedIn LinkedIn广告服务</p>
           <h1 id="ads-heading" class="ads-hero__h1 reveal reveal-delay-1">
             每一次点击，离签单更近<span class="text-gradient">一步。</span>
           </h1>
@@ -273,7 +282,7 @@ const faqs = [
     <section class="section what-we-do" aria-labelledby="wwd-heading">
       <div class="container">
         <div class="wwd__head reveal">
-          <p class="eyebrow">服务内容</p>
+          <p class="eyebrow">我们的服务内容</p>
           <h2 id="wwd-heading" class="wwd__h2">整套LinkedIn广告体系，由我们来建、来跑</h2>
           <p class="wwd__intro">不是给你一份策略PPT然后就完事的。从受众分析、广告搭建到日常优化和最后出商机，全部流程团队一手包办。我们持有<strong>LinkedIn广告官方认证</strong>，投放策略、定向和优化方面都是通过了LinkedIn自己的专业考核的。</p>
         </div>
@@ -451,8 +460,8 @@ const faqs = [
         <div class="fit__layout">
           <div class="fit__text">
             <p class="eyebrow reveal">适不适合你？</p>
-            <h2 id="fit-heading" class="fit__h2 reveal">这项服务跟你的公司匹配吗？</h2>
-            <p class="fit__intro reveal">我们的LinkedIn广告服务适合同时满足下面三个条件的B2B企业：</p>
+            <h2 id="fit-heading" class="fit__h2 reveal">这项我们的服务跟你的公司匹配吗？</h2>
+            <p class="fit__intro reveal">我们的LinkedIn广告我们的服务适合同时满足下面三个条件的B2B企业：</p>
           </div>
 
           <div class="fit__items">

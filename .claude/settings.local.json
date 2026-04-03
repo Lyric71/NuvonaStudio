@@ -7,7 +7,8 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4322/)",
       "Read(//c/Users/cyril/**)",
       "Bash(grep -r \"getStaticPaths\\\\|defineRoutes\\\\|createRoute\" /c/Users/cyril/NuvoraStudioWeb/src --include=*.ts --include=*.tsx --include=*.astro)",
-      "Bash(find c:UserscyrilNuvoraStudioWeb -type f \\\\\\(-name *.env* -o -name package.json -o -name package-lock.json \\\\\\))"
+      "Bash(find c:UserscyrilNuvoraStudioWeb -type f \\\\\\(-name *.env* -o -name package.json -o -name package-lock.json \\\\\\))",
+      "Bash(node -e ':*)"
     ],
     "additionalDirectories": [
       "C:\\Users\\cyril\\Downloads"

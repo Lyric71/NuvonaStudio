@@ -9,7 +9,7 @@ const overviewCards = [
   {
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="7" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.6"/><line x1="9" y1="12" x2="15" y2="12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="9" y1="16" x2="13" y2="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
     title: '企业主页运营',
-    text: '你在LinkedIn上的全球门面,搭建和日常维护全包了。',
+    text: '公司主页管理（Company Page Management）：从零搭建到持续运营，打造你的全球第一印象。',
     href: '#svc-company-page',
   },
   {
@@ -21,30 +21,34 @@ const overviewCards = [
   {
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M2 7l10 7 10-7" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
     title: 'LinkedIn 企业通讯',
-    text: '跟对业务最关键的那群人搭上直接联系,中间不隔任何平台。',
+    text: 'LinkedIn 企业通讯：与最关键的专业人群建立直接连接',
     href: '#svc-newsletter',
   },
   {
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="1.6"/><rect x="7" y="14" width="3" height="3" rx="0.5" fill="currentColor" opacity="0.7"/></svg>`,
     title: 'LinkedIn 线上活动',
-    text: '整个LinkedIn上互动率最高的形式。策划和执行我们来,风险我们扛。',
+    text: 'LinkedIn 活动：LinkedIn 上参与度最高的形式，每一次报名，都是可识别的潜在客户',
     href: '#svc-events',
   },
 ];
 
 const whatWeDo = [
-  { title: '内容这条线,整个交给我们跑。', body: '策略怎么定、排期怎么排、内容谁来写、什么时候发、发完效果怎么样,统统是我们的活。你那边就一个动作:看完点头就行。团队该忙什么忙什么去。', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/></svg>` },
-  { title: '说的是你们的话。', body: '品牌调性这东西,每家都不一样。我们写之前会先花功夫搞清楚你们团队平时怎么讲话、市场在乎哪些点。最后写出来的东西,读者看完会觉得"这就是他们自己写的吧",那种信任感是装不出来的。', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>` },
-  { title: '买家看什么语言,就拿什么语言写。', body: '不是拿英文版翻一遍就完事那种。德语、中文、西语、葡语,目标市场用什么语言我们就安排母语写手从头来。', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 9h17M3.5 15h17" stroke="currentColor" stroke-width="1.6"/><ellipse cx="12" cy="12" rx="4" ry="9" stroke="currentColor" stroke-width="1.6"/></svg>` },
-  { title: '有AI,但品质这事不含糊。', body: '能用AI的地方我们基本都用了,调研、初稿、多语种、出图、剪辑。但每一条东西最后还是会过编辑那关,你不点头也不会发出去。AI其实就是干活快,真正拿主意的还得是人。', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.09 6.26L20 10l-5.91 1.74L12 18l-2.09-6.26L4 10l5.91-1.74L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>` },
-  { title: '数据只说跟生意有关的。', body: '月报就围绕你的商业指标来,这个月干了啥,数据为什么变了,下个月准备调什么。那种满屏花花绿绿的图表,销售看了半天也不知道跟自己有什么关系,这种报告不会出现。', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7 17V13M12 17V9M17 17V7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>` },
+  { title: '我们为你全面负责 LinkedIn 内容运营', body: '从策略制定、选题规划，到内容生产、发布执行与数据复盘。
+您负责审核，我们负责落地团队该忙什么忙什么去。', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/></svg>` },
+  { title: '用你的声音表达，而不是我们的', body: '每个品牌都有自己的表达方式。
+我们会深入理解你的团队沟通方式，以及你的市场真正关心的内容最后写出来的东西,读者看完会觉得"这就是他们自己写的吧",那种信任感是装不出来的。', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>` },
+  { title: '用客户的语言，直接沟通', body: '不是翻译，而是母语创作。
+德语、中文、西班牙语、葡萄牙语——全部从零开始，为目标市场而写', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 9h17M3.5 15h17" stroke="currentColor" stroke-width="1.6"/><ellipse cx="12" cy="12" rx="4" ry="9" stroke="currentColor" stroke-width="1.6"/></svg>` },
+  { title: '用 AI 提升效率，而不是牺牲质量', body: 'AI 用于加速调研、初稿、多语言内容、视觉和视频制作', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.09 6.26L20 10l-5.91 1.74L12 18l-2.09-6.26L4 10l5.91-1.74L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>` },
+  { title: '只汇报真正重要的结果', body: '月报就围绕你的商业指标来,这个月干了啥,数据为什么变了,下个月准备调什么。那种满屏花花绿绿的图表,销售看了半天也不知道跟自己有什么关系,这种报告不会出现。', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7 17V13M12 17V9M17 17V7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>` },
 ];
 
 const whyBlocks = [
-  { title: '我们就干LinkedIn这一件事。', body: '不是那种什么都接的数字营销公司。LinkedIn就是我们全部的生意,流程也好、编辑规范也好、考核怎么打分,都是专门围绕这一个平台设计的。' },
-  { title: '多语种是标配,不是加钱项。', body: '行业里常见的操作你应该也知道,拿英文版丢进去翻一遍就叫"本地化"了。我们不是这样。每种语言重新找母语的人写。德语内容你拿去看,就是个德国人坐在那一字一字敲出来的,因为确实就是。' },
-  { title: 'AI用得狠,但编辑那关不能省。', body: '从调研到初稿到视觉素材到视频片段,AI上的地方挺多的。但不管AI给出来什么东西,编辑团队都要拉回来重新看一遍。快的部分让技术去解决,质量得靠人守。' },
-  { title: '做出来的东西都是你的。', body: '内容、订阅者名单、活动报名数据、设计源文件,这些东西的归属权没有什么模糊地带,全在客户手上。哪天觉得不想做了,拿走就行。我们不搞这种靠扣东西留人的事。' },
+  { title: '我们只做 LinkedIn', body: '不是把 LinkedIn 当作十五个渠道之一的数字营销公司，而是专注把这一件事做到极致' },
+  { title: '从第一天开始，就具备多语言能力', body: '大多数机构只是把英文内容翻译后称为"本地化"。\n我们是在每一种语言中，进行真正的母语创作' },
+  { title: 'AI 提效，编辑把关', body: '我们在整个内容流程中使用 AI 工具提升效率，
+但每一条内容，都会经过专业编辑团队审核。快的部分让技术去解决,质量得靠人守。' },
+  { title: '所有成果，完全归你所有', body: '内容、订阅用户、活动报名数据、创意资产——全部属于你。\n没有绑定，没有"被平台或代理商控制"的风险' },
 ];
 
 const services = [
@@ -71,7 +75,7 @@ const services = [
     short: '什么格式都做,每周都出,哪个市场都管。',
     details: [
       '用哪种格式发不是随便选的,是根据策略来定的',
-      '高管代笔这块,管理层有想法有观点,我们负责帮他们表达出来、推出去',
+      '高管代运营（Ghostwriting）这块,管理层有想法有观点,我们负责帮他们表达出来、推出去',
       '多语种不走翻译那条路,每种语言都安排母语的人直接写',
       '编辑排期提前一个月定死:写稿、审稿、你批完、准时上线',
     ],
@@ -120,16 +124,16 @@ const services = [
 const cardIcons = overviewCards.map(c => c.icon);
 
 const stats = [
-  { value: '80%', label: 'B2B企业在社交媒体上拿到的销售线索,八成来自LinkedIn。', context: '其他平台跟它差距不小。', source: 'LinkedIn Marketing Solutions / Cognism' },
-  { value: '7x', label: '每周都在更新的企业主页,粉丝涨速快了将近7倍。', context: '其实最有效的增长策略就一个字:发。持续地发。', source: 'LinkedIn' },
-  { value: '5x', label: '视频帖的互动数据差不多是图文帖的5倍。', context: '所以说格式选对了,效果差距是很明显的。', source: 'LinkedIn' },
-  { value: '59%', label: '将近六成B2B决策者认为,判断一家公司是否值得信任,看他们的专业内容最直接。', context: '比广告和白皮书都管用。', source: 'LinkedIn / Edelman' },
-  { value: '4/5', label: 'LinkedIn上每五个用户里就有四个参与所在公司的采购。', context: '也就是说,你发的内容,看到的人大概率是能拍板的。', source: 'LinkedIn' },
-  { value: '2x', label: 'LinkedIn的转化率大概是其他社交平台的两倍。', context: '用户上来就是带着工作状态的,接受度本来就高一些。', source: 'LinkedIn Marketing Solutions' },
-  { value: '277%', label: '获客效率比Facebook和X(Twitter)加在一起还高出将近三倍。', context: '说实话不太像是在同一个赛道竞争。', source: 'HubSpot' },
-  { value: '46%', label: 'B2B企业网站从社交渠道来的流量,差不多一半是LinkedIn给的。', context: '好的内容不只是做品牌的事,它真的会往网站引人过来。', source: 'LinkedIn' },
-  { value: '28%', label: '和Google Ads比,LinkedIn上获取一条线索的成本少了28%左右。', context: '而且如果你同时在做自然内容,这个成本还能再降。', source: 'HubSpot' },
-  { value: '61%', label: '先看过品牌自然内容、后来又看到广告的用户,转化概率高了61%。', context: '内容跟广告一块做的公司,两头的回报都更好看。', source: 'LinkedIn内部数据' },
+  { value: '80%', label: '80% 的 B2B 社交媒体线索，来自 LinkedIn', context: '其他平台跟它差距不小。', source: 'LinkedIn Marketing Solutions / Cognism' },
+  { value: '7x', label: '每周持续发布的页面，粉丝增长速度快 7 倍', context: '其实最有效的增长策略就一个字:发。持续地发。', source: 'LinkedIn' },
+  { value: '5x', label: '视频内容的互动率是静态内容的 5 倍', context: '所以说格式选对了,效果差距是很明显的。', source: 'LinkedIn' },
+  { value: '59%', label: '59% 的 B2B 决策者认为，观点型内容最能建立信任', context: '比广告和白皮书都管用。', source: 'LinkedIn / Edelman' },
+  { value: '4/5', label: '5 位 LinkedIn 用户中，有 4 位参与商业决策', context: '也就是说,你发的内容,看到的人大概率是能拍板的。', source: 'LinkedIn' },
+  { value: '2x', label: 'LinkedIn 的转化率是其他社交平台的 2 倍', context: '用户上来就是带着工作状态的,接受度本来就高一些。', source: 'LinkedIn Marketing Solutions' },
+  { value: '277%', label: '在线索获取方面，比 Facebook 和 X 总和高出 277%', context: '说实话不太像是在同一个赛道竞争。', source: 'HubSpot' },
+  { value: '46%', label: '46% 的 B2B 网站社交流量来自 LinkedIn', context: '好的内容不只是做品牌的事,它真的会往网站引人过来。', source: 'LinkedIn' },
+  { value: '28%', label: '相比 Google Ads，获客成本降低 28%', context: '而且如果你同时在做自然内容,这个成本还能再降。', source: 'HubSpot' },
+  { value: '61%', label: '在产生自然互动后，付费转化概率提升 61%', context: '内容跟广告一块做的公司,两头的回报都更好看。', source: 'LinkedIn内部数据' },
 ];
 
 const faqs = [
@@ -137,7 +141,7 @@ const faqs = [
   { q: '签约周期怎么算?', a: '前面三个月是启动阶段,这段时间够把体系搭起来,也能初步看到数据上的变化。三个月之后按月续,想走随时可以。留下来的客户是因为东西确实在起作用,不是因为合同没到期。' },
   { q: 'AI在你们的流程里到底怎么用?', a: '用得挺深的。调研、初稿、多语种内容、图片生成、视频剪辑,AI基本都参与了。但是出来的东西不会直接用,编辑要审文字,设计要审视觉,最后还得你点头。整体的效果就是产量上来了、速度快了、成本低了,但质量没放松过。AI干体力活,标准是人定的。' },
   { q: '做出来的东西不满意怎么办?', a: '那就改,没什么好说的。不用你解释为什么不满意,也不会加钱。我们的原则很简单,宁可一篇内容改三遍,也不会硬把一个凑合的东西发出去。' },
-  { q: '必须四个服务一起签?还是能先试一个?', a: '先签一个完全没问题,后面觉得需要了再加。' },
+  { q: '必须四个我们的服务一起签?还是能先试一个?', a: '先签一个完全没问题,后面觉得需要了再加。' },
   { q: '我们团队每周需要配合多久?', a: '其实花不了多少时间。内容我们提前一个月排好了,你们团队就看一看、批一批。一般一周二三十分钟差不多了。我记得有个客户跟我们说,他每周一早上喝咖啡的功夫就顺手处理掉了。' },
   { q: '能按照我们自己的品牌规范做吗?', a: '当然可以,这是基本操作。品牌手册你拿来就行,语言怎么说、视觉什么风格、审批怎么走,我们按你们的规矩来。要是有合规上的限制或者术语方面的要求,也会严格照办。' },
   { q: '月报一般都包含什么?', a: '围绕商业目标写的。粉丝涨了多少、互动表现怎么样、哪条内容跑出了好数据,线索那边有没有动静。然后会告诉你哪些做法有效、哪些没效、下个月准备怎么调整。不会塞一堆好看但没人看得懂的东西进去。' },
@@ -147,9 +151,9 @@ const faqs = [
 ---
 
 <Layout
-  title="LinkedIn内容服务 | 帮B2B企业在LinkedIn上拿到客户"
-  description="LinkedIn内容全流程代运营 - 策略、生产、发布、复盘。专门服务B2B企业,帮你把LinkedIn做成一个能出商机的地方。"
-  abstract="我们替B2B企业打理LinkedIn上的所有内容。四项服务,一个目标:让LinkedIn真正帮你拿到客户。"
+  title="LinkedIn内容我们的服务 | 帮B2B企业在LinkedIn上拿到客户"
+  description="LinkedIn内容全流程代运营 - 策略、生产、发布、复盘。专门我们的服务B2B企业,帮你把LinkedIn做成一个能出商机的地方。"
+  abstract="我们替B2B企业打理LinkedIn上的所有内容。四项我们的服务,一个目标:让LinkedIn真正帮你拿到客户。"
   lang="zh"
 >
   <NavBar lang="zh" />
@@ -161,12 +165,12 @@ const faqs = [
       <div class="c-hero__overlay" aria-hidden="true"></div>
       <div class="container" style="position: relative; z-index: 2;">
         <div class="c-hero__content">
-          <p class="eyebrow eyebrow--light reveal">LinkedIn 内容服务</p>
+          <p class="eyebrow eyebrow--light reveal">LinkedIn 内容我们的服务</p>
           <h1 id="hero-h" class="c-hero__h1 reveal reveal-delay-1">
-            做LinkedIn内容,既要人看,也要能带<span class="text-gradient">生意。</span>
+            打造既吸引关注，又能带来客户的 <span class="text-gradient">LinkedIn 内容</span>
           </h1>
           <p class="c-hero__sub reveal reveal-delay-2">
-            你在LinkedIn上需要发的每一条内容,从想选题到出效果报告,全程不用自己操心。
+            从策略制定、内容生产、发布执行，到数据复盘与报告，一站式全部搞定
           </p>
           <div class="c-hero__actions reveal reveal-delay-3">
             <a href="/zh/contact" class="btn btn--primary btn--lg">预约沟通</a>
@@ -177,7 +181,7 @@ const faqs = [
 
 
     <!-- ── Service Overview Cards ──────────────────────────── -->
-    <section class="section c-overview" aria-label="服务总览">
+    <section class="section c-overview" aria-label="我们的服务总览">
       <div class="container">
         <div class="c-ov__grid">
           {overviewCards.map((card, i) => (
@@ -199,7 +203,7 @@ const faqs = [
       <div class="container">
         <div class="c-wwd__head reveal">
           <p class="eyebrow">我们做的事</p>
-          <h2 id="wwd-h" class="c-wwd__h2">LinkedIn不应该只是个展示页面。它可以帮你拿客户。</h2>
+          <h2 id="wwd-h" class="c-wwd__h2">我们把你的 LinkedIn，变成持续获客的渠道</h2>
           <p class="c-wwd__intro">你的团队有硬功夫,公司也有好故事可以讲。但这些东西如果一直闷在公司里面,销售管线是填不满的。</p>
           <p class="c-wwd__intro">我们干的事情说穿了就一件:把品牌里最能打动人的部分提出来,做成一套每周在LinkedIn上转的内容体系。帖子、长文、企业通讯、线上活动,全都奔着同一件事去,就是让该看到你的人看到你。</p>
         </div>
@@ -225,7 +229,7 @@ const faqs = [
       <div class="container">
         <div class="c-why__head reveal">
           <p class="eyebrow eyebrow--light">为什么找我们</p>
-          <h2 id="why-h" class="c-why__h2">我们只做B2B这条线,天生面向全球市场。</h2>
+          <h2 id="why-h" class="c-why__h2">我们我们专注 B2B这条线,天生面向全球市场。</h2>
         </div>
 
         <div class="c-why__layout">
@@ -272,7 +276,7 @@ const faqs = [
     <section class="section c-svc" aria-labelledby="svc-h">
       <div class="container">
         <div class="c-svc__head reveal">
-          <p class="eyebrow">四项服务</p>
+          <p class="eyebrow">四项我们的服务</p>
           <h2 id="svc-h" class="c-svc__h2">四个模块,围绕的都是同一件事:帮你从LinkedIn拿到商机。</h2>
           <p class="c-svc__intro">单独签一个也能跑起来。但四个拼到一起以后,LinkedIn就不只是个页面了,变成销售团队实实在在能靠得住的获客渠道。</p>
         </div>

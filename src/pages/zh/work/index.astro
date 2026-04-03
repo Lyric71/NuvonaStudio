@@ -10,7 +10,7 @@ const caseStudies = [
     number: '01',
     title: '日本病床厂商想做欧洲生意，没人脉没渠道。LinkedIn三个月交出了答卷。',
     subtitle: '海外没有任何线上存在。90天之后，经销商管线搭起来了。',
-    services: ['LinkedIn内容运营', 'LinkedIn广告投放', '高管IP打造'],
+    services: ['LinkedInLinkedIn内容服务', 'LinkedInLinkedIn广告服务', '高管IP打造'],
     region: '日本 → 欧洲',
     industry: '医疗科技',
     gradient: 'linear-gradient(135deg, #001840 0%, #0A66C2 50%, #00A8DC 100%)',
@@ -26,7 +26,7 @@ const caseStudies = [
     number: '02',
     title: '中国线缆厂40个工程师，从只会发微信到在LinkedIn上发帖了。',
     subtitle: '五个国家，没一个人用过LinkedIn。两个月，这件事跑通了。',
-    services: ['LinkedIn内容运营', '全员传播', '培训'],
+    services: ['LinkedInLinkedIn内容服务', '全员传播', '培训'],
     region: '中国 → 全球',
     industry: '制造业',
     gradient: 'linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)',
@@ -42,7 +42,7 @@ const caseStudies = [
     number: '03',
     title: '瑞典聚合物厂商，怎么让航空采购第一个想到自己？',
     subtitle: '材料装在飞机上飞，但LinkedIn主页看着像个空壳公司。',
-    services: ['咨询', 'LinkedIn内容运营', 'LinkedIn广告投放'],
+    services: ['咨询', 'LinkedInLinkedIn内容服务', 'LinkedInLinkedIn广告服务'],
     region: '瑞典 → 全球',
     industry: '航空航天',
     gradient: 'linear-gradient(135deg, #0c1445 0%, #1a237e 50%, #0A66C2 100%)',
@@ -58,7 +58,7 @@ const caseStudies = [
     number: '04',
     title: '法国调香师在LinkedIn讲自己的手艺，奢侈品牌主动敲门了。',
     subtitle: '群发邮件石沉大海。她开始在LinkedIn上写东西之后，局面完全不一样了。',
-    services: ['高管IP打造', 'LinkedIn内容运营', '咨询'],
+    services: ['高管IP打造', 'LinkedInLinkedIn内容服务', '咨询'],
     region: '法国',
     industry: '奢侈品与香水',
     gradient: 'linear-gradient(135deg, #1a0a2e 0%, #3d1f6d 50%, #7b2d8e 100%)',
@@ -74,9 +74,9 @@ const caseStudies = [
     number: '05',
     title: '法国会计事务所的合伙人开始发LinkedIn之后，客户询盘跟着来了。',
     subtitle: '12个合伙人，没有一个在LinkedIn上活跃。三个月后6个人在稳定更新。',
-    services: ['LinkedIn内容运营', '培训', 'LinkedIn广告投放'],
+    services: ['LinkedInLinkedIn内容服务', '培训', 'LinkedInLinkedIn广告服务'],
     region: '法国 → 国际',
-    industry: '专业服务',
+    industry: '专业我们的服务',
     gradient: 'linear-gradient(135deg, #0d1b2a 0%, #1b3a4b 50%, #274c5b 100%)',
     icon: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="24" y="20" width="32" height="40" rx="3" stroke="white" stroke-width="1.5" opacity="0.6"/><path d="M30 28h20M30 34h14M30 40h18M30 46h10" stroke="white" stroke-width="1" opacity="0.35"/><path d="M42 46l4 4 8-10" stroke="white" stroke-width="1.5" opacity="0.5"/><rect x="28" y="24" width="8" height="2" rx="1" fill="white" opacity="0.2"/></svg>`,
     stats: [
@@ -90,7 +90,7 @@ const caseStudies = [
     number: '06',
     title: '香港律所几位资深合伙人开始用LinkedIn，跨境案子自己找上门了。',
     subtitle: '能力从来不缺。缺的是让外面的人知道他们。',
-    services: ['高管IP打造', 'LinkedIn内容运营', '全员传播'],
+    services: ['高管IP打造', 'LinkedInLinkedIn内容服务', '全员传播'],
     region: '香港 → 大中华区',
     industry: '法律',
     gradient: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
@@ -147,7 +147,7 @@ const allServices = [...new Set(caseStudies.flatMap(cs => cs.services))].sort();
       <div class="container">
 
         <!-- Service filters -->
-        <div class="service-filters reveal" role="group" aria-label="按服务筛选">
+        <div class="service-filters reveal" role="group" aria-label="按我们的服务筛选">
           <button class="filter-btn filter-btn--active" data-service="all">全部</button>
           {allServices.map(service => (
             <button class="filter-btn" data-service={service}>{service}</button>
@@ -287,7 +287,7 @@ const allServices = [...new Set(caseStudies.flatMap(cs => cs.services))].sort();
         { text: "月报很实在，什么管用什么没用，钱花哪了，看一眼就知道。这一点之前合作过的几家都没做到过。", image: "https://randomuser.me/api/portraits/women/28.webp", name: "Priya Sharma", role: "市场负责人，金融科技" },
         { text: "我们之前换过三家代理都不太满意。Nuvora不一样在哪呢，他们是真的理解LinkedIn的分发逻辑，也清楚B2B买家在平台上的行为习惯。", image: "https://randomuser.me/api/portraits/men/22.webp", name: "David Chen", role: "CEO，咨询公司" },
         { text: "以前投LinkedIn广告基本就是在烧钱，现在线索质量上来了，成本砍了差不多一半。投放那块的搭建确实做得好。", image: "https://randomuser.me/api/portraits/women/44.webp", name: "Emma Bergström", role: "数字化负责人，工业企业" },
-        { text: "内容这块是真的出乎意料。帖子发出来读着就像我们自己团队写的，完全看不出是外包的，B2B这个领域能做到这种程度的太少了。", image: "https://randomuser.me/api/portraits/men/36.webp", name: "James Okafor", role: "创始人，专业服务" },
+        { text: "内容这块是真的出乎意料。帖子发出来读着就像我们自己团队写的，完全看不出是外包的，B2B这个领域能做到这种程度的太少了。", image: "https://randomuser.me/api/portraits/men/36.webp", name: "James Okafor", role: "创始人，专业我们的服务" },
         { text: "策略、内容、投放都给你串起来了。我们之前一个月才能憋出一篇帖子，现在总算在LinkedIn上有点样子了。", image: "https://randomuser.me/api/portraits/women/51.webp", name: "Ana Rodriguez", role: "市场总监，医疗健康" },
         { text: "他们帮我们做了个全员传播的项目。怎么说呢，销售团队在LinkedIn上开始有声量了，然后获客数据也确实跟着涨了一些。", image: "https://randomuser.me/api/portraits/men/53.webp", name: "Ravi Patel", role: "增长总监，软件公司" },
         { text: "最不一样的是他们看数据不跟你聊阅读量点赞这些虚的，直接上来讲线索质量讲获客成本。跟他们合作之后我们才算搞清楚LinkedIn对我们到底有没有用。", image: "https://randomuser.me/api/portraits/women/19.webp", name: "Laura Koenig", role: "运营总监，物流行业" },

@@ -132,10 +132,10 @@ export const ui = {
   },
   zh: {
     // Nav
-    'nav.services':     '服务',
-    'nav.all_services': '全部服务',
-    'nav.content':      '内容运营',
-    'nav.advertising':  '广告投放',
+    'nav.services':     '我们的服务',
+    'nav.all_services': '全部我们的服务',
+    'nav.content':      'LinkedIn内容服务',
+    'nav.advertising':  'LinkedIn广告服务',
     'nav.consulting':   '策略咨询',
     'nav.pricing':      '价格',
     'nav.work':         '客户案例',
@@ -161,21 +161,21 @@ export const ui = {
 
     // Footer
     'footer.tagline':       'LinkedIn上只做有用的事。',
-    'footer.services':      '服务',
+    'footer.services':      '我们的服务',
     'footer.company':       '关于',
-    'footer.see_all':       '全部服务 \u2192',
-    'footer.badges':        '服务覆盖全球 | 专注Linkedin | B2B专业团队',
+    'footer.see_all':       '全部我们的服务 \u2192',
+    'footer.badges':        '我们的服务覆盖全球 | 专注Linkedin | B2B专业团队',
     'footer.rights':        '版权所有。',
     'footer.about':         '公司介绍',
     'footer.work':          '客户案例',
     'footer.insights':      '专栏文章',
     'footer.pricing':       '价格',
     'footer.contact':       '联系我们',
-    'footer.content':       '内容运营',
-    'footer.advertising':   '广告投放',
+    'footer.content':       'LinkedIn内容服务',
+    'footer.advertising':   'LinkedIn广告服务',
     'footer.consulting':    '策略咨询',
     'footer.privacy':       '隐私条款',
-    'footer.terms':         '服务协议',
+    'footer.terms':         '我们的服务协议',
     'footer.cookies':       'Cookie条款',
 
     // CTA

@@ -16,11 +16,11 @@ const features = [
   { label: '月费',                     foundation: '¥9,000', growth: '¥20,000', scale: '¥30,000' },
   { label: '主页诊断+基础搭建',        foundation: '✓', growth: '✓', scale: '✓' },
   { label: '内容策略',                  foundation: '✓', growth: '✓', scale: '✓' },
-  { label: '每月发布数',                foundation: '4', growth: '8', scale: '16' },
+  { label: '每月发布内容数量',                foundation: '4', growth: '8', scale: '16' },
   { label: 'AI视觉素材',               foundation: '✓', growth: '✓', scale: '✓' },
   { label: '社群互动运营',              foundation: '✓', growth: '✓', scale: '✓' },
   { label: 'LinkedIn广告代运营',        foundation: '—', growth: '✓', scale: '✓' },
-  { label: '目标客户画像+精准定向',     foundation: '—', growth: '✓', scale: '✓' },
+  { label: '理想目标客户画像+精准定向',     foundation: '—', growth: '✓', scale: '✓' },
   { label: '竞品动态监测',              foundation: '—', growth: '✓', scale: '✓' },
   { label: '效果数据报告',              foundation: '✓', growth: '✓', scale: '✓' },
   { label: '每周策略通话',              foundation: '✓', growth: '✓', scale: '✓' },
@@ -30,7 +30,7 @@ const features = [
 
 /* ── 广告单独托管 ── */
 const adsFeatures = [
-  { label: '月服务费',                      foundation: '¥10,000/月', growth: '按投放额的6%-10%收取' },
+  { label: '月服务费',                      foundation: '¥10,000/月基础套餐', growth: '每月广告预算高于 $15K，每月广告预算高于 $15K，按投放额的6%-10%收取' },
   { label: '全漏斗广告策略',                foundation: '✓', growth: '✓' },
   { label: '广告组和创意数量不限',           foundation: '✓', growth: '✓' },
   { label: '专家随时可以找',                foundation: '✓', growth: '✓' },
@@ -45,76 +45,76 @@ const adsFeatures = [
 /* ── 高管品牌 ── */
 const execServices = [
   { service: '高管LinkedIn主页优化（一次性交付）', price: '¥3,500/人' },
-  { service: '高管代笔（每月4篇+主页日常维护）', price: '¥8,500/月/人' },
+  { service: '高管内容代写（每月 4 条内容 + 账号维护）', price: '每位高管 $1,200/月' },
 ];
 
 const contentServices = [
   { service: 'AI短视频制作（5秒-30秒）', price: '¥1,500-¥35,000/条' },
-  { service: '专业团队视频拍摄', price: '按项目单独报价' },
-  { service: '多语种内容制作', price: '按语种单独报价' },
+  { service: '专业团队视频拍摄', price: '按项目定制报价' },
+  { service: '多语言内容', price: '按语言单独报价' },
 ];
 
 const trainingServices = [
   { service: 'LinkedIn实战工作坊（2小时）', price: '¥17,500/场' },
   { service: '团队专项培训（4次课）', price: '¥55,000 一口价' },
-  { service: '员工社交声量计划', price: '¥17,500/月' },
+  { service: '员工影响力项目', price: '¥17,500/月' },
 ];
 
 const bonusServices = [
-  { model: '线索达标奖金', percent: '+15%', structure: '在月费以外再加15%,条件是双方事先定好的线索指标达成了。注意这个奖金前提是你有在投LinkedIn广告。' },
-  { model: '粉丝增长奖金', percent: '+10%', structure: '当季粉丝增长超过约定的目标,额外付月费的10%就行了。跟上面那个一样,得有广告在跑才算数。' },
+  { model: '线索达成奖励', percent: '+15%', structure: '当达到约定线索目标时，额外收取月服务费的 +15%' },
+  { model: '粉丝增长奖励', percent: '+10%', structure: '当季度增长目标超额完成时，额外收取月服务费的 +10%' },
 ];
 
 /* ── 常见问题 ── */
 const faqs = [
   {
-    q: '月费里到底包了哪些？',
-    a: '选哪档就按那档来,上面列的全包——策略、内容、视觉、社群运营、数据报告、每周通话,还有个固定对接人。要额外出的就只有LinkedIn广告费,那笔钱是从你自己LinkedIn账户里面扣的,跟我们这边没关系。',
+    q: '我们的服务费包含哪些内容？',
+    a: '包含你所选方案中的全部内容：策略、内容、视觉设计、账号运营、数据报告、每周沟通，以及专属对接人要额外出的就只有LinkedIn广告费,那笔钱是从你自己LinkedIn账户里面扣的,跟我们这边没关系。',
   },
   {
-    q: '为什么最少签3个月？',
-    a: 'LinkedIn不是今天发了明天就出单的地方,没有这种好事。主页要整理、策略跑起来、内容保持住节奏,算法那边也需要一段时间才开始推你。3个月基本上是看到变化的最短周期,再短了真做不出什么东西来。',
+    q: '为什么至少合作 3 个月？',
+    a: 'LinkedIn 不会立刻产生效果，我们需要时间完成账号评估、策略制定，并持续发布内容。3个月基本上是看到变化的最短周期,再短了真做不出什么东西来。',
   },
   {
-    q: '中途能换档吗？',
-    a: '可以。3个月走完以后每个新的计费周期都能升降,不用走审批。',
+    q: '开始合作后可以更换方案吗？',
+    a: '可以。在完成前三个月合作后，你可以在任一计费周期开始时升级或调整方案。',
   },
   {
-    q: '能保证带来多少线索吗？',
-    a: '不能,我们不做这种承诺。其实你想想,这行里谁要是拍着胸脯跟你说"保证多少条线索",你反而得小心。我们保证的是活儿干到位,策略、内容、定向一周一周的推,该做的不会少。绩效奖金也是一样的道理,达标了我们多拿一笔,没达标你就付正常月费。',
+    q: '你们是否保证具体线索数量？',
+    a: '不保证。坦率地说，任何承诺具体线索数量的服务都需要谨慎对待。我们承诺把工作做到位，策略、内容、定向一周一周的推,该做的不会少。绩效奖金也是一样的道理,达标了我们多拿一笔,没达标你就付正常月费。',
   },
   {
-    q: '"目标客户画像+精准定向"是什么意思？',
-    a: '说白了就是搞清楚你该对谁说话。按职位、行业、公司规模、地域这些维度,把你最应该花精力去触达的那批人圈出来。圈出来之后内容和广告都围绕这群人去做。Growth和Scale套餐里都带了这个。',
+    q: '“ICP + 定向”是什么意思',
+    a: 'ICP 指理想客户画像。我们会基于职位、行业、公司规模等维度，明确你的核心目标客户圈出来之后内容和广告都围绕这群人去做。Growth和Scale套餐里都带了这个。',
   },
   {
-    q: '广告预算怎么走的？',
-    a: '你自己LinkedIn账户充钱,花多少扣多少,我们不碰你的预算。我们就管建广告、跑广告、看数据,帐目清清楚楚。',
+    q: '广告费用如何结算？',
+    a: '广告费用由你通过自己的账户直接支付给 LinkedIn，我们负责投放执行。广告预算不会经过我们账户。',
   },
   {
-    q: '不签套餐可以单独买高管代笔吗？',
-    a: '可以。高管个人品牌本来就是独立服务来的,主页优化、代笔发文,一起做或者只做一样都行。不用先签套餐。',
+    q: '是否可以只购买代写服务，不签长期合作？',
+    a: '可以。高管个人品牌服务可单独提供，无需长期合作',
   },
   {
-    q: '绩效奖金没达标要多付钱吗？',
-    a: '不用。奖金只在达到或者超出目标的时候才生效,没达到你就正常付月费,不会多扣你一分。',
+    q: '如果没有达成目标，还需要支付绩效奖励吗？',
+    a: '不需要。只有在达成或超额完成目标时才收取奖励；未达标则仅收取基础服务费',
   },
   {
-    q: 'Foundation跟Growth差别在哪？',
-    a: 'Foundation主要解决有没有的问题,让你在LinkedIn上有内容在发、有人在帮你盯社群,把存在感先立起来。Growth不一样,广告开了、定向做了、竞品跟上了,内容量也多了一倍,获客这条线才真正跑的通。你要是上LinkedIn就是奔着线索来的,那至少得从Growth开始。',
+    q: 'Foundation 和 Growth 的核心区别是什么？',
+    a: 'Foundation 帮你建立基础曝光；Growth 则通过广告、精准定向、竞品跟踪和更高频内容，打造线索增长引擎。',
   },
   {
-    q: '3个月到了以后呢？',
-    a: '转成按月续费。想继续就继续,想换档换档,不想做了提前30天说一声,没有违约金退出费什么的。',
+    q: '三个月后如何安排？',
+    a: '转为按月合作。你可以继续、调整方案，或提前 30 天通知取消，无任何违约费用',
   },
 ];
 ---
 
 <Layout
   lang="zh"
-  title="LinkedIn服务价格方案 | Nuvora Studio"
-  description="Nuvora Studio LinkedIn服务报价。三档月度托管套餐,广告代运营、高管品牌打造、团队培训等单项服务。报价透明,目标就一个——帮你在LinkedIn上拿到更多线索。"
-  abstract="面向B2B企业的LinkedIn服务定价。月度托管¥9,000到¥30,000。广告托管、高管个人品牌、团队内训另行报价。"
+  title="LinkedIn我们的服务价格方案 | Nuvora Studio"
+  description="Nuvora Studio LinkedIn我们的服务报价。三档月度托管套餐,广告代运营、高管品牌打造、团队培训等单项我们的服务。报价透明,目标就一个——帮你在LinkedIn上拿到更多线索。"
+  abstract="面向B2B企业的LinkedIn我们的服务定价。月度托管¥9,000到¥30,000。广告托管、高管个人品牌、团队内训另行报价。"
 >
   <NavBar lang="zh" />
   <main id="main-content">
@@ -127,13 +127,13 @@ const faqs = [
         <div class="pricing-hero__content">
           <p class="eyebrow eyebrow--light reveal">价格方案</p>
           <h1 id="pricing-heading" class="pricing-hero__title reveal reveal-delay-1">
-            就一件事：帮你在LinkedIn上<span class="text-gradient">把线索跑出来。</span>
+            一个目标：为你在 LinkedIn 上<span class="text-gradient">带来更多销售线索。</span>
           </h1>
           <p class="pricing-hero__sub reveal reveal-delay-2">
-            看看你现在处在哪个阶段,挑合适的就好了。策略、内容、数据报告、固定对接人每一档都有的。没有藏着掖着的费用,三个月过了也不搞什么长期捆绑。
+            选择最适合你当前阶段的方案。所有方案都包含策略、内容、数据报告，以及专属对接人。无隐藏费用。前三个月后无需长期绑定
           </p>
           <div class="pricing-hero__actions reveal reveal-delay-3">
-            <a href="#retainer" class="btn btn--primary btn--lg">看方案</a>
+            <a href="#retainer" class="btn btn--primary btn--lg">查查看方案</a>
             <a href="/zh/contact?intent=call" class="btn btn--outline-white btn--lg">预约沟通</a>
           </div>
         </div>
@@ -155,18 +155,18 @@ const faqs = [
 
         <div class="tier-cards reveal reveal-delay-2">
           <div class="tier-card">
-            <strong>Foundation</strong>——先把地基打好。LinkedIn上有内容在稳定的发、有人帮你看着社群,基本面先立住再说,后面想加量随时升档就是了。
+            <strong>Foundation</strong>适合需要建立稳定 LinkedIn 运营基础、为后续增长打好底层的企业
           </div>
           <div class="tier-card tier-card--pop">
-            <strong>Growth</strong>到这一档才算真正开始获客。广告跑起来了,定向做了,竞品也在盯,内容量多了一倍。我们客户里面选这个的最多,确实是有道理的。
+            <strong>Growth</strong>线索增长从这里开始：广告投放、精准定向，以及加倍内容产出。我们最受欢迎的方案
           </div>
           <div class="tier-card">
-            想全面铺开就上<strong>Scale</strong>。一个月16篇内容,高级负责人直接带你项目,我们这边能用上的资源全部给你上。
+            适合全面投入的企业：每月 16 条内容、资深负责人带队，所有服务协同推进 - <strong>Scale</strong>
           </div>
         </div>
 
         <p class="s-footnote reveal">
-          不确定选哪个？<a href="/zh/contact?intent=call">先约个电话</a>，聊完了再决定也来的及。
+          不确定选择哪个方案？<a href="/zh/contact?intent=call">预约沟通</a>，我们会帮你一起理清最适合的路径。
         </p>
       </div>
     </section>
@@ -181,10 +181,10 @@ const faqs = [
             <p class="eyebrow">可搭配套餐，也可以单独做</p>
             <h2 id="exec-heading">高管个人品牌</h2>
             <p class="s-head__sub">
-              企业主页是公司的门面,高管主页是个人的。潜在客户在决定要不要找你谈之前,两个都会翻一翻的。
+              公司主页传递一种信息，高管个人账号传递另一种信息。在客户联系你之前，他们通常会同时查看这两者
             </p>
             <p class="s-head__note">
-              这是独立服务,给想在LinkedIn上做出个人声量的管理层用的。单独签也行,搭着套餐一起做也可以。
+              这是一项面向高管的独立服务，帮助其打造个人 LinkedIn 影响力
             </p>
           </div>
           <div class="exec-split__cards reveal reveal-delay-1">
@@ -203,12 +203,12 @@ const faqs = [
     <section class="section" aria-labelledby="ads-heading">
       <div class="container">
         <div class="s-head reveal">
-          <p class="eyebrow">独立服务</p>
+          <p class="eyebrow">独立我们的服务</p>
           <h2 id="ads-heading">LinkedIn广告代运营</h2>
           <p class="s-head__sub">
-            只需要有人帮你专业的管广告、暂时不需要全套内容服务的公司看这个。广告预算你自己充给LinkedIn,跟我们服务费是分开算的。
+            适合希望获得专业广告管理，但不需要完整长期服务的企业。广告费用另行计费
           </p>
-          <p class="s-head__note">两档都要签3个月,另收¥10,000一次性开户搭建费。</p>
+          <p class="s-head__note">所有方案均需至少 3 个月合作，并收取一次性 10,000元 的设置费用</p>
         </div>
 
         <div class="ads-table reveal">
@@ -260,9 +260,9 @@ const faqs = [
 
         <div class="ent-top reveal">
           <p class="eyebrow eyebrow--light">按需定制</p>
-          <h2 id="enterprise-heading" class="ent-top__title">大客户方案</h2>
+          <h2 id="enterprise-heading" class="ent-top__title">企业级合作</h2>
           <p class="ent-top__lead">
-            LinkedIn要同时在好几个市场跑起来、团队分散在不同的国家、内容还得出好几种语言,这种事标准套餐是搞不定的。
+            适合需要在多个市场、团队和语言环境中高效运作 LinkedIn 的全球化企业
           </p>
         </div>
 
@@ -270,7 +270,7 @@ const faqs = [
           <p>
             标准套餐能覆盖大部分B2B企业的情况,但有些公司摊子铺的比较大——区域市场好几个,高管主页几十个要维护,内容得出四五种语言,广告亚太欧洲北美同时在跑。
           </p>
-          <p>大客户方案就是干这个的。</p>
+          <p>企业级合作就是干这个的。</p>
           <p>
             方案是按你的组织架构来定的,不是拿个通用模板换个logo就给你了。合作启动之前先做一轮调研,你的业务目标、目标市场、内部谁管什么、平时怎么协作,都要先摸清楚了再动手。
           </p>
@@ -295,10 +295,10 @@ const faqs = [
             <h3 class="ent-block__title">价格怎么定</h3>
             <div class="ent-block__text">
               <p>
-                大客户方案都是一个一个单独报价,没有什么统一价目表的。你涉及几个市场、几位高管、内容量多大、广告帐户几个、语言几种,这些因素加在一起才定的出价格来。
+                企业级合作都是一个一个单独报价,没有什么统一价目表的。你涉及几个市场、几位高管、内容量多大、广告帐户几个、语言几种,这些因素加在一起才定的出价格来。
               </p>
               <p class="ent-price-range">
-                大部分大客户合作起步在<strong>每月¥69,100到¥172,750,</strong>有的会更高一些。反正正式开始前我们会发一份逐项列明的报价单给你,看的清清楚楚。
+                企业级合作通常起步于<strong>每月¥69,100到¥172,750,</strong>有的会更高一些。反正正式开始前我们会发一份逐项列明的报价单给你,看的清清楚楚。
               </p>
             </div>
 
@@ -313,17 +313,17 @@ const faqs = [
 
         <div class="ent-cta reveal">
           <p class="ent-cta__text">如果标准套餐对你们来说已经不太够用了,那这个电话迟早得打。</p>
-          <a href="/zh/contact?intent=enterprise" class="btn btn--primary btn--lg">预约大客户沟通</a>
+          <a href="/zh/contact?intent=enterprise" class="btn btn--primary btn--lg">预约企业级咨询</a>
         </div>
 
       </div>
     </section>
 
-    <!-- ═══ 附加服务 ═══ -->
+    <!-- ═══ 附加我们的服务 ═══ -->
     <section class="section" style="background: var(--off-white);" aria-labelledby="addons-heading">
       <div class="container">
         <div class="s-head reveal" style="text-align: center; max-width: 640px; margin-inline: auto;">
-          <p class="eyebrow">单项服务</p>
+          <p class="eyebrow">单项我们的服务</p>
           <h2 id="addons-heading">内容制作、培训、员工传播</h2>
           <p class="s-head__sub" style="margin-inline: auto;">
             文字帖、AI出的视觉素材这些东西月度套餐里面本来就带的。以下几项是可以额外单独加的。
@@ -365,7 +365,7 @@ const faqs = [
           <p class="eyebrow eyebrow--light">可选</p>
           <h2 id="bonus-heading" style="color: var(--white);">绩效奖金</h2>
           <p class="s-head__sub" style="color: var(--navy-text-2); margin-inline: auto;">
-            Growth和Scale套餐可以加这个。意思很简单,我们的一部分收入直接跟效果挂钩——目标到了我们多拿一笔,没到的话你照常付月费就行。
+            Growth和Scale套餐可以加这个。意思很简单,我们的部分费用与结果挂钩。当达成约定目标时，我们才获得额外奖励
           </p>
         </div>
 
