@@ -7,22 +7,23 @@ const PAGES_DIR = path.join(__dirname, '..', 'src', 'pages');
 const OUTPUT = path.join(__dirname, '..', 'public', 'sitemap.xml');
 const BASE_URL = 'https://nuvora.studio';
 const TODAY = new Date().toISOString().split('T')[0];
+const LOCALES = ['fr', 'zh'];
 
 // Pages to exclude from sitemap
 const EXCLUDE = new Set(['generate']);
 
 // Priority mapping
 function getPriority(route) {
-  if (route === '' || route === 'fr') return '1.0';
-  const depth = route.replace(/^fr\/?/, '').split('/').filter(Boolean).length;
-  if (depth === 0) return '1.0';
+  const clean = route.replace(/^(fr|zh)\/?/, '');
+  if (clean === '') return '1.0';
+  const depth = clean.split('/').filter(Boolean).length;
   if (depth === 1) return '0.8';
   return '0.7';
 }
 
 // Changefreq mapping
 function getChangefreq(route) {
-  const clean = route.replace(/^fr\/?/, '');
+  const clean = route.replace(/^(fr|zh)\/?/, '');
   if (clean === '' || clean === 'insights' || clean === 'work') return 'daily';
   if (clean.startsWith('insights/') || clean.startsWith('work/')) return 'monthly';
   return 'weekly';
@@ -48,74 +49,64 @@ function collectPages(dir, prefix = '') {
 }
 
 function buildSitemap(routes) {
-  // Separate EN and FR routes
-  const enRoutes = routes.filter(r => !r.startsWith('fr/') && r !== 'fr');
-  const frRoutes = routes.filter(r => r.startsWith('fr/') || r === 'fr');
-
-  // Build a map of FR routes for quick lookup
-  const frRouteSet = new Set(frRoutes);
-
-  // Build a map: en route -> fr route (if exists)
-  const enToFr = new Map();
-  for (const en of enRoutes) {
-    const frCandidate = en === '' ? 'fr' : `fr/${en}`;
-    if (frRouteSet.has(frCandidate)) {
-      enToFr.set(en, frCandidate);
-    }
+  // Separate routes by locale
+  const enRoutes = routes.filter(r => !LOCALES.some(l => r.startsWith(l + '/') || r === l));
+  const localeRoutes = {};
+  for (const locale of LOCALES) {
+    localeRoutes[locale] = new Set(routes.filter(r => r.startsWith(locale + '/') || r === locale));
   }
 
-  // Build reverse: fr route -> en route
-  const frToEn = new Map();
-  for (const [en, fr] of enToFr) {
-    frToEn.set(fr, en);
+  // Build mapping: en route -> { locale: localeRoute }
+  function getLocaleRoute(enRoute, locale) {
+    const candidate = enRoute === '' ? locale : `${locale}/${enRoute}`;
+    return localeRoutes[locale].has(candidate) ? candidate : null;
+  }
+
+  function buildHreflang(enRoute) {
+    const enHref = enRoute === '' ? `${BASE_URL}/` : `${BASE_URL}/${enRoute}`;
+    const pairs = [{ lang: 'x-default', href: enHref }, { lang: 'en', href: enHref }];
+
+    for (const locale of LOCALES) {
+      const lr = getLocaleRoute(enRoute, locale);
+      if (lr) {
+        pairs.push({ lang: locale, href: `${BASE_URL}/${lr}/` });
+      }
+    }
+
+    // Only emit hreflang if at least one translation exists
+    if (pairs.length <= 2) return '';
+    return pairs.map(p => `\n    <xhtml:link rel="alternate" hreflang="${p.lang}" href="${p.href}"/>`).join('');
   }
 
   const urls = [];
 
-  // Process EN routes
+  // EN routes
   for (const route of enRoutes.sort()) {
     const loc = route === '' ? `${BASE_URL}/` : `${BASE_URL}/${route}`;
-    const frRoute = enToFr.get(route);
-
-    let hreflang = '';
-    if (frRoute) {
-      const enHref = route === '' ? `${BASE_URL}/` : `${BASE_URL}/${route}`;
-      const frHref = `${BASE_URL}/${frRoute}/`;
-      hreflang = `
-    <xhtml:link rel="alternate" hreflang="x-default" href="${enHref}"/>
-    <xhtml:link rel="alternate" hreflang="en"        href="${enHref}"/>
-    <xhtml:link rel="alternate" hreflang="fr"        href="${frHref}"/>`;
-    }
-
     urls.push(`  <url>
     <loc>${loc}</loc>
     <lastmod>${TODAY}</lastmod>
     <changefreq>${getChangefreq(route)}</changefreq>
-    <priority>${getPriority(route)}</priority>${hreflang}
+    <priority>${getPriority(route)}</priority>${buildHreflang(route)}
   </url>`);
   }
 
-  // Process FR routes
-  for (const route of frRoutes.sort()) {
-    const loc = `${BASE_URL}/${route}/`;
-    const enRoute = frToEn.get(route);
+  // Locale routes
+  for (const locale of LOCALES) {
+    const sorted = [...localeRoutes[locale]].sort();
+    for (const route of sorted) {
+      const loc = `${BASE_URL}/${route}/`;
+      // Find the corresponding EN route for hreflang
+      const enRoute = route === locale ? '' : route.replace(`${locale}/`, '');
+      const hreflang = enRoutes.includes(enRoute) ? buildHreflang(enRoute) : '';
 
-    let hreflang = '';
-    if (enRoute !== undefined) {
-      const enHref = enRoute === '' ? `${BASE_URL}/` : `${BASE_URL}/${enRoute}`;
-      const frHref = `${BASE_URL}/${route}/`;
-      hreflang = `
-    <xhtml:link rel="alternate" hreflang="x-default" href="${enHref}"/>
-    <xhtml:link rel="alternate" hreflang="en"        href="${enHref}"/>
-    <xhtml:link rel="alternate" hreflang="fr"        href="${frHref}"/>`;
-    }
-
-    urls.push(`  <url>
+      urls.push(`  <url>
     <loc>${loc}</loc>
     <lastmod>${TODAY}</lastmod>
     <changefreq>${getChangefreq(route)}</changefreq>
     <priority>${getPriority(route)}</priority>${hreflang}
   </url>`);
+    }
   }
 
   return `<?xml version="1.0" encoding="UTF-8"?>

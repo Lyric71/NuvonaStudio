@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Footer from '../components/Footer.astro';
+import { getAlternateUrl, languages, type Lang } from '../i18n/index';
 
 interface Props {
   title?: string;
@@ -17,6 +18,14 @@ const {
   lang = 'en',
   preloadHero,
 } = Astro.props;
+
+const SITE = 'https://nuvora.studio';
+const currentPath = Astro.url.pathname;
+const canonicalUrl = `${SITE}${currentPath.replace(/\/$/, '') || '/'}`;
+const alternateLangs = (Object.keys(languages) as Lang[]).map((l) => ({
+  lang: l,
+  href: `${SITE}${getAlternateUrl(currentPath, l)}`,
+}));
 ---
 
 <!doctype html>
@@ -31,14 +40,18 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://nuvora.studio" />
+    <meta property="og:url" content={canonicalUrl} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
 
-    <link rel="canonical" href="https://nuvora.studio" />
+    <link rel="canonical" href={canonicalUrl} />
+    {alternateLangs.map(({ lang: l, href }) => (
+      <link rel="alternate" hreflang={l} href={href} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={`${SITE}${getAlternateUrl(currentPath, 'en')}`} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
