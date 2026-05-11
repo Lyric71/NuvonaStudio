@@ -1,0 +1,521 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import NavBar from '../../../components/NavBar.astro';
+import FAQ from '../../../components/FAQ.astro';
+import ContactCTA from '../../../components/ContactCTA.astro';
+
+/* ── Daten ──────────────────────────────────────────────── */
+
+const advocacyCards = [
+  { title: 'Aufbau und Steuerung des Advocacy-Programms', description: 'Struktur, Redaktionsplan und die tägliche Steuerung. Wir machen die Teilnahme so einfach, dass Ihr Team auch wirklich mitzieht.' },
+  { title: 'Optimierung der Mitarbeiterprofile', description: 'Profile, die in erster Linie Käufer überzeugen sollen, erst in zweiter Linie Recruiter. Jedes Mitarbeiterprofil wird zur Landingpage für Ihre Marke.' },
+  { title: 'Onboarding neuer Mitarbeiter', description: 'Eine starke LinkedIn-Präsenz vom ersten Tag an. Neue Kolleginnen und Kollegen werden eingerichtet, ihre Profile optimiert und in das Programm aufgenommen, bevor die erste Woche um ist.' },
+];
+
+const brandingCards = [
+  { title: 'Optimierung der Führungskräfte-Profile', description: 'Wir überarbeiten Profile so, dass sie Glaubwürdigkeit bei Kunden, Investoren und potenziellen Neueinstellungen aufbauen. Nicht nur bei alten Kollegen.' },
+  { title: 'Ghostwriting für Führungskräfte', description: 'Ihre Stimme. Ihre Expertise. Veröffentlicht in einem Takt, der relevant bleibt. Wir übernehmen Entwürfe, Freigaben, Veröffentlichung und Kommentar-Pflege.' },
+  { title: 'LinkedIn Live und Follower-Wachstum', description: 'LinkedIn Live zieht 24-mal mehr Kommentare als Standard-Videos. Wir bauen strukturierte Live-Programme, die eine echte Hörerschaft um die Expertise Ihrer Führungskräfte aufbauen.' },
+];
+
+const workshops = [
+  { tag: 'Halbtags', title: 'LinkedIn-Grundlagen', description: 'Wie die Plattform 2026 wirklich funktioniert. Algorithmus, Feed-Verhalten und was Ergebnisse bringt. Konzipiert für Teams, die bei null starten oder neu anfangen.' },
+  { tag: 'Ganztags', title: 'Content-Masterclass', description: 'Ein wiederholbares Produktionssystem, das Autorität aufbaut, ohne Ihr Team auszubrennen. KI-gestützte Workflows inklusive. Alle gehen mit einem 30-Tage-Contentplan nach Hause.' },
+  { tag: 'Ganztags', title: 'LinkedIn Ads im Detail', description: 'Targeting, Kampagnenarchitektur, Budgetierung und Attribution. Für Marketingteams, die Geld auf LinkedIn ausgeben und wissen wollen, wohin es genau fließt.' },
+  { tag: 'Halbtags', title: 'Executive Personal Brand', description: 'Eine fokussierte Session für die Geschäftsführung. Profilstruktur, Posting-Rhythmus und die Methoden, die Vertrauen schon vor dem ersten Termin schaffen.' },
+];
+
+const stats = [
+  { value: '80 %', caption: 'aller B2B-Leads aus sozialen Netzwerken kommen von LinkedIn. Facebook, X und Instagram teilen sich den Rest.' },
+  { value: '277 %', caption: 'höhere Lead-Quote als Facebook und X zusammen.' },
+  { value: '2,74 %', caption: 'Conversion-Rate vom Besucher zum Lead. Facebook liegt bei 0,77 %.' },
+  { value: '4 von 5', caption: 'LinkedIn-Mitglieder sind an Kaufentscheidungen in ihrem Unternehmen beteiligt.' },
+  { value: '561 %', caption: 'mehr Reichweite, wenn Mitarbeiter Inhalte teilen, statt sie nur über die Unternehmensseite zu posten.' },
+  { value: '10–15 %', caption: 'Conversion-Rate auf LinkedIn Lead Gen Forms. Klassische Landingpages erreichen 2 bis 5 %.' },
+  { value: '85 %', caption: 'der B2B-Marketingverantwortlichen halten LinkedIn für die wertvollste Social-Plattform.' },
+  { value: '28 %', caption: 'niedrigere Kosten pro Lead als bei Google Ads im B2B.' },
+  { value: '7×', caption: 'schnelleres Follower-Wachstum für Seiten, die wöchentlich veröffentlichen.' },
+  { value: '89 %', caption: 'der B2B-Marketingverantwortlichen nutzen LinkedIn bereits zur Leadgenerierung. Der Rest holt nach.' },
+];
+
+const faqs = [
+  { q: 'Was bedeutet „Employee Advocacy" in der Praxis?', a: 'Ihre Mitarbeiter teilen kuratierte Inhalte über ihre persönlichen LinkedIn-Profile. Wir bauen das Programm auf, produzieren die Inhalte und übernehmen die Logistik. Ihr Team teilt. Das war es.' },
+  { q: 'Wie schnell sehen wir Ergebnisse?', a: 'Reichweite und Interaktion steigen meist innerhalb des ersten Monats. Leads folgen in 60 bis 90 Tagen. Es hängt von Ihrer Branche, der Teamgröße und der Aktivität Ihrer Mitarbeiter ab. Wir setzen die Erwartung im ersten Gespräch klar.' },
+  { q: 'Schreiben Sie beim Ghostwriting für Führungskräfte wirklich alles?', a: 'Jedes Wort. Wir interviewen Ihre Führungskräfte, schreiben in deren Stimme und legen Entwürfe zur Freigabe vor. Nichts geht ohne deren Abnahme live.' },
+  { q: 'Wir sitzen nicht im DACH-Raum. Können Sie trotzdem mit uns arbeiten?', a: 'Ja. Wir arbeiten mit B2B-Unternehmen über alle Zeitzonen hinweg. Workshops finden online oder vor Ort statt. Content-Leistungen laufen standardmäßig remote.' },
+  { q: 'Mit welchen Unternehmensgrößen arbeiten Sie?', a: 'Von 20 bis 20.000 Mitarbeitern. Advocacy skaliert besonders gut für mittelgroße und große B2B-Unternehmen. Schulungen passen in jede Größe.' },
+  { q: 'Übernehmen Sie auch LinkedIn-Werbung für Kunden?', a: 'Unsere Beratung deckt organisches Wachstum ab: Advocacy, Personal Branding und Schulungen. Werbestrategie vermitteln wir im Deep-Dive-Workshop. Für laufende Anzeigenbetreuung sprechen Sie uns separat an.' },
+  { q: 'Worin unterscheidet sich Ihre Schulung von dem, was kostenlos im Netz steht?', a: 'Sie basiert auf Daten aus echten B2B-Kampagnen, nicht auf wiederverwerteten Tipps. Ihr Team verlässt den Raum mit einem Arbeitsergebnis: optimierten Profilen, einem Redaktionsplan oder einem Kampagnen-Bauplan. Nicht mit Folien.' },
+  { q: 'Was berichten Sie konkret?', a: 'Follower-Wachstum, Interaktionsrate, Profilaufrufe, Webseiten-Traffic aus LinkedIn und Inbound-Leads. Zahlen, die nicht auf die Pipeline einzahlen, sparen wir uns. Ihre Zeit auch.' },
+  { q: 'Können Sie Preise nennen?', a: 'Advocacy, Ghostwriting und Schulungen werden jeweils nach Umfang bepreist. Wir gehen die Zahlen in einem Gespräch durch und legen Ihnen ein klares Angebot vor. Ohne Grauzonen.' },
+  { q: 'Wir haben auf LinkedIn bisher nichts gemacht. Ist das ein Problem?', a: 'Nein. Viele unserer Kunden sind bei null gestartet. Der Grundlagen-Workshop wurde genau dafür entwickelt. Wir holen Sie dort ab, wo Sie stehen, und bauen von da auf.' },
+];
+---
+
+<Layout
+  lang="de"
+  title="LinkedIn-Beratung für die B2B-Leadgenerierung"
+  description="Employee Advocacy, Executive Branding und LinkedIn-Schulungen für B2B-Unternehmen. Wir bauen Ihre LinkedIn-Präsenz so aus, dass Ihr Team mehr Leads gewinnt."
+  abstract="Wir verhelfen B2B-Unternehmen zu mehr Leads über LinkedIn, durch Employee-Advocacy-Programme, Executive Branding und praxisnahe Schulungen."
+>
+  <NavBar lang="de" />
+  <main id="main-content">
+
+    <!-- ═══════════════════════════════════════════════════════
+         HERO
+         ═══════════════════════════════════════════════════════ -->
+    <section class="c-hero" aria-labelledby="c-hero-h">
+      <div class="c-hero__bg" aria-hidden="true"></div>
+      <div class="c-hero__overlay" aria-hidden="true"></div>
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="c-hero__content">
+          <p class="eyebrow eyebrow--light reveal">LinkedIn-Beratung</p>
+          <h1 id="c-hero-h" class="c-hero__h1 reveal reveal-delay-1">
+            Mehr Leads von LinkedIn. <span class="text-gradient">Nicht mehr Rauschen.</span>
+          </h1>
+          <p class="c-hero__sub reveal reveal-delay-2">
+            Beiträge Ihrer Unternehmensseite erreichen nur einen Bruchteil Ihrer Zielgruppe. Die Profile Ihrer Mitarbeiter erreichen alle anderen. Wir bauen die Programme, die diese Lücke schließen.
+          </p>
+          <div class="c-hero__actions reveal reveal-delay-3">
+            <a href="/de/kontakt?intent=call" class="btn btn--primary btn--lg">Gespräch vereinbaren</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         EMPLOYEE ADVOCACY
+         ═══════════════════════════════════════════════════════ -->
+    <section class="section c-svc" aria-labelledby="c-advocacy-h">
+      <div class="container">
+        <div class="c-svc__layout">
+          <div class="c-svc__text reveal">
+            <span class="c-svc__label">Employee Advocacy</span>
+            <h2 id="c-advocacy-h" class="c-svc__h2">Ihre Mitarbeiter haben mehr Reichweite, als Ihre Marke je haben wird.</h2>
+            <div class="c-svc__body">
+              <p>Der LinkedIn-Algorithmus hat eine klare Vorliebe: Beiträge von Menschen schlagen Beiträge von Unternehmensseiten. Ein Konstruktionsfehler ist das nicht, sondern die Logik der Plattform.</p>
+              <p>Inhalte, die von Mitarbeitern geteilt werden, erzielen achtmal mehr Interaktion als derselbe Beitrag von einer Markenseite. Ihre kombinierten Netzwerke sind zehnmal größer als die Follower Ihres Unternehmens. Und 92 % der B2B-Käufer vertrauen den Aussagen von Mitarbeitern mehr als der Unternehmenswerbung.</p>
+              <p>Die meisten Unternehmen wissen das. Die wenigsten handeln danach. Wer handelt, sieht innerhalb von 90 Tagen 4,3-mal mehr Impressionen und einen direkten Effekt auf die Pipeline.</p>
+              <p>Wir entwerfen das Programm und führen es. Ihr Team erscheint, teilt und kann zurück an die eigentliche Arbeit.</p>
+            </div>
+          </div>
+          <div class="c-svc__visual reveal reveal-delay-2">
+            <div class="c-svc__img-wrap">
+              <img src="/consulting-employee-advocacy.webp" alt="Mitarbeiterinnen und Mitarbeiter teilen aktiv Inhalte auf LinkedIn in einem modernen Großraumbüro" class="c-svc__img" width="560" height="420" loading="lazy" />
+            </div>
+          </div>
+        </div>
+
+        <div class="c-cards">
+          {advocacyCards.map((card, i) => (
+            <div class={`c-card reveal${i > 0 ? ` reveal-delay-${i}` : ''}`}>
+              <span class="c-card__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <strong class="c-card__title">{card.title}</strong>
+              <p class="c-card__desc">{card.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="c-svc__cta reveal">
+          <a href="/de/kontakt?intent=call" class="btn btn--primary btn--lg">Leads über das eigene Team gewinnen</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         PERSONAL BRANDING
+         ═══════════════════════════════════════════════════════ -->
+    <section class="section c-svc c-svc--alt" aria-labelledby="c-branding-h">
+      <div class="container">
+        <div class="c-svc__layout c-svc__layout--flip">
+          <div class="c-svc__text reveal">
+            <span class="c-svc__label">Executive Branding</span>
+            <h2 id="c-branding-h" class="c-svc__h2">Kunden prüfen Ihre Führungskräfte auf LinkedIn, bevor sie Ihre Webseite öffnen.</h2>
+            <div class="c-svc__body">
+              <p>82 % der B2B-Käufer vertrauen einem Unternehmen mehr, wenn dessen Geschäftsführung auf LinkedIn aktiv ist. 64 % lesen lieber einen durchdachten Beitrag Ihres Geschäftsführers als einen Produktpitch von der Unternehmensseite.</p>
+              <p>Das ist die Chance. Und die meisten Führungsteams lassen sie liegen, weil niemand Zeit hat, drei Beiträge pro Woche zu schreiben.</p>
+              <p>Wir nehmen ihnen das ab. Wir interviewen Ihre Führungskräfte, schreiben in deren Stimme und halten sie sichtbar bei den Menschen, die zählen. Ohne ihrem Kalender eine einzige Stunde zu stehlen.</p>
+            </div>
+          </div>
+          <div class="c-svc__visual reveal reveal-delay-2">
+            <div class="c-svc__img-wrap">
+              <img src="/consulting-personal-branding.webp" alt="Führungskraft prüft LinkedIn-Interaktionen am Smartphone in einem modernen Eckbüro im Abendlicht" class="c-svc__img" width="560" height="420" loading="lazy" />
+            </div>
+          </div>
+        </div>
+
+        <div class="c-cards">
+          {brandingCards.map((card, i) => (
+            <div class={`c-card reveal${i > 0 ? ` reveal-delay-${i}` : ''}`}>
+              <span class="c-card__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <strong class="c-card__title">{card.title}</strong>
+              <p class="c-card__desc">{card.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="c-svc__cta reveal">
+          <a href="/de/kontakt?intent=call" class="btn btn--primary btn--lg">Ihre Geschäftsführung vor den Kunden platzieren</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         TRAINING
+         ═══════════════════════════════════════════════════════ -->
+    <section class="section c-training" aria-labelledby="c-training-h">
+      <div class="c-training__bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="c-training__head reveal">
+          <span class="c-training__label">Schulungen</span>
+          <h2 id="c-training-h" class="c-training__h2">Ihr Team nutzt LinkedIn täglich. Weiß es auch, wie man es richtig nutzt?</h2>
+          <div class="c-training__intro">
+            <p>68 % der B2B-Marketingverantwortlichen haben ihre LinkedIn-Aktivität im vergangenen Jahr gesteigert. Die wenigsten taten das mit einer formalen Schulung im Rücken.</p>
+            <p>Das schlägt sich in den Resultaten nieder: generische Beiträge, leere Profile, Werbeausgaben ohne klar messbare Rendite. Geschulte Profis erreichen ihre Vertriebsziele dagegen 51 % häufiger.</p>
+            <p>Unsere Workshops sind keine Webinare, sondern Arbeitssitzungen. Ihr Team geht mit optimierten Profilen, einem Contentplan oder einer Anzeigenstrategie nach Hause, die ab Montagmorgen umsetzbar ist.</p>
+          </div>
+        </div>
+
+        <div class="c-workshop-grid">
+          {workshops.map((w, i) => (
+            <div class={`c-workshop reveal${i > 0 ? ` reveal-delay-${Math.min(i, 3)}` : ''}`}>
+              <span class={`c-workshop__tag ${w.tag === 'Halbtags' ? 'c-workshop__tag--cyan' : 'c-workshop__tag--blue'}`}>{w.tag}</span>
+              <strong class="c-workshop__title">{w.title}</strong>
+              <p class="c-workshop__desc">{w.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="c-training__cta reveal">
+          <a href="/de/kontakt?intent=call" class="btn btn--primary btn--lg">Workshop buchen</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         LINKEDIN BY THE NUMBERS
+         ═══════════════════════════════════════════════════════ -->
+    <section class="section c-num" aria-labelledby="c-num-h">
+      <div class="c-num__glow" aria-hidden="true"></div>
+      <div class="container">
+        <div class="c-num__head reveal">
+          <p class="eyebrow eyebrow--light">In Zahlen</p>
+          <h2 id="c-num-h" class="c-num__h2">Warum LinkedIn. In Zahlen.</h2>
+          <p class="c-num__intro">Das sind nicht unsere Zahlen. Sie stammen von LinkedIn, HubSpot, Edelman und unabhängigen B2B-Studien. Wir zeigen sie hier, weil Kunden uns die Frage „Warum LinkedIn?" stellen. Und die Antwort fällt immer gleich aus.</p>
+        </div>
+
+        <div class="c-num__grid">
+          {stats.map((s, i) => (
+            <div class={`c-num-card reveal${i > 0 ? ` reveal-delay-${(i % 4) + 1}` : ''}`}>
+              <span class="c-num-card__value">{s.value}</span>
+              <p class="c-num-card__caption">{s.caption}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+
+    <FAQ heading="Häufige Fragen" faqs={faqs} background="var(--off-white)" cta={{ text: 'Gespräch vereinbaren', href: '/de/kontakt' }} id="c-faq" />
+
+
+    <ContactCTA lang="de" />
+
+  </main>
+</Layout>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     STYLES
+     ═══════════════════════════════════════════════════════════ -->
+<style>
+  /* ── shared placeholder ── */
+  .ph{display:none;position:absolute;inset:0;flex-direction:column;align-items:center;justify-content:center;gap:var(--sp-3);background:linear-gradient(135deg,var(--off-white),var(--border));border-radius:var(--r-xl)}
+  .ph span{font-size:var(--fs-xs);color:var(--text-3);letter-spacing:.06em;text-transform:uppercase;font-weight:500}
+
+
+  /* ╔═══════════════════════════════════════════╗
+     ║  HERO                                     ║
+     ╚═══════════════════════════════════════════╝ */
+  .c-hero {
+    position: relative;
+    overflow: hidden;
+    padding-block: var(--sp-32) var(--sp-24);
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+  }
+
+  .c-hero__bg {
+    position: absolute;
+    inset: 0;
+    background: url('/consulting-hero.webp') center center / cover no-repeat;
+    z-index: 0;
+  }
+
+  .c-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(15,23,42, 0.92) 0%,
+      rgba(15,23,42, 0.75) 50%,
+      rgba(15,23,42, 0.45) 100%
+    );
+    z-index: 1;
+  }
+
+  .c-hero__content {
+    max-width: 680px;
+  }
+
+  .c-hero__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.10;
+    letter-spacing: -0.02em;
+    margin-block: var(--sp-5) var(--sp-6);
+  }
+  .c-hero__h1 .text-gradient {
+    background: linear-gradient(135deg, var(--cyan) 0%, var(--sky) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .c-hero__sub {
+    font-size: var(--fs-md);
+    color: rgba(255, 255, 255, 0.68);
+    max-width: 520px;
+    line-height: 1.75;
+    margin-bottom: var(--sp-10);
+  }
+
+  .c-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+  }
+
+  @media (max-width: 640px) {
+    .c-hero { padding-block: var(--sp-16) var(--sp-12); }
+  }
+
+
+  /* ╔═══════════════════════════════════════════╗
+     ║  SERVICE SECTIONS (Advocacy + Branding)   ║
+     ╚═══════════════════════════════════════════╝ */
+  .c-svc{background:var(--white)}
+  .c-svc--alt{background:var(--off-white)}
+
+  .c-svc__layout{
+    display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-16);
+    align-items:center;margin-bottom:var(--sp-12);
+  }
+  .c-svc__layout--flip{direction:rtl}
+  .c-svc__layout--flip .c-svc__text,
+  .c-svc__layout--flip .c-svc__visual{direction:ltr}
+
+  .c-svc__label{
+    display:inline-block;
+    font-family:var(--font-display);font-size:var(--fs-xl);font-weight:600;
+    color:var(--blue);letter-spacing:-.01em;
+    margin-bottom:var(--sp-3);
+    padding-bottom:var(--sp-2);
+    border-bottom:3px solid var(--cyan);
+  }
+
+  .c-svc__h2{
+    font-family:var(--font-display);font-size:clamp(1.75rem,3.5vw,2.5rem);
+    font-weight:700;color:var(--text);line-height:1.18;letter-spacing:-.01em;
+    margin-top:var(--sp-4);margin-bottom:var(--sp-8);
+  }
+
+  .c-svc__body{display:flex;flex-direction:column;gap:var(--sp-4)}
+  .c-svc__body p{font-size:var(--fs-md);color:var(--text-2);line-height:1.75}
+
+  .c-svc__img-wrap{
+    position:relative;border-radius:var(--r-xl);overflow:hidden;
+    aspect-ratio:4/3;background:var(--off-white);border:1px solid var(--border);
+    box-shadow:var(--shadow-lg);
+  }
+  .c-svc__img{width:100%;height:100%;object-fit:cover;display:block}
+
+  /* Service cards */
+  .c-cards{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-5);
+    margin-bottom:var(--sp-8);
+  }
+
+  .c-card{
+    position:relative;padding:var(--sp-8) var(--sp-6);
+    background:var(--white);border:1px solid var(--border);
+    border-radius:var(--r-xl);overflow:hidden;
+    transition:border-color var(--t-fast),box-shadow var(--t-fast),transform var(--t-base);
+  }
+  .c-svc--alt .c-card{background:var(--white)}
+  .c-card:hover{border-color:var(--border-2);box-shadow:var(--shadow-md);transform:translateY(-3px)}
+
+  .c-card__num{
+    position:absolute;top:var(--sp-3);right:var(--sp-5);
+    font-family:var(--font-display);font-size:var(--fs-5xl);font-weight:700;
+    color:rgba(3,105,161,.05);line-height:1;pointer-events:none;
+  }
+  .c-card__title{display:block;font-size:var(--fs-base);font-weight:600;color:var(--text);margin-bottom:var(--sp-3);position:relative;z-index:1}
+  .c-card__desc{font-size:var(--fs-sm);color:var(--text-2);line-height:1.7;position:relative;z-index:1}
+
+  .c-svc__cta{display:flex;justify-content:center;padding-top:var(--sp-4)}
+
+
+  /* ╔═══════════════════════════════════════════╗
+     ║  TRAINING                                 ║
+     ╚═══════════════════════════════════════════╝ */
+  .c-training{background:var(--deep-navy);position:relative;overflow:hidden}
+  .c-training__bg{
+    position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(ellipse 50% 60% at 0% 100%,rgba(6,182,212,.12) 0%,transparent 60%),
+      radial-gradient(ellipse 40% 50% at 100% 0%,rgba(3,105,161,.10) 0%,transparent 60%);
+  }
+
+  .c-training__head{position:relative;z-index:1;max-width:720px;margin-bottom:var(--sp-12)}
+  .c-training__label{
+    display:inline-block;
+    font-family:var(--font-display);font-size:var(--fs-xl);font-weight:600;
+    color:var(--cyan);letter-spacing:-.01em;
+    margin-bottom:var(--sp-3);
+    padding-bottom:var(--sp-2);
+    border-bottom:3px solid rgba(6,182,212,.40);
+  }
+
+  .c-training__h2{
+    font-family:var(--font-display);font-size:clamp(1.75rem,3.5vw,2.5rem);
+    font-weight:700;color:var(--white);line-height:1.18;letter-spacing:-.01em;
+    margin-top:var(--sp-4);margin-bottom:var(--sp-6);
+  }
+  .c-training__intro{display:flex;flex-direction:column;gap:var(--sp-4)}
+  .c-training__intro p{font-size:var(--fs-md);color:rgba(255,255,255,.58);line-height:1.75}
+
+  .c-workshop-grid{
+    position:relative;z-index:1;
+    display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-5);
+    margin-bottom:var(--sp-10);
+  }
+
+  .c-workshop{
+    padding:var(--sp-8) var(--sp-6);
+    background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+    border-radius:var(--r-xl);
+    transition:background var(--t-fast),border-color var(--t-fast),transform var(--t-base);
+  }
+  .c-workshop:hover{background:rgba(255,255,255,.08);border-color:rgba(6,182,212,.30);transform:translateY(-3px)}
+
+  .c-workshop__tag{
+    display:inline-flex;align-items:center;
+    padding:0.25rem 0.75rem;
+    font-size:var(--fs-xs);font-weight:500;
+    letter-spacing:0.10em;text-transform:uppercase;
+    border-radius:var(--r-full);margin-bottom:var(--sp-4);
+  }
+  .c-workshop__tag--cyan{background:rgba(6,182,212,.15);color:var(--cyan)}
+  .c-workshop__tag--blue{background:rgba(3,105,161,.15);color:rgba(255,255,255,.80)}
+
+  .c-workshop__title{display:block;font-size:var(--fs-lg);font-weight:600;color:var(--white);margin-bottom:var(--sp-3)}
+  .c-workshop__desc{font-size:var(--fs-sm);color:rgba(255,255,255,.58);line-height:1.7}
+
+  .c-training__cta{position:relative;z-index:1;display:flex;justify-content:center}
+
+
+  /* ╔═══════════════════════════════════════════╗
+     ║  LINKEDIN BY THE NUMBERS                  ║
+     ╚═══════════════════════════════════════════╝ */
+  .c-num{background:var(--white);position:relative;overflow:hidden}
+
+  .c-num__glow{
+    position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(3,105,161,.04) 0%,transparent 60%);
+  }
+
+  .c-num__head{position:relative;z-index:1;text-align:center;max-width:680px;margin-inline:auto;margin-bottom:var(--sp-12)}
+  .c-num__h2{
+    font-family:var(--font-display);font-size:clamp(1.75rem,3.5vw,2.5rem);
+    font-weight:700;color:var(--text);line-height:1.18;letter-spacing:-.01em;
+    margin-top:var(--sp-4);margin-bottom:var(--sp-4);
+  }
+  .c-num__intro{font-size:var(--fs-md);color:var(--text-2);line-height:1.75}
+
+  .c-num__grid{
+    position:relative;z-index:1;
+    display:grid;grid-template-columns:repeat(5,1fr);gap:var(--sp-4);
+  }
+
+  .c-num-card{
+    padding:var(--sp-6);
+    background:var(--off-white);border:1px solid var(--border);
+    border-radius:var(--r-xl);
+    transition:border-color var(--t-fast),box-shadow var(--t-fast),transform var(--t-base);
+  }
+  .c-num-card:hover{border-color:var(--border-2);box-shadow:var(--shadow-md);transform:translateY(-3px)}
+
+  .c-num-card__value{
+    display:block;font-family:var(--font-display);
+    font-size:clamp(1.75rem,3vw,2.75rem);font-weight:700;
+    color:var(--blue);line-height:1.1;margin-bottom:var(--sp-3);
+  }
+  .c-num-card__caption{font-size:var(--fs-sm);color:var(--text-2);line-height:1.65}
+
+
+  /* ╔═══════════════════════════════════════════╗
+     ║  BOTTOM CTA                               ║
+     ╚═══════════════════════════════════════════╝ */
+  .c-bcta{background:var(--deep-navy);position:relative;overflow:hidden;text-align:center}
+
+  .c-bcta__orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px)}
+  .c-bcta__orb--1{width:420px;height:420px;top:-120px;right:15%;background:radial-gradient(circle,rgba(6,182,212,.15) 0%,transparent 70%)}
+  .c-bcta__orb--2{width:300px;height:300px;bottom:-80px;left:5%;background:radial-gradient(circle,rgba(3,105,161,.12) 0%,transparent 70%)}
+
+  .c-bcta__inner{position:relative;z-index:1;max-width:720px;margin-inline:auto}
+
+  .c-bcta__h2{
+    font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--white);
+    line-height:1.12;letter-spacing:-.02em;margin-bottom:var(--sp-10);
+  }
+  .c-bcta__h2 em{font-style:normal;display:block;color:rgba(255,255,255,.40);font-weight:300;margin-top:var(--sp-2)}
+
+
+  /* ╔═══════════════════════════════════════════╗
+     ║  RESPONSIVE                               ║
+     ╚═══════════════════════════════════════════╝ */
+  @media (max-width: 1280px) {
+    .c-num__grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media(max-width:1024px){
+    .c-svc__layout{grid-template-columns:1fr;gap:var(--sp-10)}
+    .c-svc__layout--flip{direction:ltr}
+    .c-cards{grid-template-columns:repeat(2,1fr)}
+    .c-num__grid{grid-template-columns:repeat(2,1fr)}
+    .c-workshop-grid{grid-template-columns:repeat(2,1fr)}
+  }
+
+  @media(max-width:768px){
+    .c-hero{padding-block:var(--sp-20) var(--sp-16)}
+    .c-hero__shape svg{height:40px}
+    .c-cards{grid-template-columns:1fr}
+    .c-num__grid{grid-template-columns:1fr}
+    .c-workshop-grid{grid-template-columns:1fr}
+    .c-card{padding:var(--sp-6)}
+    .c-workshop{padding:var(--sp-6)}
+    .c-num-card{padding:var(--sp-5)}
+  }
+
+  @media(max-width:640px){
+    .c-hero__h1{font-size:clamp(2rem,6vw,2.5rem)}
+  }
+</style>

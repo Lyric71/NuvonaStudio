@@ -1,12 +1,13 @@
 ---
-import { useTranslations, type Lang } from '../i18n/index.ts';
+import { useTranslations, localizedPath, type Lang } from '../i18n/index.ts';
 
 interface Props {
   lang?: Lang;
 }
 const { lang = 'en' } = Astro.props;
 const t = useTranslations(lang);
-const prefix = lang === 'en' ? '' : `/${lang}`;
+const contactHref = `${localizedPath('contact', lang)}?intent=call`;
+const pricingHref = localizedPath('pricing', lang);
 ---
 
 <section class="section cta" aria-labelledby="cta-heading" style="background: var(--deep-navy);">
@@ -26,8 +27,8 @@ const prefix = lang === 'en' ? '' : `/${lang}`;
           {t('cta.sub')}
         </p>
         <div class="cta__actions">
-          <a href={`${prefix}/contact?intent=call`} class="btn btn--primary btn--lg">{t('cta.book')}</a>
-          <a href={`${prefix}/pricing`} class="btn btn--outline-white btn--lg">{t('cta.pricing')}</a>
+          <a href={contactHref} class="btn btn--primary btn--lg">{t('cta.book')}</a>
+          <a href={pricingHref} class="btn btn--outline-white btn--lg">{t('cta.pricing')}</a>
         </div>
         <p class="cta__note">{t('cta.note')}</p>
       </div>

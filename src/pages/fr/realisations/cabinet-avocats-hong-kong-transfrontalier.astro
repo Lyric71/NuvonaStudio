@@ -6,7 +6,7 @@ import ContactCTA from '../../../components/ContactCTA.astro';
 
 <Layout
   lang="fr"
-  title="Cabinet d'avocats de Hong Kong — Mandats transfrontaliers via LinkedIn | Étude de cas | Nuvora Studio"
+  title="Cabinet d'avocats de Hong Kong : mandats transfrontaliers via LinkedIn | Étude de cas | Nuvora Studio"
   description="Un cabinet d'avocats de Hong Kong a rendu ses associés seniors incontournables sur les dossiers transfrontaliers. L'expertise était là. La visibilité manquait."
   abstract="Étude de cas : comment la visibilité du dirigeant, le contenu LinkedIn et la mobilisation des équipes ont généré des mandats transfrontaliers pour un cabinet de Hong Kong."
 >
@@ -76,13 +76,13 @@ import ContactCTA from '../../../components/ContactCTA.astro';
               Trois associés, trois angles différents. On a fait très attention à ne pas avoir trois avocats qui publient la même chose.
             </p>
             <p>
-              Le premier est devenu la voix sur les tendances M&A en Grande Chine, les dynamiques de transactions et le comportement des acquéreurs. Le deuxième s'est concentré sur le risque réglementaire — ce que les évolutions de politique en Chine continentale signifient pour les opérations transfrontalières. Le troisième a pris le créneau du règlement des litiges pour les coentreprises multinationales. Chacun a eu droit à un profil entièrement reconstruit et un calendrier de contenu structuré autour de son positionnement.
+              Le premier est devenu la voix sur les tendances M&A en Grande Chine, les dynamiques de transactions et le comportement des acquéreurs. Le deuxième s'est concentré sur le risque réglementaire, c'est-à-dire ce que les évolutions de politique en Chine continentale signifient pour les opérations transfrontalières. Le troisième a pris le créneau du règlement des litiges pour les coentreprises multinationales. Chacun a eu droit à un profil entièrement reconstruit et un calendrier de contenu structuré autour de son positionnement.
             </p>
             <p>
               Le plus dur dans tout le projet ça a été de sortir les premières publications. Les avocats relisent tout, c'est comme ça. Le service conformité devait valider chaque phrase. Premier tour de validation : onze jours. Autant dire que ça aurait tué n'importe quel rythme de publication. On a donc mis en place un circuit de relecture simplifié, qui a ramené les délais à 48h. Il a fallu quelques semaines pour que la conformité accepte le fonctionnement mais une fois que c'etait calé, ça roulait.
             </p>
             <p>
-              Pour la page entreprise on publiait toutes les semaines, toujours calé sur l'actu. Un changement de politique à Pékin, une transaction transfrontalière dans la presse — on commentait. L'idée étant de montrer que le cabinet suit ce qui se passe, pas qu'il recycle des analyses d'il y a six mois.
+              Pour la page entreprise on publiait toutes les semaines, toujours calé sur l'actu. Un changement de politique à Pékin, une transaction transfrontalière dans la presse : on commentait. L'idée étant de montrer que le cabinet suit ce qui se passe, pas qu'il recycle des analyses d'il y a six mois.
             </p>
             <p>
               On a aussi embarqué 15 collaborateurs et avocats juniors dans le programme. Chaque semaine, un dossier avec des publications pré-rédigées sur les évolutions juridiques, les analyses du cabinet, les avancées des mandats en cours. Et des points mensuels pour que la participation ne retombe pas.
@@ -95,7 +95,7 @@ import ContactCTA from '../../../components/ContactCTA.astro';
               Deux nouveaux mandats transfrontaliers sur les deux premiers trimestres, directement attribués à LinkedIn. C'est pas énorme en volume. Mais dans un cabinet où un seul mandat peut représenter des honoraires à sept chiffres, deux ça change la donne.
             </p>
             <p>
-              Les trois associés ont atteint 3 800 abonnés combinés en quatre mois. Une publication sur un changement réglementaire en Chine continentale a dépassé les 12 000 vues et a été reprise par deux comptes d'actualité financière. La page du cabinet est passée de 600 à 1 700 abonnés. La participation des collaborateurs tournait autour de 55%, avec un creux au troisième mois — les équipes étaient absorbées par un gros mandat — avant de remonter ensuite.
+              Les trois associés ont atteint 3 800 abonnés combinés en quatre mois. Une publication sur un changement réglementaire en Chine continentale a dépassé les 12 000 vues et a été reprise par deux comptes d'actualité financière. La page du cabinet est passée de 600 à 1 700 abonnés. La participation des collaborateurs tournait autour de 55%, avec un creux au troisième mois (les équipes étaient absorbées par un gros mandat) avant de remonter ensuite.
             </p>
             <blockquote>
               « Avant, il nous fallait quelqu'un pour faire les présentations. Maintenant les gens nous trouvent et savent déjà ce qu'on fait avant même qu'on leur parle. »
@@ -109,7 +109,7 @@ import ContactCTA from '../../../components/ContactCTA.astro';
     <!-- Back link -->
     <section class="cs-back" aria-label="Navigation">
       <div class="container">
-        <a href="/fr/work" class="cs-back__link">&larr; Retour aux études de cas</a>
+        <a href="/fr/realisations" class="cs-back__link">&larr; Retour aux études de cas</a>
       </div>
     </section>
 
@@ -300,6 +300,10 @@ import ContactCTA from '../../../components/ContactCTA.astro';
   .cs-back__link:hover { color: var(--sky); transform: translateY(-3px); }
 
   /* ── Responsive ── */
+  @media (min-width: 1280px) {
+    .cs-content { max-width: 760px; }
+  }
+
   @media (max-width: 640px) {
     .cs-hero__meta { flex-direction: column; align-items: flex-start; }
     .cs-stats-bar__inner { grid-template-columns: 1fr; gap: var(--sp-5); }

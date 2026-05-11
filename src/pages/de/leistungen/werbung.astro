@@ -1,0 +1,1494 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import NavBar from '../../../components/NavBar.astro';
+import FAQ from '../../../components/FAQ.astro';
+
+const capabilities = [
+  {
+    title: 'Kampagnenarchitektur',
+    body: 'Wir bauen Ihre Kampagnenstruktur entlang Ihres Funnels. Jedes Format hat seine Aufgabe, jede Zielgruppe ihren Platz, jede Botschaft ihren Zweck. Überschneidungen vermeiden wir, ebenso Streuverluste ins Leere.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+      <rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+      <rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+      <rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
+    </svg>`,
+  },
+  {
+    title: 'Zielgruppensteuerung',
+    body: 'Wir bauen Zielgruppen nach Funktion, Seniorität, Firmenname, Unternehmensgröße, Branche und Kompetenzen. Account-based Campaigns erreichen genau die Menschen, die Verträge unterschreiben.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/>
+      <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6"/>
+      <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+    </svg>`,
+  },
+  {
+    title: 'Creatives und Anzeigentexte',
+    body: 'Wir schreiben und gestalten jede Anzeige. Texte, die das Problem Ihres Kunden treffen. Creatives, die im LinkedIn-Feed funktionieren. Tests in einzelnen Segmenten, bevor Budget skaliert wird.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 20h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+    </svg>`,
+  },
+  {
+    title: 'Alle Formate aus einer Hand',
+    body: 'Wir betreiben jedes LinkedIn-Anzeigenformat als zusammenhängendes System. Keine isolierten Einzelkampagnen, sondern eine durchgehende Funnel-Maschine, die am Ende qualifizierte Leads liefert.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M4 6h16M4 10h16M4 14h16M4 18h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>`,
+  },
+  {
+    title: 'KI-gestützte Optimierung',
+    body: 'KI generiert und testet Anzeigentexte, Varianten und Creatives in unterschiedlichen Zielgruppen. Wir wissen pro Funktion und Seniorität, was zieht, bevor das volle Budget läuft. Kampagnen werden Woche für Woche besser.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 2l2.09 6.26L20 10l-5.91 1.74L12 18l-2.09-6.26L4 10l5.91-1.74L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+    </svg>`,
+  },
+  {
+    title: 'Reporting mit CRM-Anschluss',
+    body: 'Wir berichten gegen Pipeline statt gegen Impressions. Jeder Bericht zeigt Ausgaben, Tests, Conversions und die nächste Anpassung, ohne Fachjargon und ohne Eitelkeitsmetriken.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/>
+      <path d="M7 17V13M12 17V9M17 17V7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>`,
+  },
+];
+
+const adFormats = [
+  {
+    title: 'Sponsored Content',
+    body: 'Das Arbeitspferd der LinkedIn-Werbung. Acht Unterformate: Einzelbild, Karussell, Video, Dokument, Event, Thought Leader, Artikel und Connected-TV-Anzeigen. Wir setzen Sponsored Content ein, um Aufmerksamkeit aufzubauen, Interaktion zu erzeugen und den oberen Funnel mit qualifiziertem Traffic zu versorgen.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>`,
+    image: '/images/advertising-sponsored-content.webp',
+    imageAlt: 'Visual einer Sponsored-Content-Kampagne',
+  },
+  {
+    title: 'Sponsored Messaging',
+    body: 'Message Ads und Conversation Ads, ausgespielt direkt im LinkedIn-Postfach Ihrer Interessenten. Message Ads transportieren genau eine Botschaft mit einer CTA. Conversation Ads bieten dem Empfänger mehrere Pfade zur Wahl. Beide werden in dem Moment ausgeliefert, in dem Ihre Zielgruppe aktiv ist und bereit zu reagieren.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/>
+      <path d="M2 7l10 7 10-7" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+    </svg>`,
+    image: '/images/advertising-sponsored-messaging.webp',
+    imageAlt: 'Visual einer Sponsored-Messaging-Kampagne',
+  },
+  {
+    title: 'Dynamic Ads',
+    body: 'Anzeigen, die sich automatisch personalisieren, indem sie die LinkedIn-Profildaten des Empfängers nutzen. Follower Ads vergrößern die Reichweite Ihrer Seite. Spotlight Ads lenken Traffic auf Ihre Website. Content Ads gewinnen Leads beim Download eines Assets. Keine manuelle Anzeigenproduktion für jeden Empfänger nötig.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 2l2.09 6.26L20 10l-5.91 1.74L12 18l-2.09-6.26L4 10l5.91-1.74L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+    </svg>`,
+    image: '/images/advertising-dynamic-ads.webp',
+    imageAlt: 'Visual einer Dynamic-Ads-Kampagne',
+  },
+  {
+    title: 'Textanzeigen',
+    body: 'Self-Service-PPC in der Desktop-Sidebar. Niedrigste Kosten, niedrigste Einstiegshürde. Keine Verträge. Wir nutzen Textanzeigen als Präzisionswerkzeug innerhalb der Gesamtkampagne, nicht als isolierte Taktik.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M4 6h16M4 10h16M4 14h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <rect x="16" y="14" width="5" height="7" rx="1" stroke="currentColor" stroke-width="1.6"/>
+    </svg>`,
+    image: '/images/advertising-text-ads.webp',
+    imageAlt: 'Visual einer Textanzeigen-Kampagne',
+  },
+  {
+    title: 'Lead Gen Forms',
+    body: 'Vorausgefüllte Formulare innerhalb von LinkedIn. Zwei Klicks und der Lead landet in Ihrem CRM, ganz ohne Landingpage und ohne dass der Interessent etwas doppelt eingeben müsste. Wir kombinieren Lead Gen Forms mit Sponsored Content und Messaging-Kampagnen, um die Conversion in jeder Funnel-Stufe anzuheben.',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect x="5" y="3" width="14" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/>
+      <path d="M9 7h6M9 11h6M9 15h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>`,
+    image: '/images/advertising-lead-gen-forms.webp',
+    imageAlt: 'Visual zu Lead Gen Forms',
+  },
+];
+
+const differentiators = [
+  {
+    title: 'Wir sind LinkedIn-Advertising-zertifiziert.',
+    body: 'Das ist kein Logo, das wir aufs Impressum kleben. Zertifizierung heißt, dass unser Team die offizielle LinkedIn-Prüfung zu Kampagnenstrategie, Anzeigenformaten, Targeting, Messung und Optimierung bestanden hat. Sie arbeiten mit einem Team, das auf dem höchsten Standard der Plattform operiert.',
+  },
+  {
+    title: 'Wir denken in Funneln, nicht in einzelnen Formaten.',
+    body: 'Bei vielen Agenturen läuft Sponsored Content als Einzeltaktik, daneben ein bisschen Lead Gen Forms. Wir bauen ein Full-Funnel-System, in dem jedes Format seine eigene Rolle übernimmt, von der ersten Aufmerksamkeit bis zur Conversion. So sinken Ihre Cost per Lead, während die Qualität der Leads steigt.',
+  },
+  {
+    title: 'Wir messen Umsatz statt Reichweite.',
+    body: 'Impressions bezahlen keine Rechnungen. Wir verbinden Ihre LinkedIn-Kampagnen mit dem CRM, damit Sie sehen, welche Anzeige Pipeline erzeugt. Wöchentlich optimieren wir auf die Kennzahlen, die für den Vertrieb tatsächlich zählen.',
+  },
+  {
+    title: 'Wir testen, bevor wir ausgeben.',
+    body: 'KI ermöglicht uns, dutzende Varianten von Anzeigentexten, Headlines und CTAs zu generieren und zu testen, bevor das Budget in die Skalierung geht. Wenn wir hochskalieren, wissen wir bereits, was bei Ihrer Zielgruppe funktioniert.',
+  },
+  {
+    title: 'Wir übernehmen alles.',
+    body: 'Strategie, Creatives, Targeting, Launch, Optimierung, Reporting: alles bei uns. Sie brauchen keinen separaten Strategen, keinen externen Designer und keinen zusätzlichen Media-Buyer. Ein Team, ein System, ein Ansprechpartner, der die Verantwortung trägt.',
+  },
+  {
+    title: 'Wir kennen B2B.',
+    body: 'E-Commerce-Anzeigen bauen wir nicht nebenher. LinkedIn-Werbung für B2B ist alles, was wir tun. Wir verstehen lange Vertriebszyklen, mehrere Entscheider und warum ein 200-Euro-Lead 200.000 Euro Vertragswert wert sein kann.',
+  },
+];
+
+const steps = [
+  {
+    num: '01',
+    title: 'Sondierung',
+    body: 'Wir lernen Ihr Geschäft, Ihre Kunden und Ihre Pipeline-Ziele kennen. Wir auditieren Ihre aktuelle LinkedIn-Präsenz und Ihren Werbeverlauf. Wir identifizieren, was funktioniert, was nicht und wo die eigentliche Chance liegt.',
+  },
+  {
+    num: '02',
+    title: 'Aufbau',
+    body: 'Wir entwerfen die Kampagnenarchitektur, bauen die Zielgruppen, schreiben die Anzeigentexte und gestalten die Creatives. Alles strukturiert um Ihren Funnel und Ihren Vertriebszyklus.',
+  },
+  {
+    num: '03',
+    title: 'Launch und Test',
+    body: 'Wir gehen mit Ihren Kampagnen live und testen vom ersten Tag an. Texte, Creatives, Zielgruppen, Formate, CTAs laufen parallel. KI beschleunigt den Prozess, sodass Gewinner früher sichtbar werden.',
+  },
+  {
+    num: '04',
+    title: 'Optimieren und skalieren',
+    body: 'Wir optimieren wöchentlich anhand dessen, was Pipeline bringt, nicht nur anhand von Klicks. Mit zunehmender Reife der Kampagnen skalieren wir, was funktioniert, und stoppen, was nicht trägt. Sie erhalten einen Monatsbericht, der Werbeausgaben mit Umsatz verbindet.',
+  },
+];
+
+const stats = [
+  { number: '121 %', label: 'ROAS', note: 'Return on Ad Spend von LinkedIn im B2B, gegenüber 67 % bei Google Search und 51 % bei Meta.', source: 'Quelle: Dreamdata 2026 Benchmarks Report' },
+  { number: '6,1 %', label: 'Conversion-Rate', note: 'Durchschnittliche US-LinkedIn-Conversion-Rate, gegenüber 3,75 % bei Google Search und 0,77 % bei Google Display.' },
+  { number: '80 %', label: 'B2B-Leads', note: 'Anteil aller B2B-Leads aus sozialen Netzwerken, die von LinkedIn stammen.' },
+  { number: '41 %', label: 'Anteil am Werbebudget', note: 'LinkedIns Anteil an den gesamten B2B-Werbebudgets. Die größte Einzelinvestition auf einer Plattform im B2B.' },
+  { number: '10–13 %', label: 'CVR Lead Gen Forms', note: 'Conversion-Rate von Lead Gen Forms gegenüber 2,35 % bei klassischen B2B-Landingpages.' },
+  { number: '4 von 5', label: 'Entscheidern', note: 'LinkedIn-Mitgliedern, die an geschäftlichen Entscheidungen in ihrem Unternehmen beteiligt sind.' },
+  { number: '211', label: 'Tage bis zum Abschluss', note: 'Durchschnittliche Dauer einer B2B-Kaufreise von Erstkontakt bis Vertrag. Genau deshalb braucht es ein Full-Funnel-System.' },
+  { number: '33 %', label: 'Kaufabsicht', note: 'Anstieg der Kaufabsicht bei Marken, die auf LinkedIn werben.' },
+];
+
+const faqs = [
+  {
+    q: 'Was bedeutet eigentlich „LinkedIn Advertising Certified"?',
+    a: 'Das bedeutet, dass unser Team das offizielle Zertifizierungsprogramm von LinkedIn zu Kampagnenstrategie, Anzeigenformaten, Zielgruppensteuerung, Messung und Optimierung absolviert und bestanden hat. Es ist der eigene Standard von LinkedIn für Werbeexpertise. Nicht jede Agentur hat ihn. Wir schon.',
+  },
+  {
+    q: 'Welche LinkedIn-Anzeigenformate betreuen Sie?',
+    a: 'Alle fünf: Sponsored Content (alle acht Unterformate), Sponsored Messaging (Message Ads und Conversation Ads), Dynamic Ads, Textanzeigen und Lead Gen Forms. Wir betreiben sie als ein zusammenhängendes System, nicht als isolierte Kampagnen.',
+  },
+  {
+    q: 'Übernehmen Sie auch Strategie und Creatives oder nur das Mediabuying?',
+    a: 'Alles. Wir starten mit Ihrer Zielgruppe, Ihrem Funnel und Ihren Pipeline-Zielen. Daraus bauen wir die Architektur, schreiben die Texte, gestalten die Creatives, launchen, testen und optimieren. Ein Team verantwortet den gesamten Prozess.',
+  },
+  {
+    q: 'Wie sieht Ihr Reporting aus?',
+    a: 'Wir berichten gegen Pipeline. Sie erhalten wöchentliche Optimierungs-Updates und einen monatlichen Performance-Report. Jeder Bericht zeigt, was wir ausgegeben und getestet haben, was funktioniert und was wir als Nächstes anpassen. Kein Fachjargon, keine Eitelkeitsmetriken.',
+  },
+  {
+    q: 'Wie setzen Sie KI ein?',
+    a: 'KI generiert und testet Anzeigentexte, Varianten und Creatives in unterschiedlichen Zielgruppen. Wir finden heraus, was nach Funktion und Seniorität am besten performt, bevor Ihr volles Budget eingesetzt wird. Das Ergebnis: schnellere Optimierung und niedrigere Kosten pro Lead.',
+  },
+  {
+    q: 'Wie hoch ist Ihr Mindest-Werbebudget?',
+    a: 'Wir arbeiten mit B2B-Unternehmen, die LinkedIn als Leadkanal ernst nehmen. Liegt Ihr monatliches Werbebudget unter 5.000 €, ist LinkedIn vermutlich noch nicht das richtige Format. Das sagen wir Ihnen direkt im ersten Gespräch.',
+  },
+  {
+    q: 'Wann sehe ich erste Ergebnisse?',
+    a: 'Die meisten Kunden sehen innerhalb der ersten 30 Tage qualifizierte Leads. Aber LinkedIn ist ein Full-Funnel-Kanal. Die durchschnittliche B2B-Kaufreise dauert 211 Tage. Der eigentliche Wert wächst über Monate, je mehr Daten Ihre Kampagnen sammeln, je präziser das Targeting wird und je voller die Pipeline läuft.',
+  },
+  {
+    q: 'Brauche ich eine starke LinkedIn-Unternehmensseite, bevor Anzeigen laufen?',
+    a: 'Es hilft, aber es ist kein Ausschlusskriterium. Wer Ihre Anzeige sieht, prüft oft erst Ihre Unternehmensseite, bevor er reagiert. Wir beraten zum Aufbau der Seite oder übernehmen ihn als Teil des Onboardings, damit die Seite vor dem ersten Anzeigenstart bereit ist.',
+  },
+  {
+    q: 'Können Sie bestimmte Unternehmen oder Funktionen gezielt erreichen?',
+    a: 'Ja. LinkedIns Targeting ist im B2B das präziseste, das es gibt. Wir steuern nach Funktion, Seniorität, Firmenname, Unternehmensgröße, Branche, Kompetenzen und mehr. Sie erreichen genau die Menschen, die Kaufentscheidungen treffen.',
+  },
+  {
+    q: 'Mit welchen Branchen arbeiten Sie?',
+    a: 'B2B-Unternehmen aus Technologie, Industrie, Professional Services, SaaS, Gesundheitswesen und weiteren Bereichen. Wenn Ihre Kunden auf LinkedIn sind und Ihre Abschlüsse mindestens 20.000 € wert sind, lässt sich eine Kampagne aufsetzen, die sich selbst trägt.',
+  },
+  {
+    q: 'Wie steige ich ein?',
+    a: 'Vereinbaren Sie ein Gespräch. Wir schauen uns Ihre aktuelle LinkedIn-Präsenz an, sprechen über Ihre Pipeline-Ziele und sagen Ihnen, ob LinkedIn-Werbung für Ihr Geschäft der richtige Kanal ist. Ohne Verkaufsfolien, ohne Drängen.',
+  },
+];
+---
+
+<Layout
+  lang="de"
+  title="LinkedIn-Werbeleistungen | Mehr B2B-Leads gewinnen"
+  description="Wir betreiben jedes LinkedIn-Anzeigenformat als ein System für B2B-Leadgenerierung. Präzises Targeting, KI-gestützte Optimierung und Reporting, das auf Pipeline zielt."
+  abstract="Wir betreiben jedes LinkedIn-Anzeigenformat, um Ihre B2B-Leads zu vermehren. Präzises Targeting, Full-Funnel-Kampagnen und Reporting gegen Pipeline, nicht gegen Impressions."
+>
+  <NavBar lang="de" />
+  <main id="main-content">
+
+    <!-- ── Hero ─────────────────────────────────────────────── -->
+    <section class="ads-hero" aria-labelledby="ads-heading">
+      <div class="ads-hero__bg" aria-hidden="true"></div>
+      <div class="ads-hero__overlay" aria-hidden="true"></div>
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="ads-hero__content">
+          <p class="eyebrow eyebrow--light reveal">LinkedIn-Werbung</p>
+          <h1 id="ads-heading" class="ads-hero__h1 reveal reveal-delay-1">
+            LinkedIn-Anzeigen, die aus Klicks <span class="text-gradient">Pipeline machen.</span>
+          </h1>
+          <p class="ads-hero__sub reveal reveal-delay-2">
+            Sie wissen, dass Ihre Kunden auf LinkedIn sind. Wir sorgen dafür, dass Ihre Anzeigen die richtigen erreichen, zur richtigen Zeit, mit der richtigen Botschaft. Und dass daraus Leads werden, die der Vertrieb auch abschließt.
+          </p>
+          <div class="ads-hero__actions reveal reveal-delay-3">
+            <a href="/de/kontakt?intent=call" class="btn btn--primary btn--lg">Gespräch vereinbaren</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── The Problem ─────────────────────────────────────── -->
+    <section class="section problem" aria-labelledby="problem-heading">
+      <div class="container">
+        <div class="problem__inner">
+          <div class="problem__text">
+            <h2 id="problem-heading" class="problem__h2 reveal">Die meisten B2B-Unternehmen verbrennen ihr Geld auf LinkedIn</h2>
+            <div class="problem__body">
+              <p class="problem__p reveal">Ein Beitrag wird gepusht. Die Zielgruppe ist breit gewählt. Dann wird auf das Beste gehofft.</p>
+              <p class="problem__p reveal">Das Ergebnis: hohe Klickpreise, schlechte Leads, keine klare Verbindung von Werbeausgaben zu Umsatz.</p>
+              <p class="problem__p reveal">LinkedIn-Werbung funktioniert. Aber nur, wenn sie als System gebaut ist, nicht als Sammlung unverbundener Kampagnen.</p>
+              <p class="problem__p problem__p--highlight reveal">Genau das ist unsere Aufgabe.</p>
+            </div>
+          </div>
+          <div class="problem__visual reveal reveal-delay-2" aria-hidden="true">
+            <div class="problem__graphic">
+              <div class="problem__bar problem__bar--1"><span>Verbranntes Budget</span></div>
+              <div class="problem__bar problem__bar--2"><span>Schwache Leads</span></div>
+              <div class="problem__bar problem__bar--3"><span>Keine Attribution</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── What We Do ──────────────────────────────────────── -->
+    <section class="section what-we-do" aria-labelledby="wwd-heading">
+      <div class="container">
+        <div class="wwd__head reveal">
+          <p class="eyebrow">Unser Leistungsspektrum</p>
+          <h2 id="wwd-heading" class="wwd__h2">Wir bauen und betreiben Ihre gesamte LinkedIn-Werbemaschine</h2>
+          <p class="wwd__intro">Wir reichen Ihnen kein Strategiedeck und wünschen viel Erfolg. Wir verantworten den gesamten Prozess, von der Zielgruppe bis zur Pipeline. Unser Team ist LinkedIn Advertising Certified und erfüllt damit den eigenen Standard der Plattform für Strategie, Targeting und Optimierung.</p>
+        </div>
+
+        <div class="wwd__grid">
+          {capabilities.map((cap, i) => (
+            <div class={`wwd-card reveal${i > 0 ? ` reveal-delay-${Math.min(i, 3)}` : ''}`}>
+              <div class="wwd-card__top">
+                <span class="wwd-card__icon" aria-hidden="true" set:html={cap.icon} />
+              </div>
+              <strong class="wwd-card__title">{cap.title}</strong>
+              <p class="wwd-card__body">{cap.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Ad Formats We Run ───────────────────────────────── -->
+    <section class="section formats-section" aria-labelledby="formats-heading">
+      <div class="container">
+        <div class="formats__head reveal">
+          <p class="eyebrow">Anzeigenformate</p>
+          <h2 id="formats-heading" class="formats__h2">Jedes LinkedIn-Anzeigenformat. Ein zertifiziertes Team.</h2>
+          <p class="formats__intro">LinkedIn bietet fünf zentrale Anzeigenformate. Jedes erfüllt eine andere Aufgabe im Funnel. Die meisten Agenturen nutzen ein oder zwei. Wir betreiben alle fünf als ein zusammenhängendes System, denn nur so führen Sie Interessenten vom ersten Eindruck bis zum Vertragsabschluss. Unser LinkedIn-Advertising-zertifiziertes Team weiß, wann und wie jedes Format einzusetzen ist.</p>
+        </div>
+
+        {adFormats.map((fmt, i) => (
+          <div class={`fmt-block${i % 2 === 1 ? ' fmt-block--flip' : ''} reveal`} id={`fmt-${i}`}>
+            <div class="fmt-block__text">
+              <div class="fmt-block__label">
+                <span class="fmt-block__icon" aria-hidden="true" set:html={fmt.icon} />
+              </div>
+              <h3 class="fmt-block__title">{fmt.title}</h3>
+              <p class="fmt-block__body">{fmt.body}</p>
+            </div>
+            <div class="fmt-block__visual">
+              <div class="fmt-block__img-wrap">
+                <img
+                  src={fmt.image}
+                  alt={fmt.imageAlt}
+                  class="fmt-block__img"
+                  width="560"
+                  height="380"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- ── Why Work With Us ────────────────────────────────── -->
+    <section class="section why-us" aria-labelledby="why-heading">
+      <div class="why-us__bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="why__head reveal">
+          <p class="eyebrow eyebrow--light">Warum wir</p>
+          <h2 id="why-heading" class="why__h2">Was uns unterscheidet</h2>
+        </div>
+
+        <div class="why__layout">
+
+          <!-- Left: Visual column -->
+          <div class="why__visual reveal">
+            <!-- Team photo placeholder -->
+            <div class="why__photo-wrap">
+              <img
+                src="/images/advertising-team.webp"
+                alt="Das Team von Nuvora Studio"
+                class="why__photo"
+                width="480"
+                height="560"
+                loading="lazy"
+              />
+            </div>
+
+            <!-- Certification badge -->
+            <div class="why__cert">
+              <div class="why__cert-badge">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                  <path d="M14 2l3.09 6.26L24 10l-6.91 2.74L14 22l-3.09-9.26L4 10l6.91-1.74L14 2z" fill="var(--cyan)"/>
+                  <circle cx="14" cy="12" r="5" fill="var(--deep-navy)" stroke="var(--cyan)" stroke-width="1.5"/>
+                  <path d="M11.5 12l1.75 1.75L16.5 10" stroke="var(--cyan)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="why__cert-text">
+                <strong>LinkedIn Advertising Certified</strong>
+                <span>Kampagnenstrategie, Targeting, Messung und Optimierung</span>
+              </div>
+            </div>
+
+            <!-- Trust indicators -->
+            <div class="why__trust-row">
+              <div class="why__trust-item">
+                <span class="why__trust-num">100 %</span>
+                <span class="why__trust-label">LinkedIn-Fokus</span>
+              </div>
+              <div class="why__trust-divider"></div>
+              <div class="why__trust-item">
+                <span class="why__trust-num">B2B</span>
+                <span class="why__trust-label">Ausschließlich</span>
+              </div>
+              <div class="why__trust-divider"></div>
+              <div class="why__trust-item">
+                <span class="why__trust-num">Full</span>
+                <span class="why__trust-label">Funnel</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Differentiator cards -->
+          <div class="why__cards">
+            {differentiators.map((d, i) => (
+              <div class={`why-card reveal${i > 0 ? ` reveal-delay-${Math.min(i, 3)}` : ''}`}>
+                <div class="why-card__content">
+                  <strong class="why-card__title">{d.title}</strong>
+                  <p class="why-card__body">{d.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── How It Works ────────────────────────────────────── -->
+    <section class="section steps-section" aria-labelledby="steps-heading">
+      <div class="container">
+        <div class="steps__head reveal">
+          <p class="eyebrow">Vorgehen</p>
+          <h2 id="steps-heading" class="steps__h2">Vom Kick-off zur Pipeline in vier Schritten</h2>
+        </div>
+
+        <div class="steps__track">
+          <div class="steps__line" aria-hidden="true"></div>
+          {steps.map((step, i) => (
+            <div class={`step-card reveal reveal-delay-${Math.min(i + 1, 4)}`}>
+              <div class="step-card__dot" aria-hidden="true">
+                <span>{step.num}</span>
+              </div>
+              <strong class="step-card__title">{step.title}</strong>
+              <p class="step-card__body">{step.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── LinkedIn Ads by the Numbers ────────────────────── -->
+    <section class="section stats-section" aria-labelledby="stats-heading">
+      <div class="container">
+        <div class="stats__head reveal">
+          <p class="eyebrow eyebrow--light">In Zahlen</p>
+          <h2 id="stats-heading" class="stats__h2">Die Plattform liefert. Die Zahlen belegen es.</h2>
+        </div>
+
+        <div class="stats__grid">
+          {stats.map((s, i) => (
+            <div class={`stat-card${i === 0 ? ' stat-card--featured' : ''} reveal${i > 0 ? ` reveal-delay-${(i % 3) === 0 ? '' : i % 3}` : ''}`}>
+              <span class="stat-card__number">{s.number}</span>
+              <span class="stat-card__label">{s.label}</span>
+              <p class="stat-card__note">{s.note}</p>
+              {s.source && <p class="stat-card__source">{s.source}</p>}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Who This Is For ─────────────────────────────────── -->
+    <section class="section fit-section" aria-labelledby="fit-heading">
+      <div class="container">
+        <div class="fit__layout">
+          <div class="fit__text">
+            <p class="eyebrow reveal">Passt das zu Ihnen?</p>
+            <h2 id="fit-heading" class="fit__h2 reveal">Passt das zu Ihrem Geschäft?</h2>
+            <p class="fit__intro reveal">Unsere LinkedIn-Werbeleistungen sind für B2B-Unternehmen gebaut, die drei Voraussetzungen erfüllen:</p>
+          </div>
+
+          <div class="fit__items">
+            <div class="fit-item reveal">
+              <div class="fit-item__check" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10.5l4 4 8-8" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <strong class="fit-item__title">Ihre Kunden sind auf LinkedIn.</strong>
+                <p class="fit-item__body">Wenn Ihre Kunden Fachleute, Führungskräfte oder Unternehmer sind, finden Sie sie auf der Plattform. Vier von fünf LinkedIn-Mitgliedern treiben Kaufentscheidungen im Unternehmen voran.</p>
+              </div>
+            </div>
+            <div class="fit-item reveal reveal-delay-1">
+              <div class="fit-item__check" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10.5l4 4 8-8" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <strong class="fit-item__title">Ihre Auftragsgrößen rechtfertigen die Investition.</strong>
+                <p class="fit-item__body">Die Kosten pro Lead sind auf LinkedIn höher als auf Meta oder im Google Display Network. Bei Auftragsgrößen ab 20.000 € geht die Rechnung trotzdem auf. Ein 200-Euro-Lead bei einer Abschlussquote von 5 % bedeutet 4.000 € Akquisekosten für einen Kunden, der ein Vielfaches einbringt.</p>
+              </div>
+            </div>
+            <div class="fit-item reveal reveal-delay-2">
+              <div class="fit-item__check" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10.5l4 4 8-8" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <strong class="fit-item__title">Ihnen geht es um Pipeline, nicht um Eitelkeitszahlen.</strong>
+                <p class="fit-item__body">Wenn Sie Impressions und Follower sammeln wollen, reicht jede Agentur. Wenn Sie qualifizierte Leads wollen, die Ihr Vertrieb auch abschließt, sollten wir reden.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <FAQ heading="Häufige Fragen zur Zusammenarbeit" faqs={faqs} background="var(--off-white)" cta={{ text: 'Gespräch vereinbaren', href: '/de/kontakt?intent=call' }} id="ads-faq" />
+
+    <!-- ── Bottom CTA ──────────────────────────────────────── -->
+    <section class="section cta" aria-labelledby="ads-cta-heading">
+      <div class="cta__orb cta__orb--1" aria-hidden="true"></div>
+      <div class="cta__orb cta__orb--2" aria-hidden="true"></div>
+      <div class="container">
+        <div class="cta__layout">
+          <div class="cta__left reveal">
+            <p class="eyebrow eyebrow--light">Anfangen</p>
+            <h2 id="ads-cta-heading" class="cta__headline">
+              Mehr Leads<br />
+              <em>aus LinkedIn-Werbung.</em>
+            </h2>
+          </div>
+          <div class="cta__right reveal reveal-delay-2">
+            <p class="cta__sub">Ein LinkedIn-Advertising-zertifiziertes Team, das jedes Format als ein vernetztes System steuert. Jede Kampagne berichtet gegen Ihre Pipeline.</p>
+            <div class="cta__actions">
+              <a href="/de/kontakt?intent=call" class="btn btn--primary btn--lg">Gespräch vereinbaren</a>
+            </div>
+            <p class="cta__note">30 Minuten, ohne Pitch, mit klaren Antworten.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Layout>
+
+<style>
+  /* ── Hero ── */
+  .ads-hero {
+    position: relative;
+    overflow: hidden;
+    padding-block: var(--sp-32) var(--sp-24);
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+  }
+
+  .ads-hero__bg {
+    position: absolute;
+    inset: 0;
+    background: url('/images/advertising-hero.webp') center center / cover no-repeat;
+    z-index: 0;
+  }
+
+  .ads-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(15,23,42, 0.92) 0%,
+      rgba(15,23,42, 0.75) 50%,
+      rgba(15,23,42, 0.45) 100%
+    );
+    z-index: 1;
+  }
+
+  .ads-hero__content {
+    max-width: 680px;
+  }
+
+  .ads-hero__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.10;
+    letter-spacing: -0.02em;
+    margin-block: var(--sp-5) var(--sp-6);
+  }
+
+  .ads-hero__h1 .text-gradient {
+    background: linear-gradient(135deg, var(--cyan) 0%, var(--sky) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .ads-hero__sub {
+    font-size: var(--fs-md);
+    color: rgba(255, 255, 255, 0.68);
+    max-width: 520px;
+    line-height: 1.75;
+    margin-bottom: var(--sp-10);
+  }
+
+  .ads-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+  }
+
+  @media (max-width: 640px) {
+    .ads-hero { padding-block: var(--sp-16) var(--sp-12); }
+  }
+
+  /* ── The Problem ── */
+  .problem {
+    background: var(--deep-navy);
+    position: relative;
+    overflow: hidden;
+  }
+  .problem::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(3,105,161,0.06) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .problem__inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-16);
+    align-items: center;
+  }
+
+  .problem__h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: var(--sp-8);
+  }
+
+  .problem__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-5);
+  }
+
+  .problem__p {
+    font-size: var(--fs-md);
+    color: rgba(255,255,255,0.6);
+    line-height: 1.75;
+  }
+
+  .problem__p--highlight {
+    font-size: var(--fs-xl);
+    font-weight: 700;
+    color: var(--cyan);
+    margin-top: var(--sp-2);
+  }
+
+  /* Decorative problem graphic */
+  .problem__visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .problem__graphic {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .problem__bar {
+    padding: var(--sp-4) var(--sp-6);
+    border-radius: var(--r-lg);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: rgba(255,255,255,0.7);
+    position: relative;
+    overflow: hidden;
+  }
+  .problem__bar span { position: relative; z-index: 1; }
+  .problem__bar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+  .problem__bar--1 {
+    background: rgba(220,60,60,0.12);
+    border: 1px solid rgba(220,60,60,0.25);
+  }
+  .problem__bar--1::before {
+    background: linear-gradient(90deg, rgba(220,60,60,0.2) 0%, transparent 85%);
+    width: 85%;
+  }
+  .problem__bar--2 {
+    background: rgba(220,120,40,0.10);
+    border: 1px solid rgba(220,120,40,0.25);
+  }
+  .problem__bar--2::before {
+    background: linear-gradient(90deg, rgba(220,120,40,0.18) 0%, transparent 70%);
+    width: 70%;
+  }
+  .problem__bar--3 {
+    background: rgba(220,180,40,0.08);
+    border: 1px solid rgba(220,180,40,0.20);
+  }
+  .problem__bar--3::before {
+    background: linear-gradient(90deg, rgba(220,180,40,0.15) 0%, transparent 55%);
+    width: 55%;
+  }
+
+  /* ── What We Do ── */
+  .what-we-do {
+    background: var(--off-white);
+  }
+
+  .wwd__head {
+    margin-bottom: var(--sp-12);
+    max-width: 720px;
+  }
+
+  .wwd__h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-block: var(--sp-4) var(--sp-5);
+  }
+
+  .wwd__intro {
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    line-height: 1.75;
+  }
+
+  .wwd__intro :global(strong) {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .wwd__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-6);
+  }
+
+  .wwd-card {
+    padding: var(--sp-8);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    transition: border-color var(--t-base), box-shadow var(--t-base), transform var(--t-base);
+    position: relative;
+    overflow: hidden;
+  }
+  .wwd-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--cyan));
+    opacity: 0;
+    transition: opacity var(--t-base);
+  }
+  .wwd-card:hover {
+    border-color: rgba(3,105,161,0.25);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+  }
+  .wwd-card:hover::before {
+    opacity: 1;
+  }
+
+  .wwd-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--sp-2);
+  }
+
+  .wwd-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--r-lg);
+    background: linear-gradient(135deg, rgba(3,105,161,0.10), rgba(6,182,212,0.08));
+    color: var(--blue);
+    flex-shrink: 0;
+  }
+  .wwd-card__icon svg { display: block; }
+
+  .wwd-card__num {
+    font-family: var(--font-display);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--text-3);
+    letter-spacing: -0.02em;
+  }
+
+  .wwd-card__title {
+    font-size: var(--fs-base);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  .wwd-card__body {
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.65;
+  }
+
+  /* ── Ad Formats (alternating 2-col) ── */
+  .formats-section {
+    background: var(--white);
+  }
+
+  .formats__head {
+    margin-bottom: var(--sp-16);
+    max-width: 760px;
+  }
+
+  .formats__h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-block: var(--sp-4) var(--sp-5);
+  }
+
+  .formats__intro {
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    line-height: 1.75;
+  }
+
+  .fmt-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-16);
+    align-items: center;
+    margin-bottom: var(--sp-16);
+  }
+  .fmt-block:last-child { margin-bottom: 0; }
+  .fmt-block--flip { direction: rtl; }
+  .fmt-block--flip .fmt-block__text,
+  .fmt-block--flip .fmt-block__visual { direction: ltr; }
+
+  .fmt-block__label {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+    margin-bottom: var(--sp-5);
+  }
+
+  .fmt-block__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--r-lg);
+    background: linear-gradient(135deg, rgba(3,105,161,0.10), rgba(6,182,212,0.08));
+    color: var(--blue);
+  }
+  .fmt-block__icon svg { display: block; }
+
+  .fmt-block__num {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xl);
+    font-weight: 700;
+    color: var(--blue);
+    opacity: 0.10;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .fmt-block__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+    margin-bottom: var(--sp-4);
+  }
+
+  .fmt-block__body {
+    font-size: var(--fs-base);
+    color: var(--text-2);
+    line-height: 1.75;
+  }
+
+  .fmt-block__visual {
+    position: relative;
+  }
+
+  .fmt-block__img-wrap {
+    position: relative;
+    border-radius: var(--r-2xl);
+    overflow: hidden;
+    aspect-ratio: 16/11;
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+  }
+
+  .fmt-block__img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+
+  .fmt-block__img-placeholder {
+    display: none;
+    position: absolute; inset: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-3);
+    background: linear-gradient(135deg, var(--off-white) 0%, var(--border) 100%);
+  }
+
+  .fmt-block__img-placeholder span {
+    font-size: var(--fs-xs);
+    color: var(--text-3);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+
+  /* ── Why Work With Us ── */
+  .why-us {
+    background: var(--deep-navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .why-us__bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 50% 60% at 90% 20%, rgba(6,182,212,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 50% at 10% 80%, rgba(3,105,161,0.10) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .why__head {
+    position: relative; z-index: 1;
+    margin-bottom: var(--sp-12);
+  }
+
+  .why__h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-top: var(--sp-4);
+  }
+
+  .why__layout {
+    position: relative; z-index: 1;
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: var(--sp-12);
+    align-items: start;
+  }
+
+  /* Visual column */
+  .why__visual {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-6);
+    position: sticky;
+    top: 100px;
+  }
+
+  .why__photo-wrap {
+    position: relative;
+    border-radius: var(--r-2xl);
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.10);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .why__photo {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+  }
+
+  .why__photo-placeholder {
+    display: none;
+    position: absolute; inset: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-4);
+    background: linear-gradient(160deg, rgba(15,23,42,0.8) 0%, rgba(3,105,161,0.35) 100%);
+  }
+
+  .why__photo-placeholder span {
+    font-size: var(--fs-xs);
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+
+  /* Certification badge */
+  .why__cert {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+    padding: var(--sp-5) var(--sp-6);
+    background: linear-gradient(135deg, rgba(6,182,212,0.12) 0%, rgba(3,105,161,0.08) 100%);
+    border: 1px solid rgba(6,182,212,0.25);
+    border-radius: var(--r-xl);
+  }
+
+  .why__cert-badge {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--r-lg);
+    background: rgba(6,182,212,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .why__cert-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .why__cert-text strong {
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--cyan);
+  }
+
+  .why__cert-text span {
+    font-size: var(--fs-xs);
+    color: rgba(255,255,255,0.45);
+    line-height: 1.4;
+  }
+
+  /* Trust row */
+  .why__trust-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-5);
+    padding: var(--sp-4) var(--sp-5);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--r-xl);
+  }
+
+  .why__trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    flex: 1;
+  }
+
+  .why__trust-num {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+  }
+
+  .why__trust-label {
+    font-size: var(--fs-xs);
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+  }
+
+  .why__trust-divider {
+    width: 1px;
+    height: 32px;
+    background: rgba(255,255,255,0.10);
+    flex-shrink: 0;
+  }
+
+  /* Differentiator cards */
+  .why__cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+  }
+
+  .why-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-5);
+    padding: var(--sp-6) var(--sp-6);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--r-xl);
+    transition: background var(--t-base), border-color var(--t-base), transform var(--t-base);
+  }
+  .why-card:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(6,182,212,0.30);
+    transform: translateX(4px);
+  }
+
+  .why-card__num {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(6,182,212,0.15), rgba(3,105,161,0.10));
+    border: 1px solid rgba(6,182,212,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-family: var(--font-display);
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    color: var(--cyan);
+    letter-spacing: -0.02em;
+  }
+
+  .why-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+  }
+
+  .why-card__title {
+    font-size: var(--fs-base);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.3;
+  }
+
+  .why-card__body {
+    font-size: var(--fs-sm);
+    color: rgba(255,255,255,0.55);
+    line-height: 1.65;
+  }
+
+  /* ── How It Works (Timeline) ── */
+  .steps-section {
+    background: var(--white);
+  }
+
+  .steps__head {
+    text-align: center;
+    margin-bottom: var(--sp-16);
+  }
+
+  .steps__h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-top: var(--sp-4);
+  }
+
+  .steps__track {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-8);
+    position: relative;
+  }
+
+  .steps__line {
+    position: absolute;
+    top: 24px;
+    left: 48px;
+    right: 48px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue), var(--cyan));
+    opacity: 0.2;
+  }
+
+  .step-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+    text-align: center;
+    position: relative;
+  }
+
+  .step-card__dot {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--cyan));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--sp-4);
+    position: relative;
+    z-index: 1;
+    box-shadow: var(--shadow-sm);
+  }
+  .step-card__dot span {
+    font-family: var(--font-display);
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.02em;
+  }
+
+  .step-card__title {
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  .step-card__body {
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.65;
+  }
+
+  /* ── Stats Grid ── */
+  .stats-section {
+    background: var(--deep-navy);
+    position: relative;
+    overflow: hidden;
+  }
+  .stats-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 20% 80%, rgba(6,182,212,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .stats__head {
+    text-align: center;
+    margin-bottom: var(--sp-12);
+    position: relative; z-index: 1;
+  }
+
+  .stats__h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-top: var(--sp-4);
+  }
+
+  .stats__grid {
+    position: relative; z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-4);
+  }
+
+  .stat-card {
+    padding: var(--sp-6);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--r-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+    transition: background var(--t-base), border-color var(--t-base), transform var(--t-base);
+  }
+  .stat-card:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(6,182,212,0.25);
+    transform: translateY(-3px);
+  }
+
+  .stat-card--featured {
+    grid-row: span 2;
+    padding: var(--sp-10) var(--sp-8);
+    background: linear-gradient(135deg, rgba(6,182,212,0.12) 0%, rgba(3,105,161,0.08) 100%);
+    border-color: rgba(6,182,212,0.25);
+    justify-content: center;
+  }
+  .stat-card--featured .stat-card__number {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+  }
+
+  .stat-card__number {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    color: var(--cyan);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .stat-card__label {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .stat-card__note {
+    font-size: var(--fs-sm);
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+    margin-top: var(--sp-1);
+  }
+
+  .stat-card__source {
+    font-size: var(--fs-xs);
+    color: rgba(255,255,255,0.3);
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  /* ── Who This Is For ── */
+  .fit-section {
+    background: var(--white);
+  }
+
+  .fit__layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-16);
+    align-items: start;
+  }
+
+  .fit__h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-block: var(--sp-4) var(--sp-5);
+  }
+
+  .fit__intro {
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    line-height: 1.75;
+  }
+
+  .fit__items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-6);
+  }
+
+  .fit-item {
+    display: flex;
+    gap: var(--sp-5);
+    padding: var(--sp-6) var(--sp-6);
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    transition: border-color var(--t-fast), box-shadow var(--t-fast);
+  }
+  .fit-item:hover {
+    border-color: rgba(6,182,212,0.3);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .fit-item__check {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(6,182,212,0.10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .fit-item__title {
+    display: block;
+    font-size: var(--fs-base);
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: var(--sp-2);
+  }
+
+  .fit-item__body {
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.65;
+  }
+
+  /* ── Bottom CTA ── */
+  .cta {
+    background: var(--deep-navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+  .cta__orb--1 {
+    width: 400px; height: 400px;
+    background: rgba(3,105,161,0.15);
+    top: -100px; right: -50px;
+  }
+  .cta__orb--2 {
+    width: 300px; height: 300px;
+    background: rgba(6,182,212,0.10);
+    bottom: -100px; left: 10%;
+  }
+
+  .cta__layout {
+    position: relative; z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-16);
+    align-items: center;
+  }
+
+  .cta__headline {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.10;
+    letter-spacing: -0.02em;
+  }
+  .cta__headline em { color: rgba(255,255,255,0.45); font-weight: 300; }
+
+  .cta__sub {
+    font-size: var(--fs-md);
+    color: rgba(255,255,255,0.60);
+    line-height: 1.75;
+    margin-bottom: var(--sp-8);
+  }
+
+  .cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+    align-items: center;
+    margin-bottom: var(--sp-5);
+  }
+
+  .cta__note {
+    font-size: var(--fs-sm);
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.02em;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .problem__inner { grid-template-columns: 1fr; gap: var(--sp-10); }
+    .problem__visual { display: none; }
+    .wwd__grid { grid-template-columns: repeat(2, 1fr); }
+    .fmt-block { grid-template-columns: 1fr; gap: var(--sp-8); }
+    .fmt-block--flip { direction: ltr; }
+    .why__layout { grid-template-columns: 1fr; }
+    .why__visual { position: static; flex-direction: row; flex-wrap: wrap; gap: var(--sp-4); }
+    .why__photo-wrap { flex: 1; min-width: 240px; max-height: 300px; aspect-ratio: auto; }
+    .why__cert { flex: 1; min-width: 240px; }
+    .why__trust-row { flex: 1 1 100%; }
+    .steps__track { grid-template-columns: repeat(2, 1fr); gap: var(--sp-6); }
+    .steps__line { display: none; }
+    .stats__grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-card--featured { grid-row: span 1; }
+    .stat-card--featured .stat-card__number { font-size: clamp(2rem, 4vw, 3rem); }
+    .fit__layout { grid-template-columns: 1fr; gap: var(--sp-8); }
+    .cta__layout { grid-template-columns: 1fr; gap: var(--sp-10); }
+  }
+
+  @media (max-width: 768px) {
+    .ads-hero { padding-block: var(--sp-16) var(--sp-12); }
+    .wwd__grid { grid-template-columns: 1fr; }
+    .steps__track { grid-template-columns: 1fr; }
+    .step-card { text-align: left; flex-direction: row; gap: var(--sp-5); align-items: flex-start; }
+    .step-card__dot { margin: 0; flex-shrink: 0; }
+    .stats__grid { grid-template-columns: repeat(2, 1fr); }
+
+  }
+
+  @media (max-width: 640px) {
+    .hero-badge { display: none; }
+    .stats__grid { grid-template-columns: 1fr; }
+    .cta__actions { flex-direction: column; align-items: stretch; }
+    .cta__actions .btn { justify-content: center; }
+  }
+</style>

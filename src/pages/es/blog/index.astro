@@ -1,0 +1,502 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import NavBar from '../../../components/NavBar.astro';
+import ContactCTA from '../../../components/ContactCTA.astro';
+
+const posts = [
+  // ── 29 marzo 2026 ──
+  {
+    slug: 'por-que-cayo-tu-alcance',
+    category: 'Estrategia LinkedIn',
+    tags: ['Algoritmo'],
+    title: "Por qué tu alcance cayó un 50 % en 2026 (y no es culpa de tu contenido)",
+    excerpt: "LinkedIn ha reemplazado todo su algoritmo por 360Brew. El alcance ha caído un 50 %, las páginas de empresa han perdido un 60 %. Tu contenido no es el problema. El sistema sí lo es.",
+    date: '2026-03-29',
+    readTime: '8 min de lectura',
+    featured: true,
+    image: '/blog/hero-reach-dropped.svg',
+  },
+  {
+    slug: 'de-contenido-a-leads-entrantes',
+    category: 'Estrategia LinkedIn',
+    tags: ['Leads'],
+    title: "Cómo convertir tu contenido de LinkedIn en leads reales (y no solo en visualizaciones)",
+    excerpt: "Contenido de LinkedIn que acumula vistas pero cero leads, eso es energía tirada. La captación entrante convierte al 14,6% frente al 1,7% de la saliente. Te explicamos cómo replantear el enfoque.",
+    date: '2026-03-29',
+    readTime: '9 min de lectura',
+    featured: false,
+    image: '/blog/hero-content-to-leads.webp',
+  },
+  {
+    slug: 'errores-perfil-matan-conversiones',
+    category: 'Estrategia LinkedIn',
+    tags: ['Perfil'],
+    title: "Los errores de perfil que hunden tus resultados sin que te enteres",
+    excerpt: "Cada publicación manda visitantes a tu perfil. Y la mayoría de perfiles no los retiene. Titular soso, sección Destacados vacía, resumen tipo currículum: te cuesta leads cada día.",
+    date: '2026-03-29',
+    readTime: '9 min de lectura',
+    featured: false,
+    image: '/blog/hero-profile-mistakes.webp',
+  },
+  {
+    slug: 'titular-linkedin-cuesta-oportunidades',
+    category: 'Estrategia LinkedIn',
+    tags: ['Perfil'],
+    title: "Tu titular de LinkedIn te está costando oportunidades. Te explicamos cómo arreglarlo.",
+    excerpt: "Tu titular de LinkedIn aparece en todos los sitios donde alguien te ve en la plataforma. La mayoría lo desperdicia con un cargo. Hay una fórmula mejor.",
+    date: '2026-03-29',
+    readTime: '7 min de lectura',
+    featured: false,
+    image: '/blog/hero-headline-fix.webp',
+  },
+  {
+    slug: 'cambio-algoritmo-cuentas-pequenas-vs-grandes',
+    category: 'Estrategia LinkedIn',
+    tags: ['Algoritmo'],
+    title: "Nuevo algoritmo de LinkedIn: qué cambia para las cuentas pequeñas frente a las grandes",
+    excerpt: "El nuevo algoritmo de LinkedIn premia la calidad de la interacción por encima del número de seguidores. Una cuenta pequeña con red activa rinde más que una cuenta grande seguida por gente que nunca reacciona.",
+    date: '2026-03-29',
+    readTime: '9 min de lectura',
+    featured: false,
+    image: '/blog/hero-small-vs-large.svg',
+  },
+  {
+    slug: 'como-crecer-en-linkedin',
+    category: 'Estrategia LinkedIn',
+    tags: ['Crecimiento'],
+    title: "Crecer en LinkedIn cuando la competencia se ha multiplicado por cinco",
+    excerpt: "LinkedIn tiene cinco veces más gente publicando que en 2023. Dos millones de publicaciones al día. Pero menos del 3% de los miembros publica cada semana. Quienes sí destacan han entendido algo: hay que ser concretos.",
+    date: '2026-03-29',
+    readTime: '10 min de lectura',
+    featured: false,
+    image: '/blog/hero-grow-linkedin.svg',
+  },
+  {
+    slug: 'por-que-la-publicidad-linkedin-cuesta-mas',
+    category: 'Publicidad LinkedIn',
+    tags: ['Publicidad'],
+    title: "Por qué los anuncios de LinkedIn cuestan de 4 a 6 veces más por clic, y cuándo merece la pena igualmente",
+    excerpt: "LinkedIn cobra entre 5 y 12 $ por clic. Meta cobra 0,50 $. Pero los clics no cierran negocios. Los leads de LinkedIn convierten entre 2 y 3 veces mejor que en otras plataformas.",
+    date: '2026-03-29',
+    readTime: '8 min de lectura',
+    featured: false,
+    image: '/blog/hero-ads-cost.svg',
+  },
+  {
+    slug: 'publicidad-linkedin-vs-contenido-organico',
+    category: 'Estrategia LinkedIn',
+    tags: ['Presupuesto'],
+    title: "Publicidad de LinkedIn o contenido orgánico: dónde meter tu presupuesto en 2026",
+    excerpt: "El contenido orgánico genera leads a la mitad del coste que la publicidad. Pero los anuncios tapan huecos más rápido. La mezcla correcta depende de tu madurez y del tamaño de tus contratos.",
+    date: '2026-03-29',
+    readTime: '9 min de lectura',
+    featured: false,
+    image: '/blog/hero-ads-vs-organic.svg',
+  },
+  {
+    slug: 'deja-de-gastar-en-audiencias-sin-intencion',
+    category: 'Publicidad LinkedIn',
+    tags: ['Segmentación'],
+    title: "Anuncios de LinkedIn: deja de apuntar a gente que no tiene ninguna intención de comprar",
+    excerpt: "La mayoría de las campañas de LinkedIn apuntan a públicos demasiado amplios y fríos. Solo entre el 3 y el 6% de tu mercado está en fase de compra. Empieza por revisar la segmentación.",
+    date: '2026-03-29',
+    readTime: '10 min de lectura',
+    featured: false,
+    image: '/blog/hero-targeting-waste.webp',
+  },
+  {
+    slug: 'problema-medicion-roi-publicidad-linkedin',
+    category: 'Publicidad LinkedIn',
+    tags: ['Medición'],
+    title: "Por qué el retorno de tus anuncios de LinkedIn parece desastroso (es un problema de medición)",
+    excerpt: "LinkedIn genera un retorno publicitario del 121% en B2B. Pero el ciclo medio de compra dura 272 días. Si mides el retorno a 30 días, tus cifras te están contando cuentos.",
+    date: '2026-03-29',
+    readTime: '10 min de lectura',
+    featured: false,
+    image: '/blog/hero-roi-measurement.webp',
+  },
+  {
+    slug: 'presupuesto-minimo-publicidad-linkedin',
+    category: 'Publicidad LinkedIn',
+    tags: ['Presupuesto'],
+    title: "Qué presupuesto publicitario mínimo necesitas para obtener resultados reales en LinkedIn",
+    excerpt: "LinkedIn impone un suelo de 10 $ al día. Pues no, eso no dará nada. El presupuesto mínimo real depende de tu objetivo, tu oferta y la duración de tu ciclo comercial.",
+    date: '2026-03-29',
+    readTime: '10 min de lectura',
+    featured: false,
+    image: '/blog/hero-ads-budget.webp',
+  },
+  // ── 23 marzo 2026 ──
+  {
+    slug: 'tu-publicacion-linkedin-ya-esta-muerta',
+    category: 'Estrategia LinkedIn',
+    tags: ['Contenido'],
+    title: "Tu publicación en LinkedIn ya está muerta. Te explicamos cómo salvarla.",
+    excerpt: "El feed está saturado de contenido generado con IA. Tu ventana de visibilidad son dos horas. Las empresas que aguantan han entendido algo que el resto sigue sin ver.",
+    date: '2026-03-23',
+    readTime: '5 min de lectura',
+    featured: false,
+    image: '/blog/hero-post-already-dead.svg',
+  },
+  {
+    slug: 'el-verdadero-problema-de-linkedin',
+    category: 'Estrategia LinkedIn',
+    tags: ['Estrategia'],
+    title: "El verdadero problema en LinkedIn no es escribir. Es saber qué decir.",
+    excerpt: "La IA puede pulir tus frases. No puede decidir de qué vas a hablar. Y ahí es donde se atasca la mayoría de empresas B2B sin darse cuenta.",
+    date: '2026-03-23',
+    readTime: '5 min de lectura',
+    featured: false,
+    image: '/blog/hero-thinking-not-writing.svg',
+  },
+];
+
+// Collect all unique tags across posts
+const allTags = [...new Set(posts.flatMap(p => p.tags))].sort();
+---
+
+<Layout
+  lang="es"
+  title="Blog | Estrategia LinkedIn, contenido B2B y publicidad | Nuvora Studio"
+  description="Análisis afilados sobre estrategia LinkedIn, contenido B2B, publicidad y las novedades de la plataforma. Escrito por profesionales que ejecutan, no por fábricas de textos."
+  abstract="Estrategia LinkedIn, contenido B2B y análisis publicitarios de Nuvora Studio. Escrito por profesionales que están en el campo."
+>
+  <NavBar lang="es" />
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="insights-hero" aria-labelledby="insights-heading">
+      <div class="container">
+        <p class="eyebrow eyebrow--light reveal">Blog</p>
+        <h1 id="insights-heading" class="insights-hero__h1 reveal reveal-delay-1">
+          Inteligencia sobre LinkedIn,<br /><em>por escrito.</em>
+        </h1>
+        <p class="insights-hero__sub reveal reveal-delay-2">
+          Análisis afilados sobre estrategia LinkedIn, contenido B2B, publicidad y la evolución de la plataforma.
+          Escrito por profesionales que ejecutan, no por fábricas de textos.
+        </p>
+      </div>
+    </section>
+
+    <!-- Posts -->
+    <section class="section" style="background: var(--off-white);" aria-label="Todos los artículos">
+      <div class="container">
+
+        <!-- Tag filters -->
+        <div class="tag-filters" role="group" aria-label="Filtrar por etiqueta">
+          <button class="tag-btn tag-btn--active" data-tag="all">Todos</button>
+          {allTags.map(tag => (
+            <button class="tag-btn" data-tag={tag}>{tag}</button>
+          ))}
+        </div>
+
+        <!-- Posts grid -->
+        <div class="posts-grid" id="posts-grid">
+          {posts.map((post, i) => (
+            <article
+              class="post-card"
+              data-tags={post.tags.join(',')}
+              style={`transition-delay: ${i * 0.07}s`}
+            >
+              {post.image ? (
+                <div class="post-card__thumb" style={`background-image: url('${post.image}')`}></div>
+              ) : (
+                <div class="post-card__thumb post-card__thumb--empty">
+                  <span>Imagen próximamente</span>
+                </div>
+              )}
+              <div class="post-card__top">
+                <div class="post-card__tags">
+                  {post.featured && <span class="post-tag post-tag--featured">Destacado</span>}
+                  {post.tags.map(tag => (
+                    <span class="post-tag">{tag}</span>
+                  ))}
+                </div>
+                <span class="post-card__category">{post.category}</span>
+              </div>
+              <h2 class="post-card__title">
+                <a href={`/es/blog/${post.slug}`}>{post.title}</a>
+              </h2>
+              <p class="post-card__excerpt">{post.excerpt}</p>
+              <div class="post-card__footer">
+                <span class="post-card__read-time">{post.readTime}</span>
+                <a href={`/es/blog/${post.slug}`} class="post-card__cta">Leer el artículo →</a>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <!-- Empty state -->
+        <p class="posts-empty" id="posts-empty" style="display:none">
+          No hay artículos para esta etiqueta.
+        </p>
+
+      </div>
+    </section>
+
+    <ContactCTA lang="es" />
+  </main>
+</Layout>
+
+<style>
+  /* ── Hero ── */
+  .insights-hero {
+    background: var(--deep-navy) url('/blog/hero-insights.svg') center/cover no-repeat;
+    padding-block: clamp(3rem, 6vw, 5rem);
+    position: relative;
+    overflow: hidden;
+  }
+  .insights-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 70% at 75% 40%, rgba(6,182,212,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .insights-hero .container { position: relative; z-index: 1; }
+
+  .insights-hero__h1 {
+    font-family: var(--font-display), sans-serif;
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    margin-block: var(--sp-5) var(--sp-6);
+  }
+  .insights-hero__h1 em {
+    color: rgba(255,255,255,0.38);
+    font-weight: 300;
+    font-style: normal;
+  }
+  .insights-hero__sub {
+    font-family: var(--font-body), sans-serif;
+    font-size: var(--fs-md);
+    color: rgba(255,255,255,0.58);
+    max-width: 540px;
+    line-height: 1.7;
+  }
+
+  /* ── Tag filters ── */
+  .tag-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+    margin-bottom: var(--sp-8);
+  }
+
+  .tag-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: var(--sp-2) var(--sp-4);
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--white);
+    font-family: var(--font-body), sans-serif;
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    color: var(--text-2);
+    cursor: pointer;
+    transition: all var(--t-base) ease;
+    letter-spacing: 0.02em;
+  }
+  .tag-btn:hover {
+    border-color: var(--sky);
+    color: var(--sky);
+    box-shadow: 0 2px 8px rgba(14,165,233,0.1);
+  }
+  .tag-btn--active {
+    background: var(--deep-navy);
+    border-color: var(--deep-navy);
+    color: var(--white);
+  }
+
+  /* ── Grid ── */
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-6);
+  }
+
+  /* ── Card ── */
+  .post-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    padding: var(--sp-10);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-5);
+    transition:
+      box-shadow var(--t-base) ease,
+      border-color var(--t-base) ease,
+      transform var(--t-base) ease,
+      opacity var(--t-base) ease;
+  }
+  .post-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--border-2);
+    transform: translateY(-3px);
+  }
+  .post-card.is-hidden {
+    display: none;
+  }
+
+  .post-card__thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--r-lg);
+    background-color: var(--deep-navy);
+    background-size: cover;
+    background-position: center;
+    margin-bottom: var(--sp-2);
+  }
+
+  .post-card__thumb--empty {
+    background: linear-gradient(135deg, rgba(14,165,233,0.04) 0%, rgba(6,182,212,0.06) 100%);
+    border: 1.5px dashed rgba(14,165,233,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .post-card__thumb--empty span {
+    font-family: var(--font-body), sans-serif;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: rgba(14,165,233,0.2);
+  }
+
+
+  .post-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-3);
+    flex-wrap: wrap;
+  }
+
+  .post-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+  }
+
+  .post-tag {
+    display: inline-block;
+    padding: 2px var(--sp-3);
+    border-radius: var(--r-sm);
+    background: rgba(14,165,233,0.07);
+    color: var(--sky);
+    font-family: var(--font-body), sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .post-tag--featured {
+    background: rgba(234,179,8,0.12);
+    color: #b45309;
+  }
+
+  .post-card__category {
+    font-family: var(--font-body), sans-serif;
+    font-size: var(--fs-xs);
+    color: var(--text-3);
+    letter-spacing: 0.04em;
+  }
+
+  .post-card__title {
+    font-family: var(--font-display), sans-serif;
+    font-size: var(--fs-xl);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+  .post-card__title a { color: inherit; transition: color var(--t-fast) ease; }
+  .post-card__title a:hover { color: var(--sky); }
+
+  .post-card__excerpt {
+    font-family: var(--font-body), sans-serif;
+    font-size: var(--fs-base);
+    color: var(--text-2);
+    line-height: 1.8;
+    flex: 1;
+  }
+
+  .post-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-4);
+    padding-top: var(--sp-4);
+    border-top: 1px solid var(--border);
+    margin-top: auto;
+  }
+
+  .post-card__read-time {
+    font-family: var(--font-body), sans-serif;
+    font-size: var(--fs-xs);
+    color: var(--text-3);
+  }
+
+  .post-card__cta {
+    font-family: var(--font-body), sans-serif;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sky);
+    transition: color var(--t-fast) ease;
+  }
+  .post-card__cta:hover { color: var(--cyan); }
+
+  .posts-empty {
+    text-align: center;
+    color: var(--text-3);
+    padding-block: var(--sp-20);
+    font-family: var(--font-body), sans-serif;
+    font-size: var(--fs-md);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .posts-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .posts-grid { grid-template-columns: 1fr; }
+    .post-card { padding: var(--sp-7); }
+  }
+</style>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.tag-btn');
+  const cards   = document.querySelectorAll<HTMLElement>('.post-card');
+  const empty   = document.getElementById('posts-empty');
+
+  function filter(tag: string) {
+    let visible = 0;
+
+    cards.forEach(card => {
+      const tags = (card.dataset.tags ?? '').split(',');
+      const show = tag === 'all' || tags.includes(tag);
+      card.classList.toggle('is-hidden', !show);
+      if (show) visible++;
+    });
+
+    if (empty) empty.style.display = visible === 0 ? 'block' : 'none';
+
+    buttons.forEach(btn => {
+      btn.classList.toggle('tag-btn--active', btn.dataset.tag === tag);
+    });
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => filter(btn.dataset.tag ?? 'all'));
+  });
+</script>

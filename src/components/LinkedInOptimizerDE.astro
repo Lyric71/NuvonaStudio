@@ -1,0 +1,2022 @@
+---
+---
+
+<section class="optimizer">
+  <div class="optimizer__container">
+
+    <!-- ═══ ZUGANGSFORMULAR ═══ -->
+    <div id="view-gate" class="optimizer__view optimizer__view--active">
+      <div class="optimizer__header">
+        <span class="eyebrow">Kostenloser Audit</span>
+        <h1 class="optimizer__title">LinkedIn-Profil-Optimierer</h1>
+        <p class="optimizer__subtitle">Wir nehmen Ihr LinkedIn-Profil unter die Lupe. Geprüft wird anhand von mehr als 100 Kriterien, am Ende stehen eine individuelle Bewertung und Empfehlungen, die sich auf das Wesentliche konzentrieren.</p>
+      </div>
+
+      <div class="gate-card">
+        <div class="gate-card__header">
+          <h2 class="gate-card__title">Einige Angaben vor dem Start</h2>
+          <p class="gate-card__desc">Diese Angaben dienen uns dazu, den Report auf Ihre Branche zuzuschneiden und Empfehlungen passgenau zu formulieren.</p>
+        </div>
+        <form id="gate-form" class="gate-form" novalidate>
+          <div class="gate-form__grid">
+            <div class="gate-field">
+              <label for="gate-name" class="gate-field__label">Vollständiger Name <span class="gate-field__req">*</span></label>
+              <input type="text" id="gate-name" name="name" required placeholder="Anna Schneider" autocomplete="name" />
+            </div>
+            <div class="gate-field">
+              <label for="gate-company" class="gate-field__label">Unternehmen <span class="gate-field__req">*</span></label>
+              <input type="text" id="gate-company" name="company" required placeholder="Meridian Solutions" autocomplete="organization" />
+            </div>
+            <div class="gate-field">
+              <label for="gate-position" class="gate-field__label">Position <span class="gate-field__opt">(optional)</span></label>
+              <input type="text" id="gate-position" name="position" placeholder="Leiterin Geschäftsentwicklung" autocomplete="organization-title" />
+            </div>
+            <div class="gate-field">
+              <label for="gate-email" class="gate-field__label">Geschäftliche E-Mail-Adresse <span class="gate-field__req">*</span></label>
+              <input type="email" id="gate-email" name="email" required placeholder="anna@meridian.io" autocomplete="email" />
+              <p class="gate-field__hint">Bitte nutzen Sie Ihre geschäftliche Adresse</p>
+              <p class="gate-field__error u-hidden" id="gate-email-error"></p>
+            </div>
+            <div class="gate-field">
+              <label for="gate-country" class="gate-field__label">Land <span class="gate-field__opt">(optional)</span></label>
+              <input type="text" id="gate-country" name="country" placeholder="Deutschland" autocomplete="country-name" />
+            </div>
+          </div>
+          <p class="gate-form__error u-hidden" id="gate-form-error"></p>
+          <button type="submit" class="btn btn--primary btn--lg gate-form__submit">
+            Analyse starten
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <p class="gate-form__privacy">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Ihre Daten bleiben vertraulich. Wir geben nichts weiter.
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <!-- ═══ UPLOAD-ANSICHT ═══ -->
+    <div id="view-input" class="optimizer__view">
+      <div class="optimizer__header">
+        <span class="eyebrow">Kostenloser Audit</span>
+        <h1 class="optimizer__title">LinkedIn-Profil-Optimierer</h1>
+        <p class="optimizer__subtitle">Laden Sie einen Screenshot Ihres persönlichen Profils oder Ihrer Unternehmensseite hoch. Geprüft wird anhand von mehr als 100 Kriterien, geliefert werden eine Bewertung und ausführliche Empfehlungen zur Umsetzung.</p>
+      </div>
+
+      <form id="analyze-form" class="optimizer__form" novalidate>
+        <!-- Verstecktes Dateifeld -->
+        <input type="file" id="screenshot-input" accept="image/png,image/jpeg,image/webp" style="display:none;" />
+
+        <!-- Klickbare Upload-Zone -->
+        <div class="upload-zone" id="upload-zone" role="button" tabindex="0">
+          <div id="upload-placeholder">
+            <div style="color:var(--text-3);margin-bottom:12px;display:flex;justify-content:center;">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <polyline points="21 15 16 10 5 21"/>
+              </svg>
+            </div>
+            <p style="font-size:1rem;font-weight:500;color:var(--text-2);margin:0 0 4px;text-align:center;">Ziehen Sie Ihren Screenshot hierher oder <span style="color:var(--sky);font-weight:600;text-decoration:underline;text-underline-offset:2px;">durchsuchen Sie Ihre Dateien</span></p>
+            <p style="font-size:0.75rem;color:var(--text-3);margin:0;text-align:center;">PNG, JPG oder WebP, maximal 10 MB</p>
+          </div>
+          <div id="upload-preview" class="upload-zone__preview u-hidden">
+            <img id="preview-image" alt="Vorschau des Screenshots" />
+            <button type="button" class="upload-zone__remove" id="remove-image" aria-label="Bild entfernen">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+          </div>
+          <div id="upload-progress" class="upload-progress u-hidden">
+            <div class="upload-progress__info">
+              <span class="upload-progress__name" id="upload-progress-name">screenshot.png</span>
+              <span class="upload-progress__pct" id="upload-progress-pct">0%</span>
+            </div>
+            <div class="upload-progress__track">
+              <div class="upload-progress__fill" id="upload-progress-fill"></div>
+            </div>
+            <span class="upload-progress__status" id="upload-progress-status">Wird hochgeladen...</span>
+          </div>
+        </div>
+
+        <div class="upload-zone__tip">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          <span>Erfassen Sie das gesamte Profil, scrollen Sie bis zu den Bereichen Info, Berufserfahrung, Kenntnisse und Hervorgehoben. So erzielen wir die besten Ergebnisse.</span>
+        </div>
+
+        <details class="why-screenshot">
+          <summary class="why-screenshot__toggle">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Warum ein Screenshot und kein Profil-Link?
+          </summary>
+          <div class="why-screenshot__content">
+            <div class="why-screenshot__item">
+              <div class="why-screenshot__icon why-screenshot__icon--red">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              </div>
+              <div>
+                <strong>LinkedIn untersagt automatisiertes Scraping.</strong>
+                <span>Profildaten automatisiert abzugreifen widerspricht den Nutzungsbedingungen von LinkedIn und kann teuer werden. 2025 und 2026 sind mehrere Anbieter dafür verklagt worden.</span>
+              </div>
+            </div>
+            <div class="why-screenshot__item">
+              <div class="why-screenshot__icon why-screenshot__icon--green">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <strong>Datenschutz gewahrt.</strong>
+                <span>Auf Ihr LinkedIn-Konto greifen wir zu keinem Zeitpunkt zu. Der Screenshot wird analysiert und nach Fertigstellung des Reports umgehend gelöscht. Auf unseren Servern verbleibt davon nichts.</span>
+              </div>
+            </div>
+            <div class="why-screenshot__item">
+              <div class="why-screenshot__icon why-screenshot__icon--blue">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div>
+                <strong>Aussagekräftiger als eine URL.</strong>
+                <span>Der Screenshot zeigt Ihr Profil so, wie Besucher es tatsächlich sehen. Bildqualität, Banner und Layout lassen sich aus einem reinen Link heraus schlicht nicht beurteilen.</span>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <button type="submit" id="analyze-btn" class="btn btn--primary btn--lg optimizer__submit">
+          <span class="btn__label">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            Profil analysieren
+          </span>
+          <span class="btn__loading u-hidden">
+            <svg class="spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="12" cy="12" r="10" opacity="0.25" />
+              <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round" />
+            </svg>
+            Analyse läuft...
+          </span>
+        </button>
+      </form>
+
+      <div id="analyze-error" class="optimizer__error u-hidden"></div>
+
+      <div class="optimizer__trust">
+        <div class="trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Ohne Registrierung
+        </div>
+        <div class="trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Über 100 Kriterien geprüft
+        </div>
+        <div class="trust-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          KI-gestützte Analyse
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ LADEANSICHT ═══ -->
+    <div id="view-loading" class="optimizer__view">
+      <div class="loading-state">
+        <!-- Animierte Hintergrundpunkte -->
+        <div class="loading-state__bg">
+          <div class="loading-dot loading-dot--1"></div>
+          <div class="loading-dot loading-dot--2"></div>
+          <div class="loading-dot loading-dot--3"></div>
+          <div class="loading-dot loading-dot--4"></div>
+          <div class="loading-dot loading-dot--5"></div>
+        </div>
+
+        <!-- Zentrale Karte -->
+        <div class="loading-card">
+          <div class="loading-card__ring">
+            <svg viewBox="0 0 120 120" width="100" height="100">
+              <circle cx="60" cy="60" r="52" stroke-width="5" fill="none" stroke="rgba(14,165,233,0.12)" />
+              <circle cx="60" cy="60" r="52" stroke-width="5" fill="none" stroke="url(#loadGrad)" stroke-linecap="round"
+                stroke-dasharray="80 247" transform="rotate(-90 60 60)">
+                <animateTransform attributeName="transform" type="rotate" from="0 60 60" to="360 60 60" dur="1.2s" repeatCount="indefinite" />
+              </circle>
+              <defs>
+                <linearGradient id="loadGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="var(--sky)" />
+                  <stop offset="100%" stop-color="var(--cyan)" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <div class="loading-card__icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--sky)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+              </svg>
+            </div>
+          </div>
+
+          <h2 class="loading-card__title">Ihr Profil wird analysiert</h2>
+          <p class="loading-card__subtitle">Wir prüfen jedes Element Ihres Profils</p>
+
+          <div class="loading-steps">
+            <div class="loading-step-item is-active" id="loading-step-1">
+              <span class="loading-step-item__indicator">
+                <svg class="loading-step-item__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="loading-step-item__dot"></span>
+              </span>
+              <span class="loading-step-item__label">Screenshot wird gelesen</span>
+            </div>
+            <div class="loading-step-item" id="loading-step-2">
+              <span class="loading-step-item__indicator">
+                <svg class="loading-step-item__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="loading-step-item__dot"></span>
+              </span>
+              <span class="loading-step-item__label">Abgleich mit über 100 Best Practices</span>
+            </div>
+            <div class="loading-step-item" id="loading-step-3">
+              <span class="loading-step-item__indicator">
+                <svg class="loading-step-item__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="loading-step-item__dot"></span>
+              </span>
+              <span class="loading-step-item__label">Empfehlungen werden zusammengestellt</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vorschau-Skelett -->
+        <div class="loading-skeleton">
+          <div class="loading-skeleton__row"><span style="width:65%"></span></div>
+          <div class="loading-skeleton__row"><span style="width:80%"></span></div>
+          <div class="loading-skeleton__row"><span style="width:45%"></span></div>
+          <div class="loading-skeleton__row"><span style="width:70%"></span></div>
+          <div class="loading-skeleton__row"><span style="width:55%"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ ERGEBNISANSICHT ═══ -->
+    <div id="view-results" class="optimizer__view">
+      <div class="results">
+
+        <!-- ── Score-Karte ── -->
+        <div class="score-hero">
+          <div class="score-hero__bg">
+            <div class="score-hero__orb score-hero__orb--1"></div>
+            <div class="score-hero__orb score-hero__orb--2"></div>
+          </div>
+          <div class="score-hero__content">
+            <span class="score-hero__badge" id="results-type-label">Analyse eines persönlichen Profils</span>
+            <div class="score-hero__ring">
+              <svg viewBox="0 0 120 120" class="score-ring">
+                <circle cx="60" cy="60" r="52" stroke-width="7" fill="none" stroke="rgba(255,255,255,0.15)" />
+                <circle cx="60" cy="60" r="52" stroke-width="7" fill="none" stroke="white" stroke-linecap="round" id="score-circle"
+                  stroke-dasharray="326.73" stroke-dashoffset="326.73" transform="rotate(-90 60 60)" />
+              </svg>
+              <div class="score-ring__inner">
+                <span class="score-ring__number" id="score-number">0</span>
+                <span class="score-ring__label">von 100</span>
+              </div>
+            </div>
+            <div class="score-hero__grade" id="score-grade">-</div>
+            <p class="score-hero__verdict" id="results-verdict"></p>
+          </div>
+        </div>
+
+        <!-- ── Ergebnisse nach Kategorie ── -->
+        <div class="results__section">
+          <div class="results__section-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--sky)" stroke-width="2"><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/><path d="M9 12l2 2 4-4"/></svg>
+            <h3 class="results__section-title">Detail nach Kategorie</h3>
+          </div>
+          <div class="results__categories" id="results-categories"></div>
+        </div>
+
+        <!-- ── Wichtigste Prioritäten ── -->
+        <div class="results__section">
+          <div class="results__section-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <h3 class="results__section-title">Diese Punkte zuerst beheben</h3>
+          </div>
+          <div class="results__priorities" id="results-priorities"></div>
+        </div>
+
+        <!-- ── Schnellsiege + Stärken ── -->
+        <div class="results__grid">
+          <div class="results__section results__grid-item">
+            <div class="results__section-header">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              <h3 class="results__section-title">Schnellsiege</h3>
+            </div>
+            <p class="results__section-hint">In weniger als zehn Minuten erledigt</p>
+            <div class="results__quick-wins" id="results-quick-wins"></div>
+          </div>
+          <div class="results__section results__grid-item">
+            <div class="results__section-header">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <h3 class="results__section-title">Ihre Stärken</h3>
+            </div>
+            <div class="results__strengths" id="results-strengths"></div>
+          </div>
+        </div>
+
+        <!-- ── Detail aller Prüfungen ── -->
+        <details class="results__details">
+          <summary class="results__details-toggle">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+            Alle Kriterien ansehen
+          </summary>
+          <div class="results__all-checks" id="results-all-checks"></div>
+        </details>
+
+        <!-- ── Teilen und Versand ── -->
+        <div class="results__share">
+          <div class="results__share-header">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            <span>Ergebnisse teilen</span>
+          </div>
+          <div class="results__share-actions">
+            <button type="button" class="share-btn" id="btn-copy-results" title="In die Zwischenablage kopieren">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Report kopieren
+            </button>
+            <button type="button" class="share-btn share-btn--email" id="btn-email-open" title="Per E-Mail erhalten">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Per E-Mail erhalten
+            </button>
+          </div>
+          <!-- Versandformular (standardmäßig ausgeblendet) -->
+          <form class="email-form is-hidden" id="email-form">
+            <div class="email-form__row">
+              <input type="email" id="email-input" placeholder="name@unternehmen.de" required autocomplete="email" />
+              <button type="submit" class="btn btn--primary btn--sm" id="email-send-btn">
+                <span class="email-form__label">Senden</span>
+                <span class="email-form__loading u-hidden">
+                  <svg class="spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14">
+                    <circle cx="12" cy="12" r="10" opacity="0.25" /><path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round" />
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <p class="email-form__status u-hidden" id="email-status"></p>
+          </form>
+          <p class="results__share-copied u-hidden" id="copy-toast">Kopiert!</p>
+        </div>
+
+        <!-- ── Call to Action ── -->
+        <div class="results__cta-card">
+          <div class="results__cta-content">
+            <h3>Lust auf den nächsten Schritt?</h3>
+            <p>Unsere LinkedIn-Spezialisten überarbeiten Ihr Profil von Grund auf: Positionierung, Content und Strategie, jeweils auf Ihre konkreten Ziele abgestimmt.</p>
+          </div>
+          <div class="results__cta-actions">
+            <a href="/de/kontakt?intent=call" class="btn btn--primary">Mit einem Experten sprechen</a>
+            <button type="button" class="btn btn--outline" id="btn-restart">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+              Weiteres Profil analysieren
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style is:global>
+  /* ── Layout ── */
+  .optimizer {
+    background: var(--white);
+    min-height: calc(100vh - 72px);
+    padding: var(--sp-12) var(--sp-6) var(--sp-20);
+  }
+  .optimizer__container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .optimizer__view { display: none; }
+  .optimizer__view--active { display: block; }
+
+  /* ── Header ── */
+  .optimizer__header {
+    text-align: center;
+    margin-bottom: var(--sp-10);
+  }
+  .optimizer__title {
+    font-family: var(--font-display);
+    font-size: var(--fs-4xl);
+    font-weight: 700;
+    color: var(--text);
+    margin: var(--sp-3) 0 var(--sp-4);
+    line-height: 1.1;
+  }
+  .optimizer__subtitle {
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+
+  /* ── Gate Form ── */
+  .gate-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-2xl);
+    padding: var(--sp-8);
+    box-shadow: 0 4px 24px rgba(15, 23, 42, 0.04);
+  }
+  .gate-card__header { margin-bottom: var(--sp-6); }
+  .gate-card__title {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 var(--sp-2);
+  }
+  .gate-card__desc {
+    font-size: var(--fs-sm);
+    color: var(--text-3);
+    margin: 0;
+    line-height: 1.6;
+  }
+  .gate-form__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-4) var(--sp-5);
+    margin-bottom: var(--sp-6);
+  }
+  .gate-field { display: flex; flex-direction: column; }
+  .gate-field:nth-child(4) { grid-column: 1 / -1; }
+  .gate-field__label {
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: var(--sp-1);
+  }
+  .gate-field__req { color: #dc2626; }
+  .gate-field__opt { font-weight: 400; color: var(--text-3); font-size: var(--fs-xs); }
+  .gate-field input {
+    font-family: var(--font-body);
+    font-size: var(--fs-base);
+    color: var(--text);
+    background: var(--off-white);
+    border: 1.5px solid var(--border-2);
+    border-radius: var(--r-md);
+    padding: var(--sp-3) var(--sp-4);
+    transition: border-color var(--t-base), box-shadow var(--t-base);
+  }
+  .gate-field input:focus {
+    outline: none;
+    border-color: var(--sky);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+  }
+  .gate-field input.is-invalid {
+    border-color: #dc2626;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.08);
+  }
+  .gate-field__hint {
+    font-size: var(--fs-xs);
+    color: var(--text-3);
+    margin: var(--sp-1) 0 0;
+  }
+  .gate-field__error {
+    font-size: var(--fs-xs);
+    color: #dc2626;
+    margin: var(--sp-1) 0 0;
+  }
+  .gate-form__error {
+    font-size: var(--fs-sm);
+    color: #dc2626;
+    margin: 0 0 var(--sp-4);
+    padding: var(--sp-3) var(--sp-4);
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: var(--r-md);
+  }
+  .gate-form__submit {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+  }
+  .gate-form__privacy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    font-size: var(--fs-xs);
+    color: var(--text-3);
+    margin: var(--sp-4) 0 0;
+  }
+  .gate-form__privacy svg { color: var(--sky); flex-shrink: 0; }
+
+  @media (max-width: 640px) {
+    .gate-form__grid { grid-template-columns: 1fr; }
+    .gate-card { padding: var(--sp-6) var(--sp-4); }
+  }
+
+  /* ── Upload Zone ── */
+  .optimizer__form { margin-bottom: var(--sp-6); }
+  .upload-zone {
+    position: relative;
+    border: 2px dashed var(--border-2);
+    border-radius: var(--r-xl);
+    padding: var(--sp-10) var(--sp-6);
+    text-align: center;
+    cursor: pointer;
+    transition: border-color var(--t-base), background var(--t-base);
+    margin-bottom: var(--sp-4);
+  }
+  .upload-zone:hover,
+  .upload-zone.is-dragover {
+    border-color: var(--sky);
+    background: rgba(14, 165, 233, 0.03);
+  }
+  .upload-zone.has-file {
+    border-style: solid;
+    border-color: var(--sky);
+    padding: var(--sp-4);
+    cursor: default;
+  }
+  .upload-zone.has-file {
+    cursor: default;
+  }
+
+  /* Utility: hide elements */
+  .optimizer .u-hidden { display: none !important; }
+
+  /* Preview */
+  .upload-zone__preview {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    z-index: 20;
+  }
+  .upload-zone__preview img {
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: var(--r-lg);
+    object-fit: contain;
+  }
+  .upload-zone__remove {
+    position: absolute;
+    top: var(--sp-2);
+    right: var(--sp-2);
+    width: 32px;
+    height: 32px;
+    border-radius: var(--r-full);
+    background: rgba(15, 23, 42, 0.7);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--t-fast);
+  }
+  .upload-zone__remove:hover { background: rgba(15, 23, 42, 0.9); }
+
+  /* Upload progress */
+  .upload-progress {
+    width: 100%;
+    padding: var(--sp-4) var(--sp-5);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    margin-top: var(--sp-3);
+  }
+  .upload-progress__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--sp-2);
+  }
+  .upload-progress__name {
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 70%;
+  }
+  .upload-progress__pct {
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--sky);
+  }
+  .upload-progress__track {
+    height: 6px;
+    background: var(--off-white);
+    border-radius: var(--r-full);
+    overflow: hidden;
+    margin-bottom: var(--sp-2);
+  }
+  .upload-progress__fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--sky), var(--cyan));
+    border-radius: var(--r-full);
+    transition: width 300ms ease;
+  }
+  .upload-progress__status {
+    font-size: var(--fs-xs);
+    color: var(--text-3);
+  }
+  .upload-progress__status.is-done {
+    color: #16a34a;
+    font-weight: 500;
+  }
+
+  /* Tip */
+  .upload-zone__tip {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-2);
+    font-size: var(--fs-xs);
+    color: var(--text-3);
+    line-height: 1.5;
+    margin-bottom: var(--sp-6);
+    padding: var(--sp-3) var(--sp-4);
+    background: var(--off-white);
+    border-radius: var(--r-md);
+  }
+  .upload-zone__tip svg { flex-shrink: 0; margin-top: 1px; }
+
+  /* Submit */
+  .optimizer__submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    width: 100%;
+  }
+  .optimizer__submit .btn__label,
+  .optimizer__submit .btn__loading {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+  }
+  .spinner {
+    width: 18px;
+    height: 18px;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── Why Screenshot ── */
+  .why-screenshot {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    margin-bottom: var(--sp-6);
+    overflow: hidden;
+  }
+  .why-screenshot__toggle {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: var(--sp-4) var(--sp-5);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--text-2);
+    cursor: pointer;
+    list-style: none;
+    transition: color var(--t-fast);
+  }
+  .why-screenshot__toggle:hover { color: var(--text); }
+  .why-screenshot__toggle::-webkit-details-marker { display: none; }
+  .why-screenshot__toggle svg { color: var(--sky); flex-shrink: 0; }
+  .why-screenshot__content {
+    padding: 0 var(--sp-5) var(--sp-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+  }
+  .why-screenshot__item {
+    display: flex;
+    gap: var(--sp-3);
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.6;
+  }
+  .why-screenshot__item strong {
+    display: block;
+    color: var(--text);
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .why-screenshot__icon {
+    width: 28px;
+    height: 28px;
+    border-radius: var(--r-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .why-screenshot__icon--red { background: #fef2f2; color: #dc2626; }
+  .why-screenshot__icon--green { background: #f0fdf4; color: #16a34a; }
+  .why-screenshot__icon--blue { background: #f0f9ff; color: #0284c7; }
+
+  /* ── Error ── */
+  .optimizer__error {
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+    border-radius: var(--r-md);
+    padding: var(--sp-3) var(--sp-4);
+    font-size: var(--fs-sm);
+    line-height: 1.5;
+    margin-top: var(--sp-4);
+  }
+
+  /* ── Trust Signals ── */
+  .optimizer__trust {
+    display: flex;
+    justify-content: center;
+    gap: var(--sp-8);
+    margin-top: var(--sp-8);
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    color: var(--text-3);
+  }
+  .trust-item svg { color: var(--sky); flex-shrink: 0; }
+
+  /* ── Loading ── */
+  .loading-state {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--sp-12) 0 var(--sp-20);
+    overflow: hidden;
+  }
+
+  /* Floating background dots */
+  .loading-state__bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .loading-dot {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.08;
+    animation: floatDot 6s ease-in-out infinite;
+  }
+  .loading-dot--1 { width: 180px; height: 180px; background: var(--sky); top: -40px; right: -60px; animation-delay: 0s; }
+  .loading-dot--2 { width: 120px; height: 120px; background: var(--cyan); bottom: 20px; left: -40px; animation-delay: 1.5s; }
+  .loading-dot--3 { width: 80px; height: 80px; background: var(--sky); top: 40%; right: 10%; animation-delay: 3s; }
+  .loading-dot--4 { width: 60px; height: 60px; background: var(--cyan); top: 20%; left: 15%; animation-delay: 2s; }
+  .loading-dot--5 { width: 100px; height: 100px; background: var(--sky); bottom: -20px; right: 30%; animation-delay: 4s; }
+  @keyframes floatDot {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.1); }
+  }
+
+  /* Central loading card */
+  .loading-card {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-2xl);
+    padding: var(--sp-10) var(--sp-8);
+    box-shadow: 0 8px 40px rgba(14, 165, 233, 0.08), 0 1px 3px rgba(15, 23, 42, 0.04);
+    max-width: 480px;
+    width: 100%;
+    margin-bottom: var(--sp-8);
+  }
+  .loading-card__ring {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-bottom: var(--sp-6);
+  }
+  .loading-card__icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse-icon 2s ease-in-out infinite;
+  }
+  @keyframes pulse-icon {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.92); }
+  }
+  .loading-card__title {
+    font-family: var(--font-display);
+    font-size: var(--fs-xl);
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 var(--sp-2);
+    text-align: center;
+  }
+  .loading-card__subtitle {
+    font-size: var(--fs-sm);
+    color: var(--text-3);
+    margin: 0 0 var(--sp-8);
+    text-align: center;
+  }
+
+  /* Loading steps */
+  .loading-steps {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+  }
+  .loading-step-item {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    padding: var(--sp-3) var(--sp-4);
+    border-radius: var(--r-lg);
+    background: var(--off-white);
+    transition: background var(--t-base), border-color var(--t-base);
+    border: 1px solid transparent;
+  }
+  .loading-step-item.is-active {
+    background: rgba(14, 165, 233, 0.06);
+    border-color: rgba(14, 165, 233, 0.2);
+  }
+  .loading-step-item.is-done {
+    background: rgba(34, 197, 94, 0.06);
+    border-color: rgba(34, 197, 94, 0.15);
+  }
+  .loading-step-item__indicator {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: var(--border);
+    transition: background var(--t-base);
+  }
+  .loading-step-item.is-active .loading-step-item__indicator {
+    background: var(--sky);
+  }
+  .loading-step-item.is-done .loading-step-item__indicator {
+    background: #22c55e;
+  }
+  .loading-step-item__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--white);
+  }
+  .loading-step-item.is-active .loading-step-item__dot {
+    animation: pulse-dot 1s ease-in-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.6); opacity: 0.5; }
+  }
+  .loading-step-item__check {
+    display: none;
+    color: var(--white);
+  }
+  .loading-step-item.is-done .loading-step-item__check { display: block; }
+  .loading-step-item.is-done .loading-step-item__dot { display: none; }
+  .loading-step-item__label {
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--text-3);
+    transition: color var(--t-base);
+  }
+  .loading-step-item.is-active .loading-step-item__label { color: var(--sky); font-weight: 600; }
+  .loading-step-item.is-done .loading-step-item__label { color: #16a34a; }
+
+  /* Skeleton preview */
+  .loading-skeleton {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+  }
+  .loading-skeleton__row {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    height: 10px;
+  }
+  .loading-skeleton__row span {
+    display: block;
+    height: 100%;
+    border-radius: var(--r-full);
+    background: linear-gradient(90deg, var(--border) 25%, rgba(14,165,233,0.08) 50%, var(--border) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.8s ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* ══════════════════════════════════════
+     RESULTS PAGE
+     ══════════════════════════════════════ */
+
+  /* ── Score Hero Card ── */
+  .score-hero {
+    position: relative;
+    background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%);
+    border-radius: var(--r-2xl);
+    padding: var(--sp-12) var(--sp-8);
+    margin-bottom: var(--sp-10);
+    overflow: hidden;
+  }
+  .score-hero__bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .score-hero__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.3;
+  }
+  .score-hero__orb--1 {
+    width: 300px; height: 300px;
+    background: var(--sky);
+    top: -80px; right: -60px;
+  }
+  .score-hero__orb--2 {
+    width: 200px; height: 200px;
+    background: var(--cyan);
+    bottom: -60px; left: -40px;
+  }
+  .score-hero__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .score-hero__badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--cyan);
+    background: rgba(6, 182, 212, 0.12);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    padding: 4px 14px;
+    border-radius: var(--r-full);
+    margin-bottom: var(--sp-6);
+  }
+  .score-hero__ring {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin-bottom: var(--sp-4);
+  }
+  .score-ring { width: 100%; height: 100%; }
+  .score-ring__inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .score-ring__number {
+    font-family: var(--font-display);
+    font-size: 48px;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+  }
+  .score-ring__label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 2px;
+  }
+  .score-hero__grade {
+    font-family: var(--font-display);
+    font-size: var(--fs-2xl);
+    font-weight: 700;
+    margin-bottom: var(--sp-3);
+    padding: var(--sp-1) var(--sp-6);
+    border-radius: var(--r-full);
+  }
+  .score-hero__verdict {
+    font-size: var(--fs-md);
+    color: rgba(255,255,255,0.7);
+    max-width: 440px;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* ── Results Sections ── */
+  .results__section { margin-bottom: var(--sp-10); }
+  .results__section-header {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    margin-bottom: var(--sp-5);
+    padding-bottom: var(--sp-3);
+    border-bottom: 1px solid var(--border);
+  }
+  .results__section-title {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+  }
+  .results__section-hint {
+    font-size: var(--fs-xs);
+    color: var(--text-3);
+    margin: 0 0 var(--sp-4);
+  }
+
+  /* ── Category Bars ── */
+  .cat-bar {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+    padding: var(--sp-3) var(--sp-4);
+    background: var(--off-white);
+    border-radius: var(--r-lg);
+    margin-bottom: var(--sp-2);
+    transition: box-shadow var(--t-fast);
+  }
+  .cat-bar:hover { box-shadow: var(--shadow-sm); }
+  .cat-bar__icon {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--r-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: var(--fs-sm);
+    font-weight: 700;
+  }
+  .cat-bar__name {
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--text);
+    min-width: 160px;
+  }
+  .cat-bar__track {
+    flex: 1;
+    height: 8px;
+    background: var(--white);
+    border-radius: var(--r-full);
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .cat-bar__fill {
+    height: 100%;
+    border-radius: var(--r-full);
+    transition: width 800ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .cat-bar__score {
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    min-width: 40px;
+    text-align: right;
+  }
+
+  /* ── Priority Cards ── */
+  .priority-card {
+    display: flex;
+    gap: var(--sp-4);
+    padding: var(--sp-5);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    border-left: 4px solid var(--sky);
+    margin-bottom: var(--sp-3);
+    transition: box-shadow var(--t-fast), transform 200ms ease;
+  }
+  .priority-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+  .priority-card__rank {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--r-full);
+    background: linear-gradient(135deg, var(--sky), var(--cyan));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .priority-card__content { flex: 1; }
+  .priority-card__label {
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 var(--sp-1);
+  }
+  .priority-card__impact {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 2px 8px;
+    border-radius: var(--r-full);
+    display: inline-block;
+    margin-bottom: var(--sp-2);
+  }
+  .priority-card__impact--critical { background: #fef2f2; color: #dc2626; }
+  .priority-card__impact--high { background: #fff7ed; color: #ea580c; }
+  .priority-card__impact--medium { background: #f0f9ff; color: #0284c7; }
+  .priority-card__tip {
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ── Grid: Quick Wins + Strengths ── */
+  .results__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-6);
+    margin-bottom: var(--sp-10);
+  }
+  .results__grid-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    padding: var(--sp-6);
+    margin-bottom: 0;
+  }
+
+  /* Quick wins */
+  .quick-win {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-3);
+    padding: var(--sp-3) var(--sp-4);
+    background: #f0fdf4;
+    border-radius: var(--r-md);
+    margin-bottom: var(--sp-2);
+    font-size: var(--fs-sm);
+    color: #15803d;
+    line-height: 1.5;
+  }
+  .quick-win svg { flex-shrink: 0; margin-top: 2px; }
+
+  /* Strengths */
+  .strength-item {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    padding: var(--sp-3) var(--sp-4);
+    background: rgba(14, 165, 233, 0.04);
+    border-radius: var(--r-md);
+    margin-bottom: var(--sp-2);
+    font-size: var(--fs-sm);
+    color: var(--text);
+  }
+  .strength-item svg { color: #f59e0b; flex-shrink: 0; }
+
+  /* ── Detailed Checks ── */
+  .results__details {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    padding: var(--sp-5) var(--sp-6);
+    margin-bottom: var(--sp-10);
+  }
+  .results__details-toggle {
+    font-family: var(--font-display);
+    font-size: var(--fs-base);
+    font-weight: 600;
+    color: var(--sky);
+    cursor: pointer;
+    padding: var(--sp-1) 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    width: 100%;
+  }
+  .results__details-toggle::-webkit-details-marker { display: none; }
+  .results__all-checks { padding-top: var(--sp-4); }
+  .check-group-title {
+    font-family: var(--font-display);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    color: var(--text-3);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: var(--sp-6) 0 var(--sp-3);
+  }
+  .check-group-title:first-child { margin-top: 0; }
+  .check-row {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    padding: var(--sp-2) 0;
+    font-size: var(--fs-sm);
+    border-bottom: 1px solid var(--border);
+  }
+  .check-row:last-child { border-bottom: none; }
+  .check-row__status {
+    width: 20px;
+    height: 20px;
+    border-radius: var(--r-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .check-row__status--pass { background: #dcfce7; color: #16a34a; }
+  .check-row__status--partial { background: #fef3c7; color: #d97706; }
+  .check-row__status--fail { background: #fee2e2; color: #dc2626; }
+  .check-row__status--na { background: var(--off-white); color: var(--text-3); }
+  .check-row__label { flex: 1; color: var(--text-2); }
+
+  /* ── Share & Email ── */
+  .results__share {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    padding: var(--sp-5) var(--sp-6);
+    margin-bottom: var(--sp-6);
+  }
+  .results__share-header {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: var(--sp-4);
+  }
+  .results__share-header svg { color: var(--sky); }
+  .results__share-actions {
+    display: flex;
+    gap: var(--sp-3);
+    margin-bottom: var(--sp-1);
+  }
+  .share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: var(--sp-2) var(--sp-4);
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--text-2);
+    background: var(--white);
+    border: 1px solid var(--border-2);
+    border-radius: var(--r-md);
+    cursor: pointer;
+    transition: all var(--t-fast);
+  }
+  .share-btn:hover {
+    border-color: var(--sky);
+    color: var(--sky);
+    background: rgba(14, 165, 233, 0.04);
+  }
+  .share-btn--email svg { color: var(--sky); }
+
+  /* Email form */
+  .email-form.is-hidden { display: none; }
+  .email-form {
+    margin-top: var(--sp-4);
+    padding-top: var(--sp-4);
+    border-top: 1px solid var(--border);
+  }
+  .email-form__row {
+    display: flex;
+    gap: var(--sp-3);
+  }
+  .email-form__row input {
+    flex: 1;
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--text);
+    background: var(--white);
+    border: 1.5px solid var(--border-2);
+    border-radius: var(--r-md);
+    padding: var(--sp-2) var(--sp-4);
+    transition: border-color var(--t-base);
+  }
+  .email-form__row input:focus {
+    outline: none;
+    border-color: var(--sky);
+  }
+  .email-form__label,
+  .email-form__loading {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+  }
+  .email-form__status {
+    font-size: var(--fs-xs);
+    margin: var(--sp-2) 0 0;
+    line-height: 1.5;
+  }
+  .email-form__status.is-success { color: #16a34a; }
+  .email-form__status.is-error { color: #dc2626; }
+
+  /* Copy toast */
+  .results__share-copied {
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    color: #16a34a;
+    margin: var(--sp-3) 0 0;
+    animation: fadeUp 300ms ease;
+  }
+
+  /* ── CTA Card ── */
+  .results__cta-card {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    padding: var(--sp-8);
+    display: flex;
+    align-items: center;
+    gap: var(--sp-8);
+  }
+  .results__cta-content { flex: 1; }
+  .results__cta-content h3 {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 var(--sp-2);
+  }
+  .results__cta-content p {
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    margin: 0;
+    line-height: 1.6;
+  }
+  .results__cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    flex-shrink: 0;
+  }
+  .results__cta-actions .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    white-space: nowrap;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .results__grid { grid-template-columns: 1fr; }
+    .results__cta-card { flex-direction: column; text-align: center; }
+    .results__cta-actions { width: 100%; }
+    .score-hero { padding: var(--sp-8) var(--sp-6); }
+  }
+  @media (max-width: 640px) {
+    .optimizer { padding: var(--sp-8) var(--sp-4) var(--sp-16); }
+    .optimizer__title { font-size: var(--fs-2xl); }
+    .optimizer__trust { flex-direction: column; align-items: center; gap: var(--sp-3); }
+    .cat-bar__name { min-width: 100px; font-size: var(--fs-xs); }
+    .cat-bar { padding: var(--sp-2) var(--sp-3); }
+    .score-hero__ring { width: 120px; height: 120px; }
+    .score-ring__number { font-size: 40px; }
+  }
+</style>
+
+<script>
+  // ══════════════════════════════════════════════════════════
+  // DOM-REFERENZEN
+  // ══════════════════════════════════════════════════════════
+  const viewGate    = document.getElementById('view-gate')!;
+  const viewInput   = document.getElementById('view-input')!;
+  const viewLoading = document.getElementById('view-loading')!;
+  const viewResults = document.getElementById('view-results')!;
+  const gateForm    = document.getElementById('gate-form') as HTMLFormElement;
+  const form        = document.getElementById('analyze-form') as HTMLFormElement;
+  const fileInput   = document.getElementById('screenshot-input') as HTMLInputElement;
+  const uploadZone  = document.getElementById('upload-zone')!;
+  const placeholder = document.getElementById('upload-placeholder')!;
+  const previewWrap = document.getElementById('upload-preview')!;
+  const previewImg  = document.getElementById('preview-image') as HTMLImageElement;
+  const removeBtn   = document.getElementById('remove-image') as HTMLButtonElement;
+  const analyzeBtn  = document.getElementById('analyze-btn') as HTMLButtonElement;
+  const btnLabel    = analyzeBtn.querySelector('.btn__label') as HTMLElement;
+  const btnLoading  = analyzeBtn.querySelector('.btn__loading') as HTMLElement;
+  const errorBox    = document.getElementById('analyze-error')!;
+
+  const allViews = [viewGate, viewInput, viewLoading, viewResults];
+  let selectedFile: File | null = null;
+  let gateUserData: { name: string; company: string; position: string; email: string; country: string } | null = null;
+
+  // Anzeigefunktionen
+  function hide(el: HTMLElement) { el.classList.add('u-hidden'); }
+  function show(el: HTMLElement) { el.classList.remove('u-hidden'); }
+
+  function showView(view: HTMLElement) {
+    allViews.forEach(v => {
+      v.removeAttribute('hidden');
+      v.classList.remove('optimizer__view--active');
+    });
+    view.classList.add('optimizer__view--active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ══════════════════════════════════════════════════════════
+  // ZUGANGSFORMULAR (Kontaktaufnahme)
+  // ══════════════════════════════════════════════════════════
+  const GENERIC_DOMAINS = [
+    'gmail.com','yahoo.com','hotmail.com','outlook.com','aol.com','icloud.com',
+    'mail.com','protonmail.com','zoho.com','yandex.com','gmx.com','live.com',
+    'msn.com','me.com','mac.com','inbox.com','fastmail.com','tutanota.com',
+    'qq.com','163.com','126.com','yeah.net','foxmail.com',
+    'orange.fr','wanadoo.fr','laposte.net','free.fr','sfr.fr',
+    'web.de','gmx.de','t-online.de',
+    'mail.ru','rambler.ru','list.ru',
+    'rediffmail.com','pm.me','hey.com',
+  ];
+
+  gateForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const nameEl    = document.getElementById('gate-name') as HTMLInputElement;
+    const companyEl = document.getElementById('gate-company') as HTMLInputElement;
+    const positionEl= document.getElementById('gate-position') as HTMLInputElement;
+    const emailEl   = document.getElementById('gate-email') as HTMLInputElement;
+    const countryEl = document.getElementById('gate-country') as HTMLInputElement;
+    const emailErr  = document.getElementById('gate-email-error')!;
+    const formErr   = document.getElementById('gate-form-error')!;
+
+    // Fehler zurücksetzen
+    hide(emailErr);
+    hide(formErr);
+    emailEl.classList.remove('is-invalid');
+
+    const name    = nameEl.value.trim();
+    const company = companyEl.value.trim();
+    const email   = emailEl.value.trim().toLowerCase();
+
+    // Pflichtfelder prüfen
+    if (!name || !company || !email) {
+      formErr.textContent = "Alle mit Sternchen markierten Felder sind Pflichtfelder.";
+      show(formErr);
+      return;
+    }
+
+    // E-Mail-Format prüfen
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      emailErr.textContent = "Diese Adresse scheint nicht gültig zu sein.";
+      show(emailErr);
+      emailEl.classList.add('is-invalid');
+      emailEl.focus();
+      return;
+    }
+
+    // Freemail-Anbieter ausschließen
+    const domain = email.split('@')[1];
+    if (GENERIC_DOMAINS.includes(domain)) {
+      emailErr.textContent = "Freemail-Anbieter (Gmail, Yahoo, GMX usw.) werden nicht akzeptiert. Bitte nutzen Sie Ihre geschäftliche Adresse.";
+      show(emailErr);
+      emailEl.classList.add('is-invalid');
+      emailEl.focus();
+      return;
+    }
+
+    // Nutzerdaten sichern
+    gateUserData = {
+      name,
+      company,
+      position: positionEl.value.trim(),
+      email,
+      country: countryEl.value.trim(),
+    };
+
+    // Kontaktdaten als Benachrichtigung senden (ohne auf Antwort zu warten)
+    fetch('/api/optimizer-lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(gateUserData),
+    }).catch(() => {});
+
+    // Wechsel zur Upload-Ansicht
+    showView(viewInput);
+  });
+
+  // ══════════════════════════════════════════════════════════
+  // DATEI-UPLOAD
+  // ══════════════════════════════════════════════════════════
+  function showPreview(file: File) {
+    selectedFile = file;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      previewImg.src = e.target?.result as string;
+      hide(placeholder);
+      show(previewWrap);
+      uploadZone.classList.add('has-file');
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function clearFile() {
+    selectedFile = null;
+    fileInput.value = '';
+    show(placeholder);
+    hide(previewWrap);
+    uploadZone.classList.remove('has-file');
+    previewImg.src = '';
+  }
+
+  // Klick auf die Upload-Zone
+  uploadZone.addEventListener('click', () => {
+    if (!uploadZone.classList.contains('has-file')) {
+      fileInput.click();
+    }
+  });
+
+  fileInput.addEventListener('change', () => {
+    if (fileInput.files && fileInput.files[0]) {
+      const file = fileInput.files[0];
+      if (file.size > 10 * 1024 * 1024) {
+        errorBox.textContent = "Datei zu groß (maximal 10 MB).";
+        show(errorBox);
+        return;
+      }
+      hide(errorBox);
+      showPreview(file);
+    }
+  });
+
+  removeBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    clearFile();
+  });
+
+  // Drag-and-Drop
+  uploadZone.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    uploadZone.classList.add('is-dragover');
+  });
+  uploadZone.addEventListener('dragleave', () => {
+    uploadZone.classList.remove('is-dragover');
+  });
+  uploadZone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    uploadZone.classList.remove('is-dragover');
+    const file = e.dataTransfer?.files?.[0];
+    if (file && file.type.startsWith('image/')) {
+      showPreview(file);
+    }
+  });
+
+  // ══════════════════════════════════════════════════════════
+  // BEWERTUNG UND BENOTUNG
+  // ══════════════════════════════════════════════════════════
+  function getVerdict(grade: string): string {
+    const v: Record<string, string> = {
+      S: "Außergewöhnlich. Sie sind im obersten Prozent. Hier gibt es praktisch nichts mehr zu verbessern.",
+      A: "Exzellent. Unter den besten 10 Prozent. Ein paar Feinheiten, dann ist es makellos.",
+      B: "Gut. Überdurchschnittlich, das Fundament steht. Es bleibt Spielraum.",
+      C: "Mittelmäßig. Es liegt Arbeit vor Ihnen, aber nichts Unüberwindbares. Mehrere Hebel sind in Reichweite.",
+      D: "Unzureichend. Etliche Schwachstellen bremsen Ihre Sichtbarkeit. Hier muss angepackt werden.",
+      F: "Grundlegend zu überarbeiten. Wir starten weit unten, aber sehen Sie es als leere Leinwand."
+    };
+    return v[grade] || '';
+  }
+  function getBarColor(score: number): string {
+    if (score >= 85) return '#22c55e';
+    if (score >= 70) return '#0ea5e9';
+    if (score >= 55) return '#f59e0b';
+    return '#ef4444';
+  }
+  function gradeColor(grade: string): string {
+    if (grade === 'S' || grade === 'A') return '#22c55e';
+    if (grade === 'B') return '#0ea5e9';
+    if (grade === 'C') return '#f59e0b';
+    return '#ef4444';
+  }
+
+  // ══════════════════════════════════════════════════════════
+  // LADE-ANIMATION
+  // ══════════════════════════════════════════════════════════
+  let loadingTimers: number[] = [];
+  function startLoadingAnimation() {
+    const steps = [
+      document.getElementById('loading-step-1')!,
+      document.getElementById('loading-step-2')!,
+      document.getElementById('loading-step-3')!,
+    ];
+    steps.forEach(s => { s.classList.remove('is-active', 'is-done'); });
+    steps[0].classList.add('is-active');
+    loadingTimers.push(window.setTimeout(() => {
+      steps[0].classList.remove('is-active'); steps[0].classList.add('is-done');
+      steps[1].classList.add('is-active');
+    }, 3000));
+    loadingTimers.push(window.setTimeout(() => {
+      steps[1].classList.remove('is-active'); steps[1].classList.add('is-done');
+      steps[2].classList.add('is-active');
+    }, 8000));
+  }
+  function stopLoadingAnimation() {
+    loadingTimers.forEach(t => clearTimeout(t));
+    loadingTimers = [];
+  }
+
+  // ══════════════════════════════════════════════════════════
+  // ERGEBNISDARSTELLUNG
+  // ══════════════════════════════════════════════════════════
+  function renderResults(data: any) {
+    // Profiltyp
+    document.getElementById('results-type-label')!.textContent =
+      data.profile_type === 'company' ? "Analyse einer Unternehmensseite" : "Analyse eines persönlichen Profils";
+
+    // Score-Ring
+    const circle = document.getElementById('score-circle') as unknown as (HTMLElement & { style: CSSStyleDeclaration });
+    const circumference = 2 * Math.PI * 52;
+    const offset = circumference - (data.overall_score / 100) * circumference;
+    circle.style.transition = 'none';
+    circle.style.strokeDashoffset = String(circumference);
+    requestAnimationFrame(() => {
+      circle.style.transition = 'stroke-dashoffset 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
+      circle.style.strokeDashoffset = String(offset);
+    });
+
+    // Score-Animation
+    const numEl = document.getElementById('score-number')!;
+    const gradeEl = document.getElementById('score-grade')!;
+    let current = 0;
+    const target = data.overall_score;
+    const step = Math.max(1, Math.floor(target / 40));
+    const timer = setInterval(() => {
+      current = Math.min(current + step, target);
+      numEl.textContent = String(current);
+      if (current >= target) clearInterval(timer);
+    }, 25);
+    gradeEl.textContent = data.overall_grade;
+    const gc = gradeColor(data.overall_grade);
+    gradeEl.style.color = gc;
+    gradeEl.style.background = gc + '20';
+    gradeEl.style.border = `1px solid ${gc}40`;
+    document.getElementById('results-verdict')!.textContent = getVerdict(data.overall_grade);
+
+    // Kategorie-Balken
+    const catContainer = document.getElementById('results-categories')!;
+    catContainer.innerHTML = data.categories.map((cr: any) => {
+      const barColor = getBarColor(cr.score);
+      return `
+      <div class="cat-bar">
+        <div class="cat-bar__icon" style="background:${barColor}15;color:${barColor};">${cr.score >= 80 ? '✓' : cr.score >= 55 ? '•' : '!'}</div>
+        <span class="cat-bar__name">${cr.name}</span>
+        <div class="cat-bar__track">
+          <div class="cat-bar__fill" style="width:0;background:${barColor};" data-target="${cr.score}"></div>
+        </div>
+        <span class="cat-bar__score" style="color:${barColor};">${cr.score}%</span>
+      </div>`;
+    }).join('');
+    setTimeout(() => {
+      catContainer.querySelectorAll<HTMLElement>('.cat-bar__fill').forEach(el => {
+        el.style.width = el.dataset.target + '%';
+      });
+    }, 200);
+
+    // Prioritäten
+    const priContainer = document.getElementById('results-priorities')!;
+    if (!data.top_priorities?.length) {
+      priContainer.innerHTML = '<p style="color:var(--text-2);font-size:var(--fs-sm);">Nichts Kritisches. Das ist eher selten.</p>';
+    } else {
+      priContainer.innerHTML = data.top_priorities.map((p: any, i: number) => {
+        const cls = p.impact === 'CRITICAL' ? 'critical' : p.impact === 'HIGH' ? 'high' : 'medium';
+        return `
+        <div class="priority-card">
+          <span class="priority-card__rank">${i + 1}</span>
+          <div class="priority-card__content">
+            <span class="priority-card__impact priority-card__impact--${cls}">${p.impact}</span>
+            <p class="priority-card__label">${p.label}</p>
+            <p class="priority-card__tip">${p.recommendation}</p>
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    // Schnellsiege
+    const qwContainer = document.getElementById('results-quick-wins')!;
+    if (!data.quick_wins?.length) {
+      qwContainer.innerHTML = '<p style="color:var(--text-2);font-size:var(--fs-sm);">Keine schnellen Korrekturen offen. Sieht gut aus.</p>';
+    } else {
+      qwContainer.innerHTML = data.quick_wins.map((q: string) => `
+        <div class="quick-win">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          ${q}
+        </div>`).join('');
+    }
+
+    // Stärken
+    const strContainer = document.getElementById('results-strengths')!;
+    if (!data.strengths?.length) {
+      strContainer.innerHTML = '<p style="color:var(--text-2);font-size:var(--fs-sm);">Noch keine Stärken erkannt. Das kommt mit den Verbesserungen.</p>';
+    } else {
+      strContainer.innerHTML = data.strengths.map((s: string) => `
+        <div class="strength-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          ${s}
+        </div>`).join('');
+    }
+
+    // Detail aller Prüfungen
+    const allChecksContainer = document.getElementById('results-all-checks')!;
+    const statusIcons: Record<string, string> = {
+      pass: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>',
+      partial: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14"/></svg>',
+      fail: '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6L6 18M6 6l12 12"/></svg>',
+      na: '<span style="font-size:9px;font-weight:700;">N/A</span>',
+    };
+    let checksHtml = '';
+    (data.categories || []).forEach((cat: any) => {
+      checksHtml += `<div class="check-group-title">${cat.name}</div>`;
+      (cat.checks || []).forEach((c: any) => {
+        checksHtml += `
+          <div class="check-row">
+            <span class="check-row__status check-row__status--${c.status}">${statusIcons[c.status] || statusIcons.na}</span>
+            <span class="check-row__label">${c.label}</span>
+          </div>`;
+      });
+    });
+    allChecksContainer.innerHTML = checksHtml;
+
+    showView(viewResults);
+  }
+
+  // ══════════════════════════════════════════════════════════
+  // UPLOAD-FORTSCHRITT
+  // ══════════════════════════════════════════════════════════
+  const progressWrap   = document.getElementById('upload-progress') as HTMLElement;
+  const progressName   = document.getElementById('upload-progress-name') as HTMLElement;
+  const progressPct    = document.getElementById('upload-progress-pct') as HTMLElement;
+  const progressFill   = document.getElementById('upload-progress-fill') as HTMLElement;
+  const progressStatus = document.getElementById('upload-progress-status') as HTMLElement;
+
+  function showProgress(fileName: string) {
+    progressName.textContent = fileName;
+    progressPct.textContent = '0%';
+    progressFill.style.width = '0%';
+    progressStatus.textContent = "Wird hochgeladen...";
+    progressStatus.classList.remove('is-done');
+    show(progressWrap);
+  }
+  function updateProgress(pct: number) {
+    const p = Math.min(100, Math.round(pct));
+    progressPct.textContent = p + '%';
+    progressFill.style.width = p + '%';
+    if (p >= 100) {
+      progressStatus.textContent = "Eingegangen! Analyse läuft...";
+      progressStatus.classList.add('is-done');
+    }
+  }
+  function hideProgress() {
+    hide(progressWrap);
+  }
+
+  // ══════════════════════════════════════════════════════════
+  // FORMULARABSENDEN (XHR für Fortschritt)
+  // ══════════════════════════════════════════════════════════
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!selectedFile) {
+      errorBox.textContent = "Es fehlt der Screenshot Ihres LinkedIn-Profils.";
+      show(errorBox);
+      return;
+    }
+
+    // UI: Ladezustand
+    analyzeBtn.disabled = true;
+    hide(btnLabel);
+    show(btnLoading);
+    hide(errorBox);
+
+    // Fortschrittsbalken in der Upload-Zone
+    showProgress(selectedFile.name);
+
+    try {
+      // Datei in Base64 umwandeln
+      const base64 = await new Promise<string>((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve((reader.result as string).split(',')[1]);
+        reader.onerror = reject;
+        reader.readAsDataURL(selectedFile!);
+      });
+
+      const mediaType = selectedFile.type || 'image/png';
+      const payload = JSON.stringify({ image: base64, media_type: mediaType });
+
+      // XHR-Request, um den Upload-Fortschritt zu verfolgen
+      const data = await new Promise<any>((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', '/api/analyze-linkedin');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        xhr.upload.addEventListener('progress', (evt) => {
+          if (evt.lengthComputable) {
+            updateProgress((evt.loaded / evt.total) * 100);
+          }
+        });
+
+        xhr.upload.addEventListener('loadend', () => {
+          updateProgress(100);
+          // Nach Abschluss des Uploads zur Analyse-Ansicht wechseln
+          setTimeout(() => {
+            hideProgress();
+            showView(viewLoading);
+            startLoadingAnimation();
+          }, 400);
+        });
+
+        xhr.addEventListener('load', () => {
+          try {
+            const result = JSON.parse(xhr.responseText);
+            if (xhr.status >= 200 && xhr.status < 300 && result.success) {
+              resolve(result);
+            } else {
+              reject(new Error(result.error || "Die Analyse ist nicht zustande gekommen. Bitte versuchen Sie es erneut."));
+            }
+          } catch {
+            reject(new Error("Die Antwort des Servers konnte nicht gelesen werden."));
+          }
+        });
+
+        xhr.addEventListener('error', () => reject(new Error("Verbindungsproblem. Bitte versuchen Sie es erneut.")));
+        xhr.addEventListener('timeout', () => reject(new Error("Der Server antwortet zu langsam. Bitte versuchen Sie es erneut.")));
+        xhr.timeout = 120000;
+
+        xhr.send(payload);
+      });
+
+      stopLoadingAnimation();
+      lastAnalysis = data.analysis;
+      renderResults(data.analysis);
+
+      // Automatischer Versand des Reports an die hinterlegte Adresse
+      if (gateUserData?.email) {
+        fetch('/api/email-linkedin-report', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: gateUserData.email, analysis: data.analysis }),
+        }).catch(() => {});
+      }
+
+    } catch (err: any) {
+      stopLoadingAnimation();
+      hideProgress();
+      showView(viewInput);
+      errorBox.textContent = err.message || "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.";
+      show(errorBox);
+    } finally {
+      analyzeBtn.disabled = false;
+      show(btnLabel);
+      hide(btnLoading);
+    }
+  });
+
+  // ══════════════════════════════════════════════════════════
+  // TEILEN UND PER E-MAIL VERSENDEN
+  // ══════════════════════════════════════════════════════════
+  let lastAnalysis: any = null;
+
+  function buildTextReport(data: any): string {
+    const lines: string[] = [];
+    lines.push("ANALYSE IHRES LINKEDIN-PROFILS");
+    lines.push(`Score: ${data.overall_score}/100 (${data.overall_grade})`);
+    lines.push('');
+    lines.push("DETAIL NACH KATEGORIE");
+    (data.categories || []).forEach((cat: any) => {
+      lines.push(`  ${cat.name}: ${cat.score} %`);
+    });
+    if (data.top_priorities?.length) {
+      lines.push('');
+      lines.push("DIESE PUNKTE ZUERST BEHEBEN");
+      data.top_priorities.forEach((p: any, i: number) => {
+        lines.push(`  ${i + 1}. [${p.impact}] ${p.label}`);
+        lines.push(`     ${p.recommendation}`);
+      });
+    }
+    if (data.quick_wins?.length) {
+      lines.push('');
+      lines.push("SCHNELLSIEGE");
+      data.quick_wins.forEach((q: string) => { lines.push(`  - ${q}`); });
+    }
+    if (data.strengths?.length) {
+      lines.push('');
+      lines.push("STÄRKEN");
+      data.strengths.forEach((s: string) => { lines.push(`  - ${s}`); });
+    }
+    lines.push('');
+    lines.push('---');
+    lines.push("Erstellt mit dem LinkedIn-Profil-Optimierer von Nuvora Studio");
+    lines.push('https://nuvora.studio/de/linkedin-optimierer');
+    return lines.join('\n');
+  }
+
+  // In die Zwischenablage kopieren
+  document.getElementById('btn-copy-results')!.addEventListener('click', async () => {
+    if (!lastAnalysis) return;
+    const text = buildTextReport(lastAnalysis);
+    try {
+      await navigator.clipboard.writeText(text);
+      const toast = document.getElementById('copy-toast')!;
+      show(toast);
+      setTimeout(() => { hide(toast); }, 3000);
+    } catch {
+      // Fallback
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      const toast = document.getElementById('copy-toast')!;
+      show(toast);
+      setTimeout(() => { hide(toast); }, 3000);
+    }
+  });
+
+  // E-Mail-Versandformular
+  document.getElementById('btn-email-open')!.addEventListener('click', () => {
+    const emailForm = document.getElementById('email-form') as HTMLElement;
+    const isHidden = emailForm.classList.toggle('is-hidden');
+    if (!isHidden) {
+      const emailInput = document.getElementById('email-input') as HTMLInputElement;
+      // Vorbefüllen mit der Adresse aus dem Zugangsformular
+      if (gateUserData?.email && !emailInput.value) {
+        emailInput.value = gateUserData.email;
+      }
+      emailInput.focus();
+    }
+  });
+
+  // Report per E-Mail versenden
+  (document.getElementById('email-form') as HTMLFormElement).addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!lastAnalysis) return;
+
+    const emailInput = document.getElementById('email-input') as HTMLInputElement;
+    const sendBtn = document.getElementById('email-send-btn') as HTMLButtonElement;
+    const labelEl = sendBtn.querySelector('.email-form__label') as HTMLElement;
+    const loadingEl = sendBtn.querySelector('.email-form__loading') as HTMLElement;
+    const statusEl = document.getElementById('email-status') as HTMLElement;
+
+    const email = emailInput.value.trim();
+    if (!email) return;
+
+    sendBtn.disabled = true;
+    hide(labelEl);
+    show(loadingEl);
+    hide(statusEl);
+
+    try {
+      const res = await fetch('/api/email-linkedin-report', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, analysis: lastAnalysis }),
+      });
+      const result = await res.json();
+      if (!res.ok || !result.success) {
+        throw new Error(result.error || "Der Report konnte nicht versendet werden.");
+      }
+      statusEl.textContent = `Report gesendet an ${email}`;
+      statusEl.className = 'email-form__status is-success';
+      show(statusEl);
+      emailInput.value = '';
+    } catch (err: any) {
+      statusEl.textContent = err.message || "Hat nicht geklappt. Bitte erneut versuchen.";
+      statusEl.className = 'email-form__status is-error';
+      show(statusEl);
+    } finally {
+      sendBtn.disabled = false;
+      show(labelEl);
+      hide(loadingEl);
+    }
+  });
+
+  // Neustart: zurück zur Upload-Ansicht (Nutzerdaten bleiben erhalten)
+  document.getElementById('btn-restart')!.addEventListener('click', () => {
+    clearFile();
+    lastAnalysis = null;
+    showView(viewInput);
+  });
+</script>

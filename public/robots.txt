@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nuvora.studio/sitemap.xml
+Sitemap: https://nuvora.studio/sitemap-index.xml

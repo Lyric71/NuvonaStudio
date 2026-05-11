@@ -19,9 +19,9 @@ const features = [
   { label: 'Publications par mois',        foundation: '4', growth: '8', scale: '16' },
   { label: 'Visuels générés par IA',       foundation: '✓', growth: '✓', scale: '✓' },
   { label: 'Animation de communauté',      foundation: '✓', growth: '✓', scale: '✓' },
-  { label: 'Gestion de la publicité LinkedIn', foundation: '—', growth: '✓', scale: '✓' },
-  { label: 'Ciblage et profil acheteur',   foundation: '—', growth: '✓', scale: '✓' },
-  { label: 'Veille concurrentielle',       foundation: '—', growth: '✓', scale: '✓' },
+  { label: 'Gestion de la publicité LinkedIn', foundation: '-', growth: '✓', scale: '✓' },
+  { label: 'Ciblage et profil acheteur',   foundation: '-', growth: '✓', scale: '✓' },
+  { label: 'Veille concurrentielle',       foundation: '-', growth: '✓', scale: '✓' },
   { label: 'Rapport de performance',       foundation: '✓', growth: '✓', scale: '✓' },
   { label: 'Appel stratégique hebdomadaire', foundation: '✓', growth: '✓', scale: '✓' },
   { label: 'Contact dédié',               foundation: 'Responsable', growth: 'Responsable', scale: 'Référent senior' },
@@ -36,10 +36,10 @@ const adsFeatures = [
   { label: 'Accompagnement expert illimité',         foundation: '✓', growth: '✓' },
   { label: 'Rapports personnalisés',                 foundation: '✓', growth: '✓' },
   { label: 'Recommandations de contenu publicitaire', foundation: '✓', growth: '✓' },
-  { label: 'Points hebdomadaires',                   foundation: '—', growth: '✓' },
-  { label: 'Analyse de performance',                 foundation: '—', growth: '✓' },
-  { label: 'Stratégie de micro-ciblage',             foundation: '—', growth: '✓' },
-  { label: 'Remises sur volume',                     foundation: '—', growth: '✓' },
+  { label: 'Points hebdomadaires',                   foundation: '-', growth: '✓' },
+  { label: 'Analyse de performance',                 foundation: '-', growth: '✓' },
+  { label: 'Stratégie de micro-ciblage',             foundation: '-', growth: '✓' },
+  { label: 'Remises sur volume',                     foundation: '-', growth: '✓' },
 ];
 
 /* ── Tableaux simples ── */
@@ -85,7 +85,7 @@ const faqs = [
   },
   {
     q: 'Que signifie « Ciblage et profil acheteur » ?',
-    a: "En gros, c'est le portrait-robot de votre acheteur idéal. On identifie qui sont vos meilleurs prospects — par poste, secteur, taille de boîte, localisation — et on construit le contenu et les campagnes autour de ça. C'est inclus dans Growth et Scale.",
+    a: "En gros, c'est le portrait-robot de votre acheteur idéal. On identifie qui sont vos meilleurs prospects (par poste, secteur, taille de boîte, localisation) et on construit le contenu et les campagnes autour de ça. C'est inclus dans Growth et Scale.",
   },
   {
     q: 'Comment fonctionne la facturation du budget publicitaire ?',
@@ -101,7 +101,7 @@ const faqs = [
   },
   {
     q: "Quelle est la vraie différence entre Foundation et Growth ?",
-    a: "Foundation vous donne une présence : du contenu régulier et de l'animation de communauté. Growth, c'est le niveau où la prospection démarre vraiment — publicité, ciblage, veille concurrentielle et deux fois plus de contenu. Si vous cherchez à générer des prospects, c'est par Growth qu'il faut commencer.",
+    a: "Foundation vous donne une présence : du contenu régulier et de l'animation de communauté. Growth, c'est le niveau où la prospection démarre vraiment : publicité, ciblage, veille concurrentielle et deux fois plus de contenu. Si vous cherchez à générer des prospects, c'est par Growth qu'il faut commencer.",
   },
   {
     q: 'Que se passe-t-il après les 3 mois ?',
@@ -160,7 +160,7 @@ const faqs = [
             Avec <strong>Foundation</strong>, vous posez les bases : une présence LinkedIn régulière, bien construite, avant de monter en puissance.
           </div>
           <div class="tier-card tier-card--pop">
-            <strong>Growth</strong> c'est là que la prospection commence pour de bon. Publicité, ciblage, deux fois plus de contenu. Notre formule la plus demandée — et c'est pas un hasard.
+            <strong>Growth</strong> c'est là que la prospection commence pour de bon. Publicité, ciblage, deux fois plus de contenu. Notre formule la plus demandée, et c'est pas un hasard.
           </div>
           <div class="tier-card">
             <strong>Scale</strong>, c'est pour les entreprises qui veulent aller à fond : 16 publications par mois, un référent senior sur votre compte, et tous nos services qui avancent de concert.
@@ -232,8 +232,8 @@ const faqs = [
                     <td class="ads-table__val">
                       {row.foundation === '✓' ? (
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-label="Inclus"><path d="M4 9.5l3.5 3.5L14 6" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                      ) : row.foundation === '—' ? (
-                        <span class="ads-table__dash">—</span>
+                      ) : row.foundation === '-' ? (
+                        <span class="ads-table__dash">-</span>
                       ) : (
                         <strong>{row.foundation}</strong>
                       )}
@@ -241,8 +241,8 @@ const faqs = [
                     <td class="ads-table__val">
                       {row.growth === '✓' ? (
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-label="Inclus"><path d="M4 9.5l3.5 3.5L14 6" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                      ) : row.growth === '—' ? (
-                        <span class="ads-table__dash">—</span>
+                      ) : row.growth === '-' ? (
+                        <span class="ads-table__dash">-</span>
                       ) : (
                         <strong>{row.growth}</strong>
                       )}
@@ -318,7 +318,7 @@ const faqs = [
             <ul class="ent-list" role="list">
               <li>Entreprises internationales présentes dans plusieurs pays</li>
               <li>Organisations en expansion sur de nouveaux marchés, tous secteurs confondus</li>
-              <li>Entreprises pour lesquelles LinkedIn est un canal stratégique — pas un projet secondaire</li>
+              <li>Entreprises pour lesquelles LinkedIn est un canal stratégique, pas un projet secondaire</li>
             </ul>
           </div>
         </div>

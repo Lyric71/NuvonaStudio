@@ -6,7 +6,7 @@ import ContactCTA from '../../../components/ContactCTA.astro';
 
 <Layout
   lang="fr"
-  title="Fabricant suédois de polymères pour l'aéronautique — Étude de cas | Nuvora Studio"
+  title="Fabricant suédois de polymères pour l'aéronautique : étude de cas | Nuvora Studio"
   description="Un fabricant suédois de polymères haute performance est devenu la référence recherchée par les acheteurs aéronautiques grâce à LinkedIn."
   abstract="Étude de cas : comment le conseil, le contenu LinkedIn et la publicité ont repositionné un fabricant suédois de polymères sur le marché aéronautique."
 >
@@ -82,7 +82,7 @@ import ContactCTA from '../../../components/ContactCTA.astro';
               La ligne éditoriale tenait en deux mots : crédibilité technique, langage clair. On ne laissait passer aucun sigle sans explication. Une publication a décortiqué la différence entre deux familles de polymères utilisés dans les composants d'aile. Ça se lisait comme un court article vulgarisé, pas comme une fiche technique. Cette publication est devenue le contenu organique le plus performant des 60 premiers jours, ce qui nous a surpris parce qu'on pensait qu'un contenu centré sur les certifications ferait mieux.
             </p>
             <p>
-              Des campagnes sponsorisées ont tourné sur quatre marchés. Les formulaires de captation proposaient un comparatif de performance des matériaux — un vrai outil qu'un ingénieur pouvait garder et réutiliser. Pas une plaquette.
+              Des campagnes sponsorisées ont tourné sur quatre marchés. Les formulaires de captation proposaient un comparatif de performance des matériaux : un vrai outil qu'un ingénieur pouvait garder et réutiliser. Pas une plaquette.
             </p>
           </section>
 
@@ -106,7 +106,7 @@ import ContactCTA from '../../../components/ContactCTA.astro';
     <!-- Back link -->
     <section class="cs-back" aria-label="Navigation">
       <div class="container">
-        <a href="/fr/work" class="cs-back__link">&larr; Retour aux études de cas</a>
+        <a href="/fr/realisations" class="cs-back__link">&larr; Retour aux études de cas</a>
       </div>
     </section>
 
@@ -297,6 +297,10 @@ import ContactCTA from '../../../components/ContactCTA.astro';
   .cs-back__link:hover { color: var(--sky); transform: translateY(-3px); }
 
   /* ── Responsive ── */
+  @media (min-width: 1280px) {
+    .cs-content { max-width: 760px; }
+  }
+
   @media (max-width: 640px) {
     .cs-hero__meta { flex-direction: column; align-items: flex-start; }
     .cs-stats-bar__inner { grid-template-columns: 1fr; gap: var(--sp-5); }

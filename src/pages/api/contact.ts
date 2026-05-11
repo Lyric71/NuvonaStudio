@@ -6,36 +6,28 @@ import { Resend } from 'resend';
 export const POST: APIRoute = async ({ request }) => {
   const data = await request.formData();
 
+  const honeypot = (data.get('company_url') as string)?.trim();
+  if (honeypot) {
+    return new Response(JSON.stringify({ success: true }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+
+  const renderedAt = Number((data.get('form_ts') as string) || 0);
+  if (!renderedAt || Date.now() - renderedAt < 3000) {
+    return new Response(JSON.stringify({ success: true }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+
   const name    = (data.get('name')    as string)?.trim();
   const email   = (data.get('email')   as string)?.trim();
   const phone   = (data.get('phone')   as string)?.trim();
   const website = (data.get('website') as string)?.trim();
   const company = (data.get('company') as string)?.trim();
   const project = (data.get('project') as string)?.trim();
-
-  // Verify reCAPTCHA token
-  const recaptchaToken = (data.get('recaptcha_token') as string)?.trim();
-  if (!recaptchaToken) {
-    return new Response(JSON.stringify({ error: 'reCAPTCHA verification failed. Please try again.' }), {
-      status: 400,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  }
-
-  const recaptchaSecret = import.meta.env.RECAPTCHA_SECRET_KEY;
-  const recaptchaRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: `secret=${recaptchaSecret}&response=${recaptchaToken}`,
-  });
-  const recaptchaData = await recaptchaRes.json();
-
-  if (!recaptchaData.success || recaptchaData.score < 0.5) {
-    return new Response(JSON.stringify({ error: 'reCAPTCHA verification failed. Please try again.' }), {
-      status: 400,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  }
 
   // Validate required fields
   if (!name || !email || !website || !company || !project) {

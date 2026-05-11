@@ -7,7 +7,7 @@ interface Props {
   title?: string;
   description?: string;
   abstract?: string;
-  lang?: 'en' | 'fr' | 'zh';
+  lang?: 'en' | 'fr' | 'zh' | 'es' | 'de';
   preloadHero?: string;
 }
 
@@ -66,20 +66,6 @@ const alternateLangs = (Object.keys(languages) as Lang[]).map((l) => ({
     {abstract && <meta name="abstract" content={abstract} />}
 
     <title>{title}</title>
-
-    <!-- Google Analytics (deferred to avoid blocking render / forced reflow) -->
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-W9GBFC5MVT');
-      // Load gtag.js after page is interactive
-      window.addEventListener('load', function() {
-        var s = document.createElement('script');
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-W9GBFC5MVT';
-        document.head.appendChild(s);
-      }, {once: true});
-    </script>
   </head>
   <body>
     <slot />

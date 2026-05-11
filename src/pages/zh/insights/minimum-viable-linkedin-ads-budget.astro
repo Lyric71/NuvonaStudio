@@ -487,7 +487,11 @@ import ContactCTA from '../../../components/ContactCTA.astro';
   }
 
   /* ── Responsive ── */
-  @media (max-width: 900px) {
+  @media (min-width: 1280px) {
+    .post-content { max-width: 760px; }
+  }
+
+  @media (max-width: 1024px) {
     .post-layout { grid-template-columns: 1fr; }
     .post-toc { display: none; }
   }

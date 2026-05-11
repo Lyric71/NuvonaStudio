@@ -6,7 +6,7 @@ import ContactCTA from '../../../components/ContactCTA.astro';
 
 <Layout
   lang="fr"
-  title="Fabricant japonais de lits médicaux — Prospects LinkedIn en Europe | Étude de cas | Nuvora Studio"
+  title="Fabricant japonais de lits médicaux : prospects LinkedIn en Europe | Étude de cas | Nuvora Studio"
   description="Un fabricant japonais de lits hospitaliers n'avait aucune présence numérique en Europe. En 90 jours, LinkedIn lui a apporté un vivier complet de distributeurs européens."
   abstract="Étude de cas : comment le contenu LinkedIn, la publicité et la visibilité du dirigeant ont ouvert le marché européen pour un fabricant japonais de lits médicaux."
 >
@@ -73,7 +73,7 @@ import ContactCTA from '../../../components/ContactCTA.astro';
           <section>
             <h2>Notre approche</h2>
             <p>
-              On a commencé par le PDG. Il ne se voyait absolument pas publier du contenu, et il nous l'a fait savoir plus d'une fois. On lui a dit autrement : vous présentez déjà en conférence — LinkedIn c'est juste l'endroit ou ces présentations continuent de travailler pour vous après votre départ. Là il a compris.
+              On a commencé par le PDG. Il ne se voyait absolument pas publier du contenu, et il nous l'a fait savoir plus d'une fois. On lui a dit autrement : vous présentez déjà en conférence, LinkedIn c'est juste l'endroit où ces présentations continuent de travailler pour vous après votre départ. Là il a compris.
             </p>
             <p>
               Ses premières publications abordaient les vrais sujets de préoccupation des équipes achats. Les normes de sécurité européennes pour les lits. Les exigences de contrôle des infections pour le mobilier hospitalier. Le coût total de possession sur dix ans. Il ne vendait pas des lits, il montrait aux acheteurs qu'il comprenait leur métier. Une publication qui comparait les délais de certification dans quatre pays européens a été reprise par un compte spécialisé dans l'équipement hospitalier en Allemagne. Ça l'a motivé à continuer.
@@ -82,7 +82,7 @@ import ContactCTA from '../../../components/ContactCTA.astro';
               La page entreprise a été lancée la même semaine. Le contenu était pensé pour des lecteurs précis : responsables achats, distributeurs d'équipements, architectes d'établissements de santé. On a supprimé tout ce qui ressemblait à de l'actualité institutionnelle générique. Chaque publication était construite autour d'une question qu'un acheteur pourrait réellement chercher.
             </p>
             <p>
-              La publicité LinkedIn a fait le lien entre la visibilité et la prospection concrète. Le contenu sponsorisé ciblait les décideurs achats dans les hôpitaux de plus de 200 lits en Allemagne, en France et au Royaume-Uni. L'offre était une fiche comparative de spécifications produit — un engagement faible mais vraiment utile pour quelqu'un en phase d'évaluation.
+              La publicité LinkedIn a fait le lien entre la visibilité et la prospection concrète. Le contenu sponsorisé ciblait les décideurs achats dans les hôpitaux de plus de 200 lits en Allemagne, en France et au Royaume-Uni. L'offre était une fiche comparative de spécifications produit : un engagement faible mais vraiment utile pour quelqu'un en phase d'évaluation.
             </p>
             <p>
               Un ajustement en cours de campagne : les publicités au Royaume-Uni sous-performaient. Le taux de clic était environ deux fois inférieur à celui de l'Allemagne et de la France. On a retravaillé les visuels en mettant en avant les certifications compatibles NHS, et les chiffres se sont améliorés dans les deux semaines. Pas de manière spectaculaire, le Royaume-Uni est resté le plus faible des trois marchés, mais on est arrivé à un coût par prospect qui tenait la route.
@@ -103,7 +103,7 @@ import ContactCTA from '../../../components/ContactCTA.astro';
     <!-- Back link -->
     <section class="cs-back" aria-label="Navigation">
       <div class="container">
-        <a href="/fr/work" class="cs-back__link">&larr; Retour aux études de cas</a>
+        <a href="/fr/realisations" class="cs-back__link">&larr; Retour aux études de cas</a>
       </div>
     </section>
 
@@ -294,6 +294,10 @@ import ContactCTA from '../../../components/ContactCTA.astro';
   .cs-back__link:hover { color: var(--sky); transform: translateY(-3px); }
 
   /* ── Responsive ── */
+  @media (min-width: 1280px) {
+    .cs-content { max-width: 760px; }
+  }
+
   @media (max-width: 640px) {
     .cs-hero__meta { flex-direction: column; align-items: flex-start; }
     .cs-stats-bar__inner { grid-template-columns: 1fr; gap: var(--sp-5); }

@@ -1,0 +1,765 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import NavBar from '../../../components/NavBar.astro';
+
+import ContactCTA from '../../../components/ContactCTA.astro';
+
+/* ── Daten ──────────────────────────────────────────────── */
+
+const contentServices = [
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="7" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.6"/><line x1="9" y1="12" x2="15" y2="12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
+    title: 'Betreuung der Unternehmensseite',
+    text: 'Wir bauen die Seite neu auf oder überarbeiten, was vorhanden ist, und führen sie anschließend im laufenden Betrieb. Einheitliches Markenbild, präzise Texte und ein verlässlicher Veröffentlichungstakt, auf den sich Ihre Zielgruppe verlassen kann.',
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
+    title: 'Contentproduktion und Redaktion',
+    text: 'Beiträge, Artikel, Karussells, Videos. Wir schreiben und gestalten alles, Woche für Woche, in Ihrer Tonalität und pünktlich. Wir bleiben dran, bis Ihre Zielgruppe Sie wahrnimmt.',
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M2 7l10 7 10-7" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
+    title: 'LinkedIn Newsletter',
+    text: 'Der Newsletter landet direkt im Postfach Ihrer Abonnenten und gleichzeitig in deren LinkedIn-Benachrichtigungen. Kein Algorithmus dazwischen. Eine direkte Leitung zu den Entscheidern, die zählen.',
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="1.6"/></svg>`,
+    title: 'LinkedIn Events',
+    text: 'Das Format mit der höchsten Interaktionsrate auf LinkedIn. Wir kümmern uns um Aufsetzen, Bewerbung, Erinnerungen und Nachfassen. Sie übernehmen den Auftritt.',
+  },
+];
+
+const adFormats = [
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="3" width="20" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 10h8M8 14h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
+    title: 'Sponsored Content',
+    text: 'Ihre besten Beiträge erscheinen im Feed derjenigen, die tatsächlich kaufen können. Aussteuerung nach Funktion und Seniorität, bis hinunter zum einzelnen Unternehmen.',
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.6"/><polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="1.6"/></svg>`,
+    title: 'Sponsored Messaging',
+    text: 'InMail-Kampagnen, zugeschnitten auf B2B. Wir schreiben die Nachrichten, justieren das Targeting und messen am Ende, wer geantwortet hat. Öffnungsraten interessieren uns dabei wenig.',
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M3 21v-2a7 7 0 0 1 7-7h4a7 7 0 0 1 7 7v2" stroke="currentColor" stroke-width="1.6"/></svg>`,
+    title: 'Dynamic Ads',
+    text: 'Der Interessent sieht seinen eigenen Namen und sein Foto direkt neben Ihrer Marke. Das fällt auf. Wir konzipieren und steuern diese Kampagnen auch in großem Volumen.',
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 8h8M8 12h6M8 16h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
+    title: 'Textanzeigen',
+    text: 'Schlicht, günstig, leicht skalierbar. Im Zusammenspiel mit Sponsored Content leisten Textanzeigen still und leise die Grundlagenarbeit.',
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="currentColor" stroke-width="1.6"/></svg>`,
+    title: 'Lead Gen Forms',
+    text: 'Ein Klick und die Kontaktdaten landen direkt bei Ihnen. Keine Landingpage, kein Reibungsverlust. Wir bauen, testen und optimieren diese Formulare.',
+  },
+];
+
+const consultingServices = [
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="1.6"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="1.6"/></svg>`,
+    title: 'Employee Advocacy',
+    text: 'Ihre Mitarbeiter verfügen über Netzwerke, an die Ihre Unternehmensseite niemals herankommt. Wir konzipieren das Programm und stellen Ihrem Team teilfertige Inhalte zur Verfügung, die in Sekunden veröffentlicht sind.',
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.09 6.26L20 10l-5.91 1.74L12 18l-2.09-6.26L4 10l5.91-1.74L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
+    title: 'Executive Branding',
+    text: 'Bevor ein Interessent Ihre Unternehmensseite besucht, hat er bereits den Geschäftsführer gegoogelt. Wir positionieren Ihre Führungskräfte als die Fachleute, die sie ohnehin sind.',
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2V3z" stroke="currentColor" stroke-width="1.6"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7V3z" stroke="currentColor" stroke-width="1.6"/></svg>`,
+    title: 'Schulungen',
+    text: 'Praxisnahe Workshops zu Profiloptimierung, Contentstrategie und Auswertung. Ihr Team verlässt den Raum und weiß genau, was am Montagmorgen zu tun ist.',
+  },
+];
+---
+
+<Layout
+  lang="de"
+  title="LinkedIn-Leistungen für die B2B-Leadgenerierung"
+  description="Drei Leistungsbereiche, mit denen LinkedIn zum Ort wird, an dem Ihre nächsten Kunden Sie finden. Content, Werbung und Beratung für B2B-Unternehmen."
+  abstract="Wir bauen LinkedIn-Präsenzen auf, die Leads bringen. Content, Werbekampagnen und Beratungsprogramme, geschnitten auf B2B."
+>
+  <NavBar lang="de" />
+  <main id="main-content">
+
+    <!-- ═══════════════════════════════════════════════════════
+         HERO
+         ═══════════════════════════════════════════════════════ -->
+    <section class="s-hero" aria-labelledby="s-hero-h">
+      <div class="s-hero__bg" aria-hidden="true"></div>
+      <div class="s-hero__overlay" aria-hidden="true"></div>
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="s-hero__content">
+          <p class="eyebrow eyebrow--light reveal">Unsere Leistungen</p>
+          <h1 id="s-hero-h" class="s-hero__h1 reveal reveal-delay-1">
+            Wir bauen LinkedIn-Präsenzen auf und gewinnen <span class="text-gradient">mehr Leads.</span>
+          </h1>
+          <p class="s-hero__sub reveal reveal-delay-2">
+            Den meisten B2B-Unternehmen ist klar, dass auf LinkedIn mehr drin wäre. Nur fehlt die Zeit, das Team oder das nötige Know-how. Genau hier setzen wir an.
+          </p>
+          <div class="s-hero__actions reveal reveal-delay-3">
+            <a href="/de/kontakt" class="btn btn--primary btn--lg">Gespräch vereinbaren</a>
+            <a href="#s-content" class="btn btn--outline-white btn--lg">Leistungen ansehen</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         INTRO
+         ═══════════════════════════════════════════════════════ -->
+    <section class="section s-intro" aria-labelledby="s-intro-h">
+      <div class="container">
+        <div class="s-intro__inner reveal">
+          <h2 id="s-intro-h" class="s-intro__h2">Drei Leistungsbereiche. Ein Ziel: LinkedIn wird zum Kanal, über den Ihre nächsten Kunden Sie finden.</h2>
+          <p class="s-intro__body">Eine Unternehmensseite, die halbfertig im Netz steht. Geschäftsführerprofile, an denen seit 2021 niemand mehr etwas geändert hat. Reichweite, die nirgendwo ankommt. Solche Ausgangslagen kennen wir. Hier fangen wir an.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         CONTENT-LEISTUNGEN
+         ═══════════════════════════════════════════════════════ -->
+    <section class="section s-pillar" id="s-content" aria-labelledby="s-content-h">
+      <div class="container">
+        <div class="s-pillar__layout">
+          <div class="s-pillar__text reveal">
+            <div class="s-pillar__icon-wrap">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            </div>
+            <h2 id="s-content-h" class="s-pillar__h2">LinkedIn-Content</h2>
+            <a href="/de/leistungen/content" class="btn btn--primary">Sprechen wir über Ihren Content</a>
+          </div>
+          <div class="s-pillar__visual reveal reveal-delay-2">
+            <div class="s-pillar__img-wrap">
+              <img src="/services-content.webp" alt="LinkedIn-Feed mit Karussell-Beiträgen, Artikeln und Newsletter-Benachrichtigungen" width="1024" height="1024" loading="lazy" class="s-pillar__img" />
+            </div>
+          </div>
+        </div>
+
+        <div class="s-cards">
+          {contentServices.map((card, i) => (
+            <a href="/de/leistungen/content" class={`s-card reveal${i > 0 ? ` reveal-delay-${Math.min(i, 3)}` : ''}`}>
+              <div class="s-card__top">
+                <span class="s-card__icon" set:html={card.icon} />
+              </div>
+              <strong class="s-card__title">{card.title}</strong>
+              <p class="s-card__text">{card.text}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         WERBE-LEISTUNGEN
+         ═══════════════════════════════════════════════════════ -->
+    <section class="section s-pillar s-pillar--dark" id="s-advertising" aria-labelledby="s-ads-h">
+      <div class="s-pillar__bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="s-pillar__layout s-pillar__layout--flip">
+          <div class="s-pillar__text reveal">
+            <div class="s-pillar__icon-wrap s-pillar__icon-wrap--light">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
+            </div>
+            <h2 id="s-ads-h" class="s-pillar__h2">LinkedIn-Werbung</h2>
+            <a href="/de/leistungen/werbung" class="btn btn--primary">Leads gewinnen</a>
+          </div>
+          <div class="s-pillar__visual reveal reveal-delay-2">
+            <div class="s-pillar__img-wrap s-pillar__img-wrap--dark">
+              <img src="/services-advertising.webp" alt="LinkedIn-Werbedashboard mit Targeting-Filtern und Leistungskurven" width="1024" height="1024" loading="lazy" class="s-pillar__img" />
+            </div>
+          </div>
+        </div>
+
+        <div class="s-ad-grid">
+          {adFormats.map((card, i) => (
+            <a href="/de/leistungen/werbung" class={`s-ad-card reveal${i > 0 ? ` reveal-delay-${Math.min(i, 4)}` : ''}`}>
+              <span class="s-ad-card__icon" set:html={card.icon} />
+              <strong class="s-ad-card__title">{card.title}</strong>
+              <p class="s-ad-card__text">{card.text}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         BERATUNGS-LEISTUNGEN
+         ═══════════════════════════════════════════════════════ -->
+    <section class="section s-pillar" id="s-consulting" aria-labelledby="s-consult-h">
+      <div class="container">
+        <div class="s-pillar__layout">
+          <div class="s-pillar__text reveal">
+            <div class="s-pillar__icon-wrap">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2V3z" stroke="currentColor" stroke-width="1.6"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7V3z" stroke="currentColor" stroke-width="1.6"/></svg>
+            </div>
+            <h2 id="s-consult-h" class="s-pillar__h2">LinkedIn-Beratung und Schulungen</h2>
+            <a href="/de/leistungen/beratung" class="btn btn--primary">Sprechen wir über Ihr Team</a>
+          </div>
+          <div class="s-pillar__visual reveal reveal-delay-2">
+            <div class="s-pillar__img-wrap">
+              <img src="/services-consulting.webp" alt="Workshop-Szene: Referentin schult ein Team in LinkedIn-Profiloptimierung und Strategie" width="1024" height="1024" loading="lazy" class="s-pillar__img" />
+            </div>
+          </div>
+        </div>
+
+        <div class="s-consult-grid">
+          {consultingServices.map((card, i) => (
+            <a href="/de/leistungen/beratung" class={`s-consult-card reveal${i > 0 ? ` reveal-delay-${Math.min(i, 3)}` : ''}`}>
+              <span class="s-consult-card__icon" set:html={card.icon} />
+              <strong class="s-consult-card__title">{card.title}</strong>
+              <p class="s-consult-card__text">{card.text}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         TEAM
+         ═══════════════════════════════════════════════════════ -->
+    <section class="section s-team" aria-labelledby="s-team-h">
+      <div class="container">
+        <div class="s-team__inner reveal">
+          <p class="eyebrow">Hinter der Arbeit</p>
+          <h2 id="s-team-h" class="s-team__h2">Gute LinkedIn-Arbeit entsteht nicht aus Vorlagen und Automatik.</h2>
+          <p class="s-team__body">Sie kommt von Menschen, die B2B verstehen, die Plattform aus dem Effeff kennen und so anspruchsvoll sind, dass auch die Details stimmen. Unser Team hat LinkedIn-Präsenzen im Maschinenbau, in der Technologiebranche, im Gesundheitswesen und für Professional Services aufgebaut. Quer durch alle relevanten Zeitzonen.</p>
+          <a href="/de/ueber-uns" class="btn btn--outline">Das Team kennenlernen</a>
+        </div>
+      </div>
+    </section>
+
+
+    <ContactCTA lang="de" />
+
+  </main>
+</Layout>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     STYLES
+     ═══════════════════════════════════════════════════════════ -->
+<style>
+
+  /* ╔═══════════════════════════════════════════╗
+     ║  HERO                                     ║
+     ╚═══════════════════════════════════════════╝ */
+  .s-hero {
+    position: relative;
+    overflow: hidden;
+    padding-block: var(--sp-32) var(--sp-24);
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+  }
+
+  .s-hero__bg {
+    position: absolute;
+    inset: 0;
+    background: url('/services-hero.webp') center center / cover no-repeat;
+    z-index: 0;
+  }
+
+  .s-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(15,23,42, 0.92) 0%,
+      rgba(15,23,42, 0.75) 50%,
+      rgba(15,23,42, 0.45) 100%
+    );
+    z-index: 1;
+  }
+
+  .s-hero__content {
+    max-width: 680px;
+  }
+
+  .s-hero__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.10;
+    letter-spacing: -0.02em;
+    margin-block: var(--sp-5) var(--sp-6);
+  }
+  .s-hero__h1 .text-gradient {
+    background: linear-gradient(135deg, var(--cyan) 0%, var(--sky) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .s-hero__sub {
+    font-size: var(--fs-md);
+    color: rgba(255,255,255,0.68);
+    max-width: 520px;
+    line-height: 1.75;
+    margin-bottom: var(--sp-10);
+  }
+
+  .s-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+  }
+
+  @media (max-width: 640px) {
+    .s-hero { padding-block: var(--sp-16) var(--sp-12); }
+  }
+
+
+  /* ╔═══════════════════════════════════════════╗
+     ║  INTRO                                    ║
+     ╚═══════════════════════════════════════════╝ */
+  .s-intro {
+    background: var(--white);
+    padding-block: var(--sp-16);
+  }
+  .s-intro__inner {
+    max-width: 780px;
+    margin-inline: auto;
+    text-align: center;
+  }
+  .s-intro__h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    margin-bottom: var(--sp-6);
+  }
+  .s-intro__body {
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    line-height: 1.75;
+  }
+
+
+  /* ╔═══════════════════════════════════════════╗
+     ║  PILLAR SECTIONS (Content / Ads / Consult)║
+     ╚═══════════════════════════════════════════╝ */
+  .s-pillar {
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  .s-pillar--dark {
+    background: var(--deep-navy);
+  }
+  .s-pillar__bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 50% 60% at 0% 100%, rgba(6,182,212,.08) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 50% at 100% 0%, rgba(3,105,161,.06) 0%, transparent 60%);
+  }
+
+  .s-pillar__layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-16);
+    align-items: center;
+    margin-bottom: var(--sp-16);
+    position: relative;
+    z-index: 1;
+  }
+  .s-pillar__layout--flip { direction: rtl; }
+  .s-pillar__layout--flip .s-pillar__text,
+  .s-pillar__layout--flip .s-pillar__visual { direction: ltr; }
+
+  .s-pillar__icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px; height: 56px;
+    border-radius: var(--r-xl);
+    background: linear-gradient(135deg, rgba(3,105,161,.08), rgba(6,182,212,.06));
+    color: var(--sky);
+    margin-bottom: var(--sp-5);
+    transition: transform var(--t-base);
+  }
+  .s-pillar__icon-wrap:hover { transform: scale(1.05); }
+  .s-pillar__icon-wrap--light {
+    background: linear-gradient(135deg, rgba(6,182,212,.12), rgba(3,105,161,.08));
+    color: var(--cyan);
+  }
+
+  .s-pillar__h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    margin-bottom: var(--sp-6);
+  }
+  .s-pillar--dark .s-pillar__h2 { color: var(--white); }
+
+  .s-pillar__lead {
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    line-height: 1.75;
+    margin-bottom: var(--sp-4);
+    font-weight: 500;
+  }
+  .s-pillar--dark .s-pillar__lead { color: rgba(255,255,255,0.68); }
+
+  .s-pillar__body {
+    font-size: var(--fs-base);
+    color: var(--text-2);
+    line-height: 1.75;
+    margin-bottom: var(--sp-8);
+  }
+  .s-pillar--dark .s-pillar__body { color: rgba(255,255,255,0.48); }
+
+  /* Visual images */
+  .s-pillar__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .s-pillar__img-wrap {
+    position: relative;
+    border-radius: var(--r-2xl);
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-lg);
+  }
+  .s-pillar__img-wrap--dark {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.08);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .s-pillar__img-ph {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-4);
+    height: 100%;
+    background: linear-gradient(135deg, var(--off-white) 0%, var(--border) 100%);
+  }
+  .s-pillar__img-ph--dark {
+    background: linear-gradient(135deg, rgba(15,23,42,0.9) 0%, rgba(3,105,161,0.20) 100%);
+  }
+
+  .s-ph__icon {
+    transition: transform var(--t-base);
+  }
+  .s-pillar__img-wrap:hover .s-ph__icon {
+    transform: scale(1.05);
+  }
+
+  .s-ph__label {
+    font-size: var(--fs-xs);
+    color: var(--text-3);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .s-ph__label--dark {
+    color: rgba(255,255,255,0.30);
+  }
+
+
+  /* ╔═══════════════════════════════════════════╗
+     ║  CONTENT SERVICE CARDS                    ║
+     ╚═══════════════════════════════════════════╝ */
+  .s-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-5);
+  }
+
+  .s-card {
+    padding: var(--sp-8);
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    transition: border-color var(--t-base), box-shadow var(--t-base), transform var(--t-base);
+  }
+  .s-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--sky), var(--cyan));
+    opacity: 0;
+    transition: opacity var(--t-base);
+  }
+  .s-card:hover {
+    border-color: rgba(3,105,161,.18);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+  }
+  .s-card:hover::before { opacity: 1; }
+
+  .s-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--sp-2);
+  }
+  .s-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px; height: 44px;
+    border-radius: var(--r-lg);
+    background: linear-gradient(135deg, rgba(3,105,161,.08), rgba(6,182,212,.06));
+    color: var(--sky);
+    flex-shrink: 0;
+  }
+  .s-card__num {
+    font-family: var(--font-display);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--text-3);
+  }
+  .s-card__title {
+    font-size: var(--fs-base);
+    font-weight: 600;
+    color: var(--text);
+  }
+  .s-card__text {
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.7;
+  }
+
+
+  /* ╔═══════════════════════════════════════════╗
+     ║  ADVERTISING FORMAT CARDS                 ║
+     ╚═══════════════════════════════════════════╝ */
+  .s-ad-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--sp-5);
+  }
+
+  .s-ad-card {
+    padding: var(--sp-6);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--r-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    text-decoration: none;
+    transition: background var(--t-base), border-color var(--t-base), transform var(--t-base);
+  }
+  .s-ad-card:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(6,182,212,.22);
+    transform: translateY(-3px);
+  }
+
+  .s-ad-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px; height: 44px;
+    border-radius: var(--r-lg);
+    background: rgba(6,182,212,.10);
+    color: var(--cyan);
+    flex-shrink: 0;
+    margin-bottom: var(--sp-2);
+  }
+  .s-ad-card__title {
+    font-size: var(--fs-base);
+    font-weight: 600;
+    color: var(--white);
+  }
+  .s-ad-card__text {
+    font-size: var(--fs-sm);
+    color: rgba(255,255,255,0.48);
+    line-height: 1.7;
+  }
+
+
+  /* ╔═══════════════════════════════════════════╗
+     ║  CONSULTING SERVICE CARDS                 ║
+     ╚═══════════════════════════════════════════╝ */
+  .s-consult-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-6);
+  }
+
+  .s-consult-card {
+    padding: var(--sp-8);
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    text-decoration: none;
+    transition: border-color var(--t-base), box-shadow var(--t-base), transform var(--t-base);
+  }
+  .s-consult-card:hover {
+    border-color: rgba(3,105,161,.18);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+  }
+
+  .s-consult-card__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px; height: 48px;
+    border-radius: var(--r-lg);
+    background: linear-gradient(135deg, rgba(3,105,161,.08), rgba(6,182,212,.06));
+    color: var(--blue);
+    flex-shrink: 0;
+    margin-bottom: var(--sp-2);
+  }
+  .s-consult-card__title {
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    color: var(--text);
+  }
+  .s-consult-card__text {
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.7;
+  }
+
+
+  /* ╔═══════════════════════════════════════════╗
+     ║  TEAM SECTION                             ║
+     ╚═══════════════════════════════════════════╝ */
+  .s-team {
+    background: var(--off-white);
+  }
+  .s-team__inner {
+    max-width: 720px;
+    margin-inline: auto;
+    text-align: center;
+  }
+  .s-team__h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    margin-bottom: var(--sp-6);
+  }
+  .s-team__body {
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    line-height: 1.75;
+    margin-bottom: var(--sp-10);
+  }
+
+
+  /* ╔═══════════════════════════════════════════╗
+     ║  BOTTOM CTA                               ║
+     ╚═══════════════════════════════════════════╝ */
+  .s-cta {
+    background: var(--deep-navy);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .s-cta__orb {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(80px);
+  }
+  .s-cta__orb--1 {
+    width: 420px; height: 420px;
+    top: -120px; right: 15%;
+    background: radial-gradient(circle, rgba(6,182,212,.12) 0%, transparent 70%);
+  }
+  .s-cta__orb--2 {
+    width: 300px; height: 300px;
+    bottom: -80px; left: 5%;
+    background: radial-gradient(circle, rgba(3,105,161,.10) 0%, transparent 70%);
+  }
+
+  .s-cta__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 660px;
+    margin-inline: auto;
+  }
+
+  .s-cta__h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--sp-6);
+  }
+
+  .s-cta__sub {
+    font-size: var(--fs-md);
+    color: rgba(255,255,255,0.52);
+    line-height: 1.75;
+    margin-bottom: var(--sp-10);
+  }
+
+
+  /* ╔═══════════════════════════════════════════╗
+     ║  RESPONSIVE                               ║
+     ╚═══════════════════════════════════════════╝ */
+  @media (max-width: 1280px) {
+    .s-ad-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (max-width: 1024px) {
+    .s-pillar__layout { grid-template-columns: 1fr; gap: var(--sp-10); }
+    .s-pillar__layout--flip { direction: ltr; }
+    .s-cards { grid-template-columns: repeat(2, 1fr); }
+    .s-ad-grid { grid-template-columns: repeat(2, 1fr); }
+    .s-consult-grid { grid-template-columns: repeat(2, 1fr); }
+    .s-pillar__icon-wrap { width: 48px; height: 48px; }
+  }
+
+  @media (max-width: 768px) {
+    .s-hero { padding-block: var(--sp-16) var(--sp-12); }
+    .s-hero__shape svg { height: 40px; }
+    .s-hero__badges { flex-wrap: wrap; justify-content: center; gap: var(--sp-3); }
+    .s-cards { grid-template-columns: 1fr; }
+    .s-ad-grid { grid-template-columns: 1fr; }
+    .s-consult-grid { grid-template-columns: 1fr; }
+    .s-pillar__icon-wrap { width: 44px; height: 44px; }
+    .s-intro { padding-block: var(--sp-12); }
+  }
+
+  @media (max-width: 640px) {
+    .s-hero__h1 { font-size: clamp(2rem, 6vw, 2.5rem); }
+    .s-hero__actions { flex-direction: column; align-items: center; }
+  }
+</style>

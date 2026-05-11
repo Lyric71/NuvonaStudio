@@ -7,68 +7,69 @@ import FAQ from '../../components/FAQ.astro';
 
 const values = [
   {
-    title: '我们不仅输出专业的指导建议，更亲自进行执行',
-    body: '制定策略的人，就是实际执行的人。我们不把策略和执行分开',
+    title: '不只是给建议，活也是我们自己干',
+    body: '定策略的人，就是动手执行的人。我们不把策略和执行拆开。',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.09 6.26L20 10l-5.91 1.74L12 18l-2.09-6.26L4 10l5.91-1.74L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
   },
   {
-    title: '简单清晰，没有空话',
-    body: '我们不做漂亮但无效的报告。如果没有效果，我们会直接说',
+    title: '简单清楚，不说空话',
+    body: '我们不做漂亮但没用的报告。没效果，直接告诉你。',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" stroke="currentColor" stroke-width="1.6"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
   },
   {
-    title: '持续执行，比短期爆发更重要',
-    body: '每一条内容、每一条广告、每一个高管账号，都必须值得对方花时间看',
+    title: '持续输出，比一时爆发更重要',
+    body: '每条内容、每条广告、每个高管账号，都得值得对方花时间看。',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/></svg>`,
   },
 ];
 
 const whyWorkWithUs = [
   {
-    title: '我们只专注 LinkedIn，不分散精力',
-    body: '我们不分散在多个平台。团队所有人都专注于 LinkedIn 的策略、内容与广告，仅此而已我们就是比较偏科的那种团队，但偏的这一科确实比较深。',
+    title: '只做 LinkedIn，不分散精力',
+    body: '我们不摊在多个平台。团队所有人都围着 LinkedIn 的策略、内容、广告转，就这一件事。我们承认是偏科的团队，但偏的这一科确实够深。',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
   },
   {
-    title: '资深成员全程参与，没有层层转手',
-    body: '与你对接的人，就是实际执行的人。你的策略负责人、内容作者、广告经理，你都能直接认识他们本人。',
+    title: '资深成员全程跟，不层层转手',
+    body: '跟你对接的人，就是亲自上手的人。策略负责人、内容作者、广告经理，你都能直接认识本人。',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
   },
   {
     title: '全球团队，本地化执行',
-    body: '香港、法国、菲律宾、中国大陆都有团队成员。做LinkedIn策略和投放的是核心，后面还有双语写手、设计和做数据分析的。10多种语言的内容出过了，到目前还没有客户跟我们说过语感有问题的。',
+    body: '香港、法国、菲律宾、中国大陆都有人。做 LinkedIn 策略和投放的是核心，后面还有双语写手、设计和数据分析。十多种语言的内容都出过，到目前还没有客户跟我们说过语感有问题。',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 9h17M3.5 15h17" stroke="currentColor" stroke-width="1.6"/><ellipse cx="12" cy="12" rx="4" ry="9" stroke="currentColor" stroke-width="1.6"/></svg>`,
   },
   {
-    title: 'AI 用于提效，关键环节由人把控',
-    body: '我们通过 AIGC 工作流提升内容撰写与翻译效率，但每一条内容上线前，都会由真实编辑进行审核与打磨。说白了工具就是帮我们压成本的，真正决定内容好不好的还是人。',
+    title: 'AI 用来提效，关键环节人来把控',
+    body: '我们用 AIGC 工作流来提升内容撰写和翻译的效率，但内容上线前一定要过真人编辑的审核和打磨。说白了，工具帮我们压成本，决定内容好不好的还是人。',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.09 6.26L20 10l-5.91 1.74L12 18l-2.09-6.26L4 10l5.91-1.74L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
   },
   {
-    title: 'LinkedIn认证的专家团队',
-    body: '我们的团队拥有官方 LinkedIn Marketing 认证。这是我们的招聘标准，而不是营销噱头',
+    title: 'LinkedIn 官方认证的团队',
+    body: '团队成员持有 LinkedIn Marketing 官方认证。这是我们的招人门槛，不是营销噱头。',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l3 6h6l-5 4 2 6-6-4-6 4 2-6-5-4h6l3-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
   },
 ];
 
 const faqs = [
-  { q: '你们服务哪些类型的公司？', a: '我们服务制造、医疗、科技、快消、零售及专业服务等行业的 B2B 企业。' },
-  { q: '多久可以看到效果？', a: '取决于当前基础。已有 LinkedIn 运营基础的企业通常会更快见效我们一开始会跟你把阶段目标对清楚，后面按月做数据复盘。' },
-  { q: '合作初期流程是怎样的？', a: '我们从一次策略冲刺开始：评估现有 LinkedIn 情况，明确目标受众，并制定内容与投放方案审完没什么大问题就直接进入执行了。' },
-  { q: '我们已有市场团队，Nuvora 如何配合？', a: '我们与内部团队协同合作。有的客户将 LinkedIn 交由我们负责，也有客户仅使用我们的内容与广告服务' },
-  { q: '你们只服务大型企业吗？', a: '不是。我们服务中型及大型 B2B 企业。关键在于 LinkedIn 是否对你的销售增长具有实际价值' },
-  { q: '多语言内容如何处理？', a: '我们结合团队与 AI 工作流支持 10+ 语言内容创作，每一条内容都会由母语编辑审核' },
-  { q: '可以同时管理高管账号和公司主页吗？', a: '可以。我们为高管提供内容代写与定位服务，可单独提供，也可与公司主页运营打包' },
-  { q: '会提供哪些报告？', a: '我们提供月度报告，涵盖互动、粉丝增长、广告数据及线索归因。数据清晰，不做虚荣指标' },
-  { q: '最低合作周期是多久？', a: '三个月起签。LinkedIn要出效果就是需要时间的，一个月测试说实话看不出什么。' },
-  { q: '如何开始合作？', a: '预约沟通。我们会评估你的 LinkedIn 现状，了解目标，并判断是否适合合作' },
+  { q: '你们服务哪些类型的公司？', a: '制造、医疗、科技、快消、零售、专业服务等行业的 B2B 企业，我们都做过。' },
+  { q: '多久能看到效果？', a: '看现有基础。已经在 LinkedIn 上有运营底子的企业，通常见效更快。开始的时候我们会把阶段目标跟你对清楚，后面按月做数据复盘。' },
+  { q: '合作初期是什么流程？', a: '先做一轮策略冲刺：盘清楚现在的 LinkedIn 状况，把目标受众定下来，再出内容和投放方案。审完没大问题，就直接进入执行。' },
+  { q: '我们已经有市场团队，Nuvora 怎么配合？', a: '我们和内部团队是协同合作的关系。有的客户把 LinkedIn 完全交给我们，也有客户只用我们的内容和广告服务。' },
+  { q: '你们只服务大型企业吗？', a: '不是，中型和大型 B2B 企业我们都做。关键是 LinkedIn 对你的销售增长到底有没有实际价值。' },
+  { q: '多语言内容怎么处理？', a: '团队加上 AI 工作流，目前支持 10 多种语言的内容创作，每一条都会由母语编辑过一遍。' },
+  { q: '能同时管高管账号和公司主页吗？', a: '能。我们给高管做内容代写和人设定位，可以单独做，也可以跟公司主页运营打包。' },
+  { q: '会给哪些报告？', a: '每月一份，互动、粉丝增长、广告数据、线索归因都包括。数据清楚，不做虚荣指标。' },
+  { q: '最少要签多久？', a: '三个月起签。LinkedIn 要出效果就是需要时间，一个月测试说实话看不出什么。' },
+  { q: '怎么开始合作？', a: '预约沟通。我们会盘一下你的 LinkedIn 现状，了解目标，再判断是否适合合作。' },
 ];
 ---
 
 <Layout
-  title="关于Nuvora Studio | 专注LinkedIn的B2B获客agency"
-  description="Nuvora Studio只做一件事：帮B2B企业把LinkedIn做好。团队持有LinkedIn官方认证，负责策略内容、LinkedIn广告我们的服务和高管品牌。从LinkedIn上帮你拿到真实的业务线索。"
-  abstract="只做LinkedIn，只服务B2B企业。认证团队，策略驱动，线索导向。"
+  lang="zh"
+  title="关于 Nuvora Studio | 专注 LinkedIn 的 B2B 获客机构"
+  description="Nuvora Studio 只做一件事：帮 B2B 企业把 LinkedIn 做好。团队持有 LinkedIn 官方认证，负责策略内容、LinkedIn 广告投放和高管品牌，从 LinkedIn 上帮你拿到真实的业务线索。"
+  abstract="只做 LinkedIn，只服务 B2B 企业。认证团队，策略驱动，线索导向。"
 >
   <NavBar lang="zh" />
   <main id="main-content">
@@ -79,12 +80,12 @@ const faqs = [
       <div class="ab-hero__overlay" aria-hidden="true"></div>
       <div class="container" style="position: relative; z-index: 2;">
         <div class="ab-hero__content">
-          <p class="eyebrow eyebrow--light reveal">关于Nuvora Studio</p>
+          <p class="eyebrow eyebrow--light reveal">关于 Nuvora Studio</p>
           <h1 id="ab-hero-h" class="ab-hero__h1 reveal reveal-delay-1">
-            B2B赛道很拥挤，我们确保您的品牌发声被听见<span class="text-gradient">。</span>
+            B2B 赛道太拥挤，我们让你的声音被听见<span class="text-gradient">。</span>
           </h1>
           <p class="ab-hero__sub reveal reveal-delay-2">
-            我们帮助 B2B 公司在 LinkedIn 上建立真实且有影响力的存在。一个平台，做对一件事。平台认证的专家团队，战略级内容，带来更多高质量销售线索
+            我们帮 B2B 公司在 LinkedIn 上建立起真实、有影响力的存在感。一个平台，做对一件事。官方认证的专家团队、有策略的内容，带来更多高质量的销售线索。
           </p>
         </div>
       </div>
@@ -99,16 +100,16 @@ const faqs = [
           <div class="ab-exist__text reveal">
             <p class="eyebrow">我们的故事</p>
             <h2 id="exist-h">我们为什么存在</h2>
-            <p>我们创立 Nuvora Studio，是因为反复看到同一个问题</p>
-            <p>LinkedIn 的重要性，但运筹帷幄缺乏的是专业的团队、时间，或清晰的方法。最后就变成了想起来发一条，想起来投一笔，钱花了效果没有，慢慢的就觉得LinkedIn不行。</p>
-            <p>我们的使命只有一个，把这个渠道经营到极致</p>
-            <p class="ab-exist__closing"><strong>这就是我们存在的原因</strong></p>
+            <p>创立 Nuvora Studio，是因为我们反复看到同一个问题。</p>
+            <p>大家都知道 LinkedIn 重要，但内部缺的是专业团队、时间，或者清晰的方法。最后就变成了：想起来发一条，想起来投一笔，钱花了效果没有，慢慢就觉得 LinkedIn 不行。</p>
+            <p>我们的使命只有一个，把这个渠道经营到极致。</p>
+            <p class="ab-exist__closing"><strong>这就是我们存在的原因。</strong></p>
           </div>
 
           <div class="ab-exist__visual reveal reveal-delay-1">
             <div class="ab-exist__sig-card">
               <div class="ab-exist__sig-visual">
-                <img src="/signal-vs-noise.webp" alt="从噪音到清晰信号 - LinkedIn上的信噪比" class="ab-exist__sig-hero" width="600" height="600" loading="lazy" />
+                <img src="/signal-vs-noise.webp" alt="从噪音到清晰信号：LinkedIn 上的信噪比" class="ab-exist__sig-hero" width="600" height="600" loading="lazy" />
               </div>
               <div class="ab-exist__sig-footer">
                 <div class="ab-exist__sig-photo">
@@ -119,7 +120,6 @@ const faqs = [
                   <span class="ab-exist__sig-title">CEO & 首席策略官</span>
                 </div>
               </div>
-              <img src="https://beyondbordergroup.com/wp-content/compressx-nextgen/uploads/2026/02/Cyril-Drouin-Signature-Transparent.webp.avif" alt="Cyril Drouin签名" class="ab-exist__sig-mark" width="180" height="60" loading="lazy" />
             </div>
           </div>
 
@@ -155,7 +155,7 @@ const faqs = [
       <div class="container">
         <div class="ab-why__head reveal">
           <p class="eyebrow">为什么找我们</p>
-          <h2 id="why-h">选Nuvora的几个理由</h2>
+          <h2 id="why-h">选 Nuvora 的几个理由</h2>
         </div>
 
         <div class="ab-why__grid">
@@ -193,10 +193,10 @@ const faqs = [
             <span class="ab-leader__title">CEO & 首席策略官</span>
 
             <div class="ab-leader__bio">
-              <p>在中国、欧洲及全球市场拥有 20 多年营销与商业运营经验。曾任阳狮集团电商中国区 CEO，管理 250 人团队，年营收达 3500 万美元</p>
-              <p>之前在阳狮集团（Publicis）负责中国区商务，带了大概250人的团队，年营收3500万美金，同比增长25%以上。2022年团队还拿了大中华区电商代理商金奖。合作过的品牌有苹果、欧莱雅、耐克、雀巢喜力和开云这些。</p>
-              <p>获得 LinkedIn Marketing Labs 三项认证：营销策略、广告基础，以及内容与创意设计。</p>
-              <p>另外他自己还创办了HubStudio，做AIGC内容的。教学方面目前在巴黎HEC商学院、ESCP还有上海交大几个地方有课。</p>
+              <p>在中国、欧洲和全球市场有 20 多年的营销与商业运营经验。曾任阳狮集团电商中国区 CEO，带过 250 人团队，年营收 3500 万美元。</p>
+              <p>之前在阳狮集团（Publicis）负责中国区商务，带了大概 250 人的团队，年营收 3500 万美金，同比增长 25% 以上。2022 年团队还拿下了大中华区电商代理商金奖。合作过的品牌有苹果、欧莱雅、耐克、雀巢、喜力和开云这些。</p>
+              <p>持有 LinkedIn Marketing Labs 三项认证：营销策略、广告基础，以及内容与创意设计。</p>
+              <p>另外，他自己还创办了 HubStudio，主要做 AIGC 内容。教学方面，目前在巴黎 HEC 商学院、ESCP 还有上海交大几个地方都有课。</p>
             </div>
 
             <div class="ab-leader__certs">
@@ -204,21 +204,21 @@ const faqs = [
                 <svg class="ab-leader__cert-li" viewBox="0 0 24 24" fill="#0A66C2" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                 <div class="ab-leader__cert-info">
                   <strong>内容与创意设计</strong>
-                  <span>2024年8月获得</span>
+                  <span>2024 年 8 月获得</span>
                 </div>
               </a>
               <a href="https://verify.skilljar.com/c/owpjectbjz4m" target="_blank" rel="noopener noreferrer" class="ab-leader__cert-card">
                 <svg class="ab-leader__cert-li" viewBox="0 0 24 24" fill="#0A66C2" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                 <div class="ab-leader__cert-info">
                   <strong>营销策略</strong>
-                  <span>2024年8月获得</span>
+                  <span>2024 年 8 月获得</span>
                 </div>
               </a>
               <a href="https://verify.skilljar.com/c/44sf7pp965dk" target="_blank" rel="noopener noreferrer" class="ab-leader__cert-card">
                 <svg class="ab-leader__cert-li" viewBox="0 0 24 24" fill="#0A66C2" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                 <div class="ab-leader__cert-info">
                   <strong>营销解决方案基础</strong>
-                  <span>2024年8月获得</span>
+                  <span>2024 年 8 月获得</span>
                 </div>
               </a>
             </div>
@@ -231,7 +231,7 @@ const faqs = [
         <div class="ab-leader ab-leader--flip reveal">
           <div class="ab-leader__visual">
             <div class="ab-leader__photo-wrap">
-              <img src="https://beyondbordergroup.com/wp-content/uploads/elementor/thumbs/Liyan-Ye-rjaieqnzssadxaepw8m116yt79e5qhu51d5tgiyybk.webp" alt="叶丽燕" class="ab-leader__photo" width="400" height="480" loading="lazy" />
+              <img src="/LiyanYe.webp" alt="叶丽燕" class="ab-leader__photo" width="400" height="480" loading="lazy" />
               <div class="ab-leader__photo-ph" aria-hidden="true" style="display:none;">
                 <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="22" r="12" fill="rgba(10,102,194,0.15)"/><ellipse cx="32" cy="52" rx="20" ry="12" fill="rgba(10,102,194,0.10)"/></svg>
                 <span>照片即将上线</span>
@@ -244,9 +244,9 @@ const faqs = [
             <span class="ab-leader__title">总经理</span>
 
             <div class="ab-leader__bio">
-              <p>拥有 20 年营销经验，服务过拜尔斯道夫、利洁时、百胜集团、Valio 等多家世界 500 强品牌</p>
-              <p>比较有代表性的一段经历是在百胜中国做数字营销总监那会儿。2017年第一季度她带团队把同店销售额重新拉回了正增长 - 之前这个品牌连着跌了11个季度了，内部其实已经没太多人觉得能翻过来。再之前是在蔚优亚太的创始团队，中国区B2B那块的数字化业务基本是她从零开始搭的。</p>
-              <p>负责日常运营，统筹内容质量、投放表现及客户交付LinkedIn内容策略、社交销售、B2B受众运营这些是她最强的几个方向。</p>
+              <p>有 20 年营销经验，服务过拜尔斯道夫、利洁时、百胜集团、Valio 等多家世界 500 强品牌。</p>
+              <p>比较有代表性的一段经历，是在百胜中国做数字营销总监那会儿。2017 年第一季度，她带团队把同店销售额重新拉回正增长，而这个品牌之前已经连着跌了 11 个季度，内部其实已经没太多人觉得能翻过来。再之前是在蔚优亚太的创始团队，中国区 B2B 那块的数字化业务，基本是她从零开始搭起来的。</p>
+              <p>她负责公司的日常运营，统筹内容质量、投放表现和客户交付。LinkedIn 内容策略、社交销售、B2B 受众运营，这些是她最强的几个方向。</p>
               <p>中英文沟通完全没障碍。</p>
             </div>
           </div>
@@ -267,14 +267,14 @@ const faqs = [
           <div class="ab-cta__left reveal">
             <p class="eyebrow eyebrow--light">下一步</p>
             <h2 id="ab-cta-h" class="ab-cta__headline">
-              你的客户每天都在LinkedIn上。<br />
+              你的客户每天都在 LinkedIn 上。<br />
               <em>但他们未必看得到你。</em>
             </h2>
           </div>
           <div class="ab-cta__right reveal reveal-delay-2">
-            <p class="ab-cta__sub">先约个电话也行，我们帮你过一下LinkedIn目前的状况，看看还有哪些机会没抓住。</p>
+            <p class="ab-cta__sub">先约个电话也行，我们帮你过一遍 LinkedIn 目前的状况，看看还有哪些机会没抓住。</p>
             <div class="ab-cta__actions">
-              <a href="/contact?intent=call" class="btn btn--primary btn--lg">预约通话</a>
+              <a href="/zh/contact?intent=call" class="btn btn--primary btn--lg">预约通话</a>
             </div>
             <p class="ab-cta__note">半小时左右，不推销，就是聊聊。</p>
           </div>

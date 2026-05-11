@@ -1,0 +1,813 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import NavBar from '../../components/NavBar.astro';
+import FAQ from '../../components/FAQ.astro';
+import Testimonials from '../../components/Testimonials.astro';
+
+const painPoints = [
+  {
+    stat: '3%',
+    label: 'de las empresas B2B publica en LinkedIn con constancia',
+    detail: 'El resto cuelga algo una vez, desaparece y se sorprende de que no pase nada.',
+  },
+  {
+    stat: '0',
+    label: 'directivos con presencia real',
+    detail: 'La mayoría de perfiles de dirección parecen un currículum. No inspiran confianza ni inspiran nada.',
+  },
+  {
+    stat: '72%',
+    label: 'del presupuesto de publicidad en LinkedIn se desperdicia',
+    detail: 'Mala audiencia, mal formato, mal recorrido. Sin estructura, el dinero se va en semanas.',
+  },
+];
+
+const services = [
+  {
+    title: 'Contenido',
+    tag: 'Orgánico',
+    body: 'Llevamos tu página de empresa, producimos todos los formatos que LinkedIn ofrece y publicamos con cadencia para que tu marca siga ahí mientras tu equipo se dedica a lo suyo.',
+    href: '/es/servicios/contenido',
+    subs: [
+      'Gestión de la página de empresa',
+      'Producción de contenido y línea editorial',
+      'Newsletter de LinkedIn',
+      'Eventos de LinkedIn',
+    ],
+  },
+  {
+    title: 'Publicidad',
+    tag: 'De pago',
+    body: 'Desde contenido patrocinado hasta formularios de captación, montamos y llevamos campañas que llegan a quien decide y lo convierten en lead. La parte de LinkedIn que casi nadie aprovecha.',
+    href: '/es/servicios/publicidad',
+    subs: [
+      'Arquitectura de campañas',
+      'Segmentación de audiencias',
+      'Creatividades y copy publicitario',
+      'Medición conectada a tu CRM',
+    ],
+  },
+  {
+    title: 'Consultoría',
+    tag: 'Estrategia',
+    body: 'Formación, visibilidad de directivos y programas de embajadores internos que convierten a tu equipo en el mejor altavoz de tu marca en LinkedIn.',
+    href: '/es/servicios/consultoria',
+    subs: [
+      'Programas de embajadores internos',
+      'Posicionamiento de directivos',
+      'Talleres de formación',
+      'Auditoría de estrategia LinkedIn',
+    ],
+  },
+];
+
+const steps = [
+  {
+    title: 'Auditoría y estrategia',
+    body: 'Analizamos tu presencia en LinkedIn, tu competencia y tu audiencia. Sales con una hoja de ruta clara y acciones concretas. No con un PDF genérico.',
+    detail: 'Semana 1–2',
+  },
+  {
+    title: 'Construcción y lanzamiento',
+    body: 'Optimizamos perfiles, montamos la producción de contenido y arrancamos las campañas. Nada sale sin tu visto bueno.',
+    detail: 'Semana 3–4',
+  },
+  {
+    title: 'Crecimiento y medición',
+    body: 'Seguimiento mensual con los indicadores que fijamos contigo. Ajustamos lo que funciona, aceleramos lo que convierte. Sin cifras de adorno.',
+    detail: 'En continuo',
+  },
+];
+
+const pillars = [
+  {
+    title: 'Especialistas, no generalistas',
+    body: 'Todo lo que hacemos gira alrededor de LinkedIn. Algoritmo, formatos, segmentación, contenido que genera negocio. Lo conocemos a fondo.',
+    metric: '100%',
+    metricLabel: 'enfocado a LinkedIn',
+  },
+  {
+    title: 'Contenido que se lee',
+    body: 'Escribimos para tus compradores, no para hacerte feliz. Texto B2B claro, directo, que se lee y empuja a actuar.',
+    metric: '3,2x',
+    metricLabel: 'de interacción de media',
+  },
+  {
+    title: 'Transparentes por defecto',
+    body: 'Sin informes ambiguos ni márgenes ocultos. Sabes qué hacemos y por qué lo hacemos.',
+    metric: '0',
+    metricLabel: 'costes ocultos',
+  },
+  {
+    title: 'Apoyados por IA. Decididos por personas.',
+    body: 'Usamos IA para ir más rápido y producir más. Pero cada pieza pasa por el equipo antes de salir. Sin excepciones.',
+    metric: '100%',
+    metricLabel: 'validado por humanos',
+  },
+];
+
+const industries = [
+  { label: 'Tecnología y SaaS' },
+  { label: 'Industria y fabricación' },
+  { label: 'Servicios profesionales' },
+  { label: 'Salud y ciencias de la vida' },
+  { label: 'Servicios financieros' },
+  { label: 'Logística y cadena de suministro' },
+];
+
+const posts = [
+  {
+    category: 'Estrategia LinkedIn',
+    tags: ['Algoritmo', 'Alcance'],
+    title: 'Por qué tu alcance cayó un 50% en 2026 (y no es tu contenido)',
+    excerpt: 'LinkedIn sustituyó todo su algoritmo por 360Brew. El alcance se desplomó un 50% y las páginas de empresa perdieron un 60%. No es tu contenido. Es el sistema.',
+    date: '2026-03-29',
+    slug: 'por-que-cayo-tu-alcance',
+    image: '/blog/hero-reach-dropped.svg',
+  },
+  {
+    category: 'Estrategia LinkedIn',
+    tags: ['Contenido', 'Leads'],
+    title: 'Cómo convertir tu contenido de LinkedIn en leads (no solo en visualizaciones)',
+    excerpt: 'Contenido en LinkedIn que suma vistas pero no leads es energía tirada. El inbound convierte al 14,6%; el outbound, al 1,7%. Así replanteas el enfoque.',
+    date: '2026-03-29',
+    slug: 'de-contenido-a-leads-entrantes',
+    image: '/blog/hero-ads-vs-organic.svg',
+  },
+  {
+    category: 'Publicidad LinkedIn',
+    tags: ['Publicidad', 'Medición'],
+    title: 'Por qué tu ROI publicitario en LinkedIn parece pésimo (y es un problema de medición)',
+    excerpt: 'LinkedIn devuelve un 121% de ROAS en B2B. Pero el ciclo medio de compra dura 272 días. Si mides el retorno a 30 días, tus datos te están engañando.',
+    date: '2026-03-29',
+    slug: 'problema-medicion-roi-publicidad-linkedin',
+    image: '/blog/hero-ads-cost.svg',
+  },
+];
+
+const faqs = [
+  { q: '¿En qué países hay clientes de Nuvora?', a: 'Repartidos. Europa, Norteamérica, Asia y alguna que otra región más. LinkedIn es una plataforma global y nosotros funcionamos igual.' },
+  { q: '¿En serio solo LinkedIn?', a: 'Sí. Nada de SEO, nada de Instagram, nada de agencia que lo hace todo. Solo LinkedIn. Esa especialización es la que marca la diferencia.' },
+  { q: '¿Cuánto cuesta empezar?', a: 'El plan Foundation arranca en 1.500 €/mes. Incluye estrategia, contenido y medición. La mayoría de clientes empieza ahí y va escalando.', link: { text: 'Ver todos los precios →', href: '/es/precios' } },
+  { q: '¿Es solo para grandes empresas?', a: 'No. Por 1.500 €/mes tienes una presencia en LinkedIn gestionada de punta a punta, algo accesible para muchas compañías. Y si el acompañamiento completo todavía no toca, también hay formación y gestión publicitaria por separado.' },
+  { q: '¿La publicidad está incluida?', a: 'La publicidad va por su cuenta. Algunos clientes hacen solo contenido orgánico, otros solo pauta. La mayoría, ambas. El presupuesto publicitario va siempre directo a tu cuenta de LinkedIn, nunca pasa por nosotros.' },
+  { q: '¿Cómo se miden los resultados?', a: 'Los indicadores se fijan contigo al principio: número de leads, crecimiento de audiencia, coste por lead, contribución al pipeline. Cada mes te llega un informe con eso. No un documento lleno de impresiones y métricas que no significan nada.' },
+];
+
+---
+
+<Layout
+  lang="es"
+  title="Nuvora Studio | La agencia B2B 100% LinkedIn"
+  description="Consultoría de LinkedIn especializada en B2B. Contenido, publicidad, posicionamiento de directivos y formación. Una sola plataforma. Foco total."
+  abstract="Agencia B2B especializada en LinkedIn. Construimos presencias que generan leads y consolidan autoridad. Una sola plataforma."
+  preloadHero="/hero-notification.webp"
+>
+  <NavBar lang="es" />
+  <main id="main-content">
+
+    <!-- ═══════════════════════════ 1. HERO ═══════════════════════════ -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <img src="/hero-notification.webp" alt="" aria-hidden="true" class="hero__bg" fetchpriority="high" decoding="async" width="1920" height="1080" />
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="hero__content">
+          <p class="eyebrow eyebrow--light hero__anim">La agencia B2B 100% LinkedIn</p>
+          <h1 id="hero-heading" class="hero__h1 hero__anim hero__anim--1">
+            Convertimos LinkedIn en tu <span class="text-gradient">mejor canal de captación.</span>
+          </h1>
+          <p class="hero__sub hero__anim hero__anim--2">
+            Estrategia, contenido y publicidad. Solo en LinkedIn.
+            Trabajamos con empresas B2B para que dejen de ser invisibles y, sobre todo, para que LinkedIn empiece a traerles leads cualificados.
+          </p>
+          <div class="hero__actions hero__anim hero__anim--3">
+            <a href="/es/contacto?intent=call" class="btn btn--primary btn--lg">Reservar una llamada</a>
+            <a href="/es/servicios" class="btn btn--outline-white btn--lg">Ver nuestros servicios</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ 2. PROBLEM STATEMENT ═══════════════════════════ -->
+    <section class="section problem" aria-labelledby="problem-heading">
+      <div class="container">
+
+        <div class="problem__hero reveal">
+          <div class="problem__head">
+            <p class="eyebrow eyebrow--light">El problema</p>
+            <h2 id="problem-heading">
+              La mayoría de las empresas B2B<br />son invisibles en LinkedIn.
+            </h2>
+            <p class="problem__sub">
+              Publican cuando se acuerdan. La página de empresa tiene dos años de polvo. Los directivos no aparecen por ningún lado.
+              Los anuncios llegan a quien no toca. LinkedIn premia constancia y criterio. Sin eso, estás desaprovechando
+              el mejor canal B2B que hay.
+            </p>
+          </div>
+
+          <div class="problem__visual">
+            <img
+              src="/problem-linkedin.webp"
+              alt="Comparación de dos pantallas: a la izquierda, notificaciones vacías de LinkedIn con cero impresiones y métricas planas; a la derecha, un flujo de solicitudes de conexión, leads nuevos y 12.400 de alcance"
+              class="problem__img"
+              width="1024"
+              height="1024"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+
+        <div class="problem__grid">
+          {painPoints.map((p, i) => (
+            <div class="problem__card reveal" style={`transition-delay: ${i * 0.1}s`}>
+              <p class="problem__stat">{p.stat}</p>
+              <p class="problem__label">{p.label}</p>
+              <p class="problem__detail">{p.detail}</p>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ 3. SERVICES GRID ═══════════════════════════ -->
+    <section id="services" class="section" style="background: var(--off-white);" aria-labelledby="services-heading">
+      <div class="container">
+
+        <div class="services__head reveal">
+          <div>
+            <p class="eyebrow">Lo que hacemos</p>
+            <h2 id="services-heading">Todo lo que tu presencia<br />en LinkedIn necesita.</h2>
+          </div>
+          <p class="services__intro">
+            Con transparencia. Estrategia, auditoría y medición entran en cada proyecto, no se cobran aparte.
+          </p>
+        </div>
+
+        <div class="services__grid">
+          {services.map((s, i) => (
+            <a href={s.href} class="services__card reveal" style={`transition-delay: ${i * 0.08}s`}>
+              <div class="services__card-top">
+                <span class="tag tag--cyan">{s.tag}</span>
+                <span class="services__arrow" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M4.5 15.5L15.5 4.5M15.5 4.5H7.5M15.5 4.5V12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </div>
+              {s.title === 'Contenido' ? (
+                <div class="services__vis services__vis--content" aria-hidden="true">
+                  <img src="/content-calendar-v2.webp" alt="" width="600" height="338" loading="lazy" />
+                </div>
+              ) : s.title === 'Publicidad' ? (
+                <div class="services__vis services__vis--content" aria-hidden="true">
+                  <img src="/ad-creative-stack.webp" alt="" width="600" height="338" loading="lazy" />
+                </div>
+              ) : s.title === 'Consultoría' ? (
+                <div class="services__vis services__vis--content" aria-hidden="true">
+                  <img src="/consulting-workshop.webp" alt="" width="600" height="338" loading="lazy" />
+                </div>
+              ) : (
+                <div class="vis-placeholder services__vis" aria-hidden="true">
+                  <span>Imagen provisional</span>
+                </div>
+              )}
+              <h3 class="services__card-title">{s.title}</h3>
+              <p class="services__card-desc">{s.body}</p>
+              <ul class="services__subs">
+                {s.subs.map(sub => (
+                  <li class="services__sub">{sub}</li>
+                ))}
+              </ul>
+            </a>
+          ))}
+        </div>
+
+        <div class="services__foot reveal">
+          <a href="/es/servicios" class="btn btn--outline btn--lg">Ver todos los servicios</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ 4. HOW WE WORK ═══════════════════════════ -->
+    <section class="section" style="background: var(--deep-navy);" aria-labelledby="process-heading">
+      <div class="container">
+
+        <div class="process__head reveal">
+          <p class="eyebrow eyebrow--light">Cómo trabajamos</p>
+          <h2 id="process-heading" style="color: var(--white);">
+            De la auditoría al pipeline<br /><em style="color: rgba(255,255,255,0.35); font-weight: 300;">en tres pasos.</em>
+          </h2>
+        </div>
+
+        <div class="process__grid">
+          {steps.map((s, i) => (
+            <div class="process__step reveal" style={`transition-delay: ${i * 0.1}s`}>
+              <div class="process__line-horizontal" aria-hidden="true"></div>
+              <div class="process__content">
+                <span class="process__detail">{s.detail}</span>
+                <h3 class="process__title">{s.title}</h3>
+                <p class="process__body">{s.body}</p>
+              </div>
+              {s.title === 'Auditoría y estrategia' ? (
+                <div class="process__vis process__vis--img" aria-hidden="true">
+                  <img src="/audit-strategy.webp" alt="" width="600" height="375" loading="lazy" />
+                </div>
+              ) : s.title === 'Construcción y lanzamiento' ? (
+                <div class="process__vis process__vis--img" aria-hidden="true">
+                  <img src="/build-launch.webp" alt="" width="600" height="375" loading="lazy" />
+                </div>
+              ) : s.title === 'Crecimiento y medición' ? (
+                <div class="process__vis process__vis--img" aria-hidden="true">
+                  <img src="/grow-report.webp" alt="" width="600" height="375" loading="lazy" />
+                </div>
+              ) : (
+                <div class="vis-placeholder process__vis" aria-hidden="true">
+                  <span>Imagen provisional</span>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div class="process__cta reveal" style="transition-delay: 0.3s">
+          <a href="/es/precios" class="btn btn--outline-white btn--lg">Ver precios</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ 5. WHAT SETS US APART ═══════════════════════════ -->
+    <section class="section" aria-labelledby="apart-heading">
+      <div class="container">
+        <div class="apart__layout">
+
+          <div class="apart__left">
+            <div class="apart__head reveal">
+              <p class="eyebrow">Por qué nosotros</p>
+              <h2 id="apart-heading">Hacemos una sola cosa.<br />LinkedIn.</h2>
+              <div class="accent-bar"></div>
+              <p class="apart__lead">
+                No somos una agencia digital generalista que «también hace» LinkedIn.
+                LinkedIn es todo lo que hacemos. Y eso lo cambia todo.
+              </p>
+            </div>
+
+            <!-- Visual: comparison graphic -->
+            <div class="apart__visual reveal reveal-delay-1" aria-hidden="true">
+              <div class="apart__visual-inner">
+                <div class="apart__vis-compare">
+                  <div class="apart__vis-col apart__vis-col--them">
+                    <span class="apart__vis-label">Agencias generalistas</span>
+                    <div class="apart__vis-bars">
+                      <div class="apart__vis-item"><span class="apart__vis-dot apart__vis-dot--muted"></span><div class="apart__vis-bar apart__vis-bar--muted" style="width: 30%"></div></div>
+                      <div class="apart__vis-item"><span class="apart__vis-dot apart__vis-dot--muted"></span><div class="apart__vis-bar apart__vis-bar--muted" style="width: 25%"></div></div>
+                      <div class="apart__vis-item"><span class="apart__vis-dot apart__vis-dot--muted"></span><div class="apart__vis-bar apart__vis-bar--muted" style="width: 20%"></div></div>
+                      <div class="apart__vis-item"><span class="apart__vis-dot apart__vis-dot--muted"></span><div class="apart__vis-bar apart__vis-bar--muted" style="width: 35%"></div></div>
+                      <div class="apart__vis-item"><span class="apart__vis-dot apart__vis-dot--muted"></span><div class="apart__vis-bar apart__vis-bar--muted" style="width: 15%"></div></div>
+                    </div>
+                  </div>
+                  <div class="apart__vis-divider"></div>
+                  <div class="apart__vis-col apart__vis-col--us">
+                    <span class="apart__vis-label">Nuvora Studio</span>
+                    <div class="apart__vis-bars">
+                      <div class="apart__vis-item"><span class="apart__vis-dot"></span><div class="apart__vis-bar" style="width: 100%"></div></div>
+                    </div>
+                    <span class="apart__vis-tag">100% LinkedIn</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="apart__right">
+            <div class="apart__grid">
+              {pillars.map((p, i) => (
+                <div class="apart__card reveal" style={`transition-delay: ${i * 0.08}s`}>
+                  <div class="apart__card-metric">
+                    <span class="apart__metric-value">{p.metric}</span>
+                    <span class="apart__metric-label">{p.metricLabel}</span>
+                  </div>
+                  <div class="apart__card-body">
+                    <div class="apart__card-header">
+                      <h3 class="apart__title">{p.title}</h3>
+                    </div>
+                    <p class="apart__body">{p.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ 6. TESTIMONIALS ═══════════════════════════ -->
+    <Testimonials
+      eyebrow="Confían en nosotros"
+      heading="Lo que dicen nuestros clientes"
+      sub="Proyectos con foco en resultados, junto a equipos B2B de sectores muy distintos."
+      items={[
+        { text: "Nuvora cambió por completo nuestra presencia en LinkedIn. En seis meses, el 40% de nuestros leads venía de ahí. Antes era un canal que teníamos abandonado.", image: "https://randomuser.me/api/portraits/women/32.jpg", name: "Sofía Martínez", role: "Directora de marketing, SaaS B2B" },
+        { text: "No se limitan a publicar. Entienden cómo compra una empresa B2B. Los perfiles de nuestros directivos pasaron de dormidos a generar conversaciones entrantes cada semana.", image: "https://randomuser.me/api/portraits/men/45.jpg", name: "Marcus Webb", role: "Director comercial, Industrial tech" },
+        { text: "La transparencia es lo que cambia el partido. Cada mes vemos exactamente qué funciona, qué no y a dónde va el presupuesto. Ninguna otra agencia nos había dado eso.", image: "https://randomuser.me/api/portraits/women/28.jpg", name: "Priya Sharma", role: "Responsable de marketing, Fintech" },
+        { text: "Probamos tres agencias antes de Nuvora. ¿La diferencia? Entienden de verdad el algoritmo de LinkedIn y cómo se mueve un comprador B2B dentro de la plataforma.", image: "https://randomuser.me/api/portraits/men/22.jpg", name: "David Chen", role: "CEO, Consultoría" },
+        { text: "Nuestro presupuesto publicitario en LinkedIn pasó de ser dinero quemado a traer leads cualificados a mitad de coste. La arquitectura de campaña que montaron es de manual.", image: "https://randomuser.me/api/portraits/women/44.jpg", name: "Emma Bergström", role: "Responsable digital, Industria" },
+        { text: "Lo que los distingue es la calidad del contenido. Cada publicación suena a nosotros, no a agencia. Eso es raro cuando externalizas contenido B2B.", image: "https://randomuser.me/api/portraits/men/36.jpg", name: "Javier Ocaña", role: "Fundador, Servicios profesionales" },
+        { text: "De la estrategia a la ejecución, lo asumen todo. Pasamos de publicar una vez al mes a tener presencia real. Página de empresa, perfiles de directivos, publicidad. Y todo funciona.", image: "https://randomuser.me/api/portraits/women/51.jpg", name: "Ana Rodríguez", role: "Directora de marketing, Salud" },
+        { text: "Nuvora nos ayudó a montar un programa de embajadores que convirtió a los comerciales en voces de referencia. El impacto en la prospección fue medible y notable.", image: "https://randomuser.me/api/portraits/men/53.jpg", name: "Ravi Patel", role: "Director de crecimiento, Software" },
+        { text: "Lo que más me impresionó es el reporting. Indicadores reales, cifras de prospección reales. Nada de impresiones ni likes. Por fin sabemos qué nos aporta LinkedIn al negocio.", image: "https://randomuser.me/api/portraits/women/19.jpg", name: "Laura Koenig", role: "Directora de operaciones, Logística" },
+      ]}
+    />
+
+    <!-- ═══════════════════════════ 7. INDUSTRIES ═══════════════════════════ -->
+    <section class="section" aria-labelledby="industries-heading">
+      <div class="container">
+        <div class="industries__layout">
+
+          <div class="industries__text reveal">
+            <p class="eyebrow">Con quién trabajamos</p>
+            <h2 id="industries-heading">Pensado para B2B,<br /><em>en cualquier sector.</em></h2>
+            <div class="accent-bar"></div>
+            <p class="industries__body">
+              Trabajamos con empresas de todos los tamaños, desde multinacionales consolidadas hasta compañías en plena expansión, en sectores y mercados muy distintos.
+            </p>
+            <p class="industries__body">
+              Si tus compradores están en LinkedIn y no estás llegando a ellos, conviene que hablemos.
+            </p>
+            <a href="/es/contacto" class="btn btn--primary" style="margin-top: var(--sp-6);">
+              Hablemos
+            </a>
+          </div>
+
+          <div class="industries__right reveal reveal-delay-2">
+            <div class="industries__visual" aria-hidden="true">
+              <img src="/global-connections.webp" alt="" width="600" height="338" loading="lazy" />
+            </div>
+            <div class="industries__grid" aria-label="Sectores en los que trabajamos">
+              {industries.map(ind => (
+                <div class="industries__item">
+                  <span class="industries__dot" aria-hidden="true"></span>
+                  <span class="industries__label">{ind.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ 8. INSIGHTS PREVIEW ═══════════════════════════ -->
+    <section class="section" style="background: var(--off-white);" aria-labelledby="insights-heading">
+      <div class="container">
+
+        <div class="insights__head reveal">
+          <div>
+            <p class="eyebrow">Desde el blog</p>
+            <h2 id="insights-heading">Inteligencia de LinkedIn,<br /><em>por escrito.</em></h2>
+          </div>
+          <p class="insights__sub">
+            Análisis a fondo sobre estrategia en LinkedIn, contenido B2B, publicidad y cambios de la plataforma.
+            Lo escriben quienes lo practican, no una fábrica de textos.
+          </p>
+        </div>
+
+        <div class="insights__grid">
+          {posts.map((post, i) => (
+            <article class="insights__card reveal" style={`transition-delay: ${i * 0.08}s`}>
+              {post.image ? (
+                <div class="insights__thumb insights__thumb--img" style={`background-image: url('${post.image}')`} aria-hidden="true"></div>
+              ) : (
+                <div class="vis-placeholder insights__thumb" aria-hidden="true">
+                  <span>Imagen provisional</span>
+                </div>
+              )}
+              <div class="insights__card-top">
+                <div class="insights__tags">
+                  {post.tags.map(t => <span class="insights__tag">{t}</span>)}
+                </div>
+              </div>
+              <h3 class="insights__title">
+                <a href={`/es/blog/${post.slug}`}>{post.title}</a>
+              </h3>
+              <p class="insights__excerpt">{post.excerpt}</p>
+              <a href={`/es/blog/${post.slug}`} class="insights__read">
+                Leer artículo
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M3 7h8m0 0L7.5 3.5M11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </article>
+          ))}
+        </div>
+
+        <div class="text-center reveal" style="margin-top: var(--sp-10);">
+          <a href="/es/blog" class="btn btn--outline btn--lg">Ver todos los artículos</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ 9. FAQ ═══════════════════════════ -->
+    <FAQ heading="Lo que más nos preguntan." faqs={faqs} footer="¿Más preguntas?" footerLink={{ text: 'Escríbenos', href: '/es/contacto' }} id="faq-es" />
+
+    <!-- ═══════════════════════════ 10. CONTACT CTA ═══════════════════════════ -->
+    <section class="section cta" aria-labelledby="cta-heading" style="background: var(--deep-navy);">
+      <div class="container">
+        <div class="cta__layout">
+
+          <div class="cta__left reveal">
+            <p class="eyebrow eyebrow--light">Por dónde empezar</p>
+            <h2 id="cta-heading" class="cta__headline">
+              Construyamos tu presencia en LinkedIn<br />
+              <em>de una vez por todas.</em>
+            </h2>
+          </div>
+
+          <div class="cta__right reveal reveal-delay-2">
+            <p class="cta__sub">
+              Estés empezando de cero o quieras hacer crecer lo que ya tienes, primero queremos entender tu situación. Sin discurso comercial, sin slides. Una conversación.
+            </p>
+            <div class="cta__actions">
+              <a href="/es/contacto?intent=call" class="btn btn--primary btn--lg">Reservar 30 minutos</a>
+              <a href="/es/contacto" class="btn btn--outline-white btn--lg">Enviarnos un mensaje</a>
+            </div>
+            <p class="cta__note">30 minutos. Sin rodeos. Respuestas directas.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Layout>
+
+<style>
+  /* ═══════════════════════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════════════════════ */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding-block: var(--sp-32) var(--sp-24);
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(15,23,42, 0.88) 0%,
+      rgba(15,23,42, 0.55) 50%,
+      rgba(15,23,42, 0.20) 100%
+    );
+    z-index: 1;
+  }
+
+  .hero__content {
+    max-width: 680px;
+  }
+
+  .hero__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.10;
+    letter-spacing: -0.02em;
+    margin-block: var(--sp-5) var(--sp-6);
+  }
+  .hero__h1 .text-gradient {
+    background: linear-gradient(135deg, var(--cyan) 0%, var(--sky) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero__sub {
+    font-size: var(--fs-md);
+    color: rgba(255, 255, 255, 0.68);
+    max-width: 520px;
+    line-height: 1.75;
+    margin-bottom: var(--sp-10);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+  }
+
+  @keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero__anim { animation: heroFadeUp 0.7s var(--ease, ease) both; }
+  .hero__anim--1 { animation-delay: 0.06s; }
+  .hero__anim--2 { animation-delay: 0.14s; }
+  .hero__anim--3 { animation-delay: 0.22s; }
+  @media (prefers-reduced-motion: reduce) {
+    .hero__anim { animation: none; opacity: 1; transform: none; }
+  }
+
+  @media (max-width: 640px) {
+    .hero { padding-block: var(--sp-16) var(--sp-12); }
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     PROBLEM STATEMENT
+     ═══════════════════════════════════════════════════════════ */
+  .problem { background: var(--deep-navy); }
+  .problem__hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-12);
+    align-items: center;
+    margin-bottom: var(--sp-16);
+  }
+  .problem__head { max-width: 540px; }
+  .problem__head :global(.eyebrow) { color: var(--cyan); }
+  .problem__head :global(h2) { color: var(--white); margin-bottom: var(--sp-6); }
+  .problem__sub { font-size: var(--fs-md); color: var(--navy-text-2); line-height: 1.75; }
+  .problem__visual { border-radius: var(--r-xl); overflow: hidden; }
+  .problem__img { width: 100%; height: auto; display: block; }
+  .problem__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); }
+  .problem__card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--r-xl);
+    padding: var(--sp-8);
+    transition: all var(--t-base);
+  }
+  .problem__card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-3px);
+  }
+  .problem__stat {
+    font-family: var(--font-display);
+    font-size: var(--fs-5xl);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--cyan);
+    margin-bottom: var(--sp-4);
+    letter-spacing: -0.03em;
+  }
+  .problem__label {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.3;
+    margin-bottom: var(--sp-4);
+    letter-spacing: -0.01em;
+  }
+  .problem__detail { font-size: var(--fs-sm); color: var(--navy-text-2); line-height: 1.7; }
+  @media (max-width: 1024px) {
+    .problem__hero { grid-template-columns: 1fr; text-align: center; }
+    .problem__head { max-width: 660px; margin-inline: auto; }
+    .problem__visual { max-width: 480px; margin-inline: auto; }
+    .problem__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .problem__grid { grid-template-columns: 1fr; }
+    .problem__stat { font-size: var(--fs-4xl); }
+  }
+
+  /* SERVICES GRID */
+  .services__head { display: grid; grid-template-columns: auto 1fr; gap: var(--sp-12); align-items: end; margin-bottom: var(--sp-12); }
+  .services__intro { font-size: var(--fs-md); color: var(--text-2); line-height: 1.7; max-width: 400px; align-self: flex-end; padding-bottom: 6px; }
+  .services__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); margin-bottom: var(--sp-12); }
+  .services__card { display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--border); border-radius: var(--r-xl); padding: var(--sp-8); transition: all var(--t-base); text-decoration: none; color: inherit; }
+  .services__card:hover { border-color: var(--border-2); box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+  .services__card:hover .services__arrow { background: var(--deep-navy); color: var(--white); border-color: var(--deep-navy); }
+  .services__card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--sp-6); }
+  .services__arrow { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid var(--border); border-radius: 50%; color: var(--text-3); transition: all var(--t-base); flex-shrink: 0; }
+  .services__vis { width: 100%; aspect-ratio: 16 / 9; min-height: 120px; margin-bottom: var(--sp-6); border-radius: var(--r-lg); background: var(--off-white); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .services__vis--content { background: none; border: none; padding: 0; }
+  .services__vis--content img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--r-lg); }
+  .services__vis span { font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase; color: var(--text-3); }
+  .services__card-title { font-family: var(--font-display); font-size: var(--fs-2xl); font-weight: 600; color: var(--text); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: var(--sp-4); }
+  .services__card-desc { font-size: var(--fs-sm); color: var(--text-2); line-height: 1.75; margin-bottom: var(--sp-6); }
+  .services__subs { display: flex; flex-direction: column; gap: var(--sp-3); margin-top: auto; padding-top: var(--sp-6); border-top: 1px solid var(--border); }
+  .services__sub { font-size: var(--fs-xs); font-weight: 500; color: var(--text-2); letter-spacing: 0.02em; padding-left: var(--sp-4); position: relative; }
+  .services__sub::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 5px; height: 5px; border-radius: 50%; background: var(--cyan); }
+  .services__foot { text-align: center; }
+  @media (max-width: 1024px) {
+    .services__head { grid-template-columns: 1fr; gap: var(--sp-6); }
+    .services__intro { max-width: 100%; }
+    .services__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) { .services__grid { grid-template-columns: 1fr; } }
+
+  /* HOW WE WORK */
+  .process__head { text-align: center; max-width: 580px; margin-inline: auto; margin-bottom: var(--sp-16); }
+  .process__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-8); margin-bottom: var(--sp-12); align-items: start; }
+  .process__step { display: flex; flex-direction: column; gap: var(--sp-5); }
+  .process__line-horizontal { height: 1px; background: linear-gradient(to right, rgba(6, 182, 212, 0.25), transparent); margin-bottom: var(--sp-2); }
+  .process__content { display: flex; flex-direction: column; gap: var(--sp-3); flex: 1; }
+  .process__detail { font-family: var(--font-body); font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan); }
+  .process__title { font-family: var(--font-display); font-size: var(--fs-xl); font-weight: 600; color: var(--white); letter-spacing: -0.01em; line-height: 1.2; }
+  .process__body { font-size: var(--fs-sm); color: var(--navy-text-2); line-height: 1.75; }
+  .process__vis { width: 100%; aspect-ratio: 16 / 10; min-height: 100px; margin-top: auto; border-radius: var(--r-lg); background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .process__vis--img { background: none; border: none; padding: 0; }
+  .process__vis--img img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--r-lg); }
+  .process__vis span { font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase; color: rgba(255,255,255,0.12); }
+  .process__cta { text-align: center; }
+  @media (max-width: 768px) { .process__grid { grid-template-columns: 1fr; gap: var(--sp-10); } .process__line-horizontal { display: none; } }
+
+  /* WHAT SETS US APART */
+  .apart__layout { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-12); align-items: start; }
+  .apart__left { position: sticky; top: calc(var(--sp-24)); display: flex; flex-direction: column; gap: var(--sp-8); }
+  .apart__lead { font-size: var(--fs-md); color: var(--text-2); line-height: 1.75; }
+  .apart__visual { background: var(--off-white); border: 1px solid var(--border); border-radius: var(--r-xl); overflow: hidden; }
+  .apart__visual-inner { padding: var(--sp-8); }
+  .apart__vis-compare { display: flex; flex-direction: column; gap: 20px; }
+  .apart__vis-col { display: flex; flex-direction: column; gap: 10px; }
+  .apart__vis-label { font-family: var(--font-body); font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-3); }
+  .apart__vis-col--us .apart__vis-label { color: var(--sky); }
+  .apart__vis-bars { display: flex; flex-direction: column; gap: 6px; }
+  .apart__vis-item { display: flex; align-items: center; gap: 8px; }
+  .apart__vis-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--cyan); flex-shrink: 0; }
+  .apart__vis-dot--muted { background: var(--border-2); }
+  .apart__vis-bar { height: 6px; background: var(--gradient-accent); border-radius: 3px; }
+  .apart__vis-bar--muted { background: var(--border); opacity: 0.6; }
+  .apart__vis-divider { height: 1px; background: var(--border); }
+  .apart__vis-tag { display: inline-block; width: fit-content; padding: 3px 10px; border-radius: var(--r-full); background: rgba(14,165,233,0.08); color: var(--sky); font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px; }
+  .apart__grid { display: flex; flex-direction: column; gap: var(--sp-6); }
+  .apart__card { display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--border); border-radius: var(--r-xl); overflow: hidden; transition: all var(--t-base); }
+  .apart__card:hover { border-color: var(--border-2); box-shadow: var(--shadow-md); transform: translateY(-3px); }
+  .apart__card-metric { background: var(--off-white); padding: var(--sp-5) var(--sp-8); border-bottom: 1px solid var(--border); display: flex; align-items: baseline; gap: var(--sp-3); }
+  .apart__metric-value { font-family: var(--font-display); font-size: var(--fs-2xl); font-weight: 700; color: var(--sky); line-height: 1; letter-spacing: -0.03em; }
+  .apart__metric-label { font-family: var(--font-body); font-size: var(--fs-xs); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-3); }
+  .apart__card-body { padding: var(--sp-5) var(--sp-8) var(--sp-6); display: flex; flex-direction: column; gap: var(--sp-2); }
+  .apart__card-header { display: flex; align-items: center; gap: var(--sp-3); }
+  .apart__title { font-family: var(--font-display); font-size: var(--fs-lg); font-weight: 600; color: var(--text); line-height: 1.2; letter-spacing: -0.01em; }
+  .apart__body { font-size: var(--fs-sm); color: var(--text-2); line-height: 1.75; }
+  @media (max-width: 1024px) { .apart__layout { grid-template-columns: 1fr; } .apart__left { position: static; } }
+
+  /* INDUSTRIES */
+  .industries__layout { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); align-items: center; }
+  .industries__body { font-size: var(--fs-md); color: var(--text-2); line-height: 1.75; margin-bottom: var(--sp-4); }
+  .industries__right { display: flex; flex-direction: column; gap: var(--sp-6); }
+  .industries__visual { width: 100%; flex-shrink: 0; border-radius: var(--r-xl); overflow: hidden; }
+  .industries__visual img { width: 100%; height: auto; display: block; border-radius: var(--r-xl); }
+  .industries__grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3); }
+  .industries__item { display: flex; align-items: center; gap: var(--sp-3); padding: var(--sp-4) var(--sp-5); background: var(--off-white); border: 1px solid var(--border); border-radius: var(--r-lg); transition: all var(--t-base); }
+  .industries__item:hover { border-color: var(--border-2); background: var(--white); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+  .industries__item:hover .industries__dot { background: var(--sky); }
+  .industries__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); flex-shrink: 0; transition: background var(--t-fast); }
+  .industries__label { font-size: var(--fs-sm); font-weight: 500; color: var(--text); letter-spacing: 0.01em; }
+  @media (max-width: 1024px) { .industries__layout { grid-template-columns: 1fr; gap: var(--sp-10); } }
+  @media (max-width: 480px) { .industries__grid { grid-template-columns: 1fr; } }
+
+  /* INSIGHTS PREVIEW */
+  .insights__head { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-12); align-items: end; margin-bottom: var(--sp-12); }
+  .insights__sub { font-size: var(--fs-md); color: var(--text-2); max-width: 400px; line-height: 1.75; align-self: flex-end; }
+  .insights__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); }
+  .insights__card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-xl); padding: var(--sp-8); display: flex; flex-direction: column; transition: all var(--t-base); }
+  .insights__card:hover { box-shadow: var(--shadow-md); border-color: var(--border-2); transform: translateY(-3px); }
+  .insights__thumb { width: 100%; aspect-ratio: 16 / 9; min-height: 160px; margin-bottom: var(--sp-6); border-radius: var(--r-lg); background: var(--off-white); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; }
+  .insights__thumb span { font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase; color: var(--text-3); }
+  .insights__thumb--img { width: 100%; aspect-ratio: 16 / 9; min-height: 160px; margin-bottom: var(--sp-6); border-radius: var(--r-lg); background-color: var(--deep-navy); background-size: cover; background-position: center; flex-shrink: 0; border: none; }
+  .insights__card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--sp-5); gap: var(--sp-3); flex-wrap: wrap; }
+  .insights__tags { display: flex; gap: var(--sp-2); flex-wrap: wrap; }
+  .insights__tag { display: inline-block; padding: 3px var(--sp-3); border-radius: var(--r-full); background: rgba(14,165,233,0.08); color: var(--sky); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+  .insights__title { font-family: var(--font-display); font-size: var(--fs-xl); font-weight: 600; color: var(--text); margin-bottom: var(--sp-3); line-height: 1.25; letter-spacing: -0.01em; flex: 1; }
+  .insights__title a { color: inherit; transition: color var(--t-fast); }
+  .insights__title a:hover { color: var(--sky); }
+  .insights__excerpt { font-size: var(--fs-sm); color: var(--text-2); line-height: 1.75; flex: 1; margin-bottom: var(--sp-6); }
+  .insights__read { display: inline-flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sky); margin-top: auto; transition: color var(--t-fast), gap var(--t-fast); }
+  .insights__read:hover { color: var(--blue); gap: var(--sp-3); }
+  @media (max-width: 1024px) { .insights__head { grid-template-columns: 1fr; gap: var(--sp-6); } .insights__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px) { .insights__grid { grid-template-columns: 1fr; } }
+
+  /* CONTACT CTA */
+  .cta { position: relative; overflow: hidden; }
+  .cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 55% 75% at 100% 50%, rgba(14,165,233,0.06) 0%, transparent 60%); pointer-events: none; }
+  .cta__layout { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); align-items: center; }
+  .cta__headline { font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; color: var(--white); line-height: 1.10; letter-spacing: -0.025em; }
+  .cta__headline em { color: rgba(255,255,255,0.35); font-weight: 300; }
+  .cta__sub { font-size: var(--fs-md); color: rgba(255,255,255,0.55); line-height: 1.75; margin-bottom: var(--sp-8); }
+  .cta__actions { display: flex; flex-wrap: wrap; gap: var(--sp-4); align-items: center; margin-bottom: var(--sp-5); }
+  .cta__note { font-size: var(--fs-sm); color: rgba(255,255,255,0.30); letter-spacing: 0.02em; }
+  @media (max-width: 1024px) { .cta__layout { grid-template-columns: 1fr; gap: var(--sp-10); } }
+  @media (max-width: 640px) { .cta__actions { flex-direction: column; align-items: stretch; } .cta__actions .btn { justify-content: center; } }
+</style>

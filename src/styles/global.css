@@ -210,6 +210,7 @@
 
   /* ── Layout ── */
   --max-w:  1240px;
+  --max-w-wide: 1440px;
   --gutter: clamp(1.25rem, 5vw, 3rem);
 
   /* ── Z-index scale ── */
@@ -381,6 +382,7 @@ p { line-height: 1.7; }
 .container--md  { max-width: 860px; }
 .container--lg  { max-width: 1040px; }
 .container--2xl { max-width: 1440px; }
+.container--3xl { max-width: 1600px; }
 
 .section     { padding-block: var(--sp-24); }
 .section--sm { padding-block: var(--sp-16); }
@@ -632,19 +634,48 @@ p { line-height: 1.7; }
 
 /* ============================================================
    RESPONSIVE
+   Tailwind alignment: sm=640 md=768 lg=1024 xl=1280 2xl=1536
    ============================================================ */
+
+/* xl — extra desktop breathing room from 1280px up */
+@media (min-width: 1280px) {
+  .section     { padding-block: 7rem; }
+  .section--sm { padding-block: 5rem; }
+  .section--lg { padding-block: 9rem; }
+}
+
+/* 2xl — large desktop monitors from 1536px up */
+@media (min-width: 1536px) {
+  .section--lg { padding-block: 10rem; }
+}
+
+/* lg and down — collapse wide grids */
 @media (max-width: 1024px) {
   .grid--4 { grid-template-columns: repeat(2,1fr); }
   .grid--3 { grid-template-columns: repeat(2,1fr); }
 }
+
+/* md and down — collapse to single column, hide desktop nav */
 @media (max-width: 768px) {
-  .section { padding-block: var(--sp-16); }
-  .container { padding-inline: var(--sp-5); }
+  .section     { padding-block: var(--sp-16); }
+  .section--sm { padding-block: var(--sp-12); }
+  .section--lg { padding-block: var(--sp-20); }
+  .container   { padding-inline: var(--sp-5); }
   .grid--4, .grid--3, .grid--2 { grid-template-columns: 1fr; }
   .nav__links { display: none; }
 }
+
+/* sm and down — tighten sections, prevent iOS form-input zoom */
+@media (max-width: 640px) {
+  .section     { padding-block: var(--sp-12); }
+  .section--lg { padding-block: var(--sp-16); }
+  /* iOS Safari auto-zooms on focus when input font-size < 16px */
+  .form-input, .form-textarea, .form-select { font-size: 16px; }
+}
+
 @media (max-width: 480px) {
-  .btn--lg { padding: 0.875rem 1.75rem; }
+  .btn--lg    { padding: 0.875rem 1.75rem; }
+  .container  { padding-inline: var(--sp-4); }
 }
 
 @media (prefers-reduced-motion: reduce) {

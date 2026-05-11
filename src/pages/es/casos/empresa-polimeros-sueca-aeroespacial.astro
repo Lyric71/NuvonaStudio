@@ -1,0 +1,308 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import NavBar from '../../../components/NavBar.astro';
+import ContactCTA from '../../../components/ContactCTA.astro';
+---
+
+<Layout
+  lang="es"
+  title="Fabricante sueco de polímeros para aeroespacial: caso | Nuvora Studio"
+  description="Un fabricante sueco de polímeros de alto rendimiento se convirtió en la referencia que buscan los compradores aeroespaciales gracias a LinkedIn."
+  abstract="Caso de estudio: cómo la consultoría, el contenido de LinkedIn y la publicidad reposicionaron a un fabricante sueco de polímeros en el mercado aeroespacial."
+>
+  <NavBar lang="es" />
+  <main id="main-content">
+
+    <!-- Hero -->
+    <section class="cs-hero" aria-labelledby="cs-heading">
+      <div class="container">
+        <div class="cs-hero__inner">
+          <div class="cs-hero__meta">
+            <span class="cs-hero__number">Caso de estudio</span>
+            <div class="cs-hero__tags">
+              <span class="cs-tag-pill">Consultoría</span>
+              <span class="cs-tag-pill">Contenido en LinkedIn</span>
+              <span class="cs-tag-pill">Publicidad en LinkedIn</span>
+            </div>
+          </div>
+          <h1 id="cs-heading" class="cs-hero__h1">
+            Un fabricante sueco de polímeros se convirtió en el nombre que buscan los compradores aeroespaciales.<br /><em>La página de LinkedIn decía lo contrario.</em>
+          </h1>
+          <p class="cs-hero__deck">
+            Materiales aeroespaciales de primera. Y una página de LinkedIn que contaba otra historia.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats bar -->
+    <section class="cs-stats-bar" aria-label="Resultados clave">
+      <div class="container">
+        <div class="cs-stats-bar__inner">
+          <div class="cs-stat">
+            <span class="cs-stat__value">1.900</span>
+            <span class="cs-stat__label">Nuevos seguidores</span>
+          </div>
+          <div class="cs-stat">
+            <span class="cs-stat__value">3,2 %</span>
+            <span class="cs-stat__label">Tasa de interacción</span>
+          </div>
+          <div class="cs-stat">
+            <span class="cs-stat__value">61</span>
+            <span class="cs-stat__label">Leads generados</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Article body -->
+    <article class="cs-body" aria-label="Contenido del caso">
+      <div class="container">
+        <div class="cs-content">
+
+          <section>
+            <h2>El contexto</h2>
+            <p>
+              Fabricante sueco de compuestos poliméricos de alto rendimiento para piezas aeronáuticas. Sus materiales vuelan hoy en aviones en servicio. La página de LinkedIn no reflejaba nada de eso. 340 seguidores. Sin calendario editorial. La identidad visual no se actualizaba desde hacía años. Mientras, un competidor con una gama de producto más estrecha tenía el triple de seguidores y lanzaba anuncios en LinkedIn cada trimestre.
+            </p>
+            <blockquote>
+              «Estamos perdiendo contratos que deberíamos ganar porque los compradores miran LinkedIn y parecemos una empresa pequeña.»
+            </blockquote>
+          </section>
+
+          <section>
+            <h2>Nuestro enfoque</h2>
+            <p>
+              Arrancamos con una misión de consultoría. Auditoría completa de la presencia en LinkedIn, análisis competitivo, hoja de ruta a 90 días. La auditoría confirmó lo que el director comercial ya intuía. La página hablaba de la empresa. Premios recibidos. Reformas de oficinas. Aniversarios. Nada que interese a un comprador. Cero contenido pensado para ingenieros de compras. Nada para los directores de I+D que están evaluando materiales.
+            </p>
+            <p>
+              Reconstruimos el discurso para tres tipos de lector y dejamos de hablar a todos con la misma publicación. Los ingenieros de compras recibían contenido sobre plazos de certificación y tiempos de entrega. Los directores de I+D, datos de rendimiento de materiales, resistencia térmica, resultados de ensayos de tensión. Los responsables de cadena de suministro encontraban publicaciones sobre consistencia de fabricación y fiabilidad de entregas.
+            </p>
+            <p>
+              La línea editorial se sostenía en dos palabras: credibilidad técnica, lenguaje claro. No dejábamos pasar ninguna sigla sin explicar. Una publicación desmenuzaba la diferencia entre dos familias de polímeros usadas en componentes de ala. Se leía como un artículo de divulgación, no como una ficha técnica. Esa publicación fue el contenido orgánico de mejor rendimiento en los primeros 60 días, lo cual nos sorprendió porque pensábamos que el contenido sobre certificaciones haría más ruido.
+            </p>
+            <p>
+              Las campañas patrocinadas corrieron en cuatro mercados. Los formularios de captación ofrecían un comparativo de rendimiento de materiales: una herramienta real que un ingeniero podía guardar y reutilizar. No un folleto.
+            </p>
+          </section>
+
+          <section>
+            <h2>Los resultados</h2>
+            <p>
+              Un grupo del Fortune 500 del sector aeroespacial los contactó por LinkedIn. Eso no había pasado nunca antes. Y es lo que el cliente recuerda.
+            </p>
+            <p>
+              Los números detrás: la página pasó de 340 a 1.900 seguidores. Las publicaciones orgánicas tuvieron una tasa de interacción media del 3,2 %. Los anuncios llegaron a 14.000 profesionales de la aeronáutica y generaron 61 leads a 58 $ cada uno. El coste por lead quedó un poco por encima de nuestra previsión inicial (apuntábamos más bien a 45 $) pero la calidad estaba ahí y el cliente no se quejó.
+            </p>
+            <blockquote>
+              «Los compradores citan nuestras publicaciones de LinkedIn en las reuniones. Esto no había pasado nunca.»
+            </blockquote>
+          </section>
+
+        </div>
+      </div>
+    </article>
+
+    <!-- Back link -->
+    <section class="cs-back" aria-label="Navegación">
+      <div class="container">
+        <a href="/es/casos" class="cs-back__link">&larr; Volver a los casos</a>
+      </div>
+    </section>
+
+    <ContactCTA lang="es" />
+  </main>
+</Layout>
+
+<style>
+  /* ── Hero ── */
+  .cs-hero {
+    background: var(--deep-navy);
+    padding-block: clamp(3rem, 6vw, 5rem) clamp(3rem, 5vw, 4.5rem);
+    position: relative;
+    overflow: hidden;
+  }
+  .cs-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 80% 30%, rgba(6,182,212,0.10) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .cs-hero__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+  }
+
+  .cs-hero__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--sp-4);
+    margin-bottom: var(--sp-6);
+  }
+
+  .cs-hero__number {
+    font-family: var(--font-body);
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--cyan);
+  }
+
+  .cs-hero__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+  }
+
+  .cs-tag-pill {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.16);
+    color: rgba(255,255,255,0.75);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .cs-hero__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4.5vw, 3.25rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    margin-bottom: var(--sp-6);
+  }
+  .cs-hero__h1 em {
+    color: rgba(255,255,255,0.45);
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  .cs-hero__deck {
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    color: rgba(255,255,255,0.68);
+    line-height: 1.75;
+    max-width: 600px;
+  }
+
+  /* ── Stats bar ── */
+  .cs-stats-bar {
+    background: var(--off-white);
+    border-bottom: 1px solid var(--border);
+    padding-block: var(--sp-8);
+  }
+
+  .cs-stats-bar__inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-6);
+    max-width: 680px;
+    margin-inline: auto;
+  }
+
+  .cs-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+  }
+
+  .cs-stat__value {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 700;
+    color: var(--deep-navy);
+    letter-spacing: -0.02em;
+  }
+
+  .cs-stat__label {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    color: var(--text-3);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* ── Body ── */
+  .cs-body {
+    padding-block: clamp(3rem, 6vw, 5rem);
+    background: var(--white);
+  }
+
+  .cs-content {
+    max-width: 680px;
+    margin-inline: auto;
+  }
+
+  .cs-content section {
+    margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+  }
+
+  .cs-content h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2vw, 1.6rem);
+    font-weight: 700;
+    color: var(--deep-navy);
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    margin-bottom: var(--sp-5);
+  }
+
+  .cs-content p {
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    color: var(--text);
+    line-height: 1.85;
+    margin-bottom: var(--sp-5);
+  }
+
+  .cs-content blockquote {
+    border-left: 3px solid var(--sky);
+    margin: var(--sp-8) 0;
+    padding: var(--sp-1) var(--sp-6);
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    font-style: italic;
+    color: var(--text-2);
+    line-height: 1.75;
+  }
+
+  /* ── Back link ── */
+  .cs-back {
+    padding-block: var(--sp-8);
+    background: var(--off-white);
+    border-top: 1px solid var(--border);
+  }
+
+  .cs-back__link {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--text-2);
+    transition: color var(--t-fast), transform var(--t-fast);
+  }
+  .cs-back__link:hover { color: var(--sky); transform: translateY(-3px); }
+
+  /* ── Responsive ── */
+  @media (min-width: 1280px) {
+    .cs-content { max-width: 760px; }
+  }
+
+  @media (max-width: 640px) {
+    .cs-hero__meta { flex-direction: column; align-items: flex-start; }
+    .cs-stats-bar__inner { grid-template-columns: 1fr; gap: var(--sp-5); }
+  }
+</style>

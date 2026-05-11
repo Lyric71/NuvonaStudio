@@ -299,6 +299,10 @@ import ContactCTA from '../../components/ContactCTA.astro';
   .cs-back__link:hover { color: var(--sky); transform: translateY(-3px); }
 
   /* ── Responsive ── */
+  @media (min-width: 1280px) {
+    .cs-content { max-width: 760px; }
+  }
+
   @media (max-width: 640px) {
     .cs-hero__meta { flex-direction: column; align-items: flex-start; }
     .cs-stats-bar__inner { grid-template-columns: 1fr; gap: var(--sp-5); }

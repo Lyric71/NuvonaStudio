@@ -6,7 +6,7 @@ import ContactCTA from '../../../components/ContactCTA.astro';
 
 <Layout
   lang="fr"
-  title="Laboratoire de parfums — Visibilité du dirigeant sur LinkedIn | Étude de cas | Nuvora Studio"
+  title="Laboratoire de parfums : visibilité du dirigeant sur LinkedIn | Étude de cas | Nuvora Studio"
   description="Un laboratoire de parfums français a attiré des clients luxe grâce à la voix de sa fondatrice sur LinkedIn. Les e-mails à froid ne marchaient pas. La visibilité du dirigeant a tout changé."
   abstract="Étude de cas : comment la visibilité du dirigeant sur LinkedIn a ouvert les portes du luxe pour un laboratoire de parfums français."
 >
@@ -70,7 +70,7 @@ import ContactCTA from '../../../components/ContactCTA.astro';
           <section>
             <h2>Notre approche</h2>
             <p>
-              Projet de visibilité du dirigeant dès le départ. La fondatrice avait l'expertise et — c'est important — elle voulait vraiment le faire. Pas besoin de la convaincre. Elle était frustrée que son savoir ne touche que les gens qu'elle connaissait déjà.
+              Projet de visibilité du dirigeant dès le départ. La fondatrice avait l'expertise et, c'est important, elle voulait vraiment le faire. Pas besoin de la convaincre. Elle était frustrée que son savoir ne touche que les gens qu'elle connaissait déjà.
             </p>
             <p>
               On a passé les deux premières semaines sur le positionnement. « Fondatrice d'un labo de parfums » c'est trop générique. On a trouvé un angle plus précis : la science et l'instinct derrière la création de senteurs pour le luxe. Et du coup elle pouvait écrire sur ce qui l'occupe vraiment au quotidien.
@@ -109,7 +109,7 @@ import ContactCTA from '../../../components/ContactCTA.astro';
     <!-- Back link -->
     <section class="cs-back" aria-label="Navigation">
       <div class="container">
-        <a href="/fr/work" class="cs-back__link">&larr; Retour aux études de cas</a>
+        <a href="/fr/realisations" class="cs-back__link">&larr; Retour aux études de cas</a>
       </div>
     </section>
 
@@ -300,6 +300,10 @@ import ContactCTA from '../../../components/ContactCTA.astro';
   .cs-back__link:hover { color: var(--sky); transform: translateY(-3px); }
 
   /* ── Responsive ── */
+  @media (min-width: 1280px) {
+    .cs-content { max-width: 760px; }
+  }
+
   @media (max-width: 640px) {
     .cs-hero__meta { flex-direction: column; align-items: flex-start; }
     .cs-stats-bar__inner { grid-template-columns: 1fr; gap: var(--sp-5); }

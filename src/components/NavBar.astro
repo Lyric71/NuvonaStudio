@@ -1,5 +1,5 @@
 ---
-import { useTranslations, getAlternateUrl, type Lang } from '../i18n/index.ts';
+import { useTranslations, getAlternateUrl, localizedPath, type Lang } from '../i18n/index.ts';
 
 interface Props {
   lang?: Lang;
@@ -7,36 +7,37 @@ interface Props {
 const { lang = 'en' } = Astro.props;
 const t = useTranslations(lang);
 
-const prefix = lang === 'en' ? '' : `/${lang}`;
 const currentPath = Astro.url.pathname;
 
 const langOptions = [
-  { code: 'en' as Lang, label: 'English', flag: '🇬🇧' },
-  { code: 'fr' as Lang, label: 'Français', flag: '🇫🇷' },
-  { code: 'zh' as Lang, label: '中文', flag: '🇨🇳' },
+  { code: 'en' as Lang, label: 'English',  flag: '/flags/gb.svg' },
+  { code: 'fr' as Lang, label: 'Français', flag: '/flags/fr.svg' },
+  { code: 'zh' as Lang, label: '中文',     flag: '/flags/cn.svg' },
+  { code: 'es' as Lang, label: 'Español',  flag: '/flags/es.svg' },
+  { code: 'de' as Lang, label: 'Deutsch',  flag: '/flags/de.svg' },
 ].filter(l => l.code !== lang);
 
 
 const links = [
   {
     label: t('nav.services'),
-    href: `${prefix}/services`,
+    href: localizedPath('services', lang),
     children: [
-      { label: t('nav.content'),      href: `${prefix}/services/content` },
-      { label: t('nav.advertising'), href: `${prefix}/services/advertising` },
-      { label: t('nav.consulting'),  href: `${prefix}/services/consulting` },
+      { label: t('nav.content'),     href: localizedPath('services/content', lang) },
+      { label: t('nav.advertising'), href: localizedPath('services/advertising', lang) },
+      { label: t('nav.consulting'),  href: localizedPath('services/consulting', lang) },
     ],
   },
-  { label: t('nav.pricing'),  href: `${prefix}/pricing` },
-  { label: t('nav.work'),     href: `${prefix}/work` },
-  { label: t('nav.insights'), href: `${prefix}/insights` },
-  { label: t('nav.about'),    href: `${prefix}/about` },
+  { label: t('nav.pricing'),  href: localizedPath('pricing', lang) },
+  { label: t('nav.work'),     href: localizedPath('work', lang) },
+  { label: t('nav.insights'), href: localizedPath('insights', lang) },
+  { label: t('nav.about'),    href: localizedPath('about', lang) },
 ];
 
-const optimizerHref = `${prefix}/linkedin-optimizer`;
+const optimizerHref = localizedPath('linkedin-optimizer', lang);
 
 const homeHref = lang === 'en' ? '/' : `/${lang}/`;
-const contactHref = `${prefix}/contact?intent=call`;
+const contactHref = `${localizedPath('contact', lang)}?intent=call`;
 ---
 
 <nav class="nav" aria-label="Main navigation">
@@ -89,9 +90,13 @@ const contactHref = `${prefix}/contact?intent=call`;
       <!-- Language switcher -->
       <div class="nav__lang-group">
         {langOptions.map(opt => (
-          <a href={getAlternateUrl(currentPath, opt.code)} class="nav__lang" aria-label={`Switch to ${opt.label}`}>
-            <span class="nav__lang-flag" aria-hidden="true">{opt.flag}</span>
-            <span class="nav__lang-label">{opt.label}</span>
+          <a
+            href={getAlternateUrl(currentPath, opt.code)}
+            class="nav__lang"
+            aria-label={`Switch to ${opt.label}`}
+            title={opt.label}
+          >
+            <img src={opt.flag} alt="" width="22" height="22" class="nav__lang-flag" loading="lazy" />
           </a>
         ))}
       </div>
@@ -122,7 +127,8 @@ const contactHref = `${prefix}/contact?intent=call`;
       {langOptions.map(opt => (
         <li>
           <a href={getAlternateUrl(currentPath, opt.code)} class="nav__mobile-link nav__mobile-lang">
-            {opt.flag} {opt.label}
+            <img src={opt.flag} alt="" width="20" height="20" class="nav__mobile-lang-flag" loading="lazy" />
+            {opt.label}
           </a>
         </li>
       ))}
@@ -222,23 +228,40 @@ const contactHref = `${prefix}/contact?intent=call`;
   /* Language switcher */
   .nav__lang-group {
     display: inline-flex;
-    gap: var(--sp-2);
+    align-items: center;
+    gap: 6px;
   }
   .nav__lang {
     display: inline-flex;
     align-items: center;
-    gap: var(--sp-2);
-    font-size: var(--fs-xs);
-    font-weight: 500;
-    color: var(--text-2);
-    padding: var(--sp-1) var(--sp-3);
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    overflow: hidden;
     border: 1px solid var(--border);
-    border-radius: var(--r-full);
-    transition: border-color var(--t-fast), color var(--t-fast);
-    white-space: nowrap;
+    background: var(--white);
+    transition: transform var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast);
   }
-  .nav__lang:hover { border-color: var(--text-3); color: var(--text); }
-  .nav__lang-label { font-size: var(--fs-xs); }
+  .nav__lang:hover {
+    transform: translateY(-1px);
+    border-color: var(--text-3);
+    box-shadow: 0 2px 6px rgba(0,0,0,.08);
+  }
+  .nav__lang-flag {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .nav__mobile-lang-flag {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+  }
 
   /* Burger */
   .nav__burger {
@@ -275,7 +298,7 @@ const contactHref = `${prefix}/contact?intent=call`;
   }
   .nav__mobile-link:hover { color: var(--text); }
   .nav__mobile-link--child { font-size: var(--fs-sm); font-weight: 400; color: var(--text-3); padding-left: var(--sp-4); }
-  .nav__mobile-lang { color: var(--sky); font-weight: 500; }
+  .nav__mobile-lang { color: var(--sky); font-weight: 500; display: flex; align-items: center; gap: var(--sp-2); }
 
   @media (max-width: 768px) {
     .nav__links, .nav__actions { display: none; }

@@ -6,10 +6,16 @@ import { Resend } from 'resend';
 export const POST: APIRoute = async ({ request }) => {
   const data = await request.formData();
 
-  // Honeypot check — this field should be empty (bots auto-fill it)
   const honeypot = (data.get('company_url') as string)?.trim();
   if (honeypot) {
-    // Pretend success so bots don't know they were caught
+    return new Response(JSON.stringify({ success: true }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+
+  const renderedAt = Number((data.get('form_ts') as string) || 0);
+  if (!renderedAt || Date.now() - renderedAt < 3000) {
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },

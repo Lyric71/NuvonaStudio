@@ -6,7 +6,7 @@ import ContactCTA from '../../../components/ContactCTA.astro';
 const posts = [
   // ── 29 March 2026 ──
   {
-    slug: 'why-your-reach-dropped',
+    slug: 'pourquoi-votre-portee-a-chute',
     category: 'Stratégie LinkedIn',
     tags: ['Algorithme'],
     title: "Pourquoi votre portée a chuté de 50\u00a0% en 2026 (et c'est pas votre contenu)",
@@ -17,7 +17,7 @@ const posts = [
     image: '/blog/hero-reach-dropped.svg',
   },
   {
-    slug: 'content-to-inbound-leads',
+    slug: 'du-contenu-aux-prospects-entrants',
     category: 'Stratégie LinkedIn',
     tags: ['Prospects'],
     title: "Comment transformer son contenu LinkedIn en vrais prospects (et pas juste en vues)",
@@ -28,18 +28,18 @@ const posts = [
     image: '/blog/hero-content-to-leads.webp',
   },
   {
-    slug: 'profile-mistakes-killing-conversions',
+    slug: 'erreurs-profil-tuent-conversions',
     category: 'Stratégie LinkedIn',
     tags: ['Profil'],
     title: "Les erreurs de profil qui plombent vos résultats sans que vous le sachiez",
-    excerpt: "Chaque publication renvoie des visiteurs vers votre profil. Et la plupart des profils ne les retiennent pas. Accroche banale, section Sélection vide, résumé façon CV — ça vous coûte des prospects tous les jours.",
+    excerpt: "Chaque publication renvoie des visiteurs vers votre profil. Et la plupart des profils ne les retiennent pas. Accroche banale, section Sélection vide, résumé façon CV : ça vous coûte des prospects tous les jours.",
     date: '2026-03-29',
     readTime: '9 min de lecture',
     featured: false,
     image: '/blog/hero-profile-mistakes.webp',
   },
   {
-    slug: 'linkedin-headline-costing-opportunities',
+    slug: 'accroche-linkedin-coute-opportunites',
     category: 'Stratégie LinkedIn',
     tags: ['Profil'],
     title: "Votre titre LinkedIn vous fait perdre des opportunités. Voici comment le corriger.",
@@ -50,7 +50,7 @@ const posts = [
     image: '/blog/hero-headline-fix.webp',
   },
   {
-    slug: 'algorithm-change-small-vs-large-accounts',
+    slug: 'changement-algorithme-petits-vs-gros-comptes',
     category: 'Stratégie LinkedIn',
     tags: ['Algorithme'],
     title: "Nouvel algorithme LinkedIn : ce que ça change pour les petits comptes face aux gros",
@@ -61,7 +61,7 @@ const posts = [
     image: '/blog/hero-small-vs-large.svg',
   },
   {
-    slug: 'how-to-grow-on-linkedin',
+    slug: 'comment-grandir-sur-linkedin',
     category: 'Stratégie LinkedIn',
     tags: ['Croissance'],
     title: "Se développer sur LinkedIn quand la concurrence a été multipliée par cinq",
@@ -72,7 +72,7 @@ const posts = [
     image: '/blog/hero-grow-linkedin.svg',
   },
   {
-    slug: 'why-linkedin-ads-cost-more',
+    slug: 'pourquoi-publicite-linkedin-coute-plus',
     category: 'Publicité LinkedIn',
     tags: ['Publicité'],
     title: "Pourquoi les publicités LinkedIn coûtent 4 à 6x plus par clic, et quand ça vaut quand même le coup",
@@ -83,7 +83,7 @@ const posts = [
     image: '/blog/hero-ads-cost.svg',
   },
   {
-    slug: 'linkedin-ads-vs-organic-content',
+    slug: 'publicite-linkedin-vs-contenu-organique',
     category: 'Stratégie LinkedIn',
     tags: ['Budget'],
     title: "Publicité LinkedIn ou contenu naturel : où mettre votre budget en 2026",
@@ -94,7 +94,7 @@ const posts = [
     image: '/blog/hero-ads-vs-organic.svg',
   },
   {
-    slug: 'stop-wasting-money-low-intent-audiences',
+    slug: 'arretez-gaspiller-audiences-faible-intention',
     category: 'Publicité LinkedIn',
     tags: ['Ciblage'],
     title: "Publicités LinkedIn : arrêtez de viser des gens qui n'ont aucune intention d'acheter",
@@ -105,7 +105,7 @@ const posts = [
     image: '/blog/hero-targeting-waste.webp',
   },
   {
-    slug: 'linkedin-ad-roi-measurement-problem',
+    slug: 'probleme-mesure-roi-publicite-linkedin',
     category: 'Publicité LinkedIn',
     tags: ['Mesure'],
     title: "Pourquoi le rendement de vos publicités LinkedIn a l'air catastrophique (c'est un problème de mesure)",
@@ -116,7 +116,7 @@ const posts = [
     image: '/blog/hero-roi-measurement.webp',
   },
   {
-    slug: 'minimum-viable-linkedin-ads-budget',
+    slug: 'budget-minimum-publicite-linkedin',
     category: 'Publicité LinkedIn',
     tags: ['Budget'],
     title: "Quel budget publicitaire minimum pour obtenir de vrais résultats sur LinkedIn",
@@ -128,7 +128,7 @@ const posts = [
   },
   // ── 23 March 2026 ──
   {
-    slug: 'your-linkedin-post-is-already-dead',
+    slug: 'votre-publication-linkedin-est-deja-morte',
     category: 'Stratégie LinkedIn',
     tags: ['Contenu'],
     title: "Votre publication LinkedIn est déjà morte. Voici comment la sauver.",
@@ -139,7 +139,7 @@ const posts = [
     image: '/blog/hero-post-already-dead.svg',
   },
   {
-    slug: 'the-real-linkedin-problem',
+    slug: 'le-vrai-probleme-linkedin',
     category: 'Stratégie LinkedIn',
     tags: ['Stratégie'],
     title: "Le vrai problème sur LinkedIn c'est pas d'écrire. C'est de savoir quoi dire.",
@@ -215,12 +215,12 @@ const allTags = [...new Set(posts.flatMap(p => p.tags))].sort();
                 <span class="post-card__category">{post.category}</span>
               </div>
               <h2 class="post-card__title">
-                <a href={`/fr/insights/${post.slug}`}>{post.title}</a>
+                <a href={`/fr/publications/${post.slug}`}>{post.title}</a>
               </h2>
               <p class="post-card__excerpt">{post.excerpt}</p>
               <div class="post-card__footer">
                 <span class="post-card__read-time">{post.readTime}</span>
-                <a href={`/fr/insights/${post.slug}`} class="post-card__cta">Lire l'article →</a>
+                <a href={`/fr/publications/${post.slug}`} class="post-card__cta">Lire l'article →</a>
               </div>
             </article>
           ))}

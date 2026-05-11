@@ -5,9 +5,9 @@ import NavBar from '../../components/NavBar.astro';
 
 <Layout
   lang="zh"
-  title="联系Nuvora Studio | 聊聊您的LinkedIn计划"
-  description="有关LinkedIn的想法？可以先约30分钟聊一下,不收费不推销。直接留言也行,工作日24小时之内肯定回复。"
-  abstract="约个30分钟聊一下,或者留言也可以。工作日内回复,不绕弯。"
+  title="联系 Nuvora Studio | 聊聊您的 LinkedIn 计划"
+  description="对 LinkedIn 有想法？可以先约 30 分钟聊一下，不收费，不推销。直接留言也行，工作日 24 小时之内一定回复。"
+  abstract="约个 30 分钟聊一下，或者留言也可以。工作日内回复，不绕弯。"
 >
   <NavBar lang="zh" />
   <main id="main-content">
@@ -20,10 +20,10 @@ import NavBar from '../../components/NavBar.astro';
         <div class="contact-hero__content">
           <p class="eyebrow eyebrow--light reveal">找我们聊聊</p>
           <h1 id="contact-heading" class="contact-hero__h1 reveal reveal-delay-1">
-            聊聊LinkedIn<span class="text-gradient">的事。</span>
+            聊聊 LinkedIn<span class="text-gradient">的事。</span>
           </h1>
           <p class="contact-hero__sub reveal reveal-delay-2">
-            有什么想法跟我们说就好。每一条留言都会有人看的,一个工作日内给您回复。
+            有什么想法跟我们说就好。每条留言都有人看，一个工作日之内回复您。
           </p>
           <div class="contact-hero__actions reveal reveal-delay-3">
             <a href="#contact-form" class="btn btn--primary btn--lg">开始对话</a>
@@ -49,7 +49,7 @@ import NavBar from '../../components/NavBar.astro';
               </div>
               <h2 class="contact-success__title">已发送。</h2>
               <p class="contact-success__body">
-                已经收到了,一个工作日内会有人回复您的。
+                我们已经收到，一个工作日内会有人回复您。
               </p>
               <a href="/zh/" class="btn btn--primary" style="margin-top: var(--sp-6)">回到首页</a>
             </div>
@@ -130,7 +130,7 @@ import NavBar from '../../components/NavBar.astro';
                     </label>
                     <textarea class="form-textarea" id="project" name="project"
                       required rows="5"
-                      placeholder="我们做工业自动化的,大概200人左右。想让高管团队在LinkedIn上活跃起来,主要面向欧洲和东南亚的潜在客户..."
+                      placeholder="我们做工业自动化，大概 200 人左右。希望让高管团队在 LinkedIn 上活跃起来，主要面向欧洲和东南亚的潜在客户……"
                     ></textarea>
                     <span class="form-error" id="project-error" role="alert"></span>
                   </div>
@@ -141,6 +141,7 @@ import NavBar from '../../components/NavBar.astro';
                   <label for="company_url">公司网址(请勿填写)</label>
                   <input type="text" id="company_url" name="company_url" tabindex="-1" autocomplete="off" />
                 </div>
+                <input type="hidden" name="form_ts" id="form-ts" value="" />
 
                 <!-- 错误提示 -->
                 <div class="form-banner" id="form-error-banner" role="alert">
@@ -154,7 +155,7 @@ import NavBar from '../../components/NavBar.astro';
                   </button>
                   <p class="contact-form__privacy">
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 1L2 3v3c0 2.5 1.7 4.7 4 5.4C8.3 10.7 10 8.5 10 6V3L6 1z" stroke="var(--text-3)" stroke-width="1.2" fill="none"/></svg>
-                    您的信息不会给到第三方。
+                    您的信息不会提供给第三方。
                   </p>
                 </div>
               </form>
@@ -173,21 +174,21 @@ import NavBar from '../../components/NavBar.astro';
                   <div class="step-item__number" aria-hidden="true">1</div>
                   <div class="step-item__content">
                     <strong>我们先看您的留言</strong>
-                    <p>真人看的,不是机器人。一个工作日内我们会看完然后联系您。</p>
+                    <p>是真人在看，不是机器人。一个工作日内会看完然后联系您。</p>
                   </div>
                 </li>
                 <li class="step-item">
                   <div class="step-item__number" aria-hidden="true">2</div>
                   <div class="step-item__content">
                     <strong>约个时间聊一聊</strong>
-                    <p>大概30分钟,不用准备什么东西。就聊聊你那边的情况,看看我们这边能怎么帮。</p>
+                    <p>大概 30 分钟，不用准备什么东西。就聊聊您那边的情况，看看我们这边能怎么帮。</p>
                   </div>
                 </li>
                 <li class="step-item">
                   <div class="step-item__number" aria-hidden="true">3</div>
                   <div class="step-item__content">
                     <strong>给您出一份方案</strong>
-                    <p>聊完了我们会根据您公司情况写份方案。不是那种通用模板,是专门给你们写的。</p>
+                    <p>聊完之后，我们会根据您公司的情况写一份方案。不是通用模板，是专门为你们公司写的。</p>
                   </div>
                 </li>
               </ol>
@@ -195,7 +196,7 @@ import NavBar from '../../components/NavBar.astro';
 
             <!-- 信任要素 -->
             <div class="sidebar-card sidebar-card--trust reveal reveal-delay-1">
-              <h3 class="sidebar-card__title">为什么选择Nuvora</h3>
+              <h3 class="sidebar-card__title">为什么选择 Nuvora</h3>
               <ul class="trust-list">
                 <li class="trust-item">
                   <div class="trust-item__icon" aria-hidden="true">
@@ -203,7 +204,7 @@ import NavBar from '../../components/NavBar.astro';
                       <path d="M8 1.5l1.8 3.6 4 .58-2.9 2.83.69 3.99L8 10.27l-3.59 1.88.69-3.99-2.9-2.83 4-.58L8 1.5z" fill="var(--cyan)" opacity="0.9"/>
                     </svg>
                   </div>
-                  <span>有用到AI,但品质这块还是靠人把关的</span>
+                  <span>用 AI，但内容品质还是靠人把关</span>
                 </li>
                 <li class="trust-item">
                   <div class="trust-item__icon" aria-hidden="true">
@@ -221,7 +222,7 @@ import NavBar from '../../components/NavBar.astro';
                       <path d="M8 5v3l2 1" stroke="var(--cyan)" stroke-width="1.4" stroke-linecap="round"/>
                     </svg>
                   </div>
-                  <span>客户分布在好几个时区,都能配合</span>
+                  <span>客户分布在好几个时区，都能配合</span>
                 </li>
                 <li class="trust-item">
                   <div class="trust-item__icon" aria-hidden="true">
@@ -229,7 +230,7 @@ import NavBar from '../../components/NavBar.astro';
                       <path d="M13 5L6 12 3 9" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                   </div>
-                  <span>内容版权归您,这个没得商量</span>
+                  <span>内容版权归您，这一点没得商量</span>
                 </li>
               </ul>
             </div>
@@ -240,7 +241,7 @@ import NavBar from '../../components/NavBar.astro';
                 <span class="pricing-anchor__label">合作起步价</span>
                 <span class="pricing-anchor__value">$1,800<span>/月</span></span>
               </div>
-              <p class="pricing-anchor__note">月付就行,不用签长期合同。</p>
+              <p class="pricing-anchor__note">按月付费即可，不用签长期合同。</p>
               <a href="/zh/pricing" class="pricing-anchor__link">
                 查看详细价格
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -674,14 +675,10 @@ import NavBar from '../../components/NavBar.astro';
   /* ══════════════════════════════════════════
      RESPONSIVE
   ══════════════════════════════════════════ */
-  @media (max-width: 1100px) {
-    .contact-layout { grid-template-columns: 1fr; }
-    .contact-sidebar { position: static; }
-    .contact-sidebar { flex-direction: row; flex-wrap: wrap; }
-    .sidebar-card { flex: 1; min-width: 260px; }
-  }
-
   @media (max-width: 1024px) {
+    .contact-layout { grid-template-columns: 1fr; }
+    .contact-sidebar { position: static; flex-direction: row; flex-wrap: wrap; }
+    .sidebar-card { flex: 1; min-width: 260px; }
     .contact-hero__inner { grid-template-columns: 1fr; }
     .contact-hero__visual { display: none; }
     .hero-circle { display: none; }
@@ -700,6 +697,8 @@ import NavBar from '../../components/NavBar.astro';
 
 <script>
   const form    = document.getElementById('contact-form') as HTMLFormElement | null;
+  const tsField = document.getElementById('form-ts') as HTMLInputElement | null;
+  if (tsField) tsField.value = String(Date.now());
   const card    = document.getElementById('contact-card') as HTMLElement | null;
   const success = document.getElementById('contact-success') as HTMLElement | null;
   const submitBtn   = document.getElementById('submit-btn') as HTMLButtonElement | null;
@@ -724,7 +723,7 @@ import NavBar from '../../components/NavBar.astro';
     let valid = true;
 
     const required: { id: string; label: string }[] = [
-      { id: 'name',    label: '姓名不能空着。' },
+      { id: 'name',    label: '请填写姓名。' },
       { id: 'company', label: '请填写公司名称。' },
       { id: 'project', label: '简单说下项目情况吧。' },
     ];
@@ -738,26 +737,26 @@ import NavBar from '../../components/NavBar.astro';
 
     const email = (data.get('email') as string)?.trim();
     if (!email) {
-      setFieldError('email', '填一下邮箱吧,不然我们没法联系您。');
+      setFieldError('email', '请填写邮箱，不然我们没法联系您。');
       valid = false;
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-      setFieldError('email', '邮箱格式好像不对,再看看？');
+      setFieldError('email', '邮箱格式好像不对，麻烦再看看。');
       valid = false;
     }
 
     const website = (data.get('website') as string)?.trim();
     if (!website) {
-      setFieldError('website', '网址不能空着。');
+      setFieldError('website', '请填写公司网址。');
       valid = false;
     } else {
       try {
         const url = new URL(website);
         if (url.protocol !== 'http:' && url.protocol !== 'https:') {
-          setFieldError('website', '网址得以 https:// 或 http:// 开头才行');
+          setFieldError('website', '网址需以 https:// 或 http:// 开头。');
           valid = false;
         }
       } catch {
-        setFieldError('website', '这个网址好像不对,参考格式: https://boyan.com');
+        setFieldError('website', '网址格式不正确，参考格式：https://boyan.com');
         valid = false;
       }
     }
@@ -773,7 +772,7 @@ import NavBar from '../../components/NavBar.astro';
     if (!validate(data)) return;
 
     if (submitBtn)     submitBtn.disabled = true;
-    if (submitLabel)   submitLabel.textContent = '发送中...';
+    if (submitLabel)   submitLabel.textContent = '发送中……';
     if (submitSpinner) submitSpinner.style.display = 'inline-block';
 
     try {
@@ -785,11 +784,11 @@ import NavBar from '../../components/NavBar.astro';
         if (success) success.classList.add('is-visible');
       } else {
         if (errorBanner)  errorBanner.classList.add('is-visible');
-        if (errorMessage) errorMessage.textContent = json.error ?? '没发出去,稍后再试一下吧。';
+        if (errorMessage) errorMessage.textContent = json.error ?? '没能发出去，稍后再试一下。';
       }
     } catch {
       if (errorBanner)  errorBanner.classList.add('is-visible');
-      if (errorMessage) errorMessage.textContent = '网络好像断了,检查一下再试。';
+      if (errorMessage) errorMessage.textContent = '网络好像断了，检查一下再试。';
     } finally {
       if (submitBtn)     submitBtn.disabled = false;
       if (submitLabel)   submitLabel.textContent = '发送';

@@ -1,0 +1,1236 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import NavBar from '../../components/NavBar.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import Pricing1 from '../../components/ui/Pricing.astro';
+import FAQ from '../../components/FAQ.astro';
+
+/* ── Betreuungspakete ── */
+const plans = [
+  { name: 'Foundation', popular: false, price: '1.700 €', href: '/de/kontakt?intent=retainer&tier=foundation' },
+  { name: 'Growth', popular: true, price: '3.400 €', href: '/de/kontakt?intent=retainer&tier=growth' },
+  { name: 'Scale', popular: false, price: '5.900 €', href: '/de/kontakt?intent=retainer&tier=scale' },
+];
+
+const features = [
+  { label: 'Monatspreis',                       foundation: '1.700 €', growth: '3.400 €', scale: '5.900 €' },
+  { label: 'Audit und Einrichtung',             foundation: '✓', growth: '✓', scale: '✓' },
+  { label: 'Contentstrategie',                  foundation: '✓', growth: '✓', scale: '✓' },
+  { label: 'Beiträge pro Monat',                foundation: '4', growth: '8', scale: '16' },
+  { label: 'KI-generierte Visuals',             foundation: '✓', growth: '✓', scale: '✓' },
+  { label: 'Community-Betreuung',               foundation: '✓', growth: '✓', scale: '✓' },
+  { label: 'LinkedIn-Werbung managen',          foundation: '-', growth: '✓', scale: '✓' },
+  { label: 'Zielgruppen und Käuferprofil',      foundation: '-', growth: '✓', scale: '✓' },
+  { label: 'Wettbewerbsbeobachtung',            foundation: '-', growth: '✓', scale: '✓' },
+  { label: 'Performance-Reporting',             foundation: '✓', growth: '✓', scale: '✓' },
+  { label: 'Wöchentlicher Strategie-Call',      foundation: '✓', growth: '✓', scale: '✓' },
+  { label: 'Dedizierter Ansprechpartner',       foundation: 'Account Manager', growth: 'Account Manager', scale: 'Senior Lead' },
+  { label: 'Chat-Support Mo bis Fr',            foundation: '✓', growth: '✓', scale: '✓' },
+];
+
+/* ── Ads-Vergleich ── */
+const adsFeatures = [
+  { label: 'Monatliche Gebühr',                       foundation: '1.500 €/Monat', growth: '6 % bis 10 % des Budgets' },
+  { label: 'Vollumfängliche Ads-Strategie',           foundation: '✓', growth: '✓' },
+  { label: 'Unbegrenzte Kampagnen und Anzeigen',      foundation: '✓', growth: '✓' },
+  { label: 'Unbegrenzte Expertenbetreuung',           foundation: '✓', growth: '✓' },
+  { label: 'Maßgeschneiderte Reportings',             foundation: '✓', growth: '✓' },
+  { label: 'Empfehlungen zu Anzeigeninhalten',        foundation: '✓', growth: '✓' },
+  { label: 'Wöchentliche Abstimmungen',               foundation: '-', growth: '✓' },
+  { label: 'Performance-Analyse',                     foundation: '-', growth: '✓' },
+  { label: 'Mikrosegmentierungsstrategie',            foundation: '-', growth: '✓' },
+  { label: 'Volumenrabatte',                          foundation: '-', growth: '✓' },
+];
+
+/* ── Einfache Tabellen ── */
+const execServices = [
+  { service: 'Profiloptimierung für Geschäftsführung (einmalig)', price: '500 € pro Profil' },
+  { service: 'Ghostwriting für Geschäftsführung (4 Beiträge/Monat + Profilpflege)', price: '1.200 €/Monat pro Person' },
+];
+
+const contentServices = [
+  { service: 'KI-generierte Videos (5 bis 30 Sekunden)', price: '200 € bis 5.000 € pro Video' },
+  { service: 'Professioneller Videodreh', price: 'Angebot auf Anfrage' },
+  { service: 'Mehrsprachiger Content', price: 'Angebot pro Sprache' },
+];
+
+const trainingServices = [
+  { service: 'LinkedIn-Workshop (2 Stunden)', price: '2.500 € pro Termin' },
+  { service: 'Schulungsprogramm Team (4 Termine)', price: '8.000 € einmalig' },
+  { service: 'Employee-Advocacy-Programm', price: '2.500 €/Monat' },
+];
+
+const bonusServices = [
+  { model: 'Bonus für Lead-Ziele', percent: '+15 %', structure: 'des Monatshonorars, sobald die vereinbarten Lead-Ziele erreicht sind. Aktives LinkedIn-Werbebudget vorausgesetzt.' },
+  { model: 'Bonus für Audience-Wachstum', percent: '+10 %', structure: 'des Monatshonorars, sobald die quartalsweisen Wachstumsziele übertroffen werden. Aktives LinkedIn-Werbebudget vorausgesetzt.' },
+];
+
+/* ── FAQ ── */
+const faqs = [
+  {
+    q: 'Was ist im Preis enthalten?',
+    a: 'Alles, was in Ihrem Paket aufgeführt ist: Strategie, Content, Visuals, Community-Betreuung, Reporting, wöchentlicher Call und ein dedizierter Ansprechpartner. Die einzige separat berechnete Position ist das LinkedIn-Werbebudget, und das läuft direkt über Ihr Konto, nicht über uns.',
+  },
+  {
+    q: 'Warum drei Monate Mindestlaufzeit?',
+    a: 'LinkedIn liefert nicht über Nacht. Wir brauchen Zeit, um Ihre Seite zu auditieren, eine Strategie aufzusetzen, regelmäßig zu veröffentlichen und den Algorithmus arbeiten zu lassen. Drei Monate sind das Minimum, um spürbare Bewegung zu sehen.',
+  },
+  {
+    q: 'Können wir das Paket während der Zusammenarbeit wechseln?',
+    a: 'Ja, ohne Aufwand. Nach den ersten drei Monaten können Sie zu jedem neuen Abrechnungszyklus hochstufen oder herunterstufen.',
+  },
+  {
+    q: 'Garantieren Sie eine bestimmte Anzahl an Leads?',
+    a: 'Nein. Und ehrlich gesagt: Wer Ihnen Lead-Zusagen verspricht, dem sollten Sie misstrauen. Was wir Ihnen zusichern, ist saubere Arbeit Woche für Woche, in Strategie, Content und Targeting. Mit dem optionalen Performance-Bonus verdienen wir nur dann mehr, wenn die gemeinsam definierten Ziele tatsächlich erreicht werden.',
+  },
+  {
+    q: 'Was bedeutet "Zielgruppen und Käuferprofil"?',
+    a: 'Im Kern ist das das Profil Ihres idealen Käufers. Wir identifizieren, wer Ihre besten Interessenten sind (nach Position, Branche, Unternehmensgröße, Region) und bauen Content und Kampagnen darauf auf. Enthalten in Growth und Scale.',
+  },
+  {
+    q: 'Wie wird das Werbebudget abgerechnet?',
+    a: 'Sie zahlen LinkedIn direkt aus Ihrem eigenen Konto, wir steuern die Kampagnen. Ihr Mediabudget läuft zu keinem Zeitpunkt über unsere Bücher. Damit bleibt die Mittelverwendung jederzeit nachvollziehbar.',
+  },
+  {
+    q: 'Kann ich Ghostwriting für die Geschäftsführung ohne Retainer buchen?',
+    a: 'Ja. Wir bieten den Service eigenständig an, in den Varianten Profiloptimierung, Ghostwriting oder beides in Kombination. Ein laufender Retainer ist dafür keine Voraussetzung.',
+  },
+  {
+    q: 'Was kostet der Performance-Bonus, wenn das Ziel verfehlt wird?',
+    a: 'Nichts. Der Bonus wird nur dann fällig, wenn wir die gemeinsam definierten Ziele erreichen oder übertreffen. Werden sie verfehlt, zahlen Sie Ihren regulären Retainer, mehr nicht.',
+  },
+  {
+    q: 'Was ist der tatsächliche Unterschied zwischen Foundation und Growth?',
+    a: 'Foundation sichert Ihnen Präsenz, also kontinuierlichen Content und eine gepflegte Community. Growth ist die Stufe, auf der die Leadgenerierung tatsächlich anläuft: Werbung, Targeting, Wettbewerbsbeobachtung und doppeltes Contentvolumen kommen hinzu. Wer Leads aus LinkedIn ziehen möchte, beginnt sinnvollerweise mit Growth.',
+  },
+  {
+    q: 'Was passiert nach den ersten drei Monaten?',
+    a: 'Ab dem vierten Monat wechseln Sie in den Monatsmodus: bleiben, das Paket anpassen oder mit 30 Tagen Frist kündigen. Strafgebühren oder Restlaufzeiten gibt es nicht.',
+  },
+];
+---
+
+<Layout
+  lang="de"
+  title="Preise für LinkedIn-Services für B2B-Unternehmen | Nuvora Studio"
+  description="Unsere LinkedIn-Preise im Überblick. Drei Betreuungspakete, Werbeschaltung, Executive Branding und Schulungen. Klare Pakete, ausgelegt auf mehr qualifizierte Leads."
+  abstract="Preise für LinkedIn-Services für B2B-Unternehmen. Drei Betreuungspakete von 1.700 € bis 5.900 €/Monat. Dazu Werbeschaltung, Executive Branding und Schulungen."
+>
+  <NavBar lang="de" />
+  <main id="main-content">
+
+    <!-- ═══ HERO ═══ -->
+    <section class="pricing-hero" aria-labelledby="pricing-heading">
+      <div class="pricing-hero__bg" aria-hidden="true"></div>
+      <div class="pricing-hero__overlay" aria-hidden="true"></div>
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="pricing-hero__content">
+          <p class="eyebrow eyebrow--light reveal">Preise</p>
+          <h1 id="pricing-heading" class="pricing-hero__title reveal reveal-delay-1">
+            Ein Ziel: mehr <span class="text-gradient">Leads über LinkedIn.</span>
+          </h1>
+          <p class="pricing-hero__sub reveal reveal-delay-2">
+            Wählen Sie das Paket, das zu Ihrer aktuellen Lage passt. Strategie, Content,
+            Reporting und ein dedizierter Ansprechpartner gehören in jeder Stufe zum Lieferumfang. Versteckte Kosten gibt es bei uns nicht, und über die ersten drei Monate hinaus bindet Sie ohnehin nichts an uns.
+          </p>
+          <div class="pricing-hero__actions reveal reveal-delay-3">
+            <a href="#retainer" class="btn btn--primary btn--lg">Pakete ansehen</a>
+            <a href="/de/kontakt?intent=call" class="btn btn--outline-white btn--lg">Gespräch vereinbaren</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ BETREUUNGSPAKETE ═══ -->
+    <section class="section" id="retainer" aria-labelledby="retainer-heading">
+      <div class="container">
+        <div class="s-head reveal">
+          <p class="eyebrow">Unsere Betreuungspakete</p>
+          <h2 id="retainer-heading">Monatliche Betreuung Ihrer LinkedIn-Präsenz</h2>
+          <p class="s-head__sub">Alle Pakete setzen eine Mindestlaufzeit von 3 Monaten voraus.</p>
+        </div>
+
+        <div class="reveal reveal-delay-1">
+          <Pricing1 plans={plans} features={features} ctaLabel="Gespräch vereinbaren" popularLabel="Am häufigsten gewählt" periodLabel="/Monat" />
+        </div>
+
+        <div class="tier-cards reveal reveal-delay-2">
+          <div class="tier-card">
+            Mit <strong>Foundation</strong> legen Sie das Fundament: eine kontinuierliche, sauber aufgebaute LinkedIn-Präsenz, bevor Sie aufdrehen.
+          </div>
+          <div class="tier-card tier-card--pop">
+            <strong>Growth</strong> ist die Stufe, auf der die Leadgenerierung Fahrt aufnimmt: Werbung, Targeting und doppeltes Contentvolumen kommen hinzu. Es ist unser meistgebuchtes Paket, aus guten Gründen.
+          </div>
+          <div class="tier-card">
+            <strong>Scale</strong> richtet sich an Unternehmen, die Vollgas geben: 16 Beiträge im Monat, ein Senior Lead auf Ihrem Konto und alle unsere Disziplinen im orchestrierten Zusammenspiel.
+          </div>
+        </div>
+
+        <p class="s-footnote reveal">
+          Unsicher, welches Paket passt? <a href="/de/kontakt?intent=call">Vereinbaren Sie ein Gespräch</a>, wir gehen es gemeinsam durch.
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══ EXECUTIVE BRANDING ═══ -->
+    <section class="section exec-section" aria-labelledby="exec-heading">
+      <div class="exec-section__bg" aria-hidden="true"></div>
+      <div class="exec-section__overlay" aria-hidden="true"></div>
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="exec-split">
+          <div class="exec-split__text reveal">
+            <p class="eyebrow">Ergänzend oder eigenständig</p>
+            <h2 id="exec-heading">Sichtbarkeit der Geschäftsführung</h2>
+            <p class="s-head__sub">
+              Ihre Unternehmensseite erzählt eine Geschichte. Ihre Geschäftsführung erzählt eine andere. Entscheider prüfen beides, bevor sie sich melden.
+            </p>
+            <p class="s-head__note">
+              Ein eigenständiger Service für Führungskräfte, die ihre LinkedIn-Präsenz selbst aufbauen wollen.
+              Funktioniert allein oder ergänzend zu jedem Retainer.
+            </p>
+          </div>
+          <div class="exec-split__cards reveal reveal-delay-1">
+            {execServices.map(row => (
+              <div class="exec-card">
+                <p class="exec-card__label">{row.service}</p>
+                <p class="exec-card__price">{row.price}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ LINKEDIN-ADS-MANAGEMENT ═══ -->
+    <section class="section" aria-labelledby="ads-heading">
+      <div class="container">
+        <div class="s-head reveal">
+          <p class="eyebrow">Eigenständiges Angebot</p>
+          <h2 id="ads-heading">LinkedIn-Ads-Management</h2>
+          <p class="s-head__sub">
+            Für Unternehmen, die professionelles Ads-Management ohne vollständigen Retainer wünschen.
+            Das Werbebudget wird separat über Ihr LinkedIn-Konto abgerechnet.
+          </p>
+          <p class="s-head__note">Beide Stufen setzen einen 3-Monats-Vertrag und eine einmalige Einrichtungsgebühr von 1.500 € voraus.</p>
+        </div>
+
+        <div class="ads-table reveal">
+          <div class="ads-table__scroll">
+            <table aria-label="Preisvergleich LinkedIn-Ads-Management">
+              <thead>
+                <tr>
+                  <th class="ads-table__corner"></th>
+                  <th class="ads-table__col-head">Werbebudget &lt; 15.000 €/Monat</th>
+                  <th class="ads-table__col-head">Werbebudget &gt; 15.000 €/Monat</th>
+                </tr>
+              </thead>
+              <tbody>
+                {adsFeatures.map((row, i) => (
+                  <tr class={i === 0 ? 'ads-table__row--price' : ''}>
+                    <td class="ads-table__label">{row.label}</td>
+                    <td class="ads-table__val">
+                      {row.foundation === '✓' ? (
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-label="Enthalten"><path d="M4 9.5l3.5 3.5L14 6" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      ) : row.foundation === '-' ? (
+                        <span class="ads-table__dash">-</span>
+                      ) : (
+                        <strong>{row.foundation}</strong>
+                      )}
+                    </td>
+                    <td class="ads-table__val">
+                      {row.growth === '✓' ? (
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-label="Enthalten"><path d="M4 9.5l3.5 3.5L14 6" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      ) : row.growth === '-' ? (
+                        <span class="ads-table__dash">-</span>
+                      ) : (
+                        <strong>{row.growth}</strong>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ KONZERNE / ENTERPRISE ═══ -->
+    <section class="section section--dark enterprise" aria-labelledby="enterprise-heading">
+      <div class="enterprise__bg" aria-hidden="true"></div>
+      <div class="enterprise__overlay" aria-hidden="true"></div>
+      <div class="container" style="position: relative; z-index: 2;">
+
+        <div class="ent-top reveal">
+          <p class="eyebrow eyebrow--light">Maßgeschneidert</p>
+          <h2 id="enterprise-heading" class="ent-top__title">Konzerne</h2>
+          <p class="ent-top__lead">
+            Für international tätige Unternehmen, deren LinkedIn-Präsenz über Märkte, Teams und Sprachen hinweg funktionieren muss.
+          </p>
+        </div>
+
+        <div class="ent-intro reveal">
+          <p>
+            Unsere Standardpakete passen für die meisten B2B-Unternehmen. Manche Organisationen brauchen mehr. Mehrere Regionen.
+            Dutzende Geschäftsführerprofile. Content in vier Sprachen. Werbekampagnen, die parallel
+            über APAC, Europa und Amerika laufen.
+          </p>
+          <p>Genau dafür ist das Konzern-Angebot da.</p>
+          <p>
+            Der Leistungsumfang wird entlang Ihrer Organisation konzipiert. Ein Standardpaket mit aufgedrucktem Logo verschicken wir nicht.
+            Jedes Mandat beginnt mit einem Gespräch, in dem Ziele, Märkte, Verantwortlichkeiten und interne Abläufe
+            aufgenommen werden.
+          </p>
+        </div>
+
+        <div class="ent-grid">
+          <!-- Was Konzernkunden in der Regel benötigen -->
+          <div class="ent-block reveal">
+            <h3 class="ent-block__title">Was Konzernkunden in der Regel benötigen</h3>
+            <ul class="ent-list" role="list">
+              <li>LinkedIn-Strategie über mehrere Märkte, Regionen und Sprachen hinweg</li>
+              <li>Koordinierte Redaktionspläne für Unternehmensseiten und Geschäftsführerprofile</li>
+              <li>Großflächige Employee-Advocacy-Programme</li>
+              <li>Ein zentraler Ansprechpartner in Form eines Senior-Strategen, der den Gesamtblick wahrt</li>
+              <li>LinkedIn-Ads-Management über mehrere Konten und Währungen</li>
+              <li>Mehrsprachige Contentproduktion durch Autoren, die nicht nur die Sprache sicher beherrschen, sondern den jeweiligen Markt aus eigener Anschauung kennen</li>
+              <li>Maßgeschneiderte Dashboards, abgestimmt auf Ihre internen Kennzahlen</li>
+              <li>Quartalsweise Geschäftsreviews mit der Geschäftsführung</li>
+            </ul>
+          </div>
+
+          <!-- So funktionieren die Preise + Für wen das Angebot gedacht ist -->
+          <div class="ent-block reveal reveal-delay-1">
+            <h3 class="ent-block__title">So funktionieren die Preise</h3>
+            <div class="ent-block__text">
+              <p>
+                Konzernmandate werden individuell zugeschnitten und kalkuliert. Es gibt keinen Festpreis, weil kein Programm dem anderen gleicht.
+                Der Preis ergibt sich aus Anzahl der Märkte, Profile, Contentvolumen, Werbekonten und Sprachen im Leistungsumfang.
+              </p>
+              <p class="ent-price-range">
+                Die meisten Konzernmandate beginnen zwischen <strong>10.000 € und 25.000 € pro Monat.</strong>
+                Manche liegen darüber. In jedem Fall erhalten Sie vor dem Start ein detailliertes, positionsweises Angebot. Überraschungen auf der Rechnung schließen wir damit aus.
+              </p>
+            </div>
+
+            <h3 class="ent-block__title" style="margin-top: var(--sp-10);">Für wen das Angebot gedacht ist</h3>
+            <ul class="ent-list" role="list">
+              <li>International tätige Unternehmen mit Teams in mehreren Ländern</li>
+              <li>Organisationen, die in neue Märkte expandieren, branchenübergreifend</li>
+              <li>Unternehmen, für die LinkedIn strategisch geführt wird und nicht als Nebenkriegsschauplatz behandelt</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="ent-cta reveal">
+          <p class="ent-cta__text">Wenn Sie über das Standardpaket hinausgewachsen sind, ist jetzt der richtige Zeitpunkt für ein Gespräch.</p>
+          <a href="/de/kontakt?intent=enterprise" class="btn btn--primary btn--lg">Konzerngespräch vereinbaren</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ CONTENT + SCHULUNG ═══ -->
+    <section class="section" style="background: var(--off-white);" aria-labelledby="addons-heading">
+      <div class="container">
+        <div class="s-head reveal" style="text-align: center; max-width: 640px; margin-inline: auto;">
+          <p class="eyebrow">Ergänzende Leistungen</p>
+          <h2 id="addons-heading">Content, Schulung und Mitarbeitermobilisierung</h2>
+          <p class="s-head__sub" style="margin-inline: auto;">
+            Geschriebene Beiträge, KI-generierte Bilder und visuelle Assets sind in allen Paketen enthalten.
+            Diese Leistungen sind auch separat buchbar.
+          </p>
+        </div>
+
+        <div class="addon-grid">
+          <!-- Contentproduktion -->
+          <div class="addon-col reveal">
+            <h3 class="addon-col__title">Contentproduktion</h3>
+            {contentServices.map(row => (
+              <div class="addon-item">
+                <p class="addon-item__name">{row.service}</p>
+                <p class="addon-item__price">{row.price}</p>
+              </div>
+            ))}
+          </div>
+
+          <!-- Trenner -->
+          <div class="addon-divider" aria-hidden="true"></div>
+
+          <!-- Schulung -->
+          <div class="addon-col reveal reveal-delay-1">
+            <h3 class="addon-col__title">Schulung und Employee Advocacy</h3>
+            {trainingServices.map(row => (
+              <div class="addon-item">
+                <p class="addon-item__name">{row.service}</p>
+                <p class="addon-item__price">{row.price}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ PERFORMANCE-BONUS ═══ -->
+    <section class="section section--dark" aria-labelledby="bonus-heading">
+      <div class="container container--md">
+        <div class="s-head reveal" style="text-align: center;">
+          <p class="eyebrow eyebrow--light">Optional</p>
+          <h2 id="bonus-heading" style="color: var(--white);">Performance-Bonus</h2>
+          <p class="s-head__sub" style="color: var(--navy-text-2); margin-inline: auto;">
+            Verfügbar in Growth und Scale. Wir koppeln einen Teil unseres Honorars an die Ergebnisse.
+            Erreichen wir die vereinbarten Ziele, erhalten wir einen Bonus.
+            Verfehlen wir sie, zahlen Sie nur Ihren Retainer.
+          </p>
+        </div>
+
+        <div class="bonus-grid">
+          {bonusServices.map((b, i) => (
+            <div class={`bonus-card reveal reveal-delay-${i + 1}`}>
+              <span class="bonus-card__pct">{b.percent}</span>
+              <p class="bonus-card__title">{b.model}</p>
+              <p class="bonus-card__desc">{b.structure}</p>
+              <span class="bonus-card__tag">Growth & Scale</span>
+            </div>
+          ))}
+        </div>
+
+        <p class="s-footnote reveal" style="color: var(--navy-text-3); text-align: center; margin-top: var(--sp-8);">
+          Die Ziele werden gemeinsam zum Mandatsstart festgelegt und quartalsweise überprüft.
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══ RECHTLICHER HINWEIS ═══ -->
+    <div style="padding: var(--sp-10) 0; background: var(--off-white);">
+      <div class="container">
+        <p class="s-disclaimer reveal">
+          Alle Preise verstehen sich in Euro, zzgl. gesetzlicher Umsatzsteuer. Das LinkedIn-Werbebudget wird separat über Ihr Konto abgerechnet.
+          Maßgeschneiderte Angebote für Konzerne auf Anfrage.
+        </p>
+      </div>
+    </div>
+
+    <FAQ heading="Ihre Fragen zu den Preisen." faqs={faqs} id="pfaq" />
+
+    <ContactCTA lang="de" />
+
+  </main>
+</Layout>
+
+<style>
+  /* ═══════════ HERO ═══════════ */
+  .pricing-hero {
+    position: relative;
+    overflow: hidden;
+    padding-block: var(--sp-32) var(--sp-24);
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+  }
+
+  .pricing-hero__bg {
+    position: absolute;
+    inset: 0;
+    background: url('/pricing/hero-pipeline.webp') center center / cover no-repeat;
+    z-index: 0;
+  }
+
+  .pricing-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(15, 23, 42, 0.94) 0%,
+      rgba(15, 23, 42, 0.78) 50%,
+      rgba(15, 23, 42, 0.50) 100%
+    );
+    z-index: 1;
+  }
+
+  .pricing-hero__content {
+    max-width: 680px;
+  }
+
+  .pricing-hero__title {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.10;
+    letter-spacing: -0.02em;
+    margin-block: var(--sp-5) var(--sp-6);
+  }
+  .pricing-hero__title .text-gradient {
+    background: linear-gradient(135deg, var(--cyan) 0%, var(--sky) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .pricing-hero__sub {
+    font-size: var(--fs-md);
+    color: rgba(255, 255, 255, 0.68);
+    max-width: 520px;
+    line-height: 1.75;
+  }
+
+  .pricing-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+    margin-top: var(--sp-10);
+  }
+
+  @media (max-width: 640px) {
+    .pricing-hero { padding-block: var(--sp-16) var(--sp-12); }
+  }
+
+  /* ── Section visuals ── */
+  .section-visual {
+    width: 100%;
+    height: auto;
+    border-radius: var(--r-xl);
+    object-fit: cover;
+  }
+
+  .section-visual--rounded {
+    border-radius: var(--r-xl);
+    margin-top: var(--sp-8);
+  }
+
+  .retainer-visual,
+  .ads-visual,
+  .addon-visual,
+  .bonus-visual,
+  .exec-visual {
+    max-width: 820px;
+    margin-inline: auto;
+    margin-bottom: var(--sp-12);
+  }
+
+  /* ═══════════ SECTION HEADS ═══════════ */
+  .s-head {
+    margin-bottom: var(--sp-12);
+  }
+
+  .s-head h2 {
+    font-family: var(--font-display);
+    font-size: clamp(var(--fs-xl), 3vw, var(--fs-2xl));
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    margin-top: var(--sp-4);
+    color: var(--text);
+  }
+
+  .s-head__sub {
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    color: var(--text-2);
+    line-height: 1.75;
+    margin-top: var(--sp-5);
+    max-width: 640px;
+  }
+
+  .s-head__note {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.7;
+    margin-top: var(--sp-3);
+    max-width: 640px;
+  }
+
+  /* ═══════════ TIER CARDS ═══════════ */
+  .tier-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-6);
+    margin-top: var(--sp-12);
+  }
+
+  .tier-card {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.7;
+    padding: var(--sp-8) var(--sp-8) var(--sp-10);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    background: var(--white);
+    transition: transform var(--t-base), box-shadow var(--t-base), border-color var(--t-base);
+  }
+
+  .tier-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--border-2);
+  }
+
+  .tier-card--pop {
+    border-color: var(--sky);
+    background: rgba(14, 165, 233, 0.02);
+  }
+
+  .tier-card--pop:hover {
+    border-color: var(--sky);
+  }
+
+  .tier-card strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .s-footnote {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    text-align: center;
+    margin-top: var(--sp-8);
+  }
+
+  .s-footnote a {
+    color: var(--sky);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color var(--t-fast);
+  }
+
+  .s-footnote a:hover { color: var(--blue); }
+
+  /* ═══════════ EXEC SECTION ═══════════ */
+  .exec-section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .exec-section__bg {
+    position: absolute;
+    inset: 0;
+    background: url('/pricing/exec-signature.webp') center center / cover no-repeat;
+    z-index: 0;
+  }
+
+  .exec-section__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(15, 23, 42, 0.92) 0%,
+      rgba(15, 23, 42, 0.76) 50%,
+      rgba(15, 23, 42, 0.54) 100%
+    );
+    z-index: 1;
+  }
+
+  /* ═══════════ EXEC SPLIT ═══════════ */
+  .exec-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-16);
+    align-items: center;
+  }
+
+  .exec-section .eyebrow {
+    color: var(--cyan);
+  }
+
+  .exec-split__text h2 {
+    font-family: var(--font-display);
+    font-size: clamp(var(--fs-xl), 3vw, var(--fs-2xl));
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    margin-top: var(--sp-4);
+    color: var(--white);
+  }
+
+  .exec-section .s-head__sub,
+  .exec-section .s-head__note {
+    color: var(--navy-text-2);
+  }
+
+  .exec-split__cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-5);
+  }
+
+  .exec-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: var(--r-xl);
+    padding: var(--sp-6) var(--sp-8);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-6);
+    backdrop-filter: blur(10px);
+    transition: transform var(--t-base), background var(--t-base), border-color var(--t-base);
+  }
+
+  .exec-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.20);
+  }
+
+  .exec-card__label {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--white);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .exec-card__price {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    color: var(--sky);
+    white-space: nowrap;
+  }
+
+  /* ═══════════ ENTERPRISE ═══════════ */
+  .enterprise {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .enterprise__bg {
+    position: absolute;
+    inset: 0;
+    background: url('/pricing/enterprise-constellation.webp') center center / cover no-repeat;
+    z-index: 0;
+  }
+
+  .enterprise__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(15, 23, 42, 0.85) 0%,
+      rgba(15, 23, 42, 0.72) 40%,
+      rgba(15, 23, 42, 0.88) 100%
+    );
+    z-index: 1;
+  }
+
+  .ent-top {
+    margin-bottom: var(--sp-10);
+  }
+
+  .ent-top__title {
+    font-family: var(--font-display);
+    font-size: clamp(var(--fs-2xl), 4vw, var(--fs-3xl));
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-top: var(--sp-4);
+  }
+
+  .ent-top__lead {
+    font-family: var(--font-body);
+    font-size: var(--fs-xl);
+    color: var(--navy-text);
+    line-height: 1.5;
+    margin-top: var(--sp-5);
+    max-width: 600px;
+  }
+
+  .ent-intro {
+    max-width: 720px;
+    margin-bottom: var(--sp-16);
+  }
+
+  .ent-intro p {
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    color: var(--navy-text-2);
+    line-height: 1.75;
+    margin-bottom: var(--sp-4);
+  }
+
+  .ent-intro p:last-child { margin-bottom: 0; }
+
+  .ent-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-12);
+    margin-bottom: var(--sp-16);
+  }
+
+  .ent-block__title {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: var(--sp-6);
+    padding-bottom: var(--sp-4);
+    border-bottom: 2px solid rgba(6, 182, 212, 0.30);
+  }
+
+  .ent-block__text p {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--navy-text-2);
+    line-height: 1.75;
+    margin-bottom: var(--sp-4);
+  }
+
+  .ent-block__text p:last-child { margin-bottom: 0; }
+
+  .ent-price-range strong {
+    color: var(--white);
+  }
+
+  .ent-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+  }
+
+  .ent-list li {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--navy-text-2);
+    line-height: 1.6;
+    padding-left: var(--sp-6);
+    position: relative;
+  }
+
+  .ent-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--cyan);
+    opacity: 0.6;
+  }
+
+  .ent-cta {
+    text-align: center;
+    padding-top: var(--sp-8);
+    border-top: 1px solid var(--navy-border);
+  }
+
+  .ent-cta__text {
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    color: var(--navy-text-2);
+    line-height: 1.7;
+    margin-bottom: var(--sp-8);
+    max-width: 500px;
+    margin-inline: auto;
+  }
+
+  /* ═══════════ ADDON GRID ═══════════ */
+  .addon-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: var(--sp-10);
+    align-items: start;
+  }
+
+  .addon-divider {
+    width: 1px;
+    align-self: stretch;
+    background: var(--border);
+  }
+
+  .addon-col__title {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: var(--sp-6);
+    padding-bottom: var(--sp-4);
+    border-bottom: 2px solid var(--sky);
+  }
+
+  .addon-item {
+    padding: var(--sp-4) 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-1);
+  }
+
+  .addon-item:last-child { border-bottom: none; }
+
+  .addon-item__name {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .addon-item__price {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--sky);
+  }
+
+  /* ═══════════ ADS TABLE ═══════════ */
+  .ads-table {
+    border: 1px solid var(--border);
+    border-radius: var(--r-2xl);
+    overflow: hidden;
+    background: var(--white);
+    box-shadow: var(--shadow-sm);
+    max-width: 820px;
+    margin-inline: auto;
+  }
+
+  .ads-table__scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ads-table table {
+    width: 100%;
+    min-width: 520px;
+    border-collapse: collapse;
+    font-size: var(--fs-sm);
+  }
+
+  .ads-table__corner {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    width: 38%;
+  }
+
+  .ads-table__col-head {
+    padding: var(--sp-6) var(--sp-5);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: var(--fs-sm);
+    color: var(--text);
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    background: var(--white);
+    line-height: 1.4;
+  }
+
+  .ads-table__label {
+    padding: var(--sp-3) var(--sp-6);
+    font-family: var(--font-body);
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+
+  .ads-table__val {
+    padding: var(--sp-3) var(--sp-5);
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+    color: var(--text);
+  }
+
+  .ads-table__val svg {
+    display: block;
+    margin-inline: auto;
+  }
+
+  .ads-table__val strong {
+    font-weight: 600;
+  }
+
+  .ads-table__dash { color: var(--text-3); }
+
+  .ads-table__row--price td {
+    font-size: var(--fs-base);
+    padding-block: var(--sp-4);
+    background: var(--off-white);
+  }
+
+  .ads-table tbody tr {
+    transition: background var(--t-fast);
+  }
+
+  .ads-table tbody tr:hover td { background: var(--off-white); }
+
+  /* ═══════════ BONUS ═══════════ */
+  .bonus-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-6);
+  }
+
+  .bonus-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--navy-border);
+    border-radius: var(--r-xl);
+    padding: var(--sp-8);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    transition: transform var(--t-base), background var(--t-base), border-color var(--t-base);
+  }
+
+  .bonus-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+
+  .bonus-card__pct {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xl);
+    font-weight: 700;
+    background: var(--gradient-button);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+
+  .bonus-card__title {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .bonus-card__desc {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--navy-text-2);
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  .bonus-card__tag {
+    display: inline-flex;
+    align-self: flex-start;
+    padding: 4px var(--sp-3);
+    border-radius: var(--r-sm);
+    background: rgba(6, 182, 212, 0.12);
+    color: var(--cyan);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin-top: var(--sp-2);
+  }
+
+  .s-disclaimer {
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.7;
+    max-width: 520px;
+    margin-inline: auto;
+  }
+
+
+  /* ═══════════ RESPONSIVE ═══════════ */
+  @media (max-width: 1024px) {
+    .tier-cards,
+    .bonus-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .exec-split,
+    .ent-grid {
+      grid-template-columns: 1fr;
+      gap: var(--sp-10);
+    }
+
+    .addon-grid {
+      grid-template-columns: 1fr;
+      gap: var(--sp-12);
+    }
+
+    .addon-divider { display: none; }
+  }
+
+  @media (max-width: 768px) {
+    .pricing-hero {
+      padding-block: var(--sp-24) var(--sp-16);
+      min-height: auto;
+    }
+
+    .pricing-hero__overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.92) 0%,
+        rgba(15, 23, 42, 0.85) 100%
+      );
+    }
+
+    .pricing-hero__title {
+      font-size: clamp(1.75rem, 6vw, 2.25rem);
+    }
+
+    .pricing-hero__sub {
+      font-size: var(--fs-sm);
+      line-height: 1.7;
+    }
+
+    .pricing-hero__actions {
+      flex-direction: column;
+      align-items: stretch;
+      gap: var(--sp-3);
+      margin-top: var(--sp-8);
+    }
+
+    .pricing-hero__actions .btn {
+      justify-content: center;
+      min-height: 44px;
+    }
+
+    .s-head {
+      margin-bottom: var(--sp-8);
+    }
+
+    .s-head h2 {
+      font-size: var(--fs-xl);
+    }
+
+    .s-head__sub {
+      font-size: var(--fs-sm);
+    }
+
+    .tier-cards {
+      margin-top: var(--sp-8);
+      gap: var(--sp-4);
+    }
+
+    .tier-card {
+      padding: var(--sp-5) var(--sp-5) var(--sp-6);
+      font-size: var(--fs-sm);
+    }
+
+    .exec-section__overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.92) 0%,
+        rgba(15, 23, 42, 0.88) 100%
+      );
+    }
+
+    .exec-split {
+      gap: var(--sp-8);
+    }
+
+    .exec-card {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--sp-2);
+      padding: var(--sp-5);
+    }
+
+    .exec-card__price {
+      font-size: var(--fs-base);
+    }
+
+    .ads-table__scroll {
+      overflow-x: visible;
+    }
+
+    .ads-table table {
+      min-width: 0;
+    }
+
+    .ads-table__corner {
+      width: 40%;
+    }
+
+    .ads-table__col-head {
+      padding: var(--sp-4) var(--sp-3);
+      font-size: var(--fs-xs);
+    }
+
+    .ads-table__label {
+      padding: var(--sp-3) var(--sp-3);
+      font-size: var(--fs-xs);
+      white-space: normal;
+    }
+
+    .ads-table__val {
+      padding: var(--sp-3) var(--sp-2);
+      font-size: var(--fs-xs);
+    }
+
+    .ads-table__val strong {
+      font-size: var(--fs-xs);
+    }
+
+    .ads-table__row--price td {
+      font-size: var(--fs-xs);
+    }
+
+    .enterprise__overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.92) 0%,
+        rgba(15, 23, 42, 0.88) 100%
+      );
+    }
+
+    .ent-top__lead {
+      font-size: var(--fs-base);
+    }
+
+    .ent-intro {
+      margin-bottom: var(--sp-10);
+    }
+
+    .ent-intro p {
+      font-size: var(--fs-sm);
+    }
+
+    .ent-grid {
+      gap: var(--sp-8);
+      margin-bottom: var(--sp-10);
+    }
+
+    .ent-block__title {
+      font-size: var(--fs-base);
+    }
+
+    .addon-grid {
+      gap: var(--sp-8);
+    }
+
+    .addon-col__title {
+      font-size: var(--fs-base);
+      margin-bottom: var(--sp-4);
+    }
+
+    .bonus-grid {
+      gap: var(--sp-4);
+    }
+
+    .bonus-card {
+      padding: var(--sp-5);
+    }
+
+    .bonus-card__pct {
+      font-size: var(--fs-2xl);
+    }
+
+    .bonus-card__title {
+      font-size: var(--fs-base);
+    }
+  }
+
+  @media (max-width: 380px) {
+    .pricing-hero {
+      padding-block: var(--sp-20) var(--sp-12);
+    }
+
+    .pricing-hero__title {
+      font-size: 1.5rem;
+    }
+  }
+</style>

@@ -1,7 +1,7 @@
 ---
 interface Testimonial {
   text: string;
-  image: string;
+  image?: string;
   name: string;
   role: string;
 }
@@ -16,55 +16,46 @@ interface Props {
 const defaultItems: Testimonial[] = [
   {
     text: "Nuvora took our LinkedIn from an afterthought to our top lead channel. Within six months, 40% of our pipeline was coming from there.",
-    image: "https://randomuser.me/api/portraits/women/32.jpg",
     name: "Sophie Laurent",
     role: "CMO, SaaS Platform",
   },
   {
     text: "They get B2B buying cycles, not just content. Our exec profiles went from silent to driving real inbound conversations.",
-    image: "https://randomuser.me/api/portraits/men/45.jpg",
     name: "Marcus Webb",
     role: "VP Sales, Industrial Tech",
   },
   {
     text: "The transparency is refreshing. Every month we see what's working, what isn't, and where the budget goes. No agency has given us that before.",
-    image: "https://randomuser.me/api/portraits/women/28.jpg",
     name: "Priya Sharma",
     role: "Head of Marketing, Fintech",
   },
   {
     text: "We tried three agencies before Nuvora. The difference? They actually understand LinkedIn's algorithm and how B2B buyers behave on the platform.",
-    image: "https://randomuser.me/api/portraits/men/22.jpg",
     name: "David Chen",
     role: "CEO, Consulting Firm",
   },
   {
     text: "Our LinkedIn ad spend went from burning cash to qualified leads at half the cost. The campaign structure they built does the heavy lifting.",
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
     name: "Emma Bergström",
     role: "Digital Lead, Manufacturing",
   },
   {
     text: "The content quality sets them apart. Every post sounds like us, not like an agency. That's rare in B2B content outsourcing.",
-    image: "https://randomuser.me/api/portraits/men/36.jpg",
     name: "James Okafor",
     role: "Founder, Professional Services",
   },
   {
     text: "Strategy, execution, the whole thing. We went from posting once a month to a full presence. Company page, exec profiles, ads. All of it performing.",
-    image: "https://randomuser.me/api/portraits/women/51.jpg",
     name: "Ana Rodriguez",
     role: "Marketing Director, Healthcare",
   },
   {
     text: "Nuvora built our employee advocacy program. Our sales team now sounds like a panel of experts on LinkedIn, and the pipeline numbers prove it.",
-    image: "https://randomuser.me/api/portraits/men/53.jpg",
     name: "Ravi Patel",
     role: "CRO, Enterprise Software",
   },
   {
     text: "What impressed me most was the reporting. Real KPIs, real pipeline numbers. Not impressions and likes. We finally know what LinkedIn is actually doing for our business.",
-    image: "https://randomuser.me/api/portraits/women/19.jpg",
     name: "Laura Koenig",
     role: "COO, Logistics Company",
   },
@@ -81,6 +72,31 @@ const testimonials = items;
 const firstColumn = testimonials.slice(0, 3);
 const secondColumn = testimonials.slice(3, 6);
 const thirdColumn = testimonials.slice(6, 9);
+
+const avatarGradients = [
+  'linear-gradient(135deg, #0A66C2 0%, #001840 100%)',
+  'linear-gradient(135deg, #1E88E5 0%, #0A66C2 100%)',
+  'linear-gradient(135deg, #5E35B1 0%, #1E88E5 100%)',
+  'linear-gradient(135deg, #00897B 0%, #0A66C2 100%)',
+  'linear-gradient(135deg, #D81B60 0%, #5E35B1 100%)',
+  'linear-gradient(135deg, #F4511E 0%, #D81B60 100%)',
+  'linear-gradient(135deg, #43A047 0%, #00897B 100%)',
+  'linear-gradient(135deg, #3949AB 0%, #0A66C2 100%)',
+  'linear-gradient(135deg, #00ACC1 0%, #3949AB 100%)',
+];
+
+function initialsOf(name: string): string {
+  const parts = name.trim().split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return '?';
+  if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+}
+
+function gradientFor(name: string): string {
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) hash = (hash * 31 + name.charCodeAt(i)) >>> 0;
+  return avatarGradients[hash % avatarGradients.length];
+}
 ---
 
 <section class="testimonials section" style="background: var(--off-white);" aria-labelledby="testimonials-heading">
@@ -100,7 +116,7 @@ const thirdColumn = testimonials.slice(6, 9);
         <div class={`testimonials__col testimonials__col--${speed} ${colIdx === 1 ? 'testimonials__col--md' : ''} ${colIdx === 2 ? 'testimonials__col--lg' : ''}`}>
           <div class="testimonials__track">
             {[0, 1].map(() =>
-              items.map((t, i) => (
+              items.map((t) => (
                 <div class="testimonials__card">
                   <div class="testimonials__quote" aria-hidden="true">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -110,14 +126,13 @@ const thirdColumn = testimonials.slice(6, 9);
                   </div>
                   <p class="testimonials__text">{t.text}</p>
                   <div class="testimonials__author">
-                    <img
-                      width="40"
-                      height="40"
-                      src={t.image}
-                      alt={t.name}
+                    <div
                       class="testimonials__avatar"
-                      loading="lazy"
-                    />
+                      style={`background: ${gradientFor(t.name)};`}
+                      aria-hidden="true"
+                    >
+                      {initialsOf(t.name)}
+                    </div>
                     <div>
                       <p class="testimonials__name">{t.name}</p>
                       <p class="testimonials__role">{t.role}</p>
@@ -221,7 +236,16 @@ const thirdColumn = testimonials.slice(6, 9);
     width: 40px;
     height: 40px;
     border-radius: var(--r-full);
-    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    flex-shrink: 0;
+    user-select: none;
   }
 
   .testimonials__name {

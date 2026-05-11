@@ -1,31 +1,30 @@
 ---
-import { useTranslations, type Lang } from '../i18n/index.ts';
+import { useTranslations, localizedPath, type Lang } from '../i18n/index.ts';
 
 interface Props {
   lang?: Lang;
 }
 const { lang = 'en' } = Astro.props;
 const t = useTranslations(lang);
-const prefix = lang === 'en' ? '' : `/${lang}`;
 
 const servicesLinks = [
-  { label: t('footer.content'),      href: `${prefix}/services/content` },
-  { label: t('footer.advertising'),  href: `${prefix}/services/advertising` },
-  { label: t('footer.consulting'),   href: `${prefix}/services/consulting` },
+  { label: t('footer.content'),      href: localizedPath('services/content', lang) },
+  { label: t('footer.advertising'),  href: localizedPath('services/advertising', lang) },
+  { label: t('footer.consulting'),   href: localizedPath('services/consulting', lang) },
 ];
 
 const companyLinks = [
-  { label: t('footer.about'),    href: `${prefix}/about` },
-  { label: t('footer.work'),     href: `${prefix}/work` },
-  { label: t('footer.insights'), href: `${prefix}/insights` },
-  { label: t('footer.pricing'),  href: `${prefix}/pricing` },
-  { label: t('footer.contact'),  href: `${prefix}/contact` },
+  { label: t('footer.about'),    href: localizedPath('about', lang) },
+  { label: t('footer.work'),     href: localizedPath('work', lang) },
+  { label: t('footer.insights'), href: localizedPath('insights', lang) },
+  { label: t('footer.pricing'),  href: localizedPath('pricing', lang) },
+  { label: t('footer.contact'),  href: localizedPath('contact', lang) },
 ];
 
 const legalLinks = [
-  { label: t('footer.privacy'), href: `${prefix}/privacy` },
-  { label: t('footer.terms'),   href: `${prefix}/terms` },
-  { label: t('footer.cookies'), href: `${prefix}/cookies` },
+  { label: t('footer.privacy'), href: localizedPath('privacy', lang) },
+  { label: t('footer.terms'),   href: localizedPath('terms', lang) },
+  { label: t('footer.cookies'), href: localizedPath('cookies', lang) },
 ];
 
 const networkLinks = [
@@ -92,7 +91,7 @@ const year = new Date().getFullYear();
             <li><a href={l.href} class="footer__link">{l.label}</a></li>
           ))}
         </ul>
-        <a href={`${prefix}/services`} class="footer__see-all">{t('footer.see_all')}</a>
+        <a href={localizedPath('services', lang)} class="footer__see-all">{t('footer.see_all')}</a>
       </nav>
 
       <!-- Company -->
