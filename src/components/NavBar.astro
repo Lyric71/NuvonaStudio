@@ -124,16 +124,20 @@ const contactHref = `${localizedPath('contact', lang)}?intent=call`;
           {t('nav.optimizer')}
         </a>
       </li>
-      {langOptions.map(opt => (
-        <li>
-          <a href={getAlternateUrl(currentPath, opt.code)} class="nav__mobile-link nav__mobile-lang">
-            <img src={opt.flag} alt="" width="20" height="20" class="nav__mobile-lang-flag" loading="lazy" />
-            {opt.label}
-          </a>
-        </li>
-      ))}
     </ul>
-    <a href={contactHref} class="btn btn--primary w-full" style="justify-content:center; margin-top: 1.25rem;">
+    <div class="nav__mobile-langs" role="list" aria-label="Language">
+      {langOptions.map(opt => (
+        <a
+          href={getAlternateUrl(currentPath, opt.code)}
+          class="nav__mobile-lang-pill"
+          aria-label={`Switch to ${opt.label}`}
+          title={opt.label}
+        >
+          <img src={opt.flag} alt="" width="20" height="20" class="nav__mobile-lang-flag" loading="lazy" />
+        </a>
+      ))}
+    </div>
+    <a href={contactHref} class="btn btn--primary w-full" style="justify-content:center; margin-top: var(--sp-3);">
       {t('nav.book_call')}
     </a>
   </div>
@@ -283,22 +287,42 @@ const contactHref = `${localizedPath('contact', lang)}?intent=call`;
   .nav__mobile {
     display: none;
     flex-direction: column;
-    padding: var(--sp-4) var(--gutter) var(--sp-6);
+    padding: var(--sp-2) var(--gutter) var(--sp-4);
     border-top: 1px solid var(--border);
     background: var(--white);
   }
   .nav__mobile-link {
     display: block;
-    font-size: var(--fs-base);
+    font-size: var(--fs-sm);
     font-weight: 500;
     color: var(--text-2);
-    padding-block: var(--sp-3);
+    padding-block: var(--sp-2);
     border-bottom: 1px solid var(--border);
     transition: color var(--t-fast);
   }
   .nav__mobile-link:hover { color: var(--text); }
-  .nav__mobile-link--child { font-size: var(--fs-sm); font-weight: 400; color: var(--text-3); padding-left: var(--sp-4); }
-  .nav__mobile-lang { color: var(--sky); font-weight: 500; display: flex; align-items: center; gap: var(--sp-2); }
+  .nav__mobile-link--child { font-size: var(--fs-sm); font-weight: 400; color: var(--text-3); padding-left: var(--sp-4); padding-block: var(--sp-1); }
+
+  .nav__mobile-langs {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    padding-top: var(--sp-3);
+    flex-wrap: wrap;
+  }
+  .nav__mobile-lang-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--white);
+    transition: transform var(--t-fast), border-color var(--t-fast);
+  }
+  .nav__mobile-lang-pill:hover { transform: translateY(-1px); border-color: var(--text-3); }
 
   @media (max-width: 768px) {
     .nav__links, .nav__actions { display: none; }

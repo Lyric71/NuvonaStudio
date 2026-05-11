@@ -31,34 +31,35 @@ const networkLinks = [
   {
     label: 'BeyondBorderGroup.com',
     href: 'https://beyondbordergroup.com',
-    logo: '/AgencyLogos/BBG%20PNG.png',
+    logo: '/AgencyLogos/BBG%20PNG.webp',
     description: 'Market entry consulting for Western brands growing in China.',
-  },
-  {
-    label: 'BeyondBorderGroup.org',
-    href: 'https://www.beyondbordergroup.org',
-    logo: '/AgencyLogos/BBG%20PNG.png',
-    description: 'The umbrella group connecting our specialised China agencies.',
   },
   {
     label: 'ChinaWebFoundry.com',
     href: 'https://www.chinawebfoundry.com',
-    logo: '/AgencyLogos/Logo-ChinaWebFoundry-transparent.png',
+    logo: '/AgencyLogos/Logo-ChinaWebFoundry-transparent.webp',
     description: 'Websites built for the Chinese internet — ICP, Baidu SEO, hosting.',
   },
   {
     label: 'BeyondCompass.com',
     href: 'https://beyondcompass.com',
-    logo: '/AgencyLogos/BeyondCompass%20-%20Transparent%20-%204K.png',
+    logo: '/AgencyLogos/BeyondCompass%20-%20Transparent%20-%204K.webp',
     description: 'Vetted distributor and Tmall partner introductions in China.',
   },
   {
     label: 'TheRedScroll.com',
     href: 'https://theredscroll.com',
-    logo: '/AgencyLogos/TheredScroll%20PNG.png',
+    logo: '/AgencyLogos/TheredScroll%20PNG.webp',
     description: 'Daily WeChat, Douyin, RedNote and Weibo operations from the ground.',
   },
 ];
+
+const groupLink = {
+  label: 'BeyondBorderGroup.org',
+  href: 'https://www.beyondbordergroup.org',
+  logo: '/AgencyLogos/BBG%20PNG.webp',
+  description: 'The umbrella group connecting our specialised China agencies.',
+};
 
 const homeHref = lang === 'en' ? '/' : `/${lang}/`;
 const year = new Date().getFullYear();
@@ -122,6 +123,27 @@ const year = new Date().getFullYear();
           </li>
         ))}
       </ul>
+
+      <a
+        href={groupLink.href}
+        class="footer__group"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`${groupLink.label} — parent group`}
+      >
+        <span class="footer__group-logo-wrap">
+          <img src={groupLink.logo} alt={`${groupLink.label} logo`} class="footer__group-logo" loading="lazy" />
+        </span>
+        <span class="footer__group-text">
+          <span class="footer__group-eyebrow">Parent group</span>
+          <span class="footer__group-name">{groupLink.label}</span>
+          <span class="footer__group-desc">{groupLink.description}</span>
+        </span>
+        <span class="footer__group-cta" aria-hidden="true">
+          Visit
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </span>
+      </a>
     </section>
 
     <div class="footer__rule"></div>
@@ -201,7 +223,7 @@ const year = new Date().getFullYear();
   .footer__network { padding-block: var(--sp-8); }
   .footer__network-list {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: var(--sp-6);
   }
   .footer__network-item { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
@@ -240,6 +262,88 @@ const year = new Date().getFullYear();
     font-size: var(--fs-xs);
     color: var(--navy-text-3);
     line-height: 1.55;
+  }
+
+  /* Parent group card */
+  .footer__group {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: var(--sp-6);
+    margin-top: var(--sp-8);
+    padding: var(--sp-5) var(--sp-6);
+    background:
+      linear-gradient(135deg, rgba(0, 200, 220, 0.08), rgba(255, 255, 255, 0.02)) padding-box,
+      linear-gradient(135deg, rgba(0, 200, 220, 0.5), rgba(255, 255, 255, 0.08)) border-box;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    transition: transform var(--t-fast), box-shadow var(--t-fast), border-color var(--t-fast);
+  }
+  .footer__group:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+  }
+  .footer__group-logo-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: var(--sp-3) var(--sp-4);
+    height: 64px;
+    width: 140px;
+    flex-shrink: 0;
+  }
+  .footer__group-logo {
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+  .footer__group-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+  .footer__group-eyebrow {
+    font-family: var(--font-body);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cyan);
+  }
+  .footer__group-name {
+    font-size: var(--fs-base);
+    font-weight: 600;
+    color: var(--white);
+  }
+  .footer__group-desc {
+    font-size: var(--fs-sm);
+    color: var(--navy-text-2);
+    line-height: 1.55;
+  }
+  .footer__group-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: var(--sp-2) var(--sp-4);
+    border-radius: 999px;
+    background: rgba(0, 200, 220, 0.12);
+    color: var(--cyan);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background var(--t-fast), color var(--t-fast);
+  }
+  .footer__group:hover .footer__group-cta {
+    background: var(--cyan);
+    color: var(--deep-navy);
   }
 
   /* Bottom bar */
@@ -281,6 +385,13 @@ const year = new Date().getFullYear();
     .footer__main { grid-template-columns: 1fr 1fr; gap: var(--sp-8); padding-bottom: var(--sp-8); }
     .footer__brand { grid-column: 1 / -1; }
     .footer__network-list { grid-template-columns: 1fr; gap: var(--sp-5); }
+    .footer__group {
+      grid-template-columns: 1fr;
+      text-align: left;
+      gap: var(--sp-4);
+    }
+    .footer__group-logo-wrap { width: 100%; }
+    .footer__group-cta { justify-self: start; }
     .footer__bottom { flex-direction: column; align-items: flex-start; gap: var(--sp-4); }
     .footer__badges { white-space: normal; }
     .footer__legal { gap: var(--sp-4); }
