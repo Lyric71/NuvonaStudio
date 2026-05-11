@@ -22,7 +22,6 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/about"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/about"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/about/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/about/"/>
   </url>
 
@@ -48,13 +47,327 @@
   </url>
 
   <url>
+    <loc>https://nuvora.studio/de</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/agb</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/cookies</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/datenschutz</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/einblicke</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/einblicke/algorithmus-kleine-vs-grosse-accounts</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/einblicke/das-eigentliche-linkedin-problem</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/einblicke/headline-fehler-die-geschaeft-kosten</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/einblicke/linkedin-ads-roi-messproblem</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/einblicke/linkedin-ads-vs-organisch</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/einblicke/mindestbudget-linkedin-ads</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/einblicke/profilfehler-die-konversionen-kosten</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/einblicke/schluss-mit-niedrig-intent-zielgruppen</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/einblicke/vom-content-zum-inbound-lead</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/einblicke/wachstum-auf-linkedin</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/einblicke/warum-ihre-reichweite-eingebrochen-ist</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/einblicke/warum-linkedin-ads-teurer-werden</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/kontakt</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/leistungen</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/leistungen/beratung</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/leistungen/content</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/leistungen/werbung</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/linkedin-optimierer</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/preise</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/referenzen</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/referenzen/chinesischer-kabelhersteller-employee-advocacy</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/referenzen/franzoesische-wirtschaftspruefer-partner</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/referenzen/franzoesisches-parfuemlabor-personal-branding</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/referenzen/hongkong-kanzlei-cross-border-transaktionen</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/referenzen/japanischer-medizinbettenhersteller-leads</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/referenzen/schwedische-polymermarke-luftfahrt</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/de/ueber-uns</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/es</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/es/blog</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/es/blog/el-verdadero-problema-de-linkedin</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/es/blog/por-que-la-publicidad-linkedin-cuesta-mas</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/es/blog/titular-linkedin-cuesta-oportunidades</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/es/casos</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/es/contacto</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/es/cookies</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/es/nosotros</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/es/precios</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/es/privacidad</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/es/servicios</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/es/terminos</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
     <loc>https://nuvora.studio/insights</loc>
     <lastmod>2026-05-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/"/>
   </url>
 
@@ -65,7 +378,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/algorithm-change-small-vs-large-accounts"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/algorithm-change-small-vs-large-accounts"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/algorithm-change-small-vs-large-accounts/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/algorithm-change-small-vs-large-accounts/"/>
   </url>
 
@@ -76,7 +388,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/content-to-inbound-leads"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/content-to-inbound-leads"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/content-to-inbound-leads/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/content-to-inbound-leads/"/>
   </url>
 
@@ -87,7 +398,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/how-to-grow-on-linkedin"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/how-to-grow-on-linkedin"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/how-to-grow-on-linkedin/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/how-to-grow-on-linkedin/"/>
   </url>
 
@@ -98,7 +408,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/linkedin-ad-roi-measurement-problem"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/linkedin-ad-roi-measurement-problem"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/linkedin-ad-roi-measurement-problem/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/linkedin-ad-roi-measurement-problem/"/>
   </url>
 
@@ -109,7 +418,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/linkedin-ads-vs-organic-content"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/linkedin-ads-vs-organic-content"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/linkedin-ads-vs-organic-content/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/linkedin-ads-vs-organic-content/"/>
   </url>
 
@@ -120,7 +428,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/linkedin-headline-costing-opportunities"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/linkedin-headline-costing-opportunities"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/linkedin-headline-costing-opportunities/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/linkedin-headline-costing-opportunities/"/>
   </url>
 
@@ -131,7 +438,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/minimum-viable-linkedin-ads-budget"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/minimum-viable-linkedin-ads-budget"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/minimum-viable-linkedin-ads-budget/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/minimum-viable-linkedin-ads-budget/"/>
   </url>
 
@@ -142,7 +448,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/profile-mistakes-killing-conversions"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/profile-mistakes-killing-conversions"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/profile-mistakes-killing-conversions/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/profile-mistakes-killing-conversions/"/>
   </url>
 
@@ -153,7 +458,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/stop-wasting-money-low-intent-audiences"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/stop-wasting-money-low-intent-audiences"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/stop-wasting-money-low-intent-audiences/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/stop-wasting-money-low-intent-audiences/"/>
   </url>
 
@@ -164,7 +468,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/the-real-linkedin-problem"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/the-real-linkedin-problem"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/the-real-linkedin-problem/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/the-real-linkedin-problem/"/>
   </url>
 
@@ -175,7 +478,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/why-linkedin-ads-cost-more"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/why-linkedin-ads-cost-more"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/why-linkedin-ads-cost-more/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/why-linkedin-ads-cost-more/"/>
   </url>
 
@@ -186,7 +488,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/why-your-reach-dropped"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/why-your-reach-dropped"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/why-your-reach-dropped/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/why-your-reach-dropped/"/>
   </url>
 
@@ -197,7 +498,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/your-linkedin-post-is-already-dead"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/your-linkedin-post-is-already-dead"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/your-linkedin-post-is-already-dead/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/your-linkedin-post-is-already-dead/"/>
   </url>
 
@@ -208,7 +508,6 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/linkedin-optimizer"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/linkedin-optimizer"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/linkedin-optimizer/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/linkedin-optimizer/"/>
   </url>
 
@@ -219,7 +518,6 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/pricing"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/pricing"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/pricing/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/pricing/"/>
   </url>
 
@@ -228,9 +526,6 @@
     <lastmod>2026-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/privacy"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/privacy"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/privacy/"/>
   </url>
 
   <url>
@@ -251,7 +546,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/services/advertising"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/services/advertising"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/services/advertising/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/services/advertising/"/>
   </url>
 
@@ -262,7 +556,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/services/consulting"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/services/consulting"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/services/consulting/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/services/consulting/"/>
   </url>
 
@@ -273,7 +566,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/services/content"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/services/content"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/services/content/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/services/content/"/>
   </url>
 
@@ -282,9 +574,6 @@
     <lastmod>2026-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/terms"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/terms"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/terms/"/>
   </url>
 
   <url>
@@ -294,7 +583,6 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/work"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/work"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/work/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/work/"/>
   </url>
 
@@ -305,7 +593,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/work/chinese-cable-manufacturer-employee-advocacy"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/work/chinese-cable-manufacturer-employee-advocacy"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/work/chinese-cable-manufacturer-employee-advocacy/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/work/chinese-cable-manufacturer-employee-advocacy/"/>
   </url>
 
@@ -316,7 +603,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/work/french-accounting-firm-partner-linkedin"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/work/french-accounting-firm-partner-linkedin"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/work/french-accounting-firm-partner-linkedin/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/work/french-accounting-firm-partner-linkedin/"/>
   </url>
 
@@ -327,7 +613,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/work/french-fragrance-lab-personal-branding"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/work/french-fragrance-lab-personal-branding"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/work/french-fragrance-lab-personal-branding/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/work/french-fragrance-lab-personal-branding/"/>
   </url>
 
@@ -338,7 +623,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/work/hong-kong-law-firm-cross-border-deals"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/work/hong-kong-law-firm-cross-border-deals"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/work/hong-kong-law-firm-cross-border-deals/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/work/hong-kong-law-firm-cross-border-deals/"/>
   </url>
 
@@ -349,7 +633,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/work/japanese-medical-bed-maker-linkedin-leads"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/work/japanese-medical-bed-maker-linkedin-leads"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/work/japanese-medical-bed-maker-linkedin-leads/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/work/japanese-medical-bed-maker-linkedin-leads/"/>
   </url>
 
@@ -360,7 +643,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/work/swedish-polymer-brand-aerospace"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/work/swedish-polymer-brand-aerospace"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/work/swedish-polymer-brand-aerospace/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/work/swedish-polymer-brand-aerospace/"/>
   </url>
 
@@ -376,14 +658,24 @@
   </url>
 
   <url>
-    <loc>https://nuvora.studio/fr/about/</loc>
+    <loc>https://nuvora.studio/fr/a-propos/</loc>
     <lastmod>2026-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/about"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/about"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/about/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/about/"/>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/fr/conditions/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/fr/confidentialite/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
@@ -408,189 +700,157 @@
   </url>
 
   <url>
-    <loc>https://nuvora.studio/fr/insights/</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/"/>
-  </url>
-
-  <url>
-    <loc>https://nuvora.studio/fr/insights/algorithm-change-small-vs-large-accounts/</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/algorithm-change-small-vs-large-accounts"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/algorithm-change-small-vs-large-accounts"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/algorithm-change-small-vs-large-accounts/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/algorithm-change-small-vs-large-accounts/"/>
-  </url>
-
-  <url>
-    <loc>https://nuvora.studio/fr/insights/content-to-inbound-leads/</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/content-to-inbound-leads"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/content-to-inbound-leads"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/content-to-inbound-leads/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/content-to-inbound-leads/"/>
-  </url>
-
-  <url>
-    <loc>https://nuvora.studio/fr/insights/how-to-grow-on-linkedin/</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/how-to-grow-on-linkedin"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/how-to-grow-on-linkedin"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/how-to-grow-on-linkedin/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/how-to-grow-on-linkedin/"/>
-  </url>
-
-  <url>
-    <loc>https://nuvora.studio/fr/insights/linkedin-ad-roi-measurement-problem/</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/linkedin-ad-roi-measurement-problem"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/linkedin-ad-roi-measurement-problem"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/linkedin-ad-roi-measurement-problem/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/linkedin-ad-roi-measurement-problem/"/>
-  </url>
-
-  <url>
-    <loc>https://nuvora.studio/fr/insights/linkedin-ads-vs-organic-content/</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/linkedin-ads-vs-organic-content"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/linkedin-ads-vs-organic-content"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/linkedin-ads-vs-organic-content/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/linkedin-ads-vs-organic-content/"/>
-  </url>
-
-  <url>
-    <loc>https://nuvora.studio/fr/insights/linkedin-headline-costing-opportunities/</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/linkedin-headline-costing-opportunities"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/linkedin-headline-costing-opportunities"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/linkedin-headline-costing-opportunities/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/linkedin-headline-costing-opportunities/"/>
-  </url>
-
-  <url>
-    <loc>https://nuvora.studio/fr/insights/minimum-viable-linkedin-ads-budget/</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/minimum-viable-linkedin-ads-budget"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/minimum-viable-linkedin-ads-budget"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/minimum-viable-linkedin-ads-budget/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/minimum-viable-linkedin-ads-budget/"/>
-  </url>
-
-  <url>
-    <loc>https://nuvora.studio/fr/insights/profile-mistakes-killing-conversions/</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/profile-mistakes-killing-conversions"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/profile-mistakes-killing-conversions"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/profile-mistakes-killing-conversions/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/profile-mistakes-killing-conversions/"/>
-  </url>
-
-  <url>
-    <loc>https://nuvora.studio/fr/insights/stop-wasting-money-low-intent-audiences/</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/stop-wasting-money-low-intent-audiences"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/stop-wasting-money-low-intent-audiences"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/stop-wasting-money-low-intent-audiences/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/stop-wasting-money-low-intent-audiences/"/>
-  </url>
-
-  <url>
-    <loc>https://nuvora.studio/fr/insights/the-real-linkedin-problem/</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/the-real-linkedin-problem"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/the-real-linkedin-problem"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/the-real-linkedin-problem/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/the-real-linkedin-problem/"/>
-  </url>
-
-  <url>
-    <loc>https://nuvora.studio/fr/insights/why-linkedin-ads-cost-more/</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/why-linkedin-ads-cost-more"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/why-linkedin-ads-cost-more"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/why-linkedin-ads-cost-more/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/why-linkedin-ads-cost-more/"/>
-  </url>
-
-  <url>
-    <loc>https://nuvora.studio/fr/insights/why-your-reach-dropped/</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/why-your-reach-dropped"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/why-your-reach-dropped"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/why-your-reach-dropped/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/why-your-reach-dropped/"/>
-  </url>
-
-  <url>
-    <loc>https://nuvora.studio/fr/insights/your-linkedin-post-is-already-dead/</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/your-linkedin-post-is-already-dead"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/your-linkedin-post-is-already-dead"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/your-linkedin-post-is-already-dead/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/your-linkedin-post-is-already-dead/"/>
-  </url>
-
-  <url>
-    <loc>https://nuvora.studio/fr/linkedin-optimizer/</loc>
+    <loc>https://nuvora.studio/fr/optimiseur-linkedin/</loc>
     <lastmod>2026-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/linkedin-optimizer"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/linkedin-optimizer"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/linkedin-optimizer/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/linkedin-optimizer/"/>
   </url>
 
   <url>
-    <loc>https://nuvora.studio/fr/pricing/</loc>
+    <loc>https://nuvora.studio/fr/publications/</loc>
     <lastmod>2026-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/pricing"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/pricing"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/pricing/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/pricing/"/>
   </url>
 
   <url>
-    <loc>https://nuvora.studio/fr/privacy/</loc>
+    <loc>https://nuvora.studio/fr/publications/accroche-linkedin-coute-opportunites/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/fr/publications/arretez-gaspiller-audiences-faible-intention/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/fr/publications/budget-minimum-publicite-linkedin/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/fr/publications/changement-algorithme-petits-vs-gros-comptes/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/fr/publications/comment-grandir-sur-linkedin/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/fr/publications/du-contenu-aux-prospects-entrants/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/fr/publications/erreurs-profil-tuent-conversions/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/fr/publications/le-vrai-probleme-linkedin/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/fr/publications/pourquoi-publicite-linkedin-coute-plus/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/fr/publications/pourquoi-votre-portee-a-chute/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/fr/publications/probleme-mesure-roi-publicite-linkedin/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/fr/publications/publicite-linkedin-vs-contenu-organique/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/fr/publications/votre-publication-linkedin-est-deja-morte/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/fr/realisations/</loc>
     <lastmod>2026-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/privacy"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/privacy"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/privacy/"/>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/fr/realisations/cabinet-avocats-hong-kong-transfrontalier/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/fr/realisations/cabinet-comptable-francais-associes-linkedin/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/fr/realisations/fabricant-chinois-cables-mobilisation-equipes/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/fr/realisations/fabricant-japonais-lits-medicaux-linkedin/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/fr/realisations/fabricant-suedois-polymeres-aeronautique/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nuvora.studio/fr/realisations/laboratoire-parfums-francais-visibilite-dirigeant/</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <url>
@@ -605,123 +865,31 @@
   </url>
 
   <url>
-    <loc>https://nuvora.studio/fr/services/advertising/</loc>
+    <loc>https://nuvora.studio/fr/services/conseil/</loc>
     <lastmod>2026-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/services/advertising"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/services/advertising"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/services/advertising/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/services/advertising/"/>
   </url>
 
   <url>
-    <loc>https://nuvora.studio/fr/services/consulting/</loc>
+    <loc>https://nuvora.studio/fr/services/contenu/</loc>
     <lastmod>2026-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/services/consulting"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/services/consulting"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/services/consulting/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/services/consulting/"/>
   </url>
 
   <url>
-    <loc>https://nuvora.studio/fr/services/content/</loc>
+    <loc>https://nuvora.studio/fr/services/publicite/</loc>
     <lastmod>2026-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/services/content"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/services/content"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/services/content/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/services/content/"/>
   </url>
 
   <url>
-    <loc>https://nuvora.studio/fr/terms/</loc>
+    <loc>https://nuvora.studio/fr/tarifs/</loc>
     <lastmod>2026-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/terms"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/terms"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/terms/"/>
-  </url>
-
-  <url>
-    <loc>https://nuvora.studio/fr/work/</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/work"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/work"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/work/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/work/"/>
-  </url>
-
-  <url>
-    <loc>https://nuvora.studio/fr/work/chinese-cable-manufacturer-employee-advocacy/</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/work/chinese-cable-manufacturer-employee-advocacy"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/work/chinese-cable-manufacturer-employee-advocacy"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/work/chinese-cable-manufacturer-employee-advocacy/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/work/chinese-cable-manufacturer-employee-advocacy/"/>
-  </url>
-
-  <url>
-    <loc>https://nuvora.studio/fr/work/french-accounting-firm-partner-linkedin/</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/work/french-accounting-firm-partner-linkedin"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/work/french-accounting-firm-partner-linkedin"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/work/french-accounting-firm-partner-linkedin/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/work/french-accounting-firm-partner-linkedin/"/>
-  </url>
-
-  <url>
-    <loc>https://nuvora.studio/fr/work/french-fragrance-lab-personal-branding/</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/work/french-fragrance-lab-personal-branding"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/work/french-fragrance-lab-personal-branding"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/work/french-fragrance-lab-personal-branding/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/work/french-fragrance-lab-personal-branding/"/>
-  </url>
-
-  <url>
-    <loc>https://nuvora.studio/fr/work/hong-kong-law-firm-cross-border-deals/</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/work/hong-kong-law-firm-cross-border-deals"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/work/hong-kong-law-firm-cross-border-deals"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/work/hong-kong-law-firm-cross-border-deals/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/work/hong-kong-law-firm-cross-border-deals/"/>
-  </url>
-
-  <url>
-    <loc>https://nuvora.studio/fr/work/japanese-medical-bed-maker-linkedin-leads/</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/work/japanese-medical-bed-maker-linkedin-leads"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/work/japanese-medical-bed-maker-linkedin-leads"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/work/japanese-medical-bed-maker-linkedin-leads/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/work/japanese-medical-bed-maker-linkedin-leads/"/>
-  </url>
-
-  <url>
-    <loc>https://nuvora.studio/fr/work/swedish-polymer-brand-aerospace/</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/work/swedish-polymer-brand-aerospace"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/work/swedish-polymer-brand-aerospace"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/work/swedish-polymer-brand-aerospace/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/work/swedish-polymer-brand-aerospace/"/>
   </url>
 
   <url>
@@ -742,7 +910,6 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/about"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/about"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/about/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/about/"/>
   </url>
 
@@ -764,7 +931,6 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/"/>
   </url>
 
@@ -775,7 +941,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/algorithm-change-small-vs-large-accounts"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/algorithm-change-small-vs-large-accounts"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/algorithm-change-small-vs-large-accounts/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/algorithm-change-small-vs-large-accounts/"/>
   </url>
 
@@ -786,7 +951,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/content-to-inbound-leads"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/content-to-inbound-leads"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/content-to-inbound-leads/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/content-to-inbound-leads/"/>
   </url>
 
@@ -797,7 +961,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/how-to-grow-on-linkedin"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/how-to-grow-on-linkedin"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/how-to-grow-on-linkedin/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/how-to-grow-on-linkedin/"/>
   </url>
 
@@ -808,7 +971,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/linkedin-ad-roi-measurement-problem"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/linkedin-ad-roi-measurement-problem"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/linkedin-ad-roi-measurement-problem/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/linkedin-ad-roi-measurement-problem/"/>
   </url>
 
@@ -819,7 +981,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/linkedin-ads-vs-organic-content"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/linkedin-ads-vs-organic-content"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/linkedin-ads-vs-organic-content/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/linkedin-ads-vs-organic-content/"/>
   </url>
 
@@ -830,7 +991,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/linkedin-headline-costing-opportunities"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/linkedin-headline-costing-opportunities"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/linkedin-headline-costing-opportunities/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/linkedin-headline-costing-opportunities/"/>
   </url>
 
@@ -841,7 +1001,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/minimum-viable-linkedin-ads-budget"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/minimum-viable-linkedin-ads-budget"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/minimum-viable-linkedin-ads-budget/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/minimum-viable-linkedin-ads-budget/"/>
   </url>
 
@@ -852,7 +1011,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/profile-mistakes-killing-conversions"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/profile-mistakes-killing-conversions"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/profile-mistakes-killing-conversions/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/profile-mistakes-killing-conversions/"/>
   </url>
 
@@ -863,7 +1021,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/stop-wasting-money-low-intent-audiences"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/stop-wasting-money-low-intent-audiences"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/stop-wasting-money-low-intent-audiences/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/stop-wasting-money-low-intent-audiences/"/>
   </url>
 
@@ -874,7 +1031,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/the-real-linkedin-problem"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/the-real-linkedin-problem"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/the-real-linkedin-problem/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/the-real-linkedin-problem/"/>
   </url>
 
@@ -885,7 +1041,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/why-linkedin-ads-cost-more"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/why-linkedin-ads-cost-more"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/why-linkedin-ads-cost-more/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/why-linkedin-ads-cost-more/"/>
   </url>
 
@@ -896,7 +1051,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/why-your-reach-dropped"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/why-your-reach-dropped"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/why-your-reach-dropped/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/why-your-reach-dropped/"/>
   </url>
 
@@ -907,7 +1061,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/your-linkedin-post-is-already-dead"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/your-linkedin-post-is-already-dead"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/insights/your-linkedin-post-is-already-dead/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/your-linkedin-post-is-already-dead/"/>
   </url>
 
@@ -918,7 +1071,6 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/linkedin-optimizer"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/linkedin-optimizer"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/linkedin-optimizer/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/linkedin-optimizer/"/>
   </url>
 
@@ -929,7 +1081,6 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/pricing"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/pricing"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/pricing/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/pricing/"/>
   </url>
 
@@ -951,7 +1102,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/services/advertising"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/services/advertising"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/services/advertising/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/services/advertising/"/>
   </url>
 
@@ -962,7 +1112,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/services/consulting"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/services/consulting"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/services/consulting/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/services/consulting/"/>
   </url>
 
@@ -973,7 +1122,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/services/content"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/services/content"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/services/content/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/services/content/"/>
   </url>
 
@@ -984,7 +1132,6 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/work"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/work"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/work/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/work/"/>
   </url>
 
@@ -995,7 +1142,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/work/chinese-cable-manufacturer-employee-advocacy"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/work/chinese-cable-manufacturer-employee-advocacy"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/work/chinese-cable-manufacturer-employee-advocacy/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/work/chinese-cable-manufacturer-employee-advocacy/"/>
   </url>
 
@@ -1006,7 +1152,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/work/french-accounting-firm-partner-linkedin"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/work/french-accounting-firm-partner-linkedin"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/work/french-accounting-firm-partner-linkedin/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/work/french-accounting-firm-partner-linkedin/"/>
   </url>
 
@@ -1017,7 +1162,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/work/french-fragrance-lab-personal-branding"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/work/french-fragrance-lab-personal-branding"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/work/french-fragrance-lab-personal-branding/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/work/french-fragrance-lab-personal-branding/"/>
   </url>
 
@@ -1028,7 +1172,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/work/hong-kong-law-firm-cross-border-deals"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/work/hong-kong-law-firm-cross-border-deals"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/work/hong-kong-law-firm-cross-border-deals/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/work/hong-kong-law-firm-cross-border-deals/"/>
   </url>
 
@@ -1039,7 +1182,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/work/japanese-medical-bed-maker-linkedin-leads"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/work/japanese-medical-bed-maker-linkedin-leads"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/work/japanese-medical-bed-maker-linkedin-leads/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/work/japanese-medical-bed-maker-linkedin-leads/"/>
   </url>
 
@@ -1050,7 +1192,6 @@
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://nuvora.studio/work/swedish-polymer-brand-aerospace"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://nuvora.studio/work/swedish-polymer-brand-aerospace"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/work/swedish-polymer-brand-aerospace/"/>
     <xhtml:link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/work/swedish-polymer-brand-aerospace/"/>
   </url>
 
