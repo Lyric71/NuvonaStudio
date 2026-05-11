@@ -28,6 +28,39 @@ const legalLinks = [
   { label: t('footer.cookies'), href: `${prefix}/cookies` },
 ];
 
+const networkLinks = [
+  {
+    label: 'BeyondBorderGroup.com',
+    href: 'https://beyondbordergroup.com',
+    logo: '/AgencyLogos/BBG%20PNG.png',
+    description: 'Market entry consulting for Western brands growing in China.',
+  },
+  {
+    label: 'BeyondBorderGroup.org',
+    href: 'https://www.beyondbordergroup.org',
+    logo: '/AgencyLogos/BBG%20PNG.png',
+    description: 'The umbrella group connecting our specialised China agencies.',
+  },
+  {
+    label: 'ChinaWebFoundry.com',
+    href: 'https://www.chinawebfoundry.com',
+    logo: '/AgencyLogos/Logo-ChinaWebFoundry-transparent.png',
+    description: 'Websites built for the Chinese internet — ICP, Baidu SEO, hosting.',
+  },
+  {
+    label: 'BeyondCompass.com',
+    href: 'https://beyondcompass.com',
+    logo: '/AgencyLogos/BeyondCompass%20-%20Transparent%20-%204K.png',
+    description: 'Vetted distributor and Tmall partner introductions in China.',
+  },
+  {
+    label: 'TheRedScroll.com',
+    href: 'https://theredscroll.com',
+    logo: '/AgencyLogos/TheredScroll%20PNG.png',
+    description: 'Daily WeChat, Douyin, RedNote and Weibo operations from the ground.',
+  },
+];
+
 const homeHref = lang === 'en' ? '/' : `/${lang}/`;
 const year = new Date().getFullYear();
 ---
@@ -77,6 +110,23 @@ const year = new Date().getFullYear();
 
     <div class="footer__rule"></div>
 
+    <section class="footer__network" aria-label="Our network">
+      <p class="footer__col-label">Our network</p>
+      <ul class="footer__network-list" role="list">
+        {networkLinks.map(l => (
+          <li class="footer__network-item">
+            <a href={l.href} class="footer__network-logo-link" target="_blank" rel="noopener noreferrer" aria-label={l.label}>
+              <img src={l.logo} alt={`${l.label} logo`} class="footer__network-logo" loading="lazy" />
+            </a>
+            <a href={l.href} class="footer__network-link" target="_blank" rel="noopener noreferrer">{l.label}</a>
+            <p class="footer__network-desc">{l.description}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <div class="footer__rule"></div>
+
     <div class="footer__bottom">
       <p class="footer__badges">{t('footer.badges')}</p>
       <p class="footer__copy">&copy; {year} Nuvora Studio. {t('footer.rights')}</p>
@@ -84,8 +134,6 @@ const year = new Date().getFullYear();
         {legalLinks.map(l => (
           <li><a href={l.href} class="footer__legal-link">{l.label}</a></li>
         ))}
-        <li><a href="https://beyondbordergroup.com" class="footer__legal-link" target="_blank" rel="noopener noreferrer">Beyond Border Group</a></li>
-        <li><a href="https://www.chinawebfoundry.com/" class="footer__legal-link" target="_blank" rel="noopener noreferrer">China Web Foundry</a></li>
       </ul>
     </div>
 
@@ -150,6 +198,51 @@ const year = new Date().getFullYear();
   }
   .footer__see-all:hover { opacity: 0.75; }
 
+  /* Network */
+  .footer__network { padding-block: var(--sp-8); }
+  .footer__network-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--sp-6);
+  }
+  .footer__network-item { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
+  .footer__network-logo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: var(--sp-3) var(--sp-4);
+    height: 72px;
+    width: 100%;
+    margin-bottom: var(--sp-2);
+    transition: transform var(--t-fast), box-shadow var(--t-fast);
+  }
+  .footer__network-logo-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  }
+  .footer__network-logo {
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+  .footer__network-link {
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--white);
+    transition: color var(--t-fast);
+  }
+  .footer__network-link:hover { color: var(--cyan); }
+  .footer__network-desc {
+    font-size: var(--fs-xs);
+    color: var(--navy-text-3);
+    line-height: 1.55;
+  }
+
   /* Bottom bar */
   .footer__rule { height: 1px; background: rgba(255,255,255,0.06); }
   .footer__bottom {
@@ -181,9 +274,14 @@ const year = new Date().getFullYear();
   }
   .footer__legal-link:hover { color: var(--navy-text-2); }
 
+  @media (max-width: 1024px) {
+    .footer__network-list { grid-template-columns: repeat(2, 1fr); }
+  }
+
   @media (max-width: 768px) {
     .footer__main { grid-template-columns: 1fr 1fr; gap: var(--sp-8); padding-bottom: var(--sp-8); }
     .footer__brand { grid-column: 1 / -1; }
+    .footer__network-list { grid-template-columns: 1fr; gap: var(--sp-5); }
     .footer__bottom { flex-direction: column; align-items: flex-start; gap: var(--sp-4); }
     .footer__badges { white-space: normal; }
     .footer__legal { gap: var(--sp-4); }
