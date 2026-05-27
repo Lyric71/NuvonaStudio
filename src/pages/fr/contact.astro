@@ -73,9 +73,9 @@ if (intentParam === 'retainer' && tierParam) {
 
 <Layout
   lang="fr"
-  title="Contact Nuvora Studio | Premier échange sur votre stratégie LinkedIn"
-  description="Envie d'en parler ? Nuvora Studio vous propose 30 minutes d'échange sur votre stratégie LinkedIn. Sinon, un message suffit. Réponse sous un jour ouvré."
-  abstract="30 minutes d'échange ou un message écrit, comme vous préférez. On revient sous un jour ouvré. Zéro baratin."
+  title="Contacter Nuvora Studio | Parlons de votre projet LinkedIn"
+  description="Que votre projet LinkedIn soit déjà cadré ou que vous soyez encore en train d'y réfléchir, racontez-nous tout. Chaque message est lu par un membre de l'équipe et reçoit une réponse dans la journée ouvrée qui suit."
+  abstract="Dites-nous ce qui vous amène. Chaque message reçoit une réponse réfléchie sous un jour ouvré. Pas de réponse automatique, pas de discours commercial, simplement une première conversation utile."
 >
   <NavBar lang="fr" />
   <main id="main-content">
@@ -86,15 +86,15 @@ if (intentParam === 'retainer' && tierParam) {
       <div class="contact-hero__overlay" aria-hidden="true"></div>
       <div class="container" style="position: relative; z-index: 2;">
         <div class="contact-hero__content">
-          <p class="eyebrow eyebrow--light reveal">Nous contacter</p>
+          <p class="eyebrow eyebrow--light reveal">Démarrer la conversation</p>
           <h1 id="contact-heading" class="contact-hero__h1 reveal reveal-delay-1">
             Parlons <span class="text-gradient">LinkedIn.</span>
           </h1>
           <p class="contact-hero__sub reveal reveal-delay-2">
-            Dites-nous ce qui vous amène. On lit tout, et on revient vers vous sous un jour ouvré. Promis.
+            Que votre projet LinkedIn soit déjà ficelé dans le détail ou que vous soyez encore en train de peser le pour et le contre, prenez quelques minutes pour nous en parler. Chaque message reçu est lu par un véritable membre de l'équipe, et vous recevrez une réponse réfléchie dans la journée ouvrée qui suit.
           </p>
           <div class="contact-hero__actions reveal reveal-delay-3">
-            <a href="#contact-form" class="btn btn--primary btn--lg">Écrire à l'équipe</a>
+            <a href="#contact-form" class="btn btn--primary btn--lg">Nous parler de votre projet</a>
           </div>
         </div>
       </div>
@@ -115,11 +115,11 @@ if (intentParam === 'retainer' && tierParam) {
                   <path d="M5 14l6.5 6.5L23 8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
-              <h2 class="contact-success__title">Message bien reçu.</h2>
+              <h2 class="contact-success__title">Merci, votre message est en route.</h2>
               <p class="contact-success__body">
-                C'est noté de notre côté. On revient vers vous très vite.
+                Nous prenons le relais à partir de maintenant. Un membre de l'équipe va le lire attentivement et reviendra vers vous avec une vraie réponse dans la journée ouvrée qui suit. En attendant, n'hésitez pas à parcourir le reste du site.
               </p>
-              <a href="/fr/" class="btn btn--primary" style="margin-top: var(--sp-6)">Retour à l'accueil</a>
+              <a href="/fr/" class="btn btn--primary" style="margin-top: var(--sp-6)">Retour à la page d'accueil</a>
             </div>
 
             <!-- Carte formulaire -->
@@ -132,9 +132,9 @@ if (intentParam === 'retainer' && tierParam) {
                   </svg>
                 </div>
                 <div>
-                  <h2 class="contact-card__title">Racontez-nous votre projet</h2>
+                  <h2 class="contact-card__title">Quelques informations pour bien préparer notre échange</h2>
                   <p class="contact-card__note">
-                    Les champs marqués d'un <span aria-hidden="true">*</span><span class="sr-only">astérisque</span> sont obligatoires.
+                    Tout ce qui est marqué d'un astérisque <span aria-hidden="true">*</span> est indispensable. Le reste, vous le remplissez si le cœur vous en dit.
                   </p>
                 </div>
               </div>
@@ -147,57 +147,57 @@ if (intentParam === 'retainer' && tierParam) {
                   <!-- Nom -->
                   <div class="form-group">
                     <label class="form-label" for="name">
-                      Votre nom <span class="required-mark" aria-hidden="true">*</span>
+                      Votre prénom et votre nom <span class="required-mark" aria-hidden="true">*</span>
                     </label>
                     <input class="form-input" type="text" id="name" name="name"
-                      autocomplete="name" required placeholder="Marie Lefèvre" />
+                      autocomplete="name" required placeholder="par exemple, Marie Lefèvre" />
                     <span class="form-error" id="name-error" role="alert"></span>
                   </div>
 
                   <!-- Adresse e-mail -->
                   <div class="form-group">
                     <label class="form-label" for="email">
-                      Votre adresse e-mail <span class="required-mark" aria-hidden="true">*</span>
+                      L'adresse e-mail à laquelle vous répondre <span class="required-mark" aria-hidden="true">*</span>
                     </label>
                     <input class="form-input" type="email" id="email" name="email"
-                      autocomplete="email" required placeholder="marie@heliobio.fr" />
+                      autocomplete="email" required placeholder="par exemple, marie@heliobio.fr" />
                     <span class="form-error" id="email-error" role="alert"></span>
                   </div>
 
                   <!-- Téléphone -->
                   <div class="form-group">
                     <label class="form-label" for="phone">
-                      Téléphone <span class="form-optional">(facultatif)</span>
+                      Un numéro, si vous préférez un appel <span class="form-optional">(facultatif)</span>
                     </label>
                     <input class="form-input" type="tel" id="phone" name="phone"
-                      autocomplete="tel" placeholder="+33 1 42 68 53 00" />
+                      autocomplete="tel" placeholder="par exemple, +33 1 42 68 53 00" />
                   </div>
 
                   <!-- Site web -->
                   <div class="form-group">
                     <label class="form-label" for="website">
-                      Site internet de l'entreprise <span class="required-mark" aria-hidden="true">*</span>
+                      Le site internet de votre entreprise <span class="required-mark" aria-hidden="true">*</span>
                     </label>
                     <input class="form-input" type="url" id="website" name="website"
-                      autocomplete="url" required placeholder="https://heliobio.fr" />
+                      autocomplete="url" required placeholder="par exemple, https://heliobio.fr" />
                     <span class="form-error" id="website-error" role="alert"></span>
                   </div>
 
                   <!-- Entreprise -->
                   <div class="form-group contact-form__full">
                     <label class="form-label" for="company">
-                      Nom de l'entreprise <span class="required-mark" aria-hidden="true">*</span>
+                      Et le nom de votre entreprise <span class="required-mark" aria-hidden="true">*</span>
                     </label>
                     <input class="form-input" type="text" id="company" name="company"
-                      autocomplete="organization" required placeholder="Helio Biosciences" />
+                      autocomplete="organization" required placeholder="par exemple, Helio Biosciences" />
                     <span class="form-error" id="company-error" role="alert"></span>
                   </div>
 
                   <!-- Services (multi-sélection) -->
                   <div class="form-group contact-form__full">
                     <label class="form-label">
-                      Quels services vous intéressent ? <span class="required-mark" aria-hidden="true">*</span>
-                      <span class="form-optional">Cochez-en un ou plusieurs</span>
+                      Sur quels volets aimeriez-vous échanger avec nous ? <span class="required-mark" aria-hidden="true">*</span>
+                      <span class="form-optional">Cochez-en autant que vous le souhaitez. Il n'y a pas de mauvaise réponse.</span>
                     </label>
                     <div class="form-chips" role="group" aria-label="Services" id="service-group">
                       {services.map((s) => (
@@ -226,39 +226,39 @@ if (intentParam === 'retainer' && tierParam) {
                   <!-- Forfaits (multi-sélection) -->
                   <div class="form-group contact-form__full">
                     <label class="form-label" id="package-label">
-                      Choisissez un ou plusieurs forfaits <span class="form-optional">(facultatif)</span>
+                      Y a-t-il un forfait qui retient déjà votre attention ? <span class="form-optional">(totalement facultatif)</span>
                     </label>
                     <div class="form-checklist" role="group" aria-labelledby="package-label" id="package-list">
-                      <p class="form-checklist__empty">Sélectionnez d'abord un service ci-dessus.</p>
+                      <p class="form-checklist__empty">Sélectionnez un service ci-dessus et les forfaits correspondants apparaîtront ici, prêts à être cochés.</p>
                     </div>
-                    <p class="form-hint" id="package-hint">Tarifs alignés sur notre <a href="/fr/tarifs">page Tarifs</a>. Vous hésitez ? Passez l'étape, on en reparlera ensemble.</p>
+                    <p class="form-hint" id="package-hint">Les montants reprennent à l'euro près ceux de notre <a href="/fr/tarifs">page Tarifs</a>. Vous hésitez encore ? Laissez ce champ vide, nous en parlerons tranquillement lors de notre échange.</p>
                   </div>
 
                   <!-- Échéance -->
                   <div class="form-group contact-form__full">
                     <label class="form-label">
-                      Quand souhaitez-vous démarrer ? <span class="required-mark" aria-hidden="true">*</span>
+                      À quelle échéance souhaiteriez-vous démarrer ? <span class="required-mark" aria-hidden="true">*</span>
                     </label>
                     <div class="form-chips form-chips--compact" role="radiogroup" aria-label="Échéance" id="timeline-group">
                       <label class="form-chip form-chip--compact">
                         <input type="radio" name="timeline" value="now" class="form-chip__input" required />
                         <span class="form-chip__inner">
-                          <strong class="form-chip__label">Maintenant</strong>
-                          <span class="form-chip__sub">Sous 30 jours</span>
+                          <strong class="form-chip__label">Le plus vite possible</strong>
+                          <span class="form-chip__sub">L'objectif est de démarrer dans les prochaines semaines</span>
                         </span>
                       </label>
                       <label class="form-chip form-chip--compact">
                         <input type="radio" name="timeline" value="3-months" class="form-chip__input" />
                         <span class="form-chip__inner">
-                          <strong class="form-chip__label">Dans 3 mois</strong>
-                          <span class="form-chip__sub">On anticipe</span>
+                          <strong class="form-chip__label">D'ici trois mois</strong>
+                          <span class="form-chip__sub">Nous préparons le terrain dès aujourd'hui</span>
                         </span>
                       </label>
                       <label class="form-chip form-chip--compact">
                         <input type="radio" name="timeline" value="6-months" class="form-chip__input" />
                         <span class="form-chip__inner">
-                          <strong class="form-chip__label">Dans 6 mois</strong>
-                          <span class="form-chip__sub">Horizon plus large</span>
+                          <strong class="form-chip__label">Plutôt vers six mois</strong>
+                          <span class="form-chip__sub">Nous regardons plus loin dans l'année</span>
                         </span>
                       </label>
                     </div>
@@ -268,11 +268,11 @@ if (intentParam === 'retainer' && tierParam) {
                   <!-- Projet -->
                   <div class="form-group contact-form__full">
                     <label class="form-label" for="project">
-                      Votre projet <span class="required-mark" aria-hidden="true">*</span>
+                      Parlez-nous de votre projet, avec vos propres mots <span class="required-mark" aria-hidden="true">*</span>
                     </label>
                     <textarea class="form-textarea" id="project" name="project"
                       required rows="5"
-                      placeholder="On est une boîte de 120 personnes dans la biotech, on se développe en Europe et on aimerait que nos dirigeants soient plus visibles sur LinkedIn..."
+                      placeholder="Quelques phrases suffisent largement. Par exemple : nous sommes une biotech de 120 personnes qui s'ouvre au marché européen, et nous aimerions que notre équipe dirigeante gagne nettement en visibilité sur LinkedIn au cours de l'année qui vient…"
                     ></textarea>
                     <span class="form-error" id="project-error" role="alert"></span>
                   </div>
@@ -289,12 +289,12 @@ if (intentParam === 'retainer' && tierParam) {
 
                 <div class="contact-form__actions">
                   <button type="submit" class="btn btn--primary btn--lg" id="submit-btn">
-                    <span id="submit-label">Envoyer le message</span>
+                    <span id="submit-label">Envoyer mon message</span>
                     <span id="submit-spinner" class="submit-spinner" style="display:none" aria-hidden="true"></span>
                   </button>
                   <p class="contact-form__privacy">
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 1L2 3v3c0 2.5 1.7 4.7 4 5.4C8.3 10.7 10 8.5 10 6V3L6 1z" stroke="var(--text-3)" stroke-width="1.2" fill="none"/></svg>
-                    Vos données restent entre vous et nous. Toujours.
+                    Vos coordonnées restent entre nous. Jamais transmises, jamais revendues à qui que ce soit.
                   </p>
                 </div>
               </form>
@@ -307,27 +307,27 @@ if (intentParam === 'retainer' && tierParam) {
 
             <!-- Et ensuite -->
             <div class="sidebar-card sidebar-card--steps reveal">
-              <h3 class="sidebar-card__title">Et ensuite ?</h3>
+              <h3 class="sidebar-card__title">La suite, étape par étape</h3>
               <ol class="steps-list">
                 <li class="step-item">
                   <div class="step-item__number" aria-hidden="true">1</div>
                   <div class="step-item__content">
-                    <strong>On lit votre message</strong>
-                    <p>Aucun accusé de réception automatique. Quelqu'un lit vraiment, et vous recontacte sous 24h ouvrées.</p>
+                    <strong>Un véritable membre de l'équipe lit votre message</strong>
+                    <p>Aucun accusé de réception automatique ni file d'attente. Chaque message est lu attentivement par une personne de l'équipe, le plus souvent dans les heures qui suivent, et toujours en moins d'une journée ouvrée.</p>
                   </div>
                 </li>
                 <li class="step-item">
                   <div class="step-item__number" aria-hidden="true">2</div>
                   <div class="step-item__content">
-                    <strong>On en parle</strong>
-                    <p>30 minutes, sans slides, sans pitch. On parle de vos enjeux et de la manière dont on peut y répondre.</p>
+                    <strong>Un véritable échange de trente minutes</strong>
+                    <p>Si le courant passe des deux côtés, nous fixons un rendez-vous de trente minutes pour parler de vos enjeux. Pas de présentation, pas de discours commercial, simplement un dialogue franc pour que chacun sache où il met les pieds.</p>
                   </div>
                 </li>
                 <li class="step-item">
                   <div class="step-item__number" aria-hidden="true">3</div>
                   <div class="step-item__content">
-                    <strong>Une proposition à votre mesure</strong>
-                    <p>Dans la foulée, vous recevez une proposition calée sur votre contexte. Pas de devis sorti d'un tiroir.</p>
+                    <strong>Une proposition vraiment taillée pour vous</strong>
+                    <p>Dans les jours qui suivent, vous recevez une proposition écrite, façonnée autour de votre activité, de votre audience et des objectifs que vous nous aurez confiés. Jamais un modèle générique avec votre logo posé en couverture.</p>
                   </div>
                 </li>
               </ol>

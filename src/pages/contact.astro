@@ -7,19 +7,19 @@ const services = [
   {
     value: 'content',
     label: 'Content',
-    sub: 'Pages, posts, newsletters, events',
+    sub: 'Company pages, written posts, newsletters and live events',
     icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
   },
   {
     value: 'advertising',
     label: 'Advertising',
-    sub: 'Sponsored content, InMail, lead gen',
+    sub: 'Sponsored content, InMail campaigns and lead-gen forms',
     icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>`,
   },
   {
     value: 'consulting',
     label: 'Consulting',
-    sub: 'Training, advocacy, personal branding',
+    sub: 'Hands-on workshops, employee advocacy and executive personal branding',
     icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2V3z" stroke="currentColor" stroke-width="1.6"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7V3z" stroke="currentColor" stroke-width="1.6"/></svg>`,
   },
 ];
@@ -72,9 +72,9 @@ if (intentParam === 'retainer' && tierParam) {
 ---
 
 <Layout
-  title="Contact Nuvora Studio | Book a Discovery Call"
-  description="Tell us about your LinkedIn marketing goals. Book a 30-minute discovery call or send a message. We reply inside one business day."
-  abstract="Book a 30-minute discovery call or send a message. We reply within one business day. No pitch. Just a straight conversation."
+  title="Contact Nuvora Studio | Let's talk about your LinkedIn project"
+  description="Whether you already know what you need or you're still weighing up options, we'd love to hear from you. Every message gets read by a real person and answered inside one working day."
+  abstract="Tell us what you have in mind. We reply to every message inside one working day. No auto-responder, no scripted pitch, just a useful first conversation."
 >
   <NavBar />
   <main id="main-content">
@@ -85,15 +85,18 @@ if (intentParam === 'retainer' && tierParam) {
       <div class="contact-hero__overlay" aria-hidden="true"></div>
       <div class="container" style="position: relative; z-index: 2;">
         <div class="contact-hero__content">
-          <p class="eyebrow eyebrow--light reveal">Get in touch</p>
+          <p class="eyebrow eyebrow--light reveal">Start a conversation</p>
           <h1 id="contact-heading" class="contact-hero__h1 reveal reveal-delay-1">
             Let's talk <span class="text-gradient">LinkedIn.</span>
           </h1>
           <p class="contact-hero__sub reveal reveal-delay-2">
-            Tell us about your project. We read every message and reply within one business day.
+            Whether you've mapped your LinkedIn programme in detail or you're still weighing
+            up what's possible, we'd love to hear from you. Every message that lands in our
+            inbox is read by a real person on the team. You'll have a considered reply waiting
+            inside one working day.
           </p>
           <div class="contact-hero__actions reveal reveal-delay-3">
-            <a href="#contact-form" class="btn btn--primary btn--lg">Contact us</a>
+            <a href="#contact-form" class="btn btn--primary btn--lg">Tell us about your project</a>
           </div>
         </div>
       </div>
@@ -114,11 +117,13 @@ if (intentParam === 'retainer' && tierParam) {
                   <path d="M5 14l6.5 6.5L23 8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
-              <h2 class="contact-success__title">Message sent.</h2>
+              <h2 class="contact-success__title">Thank you. Your message is on its way.</h2>
               <p class="contact-success__body">
-                Thanks for reaching out. We will get back to you within one business day.
+                We've got it from here. Someone on the team will read it carefully and come
+                back to you with a proper reply inside one working day. In the meantime, feel
+                free to look around the rest of the site.
               </p>
-              <a href="/" class="btn btn--primary" style="margin-top: var(--sp-6)">Back to home</a>
+              <a href="/" class="btn btn--primary" style="margin-top: var(--sp-6)">Back to the homepage</a>
             </div>
 
             <!-- Form card -->
@@ -131,9 +136,9 @@ if (intentParam === 'retainer' && tierParam) {
                   </svg>
                 </div>
                 <div>
-                  <h2 class="contact-card__title">Tell us about your project</h2>
+                  <h2 class="contact-card__title">A few details so we can come prepared</h2>
                   <p class="contact-card__note">
-                    Fields marked <span aria-hidden="true">*</span><span class="sr-only">with an asterisk</span> are required.
+                    Anything marked with an asterisk <span aria-hidden="true">*</span> is essential. The rest is entirely up to you.
                   </p>
                 </div>
               </div>
@@ -195,8 +200,8 @@ if (intentParam === 'retainer' && tierParam) {
                   <!-- Service (multi-select) -->
                   <div class="form-group contact-form__full">
                     <label class="form-label">
-                      Which services are you interested in? <span class="required-mark" aria-hidden="true">*</span>
-                      <span class="form-optional">Pick one or more</span>
+                      Which of our services would you like to talk about? <span class="required-mark" aria-hidden="true">*</span>
+                      <span class="form-optional">Pick as many as feel relevant. There is no wrong answer here.</span>
                     </label>
                     <div class="form-chips" role="group" aria-label="Services" id="service-group">
                       {services.map((s) => (
@@ -225,39 +230,39 @@ if (intentParam === 'retainer' && tierParam) {
                   <!-- Package (multi-select) -->
                   <div class="form-group contact-form__full">
                     <label class="form-label" id="package-label">
-                      Pick one or more packages <span class="form-optional">(optional)</span>
+                      Anything in our packages catching your eye? <span class="form-optional">(entirely optional)</span>
                     </label>
                     <div class="form-checklist" role="group" aria-labelledby="package-label" id="package-list">
-                      <p class="form-checklist__empty">Choose a service above first.</p>
+                      <p class="form-checklist__empty">Pick a service above and the relevant packages will appear here for you to choose from.</p>
                     </div>
-                    <p class="form-hint" id="package-hint">Prices match our <a href="/pricing">pricing page</a>. Not sure? Skip and we'll discuss on the call.</p>
+                    <p class="form-hint" id="package-hint">The figures below mirror our <a href="/pricing">pricing page</a> down to the penny. Still weighing things up? Leave this blank and we'll work through it together on the call.</p>
                   </div>
 
                   <!-- Timeline -->
                   <div class="form-group contact-form__full">
                     <label class="form-label">
-                      When do you want to start? <span class="required-mark" aria-hidden="true">*</span>
+                      When would you ideally like things to get moving? <span class="required-mark" aria-hidden="true">*</span>
                     </label>
                     <div class="form-chips form-chips--compact" role="radiogroup" aria-label="Timeline" id="timeline-group">
                       <label class="form-chip form-chip--compact">
                         <input type="radio" name="timeline" value="now" class="form-chip__input" required />
                         <span class="form-chip__inner">
-                          <strong class="form-chip__label">Now</strong>
-                          <span class="form-chip__sub">Within 30 days</span>
+                          <strong class="form-chip__label">As soon as possible</strong>
+                          <span class="form-chip__sub">Aiming to kick off in the next few weeks</span>
                         </span>
                       </label>
                       <label class="form-chip form-chip--compact">
                         <input type="radio" name="timeline" value="3-months" class="form-chip__input" />
                         <span class="form-chip__inner">
-                          <strong class="form-chip__label">3 months</strong>
-                          <span class="form-chip__sub">Planning ahead</span>
+                          <strong class="form-chip__label">In about three months</strong>
+                          <span class="form-chip__sub">Laying the groundwork now</span>
                         </span>
                       </label>
                       <label class="form-chip form-chip--compact">
                         <input type="radio" name="timeline" value="6-months" class="form-chip__input" />
                         <span class="form-chip__inner">
-                          <strong class="form-chip__label">6 months</strong>
-                          <span class="form-chip__sub">Longer horizon</span>
+                          <strong class="form-chip__label">Roughly six months out</strong>
+                          <span class="form-chip__sub">Planning ahead for later in the year</span>
                         </span>
                       </label>
                     </div>
@@ -267,11 +272,11 @@ if (intentParam === 'retainer' && tierParam) {
                   <!-- Project -->
                   <div class="form-group contact-form__full">
                     <label class="form-label" for="project">
-                      Your project <span class="required-mark" aria-hidden="true">*</span>
+                      Tell us about your project, in your own words <span class="required-mark" aria-hidden="true">*</span>
                     </label>
                     <textarea class="form-textarea" id="project" name="project"
                       required rows="5"
-                      placeholder="We're a 120-person biotech expanding into the EU and need LinkedIn visibility for our leadership team…"
+                      placeholder="A few sentences are plenty. For example: We're a 120-person biotech company opening up to the European market, and we'd like our leadership team to become much more visible on LinkedIn over the next year…"
                     ></textarea>
                     <span class="form-error" id="project-error" role="alert"></span>
                   </div>
@@ -288,12 +293,12 @@ if (intentParam === 'retainer' && tierParam) {
 
                 <div class="contact-form__actions">
                   <button type="submit" class="btn btn--primary btn--lg" id="submit-btn">
-                    <span id="submit-label">Send message</span>
+                    <span id="submit-label">Send my message</span>
                     <span id="submit-spinner" class="submit-spinner" style="display:none" aria-hidden="true"></span>
                   </button>
                   <p class="contact-form__privacy">
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 1L2 3v3c0 2.5 1.7 4.7 4 5.4C8.3 10.7 10 8.5 10 6V3L6 1z" stroke="var(--text-3)" stroke-width="1.2" fill="none"/></svg>
-                    We never share your data with third parties.
+                    Your details stay with us. We will never sell or share them with anyone.
                   </p>
                 </div>
               </form>
@@ -311,22 +316,22 @@ if (intentParam === 'retainer' && tierParam) {
                 <li class="step-item">
                   <div class="step-item__number" aria-hidden="true">1</div>
                   <div class="step-item__content">
-                    <strong>We read your message</strong>
-                    <p>Our team reads every submission inside one business day.</p>
+                    <strong>A real person reads what you sent</strong>
+                    <p>Every message is read carefully by someone on the team, usually within a few hours and always inside one working day. No auto-replies, no triage queue.</p>
                   </div>
                 </li>
                 <li class="step-item">
                   <div class="step-item__number" aria-hidden="true">2</div>
                   <div class="step-item__content">
-                    <strong>Discovery call</strong>
-                    <p>A 30-minute call. No pitch. Just a straight conversation about your goals.</p>
+                    <strong>A proper, thirty-minute call</strong>
+                    <p>If it feels like a good fit on both sides, we set up a short call to talk through what you are hoping to achieve. No slides, no pitch, just an honest exchange so we both know where we stand.</p>
                   </div>
                 </li>
                 <li class="step-item">
                   <div class="step-item__number" aria-hidden="true">3</div>
                   <div class="step-item__content">
-                    <strong>Custom proposal</strong>
-                    <p>We send a proposal scoped to your company and what you actually need.</p>
+                    <strong>A proposal that actually fits you</strong>
+                    <p>Within a few working days you receive a written proposal shaped around your audience, your goals and the realities of your business. Never a template with your logo dropped on top.</p>
                   </div>
                 </li>
               </ol>
@@ -342,7 +347,7 @@ if (intentParam === 'retainer' && tierParam) {
                       <path d="M8 1.5l1.8 3.6 4 .58-2.9 2.83.69 3.99L8 10.27l-3.59 1.88.69-3.99-2.9-2.83 4-.58L8 1.5z" fill="var(--cyan)" opacity="0.9"/>
                     </svg>
                   </div>
-                  <span>AI in the workflow. Humans on the brand.</span>
+                  <span>AI runs in the background. Real people own your brand voice.</span>
                 </li>
                 <li class="trust-item">
                   <div class="trust-item__icon" aria-hidden="true">
@@ -351,7 +356,7 @@ if (intentParam === 'retainer' && tierParam) {
                       <path d="M5 4V3a3 3 0 016 0v1" stroke="var(--cyan)" stroke-width="1.4"/>
                     </svg>
                   </div>
-                  <span>Nothing goes live without your approval</span>
+                  <span>Nothing goes live without your sign-off, ever</span>
                 </li>
                 <li class="trust-item">
                   <div class="trust-item__icon" aria-hidden="true">
@@ -360,7 +365,7 @@ if (intentParam === 'retainer' && tierParam) {
                       <path d="M8 5v3l2 1" stroke="var(--cyan)" stroke-width="1.4" stroke-linecap="round"/>
                     </svg>
                   </div>
-                  <span>B2B companies worldwide, all timezones</span>
+                  <span>Trusted by B2B companies across every time zone</span>
                 </li>
                 <li class="trust-item">
                   <div class="trust-item__icon" aria-hidden="true">
@@ -368,7 +373,7 @@ if (intentParam === 'retainer' && tierParam) {
                       <path d="M13 5L6 12 3 9" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                   </div>
-                  <span>All content stays yours</span>
+                  <span>Every piece of content we create is yours to keep, forever</span>
                 </li>
               </ul>
             </div>
@@ -376,12 +381,12 @@ if (intentParam === 'retainer' && tierParam) {
             <!-- Pricing anchor -->
             <div class="sidebar-card sidebar-card--pricing reveal reveal-delay-2">
               <div class="pricing-anchor__top">
-                <span class="pricing-anchor__label">Engagements from</span>
-                <span class="pricing-anchor__value">$1,800<span>/mo</span></span>
+                <span class="pricing-anchor__label">Engagements start at</span>
+                <span class="pricing-anchor__value">$1,800<span>/month</span></span>
               </div>
-              <p class="pricing-anchor__note">Flexible retainers. No lock-in contracts.</p>
+              <p class="pricing-anchor__note">Flexible monthly retainers, with no long-term lock-in once the first three months are behind us.</p>
               <a href="/pricing" class="pricing-anchor__link">
-                View full pricing
+                See the full pricing
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                   <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
@@ -1105,41 +1110,41 @@ if (intentParam === 'retainer' && tierParam) {
 
     // — Name —
     if (!(data.get('name') as string)?.trim()) {
-      setFieldError('name', 'Name is required.');
+      setFieldError('name', 'We would love to know who we are talking to. Could you pop your name in here?');
       remember(document.getElementById('name'));
     }
 
     // — Email —
     const email = (data.get('email') as string)?.trim();
     if (!email) {
-      setFieldError('email', 'Email is required.');
+      setFieldError('email', 'Without an email address we will have no way to write back to you.');
       remember(document.getElementById('email'));
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-      setFieldError('email', 'Please enter a valid email address (e.g. mariana@heliobio.com).');
+      setFieldError('email', 'That email address does not look quite right. Could you double-check it for us?');
       remember(document.getElementById('email'));
     }
 
     // — Website —
     const website = (data.get('website') as string)?.trim();
     if (!website) {
-      setFieldError('website', 'Website is required.');
+      setFieldError('website', 'Pop in your company website so we can read up on you before we reply.');
       remember(document.getElementById('website'));
     } else {
       try {
         const url = new URL(website);
         if (url.protocol !== 'http:' && url.protocol !== 'https:') {
-          setFieldError('website', 'Website must start with https:// or http://');
+          setFieldError('website', 'The address should start with https:// or http://');
           remember(document.getElementById('website'));
         }
       } catch {
-        setFieldError('website', 'Please enter a valid URL (e.g. https://heliobio.com).');
+        setFieldError('website', 'That web address does not look quite right. Try something like https://heliobio.com');
         remember(document.getElementById('website'));
       }
     }
 
     // — Company —
     if (!(data.get('company') as string)?.trim()) {
-      setFieldError('company', 'Company name is required.');
+      setFieldError('company', 'Could you share the name of your company too? It really helps us prepare.');
       remember(document.getElementById('company'));
     }
 
@@ -1147,7 +1152,7 @@ if (intentParam === 'retainer' && tierParam) {
     const services = data.getAll('service') as string[];
     if (services.length === 0) {
       const serviceErr = document.getElementById('service-error');
-      if (serviceErr) serviceErr.textContent = 'Please pick at least one service.';
+      if (serviceErr) serviceErr.textContent = 'Pick at least one service so we know where to focus the conversation.';
       remember(document.querySelector<HTMLInputElement>('input[name="service"]'));
     }
 
@@ -1155,13 +1160,13 @@ if (intentParam === 'retainer' && tierParam) {
     const timeline = data.get('timeline') as string | null;
     if (!timeline) {
       const timelineErr = document.getElementById('timeline-error');
-      if (timelineErr) timelineErr.textContent = 'Please pick a timeline.';
+      if (timelineErr) timelineErr.textContent = 'Let us know roughly when you would like to get started.';
       remember(document.querySelector<HTMLInputElement>('input[name="timeline"]'));
     }
 
     // — Project (now at the bottom of the form) —
     if (!(data.get('project') as string)?.trim()) {
-      setFieldError('project', 'Please describe your project.');
+      setFieldError('project', 'A few short lines about your project will really help us prepare a thoughtful reply.');
       remember(document.getElementById('project'));
     }
 
@@ -1281,7 +1286,7 @@ if (intentParam === 'retainer' && tierParam) {
     }
 
     if (submitBtn)     submitBtn.disabled = true;
-    if (submitLabel)   submitLabel.textContent = 'Sending…';
+    if (submitLabel)   submitLabel.textContent = 'Sending your message…';
     if (submitSpinner) submitSpinner.style.display = 'inline-block';
 
     try {
@@ -1293,14 +1298,14 @@ if (intentParam === 'retainer' && tierParam) {
         if (success) success.classList.add('is-visible');
       } else {
         if (errorBanner)  errorBanner.classList.add('is-visible');
-        if (errorMessage) errorMessage.textContent = json.error ?? 'Something went wrong. Please try again.';
+        if (errorMessage) errorMessage.textContent = json.error ?? 'Something did not quite go through on our end. Please give it another try in a moment.';
       }
     } catch {
       if (errorBanner)  errorBanner.classList.add('is-visible');
-      if (errorMessage) errorMessage.textContent = 'Network error. Please check your connection and try again.';
+      if (errorMessage) errorMessage.textContent = 'Looks like a connection hiccup. Have a quick look at your network and please try again.';
     } finally {
       if (submitBtn)     submitBtn.disabled = false;
-      if (submitLabel)   submitLabel.textContent = 'Send message';
+      if (submitLabel)   submitLabel.textContent = 'Send my message';
       if (submitSpinner) submitSpinner.style.display = 'none';
     }
   });

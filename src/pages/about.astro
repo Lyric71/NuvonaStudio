@@ -8,17 +8,17 @@ import FAQ from '../components/FAQ.astro';
 const values = [
   {
     title: 'Do the work. Don\'t just advise on it.',
-    body: 'The strategist who builds your plan is the same person running your campaigns. We don\'t separate thinking from doing. That\'s where most agencies fall apart.',
+    body: 'The strategist who builds your plan is the same person running your campaigns. We don\'t separate thinking from doing. That gap is where most agencies fall apart.',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.09 6.26L20 10l-5.91 1.74L12 18l-2.09-6.26L4 10l5.91-1.74L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
   },
   {
     title: 'Say what\'s true. Skip what sounds good.',
-    body: 'We won\'t inflate metrics to make a report look pretty. If something isn\'t working, you\'ll hear it from us first.',
+    body: 'We won\'t inflate a metric to make a report look pretty. If something isn\'t working, you\'ll hear it from us first.',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" stroke="currentColor" stroke-width="1.6"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
   },
   {
     title: 'Earn attention. Never rent it.',
-    body: 'Every post, every ad, every executive profile we build has to be worth someone\'s time. If the content won\'t stop the scroll, it doesn\'t ship.',
+    body: 'Every post, every ad, every executive profile we build has to be worth somebody\'s time. If the content won\'t stop the scroll, it doesn\'t ship.',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/></svg>`,
   },
 ];
@@ -26,49 +26,49 @@ const values = [
 const whyWorkWithUs = [
   {
     title: 'LinkedIn is all we do.',
-    body: 'We don\'t juggle ten platforms. Everyone on our team works on LinkedIn strategy, content, and ads. Nothing else. That depth shows up in the results.',
+    body: 'We don\'t juggle ten platforms. Every person on our team works on LinkedIn strategy, content, and ads. Nothing else. That depth shows up in the numbers.',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
   },
   {
     title: 'Senior people. No handoffs.',
-    body: 'The people you brief are the people who do the work. Your strategist, your writer, your campaign manager. You\'ll know them by name.',
+    body: 'The people you brief are the people doing the work. Your strategist, your writer, your campaign manager. You\'ll know them by name.',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
   },
   {
     title: 'Global team. Local fluency.',
-    body: 'We operate from Hong Kong, France, the Philippines, and China. A core group of LinkedIn strategists and campaign managers, backed by bilingual writers, designers, and data analysts. We produce content in 10+ languages and the tone holds up.',
+    body: 'We operate from Hong Kong, France, the Philippines, and China. A core group of LinkedIn strategists and campaign managers, backed by bilingual writers, designers, and data analysts. We publish in 10+ languages, and the tone holds up in every one of them.',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 9h17M3.5 15h17" stroke="currentColor" stroke-width="1.6"/><ellipse cx="12" cy="12" rx="4" ry="9" stroke="currentColor" stroke-width="1.6"/></svg>`,
   },
   {
     title: 'AI where it speeds things up. Humans where it counts.',
-    body: 'We use AIGC workflows to draft and translate faster. Every piece is reviewed and reshaped by a real editor before it goes live. The tech keeps costs down. The people keep quality up.',
+    body: 'We use AIGC workflows to draft and translate faster. Every piece gets reviewed and reshaped by a real editor before it goes live. The tech keeps the costs down. The people keep the quality up.',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.09 6.26L20 10l-5.91 1.74L12 18l-2.09-6.26L4 10l5.91-1.74L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
   },
   {
     title: 'Certified by LinkedIn.',
-    body: 'Our team holds official LinkedIn Marketing certifications. It\'s a hiring standard, not a marketing badge.',
+    body: 'Our team holds the official LinkedIn Marketing certifications. We treat it as a hiring standard, not a marketing badge.',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l3 6h6l-5 4 2 6-6-4-6 4 2-6-5-4h6l3-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
   },
 ];
 
 const faqs = [
-  { q: 'What kind of companies do you work with?', a: 'B2B companies across manufacturing, healthcare, tech, FMCG, retail, and professional services. If your buyers are on LinkedIn, we can help.' },
-  { q: 'How long before we see results?', a: 'It depends on where you\'re starting. Companies with an existing LinkedIn presence tend to see traction faster than those building from zero. We set specific benchmarks in our first strategy session and report against them monthly.' },
-  { q: 'What does onboarding look like?', a: 'We start with a strategy sprint: audit your current LinkedIn presence, define your target audience, and build a content and campaign plan. From there, we move into production.' },
-  { q: 'We already have a marketing team. How does Nuvora fit in?', a: 'We work alongside internal teams regularly. Some clients hand LinkedIn to us entirely. Others use us for content production and ads while their team handles community engagement. We adapt to your setup.' },
-  { q: 'Do you only work with large companies?', a: 'No. We work with mid-market and enterprise B2B companies. What matters is that LinkedIn is a meaningful channel for your sales pipeline.' },
-  { q: 'How do you handle content in multiple languages?', a: 'Our team and AI-assisted workflows produce content in 10+ languages. Every piece is reviewed by a native speaker before publishing. We don\'t translate word for word. We localize for tone, context, and platform norms.' },
-  { q: 'Can you manage executive profiles alongside the company page?', a: 'Yes. We offer ghostwriting and positioning for C-suite leaders as a standalone service or bundled with company page management. Executive branding is one of the fastest ways to generate inbound interest on LinkedIn.' },
+  { q: 'What kind of companies do you work with?', a: 'B2B companies across manufacturing, healthcare, tech, FMCG, retail, and professional services. If your buyers spend time on LinkedIn, we can help.' },
+  { q: 'How long before we see results?', a: 'It depends on where you\'re starting from. Companies with an existing LinkedIn presence tend to see traction faster than those building from zero. We set specific benchmarks in the first strategy session and report against them every month.' },
+  { q: 'What does onboarding look like?', a: 'We open with a strategy sprint. Audit your current LinkedIn presence, define your target audience, and build a content and campaign plan. From there, we move into production.' },
+  { q: 'We already have a marketing team. How does Nuvora fit in?', a: 'We work alongside internal teams regularly. Some clients hand LinkedIn to us entirely. Others use us for content production and ads while their own team handles community engagement. We adapt to your setup.' },
+  { q: 'Do you only work with large companies?', a: 'No. We work with mid-market and enterprise B2B companies. What matters is whether LinkedIn is a meaningful channel for your pipeline.' },
+  { q: 'How do you handle content in multiple languages?', a: 'Our team plus AI-assisted workflows produce content in 10+ languages. Every piece is reviewed by a native speaker before it publishes. We don\'t translate word for word. We localise for tone, context, and platform norms.' },
+  { q: 'Can you manage executive profiles alongside the company page?', a: 'Yes. We offer ghostwriting and positioning for C-suite leaders as a standalone service, or bundled with company page management. Executive branding is one of the fastest ways to generate inbound interest on LinkedIn.' },
   { q: 'What reporting do we get?', a: 'Monthly performance reports covering engagement, follower growth, ad metrics, and lead attribution. Clear numbers. No vanity metrics dressed up to look impressive.' },
-  { q: 'What\'s the minimum commitment?', a: 'We recommend a three-month minimum to start. LinkedIn requires consistency to perform. A one-month test rarely tells you anything useful.' },
-  { q: 'How do we get started?', a: 'Book a call. We\'ll review your current LinkedIn presence, talk through your goals, and tell you if we\'re the right fit.' },
+  { q: 'What\'s the minimum commitment?', a: 'We recommend a three-month minimum to start. LinkedIn rewards consistency. A one-month test rarely tells you anything useful.' },
+  { q: 'How do we get started?', a: 'Book a call. We\'ll review your current LinkedIn presence, talk through your goals, and tell you straight whether we\'re the right fit.' },
 ];
 ---
 
 <Layout
-  title="About Nuvora Studio | LinkedIn Agency for B2B Leads"
-  description="Nuvora Studio grows LinkedIn presence for B2B companies worldwide. Certified team. Strategic content. LinkedIn ads. Executive branding. More leads."
-  abstract="We grow LinkedIn presence for B2B companies around the world. One platform. Certified team. Strategic content. The result: more leads."
+  title="About Nuvora Studio | LinkedIn agency for B2B leads"
+  description="Nuvora Studio grows LinkedIn presence for B2B companies worldwide. A certified team. Strategic content. LinkedIn ads. Executive branding. More leads."
+  abstract="We grow LinkedIn presence for B2B companies around the world. One platform. A certified team. Content that earns its keep. The output is more leads."
 >
   <NavBar />
   <main id="main-content">
@@ -81,11 +81,11 @@ const faqs = [
         <div class="ab-hero__content">
           <p class="eyebrow eyebrow--light reveal">About Nuvora Studio</p>
           <h1 id="ab-hero-h" class="ab-hero__h1 reveal reveal-delay-1">
-            The B2B network is crowded. We make sure you are <span class="text-gradient">heard.</span>
+            The B2B network is crowded. We make sure you get <span class="text-gradient">heard.</span>
           </h1>
           <p class="ab-hero__sub reveal reveal-delay-2">
             We grow LinkedIn presence for B2B companies around the world. One platform.
-            A certified team. Content that earns its keep. The result is more leads.
+            A certified team. Content that earns its keep. The output is more leads.
           </p>
         </div>
       </div>
@@ -101,7 +101,7 @@ const faqs = [
             <p class="eyebrow">Our story</p>
             <h2 id="exist-h">Why we exist</h2>
             <p>We started Nuvora Studio because we kept running into the same problem.</p>
-            <p>Companies know LinkedIn matters for B2B. They don't have the team, the time, or the platform expertise to make it work. So they post without a plan. They run ads without a strategy. The leads never come.</p>
+            <p>Companies know LinkedIn matters for B2B. They don't have the team, the time, or the platform expertise to make it work. So they post without a plan. They run ads without a strategy. The leads never show up.</p>
             <p>We built an agency that does one thing and does it well. We grow your LinkedIn presence so you get more leads. Not more impressions. Not more followers for the sake of it. More conversations with the right buyers.</p>
             <p class="ab-exist__closing"><strong>That's why we're here.</strong></p>
           </div>
@@ -193,9 +193,9 @@ const faqs = [
             <span class="ab-leader__title">CEO & Chief Strategy Officer</span>
 
             <div class="ab-leader__bio">
-              <p>Cyril has spent 20+ years building marketing and commerce operations across China, Europe, and global markets.</p>
-              <p>As CEO of Publicis Commerce China, he ran a 250-person team that generated $35M in revenue with 25%+ year-over-year growth. The agency was named eCommerce Agency of the Year, Greater China (Gold 2022). His client portfolio included Apple, L'Oréal, Nike, Nestlé, Heineken, and Kering.</p>
-              <p>He is triple-certified by LinkedIn Marketing Labs: Marketing Strategy, Advertising Fundamentals, and Content & Creative Design.</p>
+              <p>Cyril has spent over twenty years building marketing and commerce operations across China, Europe, and global markets.</p>
+              <p>As CEO of Publicis Commerce China, he ran a 250-person team that generated $35M in revenue with 25%+ year-on-year growth. The agency was named eCommerce Agency of the Year, Greater China (Gold 2022). His client portfolio included Apple, L'Oréal, Nike, Nestlé, Heineken, and Kering.</p>
+              <p>He is triple-certified by LinkedIn Marketing Labs: Marketing Strategy, Advertising Fundamentals, and Content &amp; Creative Design.</p>
               <p>Cyril also founded HubStudio, an AIGC content studio, and teaches at HEC Paris, ESCP, and Shanghai Jiaotong University.</p>
             </div>
 
@@ -244,8 +244,8 @@ const faqs = [
             <span class="ab-leader__title">General Manager</span>
 
             <div class="ab-leader__bio">
-              <p>LiYan brings 20 years of marketing experience with Fortune 500 brands including Beiersdorf, Reckitt Benckiser, Yum! Brands, and Valio.</p>
-              <p>As Digital Marketing Director at Yum! China, she delivered the brand's first positive quarterly same-store sales growth in Q1 2017, reversing 11 consecutive quarters of decline. She was also a founding team member of Valio APAC, where she built the company's China B2B digital presence from scratch.</p>
+              <p>LiYan brings twenty years of marketing experience with Fortune 500 brands, including Beiersdorf, Reckitt Benckiser, Yum! Brands, and Valio.</p>
+              <p>As Digital Marketing Director at Yum! China, she delivered the brand's first positive quarterly same-store sales growth in Q1 2017, reversing eleven consecutive quarters of decline. She was also a founding team member of Valio APAC, where she built the company's China B2B digital presence from scratch.</p>
               <p>At Nuvora Studio, LiYan runs day-to-day operations and oversees content quality, campaign performance, and client delivery across every account. Her focus areas are LinkedIn content strategy, social selling, and B2B audience engagement.</p>
               <p>Fluent in Mandarin and English.</p>
             </div>
@@ -276,7 +276,7 @@ const faqs = [
             <div class="ab-cta__actions">
               <a href="/contact?intent=call" class="btn btn--primary btn--lg">Book a call</a>
             </div>
-            <p class="ab-cta__note">30 minutes. No pitch. Straight answers.</p>
+            <p class="ab-cta__note">Thirty minutes. No pitch. Straight answers.</p>
           </div>
         </div>
       </div>

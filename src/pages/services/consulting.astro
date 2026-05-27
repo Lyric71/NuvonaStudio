@@ -7,22 +7,22 @@ import ContactCTA from '../../components/ContactCTA.astro';
 /* ── Data ───────────────────────────────────────────────── */
 
 const advocacyCards = [
-  { title: 'Advocacy program design & management', description: 'Structure, content calendar, and day-to-day management. We make participation easy so your team actually does it.' },
-  { title: 'Employee profile optimization', description: 'Profiles rewritten to win buyers, not recruiters. Every employee profile becomes a landing page for your brand.' },
-  { title: 'New employee onboarding', description: 'A strong LinkedIn presence from day one. New hires get set up, optimized, and plugged into the program before their first week ends.' },
+  { title: 'Advocacy programme design &amp; management', description: 'Structure, content calendar, and day-to-day management. We make participation easy so your team actually does it.' },
+  { title: 'Employee profile optimisation', description: 'Profiles rewritten to win buyers, not recruiters. Every employee profile becomes a landing page for your brand.' },
+  { title: 'New employee onboarding', description: 'A strong LinkedIn presence from day one. New hires get set up, optimised, and plugged into the programme before their first week ends.' },
 ];
 
 const brandingCards = [
-  { title: 'Executive profile optimization', description: 'We rewrite profiles so they build credibility with prospects, investors, and future hires. Not just old colleagues.' },
-  { title: 'Executive ghostwriting', description: 'Their voice. Their expertise. Published on a schedule that keeps them relevant. We handle drafts, approvals, posting, and comment engagement.' },
-  { title: 'LinkedIn Live & follower growth', description: 'LinkedIn Live pulls 24× more comments than standard video. We build structured Live programs that grow a real audience around your executives\' expertise.' },
+  { title: 'Executive profile optimisation', description: 'We rewrite profiles so they build credibility with prospects, investors, and future hires. Not just old colleagues.' },
+  { title: 'Executive ghostwriting', description: 'Their voice. Their expertise. Published on a schedule that keeps them visible. We handle drafts, approvals, posting, and comment engagement.' },
+  { title: 'LinkedIn Live &amp; follower growth', description: 'LinkedIn Live pulls 24× more comments than standard video. We build structured Live programmes that grow a real audience around your executives\' expertise.' },
 ];
 
 const workshops = [
-  { tag: 'Half-day', title: 'LinkedIn fundamentals', description: 'How the platform actually works in 2026. Algorithm mechanics, feed behavior, and what drives results. Built for teams starting from scratch or starting over.' },
+  { tag: 'Half-day', title: 'LinkedIn fundamentals', description: 'How the platform actually works in 2026. Algorithm mechanics, feed behaviour, and what drives real results. Built for teams starting from scratch or starting over.' },
   { tag: 'Full-day', title: 'Content masterclass', description: 'A repeatable production system that builds authority without burning out your team. AI-assisted workflows included. Everyone walks out with a 30-day content plan.' },
   { tag: 'Full-day', title: 'LinkedIn ads deep dive', description: 'Targeting, campaign architecture, budgeting, and attribution. For marketing teams spending money on LinkedIn who need to know exactly where it goes.' },
-  { tag: 'Half-day', title: 'Executive personal brand', description: 'A focused session for senior leaders. Profile structure, posting rhythm, and the frameworks that earn trust before a first meeting happens.' },
+  { tag: 'Half-day', title: 'Executive personal brand', description: 'A focused session for senior leaders. Profile structure, posting rhythm, and the frameworks that earn trust before a first meeting ever happens.' },
 ];
 
 const stats = [
@@ -39,23 +39,23 @@ const stats = [
 ];
 
 const faqs = [
-  { q: 'What does "employee advocacy" mean in practice?', a: 'Your employees share curated content from their personal LinkedIn profiles. We build the program, create the content, and handle the logistics. They share. That\u2019s it.' },
-  { q: 'How fast will we see results?', a: 'Reach and engagement typically increase within the first month. Leads follow in 60\u201390 days. It depends on your industry, your team\u2019s size, and how active they are. We set expectations clearly on the first call.' },
+  { q: 'What does "employee advocacy" mean in practice?', a: 'Your employees share curated content from their personal LinkedIn profiles. We build the programme, create the content, and handle the logistics. They share. That\u2019s it.' },
+  { q: 'How fast will we see results?', a: 'Reach and engagement typically climb inside the first month. Leads follow in 60\u201390 days. It depends on your industry, your team size, and how active they are. We set expectations clearly on the first call.' },
   { q: 'Do you write everything for executive ghostwriting?', a: 'Every word. We interview your executives, write in their voice, and send drafts for approval. Nothing goes live without their sign-off.' },
-  { q: 'We\u2019re not based in the US. Can you still work with us?', a: 'Yes. We work with B2B companies across time zones. Workshops run online or in-person. Content services are remote by default.' },
+  { q: 'We\u2019re not based in the US. Can you still work with us?', a: 'Yes. We work with B2B companies in every timezone. Workshops run online or in person. Content services are remote by default.' },
   { q: 'What size companies do you work with?', a: 'Anywhere from 20 to 20,000 employees. Advocacy scales well for mid-size and enterprise B2B companies. Training fits any size.' },
-  { q: 'Do you run LinkedIn Ads for clients?', a: 'Our consulting covers organic growth: advocacy, personal branding, and training. We teach ads strategy in the Deep Dive workshop. For ongoing ads management, ask us what\u2019s available.' },
-  { q: 'How is your training different from what\u2019s free online?', a: 'It\u2019s built on data from real B2B campaigns, not recycled tips. Your team leaves with work product: optimized profiles, a content calendar, or a campaign blueprint. Not a slide deck.' },
+  { q: 'Do you run LinkedIn Ads for clients?', a: 'Our consulting covers organic growth: advocacy, personal branding, and training. We teach ads strategy inside the Deep Dive workshop. For ongoing ads management, ask us what\u2019s available.' },
+  { q: 'How is your training different from what\u2019s free online?', a: 'It\u2019s built on data from real B2B campaigns, not recycled tips. Your team leaves with work product: optimised profiles, a content calendar, or a campaign blueprint. Not a slide deck.' },
   { q: 'What do you actually report on?', a: 'Follower growth, engagement rate, profile views, website traffic from LinkedIn, and inbound leads. If a number doesn\u2019t connect to pipeline, we don\u2019t waste your time with it.' },
   { q: 'Can you share pricing?', a: 'Advocacy, ghostwriting, and training are each priced on scope. We\u2019ll walk through the numbers on a call and give you a clear proposal. No ambiguity.' },
-  { q: 'We\u2019ve done nothing on LinkedIn. Is that a problem?', a: 'No. Many of our clients started at zero. The Fundamentals workshop exists for exactly this. We meet you where you are and build from there.' },
+  { q: 'We\u2019ve done nothing on LinkedIn. Is that a problem?', a: 'No. Plenty of our clients started at zero. The Fundamentals workshop exists for exactly that. We meet you where you are and build from there.' },
 ];
 ---
 
 <Layout
-  title="LinkedIn Consulting Services for B2B Lead Gen"
+  title="LinkedIn consulting services for B2B lead generation"
   description="Employee advocacy, executive branding, and LinkedIn training for B2B companies. We grow your LinkedIn presence so your team generates more leads."
-  abstract="We help B2B companies get more leads from LinkedIn through employee advocacy programs, executive personal branding, and hands-on team training."
+  abstract="We help B2B companies pull more leads from LinkedIn through employee advocacy programmes, executive personal branding, and hands-on team training."
 >
   <NavBar />
   <main id="main-content">
@@ -73,7 +73,8 @@ const faqs = [
             Get more leads from LinkedIn. <span class="text-gradient">Not more noise.</span>
           </h1>
           <p class="c-hero__sub reveal reveal-delay-2">
-            Your company page posts reach a fraction of your audience. Your employees' profiles reach everyone else. We build the programs that close that gap.
+            Your company page reaches a fraction of your audience. Your employees' profiles
+            reach everyone else. We build the programmes that close the gap.
           </p>
           <div class="c-hero__actions reveal reveal-delay-3">
             <a href="/contact?intent=call" class="btn btn--primary btn--lg">Book a call</a>
@@ -93,10 +94,10 @@ const faqs = [
             <span class="c-svc__label">Employee advocacy</span>
             <h2 id="c-advocacy-h" class="c-svc__h2">Your people reach further than your brand ever will.</h2>
             <div class="c-svc__body">
-              <p>LinkedIn's algorithm has a preference. It favors people over company pages. That's not a bug. It's the platform's design.</p>
-              <p>Content shared by employees gets 8× more engagement than the same post from a brand page. Their combined networks are 10× larger than your company's follower count. And 92% of B2B buyers trust what employees say over what a company advertises.</p>
-              <p>Most companies know this. Very few act on it. The ones that do see 4.3× more impressions and a direct pipeline impact within 90 days.</p>
-              <p>We design and run the program. Your team shows up, shares, and gets back to work.</p>
+              <p>LinkedIn's algorithm has a preference. It favours people over company pages. That isn't a bug. It's the platform's design.</p>
+              <p>Content shared by employees gets 8× more engagement than the same post from a brand page. Their combined networks are 10× the size of your company's follower count. And 92% of B2B buyers trust what employees say over what a company advertises.</p>
+              <p>Most companies know all of this. Very few act on it. The ones that do see 4.3× more impressions, and a direct pipeline impact inside 90 days.</p>
+              <p>We design and run the programme. Your team shows up, shares, and gets back to work.</p>
             </div>
           </div>
           <div class="c-svc__visual reveal reveal-delay-2">
