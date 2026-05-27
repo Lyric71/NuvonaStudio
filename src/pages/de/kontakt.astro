@@ -1,13 +1,81 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import NavBar from '../../components/NavBar.astro';
+
+/* ── Leistungen (passend zum „Leistungen"-Menü der NavBar) ── */
+const services = [
+  {
+    value: 'content',
+    label: 'Content',
+    sub: 'Unternehmensseiten, Posts, Newsletter, Events',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
+  },
+  {
+    value: 'advertising',
+    label: 'Anzeigen',
+    sub: 'Sponsored Content, InMail, Lead-Gen-Formulare',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>`,
+  },
+  {
+    value: 'consulting',
+    label: 'Beratung',
+    sub: 'Schulungen, Mitarbeitende als Markenbotschafter, Personal Branding',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2V3z" stroke="currentColor" stroke-width="1.6"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7V3z" stroke="currentColor" stroke-width="1.6"/></svg>`,
+  },
+];
+
+/* ── Pakete (parallel zur Preisseite) ── */
+const packagesByService: Record<string, { value: string; label: string; price: string }[]> = {
+  content: [
+    { value: 'retainer-foundation', label: 'Foundation-Retainer',                  price: '1.800 $/Monat' },
+    { value: 'retainer-growth',     label: 'Growth-Retainer',                      price: '3.500 $/Monat' },
+    { value: 'retainer-scale',      label: 'Scale-Retainer',                       price: '6.000 $/Monat' },
+    { value: 'exec-ghostwriting',   label: 'Ghostwriting für Führungskräfte',      price: '1.200 $/Monat pro Person' },
+    { value: 'video-ai',            label: 'KI-generiertes Video',                 price: '200–5.000 $ pro Video' },
+    { value: 'video-pro',           label: 'Professioneller Videodreh',            price: 'Angebot auf Anfrage' },
+    { value: 'multilingual',        label: 'Mehrsprachiger Content',               price: 'Angebot pro Sprache' },
+    { value: 'enterprise',          label: 'Enterprise (mehrere Märkte)',          price: 'ab 10.000 $/Monat' },
+    { value: 'not-sure',            label: 'Noch unsicher – lassen Sie uns reden', price: '' },
+  ],
+  advertising: [
+    { value: 'ads-under-15k',       label: 'Anzeigen-Management (unter 15.000 $/Monat Mediabudget)', price: '1.500 $/Monat' },
+    { value: 'ads-over-15k',        label: 'Anzeigen-Management (über 15.000 $/Monat Mediabudget)',  price: '6–10 % des Mediabudgets' },
+    { value: 'retainer-growth',     label: 'Growth-Retainer (inkl. Anzeigen)',     price: '3.500 $/Monat' },
+    { value: 'retainer-scale',      label: 'Scale-Retainer (inkl. Anzeigen)',      price: '6.000 $/Monat' },
+    { value: 'enterprise',          label: 'Enterprise (mehrere Märkte)',          price: 'ab 10.000 $/Monat' },
+    { value: 'not-sure',            label: 'Noch unsicher – lassen Sie uns reden', price: '' },
+  ],
+  consulting: [
+    { value: 'exec-profile',        label: 'Profiloptimierung für Führungskräfte',                price: '500 $ pro Profil (einmalig)' },
+    { value: 'training-workshop',   label: 'Workshop (2 Stunden)',                                price: '2.500 $ pro Workshop' },
+    { value: 'training-program',    label: 'Team-Schulungsprogramm (4 Sessions)',                 price: '8.000 $ (einmalig)' },
+    { value: 'advocacy',            label: 'Programm „Mitarbeitende als Markenbotschafter"',      price: '2.500 $/Monat' },
+    { value: 'enterprise',          label: 'Enterprise (mehrere Märkte)',                         price: 'ab 10.000 $/Monat' },
+    { value: 'not-sure',            label: 'Noch unsicher – lassen Sie uns reden',                price: '' },
+  ],
+};
+
+/* ── Vorauswahl aus den URL-Parametern (CTAs der Preisseite) ── */
+const url = new URL(Astro.request.url);
+const intentParam = url.searchParams.get('intent');
+const tierParam   = url.searchParams.get('tier');
+
+let preselectedService = '';
+let preselectedPackage = '';
+if (intentParam === 'retainer' && tierParam) {
+  preselectedService = 'content';
+  preselectedPackage = `retainer-${tierParam}`;
+} else if (intentParam === 'enterprise') {
+  preselectedService = 'content';
+  preselectedPackage = 'enterprise';
+}
 ---
 
 <Layout
   lang="de"
   title="Nuvora Studio kontaktieren | Erstgespräch zu Ihrer LinkedIn-Strategie"
-  description="Lust auf ein Gespräch? Nuvora Studio bietet ein 30-minütiges Erstgespräch zu Ihrer LinkedIn-Strategie. Oder schreiben Sie uns kurz. Antwort innerhalb eines Werktags."
-  abstract="30 Minuten am Telefon oder eine Nachricht, ganz wie Sie möchten. Antwort innerhalb eines Werktags. Kein Pitch."
+  description="Lust auf ein Gespräch? Bei Nuvora Studio bekommen Sie ein 30-minütiges Erstgespräch zu Ihrer LinkedIn-Strategie. Oder Sie schreiben uns kurz. Antwort innerhalb eines Werktags."
+  abstract="30 Minuten am Telefon oder kurz schriftlich, ganz wie Sie möchten. Antwort innerhalb eines Werktags. Kein Pitch."
 >
   <NavBar lang="de" />
   <main id="main-content">
@@ -23,7 +91,7 @@ import NavBar from '../../components/NavBar.astro';
             Reden wir über <span class="text-gradient">LinkedIn.</span>
           </h1>
           <p class="contact-hero__sub reveal reveal-delay-2">
-            Schildern Sie uns Ihr Anliegen. Wir lesen jede Nachricht und antworten innerhalb eines Werktags.
+            Schildern Sie uns kurz Ihr Anliegen. Wir lesen jede Nachricht und melden uns innerhalb eines Werktags.
           </p>
           <div class="contact-hero__actions reveal reveal-delay-3">
             <a href="#contact-form" class="btn btn--primary btn--lg">Kontakt aufnehmen</a>
@@ -47,9 +115,9 @@ import NavBar from '../../components/NavBar.astro';
                   <path d="M5 14l6.5 6.5L23 8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
-              <h2 class="contact-success__title">Nachricht gesendet.</h2>
+              <h2 class="contact-success__title">Nachricht ist raus.</h2>
               <p class="contact-success__body">
-                Vielen Dank für Ihre Nachricht. Wir melden uns innerhalb eines Werktags bei Ihnen.
+                Vielen Dank, dass Sie sich gemeldet haben. Wir melden uns innerhalb eines Werktags bei Ihnen zurück.
               </p>
               <a href="/de/" class="btn btn--primary" style="margin-top: var(--sp-6)">Zurück zur Startseite</a>
             </div>
@@ -64,9 +132,9 @@ import NavBar from '../../components/NavBar.astro';
                   </svg>
                 </div>
                 <div>
-                  <h2 class="contact-card__title">Erzählen Sie uns von Ihrem Vorhaben</h2>
+                  <h2 class="contact-card__title">Erzählen Sie uns kurz von Ihrem Vorhaben</h2>
                   <p class="contact-card__note">
-                    Mit <span aria-hidden="true">*</span><span class="sr-only">Sternchen</span> markierte Felder sind Pflicht.
+                    Mit <span aria-hidden="true">*</span><span class="sr-only">Sternchen</span> markierte Felder sind Pflichtfelder.
                   </p>
                 </div>
               </div>
@@ -125,6 +193,78 @@ import NavBar from '../../components/NavBar.astro';
                     <span class="form-error" id="company-error" role="alert"></span>
                   </div>
 
+                  <!-- Leistungen (Mehrfachauswahl) -->
+                  <div class="form-group contact-form__full">
+                    <label class="form-label">
+                      Welche Leistungen interessieren Sie? <span class="required-mark" aria-hidden="true">*</span>
+                      <span class="form-optional">Eine oder mehrere auswählen</span>
+                    </label>
+                    <div class="form-chips" role="group" aria-label="Leistungen" id="service-group">
+                      {services.map((s) => (
+                        <label class="form-chip">
+                          <input
+                            type="checkbox"
+                            name="service"
+                            value={s.value}
+                            class="form-chip__input"
+                            data-service={s.value}
+                            checked={preselectedService === s.value}
+                          />
+                          <span class="form-chip__inner">
+                            <span class="form-chip__icon" set:html={s.icon} />
+                            <span class="form-chip__text">
+                              <strong class="form-chip__label">{s.label}</strong>
+                              <span class="form-chip__sub">{s.sub}</span>
+                            </span>
+                          </span>
+                        </label>
+                      ))}
+                    </div>
+                    <span class="form-error" id="service-error" role="alert"></span>
+                  </div>
+
+                  <!-- Pakete (Mehrfachauswahl) -->
+                  <div class="form-group contact-form__full">
+                    <label class="form-label" id="package-label">
+                      Wählen Sie ein oder mehrere Pakete <span class="form-optional">(optional)</span>
+                    </label>
+                    <div class="form-checklist" role="group" aria-labelledby="package-label" id="package-list">
+                      <p class="form-checklist__empty">Bitte oben zunächst eine Leistung auswählen.</p>
+                    </div>
+                    <p class="form-hint" id="package-hint">Die Preise entsprechen unserer <a href="/de/preise">Preisseite</a>. Noch unsicher? Überspringen Sie diesen Schritt – wir klären das gemeinsam im Gespräch.</p>
+                  </div>
+
+                  <!-- Zeitrahmen -->
+                  <div class="form-group contact-form__full">
+                    <label class="form-label">
+                      Wann möchten Sie starten? <span class="required-mark" aria-hidden="true">*</span>
+                    </label>
+                    <div class="form-chips form-chips--compact" role="radiogroup" aria-label="Zeitrahmen" id="timeline-group">
+                      <label class="form-chip form-chip--compact">
+                        <input type="radio" name="timeline" value="now" class="form-chip__input" required />
+                        <span class="form-chip__inner">
+                          <strong class="form-chip__label">Sofort</strong>
+                          <span class="form-chip__sub">Innerhalb von 30 Tagen</span>
+                        </span>
+                      </label>
+                      <label class="form-chip form-chip--compact">
+                        <input type="radio" name="timeline" value="3-months" class="form-chip__input" />
+                        <span class="form-chip__inner">
+                          <strong class="form-chip__label">In 3 Monaten</strong>
+                          <span class="form-chip__sub">Mit etwas Vorlauf</span>
+                        </span>
+                      </label>
+                      <label class="form-chip form-chip--compact">
+                        <input type="radio" name="timeline" value="6-months" class="form-chip__input" />
+                        <span class="form-chip__inner">
+                          <strong class="form-chip__label">In 6 Monaten</strong>
+                          <span class="form-chip__sub">Längerer Horizont</span>
+                        </span>
+                      </label>
+                    </div>
+                    <span class="form-error" id="timeline-error" role="alert"></span>
+                  </div>
+
                   <!-- Projekt -->
                   <div class="form-group contact-form__full">
                     <label class="form-label" for="project">
@@ -132,11 +272,15 @@ import NavBar from '../../components/NavBar.astro';
                     </label>
                     <textarea class="form-textarea" id="project" name="project"
                       required rows="5"
-                      placeholder="Wir sind ein Biotech-Unternehmen mit 120 Mitarbeitenden, expandieren in Europa und möchten unsere Geschäftsführung auf LinkedIn sichtbarer machen..."
+                      placeholder="Wir sind ein Biotech-Unternehmen mit 120 Mitarbeitenden, expandieren gerade in Europa und möchten unsere Geschäftsführung auf LinkedIn sichtbarer machen ..."
                     ></textarea>
                     <span class="form-error" id="project-error" role="alert"></span>
                   </div>
                 </div>
+
+                <!-- Katalogdaten für das Client-Skript -->
+                <script type="application/json" id="package-data" is:inline set:html={JSON.stringify(packagesByService)}></script>
+                <script type="application/json" id="preselect-data" is:inline set:html={JSON.stringify({ service: preselectedService, package: preselectedPackage })}></script>
 
                 <!-- Fehlermeldung -->
                 <div class="form-banner" id="form-error-banner" role="alert">
@@ -176,14 +320,14 @@ import NavBar from '../../components/NavBar.astro';
                   <div class="step-item__number" aria-hidden="true">2</div>
                   <div class="step-item__content">
                     <strong>Erstgespräch</strong>
-                    <p>30 Minuten am Stück, ohne Folienschlacht. Wir klären Ihre Ziele und besprechen, wo wir konkret ansetzen können.</p>
+                    <p>30 Minuten am Stück, ohne Folienschlacht. Wir klären Ihre Ziele und besprechen, wo sich konkret ansetzen lässt.</p>
                   </div>
                 </li>
                 <li class="step-item">
                   <div class="step-item__number" aria-hidden="true">3</div>
                   <div class="step-item__content">
                     <strong>Maßgeschneidertes Angebot</strong>
-                    <p>Im Anschluss erhalten Sie ein Angebot, das auf Ihr Unternehmen zugeschnitten ist, statt eines Standarddokuments mit Ihrem Namen darüber.</p>
+                    <p>Im Anschluss bekommen Sie ein Angebot, das auf Ihr Unternehmen zugeschnitten ist. Kein Standarddokument mit Ihrem Namen darüber.</p>
                   </div>
                 </li>
               </ol>
@@ -199,7 +343,7 @@ import NavBar from '../../components/NavBar.astro';
                       <path d="M8 1.5l1.8 3.6 4 .58-2.9 2.83.69 3.99L8 10.27l-3.59 1.88.69-3.99-2.9-2.83 4-.58L8 1.5z" fill="var(--cyan)" opacity="0.9"/>
                     </svg>
                   </div>
-                  <span>KI im Prozess, der Mensch entscheidet</span>
+                  <span>KI unterstützt, der Mensch entscheidet</span>
                 </li>
                 <li class="trust-item">
                   <div class="trust-item__icon" aria-hidden="true">
@@ -236,7 +380,7 @@ import NavBar from '../../components/NavBar.astro';
                 <span class="pricing-anchor__label">Ab</span>
                 <span class="pricing-anchor__value">1.700 €<span>/Monat</span></span>
               </div>
-              <p class="pricing-anchor__note">Flexible Retainer. Sie steigen aus, wann immer Sie wollen.</p>
+              <p class="pricing-anchor__note">Flexible Retainer. Sie können jederzeit aussteigen.</p>
               <a href="/de/preise" class="pricing-anchor__link">
                 Alle Preise ansehen
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -270,7 +414,7 @@ import NavBar from '../../components/NavBar.astro';
   .contact-hero__bg {
     position: absolute;
     inset: 0;
-    background: url('/contact-hero-people.webp') center center / cover no-repeat;
+    background: url('/images/contact-hero-people.webp') center center / cover no-repeat;
     z-index: 0;
   }
 
@@ -460,6 +604,168 @@ import NavBar from '../../components/NavBar.astro';
     color: #c0392b;
   }
   .form-banner.is-visible { display: block; }
+
+  /* ── Chip-Gruppen (Leistungen / Zeitrahmen) ── */
+  .form-chips {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-3);
+    margin-top: var(--sp-1);
+  }
+
+  .form-chip { position: relative; cursor: pointer; display: block; }
+
+  .form-chip__input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    inset: 0;
+  }
+
+  .form-chip__inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    padding: var(--sp-4) var(--sp-4);
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--r-lg);
+    transition: border-color var(--t-fast), background var(--t-fast), box-shadow var(--t-fast), transform var(--t-fast);
+    height: 100%;
+  }
+
+  #service-group .form-chip__inner::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    transition: background var(--t-fast), border-color var(--t-fast);
+  }
+
+  #service-group .form-chip__input:checked + .form-chip__inner::after {
+    background: var(--sky)
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none'><path d='M3 6.5l2 2 4-5' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/></svg>")
+      center / 11px no-repeat;
+    border-color: var(--sky);
+  }
+
+  .form-chip:hover .form-chip__inner { border-color: var(--border-2); background: var(--off-white); }
+
+  .form-chip__input:focus-visible + .form-chip__inner {
+    border-color: var(--sky);
+    box-shadow: 0 0 0 3px rgba(14,165,233,0.18);
+  }
+
+  .form-chip__input:checked + .form-chip__inner {
+    border-color: var(--sky);
+    background: rgba(14,165,233,0.04);
+    box-shadow: 0 0 0 1px var(--sky) inset;
+  }
+
+  .form-chip__icon {
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--r-md);
+    background: rgba(14,165,233,0.08);
+    color: var(--sky);
+    transition: background var(--t-fast), color var(--t-fast);
+  }
+
+  .form-chip__input:checked + .form-chip__inner .form-chip__icon {
+    background: var(--sky);
+    color: var(--white);
+  }
+
+  .form-chip__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .form-chip__label { font-family: var(--font-body); font-size: var(--fs-sm); font-weight: 600; color: var(--text); line-height: 1.2; }
+  .form-chip__sub { font-family: var(--font-body); font-size: var(--fs-xs); color: var(--text-3); line-height: 1.35; }
+
+  .form-chips--compact .form-chip__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    padding: var(--sp-3) var(--sp-4);
+  }
+
+  /* ── Paketliste (Checklist) ── */
+  .form-checklist {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+    margin-top: var(--sp-1);
+    padding: var(--sp-2);
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+  }
+
+  .form-checklist__empty {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--text-3);
+    padding: var(--sp-4);
+    text-align: center;
+  }
+
+  .form-check { position: relative; display: block; cursor: pointer; }
+  .form-check__input { position: absolute; opacity: 0; pointer-events: none; inset: 0; }
+
+  .form-check__inner {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    padding: var(--sp-3) var(--sp-4);
+    background: var(--white);
+    border: 1.5px solid transparent;
+    border-radius: var(--r-md);
+    transition: border-color var(--t-fast), background var(--t-fast);
+  }
+
+  .form-check:hover .form-check__inner { border-color: var(--border-2); }
+
+  .form-check__input:focus-visible + .form-check__inner {
+    border-color: var(--sky);
+    box-shadow: 0 0 0 3px rgba(14,165,233,0.18);
+  }
+
+  .form-check__input:checked + .form-check__inner {
+    border-color: var(--sky);
+    background: rgba(14,165,233,0.04);
+  }
+
+  .form-check__box {
+    flex-shrink: 0;
+    width: 18px; height: 18px;
+    border-radius: 5px;
+    border: 1.5px solid var(--border-2);
+    background: var(--white);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--t-fast), border-color var(--t-fast);
+  }
+
+  .form-check__input:checked + .form-check__inner .form-check__box {
+    background: var(--sky)
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none'><path d='M3 6.5l2 2 4-5' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/></svg>")
+      center / 12px no-repeat;
+    border-color: var(--sky);
+  }
+
+  .form-check__label { flex: 1; font-family: var(--font-body); font-size: var(--fs-sm); color: var(--text); line-height: 1.45; }
+  .form-check__price { flex-shrink: 0; font-family: var(--font-body); font-size: var(--fs-sm); font-weight: 600; color: var(--sky); white-space: nowrap; }
+
+  .form-hint a { color: var(--sky); text-decoration: underline; text-underline-offset: 2px; }
+  .form-hint a:hover { color: var(--blue); }
 
   .contact-form__actions {
     display: flex;
@@ -687,6 +993,7 @@ import NavBar from '../../components/NavBar.astro';
     .contact-form__grid { grid-template-columns: 1fr; }
     .contact-sidebar { flex-direction: column; }
     .sidebar-card { min-width: unset; }
+    .form-chips { grid-template-columns: 1fr; }
   }
 </style>
 
@@ -711,52 +1018,154 @@ import NavBar from '../../components/NavBar.astro';
 
   function clearErrors() {
     ['name', 'email', 'website', 'company', 'project'].forEach(id => setFieldError(id, ''));
+    const serviceErr  = document.getElementById('service-error');
+    const timelineErr = document.getElementById('timeline-error');
+    if (serviceErr)  serviceErr.textContent  = '';
+    if (timelineErr) timelineErr.textContent = '';
     if (errorBanner) errorBanner.classList.remove('is-visible');
   }
 
-  function validate(data: FormData): boolean {
-    let valid = true;
+  function validate(data: FormData): HTMLElement | null {
+    let firstInvalid: HTMLElement | null = null;
+    const remember = (el: HTMLElement | null) => { if (el && !firstInvalid) firstInvalid = el; };
 
-    const required: { id: string; label: string }[] = [
-      { id: 'name',    label: 'Bitte geben Sie Ihren Namen an.' },
-      { id: 'company', label: 'Bitte nennen Sie den Namen Ihres Unternehmens.' },
-      { id: 'project', label: 'Beschreiben Sie uns kurz Ihr Vorhaben.' },
-    ];
-
-    required.forEach(({ id, label }) => {
-      if (!(data.get(id) as string)?.trim()) {
-        setFieldError(id, label);
-        valid = false;
-      }
-    });
+    if (!(data.get('name') as string)?.trim()) {
+      setFieldError('name', 'Bitte geben Sie Ihren Namen an.');
+      remember(document.getElementById('name'));
+    }
 
     const email = (data.get('email') as string)?.trim();
     if (!email) {
-      setFieldError('email', 'Wir benötigen Ihre E-Mail-Adresse, um zu antworten.');
-      valid = false;
+      setFieldError('email', 'Ohne Ihre E-Mail-Adresse können wir Ihnen nicht antworten.');
+      remember(document.getElementById('email'));
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
       setFieldError('email', 'Diese E-Mail-Adresse scheint nicht gültig zu sein. Bitte prüfen und erneut versuchen.');
-      valid = false;
+      remember(document.getElementById('email'));
     }
 
     const website = (data.get('website') as string)?.trim();
     if (!website) {
-      setFieldError('website', 'Bitte geben Sie Ihre Website an.');
-      valid = false;
+      setFieldError('website', 'Bitte geben Sie uns Ihre Website an.');
+      remember(document.getElementById('website'));
     } else {
       try {
         const url = new URL(website);
         if (url.protocol !== 'http:' && url.protocol !== 'https:') {
           setFieldError('website', 'Die Adresse muss mit https:// oder http:// beginnen.');
-          valid = false;
+          remember(document.getElementById('website'));
         }
       } catch {
-        setFieldError('website', 'Die Adresse scheint nicht korrekt zu sein (z. B. https://heliobio.de).');
-        valid = false;
+        setFieldError('website', 'Die Adresse scheint nicht ganz korrekt zu sein (z. B. https://heliobio.de).');
+        remember(document.getElementById('website'));
       }
     }
 
-    return valid;
+    if (!(data.get('company') as string)?.trim()) {
+      setFieldError('company', 'Bitte nennen Sie uns den Namen Ihres Unternehmens.');
+      remember(document.getElementById('company'));
+    }
+
+    const services = data.getAll('service') as string[];
+    if (services.length === 0) {
+      const serviceErr = document.getElementById('service-error');
+      if (serviceErr) serviceErr.textContent = 'Bitte wählen Sie mindestens eine Leistung aus.';
+      remember(document.querySelector<HTMLInputElement>('input[name="service"]'));
+    }
+
+    const timeline = data.get('timeline') as string | null;
+    if (!timeline) {
+      const timelineErr = document.getElementById('timeline-error');
+      if (timelineErr) timelineErr.textContent = 'Bitte geben Sie an, wann Sie starten möchten.';
+      remember(document.querySelector<HTMLInputElement>('input[name="timeline"]'));
+    }
+
+    if (!(data.get('project') as string)?.trim()) {
+      setFieldError('project', 'Schildern Sie uns bitte kurz Ihr Vorhaben.');
+      remember(document.getElementById('project'));
+    }
+
+    return firstInvalid;
+  }
+
+  function focusInvalid(el: HTMLElement) {
+    const wrapper =
+      el.closest('.form-group') ??
+      el.closest('.form-chips') ??
+      el.closest('.form-checklist') ??
+      el;
+    wrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    window.setTimeout(() => {
+      try { el.focus({ preventScroll: true }); } catch { el.focus(); }
+    }, 80);
+  }
+
+  /* ── Pakete: dynamisch nach gewählten Leistungen füllen ── */
+  type PackageOpt = { value: string; label: string; price: string };
+  const packageData: Record<string, PackageOpt[]> = JSON.parse(
+    (document.getElementById('package-data') as HTMLScriptElement | null)?.textContent || '{}'
+  );
+  const preselect: { service: string; package: string } = JSON.parse(
+    (document.getElementById('preselect-data') as HTMLScriptElement | null)?.textContent || '{}'
+  );
+
+  const packageList = document.getElementById('package-list');
+  const packageHint = document.getElementById('package-hint');
+
+  function escapeHtml(s: string): string {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  function populatePackages(selectedServices: string[], preselectedValues: string[] = []) {
+    if (!packageList) return;
+
+    const existing = new Set<string>(
+      Array.from(packageList.querySelectorAll<HTMLInputElement>('input[name="package"]:checked')).map(el => el.value)
+    );
+    preselectedValues.forEach(v => v && existing.add(v));
+
+    const seen = new Set<string>();
+    const merged: PackageOpt[] = [];
+    selectedServices.forEach(svc => {
+      (packageData[svc] || []).forEach(opt => {
+        if (!seen.has(opt.value)) { seen.add(opt.value); merged.push(opt); }
+      });
+    });
+
+    if (!merged.length) {
+      packageList.innerHTML = '<p class="form-checklist__empty">Bitte oben zunächst eine Leistung auswählen.</p>';
+      return;
+    }
+
+    packageList.innerHTML = merged.map(opt => {
+      const checked = existing.has(opt.value) ? 'checked' : '';
+      const price = opt.price ? `<span class="form-check__price">${escapeHtml(opt.price)}</span>` : '';
+      return `
+        <label class="form-check">
+          <input type="checkbox" name="package" value="${escapeHtml(opt.value)}" class="form-check__input" ${checked} />
+          <span class="form-check__inner">
+            <span class="form-check__box" aria-hidden="true"></span>
+            <span class="form-check__label">${escapeHtml(opt.label)}</span>
+            ${price}
+          </span>
+        </label>
+      `;
+    }).join('');
+  }
+
+  function getSelectedServices(): string[] {
+    return Array.from(document.querySelectorAll<HTMLInputElement>('input[name="service"]:checked')).map(el => el.value);
+  }
+
+  document.querySelectorAll<HTMLInputElement>('input[name="service"]').forEach(input => {
+    input.addEventListener('change', () => populatePackages(getSelectedServices()));
+  });
+
+  const initialServices = getSelectedServices();
+  if (initialServices.length) {
+    populatePackages(initialServices, preselect.package ? [preselect.package] : []);
+    if (packageHint && preselect.package) {
+      packageHint.innerHTML = 'Aus der Preisseite vorausgewählt. Bei Bedarf anpassen.';
+    }
   }
 
   form?.addEventListener('submit', async (e) => {
@@ -764,10 +1173,14 @@ import NavBar from '../../components/NavBar.astro';
     clearErrors();
 
     const data = new FormData(form);
-    if (!validate(data)) return;
+    const invalid = validate(data);
+    if (invalid) {
+      focusInvalid(invalid);
+      return;
+    }
 
     if (submitBtn)     submitBtn.disabled = true;
-    if (submitLabel)   submitLabel.textContent = 'Wird gesendet...';
+    if (submitLabel)   submitLabel.textContent = 'Wird gesendet …';
     if (submitSpinner) submitSpinner.style.display = 'inline-block';
 
     try {
@@ -779,11 +1192,11 @@ import NavBar from '../../components/NavBar.astro';
         if (success) success.classList.add('is-visible');
       } else {
         if (errorBanner)  errorBanner.classList.add('is-visible');
-        if (errorMessage) errorMessage.textContent = json.error ?? 'Etwas ist schiefgelaufen. Bitte versuchen Sie es gleich noch einmal.';
+        if (errorMessage) errorMessage.textContent = json.error ?? 'Da ist etwas schiefgelaufen. Bitte versuchen Sie es gleich noch einmal.';
       }
     } catch {
       if (errorBanner)  errorBanner.classList.add('is-visible');
-      if (errorMessage) errorMessage.textContent = 'Anscheinend ein Verbindungsproblem. Bitte prüfen Sie Ihr Netz und versuchen es erneut.';
+      if (errorMessage) errorMessage.textContent = 'Sieht nach einem Verbindungsproblem aus. Bitte prüfen Sie Ihr Netz und versuchen es erneut.';
     } finally {
       if (submitBtn)     submitBtn.disabled = false;
       if (submitLabel)   submitLabel.textContent = 'Nachricht senden';

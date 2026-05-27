@@ -8,8 +8,8 @@ const caseStudies = [
   {
     slug: 'fabricante-camas-medicas-japones-linkedin',
     number: '01',
-    title: 'Un fabricante japonés de camas hospitalarias buscaba distribuidores en Europa. LinkedIn hizo el resto.',
-    subtitle: 'Ninguna presencia fuera de Japón. A los 90 días ya había distribuidores europeos sobre la mesa.',
+    title: 'Un fabricante japonés de camas hospitalarias buscaba distribuidores en Europa. LinkedIn se encargó del resto.',
+    subtitle: 'Cero presencia fuera de Japón. A los 90 días ya había distribuidores europeos sobre la mesa de negociación.',
     services: ['Contenido en LinkedIn', 'Publicidad en LinkedIn', 'Visibilidad del directivo'],
     region: 'Japón a Europa',
     industry: 'Dispositivos médicos',
@@ -24,8 +24,8 @@ const caseStudies = [
   {
     slug: 'fabricante-chino-cables-defensa-empleados',
     number: '02',
-    title: '40 ingenieros de una cablera china se convirtieron en la voz de la marca en LinkedIn.',
-    subtitle: 'Una empresa global y nadie publicaba en LinkedIn. A los 60 días la historia era otra.',
+    title: '40 ingenieros de una cablera china se convirtieron en la voz de su marca en LinkedIn.',
+    subtitle: 'Una compañía con presencia global y nadie publicaba un solo post. A los 60 días, la historia ya era otra.',
     services: ['Contenido en LinkedIn', 'Activación de empleados', 'Formación'],
     region: 'China a internacional',
     industry: 'Industria',
@@ -40,8 +40,8 @@ const caseStudies = [
   {
     slug: 'empresa-polimeros-sueca-aeroespacial',
     number: '03',
-    title: 'Cómo una empresa sueca de polímeros pasó a ser el nombre que los compradores aeroespaciales escriben primero.',
-    subtitle: 'Materiales de primer nivel y una página de LinkedIn que no contaba nada. Lo corregimos.',
+    title: 'Cómo una empresa sueca de polímeros pasó a ser el primer nombre que escriben los compradores aeroespaciales.',
+    subtitle: 'Materiales de primer nivel y una página de LinkedIn que no contaba absolutamente nada. Lo enderezamos.',
     services: ['Consultoría', 'Contenido en LinkedIn', 'Publicidad en LinkedIn'],
     region: 'Suecia a internacional',
     industry: 'Aeroespacial',
@@ -57,7 +57,7 @@ const caseStudies = [
     slug: 'laboratorio-perfumes-frances-marca-personal',
     number: '04',
     title: 'Un laboratorio de perfumes francés se llevó contratos de lujo gracias a la voz de su fundadora en LinkedIn.',
-    subtitle: 'Los correos en frío no recibían respuesta. Un perfil de LinkedIn bien trabajado lo cambió todo.',
+    subtitle: 'Los emails en frío no recibían respuesta. Un perfil de LinkedIn bien trabajado le dio la vuelta a la tortilla.',
     services: ['Visibilidad del directivo', 'Contenido en LinkedIn', 'Consultoría'],
     region: 'Francia',
     industry: 'Lujo y perfumería',
@@ -72,8 +72,8 @@ const caseStudies = [
   {
     slug: 'socio-bufete-contable-frances-linkedin',
     number: '05',
-    title: 'Cuando los socios de una asesoría contable empiezan a publicar en LinkedIn, los clientes vienen detrás.',
-    subtitle: '12 socios, ninguno activo en LinkedIn. Tres meses después, seis publicaban cada semana.',
+    title: 'Cuando los socios de una asesoría contable empiezan a publicar en LinkedIn, los clientes vienen solos.',
+    subtitle: '12 socios y ninguno activo en LinkedIn. Tres meses más tarde, seis publicaban cada semana sin falta.',
     services: ['Contenido en LinkedIn', 'Formación', 'Publicidad en LinkedIn'],
     region: 'Francia a internacional',
     industry: 'Servicios profesionales',
@@ -88,8 +88,8 @@ const caseStudies = [
   {
     slug: 'bufete-hong-kong-operaciones-transfronterizas',
     number: '06',
-    title: 'Abogados de Hong Kong convertidos en referencia obligada en operaciones transfronterizas, gracias a LinkedIn.',
-    subtitle: 'La experiencia, la tenían. Lo que faltaba era la visibilidad.',
+    title: 'Abogados de Hong Kong convertidos en referencia obligada para operaciones transfronterizas, gracias a LinkedIn.',
+    subtitle: 'La experiencia, la tenían intacta. Lo que faltaba era visibilidad delante de quien decide.',
     services: ['Visibilidad del directivo', 'Contenido en LinkedIn', 'Activación de empleados'],
     region: 'Hong Kong a Gran China',
     industry: 'Jurídico',
@@ -109,8 +109,8 @@ const allServices = [...new Set(caseStudies.flatMap(cs => cs.services))].sort();
 <Layout
   lang="es"
   title="Casos | Estudios de caso | Nuvora Studio"
-  description="Resultados reales obtenidos para clientes reales. Cómo ayudamos a empresas B2B a crecer en LinkedIn: contenido, publicidad, visibilidad del directivo y activación de empleados."
-  abstract="Estudios de caso de Nuvora Studio. Estrategias de LinkedIn que se traducen en resultados de negocio."
+  description="Resultados reales, obtenidos con clientes reales. Cómo ayudamos a empresas B2B a crecer en LinkedIn: contenido, publicidad, visibilidad de directivos y activación de empleados."
+  abstract="Estudios de caso de Nuvora Studio. Estrategias de LinkedIn que se traducen, sin atajos, en resultados de negocio."
 >
   <NavBar lang="es" />
   <main id="main-content">
@@ -131,7 +131,7 @@ const allServices = [...new Set(caseStudies.flatMap(cs => cs.services))].sort();
               Preferimos enseñar<br /><em>antes que prometer.</em>
             </h1>
             <p class="work-hero__sub reveal reveal-delay-2">
-              Clientes reales, estrategias documentadas y cifras que se pueden comprobar. Aquí no nos inventamos nada.
+              Clientes reales, estrategias documentadas y cifras que se pueden auditar. Aquí no nos inventamos nada.
             </p>
           </div>
 
@@ -214,7 +214,7 @@ const allServices = [...new Set(caseStudies.flatMap(cs => cs.services))].sort();
 
         <!-- Empty state -->
         <p class="cases-empty" id="cases-empty" style="display:none">
-          No hay casos para este servicio.
+          Aún no tenemos un caso publicado para este servicio.
         </p>
 
       </div>
@@ -257,7 +257,7 @@ const allServices = [...new Set(caseStudies.flatMap(cs => cs.services))].sort();
             >
               <div class="founder-card__photo-wrap">
                 <img
-                  src="/Cyril-Drouin-LinkedIn-03-29-2026_09_55_AM.webp"
+                  src="/images/Cyril-Drouin-LinkedIn-03-29-2026_09_55_AM.webp"
                   alt="Captura del perfil de LinkedIn de Cyril Drouin"
                   class="founder-card__photo"
                   loading="lazy"
@@ -309,7 +309,7 @@ const allServices = [...new Set(caseStudies.flatMap(cs => cs.services))].sort();
     content: '';
     position: absolute;
     inset: 0;
-    background: url('/work-hero.webp') center/cover no-repeat;
+    background: url('/images/work-hero.webp') center/cover no-repeat;
     opacity: 0.12;
     z-index: 0;
   }

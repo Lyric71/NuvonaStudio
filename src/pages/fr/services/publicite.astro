@@ -6,7 +6,7 @@ import FAQ from '../../../components/FAQ.astro';
 const capabilities = [
   {
     title: 'Architecture de campagne',
-    body: 'On conçoit la structure de vos campagnes autour de votre parcours de vente. Chaque format, chaque cible, chaque message a un rôle. Rien ne se chevauche et rien ne tombe dans le vide.',
+    body: 'On bâtit la structure de vos campagnes autour de votre parcours d\'achat. Chaque format, chaque cible, chaque message a un rôle précis. Pas de doublons, pas de zones d\'ombre.',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
       <rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/>
@@ -16,7 +16,7 @@ const capabilities = [
   },
   {
     title: 'Ciblage de précision',
-    body: "On compose vos cibles par intitulé de poste, niveau hiérarchique, raison sociale, effectif, secteur d\u2019activité, compétences. Et quand il le faut on mène des campagnes par compte, pour aller chercher directement ceux qui signent les contrats.",
+    body: "On compose vos cibles par intitulé de poste, niveau hiérarchique, raison sociale, effectif, secteur d\u2019activité, compétences. Quand il le faut, on bascule en account-based marketing pour aller chercher directement ceux qui signent les contrats.",
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/>
       <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6"/>
@@ -24,30 +24,30 @@ const capabilities = [
     </svg>`,
   },
   {
-    title: 'Conception des annonces',
-    body: "On rédige et on conçoit chaque annonce en interne. Les textes parlent du problème réel de votre acheteur, pas de généralités. Les visuels sont pensés pour le fil LinkedIn tel qu\u2019il fonctionne vraiment. Tout est testé sur plusieurs segments avant qu\u2019on engage le moindre euro.",
+    title: 'Création publicitaire',
+    body: "On rédige et on conçoit chaque annonce en interne. Les textes parlent du vrai problème de votre acheteur, pas de généralités. Les visuels sont pensés pour le fil LinkedIn tel qu\u2019il fonctionne réellement. Tout est testé sur plusieurs segments avant qu\u2019on engage le moindre euro.",
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M12 20h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
       <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
     </svg>`,
   },
   {
-    title: 'Déploiement sur tous les formats',
-    body: "On pilote tous les formats publicitaires LinkedIn dans un seul et même dispositif. Pas de silos, pas de campagnes lancées au coup par coup. L\u2019objectif c\u2019est un système intégré qui alimente votre carnet de commandes, point.",
+    title: 'Déploiement multi-formats',
+    body: "On pilote tous les formats publicitaires LinkedIn dans un seul et même dispositif. Pas de silos, pas de campagnes lancées au coup par coup. L\u2019objectif : un système intégré qui alimente votre pipeline. Point.",
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M4 6h16M4 10h16M4 14h16M4 18h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
     </svg>`,
   },
   {
-    title: 'Optimisation par intelligence artificielle',
-    body: "L\u2019intelligence artificielle nous sert à produire et tester des variantes de textes, de messages, de visuels sur différents segments de cible. On sait ce qui marche par poste et par échelon bien avant d\u2019avoir dépensé tout le budget. Les campagnes s\u2019affinent d\u2019elles-mêmes, semaine après semaine.",
+    title: 'Optimisation pilotée par l\u2019IA',
+    body: "On utilise l\u2019IA pour produire et tester des variantes de textes, de messages et de visuels sur différents segments. On sait ce qui marche par poste et par séniorité bien avant d\u2019avoir cramé tout le budget. Résultat : les campagnes s\u2019affinent semaine après semaine.",
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M12 2l2.09 6.26L20 10l-5.91 1.74L12 18l-2.09-6.26L4 10l5.91-1.74L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
     </svg>`,
   },
   {
-    title: 'Rapports reliés à votre outil de gestion commerciale',
-    body: "On rend des comptes sur le portefeuille d\u2019affaires, pas sur les impressions. Chaque rapport détaille ce qu\u2019on a investi, testé, ce qui a donné des résultats et ce qu\u2019on change la semaine d\u2019après. Pas de jargon, pas de chiffres qui ne servent à rien.",
+    title: 'Reporting branché à votre CRM',
+    body: "On rend des comptes sur le pipeline, pas sur les impressions. Chaque reporting détaille ce qu\u2019on a investi, ce qu\u2019on a testé, ce qui a marché et ce qu\u2019on change la semaine d\u2019après. Aucun jargon, aucun chiffre décoratif.",
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/>
       <path d="M7 17V13M12 17V9M17 17V7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
@@ -58,7 +58,7 @@ const capabilities = [
 const adFormats = [
   {
     title: 'Contenu sponsorisé',
-    body: "Le format de base de LinkedIn, et de loin le plus polyvalent. Il se décline en huit sous-formats : image seule, carrousel, vidéo, document, événement, tribune de dirigeant, article et publicité sur télévision connectée. On s\u2019en sert pour installer la notoriété, capter l\u2019attention et amener des visiteurs qualifiés en haut du parcours de vente.",
+    body: "C\u2019est le format de base de LinkedIn, et de loin le plus polyvalent. Il se décline en huit sous-formats : image seule, carrousel, vidéo, document, événement, tribune de dirigeant, article et publicité sur télévision connectée. On s\u2019en sert pour installer la notoriété, capter l\u2019attention et amener du trafic qualifié en haut du tunnel.",
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
       <path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
@@ -68,7 +68,7 @@ const adFormats = [
   },
   {
     title: 'Messagerie sponsorisée',
-    body: "Deux sous-formats ici. Les annonces par message visent un objectif unique, un seul bouton d\u2019action. Les annonces conversationnelles proposent plusieurs chemins - c\u2019est le destinataire qui choisit. Le point commun : tout arrive directement dans la boîte de réception LinkedIn, au moment où votre cible est active.",
+    body: "Deux sous-formats. Les annonces par message visent un objectif unique, un seul bouton d\u2019action. Les annonces conversationnelles proposent plusieurs chemins, c\u2019est le destinataire qui choisit. Le point commun : tout atterrit dans la boîte de réception LinkedIn, au moment où votre cible est active.",
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/>
       <path d="M2 7l10 7 10-7" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
@@ -78,7 +78,7 @@ const adFormats = [
   },
   {
     title: 'Annonces dynamiques',
-    body: "Ces annonces se personnalisent toutes seules à partir du profil LinkedIn de chaque membre. Il y en a pour faire grossir votre page (abonnement), pour envoyer du monde sur votre site (mise en avant), et pour capter des contacts quand quelqu\u2019un télécharge votre ressource (contenu). Aucun visuel à produire manuellement pour chaque personne.",
+    body: "Ces annonces se personnalisent automatiquement à partir du profil LinkedIn de chaque membre. Il y en a pour faire grossir votre page (abonnement), pour envoyer du monde sur votre site (mise en avant) et pour capter des prospects en téléchargement de ressource (contenu). Aucun visuel à produire à la main pour chaque personne.",
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M12 2l2.09 6.26L20 10l-5.91 1.74L12 18l-2.09-6.26L4 10l5.91-1.74L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
     </svg>`,
@@ -87,7 +87,7 @@ const adFormats = [
   },
   {
     title: 'Annonces textuelles',
-    body: "Publicité au clic en libre-service, dans la colonne latérale sur ordinateur. C\u2019est le format le moins cher de LinkedIn et il n\u2019y a aucun engagement. Chez nous il sert d\u2019outil de précision à l\u2019intérieur du dispositif global, on ne le lance jamais seul.",
+    body: "De la pub au clic en libre-service, dans la colonne latérale sur ordinateur. C\u2019est le format le moins cher de LinkedIn, sans engagement. Chez nous, il joue le rôle d\u2019outil de précision à l\u2019intérieur du dispositif global ; on ne le lance jamais en solo.",
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M4 6h16M4 10h16M4 14h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
       <rect x="16" y="14" width="5" height="7" rx="1" stroke="currentColor" stroke-width="1.6"/>
@@ -96,8 +96,8 @@ const adFormats = [
     imageAlt: 'Visuel de campagne d\u2019annonces textuelles',
   },
   {
-    title: 'Formulaires de captation de contacts',
-    body: "Formulaires préremplis, intégrés directement dans LinkedIn. L\u2019interlocuteur clique deux fois et c\u2019est envoyé, pas de page externe, pas de champ à retaper. On les couple au contenu sponsorisé et à la messagerie pour pousser la conversion à chaque étape du parcours.",
+    title: 'Formulaires de captation',
+    body: "Des formulaires préremplis, intégrés directement dans LinkedIn. Deux clics et c\u2019est envoyé : pas de page externe, pas de champ à retaper. On les couple au contenu sponsorisé et à la messagerie pour pousser la conversion à chaque étape du parcours.",
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <rect x="5" y="3" width="14" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/>
       <path d="M9 7h6M9 11h6M9 15h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
@@ -109,28 +109,28 @@ const adFormats = [
 
 const differentiators = [
   {
-    title: 'Nous sommes certifiés par LinkedIn.',
-    body: "Ce n\u2019est pas juste un logo sur un site. Notre équipe a passé et réussi l\u2019évaluation officielle de LinkedIn sur la stratégie, les formats, le ciblage, la mesure, l\u2019optimisation. Concrètement ça veut dire que vous travaillez avec des gens qui opèrent au plus haut niveau d\u2019exigence de la plateforme.",
+    title: 'On est certifiés par LinkedIn.',
+    body: "Pas juste un logo posé sur un site. Notre équipe a passé et réussi l\u2019évaluation officielle de LinkedIn sur la stratégie, les formats, le ciblage, la mesure et l\u2019optimisation. Traduction : vous travaillez avec des gens qui opèrent au plus haut niveau d\u2019exigence de la plateforme.",
   },
   {
-    title: 'On raisonne en parcours de vente, pas en formats.',
-    body: "La majorité des agences lancent du contenu sponsorisé ou des formulaires de captation de façon isolée. Nous on bâtit un dispositif complet où chaque format a son rôle, de la notoriété jusqu\u2019à la signature. Et c\u2019est comme ça que le coût d\u2019acquisition baisse et que la qualité des contacts s\u2019améliore en parallèle.",
+    title: 'On raisonne en parcours d\u2019achat, pas en formats.',
+    body: "La plupart des agences lancent du contenu sponsorisé ou des formulaires de captation chacun dans son coin. Nous, on bâtit un dispositif complet où chaque format joue son rôle, de la notoriété jusqu\u2019à la signature. C\u2019est comme ça que le coût d\u2019acquisition baisse et que la qualité des prospects monte, en même temps.",
   },
   {
     title: "On mesure le chiffre d\u2019affaires, pas la visibilité.",
-    body: "Les impressions ne règlent pas les factures. On relie vos campagnes LinkedIn à votre outil de gestion commerciale, comme ça vous savez quelles annonces génèrent de vraies affaires. Et l\u2019optimisation se fait chaque semaine, sur les indicateurs qui comptent pour votre direction commerciale - pas sur le reste.",
+    body: "Les impressions ne paient pas les salaires. On branche vos campagnes LinkedIn à votre CRM : vous savez ainsi quelles annonces ramènent de vraies affaires. L\u2019optimisation se fait chaque semaine, sur les indicateurs qui parlent à votre direction commerciale. Pas sur le reste.",
   },
   {
     title: 'On teste avant d\u2019investir.',
-    body: "Grâce à l\u2019intelligence artificielle on produit et on éprouve des dizaines de variantes de textes, d\u2019accroches, de boutons d\u2019action avant d\u2019engager votre budget à grande échelle. Le jour où on met les moyens sur une campagne, on sait déjà ce qui marche.",
+    body: "Grâce à l\u2019IA, on produit et on éprouve des dizaines de variantes de textes, d\u2019accroches et de boutons d\u2019action avant d\u2019engager votre budget à grande échelle. Le jour où on met les moyens sur une campagne, on sait déjà ce qui marche.",
   },
   {
     title: 'On prend tout en charge.',
-    body: "Stratégie, conception, ciblage, lancement, optimisation, bilan. Tout. Vous n\u2019avez pas besoin de faire appel à un stratège d\u2019un côté, un graphiste de l\u2019autre et un acheteur média encore ailleurs. Une seule équipe, un seul dispositif, un seul interlocuteur.",
+    body: "Stratégie, création, ciblage, lancement, optimisation, bilan : tout. Pas besoin d\u2019aller chercher un stratège chez l\u2019un, un graphiste chez l\u2019autre et un acheteur média encore ailleurs. Une seule équipe, un seul dispositif, un seul interlocuteur.",
   },
   {
     title: 'Le B2B, c\u2019est notre seul métier.',
-    body: "On ne fait pas de publicité grand public à côté. La publicité interentreprises sur LinkedIn c\u2019est tout ce qu\u2019on fait. Les cycles de vente qui durent des mois, les multiples décideurs à convaincre, un contact à 200 € qui peut déboucher sur un contrat de 200 000 € - c\u2019est notre quotidien.",
+    body: "Pas de pub grand public à côté. La pub B2B sur LinkedIn, c\u2019est tout ce qu\u2019on fait. Cycles de vente longs, plusieurs décideurs à convaincre, un prospect à 200 € qui peut déboucher sur un contrat à 200 000 € : c\u2019est notre quotidien.",
   },
 ];
 
@@ -138,88 +138,88 @@ const steps = [
   {
     num: '01',
     title: 'Diagnostic',
-    body: "On prend le temps de comprendre votre entreprise, vos acheteurs, vos objectifs commerciaux. On regarde ce que vous avez déjà fait sur LinkedIn, ce qui a marché et ce qui n\u2019a pas marché. Et on identifie où sont les vrais gisements de croissance.",
+    body: "On prend le temps de comprendre votre entreprise, vos acheteurs et vos objectifs commerciaux. On regarde ce que vous avez déjà fait sur LinkedIn, ce qui a marché et ce qui n\u2019a pas pris. Puis on identifie où se logent les vrais gisements de croissance.",
   },
   {
     num: '02',
     title: 'Construction',
-    body: "Architecture des campagnes, composition des cibles, rédaction des annonces, production des visuels. Tout est structuré autour de votre parcours de vente et de votre cycle commercial.",
+    body: "Architecture des campagnes, composition des cibles, rédaction des annonces, production des visuels. Tout est calé sur votre parcours d\u2019achat et votre cycle commercial.",
   },
   {
     num: '03',
-    title: 'Lancement et mise à l\u2019épreuve',
-    body: "On lance les campagnes et les tests démarrent dans la foulée. Textes, visuels, cibles, formats, boutons d\u2019action, tout est éprouvé en parallèle. L\u2019intelligence artificielle nous aide à dégager les combinaisons gagnantes beaucoup plus vite qu\u2019à la main.",
+    title: 'Lancement et phase de tests',
+    body: "On déclenche les campagnes et les tests démarrent dans la foulée. Textes, visuels, cibles, formats, boutons d\u2019action : tout est éprouvé en parallèle. L\u2019IA nous aide à isoler les combinaisons gagnantes beaucoup plus vite qu\u2019à la main.",
   },
   {
     num: '04',
-    title: 'Optimisation et montée en puissance',
-    body: "Chaque semaine on optimise en fonction de ce qui génère de vraies affaires, pas juste des clics. Ce qui marche on amplifie, ce qui ne donne rien on coupe. Et chaque mois vous recevez un rapport qui fait le lien direct entre vos dépenses publicitaires et votre chiffre d\u2019affaires.",
+    title: 'Optimisation et passage à l\u2019échelle',
+    body: "Chaque semaine, on optimise en fonction de ce qui génère du vrai chiffre, pas juste des clics. Ce qui marche, on amplifie ; ce qui ne donne rien, on coupe. Chaque mois, vous recevez un reporting qui relie directement vos dépenses publicitaires à votre chiffre d\u2019affaires.",
   },
 ];
 
 const stats = [
-  { number: '121 %', label: 'Rendement pub.', note: "Rendement publicitaire de LinkedIn pour le marché interentreprises, contre 67 % pour la recherche Google et 51 % pour Meta.", source: 'Source : rapport Dreamdata 2026' },
-  { number: '6,1 %', label: 'Taux de conversion', note: 'Taux de conversion moyen sur LinkedIn aux États-Unis, contre 3,75 % pour la recherche Google et 0,77 % pour l\u2019affichage Google.' },
-  { number: '80 %', label: 'Contacts interentreprises', note: "80 % des contacts commerciaux issus des réseaux sociaux viennent de LinkedIn. Pas de Meta, pas d\u2019ailleurs." },
-  { number: '41 %', label: 'Part du budget', note: "Part de LinkedIn dans les budgets publicitaires interentreprises. C\u2019est le premier poste d\u2019investissement sur une seule plateforme." },
-  { number: '10-13 %', label: 'Taux formulaires', note: "Taux de conversion des formulaires de captation, contre 2,35 % pour les pages d\u2019atterrissage classiques." },
-  { number: '4 sur 5', label: 'Décideurs', note: "Membres LinkedIn qui participent aux décisions d\u2019achat de leur entreprise." },
-  { number: '211', label: 'Jours avant signature', note: "Durée moyenne du parcours d\u2019achat interentreprises, du premier contact à la signature. C\u2019est pour ça qu\u2019il faut un dispositif qui couvre l\u2019ensemble du parcours." },
-  { number: '33 %', label: "Intention d\u2019achat", note: "Hausse de l\u2019intention d\u2019achat chez les marques qui font de la publicité sur LinkedIn. C\u2019est mesuré, pas estimé." },
+  { number: '121 %', label: 'ROAS', note: "ROAS publicitaire de LinkedIn en B2B, contre 67 % pour Google Search et 51 % pour Meta.", source: 'Source : rapport Dreamdata 2026' },
+  { number: '6,1 %', label: 'Taux de conversion', note: 'Taux de conversion moyen sur LinkedIn aux États-Unis, contre 3,75 % pour Google Search et 0,77 % pour le Display Google.' },
+  { number: '80 %', label: 'Prospects B2B', note: "80 % des prospects B2B issus des réseaux sociaux viennent de LinkedIn. Ni de Meta, ni d\u2019ailleurs." },
+  { number: '41 %', label: 'Part du budget', note: "Part de LinkedIn dans les budgets publicitaires B2B. C\u2019est le premier poste d\u2019investissement sur une seule plateforme." },
+  { number: '10-13 %', label: 'Taux formulaires', note: "Taux de conversion des formulaires de captation, contre 2,35 % pour les landing pages classiques." },
+  { number: '4 sur 5', label: 'Décideurs', note: "Membres LinkedIn qui pèsent dans les décisions d\u2019achat de leur entreprise." },
+  { number: '211', label: 'Jours avant signature', note: "Durée moyenne d\u2019un parcours d\u2019achat B2B, du premier contact à la signature. C\u2019est pour ça qu\u2019il faut un dispositif qui couvre l\u2019ensemble du tunnel." },
+  { number: '33 %', label: "Intention d\u2019achat", note: "Hausse de l\u2019intention d\u2019achat chez les marques qui font de la pub LinkedIn. Mesurée, pas estimée." },
 ];
 
 const faqs = [
   {
     q: "Que veut dire « certifié par LinkedIn » ?",
-    a: "Ça veut dire que notre équipe a suivi et réussi le programme de certification officiel de LinkedIn, celui qui couvre la stratégie de campagne, les formats publicitaires, le ciblage, la mesure des résultats et l\u2019optimisation. C\u2019est le référentiel de LinkedIn lui-même en matière d\u2019expertise publicitaire. Toutes les agences ne l\u2019obtiennent pas. Nous on l\u2019a.",
+    a: "Notre équipe a suivi et réussi le programme de certification officiel de LinkedIn : stratégie de campagne, formats publicitaires, ciblage, mesure et optimisation. C\u2019est le référentiel de LinkedIn lui-même sur l\u2019expertise publicitaire. Toutes les agences ne l\u2019obtiennent pas. Nous, oui.",
   },
   {
-    q: 'Quels formats publicitaires LinkedIn gérez-vous ?',
-    a: "Les cinq. Contenu sponsorisé (avec ses huit déclinaisons), messagerie sponsorisée (annonces par message et conversationnelles), annonces dynamiques, annonces textuelles et formulaires de captation. On gère tout ça au sein d\u2019un même dispositif, pas en campagnes séparées chacune dans son coin.",
+    q: 'Quels formats publicitaires LinkedIn pilotez-vous ?',
+    a: "Les cinq. Contenu sponsorisé (et ses huit déclinaisons), messagerie sponsorisée (annonces par message et conversationnelles), annonces dynamiques, annonces textuelles et formulaires de captation. On orchestre l\u2019ensemble dans un seul dispositif, pas en campagnes éclatées.",
   },
   {
-    q: "Vous vous occupez de la stratégie et de la création, ou juste de l\u2019achat d\u2019espace ?",
-    a: "De tout. On part de votre cible, de votre parcours de vente et de vos objectifs commerciaux. Ensuite on conçoit l\u2019architecture, on rédige les textes, on produit les visuels, on lance, on teste et on optimise. C\u2019est une seule équipe qui gère du début à la fin.",
+    q: "Vous prenez en charge la stratégie et la création, ou seulement l\u2019achat d\u2019espace ?",
+    a: "De A à Z. On part de votre cible, de votre parcours d\u2019achat et de vos objectifs commerciaux. On conçoit l\u2019architecture, on rédige les textes, on produit les visuels, on lance, on teste et on optimise. Une seule équipe, du début à la fin.",
   },
   {
     q: 'Comment rendez-vous compte des résultats ?',
-    a: "On mesure sur le portefeuille d\u2019affaires. Vous recevez un point d\u2019optimisation chaque semaine et un rapport de performance chaque mois. Dedans il y a ce qu\u2019on a investi, ce qu\u2019on a testé, ce qui a marché et ce qu\u2019on ajuste. Pas de jargon, pas de chiffres pour faire joli.",
+    a: "On mesure sur le pipeline. Chaque semaine, un point d\u2019optimisation ; chaque mois, un reporting de performance. À l\u2019intérieur : ce qu\u2019on a investi, ce qu\u2019on a testé, ce qui a marché et ce qu\u2019on ajuste. Aucun jargon, aucun chiffre décoratif.",
   },
   {
-    q: "Comment utilisez-vous l\u2019intelligence artificielle ?",
-    a: "On s\u2019en sert pour produire et tester des variantes de textes, de messages, de visuels sur différents segments de cible. Ça nous permet de savoir ce qui fonctionne le mieux par poste et par échelon avant d\u2019avoir engagé tout le budget. Au final l\u2019optimisation va plus vite et le coût d\u2019acquisition baisse.",
+    q: "Comment utilisez-vous l\u2019IA ?",
+    a: "On s\u2019en sert pour produire et tester des variantes de textes, de messages et de visuels sur différents segments. Conclusion : on sait ce qui marche le mieux par poste et par séniorité avant d\u2019avoir engagé tout le budget. L\u2019optimisation va plus vite et le coût d\u2019acquisition baisse.",
   },
   {
     q: 'Quel budget publicitaire minimum faut-il prévoir ?',
-    a: "On travaille avec des entreprises qui prennent LinkedIn au sérieux comme levier de développement commercial. Si votre budget mensuel se situe en dessous de 5 000 €, LinkedIn n\u2019est probablement pas encore le bon canal pour vous. On vous le dira dès le premier appel, on ne va pas vous faire perdre votre temps.",
+    a: "On accompagne des entreprises qui prennent LinkedIn au sérieux comme levier de développement commercial. Sous 5 000 € de budget mensuel, LinkedIn n\u2019est sans doute pas encore le bon canal pour vous. On vous le dira au premier appel : on ne vous fera pas perdre votre temps.",
   },
   {
-    q: 'Sous quel délai peut-on espérer des résultats ?',
-    a: "La plupart de nos clients voient arriver des contacts qualifiés dans les trente premiers jours. Mais il faut garder en tête que LinkedIn couvre tout le parcours d\u2019achat et qu\u2019un cycle interentreprises dure en moyenne 211 jours. La vraie valeur elle se construit sur plusieurs mois, au fur et à mesure que vos campagnes accumulent des données et que le ciblage s\u2019affine.",
+    q: 'En combien de temps peut-on espérer des résultats ?',
+    a: "La plupart de nos clients voient arriver des prospects qualifiés dans les trente premiers jours. Mais gardez en tête que LinkedIn couvre tout le parcours d\u2019achat et qu\u2019un cycle B2B dure en moyenne 211 jours. La vraie valeur se construit sur plusieurs mois, à mesure que vos campagnes accumulent de la donnée et que le ciblage s\u2019affine.",
   },
   {
-    q: "Faut-il avoir une page entreprise LinkedIn solide avant de lancer des campagnes ?",
-    a: "C\u2019est un plus mais ce n\u2019est pas bloquant. Les gens qui voient votre annonce vont souvent regarder votre page entreprise avant de donner suite. Si besoin on peut s\u2019occuper de la mise en forme de la page pendant la phase de démarrage, comme ça tout est en ordre avant la première diffusion.",
+    q: "Faut-il une page entreprise LinkedIn solide avant de lancer des campagnes ?",
+    a: "C\u2019est un plus, mais pas un prérequis. Les gens qui voient votre annonce iront souvent regarder votre page entreprise avant de donner suite. Au besoin, on prend en charge la mise en forme de la page pendant la phase de démarrage : tout est en ordre avant la première diffusion.",
   },
   {
     q: 'Pouvez-vous cibler des entreprises ou des fonctions précises ?',
-    a: "Oui et c\u2019est là que LinkedIn n\u2019a vraiment pas d\u2019équivalent. On cible par intitulé de poste, niveau hiérarchique, raison sociale, effectif, secteur, compétences et bien d\u2019autres critères. Vous atteignez les décideurs et uniquement les décideurs.",
+    a: "Oui, et c\u2019est précisément là que LinkedIn n\u2019a pas d\u2019équivalent. On cible par intitulé de poste, niveau hiérarchique, raison sociale, effectif, secteur, compétences et bien d\u2019autres critères. Vous touchez les décideurs, et uniquement les décideurs.",
   },
   {
     q: "Avec quels secteurs d\u2019activité travaillez-vous ?",
-    a: "Technologie, industrie, services aux entreprises, édition de logiciels, santé, et d\u2019autres. Du moment que vos acheteurs sont sur LinkedIn et que vos contrats dépassent les 20 000 €, on peut monter un dispositif qui s\u2019autofinance.",
+    a: "Tech, industrie, services aux entreprises, édition de logiciels, santé et d\u2019autres. Tant que vos acheteurs sont sur LinkedIn et que vos contrats dépassent 20 000 €, on peut monter un dispositif qui s\u2019autofinance.",
   },
   {
-    q: 'Comment démarrer ?',
-    a: "Réservez un appel. On regarde ensemble votre présence sur LinkedIn, on parle de vos objectifs commerciaux et on vous dit franchement si la publicité LinkedIn est le bon canal pour vous. Pas de présentation à rallonge, pas de pression.",
+    q: 'Comment démarre-t-on ?',
+    a: "Réservez un appel. On regarde votre présence LinkedIn ensemble, on parle de vos objectifs commerciaux et on vous dit franchement si la pub LinkedIn est le bon canal. Pas de présentation à rallonge, pas de pression.",
   },
 ];
 ---
 
 <Layout
-  title="Publicité LinkedIn | Plus de contacts commerciaux qualifiés"
-  description="Tous les formats publicitaires LinkedIn pilotés au sein d'un même dispositif, conçu pour la génération de contacts interentreprises. Ciblage de précision, optimisation par intelligence artificielle, rapports orientés résultats."
-  abstract="On pilote tous les formats publicitaires LinkedIn pour vous générer davantage de contacts commerciaux qualifiés. Ciblage précis, dispositif couvrant tout le parcours de vente, et des rapports qui mesurent les affaires signées - pas les impressions."
+  title="Publicité LinkedIn | Plus de prospects qualifiés"
+  description="Tous les formats publicitaires LinkedIn pilotés dans un même dispositif, pensé pour la génération de prospects B2B. Ciblage de précision, optimisation pilotée par l'IA, reporting orienté résultats."
+  abstract="On pilote tous les formats publicitaires LinkedIn pour vous générer davantage de prospects qualifiés. Ciblage précis, dispositif qui couvre tout le parcours d'achat, et des reportings qui mesurent les affaires signées. Pas les impressions."
   lang="fr"
 >
   <NavBar lang="fr" />
@@ -233,10 +233,10 @@ const faqs = [
         <div class="ads-hero__content">
           <p class="eyebrow eyebrow--light reveal">Publicité LinkedIn</p>
           <h1 id="ads-heading" class="ads-hero__h1 reveal reveal-delay-1">
-            Des annonces LinkedIn qui transforment les clics en <span class="text-gradient">affaires.</span>
+            Des pubs LinkedIn qui transforment les clics en <span class="text-gradient">contrats.</span>
           </h1>
           <p class="ads-hero__sub reveal reveal-delay-2">
-            Vos acheteurs sont sur LinkedIn, ça vous le savez. Ce qu'on fait nous, c'est s'assurer que vos annonces touchent les bons interlocuteurs au bon moment, avec le bon message. Et transformer cette attention en contacts commerciaux que votre équipe peut exploiter.
+            Vos acheteurs sont sur LinkedIn, vous le savez. Notre métier : faire en sorte que vos annonces touchent les bons interlocuteurs, au bon moment, avec le bon message. Et transformer cette attention en prospects que votre équipe commerciale peut convertir.
           </p>
           <div class="ads-hero__actions reveal reveal-delay-3">
             <a href="/fr/contact?intent=call" class="btn btn--primary btn--lg">Réserver un appel</a>
@@ -250,18 +250,18 @@ const faqs = [
       <div class="container">
         <div class="problem__inner">
           <div class="problem__text">
-            <h2 id="problem-heading" class="problem__h2 reveal">La plupart des entreprises gaspillent leur budget publicitaire sur LinkedIn</h2>
+            <h2 id="problem-heading" class="problem__h2 reveal">La plupart des entreprises crament leur budget pub sur LinkedIn</h2>
             <div class="problem__body">
               <p class="problem__p reveal">Elles sponsorisent une publication. Choisissent une cible trop large. Et croisent les doigts.</p>
-              <p class="problem__p reveal">Résultat : un coût par clic élevé, des contacts sans valeur et aucun lien clair entre ce qu'on dépense et ce que ça rapporte.</p>
-              <p class="problem__p reveal">La publicité LinkedIn fonctionne. Mais à condition qu'elle soit pensée comme un dispositif complet, pas comme une série de campagnes déconnectées les unes des autres.</p>
+              <p class="problem__p reveal">Résultat : un coût par clic stratosphérique, des prospects sans valeur et aucun lien clair entre la dépense et ce qu'elle ramène.</p>
+              <p class="problem__p reveal">La publicité LinkedIn fonctionne. À condition d'être pensée comme un dispositif d'ensemble, pas comme une série de campagnes qui s'ignorent les unes les autres.</p>
               <p class="problem__p problem__p--highlight reveal">C'est exactement ce qu'on fait.</p>
             </div>
           </div>
           <div class="problem__visual reveal reveal-delay-2" aria-hidden="true">
             <div class="problem__graphic">
-              <div class="problem__bar problem__bar--1"><span>Budget gaspillé</span></div>
-              <div class="problem__bar problem__bar--2"><span>Contacts sans valeur</span></div>
+              <div class="problem__bar problem__bar--1"><span>Budget cramé</span></div>
+              <div class="problem__bar problem__bar--2"><span>Prospects sans valeur</span></div>
               <div class="problem__bar problem__bar--3"><span>Aucune traçabilité</span></div>
             </div>
           </div>
@@ -275,7 +275,7 @@ const faqs = [
         <div class="wwd__head reveal">
           <p class="eyebrow">Notre approche</p>
           <h2 id="wwd-heading" class="wwd__h2">On conçoit et on pilote l'intégralité de votre dispositif publicitaire LinkedIn</h2>
-          <p class="wwd__intro">On ne vous remet pas un document de stratégie en vous souhaitant bonne chance. On prend en charge le processus de bout en bout, de la définition de la cible jusqu'au suivi des affaires qui en découlent. Notre équipe est <strong>certifiée par LinkedIn</strong> - concrètement elle respecte le référentiel officiel de la plateforme en matière de stratégie, de ciblage et d'optimisation.</p>
+          <p class="wwd__intro">Pas question de vous tendre un document de stratégie en vous souhaitant bonne chance. On prend tout en charge, de la définition de la cible jusqu'au suivi des affaires signées. Notre équipe est <strong>certifiée par LinkedIn</strong> : concrètement, elle applique le référentiel officiel de la plateforme en matière de stratégie, de ciblage et d'optimisation.</p>
         </div>
 
         <div class="wwd__grid">
@@ -298,7 +298,7 @@ const faqs = [
         <div class="formats__head reveal">
           <p class="eyebrow">Formats publicitaires</p>
           <h2 id="formats-heading" class="formats__h2">Tous les formats publicitaires LinkedIn. Une seule équipe certifiée.</h2>
-          <p class="formats__intro">LinkedIn propose cinq formats publicitaires et chacun a un rôle différent dans le parcours de vente. La plupart des agences en utilisent un ou deux. Nous on pilote les cinq dans un même dispositif, parce que c'est la seule façon de faire avancer un interlocuteur de la découverte jusqu'à la signature. Notre équipe certifiée sait quand et comment les déployer.</p>
+          <p class="formats__intro">LinkedIn propose cinq formats publicitaires, et chacun joue un rôle différent dans le parcours d'achat. La plupart des agences en utilisent un ou deux. Nous, on pilote les cinq dans un même dispositif : c'est la seule façon de faire avancer un interlocuteur de la découverte à la signature. Notre équipe certifiée sait quand et comment les déployer.</p>
         </div>
 
         {adFormats.map((fmt, i) => (
@@ -333,7 +333,7 @@ const faqs = [
       <div class="container">
         <div class="why__head reveal">
           <p class="eyebrow eyebrow--light">Pourquoi nous</p>
-          <h2 id="why-heading" class="why__h2">Ce qui nous distingue</h2>
+          <h2 id="why-heading" class="why__h2">Ce qui nous démarque</h2>
         </div>
 
         <div class="why__layout">
@@ -407,7 +407,7 @@ const faqs = [
       <div class="container">
         <div class="steps__head reveal">
           <p class="eyebrow">Notre méthode</p>
-          <h2 id="steps-heading" class="steps__h2">Du diagnostic au portefeuille d'affaires en quatre étapes</h2>
+          <h2 id="steps-heading" class="steps__h2">Du diagnostic au pipeline rempli, en quatre étapes</h2>
         </div>
 
         <div class="steps__track">
@@ -430,7 +430,7 @@ const faqs = [
       <div class="container">
         <div class="stats__head reveal">
           <p class="eyebrow eyebrow--light">En chiffres</p>
-          <h2 id="stats-heading" class="stats__h2">La plateforme livre des résultats. Les chiffres sont là.</h2>
+          <h2 id="stats-heading" class="stats__h2">La plateforme tient ses promesses. Les chiffres parlent.</h2>
         </div>
 
         <div class="stats__grid">
@@ -452,7 +452,7 @@ const faqs = [
         <div class="fit__layout">
           <div class="fit__text">
             <p class="eyebrow reveal">Pour qui ?</p>
-            <h2 id="fit-heading" class="fit__h2 reveal">Est-ce que ça correspond à votre entreprise ?</h2>
+            <h2 id="fit-heading" class="fit__h2 reveal">Est-ce taillé pour votre entreprise ?</h2>
             <p class="fit__intro reveal">Nos prestations de publicité LinkedIn s'adressent aux entreprises qui cochent ces trois cases :</p>
           </div>
 
@@ -463,7 +463,7 @@ const faqs = [
               </div>
               <div>
                 <strong class="fit-item__title">Vos acheteurs sont sur LinkedIn.</strong>
-                <p class="fit-item__body">Si vos clients sont des cadres, des dirigeants ou des chefs d'entreprise, ils y sont. Quatre membres LinkedIn sur cinq participent aux décisions d'achat de leur entreprise.</p>
+                <p class="fit-item__body">Si vos clients sont des cadres, des dirigeants ou des chefs d'entreprise, ils y sont. Quatre membres LinkedIn sur cinq pèsent dans les décisions d'achat de leur entreprise.</p>
               </div>
             </div>
             <div class="fit-item reveal reveal-delay-1">
@@ -472,7 +472,7 @@ const faqs = [
               </div>
               <div>
                 <strong class="fit-item__title">Le montant de vos contrats justifie l'investissement.</strong>
-                <p class="fit-item__body">Le coût par contact sur LinkedIn dépasse celui de Meta ou de l'affichage Google, c'est vrai. Mais pour les entreprises dont les contrats excèdent 20 000 €, le calcul est vite fait. Un contact à 200 € avec un taux de transformation de 5 %, ça revient à 4 000 € pour acquérir un client qui en vaut bien davantage.</p>
+                <p class="fit-item__body">Le coût par prospect sur LinkedIn dépasse celui de Meta ou du Display Google, c'est vrai. Mais quand vos contrats dépassent 20 000 €, le calcul est vite fait : un prospect à 200 € avec un taux de transformation de 5 % revient à 4 000 € pour acquérir un client qui en vaudra bien davantage.</p>
               </div>
             </div>
             <div class="fit-item reveal reveal-delay-2">
@@ -480,8 +480,8 @@ const faqs = [
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10.5l4 4 8-8" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
               <div>
-                <strong class="fit-item__title">Ce sont les affaires signées qui vous intéressent, pas les statistiques de vitrine.</strong>
-                <p class="fit-item__body">Si ce que vous cherchez ce sont des impressions et des abonnés, n'importe quelle agence fera l'affaire. Mais si ce sont des contacts qualifiés que votre force de vente peut convertir en contrats, là on devrait se parler.</p>
+                <strong class="fit-item__title">Ce qui vous intéresse, ce sont les affaires signées, pas les statistiques de vitrine.</strong>
+                <p class="fit-item__body">Si vous cherchez des impressions et des abonnés, n'importe quelle agence fera l'affaire. Si vous cherchez des prospects qualifiés que votre force de vente peut transformer en contrats, là, on a des choses à se dire.</p>
               </div>
             </div>
           </div>
@@ -489,7 +489,7 @@ const faqs = [
       </div>
     </section>
 
-    <FAQ heading="Questions fréquentes" faqs={faqs} background="var(--off-white)" cta={{ text: 'Réserver un appel', href: '/fr/contact?intent=call' }} id="ads-faq" />
+    <FAQ heading="Les questions qui reviennent" faqs={faqs} background="var(--off-white)" cta={{ text: 'Réserver un appel', href: '/fr/contact?intent=call' }} id="ads-faq" />
 
     <!-- ── Bottom CTA ──────────────────────────────────────── -->
     <section class="section cta" aria-labelledby="ads-cta-heading">
@@ -500,16 +500,16 @@ const faqs = [
           <div class="cta__left reveal">
             <p class="eyebrow eyebrow--light">Par où commencer</p>
             <h2 id="ads-cta-heading" class="cta__headline">
-              Obtenez davantage de contacts qualifiés<br />
+              Obtenez davantage de prospects qualifiés<br />
               <em>grâce à la publicité LinkedIn</em>
             </h2>
           </div>
           <div class="cta__right reveal reveal-delay-2">
-            <p class="cta__sub">Une équipe certifiée par LinkedIn qui pilote tous les formats dans un même dispositif. Chaque campagne est mesurée sur les affaires qu'elle génère. Pas sur autre chose.</p>
+            <p class="cta__sub">Une équipe certifiée par LinkedIn qui pilote tous les formats dans un même dispositif. Chaque campagne se mesure aux affaires qu'elle ramène. Pas à autre chose.</p>
             <div class="cta__actions">
               <a href="/fr/contact?intent=call" class="btn btn--primary btn--lg">Réserver un appel</a>
             </div>
-            <p class="cta__note">30 minutes. Sans argumentaire commercial. Des réponses franches.</p>
+            <p class="cta__note">30 minutes. Sans pitch commercial. Des réponses franches.</p>
           </div>
         </div>
       </div>

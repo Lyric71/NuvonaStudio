@@ -8,62 +8,62 @@ import FAQ from '../../../components/FAQ.astro';
 const overviewCards = [
   {
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="7" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="1.6"/><line x1="9" y1="12" x2="15" y2="12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="9" y1="16" x2="13" y2="16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
-    title: 'Gestion de page entreprise',
-    text: 'Votre première impression en ligne, construite et gérée de A à Z.',
+    title: 'Pilotage de la page entreprise',
+    text: 'Votre première impression en ligne, posée et tenue de bout en bout.',
     href: '#svc-company-page',
   },
   {
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
     title: 'Production éditoriale',
-    text: 'Tous les formats, chaque semaine, sur vos marchés. Du contenu qui installe votre crédibilité dans la durée.',
+    text: 'Tous les formats, chaque semaine, sur chacun de vos marchés. Du contenu qui installe votre crédibilité dans la durée.',
     href: '#svc-content-production',
   },
   {
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M2 7l10 7 10-7" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
-    title: 'Lettre d\'information LinkedIn',
-    text: 'Une relation directe avec les professionnels qui comptent pour votre activité.',
+    title: 'Newsletter LinkedIn',
+    text: 'Une relation directe avec les professionnels qui comptent vraiment pour votre business.',
     href: '#svc-newsletter',
   },
   {
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="1.6"/><rect x="7" y="14" width="3" height="3" rx="0.5" fill="currentColor" opacity="0.7"/></svg>`,
     title: 'Événements LinkedIn',
-    text: 'Le format le plus performant de LinkedIn en termes d\'interactions. Et chaque inscrit est un contact identifié.',
+    text: 'Le format le plus performant côté engagement sur LinkedIn. Et chaque inscrit devient un prospect identifié.',
     href: '#svc-events',
   },
 ];
 
 const whatWeDo = [
-  { title: 'Toute votre production de contenu, prise en charge.', body: 'Stratégie, calendrier éditorial, production, publication, rapports. Vous validez, on s\'occupe du reste. Votre équipe peut enfin se concentrer sur son vrai métier.', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/></svg>` },
-  { title: 'Votre voix, pas la nôtre.', body: 'On prend le temps de comprendre comment vos équipes parlent, ce qui intéresse votre marché et les gens que vous essayez de toucher. Après, on rédige. Et le résultat doit se lire comme si c\'était vous qui l\'aviez écrit. Si c\'est pas le cas, on recommence.', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>` },
-  { title: 'Du contenu dans chaque langue de vos acheteurs.', body: 'On traduit pas. On rédige nativement, avec des rédacteurs qui pensent dans la langue cible. Vos prospects lisent en allemand, en mandarin, en espagnol ? On écrit pour eux depuis zéro.', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 9h17M3.5 15h17" stroke="currentColor" stroke-width="1.6"/><ellipse cx="12" cy="12" rx="4" ry="9" stroke="currentColor" stroke-width="1.6"/></svg>` },
-  { title: 'L\'IA accélère la cadence. La qualité, elle, ne bouge pas.', body: 'Concrètement, l\'intelligence artificielle nous aide sur la recherche, la rédaction, le multilingue, les visuels, le montage. Mais notre équipe éditoriale relit tout et vous validez tout avant publication. Plus de contenus, plus vite, moins cher à l\'unité - et toujours un humain qui a le dernier mot.', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.09 6.26L20 10l-5.91 1.74L12 18l-2.09-6.26L4 10l5.91-1.74L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>` },
-  { title: 'Des rapports qui parlent à votre direction commerciale.', body: 'Un rapport par mois, lié à vos objectifs business. Ce qui a marché, ce qui a moins pris, ce qu\'on change. On vous envoie pas un tableau de bord avec 45 indicateurs dont personne sait quoi faire.', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7 17V13M12 17V9M17 17V7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>` },
+  { title: 'Toute votre production éditoriale, prise en charge.', body: 'Stratégie, calendrier éditorial, production, publication, reporting : vous validez, on s\'occupe du reste. Votre équipe peut enfin se recentrer sur son métier.', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.6"/></svg>` },
+  { title: 'Votre voix, pas la nôtre.', body: 'On prend le temps de comprendre comment vos équipes parlent, ce qui intéresse votre marché et les gens que vous voulez toucher. Puis on rédige. Le résultat doit se lire comme si vous l\'aviez écrit. Sinon, on recommence.', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>` },
+  { title: 'Du contenu rédigé nativement dans la langue de vos acheteurs.', body: 'On ne traduit pas. On rédige en natif, avec des plumes qui pensent dans la langue cible. Vos prospects lisent en allemand, en mandarin, en espagnol ? On écrit pour eux à partir de zéro.', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 9h17M3.5 15h17" stroke="currentColor" stroke-width="1.6"/><ellipse cx="12" cy="12" rx="4" ry="9" stroke="currentColor" stroke-width="1.6"/></svg>` },
+  { title: 'L\'IA accélère la cadence. Le niveau, lui, ne bouge pas.', body: 'Concrètement, l\'IA nous épaule sur la recherche, la rédaction, le multilingue, les visuels et le montage. Mais notre équipe éditoriale relit tout, et vous validez tout avant publication. Plus de contenus, plus vite, moins cher à l\'unité : et toujours un humain qui a le dernier mot.', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.09 6.26L20 10l-5.91 1.74L12 18l-2.09-6.26L4 10l5.91-1.74L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>` },
+  { title: 'Des rapports qui parlent à votre direction commerciale.', body: 'Un reporting par mois, branché à vos objectifs business. Ce qui a marché, ce qui a moins pris, ce qu\'on change. Pas un tableau de bord à 45 indicateurs dont personne ne sait quoi faire.', icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7 17V13M12 17V9M17 17V7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>` },
 ];
 
 const whyBlocks = [
-  { title: 'On ne fait que ça.', body: 'On est pas une agence numérique qui propose LinkedIn au milieu de quinze autres canaux. LinkedIn, c\'est tout ce qu\'on fait. Nos méthodes, nos processus éditoriaux, nos repères de performance - tout a été construit pour ça et uniquement pour ça.' },
-  { title: 'Multilingue dès le premier jour.', body: 'La plupart des agences traduisent un contenu anglais et appellent ça de la localisation. Nous, on rédige nativement dans chaque langue. Votre contenu en allemand, il se lit comme s\'il avait été écrit par quelqu\'un qui pense en allemand. Et c\'est exactement ce qui se passe.' },
-  { title: 'L\'IA nous donne de la vitesse. L\'humain fixe le niveau.', body: 'On utilise l\'intelligence artificielle à chaque étape : recherche, premiers jets, visuels, extraits vidéo. Par contre, rien ne sort sans être passé par notre équipe éditoriale. C\'est elle qui décide si c\'est prêt. Pas la machine.' },
-  { title: 'Tout vous appartient.', body: 'Les contenus, la liste d\'abonnés, les données d\'inscrits, les créas. Si vous partez demain, tout vient avec vous. On retient rien.' },
+  { title: 'On ne fait que ça.', body: 'On n\'est pas une agence digitale qui propose LinkedIn au milieu de quinze autres canaux. LinkedIn, c\'est tout ce qu\'on fait. Méthodes, process éditoriaux, repères de performance : tout a été pensé pour ça, et uniquement pour ça.' },
+  { title: 'Multilingue dès le premier jour.', body: 'La plupart des agences traduisent un texte anglais et baptisent ça « localisation ». Nous, on rédige en natif dans chaque langue. Votre contenu en allemand se lit comme s\'il avait été écrit par quelqu\'un qui pense en allemand. Et c\'est exactement ce qui se passe.' },
+  { title: 'L\'IA donne la vitesse. L\'humain fixe le niveau.', body: 'On utilise l\'IA à chaque étape : recherche, premiers jets, visuels, extraits vidéo. Mais rien ne quitte le studio sans repasser par l\'équipe éditoriale. C\'est elle qui tranche, pas la machine.' },
+  { title: 'Tout vous appartient.', body: 'Les contenus, la liste d\'abonnés, les données d\'inscrits, les créations. Si vous partez demain, tout part avec vous. On ne garde rien.' },
 ];
 
 const services = [
   {
     id: 'svc-company-page',
-    title: 'Gestion de page entreprise',
-    short: 'Votre première impression en ligne, construite et gérée de A à Z.',
+    title: 'Pilotage de la page entreprise',
+    short: 'Votre première impression en ligne, posée et tenue de bout en bout.',
     details: [
-      'Audit et refonte complète (bannière, section À propos, contenus mis en avant, étiquettes de spécialité)',
-      'Gestion mensuelle des publications, calée sur l\'algorithme LinkedIn et vos priorités commerciales',
+      'Audit et refonte complète : bannière, section À propos, contenus mis en avant, étiquettes de spécialité',
+      'Pilotage mensuel des publications, calé sur l\'algorithme LinkedIn et vos priorités commerciales',
       'Tous les formats : texte, carrousels, vidéos, documents, sondages',
-      'Croissance des abonnés via la mobilisation des collaborateurs, des campagnes ciblées et du contenu qui circule',
-      'Rapport mensuel : ce qui s\'est passé, pourquoi, ce qu\'on ajuste',
+      'Croissance des abonnés via le programme employés ambassadeurs, des campagnes ciblées et du contenu qui circule',
+      'Reporting mensuel : ce qui s\'est passé, pourquoi, et ce qu\'on ajuste',
     ],
-    trust: 'On gagne du temps grâce à l\'IA. Mais c\'est l\'équipe qui garantit le niveau.',
-    footnote: 'Rien ne sort sans votre feu vert. Et tout ce qu\'on construit, ça reste à vous.',
+    trust: 'L\'IA fait gagner du temps. C\'est l\'équipe qui garantit le niveau.',
+    footnote: 'Rien ne sort sans votre feu vert. Et tout ce qu\'on construit reste votre propriété.',
     stat: null,
     image: '/images/content-company-page.webp',
-    imageAlt: 'Tableau de bord de gestion de page entreprise',
+    imageAlt: 'Tableau de bord de pilotage de page entreprise',
   },
   {
     id: 'svc-content-production',
@@ -71,86 +71,86 @@ const services = [
     short: 'Tous les formats, chaque semaine, sur chacun de vos marchés.',
     details: [
       'Chaque format LinkedIn choisi pour une raison précise, jamais par défaut',
-      'Rédaction pour vos dirigeants : ils ont l\'expertise, on lui donne une voix',
-      'Contenus multilingues rédigés nativement, pas traduits',
+      'Plume du dirigeant : ils ont l\'expertise, on lui donne une voix',
+      'Contenus multilingues rédigés en natif, pas traduits',
       'Calendrier éditorial bouclé un mois à l\'avance : rédigé, relu, validé, publié dans les temps',
     ],
-    trust: 'Recherche, rédaction, multilingue : l\'IA nous accélère sur tout ça. L\'équipe éditoriale vérifie que le résultat tient la route.',
-    footnote: 'Vous validez chaque contenu. Si ça va pas, on recommence.',
+    trust: 'Recherche, rédaction, multilingue : l\'IA accélère tout ça. L\'équipe éditoriale s\'assure que le résultat tient la route.',
+    footnote: 'Vous validez chaque contenu. Si ça ne va pas, on recommence.',
     stat: null,
     image: '/images/content-production.webp',
     imageAlt: 'Processus de production éditoriale',
   },
   {
     id: 'svc-newsletter',
-    title: 'Lettre d\'information LinkedIn',
-    short: 'Un canal direct vers les professionnels qui comptent le plus pour votre activité.',
+    title: 'Newsletter LinkedIn',
+    short: 'Un canal direct vers les professionnels qui comptent le plus pour votre business.',
     details: [
-      'Concept éditorial : ce que votre lettre d\'information défend, à qui elle parle, pourquoi on reste abonné',
-      'Production complète : recherche, rédaction, relecture, objet, incitations à l\'action',
-      'Croissance des abonnés : acquisition naturelle et payante via votre page entreprise, les profils de vos dirigeants, des campagnes ciblées',
-      'Suivi des performances : taux d\'ouverture, clics, croissance des abonnés, analyse après chaque édition',
+      'Concept éditorial : ce que défend votre newsletter, à qui elle parle, ce qui donne envie d\'y rester abonné',
+      'Production complète : recherche, rédaction, relecture, objet, appels à l\'action',
+      'Croissance des abonnés : acquisition organique et payante via votre page entreprise, les profils dirigeants et des campagnes ciblées',
+      'Suivi des performances : taux d\'ouverture, clics, croissance des abonnés, debrief après chaque édition',
     ],
-    trust: 'La recherche de sujets et la rédaction multilingue sont accélérées par l\'IA. Le reste - la plume, le contrôle final - c\'est humain.',
-    footnote: 'La liste d\'abonnés, c\'est la vôtre. Toujours.',
+    trust: 'L\'IA accélère la recherche de sujets et la rédaction multilingue. Le reste — la plume, le dernier mot — reste humain.',
+    footnote: 'La liste d\'abonnés est la vôtre. Toujours.',
     stat: null,
     image: '/images/content-newsletter.webp',
-    imageAlt: 'Maquette de lettre d\'information LinkedIn',
+    imageAlt: 'Maquette de newsletter LinkedIn',
   },
   {
     id: 'svc-events',
     title: 'Événements LinkedIn',
-    short: 'Le format le plus performant de LinkedIn en termes d\'interactions. Et chaque inscrit est un contact identifié.',
+    short: 'Le format LinkedIn le plus performant côté engagement. Et chaque inscrit devient un prospect identifié.',
     details: [
-      'Concept et positionnement : un angle clair, un public bien défini, un format conçu pour remplir les places',
-      'Campagne de promotion sur plusieurs canaux, lancée quatre semaines avant l\'événement, naturelle et payante',
-      'Préparation des intervenants : chaque participant est briefé, préparé, vérifié techniquement',
-      'Gestion en direct : on pilote la session, vous vous concentrez sur le fond',
-      'Contenus d\'après-événement : enregistrement, extraits vidéo, synthèse écrite, publications sociales',
-      'Plan de relance : les données des inscrits, plus un plan d\'action concret pour votre équipe commerciale',
+      'Concept et positionnement : un angle clair, un public bien défini, un format pensé pour remplir la salle',
+      'Campagne de promo multicanale, lancée quatre semaines avant le jour J, en organique et en payant',
+      'Préparation des intervenants : briefing, répétition, check technique pour chacun',
+      'Régie en direct : on pilote la session, vous restez concentré sur le fond',
+      'Contenus post-événement : enregistrement, extraits vidéo, synthèse écrite, déclinaisons social',
+      'Plan de relance : données des inscrits livrées avec un plan d\'action prêt à dégainer pour votre équipe commerciale',
     ],
-    trust: 'Traitement des enregistrements, génération d\'extraits, déclinaison des moments clés sur tous les formats LinkedIn - l\'IA gère cette partie.',
-    footnote: 'Ressources et données des inscrits : tout est à vous. Et si le concept tient pas la route, on vous le dit dès la semaine 1.',
-    stat: '100 % Propriété des données d\'inscrits',
+    trust: 'Traitement des enregistrements, génération d\'extraits, déclinaison des moments forts sur tous les formats LinkedIn : l\'IA s\'occupe de ce volet.',
+    footnote: 'Ressources et données des inscrits : tout vous revient. Et si le concept ne tient pas la route, on vous le dit dès la première semaine.',
+    stat: '100 % des données d\'inscrits sont à vous',
     image: '/images/content-events.webp',
-    imageAlt: 'Visuel de promotion d\'événement LinkedIn',
+    imageAlt: 'Visuel de promotion d\'un événement LinkedIn',
   },
 ];
 
 const cardIcons = overviewCards.map(c => c.icon);
 
 const stats = [
-  { value: '80 %', label: 'des contacts B2B issus des réseaux sociaux viennent de LinkedIn.', context: 'Aucune autre plateforme s\'en approche, même de loin.', source: 'LinkedIn Marketing Solutions / Cognism' },
-  { value: '7x', label: 'plus rapide : la croissance d\'abonnés des pages qui publient toutes les semaines.', context: 'La régularité, c\'est le premier levier. Et de loin.', source: 'LinkedIn' },
-  { value: '5x', label: 'plus d\'interactions sur les contenus vidéo que sur les posts statiques.', context: 'Le format compte autant que le fond.', source: 'LinkedIn' },
-  { value: '59 %', label: 'des décideurs B2B jugent le contenu d\'expertise plus fiable que tout autre support pour évaluer un prestataire.', context: 'Devant la publicité. Devant les livres blancs. Devant les études de cas.', source: 'LinkedIn / Edelman' },
-  { value: '4 sur 5', label: 'membres LinkedIn sont impliqués dans les décisions d\'achat de leur entreprise.', context: 'En clair, votre contenu tombe sous les yeux de gens qui peuvent signer.', source: 'LinkedIn' },
-  { value: '2x', label: 'plus de transformations sur LinkedIn que sur les autres réseaux sociaux.', context: 'Le public est déjà en mode pro.', source: 'LinkedIn Marketing Solutions' },
-  { value: '277 %', label: 'plus efficace que Facebook et X réunis pour générer des contacts qualifiés.', context: 'C\'est pas la même cour.', source: 'HubSpot' },
-  { value: '46 %', label: 'du trafic social vers les sites B2B provient de LinkedIn.', context: 'Le contenu construit pas seulement l\'image. Il ramène du monde sur votre site.', source: 'LinkedIn' },
-  { value: '28 %', label: 'de coût par contact en moins sur LinkedIn par rapport à Google Ads.', context: 'Et le contenu organique réduit encore la note.', source: 'HubSpot' },
-  { value: '61 %', label: 'de chances en plus de convertir via la publicité après une interaction organique.', context: 'Contenu + pub ensemble, ça marche mieux que l\'un sans l\'autre.', source: 'Recherche interne LinkedIn' },
+  { value: '80 %', label: 'des prospects B2B issus des réseaux sociaux viennent de LinkedIn.', context: 'Aucune autre plateforme n\'en approche, même de loin.', source: 'LinkedIn Marketing Solutions / Cognism' },
+  { value: '7×', label: 'plus rapide : la croissance d\'abonnés des pages qui publient chaque semaine.', context: 'La régularité reste le premier levier. Et de loin.', source: 'LinkedIn' },
+  { value: '5×', label: 'd\'engagement en plus sur la vidéo que sur les posts statiques.', context: 'Le format compte autant que le fond.', source: 'LinkedIn' },
+  { value: '59 %', label: 'des décideurs B2B placent le contenu d\'expertise devant tous les autres supports pour évaluer un prestataire.', context: 'Devant la publicité. Devant les livres blancs. Devant les études de cas.', source: 'LinkedIn / Edelman' },
+  { value: '4 sur 5', label: 'membres LinkedIn pèsent dans les décisions d\'achat de leur entreprise.', context: 'Traduction : votre contenu atterrit sous les yeux de gens qui peuvent signer.', source: 'LinkedIn' },
+  { value: '2×', label: 'plus de conversions sur LinkedIn que sur les autres réseaux sociaux.', context: 'Le public est déjà en mode pro.', source: 'LinkedIn Marketing Solutions' },
+  { value: '277 %', label: 'plus efficace que Facebook et X réunis pour générer des prospects qualifiés.', context: 'Ce n\'est pas la même cour.', source: 'HubSpot' },
+  { value: '46 %', label: 'du trafic social vers les sites B2B vient de LinkedIn.', context: 'Le contenu ne construit pas que l\'image : il ramène aussi du monde sur votre site.', source: 'LinkedIn' },
+  { value: '28 %', label: 'de coût par prospect en moins sur LinkedIn comparé à Google Ads.', context: 'Et le contenu organique fait encore baisser la note.', source: 'HubSpot' },
+  { value: '61 %', label: 'de probabilité en plus de convertir en publicité après un premier contact organique.', context: 'Contenu + pub conjugués font mieux que l\'un sans l\'autre.', source: 'Recherche interne LinkedIn' },
 ];
 
 const faqs = [
-  { q: 'Concrètement, ça se passe comment le premier mois ?', a: 'On commence par un audit de votre présence LinkedIn : page entreprise, profils de dirigeants, historique des publications, base d\'abonnés. À partir de là on construit la stratégie éditoriale, on vous soumet le premier mois de contenu pour validation et on lance. En général nos clients sont opérationnels en deux-trois semaines.' },
-  { q: 'Quelle est la durée de vos engagements ?', a: 'Trois mois au départ, ensuite c\'est du mois par mois. Le premier trimestre c\'est le temps qu\'il faut pour poser les bases et commencer à mesurer des choses concrètes. Après ça, vous restez parce que ça marche - pas parce que vous êtes coincé dans un contrat.' },
-  { q: 'Comment l\'IA intervient dans votre production ?', a: 'On s\'en sert à toutes les étapes. Recherche, rédaction, multilingue, création d\'images, montage vidéo. Ça nous permet de produire plus, plus vite, à moindre coût. Mais notre équipe éditoriale relit chaque texte et nos graphistes vérifient chaque visuel - rien part sans validation humaine et votre accord. C\'est le point sur lequel on ne transige pas.' },
-  { q: 'Et si le contenu me plaît pas ?', a: 'On le refait. Sans discuter, sans facturer en plus. On préfère réécrire trois fois un post que publier un truc qui colle pas.' },
-  { q: 'Je peux commencer par un seul service ?', a: 'Oui. Commencez par ce qui vous semble le plus urgent, vous verrez pour le reste après.' },
-  { q: 'Ça prend combien de temps à mon équipe ?', a: 'Pas grand chose en fait. On planifie les contenus un mois à l\'avance, votre équipe relit et valide. Ça prend en général vingt à trente minutes par semaine. Certains clients font ça le lundi matin avec leur café.' },
-  { q: 'Vous pouvez travailler avec notre charte graphique ?', a: 'Bien sûr. Charte graphique, ton, identité visuelle, processus de validation - on s\'y colle. Si vous avez des gabarits, de la terminologie imposée ou des contraintes réglementaires, on s\'adapte aussi.' },
-  { q: 'Vos rapports, ça ressemble à quoi ?', a: 'Un rapport par mois, rattaché à vos objectifs commerciaux. Croissance des abonnés, interactions, performance des contenus, indicateurs de génération de contacts. On vous explique ce qui a marché, ce qui a moins bien pris, et ce qu\'on ajuste le mois d\'après. Pas de remplissage.' },
-  { q: 'Combien de temps avant de voir des résultats ?', a: 'Les vues de profil, la croissance d\'abonnés, les interactions - ça bouge en général dans les 60 premiers jours. Pour la génération de contacts commerciaux, c\'est plutôt 90 jours. Le temps que le contenu s\'accumule et que votre lectorat se construise. On promet pas de résultats du jour au lendemain, ça serait pas honnête. LinkedIn récompense ceux qui tiennent la distance.' },
-  { q: 'Et si je veux arrêter ?', a: 'Passé les trois premiers mois, 30 jours de préavis et c\'est tout. Contenus, abonnés, ressources : vous repartez avec tout.' },
+  { q: 'Concrètement, à quoi ressemble le premier mois ?', a: 'On commence par un audit de votre présence LinkedIn : page entreprise, profils dirigeants, historique des publications, base d\'abonnés. À partir de là, on construit la stratégie éditoriale, on vous soumet le premier mois de contenu pour validation, puis on lance. Nos clients sont en général opérationnels en deux à trois semaines.' },
+  { q: 'Quelle est la durée de vos engagements ?', a: 'Trois mois au départ, puis du mois par mois. Le premier trimestre, c\'est le temps de poser les bases et de commencer à mesurer des choses concrètes. Ensuite, vous restez parce que ça marche, pas parce qu\'un contrat vous y oblige.' },
+  { q: 'Comment l\'IA intervient-elle dans votre production ?', a: 'On s\'en sert à toutes les étapes : recherche, rédaction, multilingue, création d\'images, montage vidéo. Résultat : on produit plus, plus vite et pour moins cher. Mais l\'équipe éditoriale relit chaque texte et les graphistes contrôlent chaque visuel. Rien ne part sans validation humaine, ni sans votre feu vert. C\'est le point sur lequel on ne lâche rien.' },
+  { q: 'Et si un contenu ne me plaît pas ?', a: 'On le refait. Sans discuter, sans facturer un centime de plus. On préfère réécrire trois fois un post que publier quelque chose qui ne colle pas.' },
+  { q: 'Puis-je commencer par un seul service ?', a: 'Oui. Démarrez par le plus urgent, on verra pour la suite ensemble.' },
+  { q: 'Combien de temps ça prend à mon équipe ?', a: 'Pas grand-chose, en fait. On planifie les contenus un mois à l\'avance, votre équipe relit et valide. Comptez en général vingt à trente minutes par semaine. Certains clients s\'en occupent le lundi matin, café à la main.' },
+  { q: 'Pouvez-vous travailler avec notre charte ?', a: 'Bien sûr. Charte graphique, ton, identité visuelle, circuit de validation : on s\'y colle. Gabarits, terminologie imposée, contraintes réglementaires : on s\'adapte aussi.' },
+  { q: 'À quoi ressemblent vos reportings ?', a: 'Un reporting par mois, accroché à vos objectifs commerciaux. Croissance des abonnés, engagement, performance des contenus, indicateurs de génération de prospects. On vous explique ce qui a marché, ce qui a moins pris et ce qu\'on ajuste le mois suivant. Aucun remplissage.' },
+  { q: 'En combien de temps voit-on des résultats ?', a: 'Vues de profil, croissance d\'abonnés, engagement : ça bouge en général dans les 60 premiers jours. Pour la génération de prospects, comptez plutôt 90 jours, le temps que le contenu s\'accumule et qu\'un vrai lectorat se construise. On ne promet pas de résultat du jour au lendemain, ce serait malhonnête. LinkedIn récompense ceux qui tiennent la distance.' },
+  { q: 'Et si je veux arrêter ?', a: 'Passé les trois premiers mois, 30 jours de préavis et c\'est plié. Contenus, abonnés, ressources : tout repart avec vous.' },
 ];
 ---
 
 <Layout
   lang="fr"
-  title="Services de contenu LinkedIn | Générez plus de contacts B2B"
-  description="On produit tous les contenus LinkedIn dont votre marque a besoin. Stratégie, production, publication, rapports. Fait pour le B2B, fait pour générer des contacts."
-  abstract="On pilote votre contenu LinkedIn de A à Z. Stratégie, production, publication, rapports. Quatre services, un objectif : davantage de contacts qualifiés via LinkedIn."
+  title="Services de contenu LinkedIn | Plus de prospects B2B"
+  description="On produit tous les contenus LinkedIn dont votre marque a besoin. Stratégie, production, publication, reporting. Pensé pour le B2B, pensé pour générer des prospects."
+  abstract="On pilote votre contenu LinkedIn de A à Z. Stratégie, production, publication, reporting. Quatre services, un seul cap : davantage de prospects qualifiés via LinkedIn."
 >
   <NavBar lang="fr" />
   <main id="main-content">
@@ -163,10 +163,10 @@ const faqs = [
         <div class="c-hero__content">
           <p class="eyebrow eyebrow--light reveal">Services de contenu LinkedIn</p>
           <h1 id="hero-h" class="c-hero__h1 reveal reveal-delay-1">
-            Du contenu LinkedIn qui capte l'attention et ramène des <span class="text-gradient">contacts.</span>
+            Du contenu LinkedIn qui retient l'attention et ramène des <span class="text-gradient">prospects.</span>
           </h1>
           <p class="c-hero__sub reveal reveal-delay-2">
-            On produit tout le contenu dont votre présence LinkedIn a besoin. Stratégie, production, publication, rapports. Vous, vous avez rien à gérer.
+            On produit tout le contenu dont votre présence LinkedIn a besoin. Stratégie, production, publication, reporting. De votre côté, vous n'avez rien à piloter.
           </p>
           <div class="c-hero__actions reveal reveal-delay-3">
             <a href="/fr/contact" class="btn btn--primary btn--lg">Réserver un appel</a>
@@ -200,8 +200,8 @@ const faqs = [
         <div class="c-wwd__head reveal">
           <p class="eyebrow">Notre approche</p>
           <h2 id="wwd-h" class="c-wwd__h2">On transforme votre présence LinkedIn en vrai levier commercial.</h2>
-          <p class="c-wwd__intro">Votre équipe a l'expertise. Votre entreprise a une histoire à raconter. Mais tant que ce savoir-faire reste entre vos murs, il remplit pas le carnet de commandes.</p>
-          <p class="c-wwd__intro">On prend ce qui fait la crédibilité de votre marque et on en fait une mécanique éditoriale qui tourne chaque semaine sur LinkedIn. Publications, articles, lettres d'information, événements. Le tout calibré pour toucher les gens qui achètent ce que vous vendez.</p>
+          <p class="c-wwd__intro">Votre équipe a l'expertise. Votre entreprise a une histoire à raconter. Mais tant que ce savoir-faire reste cantonné à vos bureaux, il ne remplit pas le carnet de commandes.</p>
+          <p class="c-wwd__intro">On prend ce qui fait la crédibilité de votre marque et on en fait une machine éditoriale qui tourne chaque semaine sur LinkedIn. Publications, articles, newsletters, événements : le tout calibré pour atteindre les gens qui achètent ce que vous vendez.</p>
         </div>
 
         <div class="c-wwd__grid">
@@ -225,7 +225,7 @@ const faqs = [
       <div class="container">
         <div class="c-why__head reveal">
           <p class="eyebrow eyebrow--light">Pourquoi nous</p>
-          <h2 id="why-h" class="c-why__h2">Pensé pour le B2B. Taillé pour l'international.</h2>
+          <h2 id="why-h" class="c-why__h2">Pensé pour le B2B, taillé pour l'international.</h2>
         </div>
 
         <div class="c-why__layout">
@@ -273,8 +273,8 @@ const faqs = [
       <div class="container">
         <div class="c-svc__head reveal">
           <p class="eyebrow">Nos services</p>
-          <h2 id="svc-h" class="c-svc__h2">Quatre services. Un objectif. Plus de contacts qualifiés via LinkedIn.</h2>
-          <p class="c-svc__intro">Chacun fonctionne indépendamment. Mais ensemble ils transforment votre présence LinkedIn en un vrai système de génération de contacts - le genre sur lequel votre équipe commerciale peut compter au quotidien.</p>
+          <h2 id="svc-h" class="c-svc__h2">Quatre services. Un cap. Davantage de prospects qualifiés via LinkedIn.</h2>
+          <p class="c-svc__intro">Chacun fonctionne en autonomie. Mais ensemble, ils transforment votre présence LinkedIn en vraie machine à prospects, le genre sur lequel votre équipe commerciale peut compter au quotidien.</p>
         </div>
 
         {services.map((s, i) => (
@@ -317,7 +317,7 @@ const faqs = [
         ))}
 
         <div class="c-svc__cta reveal">
-          <a href="/fr/contact" class="btn btn--primary btn--lg">Commencer à générer des contacts</a>
+          <a href="/fr/contact" class="btn btn--primary btn--lg">Lancer la machine à prospects</a>
         </div>
       </div>
     </section>
@@ -329,7 +329,7 @@ const faqs = [
         <div class="c-stats__head reveal">
           <p class="eyebrow eyebrow--light">En chiffres</p>
           <h2 id="stats-h" class="c-stats__h2">Pourquoi un contenu LinkedIn soigné finit toujours par se rentabiliser.</h2>
-          <p class="c-stats__sub">Vous savez déjà que LinkedIn pèse en B2B. Ces chiffres montrent ce qui se passe quand on décide de s'y mettre sérieusement.</p>
+          <p class="c-stats__sub">Vous savez déjà que LinkedIn pèse en B2B. Ces chiffres montrent ce qui se passe quand on décide d'y aller sérieusement.</p>
         </div>
 
         <div class="c-stats__grid">
@@ -346,7 +346,7 @@ const faqs = [
     </section>
 
 
-    <FAQ heading="Les questions qu'on nous pose le plus." faqs={faqs} background="var(--off-white)" cta={{ text: 'Réserver un appel', href: '/fr/contact' }} id="content-faq" />
+    <FAQ heading="Les questions qui reviennent." faqs={faqs} background="var(--off-white)" cta={{ text: 'Réserver un appel', href: '/fr/contact' }} id="content-faq" />
 
 
     <!-- ── Bottom CTA ────────────────────────────────────────── -->
@@ -356,14 +356,14 @@ const faqs = [
       <div class="container">
         <div class="c-cta__layout">
           <div class="c-cta__left reveal">
-            <p class="eyebrow eyebrow--light">Passez à l'action</p>
+            <p class="eyebrow eyebrow--light">On démarre ?</p>
             <h2 id="bcta-h" class="c-cta__headline">
               Vos acheteurs sont sur LinkedIn.<br />
-              <em>Votre contenu devrait y être aussi.</em>
+              <em>Votre contenu aussi.</em>
             </h2>
           </div>
           <div class="c-cta__right reveal reveal-delay-2">
-            <p class="c-cta__sub">Réservez un appel. On regarde votre présence LinkedIn et on vous dit concrètement où sont les opportunités.</p>
+            <p class="c-cta__sub">Réservez un créneau. On regarde votre présence LinkedIn et on vous dit, concrètement, où se trouvent les opportunités.</p>
             <div class="c-cta__actions">
               <a href="/fr/contact" class="btn btn--primary btn--lg">Réserver un appel</a>
             </div>

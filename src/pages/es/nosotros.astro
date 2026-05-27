@@ -5,18 +5,18 @@ import FAQ from '../../components/FAQ.astro';
 
 const values = [
   {
-    title: 'El trabajo lo hacemos nosotros.',
-    body: 'Quien diseña tu estrategia es quien luego gestiona tus campañas. Sin pases de testigo entre un consultor y un equipo de ejecución. Ahí es donde la mayoría de agencias se cae.',
+    title: 'Aquí el trabajo lo firmamos nosotros.',
+    body: 'Quien diseña la estrategia es quien después ejecuta las campañas. Sin relevos entre el consultor estrella y un equipo júnior que termina haciendo el trabajo de verdad. Justo ahí es donde la mayoría de agencias pincha.',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.09 6.26L20 10l-5.91 1.74L12 18l-2.09-6.26L4 10l5.91-1.74L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
   },
   {
-    title: 'Sinceridad, aunque pique.',
-    body: 'Jamás vamos a inflar una cifra para que un informe quede bonito. Si algo no funciona, te lo decimos. Y no te lo decimos tres meses tarde.',
+    title: 'Sinceridad, aunque escueza.',
+    body: 'Jamás inflaremos una cifra para que el informe del mes luzca mejor. Si algo no está funcionando, lo decimos. Y lo decimos a tiempo, no tres meses después cuando ya da igual.',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" stroke="currentColor" stroke-width="1.6"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
   },
   {
-    title: 'La atención se gana.',
-    body: 'Ya sea una publicación, un anuncio o un perfil de directivo, lo que producimos tiene que merecer el tiempo de quien lo lee. Si una pieza no engancha, no sale.',
+    title: 'La atención hay que merecérsela.',
+    body: 'Sea un post, un anuncio o un perfil directivo, cada pieza tiene que justificar el minuto que alguien le va a regalar. Si no engancha, sencillamente no se publica.',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/></svg>`,
   },
 ];
@@ -24,50 +24,50 @@ const values = [
 const whyWorkWithUs = [
   {
     title: 'Solo hacemos LinkedIn.',
-    body: 'Nada de dispersarse en diez plataformas. Todo el equipo trabaja en estrategia, contenido y publicidad de LinkedIn, y nada más. Cuando te concentras en un único tema durante años, los resultados llegan.',
+    body: 'Nada de dispersarse entre diez plataformas. El equipo entero trabaja estrategia, contenido y publicidad de LinkedIn, y punto. Cuando llevas años obsesionado con una sola disciplina, los resultados se notan.',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
   },
   {
-    title: 'Profesionales con kilómetros, sin intermediarios.',
-    body: 'La persona a la que le explicas tu necesidad es la misma que ejecuta el trabajo. A tu estratega, redactor y responsable de campaña terminarás llamándolos por su nombre.',
+    title: 'Perfiles con horas de vuelo, sin intermediarios.',
+    body: 'La persona a la que le explicas tu necesidad es la misma que se sienta a ejecutar. Al estratega, al copy y al responsable de campaña terminarás llamándolos por su nombre de pila.',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
   },
   {
     title: 'Cuatro países, conocimiento real del terreno.',
-    body: 'Operamos desde Hong Kong, Francia, Filipinas y China. Un núcleo de estrategas y responsables de campaña, apoyado por redactores bilingües, diseñadores y analistas. Producimos contenido en más de diez idiomas sin perder el tono ni los matices.',
+    body: 'Operamos desde Hong Kong, Francia, Filipinas y China. Un núcleo de estrategas y responsables de campaña con apoyo de redactores bilingües, diseñadores y analistas. Producimos contenido en más de diez idiomas sin perder el tono ni los matices culturales.',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 9h17M3.5 15h17" stroke="currentColor" stroke-width="1.6"/><ellipse cx="12" cy="12" rx="4" ry="9" stroke="currentColor" stroke-width="1.6"/></svg>`,
   },
   {
-    title: 'IA para ir rápido. Redactores de carne y hueso para ir certeros.',
-    body: 'Usamos IA para borrar el primer borrador y para traducir. Pero cada pieza pasa por un redactor antes de salir. La tecnología baja los costes, las personas mantienen el nivel.',
+    title: 'IA para ganar velocidad, redactores de carne y hueso para ganar precisión.',
+    body: 'La IA se encarga del primer borrador y de las traducciones, pero cada pieza pasa por las manos de un redactor antes de publicarse. La tecnología tira los costes hacia abajo, las personas tiran la calidad hacia arriba.',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.09 6.26L20 10l-5.91 1.74L12 18l-2.09-6.26L4 10l5.91-1.74L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
   },
   {
     title: 'Certificados por LinkedIn.',
-    body: 'Todo el equipo tiene las certificaciones oficiales de LinkedIn. Para nosotros no es un logo en la web, es un requisito de contratación.',
+    body: 'Todo el equipo cuenta con las certificaciones oficiales de LinkedIn. Aquí no es un logo decorativo en la web: es un requisito para entrar a trabajar.',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l3 6h6l-5 4 2 6-6-4-6 4 2-6-5-4h6l3-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
   },
 ];
 
 const faqs = [
-  { q: '¿Con qué tipo de empresas trabaja Nuvora?', a: 'Empresas B2B, sobre todo en industria, salud, tecnología, gran consumo y servicios. Si tus compradores están en LinkedIn, lo más probable es que podamos ayudarte.' },
-  { q: '¿Cuánto se tarda en ver resultados?', a: 'Depende del punto de partida. Una empresa con cierta actividad en LinkedIn ya rodada va más rápido que una que parte de cero. Lo que sí fijamos siempre es: indicadores claros desde la primera sesión de trabajo y revisión mensual.' },
-  { q: '¿Cómo es el arranque exactamente?', a: 'Empezamos con una fase de inmersión: auditoría de tu presencia en LinkedIn, definición del público objetivo, plan editorial y plan publicitario. Cuando el marco está cerrado, pasamos a la producción.' },
-  { q: 'Ya tenemos equipo de marketing interno. ¿Cómo encaja Nuvora?', a: 'Trabajamos a menudo con equipos internos. Algunos clientes nos delegan LinkedIn entero, otros nos piden contenido y publicidad mientras su equipo lleva el resto. Cada caso es distinto.' },
-  { q: '¿Solo grandes grupos?', a: 'No. Trabajamos tanto con empresas medianas como con grandes corporaciones. Lo importante es que LinkedIn represente un canal real de captación para tu negocio.' },
-  { q: '¿Y el contenido en varios idiomas?', a: 'El equipo produce en más de diez idiomas, con apoyo de IA. Cada texto lo revisa un hablante nativo antes de publicarlo. No traducimos palabra por palabra: adaptamos el tono y los códigos del mercado.' },
-  { q: '¿Se llevan también los perfiles de directivos?', a: 'Sí. Hacemos redacción y posicionamiento de perfiles, ya sea como proyecto independiente o como complemento de la página de empresa. Suele ser la palanca más rápida para generar conversaciones entrantes.' },
-  { q: '¿Qué reporting recibimos?', a: 'Un informe mensual: engagement, audiencia, resultados publicitarios, origen de los leads. Concreto. Sin cifras maquilladas.' },
-  { q: '¿Hay permanencia mínima?', a: 'Tres meses. Es lo que recomendamos. LinkedIn necesita regularidad para funcionar. Un mes de prueba no demuestra nada.' },
-  { q: '¿Cómo empezamos?', a: 'Reservas una llamada. Miramos juntos tu presencia en LinkedIn, hablamos de tus objetivos y te decimos si somos buenos para ti. Así de simple.' },
+  { q: '¿Con qué tipo de empresas trabaja Nuvora?', a: 'Compañías B2B, sobre todo de industria, salud, tecnología, gran consumo y servicios profesionales. Si tus compradores pasan tiempo en LinkedIn, lo más probable es que encajemos.' },
+  { q: '¿Cuánto se tarda en ver resultados?', a: 'Depende mucho del punto de partida. Una empresa con cierta actividad ya rodada en LinkedIn avanza más rápido que otra que arranca de cero. Lo que sí fijamos desde el primer día son indicadores claros y una revisión mensual contigo.' },
+  { q: '¿Cómo es el arranque exactamente?', a: 'Empezamos con una fase de inmersión: auditoría de la presencia actual, definición del público objetivo y planes editorial y publicitario. Cuando el marco está cerrado, entra el equipo de producción a publicar.' },
+  { q: 'Ya tenemos equipo de marketing interno, ¿cómo encaja Nuvora?', a: 'Trabajamos con equipos internos constantemente. Hay clientes que nos delegan LinkedIn de principio a fin y otros que solo nos confían contenido y publicidad mientras su equipo lleva el resto del mix. Cada montaje es distinto.' },
+  { q: '¿Solo grandes grupos?', a: 'En absoluto. Trabajamos tanto con empresas medianas como con grandes corporaciones. Lo determinante es que LinkedIn pueda ser un canal real de captación para el negocio.' },
+  { q: '¿Y el contenido en varios idiomas?', a: 'El equipo produce en más de diez idiomas con apoyo de IA. Cada texto lo revisa un hablante nativo antes de publicarse. Nunca traducimos palabra por palabra: adaptamos el tono y los códigos culturales de cada mercado.' },
+  { q: '¿Se llevan también los perfiles de directivos?', a: 'Sí. Hacemos redacción y posicionamiento de perfiles directivos, tanto como proyecto independiente como complemento a la página de empresa. Suele ser la palanca más rápida para generar conversaciones entrantes de calidad.' },
+  { q: '¿Qué reporting recibimos?', a: 'Un informe mensual con lo que importa: engagement, evolución de la audiencia, rendimiento publicitario y origen de los leads. Concreto. Sin cifras maquilladas ni gráficos de adorno.' },
+  { q: '¿Hay permanencia mínima?', a: 'Tres meses. Es lo que recomendamos siempre. LinkedIn necesita regularidad para empezar a devolver resultados. Un mes suelto no demuestra absolutamente nada.' },
+  { q: '¿Cómo empezamos?', a: 'Reservas una llamada. Revisamos juntos tu presencia en LinkedIn, hablamos sin rodeos de tus objetivos y te decimos con honestidad si somos la agencia adecuada para ti. Así de simple.' },
 ];
 ---
 
 <Layout
   lang="es"
   title="Nosotros | Nuvora Studio | Agencia LinkedIn especializada en B2B"
-  description="Nuvora Studio impulsa la presencia en LinkedIn de empresas B2B en mercados internacionales. Equipo certificado, contenido editorial, publicidad segmentada, posicionamiento de directivos."
-  abstract="Impulsamos la presencia en LinkedIn de empresas B2B en todo el mundo. Una sola plataforma. Equipo certificado. Contenido sólido. Al final: más leads."
+  description="Nuvora Studio impulsa la presencia en LinkedIn de empresas B2B en mercados internacionales: equipo certificado, contenido editorial con criterio, publicidad segmentada y posicionamiento de directivos."
+  abstract="Impulsamos la presencia en LinkedIn de empresas B2B alrededor del mundo. Una plataforma, un equipo certificado y contenido que aguanta. El resultado final: más leads cualificados."
 >
   <NavBar lang="es" />
   <main id="main-content">
@@ -79,10 +79,10 @@ const faqs = [
         <div class="ab-hero__content">
           <p class="eyebrow eyebrow--light reveal">Sobre Nuvora Studio</p>
           <h1 id="ab-hero-h" class="ab-hero__h1 reveal reveal-delay-1">
-            En LinkedIn todo el mundo habla. Conseguimos que a ti <span class="text-gradient">te escuchen.</span>
+            En LinkedIn todo el mundo habla. Nosotros nos ocupamos de que a ti <span class="text-gradient">te escuchen.</span>
           </h1>
           <p class="ab-hero__sub reveal reveal-delay-2">
-            Impulsamos la presencia en LinkedIn de empresas B2B en todo el mundo. Una sola plataforma, un equipo certificado y contenido que aguanta. Al final del recorrido: más leads.
+            Impulsamos la presencia en LinkedIn de empresas B2B en mercados de todo el mundo. Una sola plataforma, un equipo certificado y contenido que aguanta el escrutinio. Al final del recorrido, lo único que cuenta: más leads cualificados.
           </p>
         </div>
       </div>
@@ -95,20 +95,20 @@ const faqs = [
           <div class="ab-exist__text reveal">
             <p class="eyebrow">Nuestra historia</p>
             <h2 id="exist-h">Por qué creamos Nuvora</h2>
-            <p>Veíamos siempre el mismo problema.</p>
-            <p>Las empresas saben que LinkedIn cuenta en B2B. Pero entre la falta de tiempo, la ausencia de un equipo dedicado y un conocimiento bastante superficial de la plataforma, muy pocas consiguen sacarle algo concreto. Así que publican un poco al azar, lanzan campañas de pago sin un rumbo claro y los leads no aparecen.</p>
-            <p>Montamos una agencia que hace una cosa y la hace bien: desarrollar tu presencia en LinkedIn para que hables con las personas adecuadas. No impresiones. No seguidores que solo engordan un contador. Conversaciones reales con quien acaba decidiendo la compra.</p>
+            <p>Una y otra vez nos topábamos con la misma escena.</p>
+            <p>Las empresas saben de sobra que LinkedIn pesa en B2B. Pero entre la falta de tiempo, la ausencia de un equipo dedicado y un conocimiento bastante superficial de la plataforma, muy pocas consiguen sacarle algo tangible. Acaban publicando a salto de mata, lanzando campañas de pago sin rumbo claro y, como era de esperar, los leads no llegan.</p>
+            <p>Decidimos montar una agencia que hace una sola cosa y la hace en serio: construir tu presencia en LinkedIn para que hables con las personas que importan. Ni impresiones. Ni seguidores que engordan un contador y poco más. Conversaciones reales con quien al final firma la compra.</p>
             <p class="ab-exist__closing"><strong>Por eso existe Nuvora.</strong></p>
           </div>
 
           <div class="ab-exist__visual reveal reveal-delay-1">
             <div class="ab-exist__sig-card">
               <div class="ab-exist__sig-visual">
-                <img src="/signal-vs-noise.webp" alt="Hacer emerger la señal entre el ruido en LinkedIn" class="ab-exist__sig-hero" width="600" height="600" loading="lazy" />
+                <img src="/images/signal-vs-noise.webp" alt="Hacer emerger la señal entre el ruido en LinkedIn" class="ab-exist__sig-hero" width="600" height="600" loading="lazy" />
               </div>
               <div class="ab-exist__sig-footer">
                 <div class="ab-exist__sig-photo">
-                  <img src="/Cyril-Drouin.webp" alt="Cyril Drouin, director general" class="ab-exist__sig-img" width="80" height="80" loading="lazy" />
+                  <img src="/images/Cyril-Drouin.webp" alt="Cyril Drouin, director general" class="ab-exist__sig-img" width="80" height="80" loading="lazy" />
                 </div>
                 <div class="ab-exist__sig-info">
                   <strong class="ab-exist__sig-name">Cyril Drouin</strong>
@@ -127,7 +127,7 @@ const faqs = [
       <div class="container">
         <div class="ab-values__head reveal">
           <p class="eyebrow eyebrow--light">Lo que nos mueve</p>
-          <h2 id="values-h">Nuestras convicciones</h2>
+          <h2 id="values-h">En qué creemos</h2>
         </div>
 
         <div class="ab-values__grid">
@@ -145,7 +145,7 @@ const faqs = [
     <section class="section ab-why" aria-labelledby="why-h">
       <div class="container">
         <div class="ab-why__head reveal">
-          <p class="eyebrow">Lo que cambia con nosotros</p>
+          <p class="eyebrow">Lo que cambia trabajando con nosotros</p>
           <h2 id="why-h">Por qué elegirnos</h2>
         </div>
 
@@ -166,13 +166,13 @@ const faqs = [
         <div class="ab-team__head reveal">
           <p class="eyebrow">Dirección</p>
           <h2 id="team-h">El equipo directivo</h2>
-          <p class="ab-team__sub">Trayectorias de campo, resultados demostrados a escala.</p>
+          <p class="ab-team__sub">Trayectorias forjadas a pie de campo, con resultados demostrados a escala internacional.</p>
         </div>
 
         <div class="ab-leader reveal">
           <div class="ab-leader__visual">
             <div class="ab-leader__photo-wrap">
-              <img src="/Cyril-Drouin.webp" alt="Cyril Drouin" class="ab-leader__photo" width="400" height="480" loading="lazy" />
+              <img src="/images/Cyril-Drouin.webp" alt="Cyril Drouin" class="ab-leader__photo" width="400" height="480" loading="lazy" />
             </div>
           </div>
 
@@ -181,9 +181,9 @@ const faqs = [
             <span class="ab-leader__title">Director general y director de estrategia</span>
 
             <div class="ab-leader__bio">
-              <p>Más de veinte años montando operaciones de marketing y comerciales entre China, Europa y otros mercados internacionales.</p>
-              <p>Como director general de Publicis Commerce China, lideró un equipo de 250 personas con una facturación de 35 millones de dólares y un crecimiento anual superior al 25%. La agencia se llevó el oro a «Agencia de e-commerce del año» de Gran China en 2022. Clientes: Apple, L'Oréal, Nike, Nestlé, Heineken, Kering.</p>
-              <p>Tres certificaciones de LinkedIn Marketing Labs en el currículum: estrategia de marketing, fundamentos publicitarios y diseño de contenidos.</p>
+              <p>Más de veinte años levantando operaciones de marketing y áreas comerciales entre China, Europa y otros mercados internacionales.</p>
+              <p>Como director general de Publicis Commerce China, dirigió un equipo de 250 personas con una facturación de 35 millones de dólares y un crecimiento anual por encima del 25%. La agencia se llevó el oro a «Agencia de e-commerce del año» de Gran China en 2022. Por su despacho pasaron cuentas como Apple, L'Oréal, Nike, Nestlé, Heineken o Kering.</p>
+              <p>En el currículo, tres certificaciones de LinkedIn Marketing Labs: estrategia de marketing, fundamentos publicitarios y diseño de contenidos.</p>
               <p>Cyril también fundó HubStudio, un estudio de producción editorial asistida por IA. Imparte clases en HEC París, la ESCP y la Universidad Jiao Tong de Shanghái.</p>
             </div>
 
@@ -218,7 +218,7 @@ const faqs = [
         <div class="ab-leader ab-leader--flip reveal">
           <div class="ab-leader__visual">
             <div class="ab-leader__photo-wrap">
-              <img src="/LiyanYe.webp" alt="LiYan Ye" class="ab-leader__photo" width="400" height="480" loading="lazy" />
+              <img src="/images/LiyanYe.webp" alt="LiYan Ye" class="ab-leader__photo" width="400" height="480" loading="lazy" />
               <div class="ab-leader__photo-ph" aria-hidden="true" style="display:none;">
                 <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="22" r="12" fill="rgba(10,102,194,0.15)"/><ellipse cx="32" cy="52" rx="20" ry="12" fill="rgba(10,102,194,0.10)"/></svg>
                 <span>Foto pendiente</span>
@@ -231,9 +231,9 @@ const faqs = [
             <span class="ab-leader__title">Directora general</span>
 
             <div class="ab-leader__bio">
-              <p>Veinte años de marketing en grupos internacionales (Beiersdorf, Reckitt Benckiser, Yum! Brands, Valio) antes de incorporarse a Nuvora.</p>
-              <p>En Yum! China, como directora de marketing digital, devolvió las ventas en tienda al crecimiento ya en el primer trimestre de 2017, tras once trimestres consecutivos a la baja. También participó en el lanzamiento de Valio en Asia-Pacífico levantando desde cero toda la presencia B2B digital del grupo en China.</p>
-              <p>En Nuvora se ocupa de las operaciones del día a día: calidad de los contenidos, rendimiento de las campañas, seguimiento de clientes en toda la cartera. Sus áreas: estrategia de contenido en LinkedIn, prospección en redes profesionales, conversión de compradores B2B.</p>
+              <p>Veinte años de marketing en grupos internacionales (Beiersdorf, Reckitt Benckiser, Yum! Brands, Valio) antes de aterrizar en Nuvora.</p>
+              <p>En Yum! China, como directora de marketing digital, devolvió las ventas en tienda a terreno positivo ya en el primer trimestre de 2017, tras once trimestres consecutivos en caída. También intervino en el desembarco de Valio en Asia-Pacífico, levantando desde cero toda la presencia B2B digital del grupo en China.</p>
+              <p>En Nuvora gobierna las operaciones del día a día: calidad de los contenidos, rendimiento de las campañas y seguimiento de toda la cartera de clientes. Sus áreas: estrategia editorial en LinkedIn, prospección en redes profesionales y conversión del comprador B2B.</p>
               <p>Bilingüe mandarín-inglés.</p>
             </div>
           </div>
@@ -251,16 +251,16 @@ const faqs = [
           <div class="ab-cta__left reveal">
             <p class="eyebrow eyebrow--light">¿Empezamos?</p>
             <h2 id="ab-cta-h" class="ab-cta__headline">
-              Tus compradores están en LinkedIn.<br />
-              <em>Solo falta un motivo para que vengan a ti.</em>
+              Tus compradores ya están en LinkedIn.<br />
+              <em>Solo les falta un buen motivo para llamar a tu puerta.</em>
             </h2>
           </div>
           <div class="ab-cta__right reveal reveal-delay-2">
-            <p class="ab-cta__sub">Reserva una llamada. Miramos juntos tu presencia en LinkedIn y te decimos en concreto dónde está el margen de mejora.</p>
+            <p class="ab-cta__sub">Reserva una llamada. Revisamos juntos tu presencia en LinkedIn y te decimos con nombre y apellidos dónde está el margen de mejora real.</p>
             <div class="ab-cta__actions">
               <a href="/es/contacto?intent=call" class="btn btn--primary btn--lg">Reservar llamada</a>
             </div>
-            <p class="ab-cta__note">30 minutos. Sin rodeos. Respuestas directas.</p>
+            <p class="ab-cta__note">Media hora, sin rodeos, con respuestas directas.</p>
           </div>
         </div>
       </div>
@@ -271,7 +271,7 @@ const faqs = [
 
 <style>
   .ab-hero { position: relative; overflow: hidden; padding-block: var(--sp-32) var(--sp-24); min-height: 520px; display: flex; align-items: center; }
-  .ab-hero__bg { position: absolute; inset: 0; background: url('/about-hero-office.webp') center center / cover no-repeat; z-index: 0; }
+  .ab-hero__bg { position: absolute; inset: 0; background: url('/images/about-hero-office.webp') center center / cover no-repeat; z-index: 0; }
   .ab-hero__overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(15,23,42, 0.92) 0%, rgba(15,23,42, 0.75) 50%, rgba(15,23,42, 0.45) 100%); z-index: 1; }
   .ab-hero__content { max-width: 680px; }
   .ab-hero__h1 { font-family: var(--font-display); font-size: clamp(2.25rem, 4.5vw, 3.75rem); font-weight: 700; color: var(--white); line-height: 1.10; letter-spacing: -0.02em; margin-block: var(--sp-5) var(--sp-6); }

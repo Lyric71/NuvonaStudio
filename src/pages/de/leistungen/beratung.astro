@@ -7,55 +7,55 @@ import ContactCTA from '../../../components/ContactCTA.astro';
 /* ── Daten ──────────────────────────────────────────────── */
 
 const advocacyCards = [
-  { title: 'Aufbau und Steuerung des Advocacy-Programms', description: 'Struktur, Redaktionsplan und die tägliche Steuerung. Wir machen die Teilnahme so einfach, dass Ihr Team auch wirklich mitzieht.' },
-  { title: 'Optimierung der Mitarbeiterprofile', description: 'Profile, die in erster Linie Käufer überzeugen sollen, erst in zweiter Linie Recruiter. Jedes Mitarbeiterprofil wird zur Landingpage für Ihre Marke.' },
-  { title: 'Onboarding neuer Mitarbeiter', description: 'Eine starke LinkedIn-Präsenz vom ersten Tag an. Neue Kolleginnen und Kollegen werden eingerichtet, ihre Profile optimiert und in das Programm aufgenommen, bevor die erste Woche um ist.' },
+  { title: 'Aufbau und Steuerung des Advocacy-Programms', description: 'Struktur, Redaktionsplan und die tägliche Steuerung. Wir machen die Teilnahme so einfach, dass Ihr Team tatsächlich mitzieht.' },
+  { title: 'Optimierung der Mitarbeiterprofile', description: 'Profile, die in erster Linie Käufer überzeugen sollen, erst in zweiter Linie Recruiter. Aus jedem Mitarbeiterprofil wird eine Landingpage für Ihre Marke.' },
+  { title: 'Onboarding neuer Mitarbeiter', description: 'Eine starke LinkedIn-Präsenz ab dem ersten Tag. Neue Kolleginnen und Kollegen werden eingerichtet, ihre Profile optimiert und ins Programm aufgenommen, bevor die erste Woche um ist.' },
 ];
 
 const brandingCards = [
-  { title: 'Optimierung der Führungskräfte-Profile', description: 'Wir überarbeiten Profile so, dass sie Glaubwürdigkeit bei Kunden, Investoren und potenziellen Neueinstellungen aufbauen. Nicht nur bei alten Kollegen.' },
-  { title: 'Ghostwriting für Führungskräfte', description: 'Ihre Stimme. Ihre Expertise. Veröffentlicht in einem Takt, der relevant bleibt. Wir übernehmen Entwürfe, Freigaben, Veröffentlichung und Kommentar-Pflege.' },
-  { title: 'LinkedIn Live und Follower-Wachstum', description: 'LinkedIn Live zieht 24-mal mehr Kommentare als Standard-Videos. Wir bauen strukturierte Live-Programme, die eine echte Hörerschaft um die Expertise Ihrer Führungskräfte aufbauen.' },
+  { title: 'Optimierung der Führungskräfte-Profile', description: 'Wir arbeiten Profile so um, dass sie Glaubwürdigkeit bei Kunden, Investoren und potenziellen Neueinstellungen aufbauen, nicht nur bei alten Kollegen.' },
+  { title: 'Ghostwriting für Führungskräfte', description: 'Ihre Stimme, ihre Expertise, veröffentlicht in einem Takt, der relevant bleibt. Wir übernehmen Entwürfe, Freigaben, Veröffentlichung und Kommentar-Pflege.' },
+  { title: 'LinkedIn Live und Follower-Wachstum', description: 'LinkedIn Live zieht 24-mal mehr Kommentare als Standard-Videos. Wir bauen strukturierte Live-Programme auf, die eine echte Hörerschaft rund um die Expertise Ihrer Führungskräfte aufbauen.' },
 ];
 
 const workshops = [
-  { tag: 'Halbtags', title: 'LinkedIn-Grundlagen', description: 'Wie die Plattform 2026 wirklich funktioniert. Algorithmus, Feed-Verhalten und was Ergebnisse bringt. Konzipiert für Teams, die bei null starten oder neu anfangen.' },
+  { tag: 'Halbtags', title: 'LinkedIn-Grundlagen', description: 'Wie die Plattform 2026 tatsächlich funktioniert: Algorithmus, Feed-Verhalten und das, was Ergebnisse bringt. Konzipiert für Teams, die bei null beginnen oder ganz neu anfangen.' },
   { tag: 'Ganztags', title: 'Content-Masterclass', description: 'Ein wiederholbares Produktionssystem, das Autorität aufbaut, ohne Ihr Team auszubrennen. KI-gestützte Workflows inklusive. Alle gehen mit einem 30-Tage-Contentplan nach Hause.' },
-  { tag: 'Ganztags', title: 'LinkedIn Ads im Detail', description: 'Targeting, Kampagnenarchitektur, Budgetierung und Attribution. Für Marketingteams, die Geld auf LinkedIn ausgeben und wissen wollen, wohin es genau fließt.' },
-  { tag: 'Halbtags', title: 'Executive Personal Brand', description: 'Eine fokussierte Session für die Geschäftsführung. Profilstruktur, Posting-Rhythmus und die Methoden, die Vertrauen schon vor dem ersten Termin schaffen.' },
+  { tag: 'Ganztags', title: 'LinkedIn Ads im Detail', description: 'Targeting, Kampagnenarchitektur, Budgetierung und Attribution. Für Marketingteams, die Geld auf LinkedIn ausgeben und wissen wollen, wohin genau es fließt.' },
+  { tag: 'Halbtags', title: 'Executive Personal Brand', description: 'Eine fokussierte Session für die Geschäftsführung. Profilstruktur, Posting-Rhythmus und die Methoden, die schon vor dem ersten Termin Vertrauen schaffen.' },
 ];
 
 const stats = [
-  { value: '80 %', caption: 'aller B2B-Leads aus sozialen Netzwerken kommen von LinkedIn. Facebook, X und Instagram teilen sich den Rest.' },
+  { value: '80 %', caption: 'aller B2B-Leads aus sozialen Netzwerken kommen über LinkedIn. Facebook, X und Instagram teilen sich den Rest.' },
   { value: '277 %', caption: 'höhere Lead-Quote als Facebook und X zusammen.' },
   { value: '2,74 %', caption: 'Conversion-Rate vom Besucher zum Lead. Facebook liegt bei 0,77 %.' },
-  { value: '4 von 5', caption: 'LinkedIn-Mitglieder sind an Kaufentscheidungen in ihrem Unternehmen beteiligt.' },
-  { value: '561 %', caption: 'mehr Reichweite, wenn Mitarbeiter Inhalte teilen, statt sie nur über die Unternehmensseite zu posten.' },
-  { value: '10–15 %', caption: 'Conversion-Rate auf LinkedIn Lead Gen Forms. Klassische Landingpages erreichen 2 bis 5 %.' },
+  { value: '4 von 5', caption: 'LinkedIn-Mitgliedern sind an Kaufentscheidungen in ihrem Unternehmen beteiligt.' },
+  { value: '561 %', caption: 'mehr Reichweite, wenn Mitarbeiter Inhalte teilen, anstatt sie nur über die Unternehmensseite zu posten.' },
+  { value: '10–15 %', caption: 'Conversion-Rate auf LinkedIn Lead Gen Forms. Klassische Landingpages kommen auf 2 bis 5 %.' },
   { value: '85 %', caption: 'der B2B-Marketingverantwortlichen halten LinkedIn für die wertvollste Social-Plattform.' },
   { value: '28 %', caption: 'niedrigere Kosten pro Lead als bei Google Ads im B2B.' },
   { value: '7×', caption: 'schnelleres Follower-Wachstum für Seiten, die wöchentlich veröffentlichen.' },
-  { value: '89 %', caption: 'der B2B-Marketingverantwortlichen nutzen LinkedIn bereits zur Leadgenerierung. Der Rest holt nach.' },
+  { value: '89 %', caption: 'der B2B-Marketingverantwortlichen nutzen LinkedIn bereits zur Leadgenerierung. Der Rest zieht gerade nach.' },
 ];
 
 const faqs = [
-  { q: 'Was bedeutet „Employee Advocacy" in der Praxis?', a: 'Ihre Mitarbeiter teilen kuratierte Inhalte über ihre persönlichen LinkedIn-Profile. Wir bauen das Programm auf, produzieren die Inhalte und übernehmen die Logistik. Ihr Team teilt. Das war es.' },
-  { q: 'Wie schnell sehen wir Ergebnisse?', a: 'Reichweite und Interaktion steigen meist innerhalb des ersten Monats. Leads folgen in 60 bis 90 Tagen. Es hängt von Ihrer Branche, der Teamgröße und der Aktivität Ihrer Mitarbeiter ab. Wir setzen die Erwartung im ersten Gespräch klar.' },
-  { q: 'Schreiben Sie beim Ghostwriting für Führungskräfte wirklich alles?', a: 'Jedes Wort. Wir interviewen Ihre Führungskräfte, schreiben in deren Stimme und legen Entwürfe zur Freigabe vor. Nichts geht ohne deren Abnahme live.' },
+  { q: 'Was bedeutet „Employee Advocacy" in der Praxis?', a: 'Ihre Mitarbeiter teilen kuratierte Inhalte über ihre persönlichen LinkedIn-Profile. Wir bauen das Programm auf, produzieren die Inhalte und übernehmen die gesamte Logistik. Ihr Team teilt nur noch. Das war es.' },
+  { q: 'Wie schnell sehen wir Ergebnisse?', a: 'Reichweite und Interaktion steigen meist innerhalb des ersten Monats. Leads folgen nach 60 bis 90 Tagen. Wieviel und wie schnell, hängt von Ihrer Branche, der Teamgröße und der Aktivität Ihrer Mitarbeiter ab. Wir setzen die Erwartung im ersten Gespräch klar.' },
+  { q: 'Schreiben Sie beim Ghostwriting für Führungskräfte wirklich alles?', a: 'Jedes einzelne Wort. Wir interviewen Ihre Führungskräfte, schreiben in deren Stimme und legen die Entwürfe zur Freigabe vor. Nichts geht ohne deren Abnahme live.' },
   { q: 'Wir sitzen nicht im DACH-Raum. Können Sie trotzdem mit uns arbeiten?', a: 'Ja. Wir arbeiten mit B2B-Unternehmen über alle Zeitzonen hinweg. Workshops finden online oder vor Ort statt. Content-Leistungen laufen standardmäßig remote.' },
-  { q: 'Mit welchen Unternehmensgrößen arbeiten Sie?', a: 'Von 20 bis 20.000 Mitarbeitern. Advocacy skaliert besonders gut für mittelgroße und große B2B-Unternehmen. Schulungen passen in jede Größe.' },
-  { q: 'Übernehmen Sie auch LinkedIn-Werbung für Kunden?', a: 'Unsere Beratung deckt organisches Wachstum ab: Advocacy, Personal Branding und Schulungen. Werbestrategie vermitteln wir im Deep-Dive-Workshop. Für laufende Anzeigenbetreuung sprechen Sie uns separat an.' },
-  { q: 'Worin unterscheidet sich Ihre Schulung von dem, was kostenlos im Netz steht?', a: 'Sie basiert auf Daten aus echten B2B-Kampagnen, nicht auf wiederverwerteten Tipps. Ihr Team verlässt den Raum mit einem Arbeitsergebnis: optimierten Profilen, einem Redaktionsplan oder einem Kampagnen-Bauplan. Nicht mit Folien.' },
+  { q: 'Mit welchen Unternehmensgrößen arbeiten Sie?', a: 'Von 20 bis 20.000 Mitarbeitenden. Advocacy skaliert besonders gut für mittelgroße und große B2B-Unternehmen. Schulungen passen in jede Unternehmensgröße.' },
+  { q: 'Übernehmen Sie auch LinkedIn-Werbung für Kunden?', a: 'Unsere Beratung deckt das organische Wachstum ab: Advocacy, Personal Branding und Schulungen. Werbestrategie vermitteln wir im Deep-Dive-Workshop. Für die laufende Anzeigenbetreuung sprechen Sie uns bitte separat an.' },
+  { q: 'Worin unterscheidet sich Ihre Schulung von dem, was kostenlos im Netz steht?', a: 'Sie basiert auf Daten aus echten B2B-Kampagnen, nicht auf wiederverwerteten Tipps. Ihr Team verlässt den Raum mit einem konkreten Arbeitsergebnis: optimierten Profilen, einem Redaktionsplan oder einem Kampagnen-Bauplan, nicht mit Folien.' },
   { q: 'Was berichten Sie konkret?', a: 'Follower-Wachstum, Interaktionsrate, Profilaufrufe, Webseiten-Traffic aus LinkedIn und Inbound-Leads. Zahlen, die nicht auf die Pipeline einzahlen, sparen wir uns. Ihre Zeit auch.' },
   { q: 'Können Sie Preise nennen?', a: 'Advocacy, Ghostwriting und Schulungen werden jeweils nach Umfang bepreist. Wir gehen die Zahlen in einem Gespräch durch und legen Ihnen ein klares Angebot vor. Ohne Grauzonen.' },
-  { q: 'Wir haben auf LinkedIn bisher nichts gemacht. Ist das ein Problem?', a: 'Nein. Viele unserer Kunden sind bei null gestartet. Der Grundlagen-Workshop wurde genau dafür entwickelt. Wir holen Sie dort ab, wo Sie stehen, und bauen von da auf.' },
+  { q: 'Wir haben auf LinkedIn bisher nichts gemacht. Ist das ein Problem?', a: 'Nein. Viele unserer Kunden sind bei null gestartet. Der Grundlagen-Workshop wurde genau dafür konzipiert. Wir holen Sie dort ab, wo Sie stehen, und bauen von da aus auf.' },
 ];
 ---
 
 <Layout
   lang="de"
   title="LinkedIn-Beratung für die B2B-Leadgenerierung"
-  description="Employee Advocacy, Executive Branding und LinkedIn-Schulungen für B2B-Unternehmen. Wir bauen Ihre LinkedIn-Präsenz so aus, dass Ihr Team mehr Leads gewinnt."
+  description="Employee Advocacy, Executive Branding und LinkedIn-Schulungen für B2B-Unternehmen. Wir bauen Ihre LinkedIn-Präsenz so aus, dass Ihr Team am Ende mehr Leads gewinnt."
   abstract="Wir verhelfen B2B-Unternehmen zu mehr Leads über LinkedIn, durch Employee-Advocacy-Programme, Executive Branding und praxisnahe Schulungen."
 >
   <NavBar lang="de" />
@@ -71,10 +71,10 @@ const faqs = [
         <div class="c-hero__content">
           <p class="eyebrow eyebrow--light reveal">LinkedIn-Beratung</p>
           <h1 id="c-hero-h" class="c-hero__h1 reveal reveal-delay-1">
-            Mehr Leads von LinkedIn. <span class="text-gradient">Nicht mehr Rauschen.</span>
+            Mehr Leads aus LinkedIn. <span class="text-gradient">Kein zusätzliches Rauschen.</span>
           </h1>
           <p class="c-hero__sub reveal reveal-delay-2">
-            Beiträge Ihrer Unternehmensseite erreichen nur einen Bruchteil Ihrer Zielgruppe. Die Profile Ihrer Mitarbeiter erreichen alle anderen. Wir bauen die Programme, die diese Lücke schließen.
+            Beiträge Ihrer Unternehmensseite erreichen nur einen Bruchteil Ihrer Zielgruppe. Die Profile Ihrer Mitarbeiter erreichen alle anderen. Wir bauen die Programme, die genau diese Lücke schließen.
           </p>
           <div class="c-hero__actions reveal reveal-delay-3">
             <a href="/de/kontakt?intent=call" class="btn btn--primary btn--lg">Gespräch vereinbaren</a>
@@ -92,17 +92,17 @@ const faqs = [
         <div class="c-svc__layout">
           <div class="c-svc__text reveal">
             <span class="c-svc__label">Employee Advocacy</span>
-            <h2 id="c-advocacy-h" class="c-svc__h2">Ihre Mitarbeiter haben mehr Reichweite, als Ihre Marke je haben wird.</h2>
+            <h2 id="c-advocacy-h" class="c-svc__h2">Ihre Mitarbeiter haben mehr Reichweite, als Ihre Marke je erreichen wird.</h2>
             <div class="c-svc__body">
-              <p>Der LinkedIn-Algorithmus hat eine klare Vorliebe: Beiträge von Menschen schlagen Beiträge von Unternehmensseiten. Ein Konstruktionsfehler ist das nicht, sondern die Logik der Plattform.</p>
-              <p>Inhalte, die von Mitarbeitern geteilt werden, erzielen achtmal mehr Interaktion als derselbe Beitrag von einer Markenseite. Ihre kombinierten Netzwerke sind zehnmal größer als die Follower Ihres Unternehmens. Und 92 % der B2B-Käufer vertrauen den Aussagen von Mitarbeitern mehr als der Unternehmenswerbung.</p>
+              <p>Der LinkedIn-Algorithmus hat eine klare Vorliebe: Beiträge von Menschen schlagen Beiträge von Unternehmensseiten. Das ist kein Konstruktionsfehler, sondern die Logik der Plattform.</p>
+              <p>Von Mitarbeitern geteilte Inhalte erzielen achtmal mehr Interaktion als derselbe Beitrag über die Markenseite. Ihre kombinierten Netzwerke sind zehnmal größer als die Follower Ihres Unternehmens. Und 92 % der B2B-Käufer vertrauen den Aussagen von Mitarbeitern mehr als der Unternehmenswerbung.</p>
               <p>Die meisten Unternehmen wissen das. Die wenigsten handeln danach. Wer handelt, sieht innerhalb von 90 Tagen 4,3-mal mehr Impressionen und einen direkten Effekt auf die Pipeline.</p>
-              <p>Wir entwerfen das Programm und führen es. Ihr Team erscheint, teilt und kann zurück an die eigentliche Arbeit.</p>
+              <p>Wir entwerfen das Programm und führen es. Ihr Team taucht auf, teilt und kann zurück an die eigentliche Arbeit.</p>
             </div>
           </div>
           <div class="c-svc__visual reveal reveal-delay-2">
             <div class="c-svc__img-wrap">
-              <img src="/consulting-employee-advocacy.webp" alt="Mitarbeiterinnen und Mitarbeiter teilen aktiv Inhalte auf LinkedIn in einem modernen Großraumbüro" class="c-svc__img" width="560" height="420" loading="lazy" />
+              <img src="/images/consulting-employee-advocacy.webp" alt="Mitarbeiterinnen und Mitarbeiter teilen aktiv Inhalte auf LinkedIn in einem modernen Großraumbüro" class="c-svc__img" width="560" height="420" loading="lazy" />
             </div>
           </div>
         </div>
@@ -132,16 +132,16 @@ const faqs = [
         <div class="c-svc__layout c-svc__layout--flip">
           <div class="c-svc__text reveal">
             <span class="c-svc__label">Executive Branding</span>
-            <h2 id="c-branding-h" class="c-svc__h2">Kunden prüfen Ihre Führungskräfte auf LinkedIn, bevor sie Ihre Webseite öffnen.</h2>
+            <h2 id="c-branding-h" class="c-svc__h2">Kunden prüfen Ihre Führungskräfte auf LinkedIn, bevor sie Ihre Webseite überhaupt öffnen.</h2>
             <div class="c-svc__body">
               <p>82 % der B2B-Käufer vertrauen einem Unternehmen mehr, wenn dessen Geschäftsführung auf LinkedIn aktiv ist. 64 % lesen lieber einen durchdachten Beitrag Ihres Geschäftsführers als einen Produktpitch von der Unternehmensseite.</p>
               <p>Das ist die Chance. Und die meisten Führungsteams lassen sie liegen, weil niemand Zeit hat, drei Beiträge pro Woche zu schreiben.</p>
-              <p>Wir nehmen ihnen das ab. Wir interviewen Ihre Führungskräfte, schreiben in deren Stimme und halten sie sichtbar bei den Menschen, die zählen. Ohne ihrem Kalender eine einzige Stunde zu stehlen.</p>
+              <p>Wir nehmen ihnen genau das ab. Wir interviewen Ihre Führungskräfte, schreiben in deren Stimme und halten sie sichtbar bei den Menschen, die zählen. Ohne ihrem Kalender eine einzige Stunde zu stehlen.</p>
             </div>
           </div>
           <div class="c-svc__visual reveal reveal-delay-2">
             <div class="c-svc__img-wrap">
-              <img src="/consulting-personal-branding.webp" alt="Führungskraft prüft LinkedIn-Interaktionen am Smartphone in einem modernen Eckbüro im Abendlicht" class="c-svc__img" width="560" height="420" loading="lazy" />
+              <img src="/images/consulting-personal-branding.webp" alt="Führungskraft prüft LinkedIn-Interaktionen am Smartphone in einem modernen Eckbüro im Abendlicht" class="c-svc__img" width="560" height="420" loading="lazy" />
             </div>
           </div>
         </div>
@@ -171,11 +171,11 @@ const faqs = [
       <div class="container">
         <div class="c-training__head reveal">
           <span class="c-training__label">Schulungen</span>
-          <h2 id="c-training-h" class="c-training__h2">Ihr Team nutzt LinkedIn täglich. Weiß es auch, wie man es richtig nutzt?</h2>
+          <h2 id="c-training-h" class="c-training__h2">Ihr Team nutzt LinkedIn täglich. Weiß es auch wirklich, wie man es richtig einsetzt?</h2>
           <div class="c-training__intro">
-            <p>68 % der B2B-Marketingverantwortlichen haben ihre LinkedIn-Aktivität im vergangenen Jahr gesteigert. Die wenigsten taten das mit einer formalen Schulung im Rücken.</p>
+            <p>68 % der B2B-Marketingverantwortlichen haben ihre LinkedIn-Aktivität im vergangenen Jahr gesteigert. Die wenigsten haben das mit einer formalen Schulung im Rücken getan.</p>
             <p>Das schlägt sich in den Resultaten nieder: generische Beiträge, leere Profile, Werbeausgaben ohne klar messbare Rendite. Geschulte Profis erreichen ihre Vertriebsziele dagegen 51 % häufiger.</p>
-            <p>Unsere Workshops sind keine Webinare, sondern Arbeitssitzungen. Ihr Team geht mit optimierten Profilen, einem Contentplan oder einer Anzeigenstrategie nach Hause, die ab Montagmorgen umsetzbar ist.</p>
+            <p>Unsere Workshops sind keine Webinare, sondern echte Arbeitssitzungen. Ihr Team geht mit optimierten Profilen, einem Contentplan oder einer Anzeigenstrategie nach Hause, die ab Montagmorgen umsetzbar ist.</p>
           </div>
         </div>
 
@@ -253,7 +253,7 @@ const faqs = [
   .c-hero__bg {
     position: absolute;
     inset: 0;
-    background: url('/consulting-hero.webp') center center / cover no-repeat;
+    background: url('/images/consulting-hero.webp') center center / cover no-repeat;
     z-index: 0;
   }
 

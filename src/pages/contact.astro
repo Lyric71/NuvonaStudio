@@ -1,6 +1,74 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import NavBar from '../components/NavBar.astro';
+
+/* ── Service options (mirror NavBar "Services" submenu) ── */
+const services = [
+  {
+    value: 'content',
+    label: 'Content',
+    sub: 'Pages, posts, newsletters, events',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
+  },
+  {
+    value: 'advertising',
+    label: 'Advertising',
+    sub: 'Sponsored content, InMail, lead gen',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>`,
+  },
+  {
+    value: 'consulting',
+    label: 'Consulting',
+    sub: 'Training, advocacy, personal branding',
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2V3z" stroke="currentColor" stroke-width="1.6"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7V3z" stroke="currentColor" stroke-width="1.6"/></svg>`,
+  },
+];
+
+/* ── Package options (mirror Pricing page) ── */
+const packagesByService: Record<string, { value: string; label: string; price: string }[]> = {
+  content: [
+    { value: 'retainer-foundation', label: 'Foundation retainer',           price: '$1,800/mo' },
+    { value: 'retainer-growth',     label: 'Growth retainer',               price: '$3,500/mo' },
+    { value: 'retainer-scale',      label: 'Scale retainer',                price: '$6,000/mo' },
+    { value: 'exec-ghostwriting',   label: 'Executive ghostwriting',        price: '$1,200/mo per leader' },
+    { value: 'video-ai',            label: 'AI-generated video',            price: '$200–$5,000 per video' },
+    { value: 'video-pro',           label: 'Professional video shooting',   price: 'Custom quote' },
+    { value: 'multilingual',        label: 'Multilingual content',          price: 'Custom quote per language' },
+    { value: 'enterprise',          label: 'Enterprise (multi-market)',     price: 'From $10,000/mo' },
+    { value: 'not-sure',            label: "Not sure yet — let's discuss",  price: '' },
+  ],
+  advertising: [
+    { value: 'ads-under-15k',       label: 'Ads management (under $15K/mo spend)', price: '$1,500/mo' },
+    { value: 'ads-over-15k',        label: 'Ads management (over $15K/mo spend)',  price: '6–10% of spend' },
+    { value: 'retainer-growth',     label: 'Growth retainer (includes ads)',       price: '$3,500/mo' },
+    { value: 'retainer-scale',      label: 'Scale retainer (includes ads)',        price: '$6,000/mo' },
+    { value: 'enterprise',          label: 'Enterprise (multi-market)',            price: 'From $10,000/mo' },
+    { value: 'not-sure',            label: "Not sure yet — let's discuss",         price: '' },
+  ],
+  consulting: [
+    { value: 'exec-profile',        label: 'Executive profile optimization',       price: '$500 one-time per profile' },
+    { value: 'training-workshop',   label: 'Training workshop (2 hours)',          price: '$2,500 per session' },
+    { value: 'training-program',    label: 'Team training program (4 sessions)',   price: '$8,000 one-time' },
+    { value: 'advocacy',            label: 'Employee advocacy program',            price: '$2,500/mo' },
+    { value: 'enterprise',          label: 'Enterprise (multi-market)',            price: 'From $10,000/mo' },
+    { value: 'not-sure',            label: "Not sure yet — let's discuss",         price: '' },
+  ],
+};
+
+/* ── Pre-selection from URL params (set by pricing page CTAs) ── */
+const url = new URL(Astro.request.url);
+const intentParam = url.searchParams.get('intent');
+const tierParam   = url.searchParams.get('tier');
+
+let preselectedService = '';
+let preselectedPackage = '';
+if (intentParam === 'retainer' && tierParam) {
+  preselectedService = 'content';
+  preselectedPackage = `retainer-${tierParam}`;
+} else if (intentParam === 'enterprise') {
+  preselectedService = 'content';
+  preselectedPackage = 'enterprise';
+}
 ---
 
 <Layout
@@ -124,6 +192,78 @@ import NavBar from '../components/NavBar.astro';
                     <span class="form-error" id="company-error" role="alert"></span>
                   </div>
 
+                  <!-- Service (multi-select) -->
+                  <div class="form-group contact-form__full">
+                    <label class="form-label">
+                      Which services are you interested in? <span class="required-mark" aria-hidden="true">*</span>
+                      <span class="form-optional">Pick one or more</span>
+                    </label>
+                    <div class="form-chips" role="group" aria-label="Services" id="service-group">
+                      {services.map((s) => (
+                        <label class="form-chip">
+                          <input
+                            type="checkbox"
+                            name="service"
+                            value={s.value}
+                            class="form-chip__input"
+                            data-service={s.value}
+                            checked={preselectedService === s.value}
+                          />
+                          <span class="form-chip__inner">
+                            <span class="form-chip__icon" set:html={s.icon} />
+                            <span class="form-chip__text">
+                              <strong class="form-chip__label">{s.label}</strong>
+                              <span class="form-chip__sub">{s.sub}</span>
+                            </span>
+                          </span>
+                        </label>
+                      ))}
+                    </div>
+                    <span class="form-error" id="service-error" role="alert"></span>
+                  </div>
+
+                  <!-- Package (multi-select) -->
+                  <div class="form-group contact-form__full">
+                    <label class="form-label" id="package-label">
+                      Pick one or more packages <span class="form-optional">(optional)</span>
+                    </label>
+                    <div class="form-checklist" role="group" aria-labelledby="package-label" id="package-list">
+                      <p class="form-checklist__empty">Choose a service above first.</p>
+                    </div>
+                    <p class="form-hint" id="package-hint">Prices match our <a href="/pricing">pricing page</a>. Not sure? Skip and we'll discuss on the call.</p>
+                  </div>
+
+                  <!-- Timeline -->
+                  <div class="form-group contact-form__full">
+                    <label class="form-label">
+                      When do you want to start? <span class="required-mark" aria-hidden="true">*</span>
+                    </label>
+                    <div class="form-chips form-chips--compact" role="radiogroup" aria-label="Timeline" id="timeline-group">
+                      <label class="form-chip form-chip--compact">
+                        <input type="radio" name="timeline" value="now" class="form-chip__input" required />
+                        <span class="form-chip__inner">
+                          <strong class="form-chip__label">Now</strong>
+                          <span class="form-chip__sub">Within 30 days</span>
+                        </span>
+                      </label>
+                      <label class="form-chip form-chip--compact">
+                        <input type="radio" name="timeline" value="3-months" class="form-chip__input" />
+                        <span class="form-chip__inner">
+                          <strong class="form-chip__label">3 months</strong>
+                          <span class="form-chip__sub">Planning ahead</span>
+                        </span>
+                      </label>
+                      <label class="form-chip form-chip--compact">
+                        <input type="radio" name="timeline" value="6-months" class="form-chip__input" />
+                        <span class="form-chip__inner">
+                          <strong class="form-chip__label">6 months</strong>
+                          <span class="form-chip__sub">Longer horizon</span>
+                        </span>
+                      </label>
+                    </div>
+                    <span class="form-error" id="timeline-error" role="alert"></span>
+                  </div>
+
                   <!-- Project -->
                   <div class="form-group contact-form__full">
                     <label class="form-label" for="project">
@@ -136,6 +276,10 @@ import NavBar from '../components/NavBar.astro';
                     <span class="form-error" id="project-error" role="alert"></span>
                   </div>
                 </div>
+
+                <!-- Package catalog data for the client script -->
+                <script type="application/json" id="package-data" is:inline set:html={JSON.stringify(packagesByService)}></script>
+                <script type="application/json" id="preselect-data" is:inline set:html={JSON.stringify({ service: preselectedService, package: preselectedPackage })}></script>
 
                 <!-- Error banner -->
                 <div class="form-banner" id="form-error-banner" role="alert">
@@ -269,7 +413,7 @@ import NavBar from '../components/NavBar.astro';
   .contact-hero__bg {
     position: absolute;
     inset: 0;
-    background: url('/contact-hero-people.webp') center center / cover no-repeat;
+    background: url('/images/contact-hero-people.webp') center center / cover no-repeat;
     z-index: 0;
   }
 
@@ -459,6 +603,236 @@ import NavBar from '../components/NavBar.astro';
     color: #c0392b;
   }
   .form-banner.is-visible { display: block; }
+
+  /* ── Chip groups (Service / Timeline) ── */
+  .form-chips {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-3);
+    margin-top: var(--sp-1);
+  }
+
+  .form-chip {
+    position: relative;
+    cursor: pointer;
+    display: block;
+  }
+
+  .form-chip__input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    inset: 0;
+  }
+
+  .form-chip__inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    padding: var(--sp-4) var(--sp-4);
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--r-lg);
+    transition:
+      border-color var(--t-fast),
+      background var(--t-fast),
+      box-shadow var(--t-fast),
+      transform var(--t-fast);
+    height: 100%;
+  }
+
+  /* Tiny checkmark badge — only shown for service chips when checked */
+  #service-group .form-chip__inner::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    transition: background var(--t-fast), border-color var(--t-fast);
+  }
+
+  #service-group .form-chip__input:checked + .form-chip__inner::after {
+    background: var(--sky)
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none'><path d='M3 6.5l2 2 4-5' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/></svg>")
+      center / 11px no-repeat;
+    border-color: var(--sky);
+  }
+
+  .form-chip:hover .form-chip__inner {
+    border-color: var(--border-2);
+    background: var(--off-white);
+  }
+
+  .form-chip__input:focus-visible + .form-chip__inner {
+    border-color: var(--sky);
+    box-shadow: 0 0 0 3px rgba(14,165,233,0.18);
+  }
+
+  .form-chip__input:checked + .form-chip__inner {
+    border-color: var(--sky);
+    background: rgba(14,165,233,0.04);
+    box-shadow: 0 0 0 1px var(--sky) inset;
+  }
+
+  .form-chip__icon {
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--r-md);
+    background: rgba(14,165,233,0.08);
+    color: var(--sky);
+    transition: background var(--t-fast), color var(--t-fast);
+  }
+
+  .form-chip__input:checked + .form-chip__inner .form-chip__icon {
+    background: var(--sky);
+    color: var(--white);
+  }
+
+  .form-chip__text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  .form-chip__label {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.2;
+  }
+
+  .form-chip__sub {
+    font-family: var(--font-body);
+    font-size: var(--fs-xs);
+    color: var(--text-3);
+    line-height: 1.35;
+  }
+
+  /* Compact variant — used for the timeline row, no icons */
+  .form-chips--compact .form-chip__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    padding: var(--sp-3) var(--sp-4);
+  }
+
+  /* Disabled state for the package select before service is chosen */
+  .form-select:disabled {
+    background: var(--off-white);
+    color: var(--text-3);
+    cursor: not-allowed;
+  }
+
+  /* ── Package checklist (multi-select rows) ── */
+  .form-checklist {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+    margin-top: var(--sp-1);
+    padding: var(--sp-2);
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+  }
+
+  .form-checklist__empty {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--text-3);
+    padding: var(--sp-4);
+    text-align: center;
+  }
+
+  .form-check {
+    position: relative;
+    display: block;
+    cursor: pointer;
+  }
+
+  .form-check__input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    inset: 0;
+  }
+
+  .form-check__inner {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    padding: var(--sp-3) var(--sp-4);
+    background: var(--white);
+    border: 1.5px solid transparent;
+    border-radius: var(--r-md);
+    transition: border-color var(--t-fast), background var(--t-fast);
+  }
+
+  .form-check:hover .form-check__inner {
+    border-color: var(--border-2);
+  }
+
+  .form-check__input:focus-visible + .form-check__inner {
+    border-color: var(--sky);
+    box-shadow: 0 0 0 3px rgba(14,165,233,0.18);
+  }
+
+  .form-check__input:checked + .form-check__inner {
+    border-color: var(--sky);
+    background: rgba(14,165,233,0.04);
+  }
+
+  .form-check__box {
+    flex-shrink: 0;
+    width: 18px; height: 18px;
+    border-radius: 5px;
+    border: 1.5px solid var(--border-2);
+    background: var(--white);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--t-fast), border-color var(--t-fast);
+  }
+
+  .form-check__input:checked + .form-check__inner .form-check__box {
+    background: var(--sky)
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none'><path d='M3 6.5l2 2 4-5' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/></svg>")
+      center / 12px no-repeat;
+    border-color: var(--sky);
+  }
+
+  .form-check__label {
+    flex: 1;
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    color: var(--text);
+    line-height: 1.45;
+  }
+
+  .form-check__price {
+    flex-shrink: 0;
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--sky);
+    white-space: nowrap;
+  }
+
+  .form-hint a {
+    color: var(--sky);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .form-hint a:hover { color: var(--blue); }
 
   .contact-form__actions {
     display: flex;
@@ -686,6 +1060,7 @@ import NavBar from '../components/NavBar.astro';
     .contact-form__grid { grid-template-columns: 1fr; }
     .contact-sidebar { flex-direction: column; }
     .sidebar-card { min-width: unset; }
+    .form-chips { grid-template-columns: 1fr; }
   }
 </style>
 
@@ -710,52 +1085,188 @@ import NavBar from '../components/NavBar.astro';
 
   function clearErrors() {
     ['name', 'email', 'website', 'company', 'project'].forEach(id => setFieldError(id, ''));
+    const serviceErr  = document.getElementById('service-error');
+    const timelineErr = document.getElementById('timeline-error');
+    if (serviceErr)  serviceErr.textContent  = '';
+    if (timelineErr) timelineErr.textContent = '';
     if (errorBanner) errorBanner.classList.remove('is-visible');
   }
 
-  function validate(data: FormData): boolean {
-    let valid = true;
+  /**
+   * Validate the form. Returns the first invalid element (to focus + scroll to),
+   * or null if everything passes. Fields are checked in the order they appear
+   * on the form so the first error matches what the user sees.
+   */
+  function validate(data: FormData): HTMLElement | null {
+    let firstInvalid: HTMLElement | null = null;
+    const remember = (el: HTMLElement | null) => {
+      if (el && !firstInvalid) firstInvalid = el;
+    };
 
-    const required: { id: string; label: string }[] = [
-      { id: 'name',    label: 'Name is required.' },
-      { id: 'company', label: 'Company name is required.' },
-      { id: 'project', label: 'Please describe your project.' },
-    ];
+    // — Name —
+    if (!(data.get('name') as string)?.trim()) {
+      setFieldError('name', 'Name is required.');
+      remember(document.getElementById('name'));
+    }
 
-    required.forEach(({ id, label }) => {
-      if (!(data.get(id) as string)?.trim()) {
-        setFieldError(id, label);
-        valid = false;
-      }
-    });
-
+    // — Email —
     const email = (data.get('email') as string)?.trim();
     if (!email) {
       setFieldError('email', 'Email is required.');
-      valid = false;
+      remember(document.getElementById('email'));
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
       setFieldError('email', 'Please enter a valid email address (e.g. mariana@heliobio.com).');
-      valid = false;
+      remember(document.getElementById('email'));
     }
 
+    // — Website —
     const website = (data.get('website') as string)?.trim();
     if (!website) {
       setFieldError('website', 'Website is required.');
-      valid = false;
+      remember(document.getElementById('website'));
     } else {
       try {
         const url = new URL(website);
         if (url.protocol !== 'http:' && url.protocol !== 'https:') {
           setFieldError('website', 'Website must start with https:// or http://');
-          valid = false;
+          remember(document.getElementById('website'));
         }
       } catch {
         setFieldError('website', 'Please enter a valid URL (e.g. https://heliobio.com).');
-        valid = false;
+        remember(document.getElementById('website'));
       }
     }
 
-    return valid;
+    // — Company —
+    if (!(data.get('company') as string)?.trim()) {
+      setFieldError('company', 'Company name is required.');
+      remember(document.getElementById('company'));
+    }
+
+    // — Services (multi-select) —
+    const services = data.getAll('service') as string[];
+    if (services.length === 0) {
+      const serviceErr = document.getElementById('service-error');
+      if (serviceErr) serviceErr.textContent = 'Please pick at least one service.';
+      remember(document.querySelector<HTMLInputElement>('input[name="service"]'));
+    }
+
+    // — Timeline —
+    const timeline = data.get('timeline') as string | null;
+    if (!timeline) {
+      const timelineErr = document.getElementById('timeline-error');
+      if (timelineErr) timelineErr.textContent = 'Please pick a timeline.';
+      remember(document.querySelector<HTMLInputElement>('input[name="timeline"]'));
+    }
+
+    // — Project (now at the bottom of the form) —
+    if (!(data.get('project') as string)?.trim()) {
+      setFieldError('project', 'Please describe your project.');
+      remember(document.getElementById('project'));
+    }
+
+    return firstInvalid;
+  }
+
+  /**
+   * Bring an invalid field into view and put cursor focus on it.
+   * For visually-hidden inputs (chip/checklist groups), scroll to the
+   * surrounding wrapper so the visual chip is actually on screen.
+   */
+  function focusInvalid(el: HTMLElement) {
+    const wrapper =
+      el.closest('.form-group') ??
+      el.closest('.form-chips') ??
+      el.closest('.form-checklist') ??
+      el;
+    wrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // Slight delay lets the smooth scroll start before focus shifts — feels less abrupt.
+    window.setTimeout(() => {
+      try { el.focus({ preventScroll: true }); } catch { el.focus(); }
+    }, 80);
+  }
+
+  /* ── Package dropdown: populate based on selected service ── */
+  type PackageOpt = { value: string; label: string; price: string };
+  const packageData: Record<string, PackageOpt[]> = JSON.parse(
+    (document.getElementById('package-data') as HTMLScriptElement | null)?.textContent || '{}'
+  );
+  const preselect: { service: string; package: string } = JSON.parse(
+    (document.getElementById('preselect-data') as HTMLScriptElement | null)?.textContent || '{}'
+  );
+
+  const packageList = document.getElementById('package-list');
+  const packageHint = document.getElementById('package-hint');
+
+  function escapeHtml(s: string): string {
+    return s
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function populatePackages(selectedServices: string[], preselectedValues: string[] = []) {
+    if (!packageList) return;
+
+    // Preserve the user's existing checked packages across re-renders, plus any preselected ones.
+    const existing = new Set<string>(
+      Array.from(packageList.querySelectorAll<HTMLInputElement>('input[name="package"]:checked'))
+        .map(el => el.value)
+    );
+    preselectedValues.forEach(v => v && existing.add(v));
+
+    // Merge & dedupe packages from every selected service (keep first occurrence).
+    const seen = new Set<string>();
+    const merged: PackageOpt[] = [];
+    selectedServices.forEach(svc => {
+      (packageData[svc] || []).forEach(opt => {
+        if (!seen.has(opt.value)) {
+          seen.add(opt.value);
+          merged.push(opt);
+        }
+      });
+    });
+
+    if (!merged.length) {
+      packageList.innerHTML = '<p class="form-checklist__empty">Choose a service above first.</p>';
+      return;
+    }
+
+    packageList.innerHTML = merged.map(opt => {
+      const checked = existing.has(opt.value) ? 'checked' : '';
+      const price = opt.price ? `<span class="form-check__price">${escapeHtml(opt.price)}</span>` : '';
+      return `
+        <label class="form-check">
+          <input type="checkbox" name="package" value="${escapeHtml(opt.value)}" class="form-check__input" ${checked} />
+          <span class="form-check__inner">
+            <span class="form-check__box" aria-hidden="true"></span>
+            <span class="form-check__label">${escapeHtml(opt.label)}</span>
+            ${price}
+          </span>
+        </label>
+      `;
+    }).join('');
+  }
+
+  function getSelectedServices(): string[] {
+    return Array.from(
+      document.querySelectorAll<HTMLInputElement>('input[name="service"]:checked')
+    ).map(el => el.value);
+  }
+
+  document.querySelectorAll<HTMLInputElement>('input[name="service"]').forEach(input => {
+    input.addEventListener('change', () => populatePackages(getSelectedServices()));
+  });
+
+  // Initial populate (handles preselected service from URL or already-checked boxes)
+  const initialServices = getSelectedServices();
+  if (initialServices.length) {
+    populatePackages(initialServices, preselect.package ? [preselect.package] : []);
+    if (packageHint && preselect.package) {
+      packageHint.innerHTML = 'Pre-selected from the pricing page. Adjust if needed.';
+    }
   }
 
   form?.addEventListener('submit', async (e) => {
@@ -763,7 +1274,11 @@ import NavBar from '../components/NavBar.astro';
     clearErrors();
 
     const data = new FormData(form);
-    if (!validate(data)) return;
+    const invalid = validate(data);
+    if (invalid) {
+      focusInvalid(invalid);
+      return;
+    }
 
     if (submitBtn)     submitBtn.disabled = true;
     if (submitLabel)   submitLabel.textContent = 'Sending…';

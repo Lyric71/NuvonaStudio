@@ -7,56 +7,56 @@ import ContactCTA from '../../../components/ContactCTA.astro';
 /* ── Données ───────────────────────────────────────────── */
 
 const advocacyCards = [
-  { title: 'Conception et gestion du programme', description: 'On pose la structure, le calendrier éditorial, et on assure le suivi au quotidien. Le but c\'est que la participation soit tellement simple que vos équipes le font vraiment, sans qu\'on ait besoin de relancer.' },
-  { title: 'Refonte des profils collaborateurs', description: 'Chaque profil est réécrit pour parler aux acheteurs. Pas aux recruteurs. À la fin, un profil de collaborateur ressemble presque à une page de vente pour votre marque. Sauf que c\'est plus subtil que ça.' },
-  { title: 'Intégration des nouvelles recrues', description: 'Dès le premier jour, la nouvelle recrue a un profil LinkedIn propre. Avant la fin de sa première semaine elle est intégrée au programme et elle publie déjà.' },
+  { title: 'Conception et pilotage du programme', description: 'On installe la structure, le calendrier éditorial et le suivi au quotidien. L\'objectif : rendre la participation tellement simple que vos équipes y vont d\'elles-mêmes, sans qu\'on ait besoin de relancer.' },
+  { title: 'Refonte des profils des collaborateurs', description: 'Chaque profil est réécrit pour parler aux acheteurs, pas aux recruteurs. Au final, le profil d\'un collaborateur devient presque un argumentaire pour votre marque. En beaucoup plus subtil.' },
+  { title: 'Onboarding des nouvelles recrues', description: 'Dès son premier jour, la nouvelle recrue dispose d\'un profil LinkedIn nickel. Avant la fin de sa première semaine, elle est intégrée au programme et publie déjà.' },
 ];
 
 const brandingCards = [
-  { title: 'Refonte des profils dirigeants', description: 'On reprend le profil de chaque dirigeant pour qu\'il rassure les prospects, les investisseurs, les futurs talents. Pas juste les anciens collègues de promo.' },
-  { title: 'Rédaction pour vos dirigeants', description: 'Leur voix, leur expertise, publiées à un rythme régulier. Brouillons, validation, publication, réponses aux commentaires, bref tout ce qui fait que ça tourne - c\'est nous qui gérons.' },
-  { title: 'LinkedIn Live et croissance d\'audience', description: 'Un Live LinkedIn génère 24 fois plus de commentaires qu\'une vidéo classique. On met en place des programmes de Live récurrents qui font grandir une audience fidèle, pas juste des vues à la volée.' },
+  { title: 'Refonte des profils dirigeants', description: 'On reprend chaque profil dirigeant pour qu\'il rassure les prospects, les investisseurs et les futurs talents. Pas seulement les anciens camarades de promo.' },
+  { title: 'Plume du dirigeant', description: 'Leur voix, leur expertise, publiées à un rythme régulier. Brouillons, validation, publication, réponses aux commentaires : tout ce qui fait tourner la machine, c\'est nous.' },
+  { title: 'LinkedIn Live et croissance d\'audience', description: 'Un Live LinkedIn génère 24 fois plus de commentaires qu\'une vidéo classique. On installe des rendez-vous Live récurrents qui font grandir une audience fidèle, pas une pile de vues sans suite.' },
 ];
 
 const workshops = [
-  { tag: 'Demi-journée', title: 'Les fondamentaux LinkedIn', description: 'Comment la plateforme marche vraiment en 2026. On passe en revue la mécanique de l\'algorithme, le fil d\'actualité, ce qui produit des résultats et ce qui n\'en produit pas. Prévu pour les équipes qui démarrent ou celles qui ont besoin de repartir de zéro.' },
-  { tag: 'Journée', title: 'Atelier contenu', description: 'On construit ensemble un système de production qui tient dans la durée, sans épuiser vos équipes. Ça inclut les méthodes assistées par l\'IA. Chacun repart avec son plan de contenu sur 30 jours.' },
-  { tag: 'Journée', title: 'Publicité LinkedIn - niveau avancé', description: 'Ciblage, architecture de campagne, budget, attribution. Pour les équipes marketing qui mettent de l\'argent sur LinkedIn et qui en ont assez de pas vraiment savoir ce que ça donne.' },
-  { tag: 'Demi-journée', title: 'Visibilité des dirigeants', description: 'Une session resserrée pour les cadres dirigeants. On travaille la structure du profil, le rythme de publication, et surtout comment poser une crédibilité qui fait son travail avant même le premier rendez-vous.' },
+  { tag: 'Demi-journée', title: 'Les fondamentaux LinkedIn', description: 'Comment la plateforme fonctionne vraiment en 2026. On décortique la mécanique de l\'algorithme, le fil d\'actualité, ce qui rapporte et ce qui ne rapporte pas. Calé pour les équipes qui démarrent ou qui veulent repartir de zéro.' },
+  { tag: 'Journée', title: 'Atelier contenu', description: 'On construit ensemble une machine de production qui tient dans la durée, sans cramer vos équipes. Méthodes assistées par l\'IA comprises. Chacun repart avec son plan de contenu sur 30 jours.' },
+  { tag: 'Journée', title: 'Publicité LinkedIn — niveau avancé', description: 'Ciblage, architecture de campagne, budget, attribution. Pour les équipes marketing qui investissent sur LinkedIn et qui en ont assez de ne pas vraiment savoir ce que ça rapporte.' },
+  { tag: 'Demi-journée', title: 'Visibilité du dirigeant', description: 'Une session resserrée pour les cadres dirigeants. On travaille la structure du profil, la cadence de publication et, surtout, la façon d\'installer une crédibilité qui fait son effet avant même le premier rendez-vous.' },
 ];
 
 const stats = [
-  { value: '80 %', caption: 'des prospects B2B issus des réseaux sociaux viennent de LinkedIn. Facebook, X et Instagram se partagent le reste - et il en reste pas beaucoup.' },
-  { value: '277 %', caption: 'de génération de prospects en plus que Facebook et X combinés.' },
-  { value: '2,74 %', caption: 'de conversion visiteur vers prospect. Facebook est à 0,77 %. On vous laisse comparer.' },
-  { value: '4 sur 5', caption: 'des membres LinkedIn participent aux décisions d\'achat dans leur entreprise.' },
-  { value: '561 %', caption: 'de portée en plus quand vos collaborateurs partagent un contenu, comparé à la page entreprise qui le publie elle-même.' },
+  { value: '80 %', caption: 'des prospects B2B issus des réseaux sociaux viennent de LinkedIn. Facebook, X et Instagram se partagent les miettes.' },
+  { value: '277 %', caption: 'de prospects en plus que Facebook et X réunis.' },
+  { value: '2,74 %', caption: 'de conversion visiteur en prospect. Facebook plafonne à 0,77 %. La comparaison parle d\'elle-même.' },
+  { value: '4 sur 5', caption: 'des membres LinkedIn pèsent dans les décisions d\'achat de leur entreprise.' },
+  { value: '561 %', caption: 'de portée en plus quand vos collaborateurs partagent un contenu plutôt que la page entreprise elle-même.' },
   { value: '10-15 %', caption: 'de conversion sur les formulaires de captation LinkedIn. Une page web classique tourne plutôt entre 2 et 5 %.' },
-  { value: '85 %', caption: 'des marketeurs B2B disent que LinkedIn leur rapporte plus que n\'importe quel autre réseau social.' },
-  { value: '28 %', caption: 'de moins par prospect, comparé à Google Ads en B2B.' },
-  { value: '7×', caption: 'plus de croissance en abonnés pour les pages qui publient toutes les semaines.' },
-  { value: '89 %', caption: 'des marketeurs B2B utilisent déjà LinkedIn pour trouver des prospects. Les autres rattrapent leur retard.' },
+  { value: '85 %', caption: 'des responsables marketing B2B placent LinkedIn devant tous les autres réseaux sociaux côté ROI.' },
+  { value: '28 %', caption: 'de moins par prospect qu\'avec Google Ads en B2B.' },
+  { value: '7×', caption: 'de croissance en abonnés pour les pages qui publient chaque semaine.' },
+  { value: '89 %', caption: 'des marketeurs B2B utilisent déjà LinkedIn pour trouver des prospects. Les autres courent derrière.' },
 ];
 
 const faqs = [
-  { q: 'C\'est quoi exactement, la mobilisation des collaborateurs ?', a: 'En gros, vos collaborateurs relaient du contenu qu\'on a préparé pour eux, depuis leur profil LinkedIn perso. Nous on s\'occupe du programme, de la production de contenu, de la logistique. La seule chose qu\'on demande à vos équipes c\'est de cliquer sur « partager ». C\'est vraiment aussi simple que ça.' },
-  { q: 'Combien de temps avant de voir des résultats ?', a: 'La portée et les interactions bougent dès le premier mois en général. Les vrais prospects, ceux qui contactent ou qui répondent, arrivent plutôt sous 60 à 90 jours. Après, ça varie. Ça dépend de votre secteur, de combien de gens participent, de si votre marque est déjà connue ou pas. On met tout ça à plat dès le premier appel pour que vous sachiez à quoi vous attendre.' },
-  { q: 'Vous écrivez vraiment tout pour les dirigeants ?', a: 'Oui. Chaque mot. On les interviewe, on rédige dans leur ton, on fait valider. Rien ne sort sans leur accord.' },
-  { q: 'On n\'est pas basés en France, c\'est un problème ?', a: 'Pas du tout, on bosse avec des entreprises B2B sur à peu près tous les fuseaux horaires. Les ateliers se font en visio ou en présentiel selon ce qui vous arrange, et pour le contenu c\'est à distance de toute façon.' },
-  { q: 'Ça marche pour quelle taille d\'entreprise ?', a: 'De 20 à 20 000 salariés. Après ça dépend un peu du sujet. La mobilisation marche surtout bien à partir de la taille ETI ou grand groupe. Les formations s\'adaptent à toutes les tailles.' },
-  { q: 'Et la publicité LinkedIn, vous en faites ?', a: 'Ce qu\'on fait nous c\'est la croissance organique. Mobilisation des équipes, visibilité des dirigeants, formation. La pub on en parle dans l\'atelier publicité, mais c\'est de la stratégie, pas de la gestion de campagne. Si c\'est la gestion au quotidien que vous cherchez, parlez-nous en et on vous dit ce qu\'on peut proposer.' },
-  { q: 'En quoi vos formations sont différentes de ce qu\'on trouve sur internet ?', a: 'Tout repose sur des données de vraies campagnes B2B, pas sur du recyclage de conseils qu\'on voit partout sur LinkedIn. Et la grosse différence c\'est que votre équipe repart avec des livrables concrets. Des profils refaits, un calendrier éditorial, un plan de campagne. Pas un PowerPoint de 40 slides.' },
-  { q: 'Vous mesurez quoi au juste ?', a: 'Nombre d\'abonnés, taux d\'interaction, vues de profils, trafic renvoyé vers votre site, prospects entrants. Si un indicateur n\'a pas de lien direct avec votre activité commerciale on ne perd pas votre temps avec.' },
-  { q: 'On peut avoir une idée des tarifs ?', a: 'Tout est chiffré en fonction du périmètre - mobilisation, rédaction dirigeants, formation. On en discute par téléphone et vous recevez une proposition détaillée derrière. Pas d\'ambiguité là-dessus.' },
-  { q: 'On a jamais rien fait sur LinkedIn. C\'est gênant ?', a: 'Non. Beaucoup de nos clients en étaient là au démarrage. L\'atelier Fondamentaux a été pensé exactement pour ça.' },
+  { q: 'C\'est quoi exactement, le programme d\'employés ambassadeurs ?', a: 'L\'idée : vos collaborateurs relaient du contenu qu\'on a préparé pour eux, depuis leur profil LinkedIn personnel. Nous, on gère le programme, la production éditoriale et la logistique. La seule action qu\'on demande à vos équipes, c\'est cliquer sur « partager ». Vraiment aussi simple que ça.' },
+  { q: 'Au bout de combien de temps voit-on des résultats ?', a: 'En général, la portée et les interactions bougent dès le premier mois. Les vrais prospects, ceux qui prennent contact ou répondent, arrivent plutôt entre 60 et 90 jours. Ensuite, tout dépend de votre secteur, du nombre de participants et de la notoriété déjà installée. On met les attentes à plat dès le premier appel pour qu\'il n\'y ait pas de mauvaise surprise.' },
+  { q: 'Vous rédigez vraiment tout pour les dirigeants ?', a: 'Oui. Chaque mot. On les interviewe, on rédige dans leur ton, on leur soumet pour validation. Rien ne part en ligne sans leur feu vert.' },
+  { q: 'Notre siège n\'est pas en France, est-ce un souci ?', a: 'Pas du tout. On accompagne des entreprises B2B sur à peu près tous les fuseaux horaires. Les ateliers ont lieu en visio ou en présentiel, comme vous préférez ; pour le contenu, le travail se fait à distance dans tous les cas.' },
+  { q: 'Quelle taille d\'entreprise est concernée ?', a: 'De 20 à 20 000 salariés. Ensuite, ça dépend du sujet : le programme ambassadeurs prend toute sa puissance à partir de l\'ETI ou du grand groupe. Les formations, elles, s\'adaptent à toutes les tailles.' },
+  { q: 'Et côté publicité LinkedIn, vous gérez ?', a: 'Sur cette page, on parle de croissance organique : ambassadeurs, visibilité dirigeants, formation. La pub est abordée dans l\'atelier dédié, mais on y traite de stratégie, pas de pilotage quotidien. Si c\'est le pilotage au jour le jour que vous cherchez, parlez-nous en : on vous dit ce qu\'on peut faire.' },
+  { q: 'En quoi vos formations changent de ce qu\'on trouve déjà en ligne ?', a: 'Tout s\'appuie sur des données de vraies campagnes B2B, pas sur le recyclage de conseils qui tournent en boucle sur LinkedIn. Surtout, votre équipe repart avec des livrables concrets : profils refaits, calendrier éditorial, plan de campagne. Pas un PowerPoint de 40 slides.' },
+  { q: 'Vous mesurez quoi, concrètement ?', a: 'Nombre d\'abonnés, taux d\'engagement, vues de profils, trafic envoyé vers votre site, prospects entrants. Si un indicateur n\'a aucun lien direct avec votre business, on ne vous fait pas perdre votre temps avec.' },
+  { q: 'On peut avoir une idée des prix ?', a: 'Tout se chiffre en fonction du périmètre : programme ambassadeurs, plume du dirigeant, formation. On en discute par téléphone, vous recevez ensuite une proposition détaillée. Aucune zone d\'ombre.' },
+  { q: 'On n\'a jamais rien fait sur LinkedIn. C\'est rédhibitoire ?', a: 'Non. Beaucoup de nos clients sont partis exactement de là. L\'atelier Fondamentaux est conçu pour ce point de départ.' },
 ];
 ---
 
 <Layout
   lang="fr"
-  title="Conseil LinkedIn pour la génération de prospects B2B"
-  description="Mobilisation des collaborateurs, visibilité des dirigeants, formation LinkedIn. On aide les entreprises B2B à tirer plus de prospects de LinkedIn."
-  abstract="Conseil LinkedIn pour les entreprises B2B. Mobilisation des collaborateurs, visibilité des dirigeants et formations pratiques pour générer des prospects."
+  title="Conseil LinkedIn pour générer des prospects B2B"
+  description="Programmes employés ambassadeurs, visibilité des dirigeants, formation LinkedIn. On aide les entreprises B2B à tirer davantage de prospects de la plateforme."
+  abstract="Conseil LinkedIn pour les entreprises B2B. Employés ambassadeurs, visibilité des dirigeants et formations très opérationnelles pour générer des prospects."
 >
   <NavBar lang="fr" />
   <main id="main-content">
@@ -71,10 +71,10 @@ const faqs = [
         <div class="c-hero__content">
           <p class="eyebrow eyebrow--light reveal">Conseil LinkedIn</p>
           <h1 id="c-hero-h" class="c-hero__h1 reveal reveal-delay-1">
-            Plus de prospects sur LinkedIn. <span class="text-gradient">Moins de bruit.</span>
+            Plus de prospects sur LinkedIn. <span class="text-gradient">Moins de bruit autour.</span>
           </h1>
           <p class="c-hero__sub reveal reveal-delay-2">
-            Votre page entreprise ne touche qu'une fraction de votre audience. Les profils LinkedIn de vos collaborateurs touchent tout le reste. On construit les programmes qui permettent d'exploiter cet écart.
+            Votre page entreprise n'atteint qu'une fraction de votre audience. Les profils LinkedIn de vos collaborateurs touchent tout le reste. On bâtit les programmes qui permettent d'exploiter cet écart.
           </p>
           <div class="c-hero__actions reveal reveal-delay-3">
             <a href="/fr/contact?intent=call" class="btn btn--primary btn--lg">Prendre rendez-vous</a>
@@ -91,18 +91,18 @@ const faqs = [
       <div class="container">
         <div class="c-svc__layout">
           <div class="c-svc__text reveal">
-            <span class="c-svc__label">Mobilisation des collaborateurs</span>
+            <span class="c-svc__label">Employés ambassadeurs</span>
             <h2 id="c-advocacy-h" class="c-svc__h2">Vos collaborateurs ont une portée que votre page entreprise n'aura jamais.</h2>
             <div class="c-svc__body">
-              <p>L'algorithme de LinkedIn favorise les gens, pas les pages entreprise. C'est pas un bug, c'est le fonctionnement de la plateforme. Et ça change tout pour les entreprises qui ont compris comment en tirer parti.</p>
-              <p>Quand un collaborateur partage un contenu il génère 8 fois plus d'interactions que le même post publié depuis la page de la boîte. Les réseaux personnels de vos équipes, cumulés, font 10 fois la taille de votre base d'abonnés. Et 92 % des acheteurs B2B font davantage confiance à ce que disent les salariés qu'à ce que l'entreprise met dans ses publicités.</p>
-              <p>La plupart des boîtes le savent. Très peu font quoi que ce soit avec. Celles qui passent le cap voient 4,3 fois plus d'impressions et un impact direct sur le pipe commercial, souvent en moins de 90 jours.</p>
-              <p>Nous on conçoit le programme, on le lance et on le gère au quotidien. Vos équipes partagent, et retournent bosser.</p>
+              <p>L'algorithme de LinkedIn favorise les humains, pas les pages entreprise. Ce n'est pas un bug, c'est le fonctionnement de la plateforme. Et ça change tout pour les entreprises qui ont compris comment en jouer.</p>
+              <p>Quand un collaborateur partage un contenu, il génère huit fois plus d'interactions que le même post publié par la page entreprise. Les réseaux personnels de vos équipes, cumulés, pèsent dix fois plus que votre base d'abonnés. Et 92 % des acheteurs B2B accordent plus de crédit à ce que disent les salariés qu'à ce que l'entreprise raconte dans ses pubs.</p>
+              <p>La plupart des entreprises le savent. Très peu en tirent quelque chose. Celles qui franchissent le pas constatent 4,3 fois plus d'impressions et un impact direct sur le pipeline commercial, souvent en moins de 90 jours.</p>
+              <p>Nous, on conçoit le programme, on le lance et on le pilote au quotidien. Vos équipes partagent, puis retournent à leur métier.</p>
             </div>
           </div>
           <div class="c-svc__visual reveal reveal-delay-2">
             <div class="c-svc__img-wrap">
-              <img src="/consulting-employee-advocacy.webp" alt="Collaborateurs partageant du contenu LinkedIn depuis un bureau en espace ouvert" class="c-svc__img" width="560" height="420" loading="lazy" />
+              <img src="/images/consulting-employee-advocacy.webp" alt="Collaborateurs partageant du contenu LinkedIn depuis un bureau en espace ouvert" class="c-svc__img" width="560" height="420" loading="lazy" />
             </div>
           </div>
         </div>
@@ -131,17 +131,17 @@ const faqs = [
       <div class="container">
         <div class="c-svc__layout c-svc__layout--flip">
           <div class="c-svc__text reveal">
-            <span class="c-svc__label">Visibilité des dirigeants</span>
-            <h2 id="c-branding-h" class="c-svc__h2">Un acheteur ira voir le LinkedIn de votre DG avant même d'aller sur votre site.</h2>
+            <span class="c-svc__label">Visibilité du dirigeant</span>
+            <h2 id="c-branding-h" class="c-svc__h2">Un acheteur ira regarder le LinkedIn de votre DG avant même d'ouvrir votre site.</h2>
             <div class="c-svc__body">
-              <p>82 % des acheteurs B2B accordent plus de crédit à une entreprise quand ses dirigeants prennent la parole sur LinkedIn. Et 64 % préfèrent lire un point de vue du DG plutôt qu'un post produit depuis la page entreprise. Les chiffres sont assez clairs là-dessus.</p>
-              <p>Sauf que personne au comité de direction n'a le temps d'écrire trois posts par semaine. Résultat, la grande majorité des dirigeants B2B sont tout simplement invisibles sur LinkedIn. C'est du gâchis pur.</p>
-              <p>Nous on prend le relais. On interviewe vos dirigeants, on rédige dans leur style, on publie, on répond aux commentaires. Ils restent visibles auprès des bonnes personnes, et ça ne leur prend pas une heure dans la semaine.</p>
+              <p>82 % des acheteurs B2B accordent davantage de crédit à une entreprise dont les dirigeants prennent la parole sur LinkedIn. 64 % préfèrent lire un point de vue du DG plutôt qu'un post sorti de la page entreprise. Les chiffres sont sans appel.</p>
+              <p>Sauf que personne au CODIR n'a le temps d'écrire trois posts par semaine. Résultat : la grande majorité des dirigeants B2B restent invisibles sur LinkedIn. Pur gâchis.</p>
+              <p>Nous, on prend le relais. On interviewe vos dirigeants, on rédige dans leur style, on publie, on gère les commentaires. Ils restent visibles auprès des bonnes personnes, sans y consacrer plus d'une heure dans la semaine.</p>
             </div>
           </div>
           <div class="c-svc__visual reveal reveal-delay-2">
             <div class="c-svc__img-wrap">
-              <img src="/consulting-personal-branding.webp" alt="Dirigeant consultant ses interactions LinkedIn sur son téléphone dans un bureau" class="c-svc__img" width="560" height="420" loading="lazy" />
+              <img src="/images/consulting-personal-branding.webp" alt="Dirigeant consultant ses interactions LinkedIn sur son téléphone dans un bureau" class="c-svc__img" width="560" height="420" loading="lazy" />
             </div>
           </div>
         </div>
@@ -157,7 +157,7 @@ const faqs = [
         </div>
 
         <div class="c-svc__cta reveal">
-          <a href="/fr/contact?intent=call" class="btn btn--primary btn--lg">Mettre vos dirigeants face aux acheteurs</a>
+          <a href="/fr/contact?intent=call" class="btn btn--primary btn--lg">Remettre vos dirigeants face aux acheteurs</a>
         </div>
       </div>
     </section>
@@ -171,11 +171,11 @@ const faqs = [
       <div class="container">
         <div class="c-training__head reveal">
           <span class="c-training__label">Formation</span>
-          <h2 id="c-training-h" class="c-training__h2">Votre équipe est sur LinkedIn tous les jours. Mais est-ce qu'elle sait vraiment s'en servir ?</h2>
+          <h2 id="c-training-h" class="c-training__h2">Votre équipe est sur LinkedIn tous les jours. Mais sait-elle vraiment s'en servir ?</h2>
           <div class="c-training__intro">
-            <p>68 % des marketeurs B2B ont augmenté leur activité LinkedIn l'an dernier. Le souci c'est que la majorité l'a fait sans aucune formation derrière.</p>
-            <p>Ça donne des publications que personne ne lit, des profils qui ressemblent encore à des CV de 2014, et du budget pub qui s'évapore sans que personne sache vraiment pourquoi. En face, les professionnels qui ont été formés à LinkedIn dépassent leurs objectifs commerciaux 51 % plus souvent.</p>
-            <p>Nos ateliers ce sont pas des webinaires où on écoute en faisant autre chose. C'est du travail concret. Votre équipe en repart avec des profils refaits, un plan de contenu, ou une stratégie publicitaire qu'elle peut lancer le lundi d'après.</p>
+            <p>68 % des marketeurs B2B ont accéléré leur activité LinkedIn l'an dernier. Le hic : la majorité l'a fait sans aucune formation derrière.</p>
+            <p>Résultat : des publications que personne ne lit, des profils qui ressemblent encore à des CV de 2014, et un budget pub qui s'évapore sans que personne ne sache vraiment pourquoi. À l'inverse, les pros formés à LinkedIn dépassent leurs objectifs commerciaux 51 % plus souvent.</p>
+            <p>Nos ateliers ne sont pas des webinaires qu'on suit d'une oreille distraite. On bosse pour de vrai. Votre équipe en repart avec des profils refaits, un plan de contenu ou une stratégie publicitaire prête à lancer le lundi suivant.</p>
           </div>
         </div>
 
@@ -204,8 +204,8 @@ const faqs = [
       <div class="container">
         <div class="c-num__head reveal">
           <p class="eyebrow eyebrow--light">En chiffres</p>
-          <h2 id="c-num-h" class="c-num__h2">Pourquoi LinkedIn. En chiffres.</h2>
-          <p class="c-num__intro">Ces chiffres ne sortent pas de chez nous. Ils viennent de LinkedIn, HubSpot, Edelman, et de plusieurs études B2B indépendantes. On les met ici parce que « pourquoi LinkedIn et pas autre chose ? » c'est la question qu'on entend le plus souvent. Et la réponse change jamais.</p>
+          <h2 id="c-num-h" class="c-num__h2">LinkedIn, en chiffres.</h2>
+          <p class="c-num__intro">Ces chiffres ne sortent pas de notre chapeau. Ils viennent de LinkedIn, HubSpot, Edelman et de plusieurs études B2B indépendantes. On les met ici parce que « pourquoi LinkedIn plutôt qu'autre chose ? », c'est la question qui revient le plus. Et la réponse ne change jamais.</p>
         </div>
 
         <div class="c-num__grid">
@@ -220,7 +220,7 @@ const faqs = [
     </section>
 
 
-    <FAQ heading="Questions fréquentes" faqs={faqs} background="var(--off-white)" cta={{ text: 'Prendre rendez-vous', href: '/fr/contact' }} id="c-faq" />
+    <FAQ heading="Les questions qui reviennent" faqs={faqs} background="var(--off-white)" cta={{ text: 'Prendre rendez-vous', href: '/fr/contact' }} id="c-faq" />
 
 
     <ContactCTA lang="fr" />
@@ -253,7 +253,7 @@ const faqs = [
   .c-hero__bg {
     position: absolute;
     inset: 0;
-    background: url('/consulting-hero.webp') center center / cover no-repeat;
+    background: url('/images/consulting-hero.webp') center center / cover no-repeat;
     z-index: 0;
   }
 

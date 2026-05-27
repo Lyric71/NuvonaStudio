@@ -14,98 +14,98 @@ const plans = [
 
 const features = [
   { label: 'Tarif mensuel',                foundation: '1 500 €', growth: '3 000 €', scale: '5 250 €' },
-  { label: 'Audit et mise en place',       foundation: '✓', growth: '✓', scale: '✓' },
-  { label: 'Stratégie de contenu',         foundation: '✓', growth: '✓', scale: '✓' },
+  { label: 'Audit et mise en route',       foundation: '✓', growth: '✓', scale: '✓' },
+  { label: 'Stratégie éditoriale',         foundation: '✓', growth: '✓', scale: '✓' },
   { label: 'Publications par mois',        foundation: '4', growth: '8', scale: '16' },
   { label: 'Visuels générés par IA',       foundation: '✓', growth: '✓', scale: '✓' },
-  { label: 'Animation de communauté',      foundation: '✓', growth: '✓', scale: '✓' },
-  { label: 'Gestion de la publicité LinkedIn', foundation: '-', growth: '✓', scale: '✓' },
-  { label: 'Ciblage et profil acheteur',   foundation: '-', growth: '✓', scale: '✓' },
+  { label: 'Animation de la communauté',   foundation: '✓', growth: '✓', scale: '✓' },
+  { label: 'Pilotage des publicités LinkedIn', foundation: '-', growth: '✓', scale: '✓' },
+  { label: 'Persona acheteur et ciblage',  foundation: '-', growth: '✓', scale: '✓' },
   { label: 'Veille concurrentielle',       foundation: '-', growth: '✓', scale: '✓' },
-  { label: 'Rapport de performance',       foundation: '✓', growth: '✓', scale: '✓' },
-  { label: 'Appel stratégique hebdomadaire', foundation: '✓', growth: '✓', scale: '✓' },
-  { label: 'Contact dédié',               foundation: 'Responsable', growth: 'Responsable', scale: 'Référent senior' },
-  { label: 'Assistance par messagerie L–V', foundation: '✓', growth: '✓', scale: '✓' },
+  { label: 'Reporting de performance',     foundation: '✓', growth: '✓', scale: '✓' },
+  { label: 'Point stratégique hebdomadaire', foundation: '✓', growth: '✓', scale: '✓' },
+  { label: 'Interlocuteur dédié',          foundation: 'Chef de projet', growth: 'Chef de projet', scale: 'Référent senior' },
+  { label: 'Support par messagerie L-V',   foundation: '✓', growth: '✓', scale: '✓' },
 ];
 
 /* ── Comparatif Ads ── */
 const adsFeatures = [
-  { label: 'Frais mensuels',                        foundation: '1 300 €/mois', growth: '6 %–10 % du budget' },
+  { label: 'Honoraires mensuels',                    foundation: '1 300 €/mois', growth: '6 à 10 % du budget' },
   { label: 'Stratégie publicitaire complète',        foundation: '✓', growth: '✓' },
   { label: 'Campagnes et annonces illimitées',       foundation: '✓', growth: '✓' },
-  { label: 'Accompagnement expert illimité',         foundation: '✓', growth: '✓' },
-  { label: 'Rapports personnalisés',                 foundation: '✓', growth: '✓' },
-  { label: 'Recommandations de contenu publicitaire', foundation: '✓', growth: '✓' },
+  { label: 'Accompagnement expert sans limite',      foundation: '✓', growth: '✓' },
+  { label: 'Reporting personnalisé',                 foundation: '✓', growth: '✓' },
+  { label: 'Recommandations de création publicitaire', foundation: '✓', growth: '✓' },
   { label: 'Points hebdomadaires',                   foundation: '-', growth: '✓' },
   { label: 'Analyse de performance',                 foundation: '-', growth: '✓' },
-  { label: 'Stratégie de micro-ciblage',             foundation: '-', growth: '✓' },
+  { label: 'Micro-ciblage avancé',                   foundation: '-', growth: '✓' },
   { label: 'Remises sur volume',                     foundation: '-', growth: '✓' },
 ];
 
 /* ── Tableaux simples ── */
 const execServices = [
-  { service: 'Optimisation du profil dirigeant (prestation unique)', price: '450 € par profil' },
-  { service: 'Rédaction pour dirigeant (4 publications/mois + maintien du profil)', price: '1 050 €/mois par dirigeant' },
+  { service: 'Optimisation du profil dirigeant (prestation ponctuelle)', price: '450 € par profil' },
+  { service: 'Plume du dirigeant (4 publications/mois + maintien du profil)', price: '1 050 €/mois et par dirigeant' },
 ];
 
 const contentServices = [
-  { service: 'Vidéo générée par IA (5 s – 30 s)', price: '180 € – 4 500 € par vidéo' },
+  { service: 'Vidéo générée par IA (5 à 30 secondes)', price: 'De 180 € à 4 500 € par vidéo' },
   { service: 'Tournage vidéo professionnel', price: 'Devis sur mesure' },
   { service: 'Contenu multilingue', price: 'Devis par langue' },
 ];
 
 const trainingServices = [
-  { service: 'Atelier LinkedIn (2 heures)', price: '2 200 € par session' },
-  { service: 'Programme de formation équipe (4 sessions)', price: '7 000 € forfait unique' },
-  { service: 'Programme de mobilisation des collaborateurs', price: '2 200 €/mois' },
+  { service: 'Atelier LinkedIn (2 heures)', price: '2 200 € la session' },
+  { service: 'Parcours de formation équipe (4 sessions)', price: '7 000 € forfaitaires' },
+  { service: 'Programme employés ambassadeurs', price: '2 200 €/mois' },
 ];
 
 const bonusServices = [
-  { model: 'Prime sur objectif de prospection', percent: '+15%', structure: 'du forfait mensuel quand les objectifs de prospection sont atteints. Suppose un budget publicitaire LinkedIn actif.' },
-  { model: 'Prime sur croissance d\'audience', percent: '+10%', structure: 'du forfait mensuel si les objectifs trimestriels de croissance d\'audience sont dépassés. Budget publicitaire LinkedIn actif requis.' },
+  { model: 'Prime sur objectif de prospection', percent: '+15 %', structure: 'du forfait mensuel quand les objectifs de prospection sont atteints. Suppose un budget publicitaire LinkedIn actif.' },
+  { model: 'Prime sur croissance d\'audience', percent: '+10 %', structure: 'du forfait mensuel si les objectifs trimestriels de croissance d\'audience sont dépassés. Un budget publicitaire LinkedIn actif est requis.' },
 ];
 
 /* ── FAQ ── */
 const faqs = [
   {
-    q: "Qu'est-ce qui est inclus dans le tarif ?",
-    a: "Tout ce qui est listé dans votre formule : stratégie, contenu, visuels, gestion de la communauté, suivi, appel hebdomadaire, un interlocuteur dédié... Le seul coût en plus c'est le budget pub LinkedIn, et il est débité sur votre compte à vous, pas le nôtre.",
+    q: "Qu'est-ce qui est compris dans le tarif ?",
+    a: "Tout ce qui est listé dans votre formule : stratégie, contenu, visuels, animation de communauté, reporting, point hebdomadaire, interlocuteur dédié. Le seul coût en sus, c'est le budget pub LinkedIn, débité directement sur votre compte, pas le nôtre.",
   },
   {
     q: 'Pourquoi un engagement de 3 mois ?',
-    a: "LinkedIn donne pas de résultats du jour au lendemain. Il faut du temps pour auditer votre page, construire une stratégie, publier régulièrement et laisser l'algorithme faire son travail. Trois mois, c'est le minimum pour observer un vrai mouvement.",
+    a: "LinkedIn ne donne aucun résultat du jour au lendemain. Il faut le temps d'auditer votre page, de poser une stratégie, de publier sans accroc et de laisser l'algorithme faire son travail. Trois mois, c'est le strict minimum pour voir un vrai mouvement.",
   },
   {
-    q: 'On peut changer de formule en cours de route ?',
-    a: 'Oui, sans problème. Une fois les 3 premiers mois passés vous pouvez monter ou descendre de formule à chaque nouveau cycle de facturation.',
+    q: 'Peut-on changer de formule en cours de route ?',
+    a: "Oui, sans problème. Une fois les 3 premiers mois passés, vous pouvez monter ou descendre d'une formule à chaque nouveau cycle de facturation.",
   },
   {
-    q: 'Vous garantissez un nombre précis de prospects ?',
-    a: "Non. Et honnêtement, méfiez-vous de quiconque le fait. On s'engage à faire le travail correctement : stratégie, contenu, ciblage, semaine après semaine. Avec l'option prime de performance, on ne gagne davantage que si on atteint les objectifs qu'on a fixés ensemble.",
+    q: 'Garantissez-vous un nombre précis de prospects ?',
+    a: "Non. Et franchement, méfiez-vous de quiconque le promet. On s'engage à faire le travail proprement : stratégie, contenu, ciblage, semaine après semaine. Avec l'option prime de performance, on ne gagne davantage que si les objectifs fixés ensemble sont atteints.",
   },
   {
-    q: 'Que signifie « Ciblage et profil acheteur » ?',
-    a: "En gros, c'est le portrait-robot de votre acheteur idéal. On identifie qui sont vos meilleurs prospects (par poste, secteur, taille de boîte, localisation) et on construit le contenu et les campagnes autour de ça. C'est inclus dans Growth et Scale.",
+    q: 'Que recouvre la ligne « persona acheteur et ciblage » ?',
+    a: "C'est le portrait-robot de votre acheteur idéal. On identifie vos meilleurs prospects (poste, secteur, taille d'entreprise, géographie) et on bâtit contenu et campagnes autour de ce profil. Inclus dans Growth et Scale.",
   },
   {
-    q: 'Comment fonctionne la facturation du budget publicitaire ?',
-    a: "Vous payez LinkedIn directement depuis votre compte à vous. Nous on gère les campagnes. Votre argent ne transite pas par chez nous, c'est aussi simple que ça.",
+    q: 'Comment se facture le budget publicitaire ?',
+    a: "Vous payez LinkedIn directement depuis votre propre compte publicitaire. Nous, on pilote les campagnes. Votre argent ne transite jamais par nous, c'est aussi simple que ça.",
   },
   {
-    q: 'Peut-on acheter la rédaction pour dirigeant sans formule mensuelle ?',
-    a: "Oui. C'est un service à part. Optimisation de profil, rédaction, ou les deux. Pas besoin de souscrire à une formule.",
+    q: 'Peut-on prendre la prestation « plume du dirigeant » sans formule mensuelle ?',
+    a: "Oui. C'est une prestation indépendante : optimisation du profil, rédaction des publications, ou les deux. Aucune formule à souscrire à côté.",
   },
   {
-    q: 'Combien coûte la prime de performance si vous ratez l\'objectif ?',
-    a: "Rien. La prime ne s'applique que quand on atteint ou dépasse les objectifs qu'on a défini ensemble. Si on est en dessous vous payez votre forfait, c'est tout.",
+    q: 'Combien coûte la prime de performance si l\'objectif n\'est pas atteint ?',
+    a: "Rien. La prime ne se déclenche que quand on atteint ou dépasse les objectifs définis ensemble. En dessous, vous payez votre forfait, point final.",
   },
   {
     q: "Quelle est la vraie différence entre Foundation et Growth ?",
-    a: "Foundation vous donne une présence : du contenu régulier et de l'animation de communauté. Growth, c'est le niveau où la prospection démarre vraiment : publicité, ciblage, veille concurrentielle et deux fois plus de contenu. Si vous cherchez à générer des prospects, c'est par Growth qu'il faut commencer.",
+    a: "Foundation vous installe une présence : contenu régulier et animation de communauté. Growth, c'est le palier où la prospection démarre vraiment : publicité, ciblage, veille concurrentielle et deux fois plus de contenu. Pour générer des prospects, c'est par Growth qu'il faut commencer.",
   },
   {
     q: 'Que se passe-t-il après les 3 mois ?',
-    a: "Vous passez au mois par mois. Vous restez, vous changez de formule ou vous résiliez avec 30 jours de préavis. Aucune pénalité.",
+    a: "Vous basculez au mois par mois. Vous restez, vous changez de formule ou vous résiliez avec 30 jours de préavis. Aucune pénalité.",
   },
 ];
 ---
@@ -113,8 +113,8 @@ const faqs = [
 <Layout
   lang="fr"
   title="Tarifs LinkedIn pour entreprises B2B | Nuvora Studio"
-  description="Découvrez nos tarifs LinkedIn. Trois formules d'accompagnement, gestion publicitaire, visibilité du dirigeant et formation. Des offres conçues pour générer plus de prospects."
-  abstract="Tarifs LinkedIn pour entreprises B2B. Trois formules de 1 500 € à 5 250 €/mois. Publicité LinkedIn, visibilité du dirigeant et formation en complément."
+  description="Nos tarifs LinkedIn en clair. Trois formules d'accompagnement, pilotage publicitaire, visibilité du dirigeant et formation. Des offres conçues pour générer davantage de prospects."
+  abstract="Tarifs LinkedIn pour le B2B. Trois formules de 1 500 € à 5 250 €/mois. Publicité LinkedIn, visibilité du dirigeant et formation en complément."
 >
   <NavBar lang="fr" />
   <main id="main-content">
@@ -127,16 +127,16 @@ const faqs = [
         <div class="pricing-hero__content">
           <p class="eyebrow eyebrow--light reveal">Tarifs</p>
           <h1 id="pricing-heading" class="pricing-hero__title reveal reveal-delay-1">
-            Un seul objectif : vous apporter plus de <span class="text-gradient">prospects via LinkedIn.</span>
+            Un seul cap : vous apporter davantage de <span class="text-gradient">prospects via LinkedIn.</span>
           </h1>
           <p class="pricing-hero__sub reveal reveal-delay-2">
-            Choisissez la formule qui correspond à là où vous en êtes aujourd'hui. Stratégie, contenu,
-            suivi et un interlocuteur dédié sont inclus dans chaque formule. Pas de frais cachés.
+            Choisissez la formule calée sur votre point de départ. La stratégie, le contenu,
+            le reporting et un interlocuteur dédié sont compris dans chacune. Aucun frais caché.
             Aucun engagement au-delà des trois premiers mois.
           </p>
           <div class="pricing-hero__actions reveal reveal-delay-3">
             <a href="#retainer" class="btn btn--primary btn--lg">Voir les formules</a>
-            <a href="/fr/contact?intent=call" class="btn btn--outline-white btn--lg">Prendre rendez-vous</a>
+            <a href="/fr/contact?intent=call" class="btn btn--outline-white btn--lg">Caler un rendez-vous</a>
           </div>
         </div>
       </div>
@@ -147,23 +147,23 @@ const faqs = [
       <div class="container">
         <div class="s-head reveal">
           <p class="eyebrow">Nos formules d'accompagnement</p>
-          <h2 id="retainer-heading">Gestion mensuelle de votre présence LinkedIn</h2>
-          <p class="s-head__sub">Toutes les formules nécessitent un engagement minimum de 3 mois.</p>
+          <h2 id="retainer-heading">Pilotage mensuel de votre présence LinkedIn</h2>
+          <p class="s-head__sub">Toutes les formules démarrent par un engagement minimum de 3 mois.</p>
         </div>
 
         <div class="reveal reveal-delay-1">
-          <Pricing1 plans={plans} features={features} ctaLabel="Prendre rendez-vous" popularLabel="La plus demandée" periodLabel="/mois" />
+          <Pricing1 plans={plans} features={features} ctaLabel="Caler un rendez-vous" popularLabel="La plus demandée" periodLabel="/mois" />
         </div>
 
         <div class="tier-cards reveal reveal-delay-2">
           <div class="tier-card">
-            Avec <strong>Foundation</strong>, vous posez les bases : une présence LinkedIn régulière, bien construite, avant de monter en puissance.
+            Avec <strong>Foundation</strong>, vous posez les fondations : une présence LinkedIn régulière, bien construite, prête à monter en puissance.
           </div>
           <div class="tier-card tier-card--pop">
-            <strong>Growth</strong> c'est là que la prospection commence pour de bon. Publicité, ciblage, deux fois plus de contenu. Notre formule la plus demandée, et c'est pas un hasard.
+            <strong>Growth</strong>, c'est là que la prospection démarre pour de bon. Publicité, ciblage, deux fois plus de contenu. Notre formule la plus demandée, et ce n'est pas un hasard.
           </div>
           <div class="tier-card">
-            <strong>Scale</strong>, c'est pour les entreprises qui veulent aller à fond : 16 publications par mois, un référent senior sur votre compte, et tous nos services qui avancent de concert.
+            <strong>Scale</strong>, c'est pour les entreprises qui veulent y aller franchement : 16 publications par mois, un référent senior à demeure, et tous nos services synchronisés.
           </div>
         </div>
 
@@ -180,14 +180,14 @@ const faqs = [
       <div class="container" style="position: relative; z-index: 2;">
         <div class="exec-split">
           <div class="exec-split__text reveal">
-            <p class="eyebrow">En complément ou de façon indépendante</p>
+            <p class="eyebrow">En complément ou en autonomie</p>
             <h2 id="exec-heading">Visibilité du dirigeant</h2>
             <p class="s-head__sub">
-              La page de votre entreprise raconte une histoire. Vos dirigeants en racontent une autre. Les acheteurs consultent les deux avant de vous contacter.
+              La page de votre entreprise raconte une histoire. Vos dirigeants en racontent une autre. Avant de vous contacter, les acheteurs lisent les deux.
             </p>
             <p class="s-head__note">
-              C'est un service indépendant, pensé pour les dirigeants qui veulent construire leur propre visibilité sur LinkedIn.
-              Ça marche seul ou en complément de n'importe quelle formule.
+              C'est une prestation indépendante, pensée pour les dirigeants qui veulent bâtir leur propre voix sur LinkedIn.
+              Elle fonctionne seule ou en complément de n'importe quelle formule.
             </p>
           </div>
           <div class="exec-split__cards reveal reveal-delay-1">
@@ -207,12 +207,12 @@ const faqs = [
       <div class="container">
         <div class="s-head reveal">
           <p class="eyebrow">Offre indépendante</p>
-          <h2 id="ads-heading">Gestion de la publicité LinkedIn</h2>
+          <h2 id="ads-heading">Pilotage des publicités LinkedIn</h2>
           <p class="s-head__sub">
-            Pour les entreprises qui veulent une gestion publicitaire experte sans formule d'accompagnement complète.
-            Le budget publicitaire est facturé séparément, directement sur votre compte LinkedIn.
+            Pour les entreprises qui veulent un pilotage publicitaire expert sans souscrire à une formule complète.
+            Le budget média est facturé séparément, directement sur votre compte LinkedIn.
           </p>
-          <p class="s-head__note">Les deux niveaux requièrent un contrat de 3 mois et des frais de mise en place de 1 300 €.</p>
+          <p class="s-head__note">Les deux niveaux supposent un engagement de 3 mois et des frais de mise en route de 1 300 €.</p>
         </div>
 
         <div class="ads-table reveal">
@@ -221,8 +221,8 @@ const faqs = [
               <thead>
                 <tr>
                   <th class="ads-table__corner"></th>
-                  <th class="ads-table__col-head">Budget pub &lt; 13 000 €/mois</th>
-                  <th class="ads-table__col-head">Budget pub &gt; 13 000 €/mois</th>
+                  <th class="ads-table__col-head">Budget média &lt; 13 000 €/mois</th>
+                  <th class="ads-table__col-head">Budget média &gt; 13 000 €/mois</th>
                 </tr>
               </thead>
               <tbody>
@@ -266,19 +266,19 @@ const faqs = [
           <p class="eyebrow eyebrow--light">Sur mesure</p>
           <h2 id="enterprise-heading" class="ent-top__title">Grands comptes</h2>
           <p class="ent-top__lead">
-            Pour les entreprises internationales qui ont besoin que LinkedIn fonctionne sur plusieurs marchés, équipes et langues.
+            Pour les entreprises internationales qui ont besoin que LinkedIn tourne sur plusieurs marchés, équipes et langues.
           </p>
         </div>
 
         <div class="ent-intro reveal">
           <p>
-            Nos formules standard conviennent à la plupart des entreprises B2B. Mais certaines organisations ont besoin de plus. Plusieurs régions.
-            Des dizaines de profils de dirigeants. Du contenu en quatre langues. Des campagnes publicitaires qui tournent en parallèle
+            Nos formules standards couvrent l'immense majorité des entreprises B2B. Mais certaines organisations ont besoin d'aller plus loin. Plusieurs régions.
+            Des dizaines de profils dirigeants. Du contenu en quatre langues. Des campagnes publicitaires lancées en parallèle
             sur l'Asie-Pacifique, l'Europe et les Amériques.
           </p>
-          <p>L'offre Grands comptes est faite pour ça.</p>
+          <p>L'offre Grands comptes est taillée pour ça.</p>
           <p>
-            On construit un périmètre d'intervention adapté à votre organisation. Pas une offre standard à laquelle on colle votre nom.
+            On bâtit un périmètre d'intervention calé sur votre organisation. Pas une offre type à laquelle on colle votre nom.
             Chaque mission démarre par un appel pour comprendre vos objectifs, vos marchés, qui fait quoi en interne
             et comment vous fonctionnez au quotidien.
           </p>
@@ -287,45 +287,45 @@ const faqs = [
         <div class="ent-grid">
           <!-- Ce dont les grands comptes ont généralement besoin -->
           <div class="ent-block reveal">
-            <h3 class="ent-block__title">Ce dont les grands comptes ont généralement besoin</h3>
+            <h3 class="ent-block__title">Ce dont les grands comptes ont besoin, en général</h3>
             <ul class="ent-list" role="list">
               <li>Stratégie LinkedIn multi-marchés couvrant plusieurs régions et langues</li>
-              <li>Calendriers éditoriaux coordonnés entre pages d'entreprise et profils de dirigeants</li>
-              <li>Programmes de mobilisation des collaborateurs à grande échelle</li>
-              <li>Un seul interlocuteur, stratège senior, qui suit tout</li>
-              <li>Gestion de la publicité LinkedIn sur plusieurs comptes et devises</li>
-              <li>Production de contenu multilingue, rédigé par des gens qui connaissent le marché, pas juste la langue</li>
-              <li>Tableaux de bord personnalisés alignés sur vos indicateurs de performance</li>
+              <li>Calendriers éditoriaux synchronisés entre pages entreprise et profils dirigeants</li>
+              <li>Programmes employés ambassadeurs à grande échelle</li>
+              <li>Un interlocuteur unique, stratège senior, qui chapeaute tout</li>
+              <li>Pilotage des publicités LinkedIn sur plusieurs comptes et plusieurs devises</li>
+              <li>Production de contenu multilingue, par des gens qui connaissent le marché, pas seulement la langue</li>
+              <li>Tableaux de bord personnalisés calés sur vos indicateurs de performance</li>
               <li>Points trimestriels avec votre direction</li>
             </ul>
           </div>
 
           <!-- Fonctionnement des tarifs + À qui ça s'adresse -->
           <div class="ent-block reveal reveal-delay-1">
-            <h3 class="ent-block__title">Fonctionnement des tarifs</h3>
+            <h3 class="ent-block__title">Le tarif, en pratique</h3>
             <div class="ent-block__text">
               <p>
-                L'offre Grands comptes est définie et chiffrée au cas par cas. Il n'y a pas de tarif fixe car aucun programme ne se ressemble.
-                Le prix dépend du nombre de marchés, de profils, du volume de contenu, des comptes publicitaires et des langues concernés.
+                L'offre Grands comptes se construit au cas par cas. Pas de prix de catalogue, parce que deux programmes ne se ressemblent jamais.
+                Le tarif dépend du nombre de marchés, de profils, du volume de contenu, des comptes publicitaires et des langues couvertes.
               </p>
               <p class="ent-price-range">
                 La plupart des accompagnements Grands comptes démarrent entre <strong>9 000 € et 22 000 € par mois.</strong>
-                Certains vont au dessus. Dans tous les cas on vous envoie une proposition détaillée, ligne par ligne, avant de commencer. Pas de surprises.
+                Certains montent au-dessus. Dans tous les cas, vous recevez une proposition détaillée ligne à ligne avant de signer. Aucune surprise.
               </p>
             </div>
 
             <h3 class="ent-block__title" style="margin-top: var(--sp-10);">À qui ça s'adresse</h3>
             <ul class="ent-list" role="list">
               <li>Entreprises internationales présentes dans plusieurs pays</li>
-              <li>Organisations en expansion sur de nouveaux marchés, tous secteurs confondus</li>
-              <li>Entreprises pour lesquelles LinkedIn est un canal stratégique, pas un projet secondaire</li>
+              <li>Organisations en conquête de nouveaux marchés, tous secteurs confondus</li>
+              <li>Entreprises pour lesquelles LinkedIn est un canal stratégique, pas un dossier secondaire</li>
             </ul>
           </div>
         </div>
 
         <div class="ent-cta reveal">
-          <p class="ent-cta__text">Si vous avez dépassé le stade de la formule standard, c'est le bon moment pour en parler.</p>
-          <a href="/fr/contact?intent=enterprise" class="btn btn--primary btn--lg">Prendre rendez-vous Grands comptes</a>
+          <p class="ent-cta__text">Si la formule standard ne suffit plus, c'est le bon moment pour en parler.</p>
+          <a href="/fr/contact?intent=enterprise" class="btn btn--primary btn--lg">Échanger sur un dossier Grands comptes</a>
         </div>
 
       </div>
@@ -336,10 +336,10 @@ const faqs = [
       <div class="container">
         <div class="s-head reveal" style="text-align: center; max-width: 640px; margin-inline: auto;">
           <p class="eyebrow">Services complémentaires</p>
-          <h2 id="addons-heading">Contenu, formation et mobilisation</h2>
+          <h2 id="addons-heading">Contenu, formation et programme ambassadeurs</h2>
           <p class="s-head__sub" style="margin-inline: auto;">
-            Les publications rédigées, les images générées par IA et les supports visuels sont inclus dans toutes les formules.
-            Ces services sont disponibles séparément.
+            Les publications rédigées, les visuels générés par IA et les supports graphiques sont compris dans toutes les formules.
+            Ces services sont aussi disponibles à la carte.
           </p>
         </div>
 
@@ -360,7 +360,7 @@ const faqs = [
 
           <!-- Formation -->
           <div class="addon-col reveal reveal-delay-1">
-            <h3 class="addon-col__title">Formation et mobilisation des collaborateurs</h3>
+            <h3 class="addon-col__title">Formation et employés ambassadeurs</h3>
             {trainingServices.map(row => (
               <div class="addon-item">
                 <p class="addon-item__name">{row.service}</p>
@@ -376,12 +376,12 @@ const faqs = [
     <section class="section section--dark" aria-labelledby="bonus-heading">
       <div class="container container--md">
         <div class="s-head reveal" style="text-align: center;">
-          <p class="eyebrow eyebrow--light">Optionnel</p>
+          <p class="eyebrow eyebrow--light">En option</p>
           <h2 id="bonus-heading" style="color: var(--white);">Prime de performance</h2>
           <p class="s-head__sub" style="color: var(--navy-text-2); margin-inline: auto;">
-            Disponible avec les formules Growth et Scale. Nous lions une partie de nos honoraires aux résultats.
-            Quand on atteint les objectifs convenus, nous touchons une prime.
-            Quand on les rate vous payez uniquement votre forfait.
+            Disponible avec les formules Growth et Scale. On indexe une partie de nos honoraires sur les résultats.
+            Si les objectifs convenus sont atteints, on touche une prime.
+            Sinon, vous ne payez que votre forfait.
           </p>
         </div>
 
@@ -397,7 +397,7 @@ const faqs = [
         </div>
 
         <p class="s-footnote reveal" style="color: var(--navy-text-3); text-align: center; margin-top: var(--sp-8);">
-          Les objectifs sont définis ensemble au lancement de la mission et révisés chaque trimestre.
+          Les objectifs se posent ensemble au lancement de la mission et se révisent à chaque trimestre.
         </p>
       </div>
     </section>
@@ -406,13 +406,13 @@ const faqs = [
     <div style="padding: var(--sp-10) 0; background: var(--off-white);">
       <div class="container">
         <p class="s-disclaimer reveal">
-          Tous les prix sont en euros HT. Le budget publicitaire LinkedIn est facturé séparément sur votre compte.
-          Des offres sur mesure sont disponibles pour les grands comptes.
+          Tous les prix sont indiqués en euros HT. Le budget publicitaire LinkedIn est facturé séparément, directement sur votre compte.
+          Des offres sur mesure existent pour les grands comptes.
         </p>
       </div>
     </div>
 
-    <FAQ heading="Vos questions sur les tarifs." faqs={faqs} id="pfaq" />
+    <FAQ heading="Les questions qui reviennent sur les tarifs." faqs={faqs} id="pfaq" />
 
     <ContactCTA lang="fr" />
 

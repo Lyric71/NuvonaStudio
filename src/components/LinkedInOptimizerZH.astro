@@ -9,13 +9,13 @@
       <div class="optimizer__header">
         <span class="eyebrow">免费工具</span>
         <h1 class="optimizer__title">LinkedIn 主页体检</h1>
-        <p class="optimizer__subtitle">拿100多项硬指标给你的LinkedIn主页做一次全面体检。哪些地方在拖后腿、优先改哪个、具体怎么动手，3分钟给你讲清楚。免费的。</p>
+        <p class="optimizer__subtitle">拿 100 多项硬指标，给你的 LinkedIn 主页做一次彻底体检。哪里在拖后腿、先改哪一个、具体该怎么动手——3 分钟给你讲明白。完全免费。</p>
       </div>
 
       <div class="gate-card">
         <div class="gate-card__header">
-          <h2 class="gate-card__title">先简单了解下你</h2>
-          <p class="gate-card__desc">填下这几项就行了，我们拿来给你出一份更有针对性的报告。</p>
+          <h2 class="gate-card__title">先简单认识一下你</h2>
+          <p class="gate-card__desc">填这几项就够了，目的是把你这份体检报告写得更贴你的实际情况。</p>
         </div>
         <form id="gate-form" class="gate-form" novalidate>
           <div class="gate-form__grid">
@@ -28,17 +28,17 @@
               <input type="text" id="gate-company" name="company" required placeholder="锐思咨询" autocomplete="organization" />
             </div>
             <div class="gate-field">
-              <label for="gate-position" class="gate-field__label">职位 <span class="gate-field__opt">(非必填)</span></label>
+              <label for="gate-position" class="gate-field__label">职位 <span class="gate-field__opt">（选填）</span></label>
               <input type="text" id="gate-position" name="position" placeholder="增长负责人" autocomplete="organization-title" />
             </div>
             <div class="gate-field">
               <label for="gate-email" class="gate-field__label">公司邮箱 <span class="gate-field__req">*</span></label>
               <input type="email" id="gate-email" name="email" required placeholder="zhangming@ruisi.com" autocomplete="email" />
-              <p class="gate-field__hint">个人邮箱不支持</p>
+              <p class="gate-field__hint">仅接受企业邮箱，个人邮箱无法使用</p>
               <p class="gate-field__error u-hidden" id="gate-email-error"></p>
             </div>
             <div class="gate-field">
-              <label for="gate-country" class="gate-field__label">国家/地区 <span class="gate-field__opt">(非必填)</span></label>
+              <label for="gate-country" class="gate-field__label">国家／地区 <span class="gate-field__opt">（选填）</span></label>
               <input type="text" id="gate-country" name="country" placeholder="中国" autocomplete="country-name" />
             </div>
           </div>
@@ -49,7 +49,7 @@
           </button>
           <p class="gate-form__privacy">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            信息只用于生成这次的报告，不会给到第三方
+            填的信息只用于生成这一次的报告，不会转给任何第三方
           </p>
         </form>
       </div>
@@ -60,7 +60,7 @@
       <div class="optimizer__header">
         <span class="eyebrow">免费工具</span>
         <h1 class="optimizer__title">LinkedIn 主页体检</h1>
-        <p class="optimizer__subtitle">把你的LinkedIn个人主页或者公司页面截个图传上来就好了。系统会对着100多项行业基准给你打分，最后出一份按优先级排好的改进清单。</p>
+        <p class="optimizer__subtitle">把你的 LinkedIn 个人主页或公司主页截一张图传上来即可。系统会按 100 多项行业基准帮你打分，再生成一份按优先级排好的改进清单。</p>
       </div>
 
       <form id="analyze-form" class="optimizer__form" novalidate>
@@ -77,8 +77,8 @@
                 <polyline points="21 15 16 10 5 21"/>
               </svg>
             </div>
-            <p style="font-size:1rem;font-weight:500;color:var(--text-2);margin:0 0 4px;text-align:center;">拖拽截图到此处，或<span style="color:var(--sky);font-weight:600;text-decoration:underline;text-underline-offset:2px;">选择文件</span></p>
-            <p style="font-size:0.75rem;color:var(--text-3);margin:0;text-align:center;">PNG / JPG / WebP，不超过 10 MB</p>
+            <p style="font-size:1rem;font-weight:500;color:var(--text-2);margin:0 0 4px;text-align:center;">把截图拖进这里，或者<span style="color:var(--sky);font-weight:600;text-decoration:underline;text-underline-offset:2px;">点这里选文件</span></p>
+            <p style="font-size:0.75rem;color:var(--text-3);margin:0;text-align:center;">支持 PNG / JPG / WebP，单张不超过 10 MB</p>
           </div>
           <div id="upload-preview" class="upload-zone__preview u-hidden">
             <img id="preview-image" alt="截图预览" />
@@ -94,19 +94,19 @@
             <div class="upload-progress__track">
               <div class="upload-progress__fill" id="upload-progress-fill"></div>
             </div>
-            <span class="upload-progress__status" id="upload-progress-status">上传中...</span>
+            <span class="upload-progress__status" id="upload-progress-status">正在上传……</span>
           </div>
         </div>
 
         <div class="upload-zone__tip">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-          <span>小提示：最好截长图，页面往下拉到「关于」「经历」「技能」这些都露出来再截。内容越全分析越准。</span>
+          <span>小贴士：尽量截长图，页面往下拉到"关于"、"工作经历"、"技能"几个模块都露出来再截。内容越完整，分析越精准。</span>
         </div>
 
         <details class="why-screenshot">
           <summary class="why-screenshot__toggle">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            为什么用截图，不直接填链接？
+            为什么要传截图，不能直接贴链接？
           </summary>
           <div class="why-screenshot__content">
             <div class="why-screenshot__item">
@@ -114,8 +114,8 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
               </div>
               <div>
-                <strong>合规问题。</strong>
-                <span>自动抓取LinkedIn主页数据是违反用户协议的，过去两年好几家做这个的公司都吃了官司。这条线我们不碰。</span>
+                <strong>合规这条红线。</strong>
+                <span>自动抓取 LinkedIn 主页数据违反平台用户协议，过去两年因此吃官司的公司不止一家。这条线我们坚决不踩。</span>
               </div>
             </div>
             <div class="why-screenshot__item">
@@ -123,8 +123,8 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
               <div>
-                <strong>不会碰你的账号。</strong>
-                <span>我们只看你上传的这张图，跟你LinkedIn账号没关系。截图用完就删了，服务器上不留。</span>
+                <strong>完全不动你的账号。</strong>
+                <span>我们只分析你传上来的这张图，跟你的 LinkedIn 账号没有任何关联。截图用完即删，不在服务器上留底。</span>
               </div>
             </div>
             <div class="why-screenshot__item">
@@ -132,8 +132,8 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               </div>
               <div>
-                <strong>截图还原的是真实观感，链接做不到这点。</strong>
-                <span>头像清不清晰、Banner有没有好好做、整体排版看起来舒不舒服，这些东西你给我一个URL我也看不出来啊。截图拍到的就是别人眼里你的样子。</span>
+                <strong>截图能还原真实观感，链接做不到。</strong>
+                <span>头像清不清晰、Banner 有没有用心做、整体排版看着顺不顺眼——光给一个 URL，这些根本看不出来。截图拍到的，才是别人眼里你那张主页真正长什么样。</span>
               </div>
             </div>
           </div>
@@ -149,7 +149,7 @@
               <circle cx="12" cy="12" r="10" opacity="0.25" />
               <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round" />
             </svg>
-            分析中，请稍候...
+            正在分析，稍等片刻……
           </span>
         </button>
       </form>
@@ -159,15 +159,15 @@
       <div class="optimizer__trust">
         <div class="trust-item">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          免注册，直接用
+          免注册，直接就能用
         </div>
         <div class="trust-item">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          100多项指标检测
+          100+ 项指标全检
         </div>
         <div class="trust-item">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          AI逐项分析
+          AI 逐项过审
         </div>
       </div>
     </div>
@@ -208,7 +208,7 @@
           </div>
 
           <h2 class="loading-card__title">正在给你的主页打分</h2>
-          <p class="loading-card__subtitle">AI在一项一项地过，快好了</p>
+          <p class="loading-card__subtitle">AI 在一项项过审，马上就好</p>
 
           <div class="loading-steps">
             <div class="loading-step-item is-active" id="loading-step-1">
@@ -216,21 +216,21 @@
                 <svg class="loading-step-item__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
                 <span class="loading-step-item__dot"></span>
               </span>
-              <span class="loading-step-item__label">在读截图</span>
+              <span class="loading-step-item__label">正在读取截图</span>
             </div>
             <div class="loading-step-item" id="loading-step-2">
               <span class="loading-step-item__indicator">
                 <svg class="loading-step-item__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
                 <span class="loading-step-item__dot"></span>
               </span>
-              <span class="loading-step-item__label">逐项跟行业标准对比中</span>
+              <span class="loading-step-item__label">正在和行业基准逐项对比</span>
             </div>
             <div class="loading-step-item" id="loading-step-3">
               <span class="loading-step-item__indicator">
                 <svg class="loading-step-item__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
                 <span class="loading-step-item__dot"></span>
               </span>
-              <span class="loading-step-item__label">在写你的改进建议了</span>
+              <span class="loading-step-item__label">正在为你撰写改进建议</span>
             </div>
           </div>
         </div>
@@ -257,7 +257,7 @@
             <div class="score-hero__orb score-hero__orb--2"></div>
           </div>
           <div class="score-hero__content">
-            <span class="score-hero__badge" id="results-type-label">个人主页体检报告</span>
+            <span class="score-hero__badge" id="results-type-label">个人主页 · 体检报告</span>
             <div class="score-hero__ring">
               <svg viewBox="0 0 120 120" class="score-ring">
                 <circle cx="60" cy="60" r="52" stroke-width="7" fill="none" stroke="rgba(255,255,255,0.15)" />
@@ -266,7 +266,7 @@
               </svg>
               <div class="score-ring__inner">
                 <span class="score-ring__number" id="score-number">0</span>
-                <span class="score-ring__label">满分100</span>
+                <span class="score-ring__label">满分 100</span>
               </div>
             </div>
             <div class="score-hero__grade" id="score-grade">-</div>
@@ -278,7 +278,7 @@
         <div class="results__section">
           <div class="results__section-header">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--sky)" stroke-width="2"><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/><path d="M9 12l2 2 4-4"/></svg>
-            <h3 class="results__section-title">分项评分</h3>
+            <h3 class="results__section-title">分项得分</h3>
           </div>
           <div class="results__categories" id="results-categories"></div>
         </div>
@@ -287,7 +287,7 @@
         <div class="results__section">
           <div class="results__section-header">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-            <h3 class="results__section-title">最该先改的地方</h3>
+            <h3 class="results__section-title">优先要改的几处</h3>
           </div>
           <div class="results__priorities" id="results-priorities"></div>
         </div>
@@ -297,15 +297,15 @@
           <div class="results__section results__grid-item">
             <div class="results__section-header">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-              <h3 class="results__section-title">立竿见影</h3>
+              <h3 class="results__section-title">立刻就能改的</h3>
             </div>
-            <p class="results__section-hint">十分钟以内能搞定的</p>
+            <p class="results__section-hint">基本十分钟以内能搞定</p>
             <div class="results__quick-wins" id="results-quick-wins"></div>
           </div>
           <div class="results__section results__grid-item">
             <div class="results__section-header">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <h3 class="results__section-title">做得好的地方</h3>
+              <h3 class="results__section-title">已经做得不错的地方</h3>
             </div>
             <div class="results__strengths" id="results-strengths"></div>
           </div>
@@ -315,7 +315,7 @@
         <details class="results__details">
           <summary class="results__details-toggle">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
-            展开完整检测清单
+展开完整检测清单
           </summary>
           <div class="results__all-checks" id="results-all-checks"></div>
         </details>
@@ -324,7 +324,7 @@
         <div class="results__share">
           <div class="results__share-header">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-            <span>转发或保存报告</span>
+            <span>分享或保存这份报告</span>
           </div>
           <div class="results__share-actions">
             <button type="button" class="share-btn" id="btn-copy-results" title="复制到剪贴板">
@@ -333,13 +333,13 @@
             </button>
             <button type="button" class="share-btn share-btn--email" id="btn-email-open" title="发到邮箱">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              发到邮箱
+              发到我的邮箱
             </button>
           </div>
           <!-- 邮件表单（默认隐藏） -->
           <form class="email-form is-hidden" id="email-form">
             <div class="email-form__row">
-              <input type="email" id="email-input" placeholder="你的邮箱" required autocomplete="email" />
+              <input type="email" id="email-input" placeholder="留下你的邮箱" required autocomplete="email" />
               <button type="submit" class="btn btn--primary btn--sm" id="email-send-btn">
                 <span class="email-form__label">发送</span>
                 <span class="email-form__loading u-hidden">
@@ -357,14 +357,14 @@
         <!-- ── 行动号召 ── -->
         <div class="results__cta-card">
           <div class="results__cta-content">
-            <h3>需要专业的人帮你改？</h3>
-            <p>我们团队专门做LinkedIn这块的。从人设定位到内容规划，主页视觉也可以一起调，都是根据你实际的业务情况来做方案。</p>
+            <h3>想找专业的人帮你动手改？</h3>
+            <p>我们团队专门吃 LinkedIn 这一行。从人设定位到内容规划，连主页视觉都可以一并打磨——方案完全按你公司的实际业务情况来。</p>
           </div>
           <div class="results__cta-actions">
-            <a href="/zh/contact?intent=call" class="btn btn--primary">预约免费沟通</a>
+            <a href="/zh/contact?intent=call" class="btn btn--primary">预约一次免费沟通</a>
             <button type="button" class="btn btn--outline" id="btn-restart">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
-              换一个主页体检
+              再换一个主页体检
             </button>
           </div>
         </div>
@@ -1476,14 +1476,14 @@
 
     // 必填项校验
     if (!name || !company || !email) {
-      formErr.textContent = '带*的几项还没填完';
+      formErr.textContent = '标 * 的字段还没填完';
       show(formErr);
       return;
     }
 
     // 邮箱格式校验
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      emailErr.textContent = '邮箱格式不对';
+      emailErr.textContent = '邮箱格式不太对，麻烦再看一下';
       show(emailErr);
       emailEl.classList.add('is-invalid');
       emailEl.focus();
@@ -1493,7 +1493,7 @@
     // 拦截个人邮箱
     const domain = email.split('@')[1];
     if (GENERIC_DOMAINS.includes(domain)) {
-      emailErr.textContent = '个人邮箱不行（QQ、Gmail、163这些），得填公司邮箱';
+      emailErr.textContent = '个人邮箱（QQ、Gmail、163 等）不行，请填公司邮箱';
       show(emailErr);
       emailEl.classList.add('is-invalid');
       emailEl.focus();
@@ -1555,7 +1555,7 @@
     if (fileInput.files && fileInput.files[0]) {
       const file = fileInput.files[0];
       if (file.size > 10 * 1024 * 1024) {
-        errorBox.textContent = '文件太大了，不能超过10MB';
+        errorBox.textContent = '文件太大了，单张不能超过 10 MB';
         show(errorBox);
         return;
       }
@@ -1591,12 +1591,12 @@
   // ══════════════════════════════════════════════════════════
   function getVerdict(grade: string): string {
     const v: Record<string, string> = {
-      S:'前1%，没什么好说的，维持就行了。',
-      A:'已经比90%的人做得好了。还差几个小项，补上就是满分答卷。',
-      B:'底子不差，该有的模块基本都搭起来了，但有些细节还差那么一口气。花点时间抠一抠，提升空间挺大的。',
-      C:'框架是有的，不过说实话好多地方只能算"凑合能看"。好在都不难改。',
-      D:'短板比较明显了，别人点进来第一印象可能就不太好。得抓紧改。',
-      F:'基本是空白。但换个想法嘛，白纸反而好画。'
+      S:'稳稳处于前 1%，没什么好挑的，保持节奏就行。',
+      A:'比 90% 的人都做得好了。再补上几个小细节，就是一份满分答卷。',
+      B:'底子不错，该有的模块基本都搭起来了，但有些细节还差那么一口气。花点时间抠一抠，提升空间不小。',
+      C:'框架有了，但说实话不少地方还停留在"凑合能看"。好在这些都不难改。',
+      D:'短板已经挺明显了，别人点进来的第一印象可能不太好。得抓紧改。',
+      F:'基本是张白纸。换个角度想——白纸反而最好画。'
     };
     return v[grade] || '';
   }
@@ -1645,7 +1645,7 @@
   function renderResults(data: any) {
     // 主页类型
     document.getElementById('results-type-label')!.textContent =
-      data.profile_type === 'company' ? '企业页面体检报告' : '个人主页体检报告';
+      data.profile_type === 'company' ? '企业主页 · 体检报告' : '个人主页 · 体检报告';
 
     // 得分环动画
     const circle = document.getElementById('score-circle') as unknown as (HTMLElement & { style: CSSStyleDeclaration });
@@ -1699,7 +1699,7 @@
     // 优先改进项
     const priContainer = document.getElementById('results-priorities')!;
     if (!data.top_priorities?.length) {
-      priContainer.innerHTML = '<p style="color:var(--text-2);font-size:var(--fs-sm);">没发现什么大问题。这挺少见的。</p>';
+      priContainer.innerHTML = '<p style="color:var(--text-2);font-size:var(--fs-sm);">没发现什么硬伤——这种情况其实挺少见的。</p>';
     } else {
       priContainer.innerHTML = data.top_priorities.map((p: any, i: number) => {
         const cls = p.impact === 'CRITICAL' ? 'critical' : p.impact === 'HIGH' ? 'high' : 'medium';
@@ -1718,7 +1718,7 @@
     // 快速修复
     const qwContainer = document.getElementById('results-quick-wins')!;
     if (!data.quick_wins?.length) {
-      qwContainer.innerHTML = '<p style="color:var(--text-2);font-size:var(--fs-sm);">没有了</p>';
+      qwContainer.innerHTML = '<p style="color:var(--text-2);font-size:var(--fs-sm);">这一项暂时没有了</p>';
     } else {
       qwContainer.innerHTML = data.quick_wins.map((q: string) => `
         <div class="quick-win">
@@ -1730,7 +1730,7 @@
     // 亮点
     const strContainer = document.getElementById('results-strengths')!;
     if (!data.strengths?.length) {
-      strContainer.innerHTML = '<p style="color:var(--text-2);font-size:var(--fs-sm);">暂时没有。改完上面那些再来跑一次看看。</p>';
+      strContainer.innerHTML = '<p style="color:var(--text-2);font-size:var(--fs-sm);">暂时还没看到亮点——把上面那些先改完再跑一次试试。</p>';
     } else {
       strContainer.innerHTML = data.strengths.map((s: string) => `
         <div class="strength-item">
@@ -1776,7 +1776,7 @@
     progressName.textContent = fileName;
     progressPct.textContent = '0%';
     progressFill.style.width = '0%';
-    progressStatus.textContent = '上传中...';
+    progressStatus.textContent = '正在上传……';
     progressStatus.classList.remove('is-done');
     show(progressWrap);
   }
@@ -1785,7 +1785,7 @@
     progressPct.textContent = p + '%';
     progressFill.style.width = p + '%';
     if (p >= 100) {
-      progressStatus.textContent = '已收到，开始分析...';
+      progressStatus.textContent = '已收到，开始分析……';
       progressStatus.classList.add('is-done');
     }
   }
@@ -1799,7 +1799,7 @@
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!selectedFile) {
-      errorBox.textContent = '还没选截图';
+      errorBox.textContent = '还没选截图呢';
       show(errorBox);
       return;
     }
@@ -1853,15 +1853,15 @@
             if (xhr.status >= 200 && xhr.status < 300 && result.success) {
               resolve(result);
             } else {
-              reject(new Error(result.error || '分析没跑成功，再试一下'));
+              reject(new Error(result.error || '分析没跑通，再试一次'));
             }
           } catch {
-            reject(new Error('返回的数据有问题'));
+            reject(new Error('返回的数据格式好像有点问题'));
           }
         });
 
-        xhr.addEventListener('error', () => reject(new Error('网络连接失败，检查下网络再试')));
-        xhr.addEventListener('timeout', () => reject(new Error('请求超时了，稍后再试')));
+        xhr.addEventListener('error', () => reject(new Error('网络连不上，检查一下再试')));
+        xhr.addEventListener('timeout', () => reject(new Error('请求超时了，稍后重试一下')));
         xhr.timeout = 120000;
 
         xhr.send(payload);
@@ -1884,7 +1884,7 @@
       stopLoadingAnimation();
       hideProgress();
       showView(viewInput);
-      errorBox.textContent = err.message || '出了点问题，再试一下';
+      errorBox.textContent = err.message || '中间出了点小问题，麻烦再试一次';
       show(errorBox);
     } finally {
       analyzeBtn.disabled = false;
@@ -1900,16 +1900,16 @@
 
   function buildTextReport(data: any): string {
     const lines: string[] = [];
-    lines.push('LINKEDIN 主页体检报告');
-    lines.push(`综合得分：${data.overall_score}/100（${data.overall_grade}）`);
+    lines.push('LinkedIn 主页 · 体检报告');
+    lines.push(`综合得分：${data.overall_score} / 100（${data.overall_grade}）`);
     lines.push('');
-    lines.push('【分项评分】');
+    lines.push('【分项得分】');
     (data.categories || []).forEach((cat: any) => {
       lines.push(`  ${cat.name}：${cat.score}%`);
     });
     if (data.top_priorities?.length) {
       lines.push('');
-      lines.push('【最该先改的】');
+      lines.push('【优先要改的】');
       data.top_priorities.forEach((p: any, i: number) => {
         lines.push(`  ${i + 1}. [${p.impact}] ${p.label}`);
         lines.push(`     ${p.recommendation}`);
@@ -1917,17 +1917,17 @@
     }
     if (data.quick_wins?.length) {
       lines.push('');
-      lines.push('【立竿见影】');
+      lines.push('【立刻就能改的】');
       data.quick_wins.forEach((q: string) => { lines.push(`  - ${q}`); });
     }
     if (data.strengths?.length) {
       lines.push('');
-      lines.push('【做得好的】');
+      lines.push('【已经做得不错的】');
       data.strengths.forEach((s: string) => { lines.push(`  - ${s}`); });
     }
     lines.push('');
     lines.push('---');
-    lines.push('Nuvora Studio · LinkedIn 主页体检');
+    lines.push('—— Nuvora Studio · LinkedIn 主页体检');
     lines.push('https://nuvora.studio/zh/linkedin-optimizer');
     return lines.join('\n');
   }
@@ -1996,14 +1996,14 @@
       });
       const result = await res.json();
       if (!res.ok || !result.success) {
-        throw new Error(result.error || '发送失败，再试一下');
+        throw new Error(result.error || '发送失败，麻烦再试一次');
       }
-      statusEl.textContent = `已发到 ${email}`;
+      statusEl.textContent = `已发送至 ${email}`;
       statusEl.className = 'email-form__status is-success';
       show(statusEl);
       emailInput.value = '';
     } catch (err: any) {
-      statusEl.textContent = err.message || '发送失败';
+      statusEl.textContent = err.message || '没能发出去，稍后再试一次';
       statusEl.className = 'email-form__status is-error';
       show(statusEl);
     } finally {
