@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import NavBar from '../../components/NavBar.astro';
 import FAQ from '../../components/FAQ.astro';
+import { aboutPageSchemas } from '../../i18n/schemas';
 
 /* ── Daten ─────────────────────────────────────────────── */
 
@@ -70,6 +71,7 @@ const faqs = [
   title="Über Nuvora Studio | Die LinkedIn-Agentur für B2B-Leads"
   description="Nuvora Studio entwickelt die LinkedIn-Präsenz von B2B-Unternehmen weltweit. Zertifiziertes Team, strategischer Content, LinkedIn Ads, Executive Branding. Das Resultat: mehr qualifizierte Leads."
   abstract="Wir entwickeln die LinkedIn-Präsenz von B2B-Unternehmen weltweit. Eine Plattform, ein zertifiziertes Team, Content, der trägt. Am Ende stehen mehr Leads."
+  schemas={aboutPageSchemas('de')}
 >
   <NavBar lang="de" />
   <main id="main-content">

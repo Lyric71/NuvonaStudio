@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Layout.astro';
 import NavBar from '../../../components/NavBar.astro';
 import FAQ from '../../../components/FAQ.astro';
+import { servicePageSchemas } from '../../../i18n/schemas';
 
 /* ── Data ───────────────────────────────────────────────── */
 
@@ -155,6 +156,7 @@ const faqs = [
   description="LinkedIn 内容一站式代运营：策略、生产、发布、复盘——全流程包圆。专门服务 B2B 企业，把 LinkedIn 做成一个真正能出商机的地方。"
   abstract="我们替 B2B 企业打理 LinkedIn 上的全部内容。四项服务，一个目标——让 LinkedIn 真正给你带回客户。"
   lang="zh"
+  schemas={servicePageSchemas('zh', 'content')}
 >
   <NavBar lang="zh" />
   <main id="main-content">

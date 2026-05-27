@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import NavBar from '../../components/NavBar.astro';
 import FAQ from '../../components/FAQ.astro';
+import { aboutPageSchemas } from '../../i18n/schemas';
 
 const values = [
   {
@@ -68,6 +69,7 @@ const faqs = [
   title="Nosotros | Nuvora Studio | Agencia LinkedIn especializada en B2B"
   description="Nuvora Studio impulsa la presencia en LinkedIn de empresas B2B en mercados internacionales: equipo certificado, contenido editorial con criterio, publicidad segmentada y posicionamiento de directivos."
   abstract="Impulsamos la presencia en LinkedIn de empresas B2B alrededor del mundo. Una plataforma, un equipo certificado y contenido que aguanta. El resultado final: más leads cualificados."
+  schemas={aboutPageSchemas('es')}
 >
   <NavBar lang="es" />
   <main id="main-content">

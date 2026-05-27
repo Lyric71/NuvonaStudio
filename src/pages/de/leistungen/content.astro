@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Layout.astro';
 import NavBar from '../../../components/NavBar.astro';
 import FAQ from '../../../components/FAQ.astro';
+import { servicePageSchemas } from '../../../i18n/schemas';
 
 /* ── Daten ──────────────────────────────────────────────── */
 
@@ -151,6 +152,7 @@ const faqs = [
   title="LinkedIn-Content-Leistungen | Mehr B2B-Leads gewinnen"
   description="Wir produzieren jeden Beitrag, den Ihre LinkedIn-Präsenz braucht. Strategie, Produktion, Veröffentlichung, Reporting. Für B2B konzipiert und auf Leadgenerierung ausgelegt."
   abstract="Wir führen Ihre LinkedIn-Contentproduktion durchgehend. Strategie, Produktion, Veröffentlichung, Reporting. Vier Leistungen, ein gemeinsames Ziel: mehr Leads über LinkedIn."
+  schemas={servicePageSchemas('de', 'content')}
 >
   <NavBar lang="de" />
   <main id="main-content">

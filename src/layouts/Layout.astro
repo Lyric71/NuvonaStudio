@@ -7,8 +7,10 @@ interface Props {
   title?: string;
   description?: string;
   abstract?: string;
-  lang?: 'en' | 'fr' | 'zh' | 'es' | 'de';
+  lang?: Lang;
   preloadHero?: string;
+  ogImage?: string;
+  schemas?: Record<string, unknown>[];
 }
 
 const {
@@ -17,15 +19,125 @@ const {
   abstract,
   lang = 'en',
   preloadHero,
+  ogImage = '/og/default.png',
+  schemas = [],
 } = Astro.props;
 
 const SITE = 'https://nuvora.studio';
 const currentPath = Astro.url.pathname;
 const canonicalUrl = `${SITE}${currentPath.replace(/\/$/, '') || '/'}`;
+const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${SITE}${ogImage}`;
+
+const ogLocaleMap: Record<Lang, string> = {
+  en: 'en_US',
+  fr: 'fr_FR',
+  de: 'de_DE',
+  es: 'es_ES',
+  zh: 'zh_CN',
+};
+
+const homeLabel: Record<Lang, string> = {
+  en: 'Home',
+  fr: 'Accueil',
+  de: 'Startseite',
+  es: 'Inicio',
+  zh: '首页',
+};
+
 const alternateLangs = (Object.keys(languages) as Lang[]).map((l) => ({
   lang: l,
   href: `${SITE}${getAlternateUrl(currentPath, l)}`,
 }));
+
+const otherLocales = (Object.keys(languages) as Lang[])
+  .filter((l) => l !== lang)
+  .map((l) => ogLocaleMap[l]);
+
+// ── BreadcrumbList ────────────────────────────────────────────────────────────
+const segments = currentPath.replace(/^\/|\/$/g, '').split('/').filter(Boolean);
+const breadcrumbItems: Record<string, unknown>[] = [
+  {
+    '@type': 'ListItem',
+    position: 1,
+    name: homeLabel[lang],
+    item: `${SITE}${lang === 'en' ? '/' : '/' + lang + '/'}`,
+  },
+];
+{
+  let acc = lang === 'en' ? '' : '/' + lang;
+  // If first segment is the lang prefix, skip it (already covered by Home)
+  const crumbSegs = segments[0] === lang ? segments.slice(1) : segments;
+  crumbSegs.forEach((seg) => {
+    acc += '/' + seg;
+    breadcrumbItems.push({
+      '@type': 'ListItem',
+      position: breadcrumbItems.length + 1,
+      name: decodeURIComponent(seg)
+        .replace(/-/g, ' ')
+        .replace(/\b\w/g, (c) => c.toUpperCase()),
+      item: `${SITE}${acc}`,
+    });
+  });
+}
+
+// ── Schema @graph ─────────────────────────────────────────────────────────────
+const organizationNode = {
+  '@type': 'Organization',
+  '@id': `${SITE}/#organization`,
+  name: 'Nuvora Studio',
+  url: SITE,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${SITE}/images/nuvora-logo.webp`,
+  },
+  image: `${SITE}${ogImage}`,
+  description:
+    'Specialist LinkedIn-only B2B marketing agency. Strategy, content, ads, and executive branding for B2B teams that want pipeline.',
+  founder: {
+    '@type': 'Person',
+    '@id': `${SITE}/about#cyril-drouin`,
+    name: 'Cyril Drouin',
+  },
+  sameAs: ['https://www.linkedin.com/company/nuvorastudio'],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'sales',
+    url: `${SITE}/contact`,
+    availableLanguage: ['English', 'French', 'German', 'Spanish', 'Chinese'],
+  },
+  parentOrganization: {
+    '@type': 'Organization',
+    name: 'Beyond Border Group',
+    url: 'https://www.beyondbordergroup.org',
+  },
+};
+
+const websiteNode = {
+  '@type': 'WebSite',
+  '@id': `${SITE}/#website`,
+  url: SITE,
+  name: 'Nuvora Studio',
+  publisher: { '@id': `${SITE}/#organization` },
+  inLanguage: ['en', 'fr', 'de', 'es', 'zh-CN'],
+};
+
+const breadcrumbNode =
+  breadcrumbItems.length > 1
+    ? {
+        '@type': 'BreadcrumbList',
+        '@id': `${canonicalUrl}#breadcrumbs`,
+        itemListElement: breadcrumbItems,
+      }
+    : null;
+
+const graph: Record<string, unknown>[] = [organizationNode, websiteNode];
+if (breadcrumbNode) graph.push(breadcrumbNode);
+if (schemas.length) graph.push(...schemas);
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@graph': graph,
+});
 ---
 
 <!doctype html>
@@ -35,21 +147,33 @@ const alternateLangs = (Object.keys(languages) as Lang[]).map((l) => ({
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0a1633" />
 
     <!-- Open Graph -->
+    <meta property="og:site_name" content="Nuvora Studio" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content={ogLocaleMap[lang]} />
+    {otherLocales.map((l) => (
+      <meta property="og:locale:alternate" content={l} />
+    ))}
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content={title} />
 
     <link rel="canonical" href={canonicalUrl} />
     {alternateLangs.map(({ lang: l, href }) => (
-      <link rel="alternate" hreflang={l} href={href} />
+      <link rel="alternate" hreflang={l === 'zh' ? 'zh-CN' : l} href={href} />
     ))}
     <link rel="alternate" hreflang="x-default" href={`${SITE}${getAlternateUrl(currentPath, 'en')}`} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -64,6 +188,9 @@ const alternateLangs = (Object.keys(languages) as Lang[]).map((l) => ({
     {preloadHero && <link rel="preload" href={preloadHero} as="image" type="image/webp" fetchpriority="high" />}
 
     {abstract && <meta name="abstract" content={abstract} />}
+
+    <!-- Structured data -->
+    <script is:inline type="application/ld+json" set:html={jsonLd} />
 
     <title>{title}</title>
   </head>

@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Layout.astro';
 import NavBar from '../../../components/NavBar.astro';
 import FAQ from '../../../components/FAQ.astro';
 import ContactCTA from '../../../components/ContactCTA.astro';
+import { servicePageSchemas } from '../../../i18n/schemas';
 
 /* ── Données ───────────────────────────────────────────── */
 
@@ -57,6 +58,7 @@ const faqs = [
   title="Conseil LinkedIn pour générer des prospects B2B"
   description="Programmes employés ambassadeurs, visibilité des dirigeants, formation LinkedIn. On aide les entreprises B2B à tirer davantage de prospects de la plateforme."
   abstract="Conseil LinkedIn pour les entreprises B2B. Employés ambassadeurs, visibilité des dirigeants et formations très opérationnelles pour générer des prospects."
+  schemas={servicePageSchemas('fr', 'consulting')}
 >
   <NavBar lang="fr" />
   <main id="main-content">

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Layout.astro';
 import NavBar from '../../../components/NavBar.astro';
 import FAQ from '../../../components/FAQ.astro';
+import { servicePageSchemas } from '../../../i18n/schemas';
 
 const capabilities = [
   {
@@ -230,6 +231,7 @@ const faqs = [
   description="LinkedIn 五种广告格式统一调度，面向 B2B 企业的成体系获客打法。精准锁定决策者，AI 辅助快速测试与优化，按商机数据真刀真枪衡量投放效果。"
   abstract="把 LinkedIn 所有广告格式整合到一套体系里，为 B2B 企业搭起成系统的获客投放——每一分钱的效果都对到商机和营收上。"
   lang="zh"
+  schemas={servicePageSchemas('zh', 'advertising')}
 >
   <NavBar lang="zh" />
   <main id="main-content">

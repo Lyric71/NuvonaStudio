@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import NavBar from '../../components/NavBar.astro';
 import FAQ from '../../components/FAQ.astro';
+import { servicePageSchemas } from '../../i18n/schemas';
 
 const capabilities = [
   {
@@ -220,6 +221,7 @@ const faqs = [
   title="LinkedIn advertising services | More B2B leads, less waste"
   description="We run every LinkedIn ad format as one system built for B2B lead generation. Precision targeting, AI-powered optimisation, and pipeline-first reporting."
   abstract="We run every LinkedIn ad format to get you more B2B leads. Precision targeting, full-funnel campaigns, and reporting against pipeline, not impressions."
+  schemas={servicePageSchemas('en', 'advertising')}
 >
   <NavBar />
   <main id="main-content">

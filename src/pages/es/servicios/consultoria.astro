@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Layout.astro';
 import NavBar from '../../../components/NavBar.astro';
 import FAQ from '../../../components/FAQ.astro';
 import ContactCTA from '../../../components/ContactCTA.astro';
+import { servicePageSchemas } from '../../../i18n/schemas';
 
 /* ── Datos ─────────────────────────────────────────────── */
 
@@ -57,6 +58,7 @@ const faqs = [
   title="Consultoría LinkedIn para la generación de leads B2B"
   description="Activación de empleados, visibilidad de directivos y formación en LinkedIn. Ayudamos a empresas B2B a sacarle a LinkedIn los leads que hoy no están sacando."
   abstract="Consultoría LinkedIn para empresas B2B. Activación de empleados, visibilidad de directivos y formaciones prácticas pensadas para generar leads de verdad."
+  schemas={servicePageSchemas('es', 'consulting')}
 >
   <NavBar lang="es" />
   <main id="main-content">

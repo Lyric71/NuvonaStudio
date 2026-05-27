@@ -1,0 +1,1014 @@
+<!DOCTYPE html><html lang="zh"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="LinkedIn 单次点击成本（CPC）5 到 12 美元，Meta 只要 0.5 美元。但拿 CPC 比价本身就是一个陷阱——LinkedIn 线索的成交率是其他平台的两到三倍。这篇文章把这笔账算给你看。"><meta name="robots" content="index, follow"><!-- Open Graph --><meta property="og:title" content="LinkedIn 广告贵 4–6 倍，什么时候这笔账还算得过来｜Nuvora Studio"><meta property="og:description" content="LinkedIn 单次点击成本（CPC）5 到 12 美元，Meta 只要 0.5 美元。但拿 CPC 比价本身就是一个陷阱——LinkedIn 线索的成交率是其他平台的两到三倍。这篇文章把这笔账算给你看。"><meta property="og:type" content="website"><meta property="og:url" content="https://nuvora.studio/zh/insights/why-linkedin-ads-cost-more"><!-- Twitter --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="LinkedIn 广告贵 4–6 倍，什么时候这笔账还算得过来｜Nuvora Studio"><meta name="twitter:description" content="LinkedIn 单次点击成本（CPC）5 到 12 美元，Meta 只要 0.5 美元。但拿 CPC 比价本身就是一个陷阱——LinkedIn 线索的成交率是其他平台的两到三倍。这篇文章把这笔账算给你看。"><link rel="canonical" href="https://nuvora.studio/zh/insights/why-linkedin-ads-cost-more"><link rel="alternate" hreflang="en" href="https://nuvora.studio/insights/why-linkedin-ads-cost-more"><link rel="alternate" hreflang="fr" href="https://nuvora.studio/fr/publications/pourquoi-publicite-linkedin-coute-plus"><link rel="alternate" hreflang="zh" href="https://nuvora.studio/zh/insights/why-linkedin-ads-cost-more"><link rel="alternate" hreflang="es" href="https://nuvora.studio/es/blog/por-que-la-publicidad-linkedin-cuesta-mas"><link rel="alternate" hreflang="de" href="https://nuvora.studio/de/einblicke/warum-linkedin-ads-teurer-werden"><link rel="alternate" hreflang="x-default" href="https://nuvora.studio/insights/why-linkedin-ads-cost-more"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><!-- Preload critical fonts (self-hosted, no external requests) --><link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin><meta name="abstract" content="LinkedIn 的 CPC 是 Meta 的 10 倍。但点击≠成交。从合格线索成本和最终成交额倒推回去，LinkedIn 在四种场景下其实明显划算。"><title>LinkedIn 广告贵 4–6 倍，什么时候这笔账还算得过来｜Nuvora Studio</title><style data-vite-dev-id="C:/Users/cyril/Project/NuvoraStudioWeb/src/styles/global.css">/* ============================================================
+   NUVORA STUDIO — DESIGN SYSTEM v3
+   Style: Swiss Modernism 2.0 with glass accents
+   Palette: Slate/Navy + Sky + Cyan
+   Fonts: Poppins (headings) + Inter (body)
+   ============================================================ */
+
+/* ── Self-hosted fonts (eliminates render-blocking Google Fonts request) ── */
+
+/* Inter — variable-weight latin subset (single file covers 300-700) */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('/fonts/inter-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('/fonts/inter-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* Poppins — normal 400 */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/poppins-400-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/poppins-400-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* Poppins — normal 500 */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/poppins-500-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/poppins-500-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* Poppins — normal 600 */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/poppins-600-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/poppins-600-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* Poppins — normal 700 */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/poppins-700-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/poppins-700-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* Poppins — italic 400 */
+@font-face {
+  font-family: 'Poppins';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/poppins-400i-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/poppins-400i-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* Poppins — italic 600 */
+@font-face {
+  font-family: 'Poppins';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/poppins-600i-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/poppins-600i-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root {
+  /* ── Brand palette ── */
+  --deep-navy:   #0F172A;
+  --navy:        #1E293B;
+  --blue:        #0369A1;
+  --mid-blue:    #0284C7;
+  --cyan:        #06B6D4;
+  --sky:         #0EA5E9;
+
+  /* ── Surface ── */
+  --white:       #FFFFFF;
+  --off-white:   #F8FAFC;
+
+  /* ── Text on white ── */
+  --text:        #0F172A;
+  --text-2:      #475569;
+  --text-3:      #94A3B8;
+
+  /* ── Text on deep-navy ── */
+  --navy-text:   rgba(255, 255, 255, 0.92);
+  --navy-text-2: rgba(255, 255, 255, 0.60);
+  --navy-text-3: rgba(255, 255, 255, 0.32);
+
+  /* ── Borders ── */
+  --border:      #E2E8F0;
+  --border-2:    #CBD5E1;
+  --navy-border: rgba(255, 255, 255, 0.10);
+
+  /* ── Typography ── */
+  --font-display: 'Poppins', system-ui, -apple-system, sans-serif;
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+
+  /* ── Font sizes (modular scale) ── */
+  --fs-xs:   0.75rem;    /* 12px */
+  --fs-sm:   0.875rem;   /* 14px */
+  --fs-base: 1rem;       /* 16px */
+  --fs-md:   1.125rem;   /* 18px */
+  --fs-lg:   1.25rem;    /* 20px */
+  --fs-xl:   1.5rem;     /* 24px */
+  --fs-2xl:  2rem;       /* 32px */
+  --fs-3xl:  2.75rem;    /* 44px */
+  --fs-4xl:  3.5rem;     /* 56px */
+  --fs-5xl:  4.5rem;     /* 72px */
+  --fs-6xl:  5.75rem;    /* 92px */
+
+  /* ── Spacing (8px rhythm) ── */
+  --sp-1:  0.25rem;   --sp-2:  0.5rem;
+  --sp-3:  0.75rem;   --sp-4:  1rem;
+  --sp-5:  1.25rem;   --sp-6:  1.5rem;
+  --sp-8:  2rem;      --sp-10: 2.5rem;
+  --sp-12: 3rem;      --sp-16: 4rem;
+  --sp-20: 5rem;      --sp-24: 6rem;
+  --sp-32: 8rem;
+
+  /* ── Radii ── */
+  --r-sm:   6px;    --r-md:   10px;
+  --r-lg:   14px;   --r-xl:   20px;
+  --r-2xl:  28px;   --r-full: 9999px;
+
+  /* ── Shadows ── */
+  --shadow-sm:   0 1px 3px rgba(15,23,42,0.04), 0 1px 2px rgba(15,23,42,0.06);
+  --shadow-md:   0 4px 16px rgba(15,23,42,0.06), 0 1px 3px rgba(15,23,42,0.04);
+  --shadow-lg:   0 10px 40px rgba(15,23,42,0.08), 0 2px 6px rgba(15,23,42,0.04);
+  --shadow-card: 0 1px 3px rgba(15,23,42,0.04), 0 0 0 1px var(--border);
+
+  /* ── Motion ── */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-fast: 150ms ease;
+  --t-base: 250ms ease;
+  --t-slow: 400ms var(--ease);
+
+  /* ── Layout ── */
+  --max-w:  1240px;
+  --max-w-wide: 1440px;
+  --gutter: clamp(1.25rem, 5vw, 3rem);
+
+  /* ── Z-index scale ── */
+  --z-base:     0;
+  --z-dropdown: 100;
+  --z-nav:      200;
+  --z-overlay:  300;
+  --z-modal:    400;
+  --z-toast:    500;
+
+  /* ── Gradients ── */
+  --gradient-hero:    linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%);
+  --gradient-button:  linear-gradient(135deg, var(--sky) 0%, var(--cyan) 100%);
+  --gradient-section: linear-gradient(180deg, #0F172A 0%, #1E293B 100%);
+  --gradient-text:    linear-gradient(90deg, var(--deep-navy) 0%, var(--blue) 100%);
+  --gradient-accent:  linear-gradient(135deg, var(--sky) 0%, var(--cyan) 100%);
+
+  /* ── Legacy aliases ── */
+  --color-deep-navy:    var(--deep-navy);
+  --color-navy:         var(--navy);
+  --color-blue:         var(--blue);
+  --color-mid-blue:     var(--mid-blue);
+  --color-cyan:         var(--cyan);
+  --color-white:        var(--white);
+  --color-ice:          var(--off-white);
+  --color-light-grey:   #CBD5E1;
+  --color-slate:        var(--text-2);
+  --color-dark:         var(--text);
+  --font-primary:       var(--font-body);
+  --container-xl:       var(--max-w);
+  --space-4:  var(--sp-4);  --space-6:  var(--sp-6);
+  --space-8:  var(--sp-8);  --space-10: var(--sp-10);
+  --space-12: var(--sp-12); --space-16: var(--sp-16);
+  --space-24: var(--sp-24); --space-32: var(--sp-32);
+  --radius-sm:   var(--r-sm);   --radius-md:   var(--r-md);
+  --radius-lg:   var(--r-lg);   --radius-xl:   var(--r-xl);
+  --radius-2xl:  var(--r-2xl);  --radius-full: var(--r-full);
+  --transition-base: var(--t-base);
+  --transition-fast: var(--t-fast);
+  --border-thin:   1px solid var(--border);
+  --border-base:   1px solid var(--border-2);
+  --border-strong: 2px solid var(--blue);
+  --border-accent: 2px solid var(--cyan);
+  --shadow-xl:     var(--shadow-lg);
+  --z-sticky:      var(--z-nav);
+  --font-size-xs: var(--fs-xs); --font-size-sm: var(--fs-sm);
+  --font-size-base: var(--fs-base); --font-size-md: var(--fs-md);
+  --font-size-lg: var(--fs-lg); --font-size-xl: var(--fs-xl);
+  --font-size-2xl: var(--fs-2xl); --font-size-3xl: var(--fs-3xl);
+  --font-size-4xl: var(--fs-4xl); --font-size-5xl: var(--fs-5xl);
+  --font-weight-light: 300; --font-weight-regular: 400;
+  --font-weight-medium: 500; --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --line-height-tight: 1.15; --line-height-snug: 1.35;
+  --line-height-base: 1.65; --line-height-relaxed: 1.75;
+  --letter-spacing-tight: -0.02em; --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.05em; --letter-spacing-wider: 0.10em;
+  --letter-spacing-widest: 0.18em;
+  --container-sm: 640px; --container-md: 768px;
+  --container-lg: 1024px; --container-2xl: 1440px;
+}
+
+
+/* ============================================================
+   RESET
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img, video, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; transition: color var(--t-fast); }
+ul, ol { list-style: none; }
+button { cursor: pointer; font-family: var(--font-body); border: none; background: none; color: inherit; }
+input, textarea, select { font-family: var(--font-body); }
+
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: var(--text);
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 3.75rem); font-weight: 700; }
+h2 { font-size: clamp(1.875rem, 4vw, 2.75rem); }
+h3 { font-size: var(--fs-2xl); }
+h4 { font-size: var(--fs-xl); }
+h5 { font-size: var(--fs-lg); }
+h6 { font-size: var(--fs-base); font-weight: 500; }
+
+/* Decorative <em> in headings: keep normal style to avoid loading italic font files */
+h1 em, h2 em, h3 em, h4 em { font-style: normal; }
+
+p { line-height: 1.7; }
+
+/* On dark sections */
+.on-dark h1, .on-dark h2, .on-dark h3,
+.on-dark h4, .on-dark h5, .on-dark h6 { color: var(--white); }
+.on-dark p  { color: var(--navy-text-2); }
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-bottom: var(--sp-4);
+  display: block;
+}
+
+.eyebrow--light { color: var(--cyan); }
+
+.text-gradient {
+  background: linear-gradient(90deg, var(--deep-navy), var(--blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Utility classes */
+.text-navy  { color: var(--deep-navy); }
+.text-blue  { color: var(--blue); }
+.text-cyan  { color: var(--cyan); }
+.text-slate { color: var(--text-2); }
+.text-white { color: var(--white); }
+.font-light    { font-weight: 300; } .font-regular  { font-weight: 400; }
+.font-medium   { font-weight: 500; } .font-semibold { font-weight: 600; }
+.font-bold     { font-weight: 700; }
+.text-xs  { font-size: var(--fs-xs); }  .text-sm   { font-size: var(--fs-sm); }
+.text-base{ font-size: var(--fs-base); } .text-md  { font-size: var(--fs-md); }
+.text-lg  { font-size: var(--fs-lg); }  .text-xl   { font-size: var(--fs-xl); }
+.label {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.container--sm  { max-width: 660px; }
+.container--md  { max-width: 860px; }
+.container--lg  { max-width: 1040px; }
+.container--2xl { max-width: 1440px; }
+.container--3xl { max-width: 1600px; }
+
+.section     { padding-block: var(--sp-24); }
+.section--sm { padding-block: var(--sp-16); }
+.section--lg { padding-block: var(--sp-32); }
+
+/* ── Section backgrounds ── */
+.bg-white { background: var(--white); }
+.bg-navy  { background: var(--deep-navy); }
+
+.section--ice  { background: var(--off-white); }
+.section--dark { background: var(--deep-navy); color: var(--white); }
+.section--dark h1,.section--dark h2,.section--dark h3,.section--dark h4 { color: var(--white); }
+.section--dark p { color: var(--navy-text-2); }
+
+.grid   { display: grid; gap: var(--sp-6); }
+.grid--2{ grid-template-columns: repeat(2,1fr); }
+.grid--3{ grid-template-columns: repeat(3,1fr); }
+.grid--4{ grid-template-columns: repeat(4,1fr); }
+.flex   { display: flex; }
+.flex-center  { display: flex; align-items: center; justify-content: center; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+.flex-col { display: flex; flex-direction: column; }
+.gap-2  { gap: var(--sp-2); } .gap-4 { gap: var(--sp-4); }
+.gap-6  { gap: var(--sp-6); } .gap-8 { gap: var(--sp-8); }
+
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  padding: 0.75rem 1.75rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: var(--r-full);
+  transition: all var(--t-base);
+  white-space: nowrap;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--sky);
+  outline-offset: 2px;
+}
+
+/* Primary — gradient */
+.btn--primary {
+  background: var(--gradient-button);
+  color: var(--white);
+  border: none;
+  box-shadow: 0 2px 8px rgba(14,165,233,0.20);
+}
+.btn--primary:hover {
+  filter: brightness(1.08);
+  color: var(--white);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(14,165,233,0.30);
+}
+
+/* Outline — on white bg */
+.btn--outline {
+  background: transparent;
+  color: var(--blue);
+  border: 1.5px solid var(--border-2);
+}
+.btn--outline:hover {
+  background: var(--deep-navy);
+  color: var(--white);
+  border-color: var(--deep-navy);
+  transform: translateY(-1px);
+}
+
+/* Outline white — on dark bg */
+.btn--outline-white {
+  background: transparent;
+  color: var(--white);
+  border: 1.5px solid rgba(255,255,255,0.25);
+}
+.btn--outline-white:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.50);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text-2);
+  border: none;
+  padding-inline: 0;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-size: var(--fs-sm);
+  font-weight: 400;
+}
+.btn--ghost:hover { color: var(--text); }
+
+.btn--sm { padding: 0.5rem 1.25rem; font-size: 0.7rem; }
+.btn--lg { padding: 1rem 2.25rem;   font-size: var(--fs-xs); }
+
+
+/* ============================================================
+   CARDS
+   ============================================================ */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: var(--sp-8);
+  transition: all var(--t-base);
+}
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+  border-color: var(--border-2);
+}
+.card--accent   { border-top: 3px solid var(--cyan); }
+.card--featured { border: 2px solid var(--sky); box-shadow: var(--shadow-md); }
+.card--ice      { background: var(--off-white); border-color: var(--border); }
+.card--dark     { background: rgba(255,255,255,0.04); border-color: var(--navy-border); }
+
+/* stat card */
+.stat-card { background: var(--gradient-section); border-radius: var(--r-xl); padding: var(--sp-8); color: var(--white); }
+.stat-card__number { font-size: var(--fs-4xl); font-weight: 700; line-height: 1; color: var(--white); }
+.stat-card__label  { font-size: var(--fs-sm); font-weight: 400; color: var(--cyan); margin-top: var(--sp-2); }
+
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-nav);
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(226,232,240,0.60);
+  padding-block: 0.875rem;
+}
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  gap: var(--sp-6);
+}
+.nav__links { display: flex; align-items: center; gap: var(--sp-6); }
+.nav__link  { font-size: var(--fs-sm); font-weight: 500; color: var(--text-2); transition: color var(--t-fast); }
+.nav__link:hover, .nav__link--active { color: var(--text); }
+.nav__actions { display: flex; align-items: center; gap: var(--sp-4); }
+
+
+/* ============================================================
+   TAGS & BADGES
+   ============================================================ */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--r-full);
+}
+.tag--blue    { background: #EFF6FF; color: var(--blue); }
+.tag--cyan    { background: #ECFEFF; color: #0E7490; }
+.tag--navy    { background: var(--deep-navy); color: var(--cyan); }
+.tag--outline { background: transparent; border: 1px solid var(--border-2); color: var(--text-2); }
+
+
+/* ============================================================
+   FORMS
+   ============================================================ */
+.form-group { display: flex; flex-direction: column; gap: var(--sp-2); }
+.form-label { font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-2); }
+.form-input, .form-textarea, .form-select {
+  width: 100%; padding: 0.875rem 1rem;
+  font-family: var(--font-body); font-size: var(--fs-sm);
+  color: var(--text); background: var(--white);
+  border: 1px solid var(--border); border-radius: var(--r-md);
+  transition: border-color var(--t-fast), box-shadow var(--t-fast); outline: none;
+}
+.form-input:hover, .form-textarea:hover { border-color: var(--border-2); }
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  border-color: var(--sky); box-shadow: 0 0 0 3px rgba(14,165,233,0.10);
+}
+.form-textarea { resize: vertical; min-height: 140px; }
+.form-hint { font-size: var(--fs-xs); color: var(--text-3); }
+
+
+/* ============================================================
+   DECORATIVE
+   ============================================================ */
+.divider          { height: 1px; background: var(--border); border: none; margin-block: var(--sp-8); }
+.divider--gradient{ height: 2px; background: linear-gradient(90deg,var(--cyan),var(--sky),var(--blue)); border: none; }
+.accent-bar       { width: 48px; height: 3px; background: var(--gradient-accent); border-radius: var(--r-full); margin-bottom: var(--sp-5); }
+.rule             { height: 1px; background: var(--border); border: none; width: 100%; }
+
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+.mt-auto  { margin-top: auto; }     .mb-0  { margin-bottom: 0; }
+.mb-4     { margin-bottom: var(--sp-4); } .mb-6  { margin-bottom: var(--sp-6); }
+.mb-8     { margin-bottom: var(--sp-8); } .mb-12 { margin-bottom: var(--sp-12); }
+.text-center { text-align: center; } .text-right { text-align: right; }
+.w-full { width: 100%; } .h-full { height: 100%; }
+
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; } to { opacity: 1; }
+}
+
+.anim-fade-up { animation: fadeUp 0.7s var(--ease) both; }
+.anim-fade-in { animation: fadeIn 0.6s ease both; }
+.anim-delay-1 { animation-delay: 0.08s; }
+.anim-delay-2 { animation-delay: 0.18s; }
+.anim-delay-3 { animation-delay: 0.28s; }
+.anim-delay-4 { animation-delay: 0.40s; }
+.anim-delay-5 { animation-delay: 0.52s; }
+
+.reveal {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.06s; }
+.reveal-delay-2 { transition-delay: 0.14s; }
+.reveal-delay-3 { transition-delay: 0.22s; }
+.reveal-delay-4 { transition-delay: 0.30s; }
+
+
+/* ============================================================
+   RESPONSIVE
+   Tailwind alignment: sm=640 md=768 lg=1024 xl=1280 2xl=1536
+   ============================================================ */
+
+/* xl — extra desktop breathing room from 1280px up */
+@media (min-width: 1280px) {
+  .section     { padding-block: 7rem; }
+  .section--sm { padding-block: 5rem; }
+  .section--lg { padding-block: 9rem; }
+}
+
+/* 2xl — large desktop monitors from 1536px up */
+@media (min-width: 1536px) {
+  .section--lg { padding-block: 10rem; }
+}
+
+/* lg and down — collapse wide grids */
+@media (max-width: 1024px) {
+  .grid--4 { grid-template-columns: repeat(2,1fr); }
+  .grid--3 { grid-template-columns: repeat(2,1fr); }
+}
+
+/* md and down — collapse to single column, hide desktop nav */
+@media (max-width: 768px) {
+  .section     { padding-block: var(--sp-16); }
+  .section--sm { padding-block: var(--sp-12); }
+  .section--lg { padding-block: var(--sp-20); }
+  .container   { padding-inline: var(--sp-5); }
+  .grid--4, .grid--3, .grid--2 { grid-template-columns: 1fr; }
+  .nav__links { display: none; }
+}
+
+/* sm and down — tighten sections, prevent iOS form-input zoom */
+@media (max-width: 640px) {
+  .section     { padding-block: var(--sp-12); }
+  .section--lg { padding-block: var(--sp-16); }
+  /* iOS Safari auto-zooms on focus when input font-size < 16px */
+  .form-input, .form-textarea, .form-select { font-size: 16px; }
+}
+
+@media (max-width: 480px) {
+  .btn--lg    { padding: 0.875rem 1.75rem; }
+  .container  { padding-inline: var(--sp-4); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .anim-fade-up, .anim-fade-in { animation: none; opacity: 1; }
+}
+</style>
+<style data-vite-dev-id="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro?astro&#38;type=style&#38;index=0&#38;lang.css">.footer {
+    background: var(--deep-navy);
+    padding-block: var(--sp-16) var(--sp-8);
+  }
+
+  .footer__main {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--sp-12);
+    align-items: start;
+    padding-bottom: var(--sp-12);
+  }
+
+  /* Brand */
+  .footer__logo-link { display: inline-block; margin-bottom: var(--sp-4); }
+  .footer__logo {
+    height: 36px;
+    width: auto;
+    display: block;
+    filter: brightness(0) invert(1);
+    opacity: 0.85;
+  }
+  .footer__tagline {
+    font-size: var(--fs-sm);
+    color: var(--navy-text-2);
+    line-height: 1.65;
+    max-width: 260px;
+  }
+
+  /* Columns */
+  .footer__col-label {
+    font-family: var(--font-body);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--navy-text-3);
+    margin-bottom: var(--sp-5);
+  }
+  .footer__links { display: flex; flex-direction: column; gap: var(--sp-3); }
+  .footer__link {
+    font-size: var(--fs-sm);
+    color: var(--navy-text-2);
+    transition: color var(--t-fast);
+  }
+  .footer__link:hover { color: var(--white); }
+
+  .footer__see-all {
+    display: inline-block;
+    margin-top: var(--sp-4);
+    font-size: var(--fs-xs);
+    color: var(--cyan);
+    font-weight: 500;
+    transition: opacity var(--t-fast);
+  }
+  .footer__see-all:hover { opacity: 0.75; }
+
+  /* Network */
+  .footer__network { padding-block: var(--sp-8); }
+  .footer__network-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--sp-5);
+  }
+  .footer__network-item { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
+  .footer__network-logo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: var(--sp-3) var(--sp-4);
+    height: 72px;
+    width: 100%;
+    margin-bottom: var(--sp-2);
+    transition: transform var(--t-fast), box-shadow var(--t-fast);
+  }
+  .footer__network-logo-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  }
+  .footer__network-logo {
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+  .footer__network-link {
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--white);
+    transition: color var(--t-fast);
+  }
+  .footer__network-link:hover { color: var(--cyan); }
+  .footer__network-desc {
+    font-size: var(--fs-xs);
+    color: var(--navy-text-3);
+    line-height: 1.55;
+  }
+
+  /* Parent group card */
+  .footer__group {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: var(--sp-6);
+    margin-top: var(--sp-8);
+    padding: var(--sp-5) var(--sp-6);
+    background:
+      linear-gradient(135deg, rgba(0, 200, 220, 0.08), rgba(255, 255, 255, 0.02)) padding-box,
+      linear-gradient(135deg, rgba(0, 200, 220, 0.5), rgba(255, 255, 255, 0.08)) border-box;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    transition: transform var(--t-fast), box-shadow var(--t-fast), border-color var(--t-fast);
+  }
+  .footer__group:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+  }
+  .footer__group-logo-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: var(--sp-3) var(--sp-4);
+    height: 64px;
+    width: 140px;
+    flex-shrink: 0;
+  }
+  .footer__group-logo {
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+  .footer__group-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+  .footer__group-eyebrow {
+    font-family: var(--font-body);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cyan);
+  }
+  .footer__group-name {
+    font-size: var(--fs-base);
+    font-weight: 600;
+    color: var(--white);
+  }
+  .footer__group-desc {
+    font-size: var(--fs-sm);
+    color: var(--navy-text-2);
+    line-height: 1.55;
+  }
+  .footer__group-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: var(--sp-2) var(--sp-4);
+    border-radius: 999px;
+    background: rgba(0, 200, 220, 0.12);
+    color: var(--cyan);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background var(--t-fast), color var(--t-fast);
+  }
+  .footer__group:hover .footer__group-cta {
+    background: var(--cyan);
+    color: var(--deep-navy);
+  }
+
+  /* Bottom bar */
+  .footer__rule { height: 1px; background: rgba(255,255,255,0.06); }
+  .footer__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-6);
+    padding-top: var(--sp-6);
+    flex-wrap: wrap;
+  }
+  .footer__badges {
+    font-size: var(--fs-xs);
+    color: var(--navy-text-3);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .footer__copy {
+    font-size: var(--fs-xs);
+    color: var(--navy-text-3);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .footer__legal { display: flex; gap: var(--sp-5); flex-wrap: wrap; }
+  .footer__legal-link {
+    font-size: var(--fs-xs);
+    color: var(--navy-text-3);
+    transition: color var(--t-fast);
+    letter-spacing: 0.02em;
+  }
+  .footer__legal-link:hover { color: var(--navy-text-2); }
+
+  @media (max-width: 1024px) {
+    .footer__network-list { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .footer__main { grid-template-columns: 1fr 1fr; gap: var(--sp-8); padding-bottom: var(--sp-8); }
+    .footer__brand { grid-column: 1 / -1; }
+    .footer__network-list { grid-template-columns: 1fr; gap: var(--sp-5); }
+    .footer__group {
+      grid-template-columns: 1fr;
+      text-align: left;
+      gap: var(--sp-4);
+    }
+    .footer__group-logo-wrap { width: 100%; }
+    .footer__group-cta { justify-self: start; }
+    .footer__bottom { flex-direction: column; align-items: flex-start; gap: var(--sp-4); }
+    .footer__badges { white-space: normal; }
+    .footer__legal { gap: var(--sp-4); }
+  }</style>
+<style data-vite-dev-id="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro?astro&#38;type=style&#38;index=0&#38;lang.css">.nav__logo-img[data-astro-cid-ymhdp2rl]{height:40px;width:auto;display:block}.nav__item[data-astro-cid-ymhdp2rl]{position:relative}.nav__link--dropdown[data-astro-cid-ymhdp2rl]{display:flex;align-items:center;gap:4px;font-size:var(--fs-sm);font-weight:500;color:var(--text-2);background:none;border:none;cursor:pointer;padding:0;transition:color var(--t-fast)}.nav__link--dropdown[data-astro-cid-ymhdp2rl]:hover,.nav__link--dropdown[data-astro-cid-ymhdp2rl].nav__link--active{color:var(--text)}.nav__chevron[data-astro-cid-ymhdp2rl]{transition:transform var(--t-fast)}.nav__item--has-dropdown[data-astro-cid-ymhdp2rl]:hover .nav__chevron[data-astro-cid-ymhdp2rl],.nav__item--has-dropdown[data-astro-cid-ymhdp2rl].is-open .nav__chevron[data-astro-cid-ymhdp2rl]{transform:rotate(180deg)}.nav__dropdown[data-astro-cid-ymhdp2rl]{position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(-6px);min-width:200px;background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow-lg);padding:var(--sp-2);opacity:0;visibility:hidden;transition:opacity var(--t-fast),transform var(--t-fast),visibility var(--t-fast);z-index:var(--z-dropdown)}.nav__item--has-dropdown[data-astro-cid-ymhdp2rl]:hover .nav__dropdown[data-astro-cid-ymhdp2rl],.nav__item--has-dropdown[data-astro-cid-ymhdp2rl].is-open .nav__dropdown[data-astro-cid-ymhdp2rl]{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}.nav__dropdown-link[data-astro-cid-ymhdp2rl]{display:block;padding:0.625rem 1rem;font-size:var(--fs-sm);font-weight:500;color:var(--text-2);border-radius:var(--r-md);transition:background var(--t-fast),color var(--t-fast);white-space:nowrap}.nav__dropdown-link[data-astro-cid-ymhdp2rl]:hover,.nav__dropdown-link--active[data-astro-cid-ymhdp2rl]{background:var(--off-white);color:var(--text)}.nav__optimizer-link[data-astro-cid-ymhdp2rl]{display:inline-flex;align-items:center;gap:5px;font-size:var(--fs-xs);font-weight:600;color:var(--sky);padding:var(--sp-1) var(--sp-3);border:1.5px solid var(--sky);border-radius:var(--r-full);white-space:nowrap;transition:background var(--t-fast),color var(--t-fast)}.nav__optimizer-link[data-astro-cid-ymhdp2rl]:hover{background:var(--sky);color:var(--white)}.nav__lang-group[data-astro-cid-ymhdp2rl]{display:inline-flex;align-items:center;gap:6px}.nav__lang[data-astro-cid-ymhdp2rl]{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;overflow:hidden;border:1px solid var(--border);background:var(--white);transition:transform var(--t-fast),border-color var(--t-fast),box-shadow var(--t-fast)}.nav__lang[data-astro-cid-ymhdp2rl]:hover{transform:translateY(-1px);border-color:var(--text-3);box-shadow:0 2px 6px rgba(0,0,0,.08)}.nav__lang-flag[data-astro-cid-ymhdp2rl]{width:100%;height:100%;object-fit:cover;display:block}.nav__mobile-lang-flag[data-astro-cid-ymhdp2rl]{width:20px;height:20px;object-fit:cover;border-radius:50%;border:1px solid var(--border);flex-shrink:0}.nav__burger[data-astro-cid-ymhdp2rl]{display:none;flex-direction:column;gap:5px;padding:var(--sp-2)}.nav__burger[data-astro-cid-ymhdp2rl] span[data-astro-cid-ymhdp2rl]{display:block;width:20px;height:1.5px;background:var(--text);border-radius:2px;transition:all var(--t-base)}.nav__mobile[data-astro-cid-ymhdp2rl]{display:none;flex-direction:column;padding:var(--sp-2) var(--gutter) var(--sp-4);border-top:1px solid var(--border);background:var(--white)}.nav__mobile-link[data-astro-cid-ymhdp2rl]{display:block;font-size:var(--fs-sm);font-weight:500;color:var(--text-2);padding-block:var(--sp-2);border-bottom:1px solid var(--border);transition:color var(--t-fast)}.nav__mobile-link[data-astro-cid-ymhdp2rl]:hover{color:var(--text)}.nav__mobile-link--child[data-astro-cid-ymhdp2rl]{font-size:var(--fs-sm);font-weight:400;color:var(--text-3);padding-left:var(--sp-4);padding-block:var(--sp-1)}.nav__mobile-langs[data-astro-cid-ymhdp2rl]{display:flex;align-items:center;gap:var(--sp-2);padding-top:var(--sp-3);flex-wrap:wrap}.nav__mobile-lang-pill[data-astro-cid-ymhdp2rl]{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;overflow:hidden;border:1px solid var(--border);background:var(--white);transition:transform var(--t-fast),border-color var(--t-fast)}.nav__mobile-lang-pill[data-astro-cid-ymhdp2rl]:hover{transform:translateY(-1px);border-color:var(--text-3)}@media (max-width: 768px){.nav__links[data-astro-cid-ymhdp2rl],.nav__actions[data-astro-cid-ymhdp2rl]{display:none}.nav__burger[data-astro-cid-ymhdp2rl]{display:flex}.nav__mobile[data-astro-cid-ymhdp2rl].is-open{display:flex}}</style>
+<style data-vite-dev-id="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/ContactCTA.astro?astro&#38;type=style&#38;index=0&#38;lang.css">.cta[data-astro-cid-rcdzuq3a]{position:relative;overflow:hidden}.cta[data-astro-cid-rcdzuq3a]::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 55% 75% at 100% 50%,rgba(14,165,233,0.06) 0%,transparent 60%);pointer-events:none}.cta__layout[data-astro-cid-rcdzuq3a]{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-16);align-items:center}.cta__headline[data-astro-cid-rcdzuq3a]{font-size:clamp(2rem,4vw,3rem);font-weight:600;color:var(--white);line-height:1.10;letter-spacing:-0.025em}.cta__headline[data-astro-cid-rcdzuq3a] em[data-astro-cid-rcdzuq3a]{color:rgba(255,255,255,0.35);font-weight:300}.cta__sub[data-astro-cid-rcdzuq3a]{font-size:var(--fs-md);color:rgba(255,255,255,0.55);line-height:1.75;margin-bottom:var(--sp-8)}.cta__actions[data-astro-cid-rcdzuq3a]{display:flex;flex-wrap:wrap;gap:var(--sp-4);align-items:center;margin-bottom:var(--sp-5)}.cta__note[data-astro-cid-rcdzuq3a]{font-size:var(--fs-sm);color:rgba(255,255,255,0.30);letter-spacing:0.02em}@media (max-width: 1024px){.cta__layout[data-astro-cid-rcdzuq3a]{grid-template-columns:1fr;gap:var(--sp-10)}}@media (max-width: 640px){.cta__actions[data-astro-cid-rcdzuq3a]{flex-direction:column;align-items:stretch}.cta__actions[data-astro-cid-rcdzuq3a] .btn[data-astro-cid-rcdzuq3a]{justify-content:center}}</style>
+<style data-vite-dev-id="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro?astro&#38;type=style&#38;index=0&#38;lang.css">.post-hero[data-astro-cid-lgdhavgy]{background:var(--deep-navy) url(/blog/hero-ads-cost.svg) center/cover no-repeat;padding-block:clamp(3rem,6vw,5rem) clamp(3rem,5vw,4.5rem);position:relative;overflow:hidden}.post-hero[data-astro-cid-lgdhavgy]::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.62);pointer-events:none}.post-hero__inner[data-astro-cid-lgdhavgy]{position:relative;z-index:1;max-width:780px}.post-hero__meta[data-astro-cid-lgdhavgy]{display:flex;align-items:center;gap:var(--sp-4);margin-bottom:var(--sp-6)}.post-hero__date[data-astro-cid-lgdhavgy]{font-family:var(--font-body);font-size:var(--fs-xs);color:rgba(255,255,255,0.45);letter-spacing:0.04em}.post-tag-pill[data-astro-cid-lgdhavgy]{display:inline-block;padding:2px 10px;border-radius:999px;background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.16);color:rgba(255,255,255,0.75);font-size:0.7rem;font-family:var(--font-display);font-weight:600;letter-spacing:0.08em;text-transform:uppercase}.post-hero__h1[data-astro-cid-lgdhavgy]{font-size:clamp(2rem,4.5vw,3.25rem);font-family:var(--font-display);font-weight:700;line-height:1.12;letter-spacing:-0.01em;color:var(--white);margin-bottom:var(--sp-6)}.post-hero__h1[data-astro-cid-lgdhavgy] em[data-astro-cid-lgdhavgy]{color:rgba(255,255,255,0.45);font-weight:300;font-style:normal}.post-hero__deck[data-astro-cid-lgdhavgy]{font-family:var(--font-body);font-size:var(--fs-md);color:rgba(255,255,255,0.68);line-height:1.75;max-width:600px;margin-bottom:var(--sp-8)}.post-hero__byline[data-astro-cid-lgdhavgy]{display:flex;align-items:center;gap:var(--sp-3);font-family:var(--font-body);font-size:var(--fs-xs);color:rgba(255,255,255,0.40);letter-spacing:0.04em}.post-hero__sep[data-astro-cid-lgdhavgy]{opacity:0.4}.post-body[data-astro-cid-lgdhavgy]{padding-block:clamp(3rem,6vw,5rem);background:var(--white)}.post-layout[data-astro-cid-lgdhavgy]{display:grid;grid-template-columns:200px 1fr;gap:clamp(2.5rem,5vw,5rem);align-items:start}.post-toc[data-astro-cid-lgdhavgy]{position:sticky;top:calc(70px + var(--sp-8))}.post-toc__label[data-astro-cid-lgdhavgy]{font-size:var(--fs-xs);font-family:var(--font-display);font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:var(--text-3);margin-bottom:var(--sp-4)}.post-toc__list[data-astro-cid-lgdhavgy]{list-style:none;display:flex;flex-direction:column;gap:var(--sp-3);counter-reset:toc;padding:0}.post-toc__list[data-astro-cid-lgdhavgy] li[data-astro-cid-lgdhavgy]{counter-increment:toc}.post-toc__list[data-astro-cid-lgdhavgy] a[data-astro-cid-lgdhavgy]{font-family:var(--font-body);font-size:var(--fs-xs);color:var(--text-2);line-height:1.5;transition:color var(--t-fast),border-left-color var(--t-fast);display:block;padding-left:var(--sp-4);border-left:2px solid transparent}.post-toc__list[data-astro-cid-lgdhavgy] a[data-astro-cid-lgdhavgy]:hover{color:var(--sky);border-left-color:var(--sky)}.post-content[data-astro-cid-lgdhavgy]{max-width:680px}.post-content[data-astro-cid-lgdhavgy] section[data-astro-cid-lgdhavgy]{margin-bottom:clamp(2.5rem,4vw,3.5rem)}.post-content[data-astro-cid-lgdhavgy] h2[data-astro-cid-lgdhavgy]{font-size:clamp(1.25rem,2vw,1.6rem);font-family:var(--font-display);font-weight:700;color:var(--deep-navy);letter-spacing:-0.01em;line-height:1.3;margin-bottom:var(--sp-5)}.post-content[data-astro-cid-lgdhavgy] p[data-astro-cid-lgdhavgy]{font-family:var(--font-body);font-size:var(--fs-md);color:var(--text);line-height:1.85;margin-bottom:var(--sp-5)}.post-content[data-astro-cid-lgdhavgy] blockquote[data-astro-cid-lgdhavgy]{border-left:3px solid var(--sky);margin:var(--sp-8) 0;padding:var(--sp-1) var(--sp-6);font-family:var(--font-body);font-size:var(--fs-md);font-style:italic;color:var(--text-2);line-height:1.75}.post-inline-cta[data-astro-cid-lgdhavgy]{margin-top:clamp(2.5rem,4vw,3.5rem);padding:var(--sp-8) var(--sp-10);background:var(--deep-navy);border-radius:var(--r-2xl);display:flex;flex-direction:column;gap:var(--sp-6)}.post-content[data-astro-cid-lgdhavgy] .post-inline-cta__text[data-astro-cid-lgdhavgy]{font-family:var(--font-body);font-size:var(--fs-md);color:rgba(255,255,255,0.85);line-height:1.75;margin:0}.post-back[data-astro-cid-lgdhavgy]{padding-block:var(--sp-8);background:var(--off-white);border-top:1px solid var(--border)}.post-back__link[data-astro-cid-lgdhavgy]{font-size:var(--fs-sm);font-family:var(--font-body);font-weight:500;color:var(--text-2);transition:color var(--t-fast),transform var(--t-fast)}.post-back__link[data-astro-cid-lgdhavgy]:hover{color:var(--sky);transform:translateY(-3px);text-shadow:var(--shadow-sm)}@media (min-width: 1280px){.post-content[data-astro-cid-lgdhavgy]{max-width:760px}}@media (max-width: 1024px){.post-layout[data-astro-cid-lgdhavgy]{grid-template-columns:1fr}.post-toc[data-astro-cid-lgdhavgy]{display:none}}@media (max-width: 640px){.post-inline-cta[data-astro-cid-lgdhavgy]{padding:var(--sp-6)}}</style><script type="module" src="/@vite/client"></script>
+<script type="module" src="/@id/astro/runtime/client/dev-toolbar/entrypoint.js"></script>
+<script>window.__astro_dev_toolbar__ = {"root":"C:\\Users\\cyril\\Project\\NuvoraStudioWeb\\","version":"6.0.6","latestAstroVersion":"6.3.8","debugInfo":"Astro                    v6.0.6\nNode                     v22.17.0\nSystem                   Windows (x64)\nPackage Manager          npm\nOutput                   static\nAdapter                  @astrojs/vercel\nIntegrations             @astrojs/vercel\n                         @astrojs/sitemap\n                         astro:copy-vercel-output"}</script>
+<script type="module" src="/src/styles/global.css"></script>
+<script type="module" src="/src/components/Footer.astro?astro&type=style&index=0&lang.css"></script>
+<script type="module" src="/src/components/NavBar.astro?astro&type=style&index=0&lang.css"></script>
+<script type="module" src="/src/components/ContactCTA.astro?astro&type=style&index=0&lang.css"></script>
+<script type="module" src="/src/pages/zh/insights/why-linkedin-ads-cost-more.astro?astro&type=style&index=0&lang.css"></script></head> <body data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/layouts/Layout.astro" data-astro-source-loc="70:9">  <nav class="nav" aria-label="Main navigation" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="43:47"> <div class="nav__inner" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="44:27"> <a href="/zh/" class="nav__logo" aria-label="Nuvora Studio, home" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="46:75"> <img src="/images/nuvora-logo.webp" alt="Nuvora Studio" class="nav__logo-img" width="220" height="86" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="47:8"> </a> <ul class="nav__links" role="list" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="50:40"> <li class="nav__item nav__item--has-dropdown" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="52:87">  <a href="/zh/services" class="nav__link nav__link--dropdown" aria-haspopup="true" aria-expanded="false" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="59:16"> 我们的服务 <svg class="nav__chevron" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="61:105"> <path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="62:20"></path> </svg> </a> <ul class="nav__dropdown" role="list" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="65:53"> <li data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="67:23"> <a href="/zh/services/content" class="nav__dropdown-link" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="68:137"> LinkedIn内容服务 </a> </li><li data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="67:23"> <a href="/zh/services/advertising" class="nav__dropdown-link" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="68:137"> LinkedIn广告服务 </a> </li><li data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="67:23"> <a href="/zh/services/consulting" class="nav__dropdown-link" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="68:137"> 策略咨询 </a> </li> </ul>  </li><li class="nav__item" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="52:87"> <a href="/zh/pricing" class="nav__link" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="76:109"> 价格 </a> </li><li class="nav__item" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="52:87"> <a href="/zh/work" class="nav__link" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="76:109"> 客户案例 </a> </li><li class="nav__item" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="52:87"> <a href="/zh/insights" class="nav__link" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="76:109"> 专栏 </a> </li><li class="nav__item" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="52:87"> <a href="/zh/about" class="nav__link" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="76:109"> 关于 </a> </li> </ul> <div class="nav__actions" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="84:31"> <a href="/zh/linkedin-optimizer" class="nav__optimizer-link" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="85:59"> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="86:156"><circle cx="12" cy="12" r="10" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="86:156"></circle><path d="M12 16v-4M12 8h.01" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="86:188"></path></svg> 主页诊断 </a> <!-- Language switcher --> <div class="nav__lang-group" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="91:36"> <a href="/insights/why-linkedin-ads-cost-more" class="nav__lang" aria-label="Switch to English" title="English" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="98:12"> <img src="/flags/gb.svg" alt="" width="22" height="22" class="nav__lang-flag" loading="lazy" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="99:14"> </a><a href="/fr/publications/pourquoi-publicite-linkedin-coute-plus" class="nav__lang" aria-label="Switch to Français" title="Français" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="98:12"> <img src="/flags/fr.svg" alt="" width="22" height="22" class="nav__lang-flag" loading="lazy" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="99:14"> </a><a href="/es/blog/por-que-la-publicidad-linkedin-cuesta-mas" class="nav__lang" aria-label="Switch to Español" title="Español" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="98:12"> <img src="/flags/es.svg" alt="" width="22" height="22" class="nav__lang-flag" loading="lazy" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="99:14"> </a><a href="/de/einblicke/warum-linkedin-ads-teurer-werden" class="nav__lang" aria-label="Switch to Deutsch" title="Deutsch" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="98:12"> <img src="/flags/de.svg" alt="" width="22" height="22" class="nav__lang-flag" loading="lazy" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="99:14"> </a> </div> <a href="/zh/contact?intent=call" class="btn btn--primary btn--sm" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="104:62">预约沟通</a> </div> <button class="nav__burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="107:106"> <span data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="108:8"></span><span data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="108:21"></span><span data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="108:34"></span> </button> </div> <div class="nav__mobile" id="mobile-menu" aria-hidden="true" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="112:64"> <ul role="list" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="113:21">  <li data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="116:16"><a href="/zh/services" class="nav__mobile-link" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="116:60">我们的服务</a></li> <li data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="118:18"><a href="/zh/services/content" class="nav__mobile-link nav__mobile-link--child" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="118:87">↳ LinkedIn内容服务</a></li><li data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="118:18"><a href="/zh/services/advertising" class="nav__mobile-link nav__mobile-link--child" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="118:87">↳ LinkedIn广告服务</a></li><li data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="118:18"><a href="/zh/services/consulting" class="nav__mobile-link nav__mobile-link--child" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="118:87">↳ 策略咨询</a></li> <li data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="116:16"><a href="/zh/pricing" class="nav__mobile-link" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="116:60">价格</a></li>  <li data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="116:16"><a href="/zh/work" class="nav__mobile-link" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="116:60">客户案例</a></li>  <li data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="116:16"><a href="/zh/insights" class="nav__mobile-link" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="116:60">专栏</a></li>  <li data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="116:16"><a href="/zh/about" class="nav__mobile-link" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="116:60">关于</a></li>  <li data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="122:11"> <a href="/zh/linkedin-optimizer" class="nav__mobile-link" style="color:var(--sky);font-weight:600;" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="123:100"> 主页诊断 </a> </li> </ul> <div class="nav__mobile-langs" role="list" aria-label="Language" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="128:70"> <a href="/insights/why-linkedin-ads-cost-more" class="nav__mobile-lang-pill" aria-label="Switch to English" title="English" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="135:10"> <img src="/flags/gb.svg" alt="" width="20" height="20" class="nav__mobile-lang-flag" loading="lazy" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="136:12"> </a><a href="/fr/publications/pourquoi-publicite-linkedin-coute-plus" class="nav__mobile-lang-pill" aria-label="Switch to Français" title="Français" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="135:10"> <img src="/flags/fr.svg" alt="" width="20" height="20" class="nav__mobile-lang-flag" loading="lazy" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="136:12"> </a><a href="/es/blog/por-que-la-publicidad-linkedin-cuesta-mas" class="nav__mobile-lang-pill" aria-label="Switch to Español" title="Español" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="135:10"> <img src="/flags/es.svg" alt="" width="20" height="20" class="nav__mobile-lang-flag" loading="lazy" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="136:12"> </a><a href="/de/einblicke/warum-linkedin-ads-teurer-werden" class="nav__mobile-lang-pill" aria-label="Switch to Deutsch" title="Deutsch" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="135:10"> <img src="/flags/de.svg" alt="" width="20" height="20" class="nav__mobile-lang-flag" loading="lazy" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="136:12"> </a> </div> <a href="/zh/contact?intent=call" class="btn btn--primary w-full" style="justify-content:center; margin-top: var(--sp-3);" data-astro-cid-ymhdp2rl data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/NavBar.astro" data-astro-source-loc="140:116"> 预约沟通 </a> </div> </nav>  <script type="module" src="/src/components/NavBar.astro?astro&type=script&index=0&lang.ts"></script> <main id="main-content" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="14:27"> <!-- Hero --> <section class="post-hero" aria-labelledby="post-heading" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="17:63"> <div class="container" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="18:30"> <div class="post-hero__inner" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="19:39"> <div class="post-hero__meta" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="20:40"> <span class="tag" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="21:31">LinkedIn 广告</span> <span class="post-tag-pill" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="22:41">广告</span> <span class="post-tag-pill" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="23:41">预算</span> <time class="post-hero__date" datetime="2026-03-29" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="24:65">2026 年 3 月 29 日</time> </div> <h1 id="post-heading" class="post-hero__h1" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="26:55">
+LinkedIn 单次点击贵了 4–6 倍<br data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="27:35"><em data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="27:44">什么时候这笔账依然划算？</em> </h1> <p class="post-hero__deck" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="29:38">
+LinkedIn 单次点击 $5–$12，Meta 大概 $0.50——贵了将近 10 倍，但背后是高出几个量级的受众质量。
+</p> <div class="post-hero__byline" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="32:42"> <span data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="33:19">Nuvora Studio</span> <span class="post-hero__sep" aria-hidden="true" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="34:61">&middot;</span> <span data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="35:19">8 分钟阅读</span> </div> </div> </div> </section> <!-- Article body --> <article class="post-body" aria-label="Article content" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="42:61"> <div class="container" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="43:30"> <div class="post-layout" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="44:34"> <!-- Sticky TOC --> <nav class="post-toc" aria-label="Table of contents" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="47:64"> <p class="post-toc__label" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="48:40">本文目录</p> <ol class="post-toc__list" role="list" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="49:52"> <li data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="50:20"><a href="#priciest" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="50:39">B2B 最贵的广告平台</a></li> <li data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="51:20"><a href="#targeting" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="51:40">贵在精准定向</a></li> <li data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="52:20"><a href="#wrong-metric" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="52:43">CPC 是个误导指标</a></li> <li data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="53:20"><a href="#makes-sense" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="53:42">四种值得投的场景</a></li> <li data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="54:20"><a href="#doesnt-make-sense" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="54:48">三种不该投的场景</a></li> <li data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="55:20"><a href="#retargeting" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="55:42">再营销改写成本公式</a></li> <li data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="56:20"><a href="#format" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="56:37">格式选对，成本减半</a></li> <li data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="57:20"><a href="#worth-it" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="57:39">最终结论</a></li> </ol> </nav> <!-- Main content --> <div class="post-content" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="62:37"> <section id="priciest" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="64:36"> <h2 data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="65:19">B2B 最贵的广告平台</h2> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="66:18">
+先看数字：2026 年 LinkedIn 平均单次点击成本（CPC）5 到 12 美元。Meta 是 0.5 到 2 美元。Google 平均 2.69 美元。
+</p> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="69:18">
+差距不小，而且还在拉大。B2B 预算持续涌入 LinkedIn，千次展示成本（CPM）大幅的涨了 28%。
+</p> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="72:18">
+第一反应肯定是贵。但这个"贵"有误导性。
+</p> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="75:18">
+LinkedIn 卖的不是 Meta 那种点击。你真正买到的，是进入一个用户自行填报了职位、公司、职级和行业的受众池。这种数据质量，数字广告的其他地方不存在。
+</p> <blockquote data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="78:27">
+"Average cost per click in 2026 ranges from $0.50 on Meta to $5.26 on LinkedIn."
+                (PPC Chief, Average CPC by Ad Platform 2026)
+</blockquote> </section> <section id="targeting" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="84:37"> <h2 data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="85:19">贵在精准定向</h2> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="86:18">
+LinkedIn 的护城河是用户自主填报的职业数据：职位、雇主、职级、行业、技能，全是用户主动提供的信息，不是从浏览习惯或 App 使用行为里猜出来的。
+</p> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="89:18">
+Meta 做 B2B 定向靠什么？兴趣标签、相似受众、行为推测。卖消费品勉强凑合，要触达"北美 200 到 500 人 SaaS 公司的市场 VP"？做不到。
+</p> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="92:18">
+供给端也是原因。LinkedIn 月活约 3.1 亿，Meta 超过 30 亿。广告库存少，B2B 广告主之间的竞争更激烈。稀缺性推高价格，但也意味着你的广告出现在一个更高质量的环境里：用户正处于职业思维模式。
+</p> <blockquote data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="95:27">
+"LinkedIn's premium CPC reflects its highly targeted professional audience.
+                4 out of 5 LinkedIn members drive business decisions."
+                (Postiv AI, LinkedIn Advertising Costs 2026)
+</blockquote> </section> <section id="wrong-metric" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="102:40"> <h2 data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="103:19">CPC 是个误导指标</h2> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="104:18">
+真正该看的是两个数字：拿一条合格线索花多少钱，这条线索最终的成交率是多少。
+</p> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="107:18">
+LinkedIn 在美国的平均转化率 6.1%。Google 搜索 3.75%。Google 展示广告 0.77%。但光看转化率不够，进来的线索质量才是 LinkedIn 拉开差距的地方。
+</p> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="110:18">
+算一笔账。LinkedIn 单次点击 8 美元，落地页转化率 6%，每条线索成本约 130 到 140 美元。Meta 单次点击 1.5 美元，转化率 1.5%，每条线索成本 100 美元。看着是便宜了。
+</p> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="113:18">
+但看看进来的是什么。LinkedIn 线索带着经过验证的职位和公司信息，销售几秒钟就能判断值不值得跟进。Meta 那边？什么人都有可能。到处点着玩的研究生，别的国家误触进来的人，团队花在甄别上的时间，很快就把那"省下的 100 美元"吃回去了。
+</p> <blockquote data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="116:27">
+"LinkedIn ads deliver 4.1 to 8.3x ROAS for B2B campaigns, with leads converting
+                at 2 to 3x the rate of other social platforms."
+                (Stackmatix, LinkedIn Ads Cost in 2026)
+</blockquote> </section> <section id="makes-sense" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="123:39"> <h2 data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="124:19">四种值得投的场景</h2> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="125:18">不是什么时候都值。但以下四种情况，算术通常站得住。</p> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="126:18"> <strong data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="127:25">单笔交易金额够大。</strong>平均合同额 1 万美元以上，花 130 到 200 美元拿一条线索并不心疼。5% 成交率乘以 1 万美元，获客成本 3000 美元，数字健康。如果是 5 万、10 万的单子，更加划算。
+</p> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="129:18"> <strong data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="130:25">需要触达特定公司的特定人。</strong>这个领域 LinkedIn 没有对手。"500 到 2000 人金融服务公司的 IT 总监"这种受众，Google 上根本建不出来。
+</p> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="132:18"> <strong data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="133:25">信息已经被验证过了。</strong>LinkedIn 太贵，不适合拿来测信息。还不知道什么能转化？先做有机内容，看什么引发共鸣。有了跑通的落地页和经过验证的信息，再投钱。
+</p> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="135:18"> <strong data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="136:25">月预算至少 3000 美元。</strong>低于这个数，数据积累不够，优化无从谈起。LinkedIn 自己建议每个投放组每天 50 到 100 美元，7 到 14 天过学习期。月投 1000 美元，是在慢慢烧钱。
+</p> <blockquote data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="138:27">
+"Most advertisers need $3,000 to $5,000 monthly to generate statistically
+                meaningful data for optimization."
+                (Stackmatix, How Much Do LinkedIn Ads Cost?)
+</blockquote> </section> <section id="doesnt-make-sense" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="145:45"> <h2 data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="146:19">三种不该投的场景</h2> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="147:18">这三种情况，钱花在别处回报更高。</p> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="148:18"> <strong data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="149:25">低客单价产品。</strong>月付 50 或 100 美元的产品，LinkedIn 的成本结构会在你成交第一单之前就把单位经济模型击穿。Meta 和 Google Shopping 是为那个价格带设计的。
+</p> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="151:18"> <strong data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="152:25">信息未经验证。</strong>不知道什么有效就上 LinkedIn 投放，等于花大价钱猜答案。先花几个月做有机内容，看什么帖子拿到评论、收藏和主页访问。然后把预算放在已经用真实互动证明过自己的信息上。
+</p> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="154:18"> <strong data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="155:25">没有转化路径的品牌曝光。</strong>LinkedIn 的千次展示成本（CPM）在 30 到 55 美元之间。如果没有任何方式追踪曝光最终带来了什么，你买的就是昂贵的高速路广告牌，而且连效果都追踪不了。
+</p> <blockquote data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="157:27">
+"LinkedIn ads are 3 to 5x more expensive than Facebook ads and 1.5 to 3x more
+                expensive than Google Search ads on a cost-per-click basis."
+                (upGrowth, LinkedIn Ads Cost 2026)
+</blockquote> </section> <section id="retargeting" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="164:39"> <h2 data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="165:19">再营销改写成本公式</h2> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="166:18">
+坦白讲，这才是 LinkedIn 从"贵"变成"高效"的转折点。
+</p> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="169:18">
+LinkedIn 广告最烧钱的用法是冷触达：在最贵的平台上向从未听说过你的陌生人投放广告。这是系统里成本最高的操作。
+</p> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="172:18">
+再营销彻底改变了这个等式。向已经访问过你网站、看过你视频、互动过你内容的人投放广告，转化率大幅跳升，单位成本明显下降。这些人已经用行动表达了兴趣。你不是在花钱突破陌生人的防线，而是在花钱让一个已经举过手的人继续看到你。
+</p> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="175:18">
+对大多数 B2B 广告主来说，再营销最终会成为整个 LinkedIn 预算里投入产出比最高的板块。受众温热、自筛选，线索质量通常也更高。
+</p> <blockquote data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="178:27">
+"Document Ads consistently deliver the lowest CPL because the download
+                interaction pre-qualifies the lead."
+                (Postiv AI, LinkedIn Advertising Costs 2026)
+</blockquote> </section> <section id="format" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="185:34"> <h2 data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="186:19">格式选对，成本减半</h2> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="187:18">不同格式之间，每条线索成本差距巨大。</p> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="188:18"> <strong data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="189:25">文档广告</strong>在多数 B2B 投放中线索成本最低。用户在 LinkedIn 内滑动浏览真实内容，翻了五页文档的人大概率真有兴趣。
+</p> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="191:18"> <strong data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="192:25">Lead Gen Forms</strong> 转化率是外部落地页的 3 到 5 倍。LinkedIn 用用户真实的职业数据自动填充表单，零摩擦，数据准确。特别适合中间漏斗：网络研讨会、检查清单、行业基准报告。
+</p> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="194:18"> <strong data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="195:25">Thought Leader Ads</strong> 把个人号上的有机帖子拿来做付费推广。格式看起来和原生内容一样，因为它本来就是。点击率（CTR）比标准品牌广告高 2 到 3 倍。点击率高意味着单位成本低。
+</p> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="197:18"> <strong data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="198:25">文字广告</strong>最便宜，单次点击成本（CPC）2 到 4 美元，但点击率（CTR）在 0.02% 到 0.05% 之间。适合低预算品牌曝光，靠它单独带有意义的线索量不现实。
+</p> <blockquote data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="200:27">
+"For B2B advertisers where a closed deal is worth $10,000+, a $100 CPL that
+                converts at 5% produces a $2,000 customer acquisition cost, well within
+                acceptable range." (Meet Lea, LinkedIn Ads Benchmarks 2026)
+</blockquote> </section> <section id="worth-it" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="207:36"> <h2 data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="208:19">贵不贵，看你怎么算</h2> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="209:18">
+值不值，完全取决于你的条件是否匹配平台的优势。
+</p> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="212:18">
+LinkedIn 按点击算确实贵，这个没争议。但拿 LinkedIn 和 Meta 比单次点击成本（CPC），就像拿外科手术和理发店比价格，然后说理发师更划算。两个平台在做完全不同的事情，追求完全不同的结果。
+</p> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="215:18">
+真正该问的问题：把一条合格线索送到销售团队面前花多少钱？这条线索最终的成交额是多少？
+</p> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="218:18">
+单笔金额撑得住、受众能精准定义、信息已经被验证：三个条件齐备时，LinkedIn 广告的回报是便宜平台无法匹敌的。定向太精准，受众太合格，职业场景太强。
+</p> <p data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="221:18">
+条件不具备的话别硬来。先做有机内容，测试信息，等经济账算得过来了再回来做付费投放。
+</p> </section> <!-- CTA in article --> <div class="post-inline-cta" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="227:42"> <p class="post-inline-cta__text" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="228:48">
+LinkedIn CPC 看着吓人，但你可能算错了账。免费聊 30 分钟，我们帮你拿真实数据算一笔：按你的客单价和成交率，LinkedIn 到底划不划算。
+</p> <a href="/contact?intent=call" class="btn btn--primary" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="231:71">预约咨询</a> </div> </div> </div> </div> </article> <!-- Back to insights --> <div class="post-back" aria-label="Navigation" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="240:52"> <div class="container" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="241:30"> <a href="/zh/insights" class="post-back__link" data-astro-cid-lgdhavgy data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/pages/zh/insights/why-linkedin-ads-cost-more.astro" data-astro-source-loc="242:56">&larr; 返回全部文章</a> </div> </div> <section class="section cta" aria-labelledby="cta-heading" style="background: var(--deep-navy);" data-astro-cid-rcdzuq3a data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/ContactCTA.astro" data-astro-source-loc="13:98"> <div class="container" data-astro-cid-rcdzuq3a data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/ContactCTA.astro" data-astro-source-loc="14:26"> <div class="cta__layout" data-astro-cid-rcdzuq3a data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/ContactCTA.astro" data-astro-source-loc="15:30"> <div class="cta__left reveal" data-astro-cid-rcdzuq3a data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/ContactCTA.astro" data-astro-source-loc="17:37"> <p class="eyebrow eyebrow--light" data-astro-cid-rcdzuq3a data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/ContactCTA.astro" data-astro-source-loc="18:43">现在开始</p> <h2 id="cta-heading" class="cta__headline" data-astro-cid-rcdzuq3a data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/ContactCTA.astro" data-astro-source-loc="19:52"> 准备好让LinkedIn<br data-astro-cid-rcdzuq3a data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/ContactCTA.astro" data-astro-source-loc="20:31"> <em data-astro-cid-rcdzuq3a data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/ContactCTA.astro" data-astro-source-loc="21:15">开始产生业务价值了吗？</em> </h2> </div> <div class="cta__right reveal reveal-delay-2" data-astro-cid-rcdzuq3a data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/ContactCTA.astro" data-astro-source-loc="25:53"> <p class="cta__sub" data-astro-cid-rcdzuq3a data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/ContactCTA.astro" data-astro-source-loc="26:29"> 说说你的情况，我们来看看Linkedin上有什么现成的机会。 </p> <div class="cta__actions" data-astro-cid-rcdzuq3a data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/ContactCTA.astro" data-astro-source-loc="29:35"> <a href="/zh/contact?intent=call" class="btn btn--primary btn--lg" data-astro-cid-rcdzuq3a data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/ContactCTA.astro" data-astro-source-loc="30:66">预约沟通</a> <a href="/zh/pricing" class="btn btn--outline-white btn--lg" data-astro-cid-rcdzuq3a data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/ContactCTA.astro" data-astro-source-loc="31:72">查看价格</a> </div> <p class="cta__note" data-astro-cid-rcdzuq3a data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/ContactCTA.astro" data-astro-source-loc="33:30">30分钟，不推销，就聊实际的。</p> </div> </div> </div> </section> </main>  <footer class="footer" role="contentinfo" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="74:43"> <div class="container" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="75:26"> <div class="footer__main" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="77:31"> <!-- Brand --> <div class="footer__brand" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="80:34"> <a href="/zh/" class="footer__logo-link" aria-label="Nuvora Studio, home" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="81:87"> <img src="/images/nuvora-logo.webp" alt="Nuvora Studio" class="footer__logo" width="200" height="78" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="82:12"> </a> <p class="footer__tagline" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="90:36">LinkedIn上只做有用的事。</p> </div> <!-- Services --> <nav class="footer__col" aria-label="我们的服务" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="94:66"> <p class="footer__col-label" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="95:38">我们的服务</p> <ul role="list" class="footer__links" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="96:47"> <li data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="98:18"><a href="/zh/services/content" class="footer__link" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="98:55">LinkedIn内容服务</a></li><li data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="98:18"><a href="/zh/services/advertising" class="footer__link" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="98:55">LinkedIn广告服务</a></li><li data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="98:18"><a href="/zh/services/consulting" class="footer__link" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="98:55">策略咨询</a></li> </ul> <a href="/zh/services" class="footer__see-all" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="101:75">全部我们的服务 →</a> </nav> <!-- Company --> <nav class="footer__col" aria-label="关于" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="105:65"> <p class="footer__col-label" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="106:38">关于</p> <ul role="list" class="footer__links" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="107:47"> <li data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="109:18"><a href="/zh/about" class="footer__link" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="109:55">公司介绍</a></li><li data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="109:18"><a href="/zh/work" class="footer__link" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="109:55">客户案例</a></li><li data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="109:18"><a href="/zh/insights" class="footer__link" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="109:55">专栏文章</a></li><li data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="109:18"><a href="/zh/pricing" class="footer__link" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="109:55">价格</a></li><li data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="109:18"><a href="/zh/contact" class="footer__link" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="109:55">联系我们</a></li> </ul> </nav> </div> <div class="footer__rule" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="117:6"></div> <section class="footer__network" aria-label="Our network" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="119:63"> <p class="footer__col-label" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="120:36">Our network</p> <ul class="footer__network-list" role="list" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="121:52"> <li class="footer__network-item" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="123:44"> <a href="https://beyondbordergroup.com" class="footer__network-logo-link" target="_blank" rel="noopener noreferrer" aria-label="BeyondBorderGroup.com" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="124:127"> <img src="/AgencyLogos/BBG%20PNG.webp" alt="BeyondBorderGroup.com logo" class="footer__network-logo" loading="lazy" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="125:16"> </a> <a href="https://beyondbordergroup.com" class="footer__network-link" target="_blank" rel="noopener noreferrer" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="127:101">BeyondBorderGroup.com</a> <p class="footer__network-desc" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="128:45">Market entry consulting for Western brands growing in China.</p> </li><li class="footer__network-item" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="123:44"> <a href="https://www.chinawebfoundry.com" class="footer__network-logo-link" target="_blank" rel="noopener noreferrer" aria-label="ChinaWebFoundry.com" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="124:127"> <img src="/AgencyLogos/Logo-ChinaWebFoundry-transparent.webp" alt="ChinaWebFoundry.com logo" class="footer__network-logo" loading="lazy" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="125:16"> </a> <a href="https://www.chinawebfoundry.com" class="footer__network-link" target="_blank" rel="noopener noreferrer" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="127:101">ChinaWebFoundry.com</a> <p class="footer__network-desc" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="128:45">Websites built for the Chinese internet — ICP, Baidu SEO, hosting.</p> </li><li class="footer__network-item" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="123:44"> <a href="https://beyondcompass.com" class="footer__network-logo-link" target="_blank" rel="noopener noreferrer" aria-label="BeyondCompass.com" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="124:127"> <img src="/AgencyLogos/BeyondCompass%20-%20Transparent%20-%204K.webp" alt="BeyondCompass.com logo" class="footer__network-logo" loading="lazy" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="125:16"> </a> <a href="https://beyondcompass.com" class="footer__network-link" target="_blank" rel="noopener noreferrer" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="127:101">BeyondCompass.com</a> <p class="footer__network-desc" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="128:45">Vetted distributor and Tmall partner introductions in China.</p> </li><li class="footer__network-item" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="123:44"> <a href="https://theredscroll.com" class="footer__network-logo-link" target="_blank" rel="noopener noreferrer" aria-label="TheRedScroll.com" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="124:127"> <img src="/AgencyLogos/TheredScroll%20PNG.webp" alt="TheRedScroll.com logo" class="footer__network-logo" loading="lazy" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="125:16"> </a> <a href="https://theredscroll.com" class="footer__network-link" target="_blank" rel="noopener noreferrer" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="127:101">TheRedScroll.com</a> <p class="footer__network-desc" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="128:45">Daily WeChat, Douyin, RedNote and Weibo operations from the ground.</p> </li><li class="footer__network-item" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="123:44"> <a href="https://hubtudio.ai" class="footer__network-logo-link" target="_blank" rel="noopener noreferrer" aria-label="HubStudio.ai" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="124:127"> <img src="/AgencyLogos/hubStudio%20%282%29.webp" alt="HubStudio.ai logo" class="footer__network-logo" loading="lazy" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="125:16"> </a> <a href="https://hubtudio.ai" class="footer__network-link" target="_blank" rel="noopener noreferrer" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="127:101">HubStudio.ai</a> <p class="footer__network-desc" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="128:45">The creative production house.</p> </li> </ul> <a href="https://www.beyondbordergroup.org" class="footer__group" target="_blank" rel="noopener noreferrer" aria-label="BeyondBorderGroup.org — parent group" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="139:8"> <span class="footer__group-logo-wrap" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="140:47"> <img src="/AgencyLogos/BBG%20PNG.webp" alt="BeyondBorderGroup.org logo" class="footer__group-logo" loading="lazy" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="141:12"> </span> <span class="footer__group-text" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="143:42"> <span class="footer__group-eyebrow" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="144:47">Parent group</span> <span class="footer__group-name" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="145:44">BeyondBorderGroup.org</span> <span class="footer__group-desc" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="146:44">The umbrella group connecting our specialised China agencies.</span> </span> <span class="footer__group-cta" aria-hidden="true" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="148:60">
+Visit
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="150:158"><line x1="5" y1="12" x2="19" y2="12" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="150:158"></line><polyline points="12 5 19 12 12 19" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="150:202"></polyline></svg> </span> </a> </section> <div class="footer__rule" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="155:6"></div> <div class="footer__bottom" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="157:33"> <p class="footer__badges" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="158:33">我们的服务覆盖全球 | 专注Linkedin | B2B专业团队</p> <p class="footer__copy" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="159:31">&copy; 2026 Nuvora Studio. 版权所有。</p> <ul class="footer__legal" role="list" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="160:45"> <li data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="162:16"><a href="/zh/privacy" class="footer__legal-link" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="162:59">隐私条款</a></li><li data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="162:16"><a href="/zh/terms" class="footer__legal-link" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="162:59">我们的服务协议</a></li><li data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="162:16"><a href="/zh/cookies" class="footer__legal-link" data-astro-source-file="C:/Users/cyril/Project/NuvoraStudioWeb/src/components/Footer.astro" data-astro-source-loc="162:59">Cookie条款</a></li> </ul> </div> </div> </footer> <!-- Scroll-reveal observer --> <script type="module" src="/src/layouts/Layout.astro?astro&type=script&index=0&lang.ts"></script> </body> </html>

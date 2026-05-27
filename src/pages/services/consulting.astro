@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import NavBar from '../../components/NavBar.astro';
 import FAQ from '../../components/FAQ.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
+import { servicePageSchemas } from '../../i18n/schemas';
 
 /* ── Data ───────────────────────────────────────────────── */
 
@@ -56,6 +57,7 @@ const faqs = [
   title="LinkedIn consulting services for B2B lead generation"
   description="Employee advocacy, executive branding, and LinkedIn training for B2B companies. We grow your LinkedIn presence so your team generates more leads."
   abstract="We help B2B companies pull more leads from LinkedIn through employee advocacy programmes, executive personal branding, and hands-on team training."
+  schemas={servicePageSchemas('en', 'consulting')}
 >
   <NavBar />
   <main id="main-content">

@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Layout.astro';
 import NavBar from '../../../components/NavBar.astro';
 import FAQ from '../../../components/FAQ.astro';
+import { servicePageSchemas } from '../../../i18n/schemas';
 
 const capabilities = [
   {
@@ -221,6 +222,7 @@ const faqs = [
   title="LinkedIn-Werbeleistungen | Mehr B2B-Leads gewinnen"
   description="Wir betreiben jedes LinkedIn-Anzeigenformat als zusammenhängendes System für die B2B-Leadgenerierung. Präzises Targeting, KI-gestützte Optimierung und ein Reporting, das auf Pipeline zielt."
   abstract="Wir betreiben jedes LinkedIn-Anzeigenformat, um Ihre B2B-Leads zu vermehren. Präzises Targeting, Full-Funnel-Kampagnen und Reporting gegen Pipeline, nicht gegen Impressions."
+  schemas={servicePageSchemas('de', 'advertising')}
 >
   <NavBar lang="de" />
   <main id="main-content">

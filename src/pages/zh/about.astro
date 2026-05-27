@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import NavBar from '../../components/NavBar.astro';
 import FAQ from '../../components/FAQ.astro';
+import { aboutPageSchemas } from '../../i18n/schemas';
 
 /* ── Data ───────────────────────────────────────────────── */
 
@@ -70,6 +71,7 @@ const faqs = [
   title="关于 Nuvora Studio｜专注 LinkedIn 的 B2B 获客机构"
   description="Nuvora Studio 只干一件事：帮 B2B 企业把 LinkedIn 做扎实。团队全员持 LinkedIn 官方认证，承接策略内容、LinkedIn 广告投放、高管个人品牌，让 LinkedIn 真正能为你带回有价值的业务线索。"
   abstract="只做 LinkedIn，只服务 B2B。认证团队、策略驱动、线索导向。"
+  schemas={aboutPageSchemas('zh')}
 >
   <NavBar lang="zh" />
   <main id="main-content">

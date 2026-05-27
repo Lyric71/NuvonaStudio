@@ -7,19 +7,19 @@ const services = [
   {
     value: 'content',
     label: '内容',
-    sub: '公司主页、帖文、Newsletter、活动',
+    sub: '公司主页、动态、订阅邮件、线上活动',
     icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
   },
   {
     value: 'advertising',
     label: '广告投放',
-    sub: 'Sponsored Content、InMail、获客表单',
+    sub: '推广内容、InMail、获客表单',
     icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>`,
   },
   {
     value: 'consulting',
     label: '咨询培训',
-    sub: '员工分享计划、高管个人品牌、培训',
+    sub: '培训、员工分享计划、高管个人品牌',
     icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2V3z" stroke="currentColor" stroke-width="1.6"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7V3z" stroke="currentColor" stroke-width="1.6"/></svg>`,
   },
 ];
@@ -27,31 +27,31 @@ const services = [
 /* ── 套餐（与报价页一致） ── */
 const packagesByService: Record<string, { value: string; label: string; price: string }[]> = {
   content: [
-    { value: 'retainer-foundation', label: 'Foundation 套餐',           price: '$1,800/月' },
-    { value: 'retainer-growth',     label: 'Growth 套餐',               price: '$3,500/月' },
-    { value: 'retainer-scale',      label: 'Scale 套餐',                price: '$6,000/月' },
+    { value: 'retainer-foundation', label: 'Foundation 套餐',           price: '¥9,000/月' },
+    { value: 'retainer-growth',     label: 'Growth 套餐',               price: '¥20,000/月' },
+    { value: 'retainer-scale',      label: 'Scale 套餐',                price: '¥30,000/月' },
     { value: 'exec-ghostwriting',   label: '高管内容代写',              price: '每位高管 $1,200/月' },
-    { value: 'video-ai',            label: 'AI 生成视频',               price: '每条 $200–$5,000' },
+    { value: 'video-ai',            label: 'AI 生成视频',               price: '每条 ¥1,500–¥35,000' },
     { value: 'video-pro',           label: '专业视频拍摄',              price: '一事一议' },
     { value: 'multilingual',        label: '多语种内容',                price: '按语种报价' },
-    { value: 'enterprise',          label: 'Enterprise（多市场）',      price: '$10,000/月 起' },
-    { value: 'not-sure',            label: '还没想好 — 先聊聊',         price: '' },
+    { value: 'enterprise',          label: 'Enterprise（多市场）',      price: '¥69,100/月 起' },
+    { value: 'not-sure',            label: '还没定，电话里聊',         price: '' },
   ],
   advertising: [
-    { value: 'ads-under-15k',       label: '广告托管（月预算 $15K 以下）', price: '$1,500/月' },
-    { value: 'ads-over-15k',        label: '广告托管（月预算 $15K 以上）', price: '广告预算的 6–10%' },
-    { value: 'retainer-growth',     label: 'Growth 套餐（含广告）',     price: '$3,500/月' },
-    { value: 'retainer-scale',      label: 'Scale 套餐（含广告）',      price: '$6,000/月' },
-    { value: 'enterprise',          label: 'Enterprise（多市场）',      price: '$10,000/月 起' },
-    { value: 'not-sure',            label: '还没想好 — 先聊聊',         price: '' },
+    { value: 'ads-under-15k',       label: '广告托管（月投放额 ¥100,000 以下）', price: '¥10,000/月' },
+    { value: 'ads-over-15k',        label: '广告托管（月投放额 ¥100,000 以上）', price: '投放额的 6–10%' },
+    { value: 'retainer-growth',     label: 'Growth 套餐（含广告）',     price: '¥20,000/月' },
+    { value: 'retainer-scale',      label: 'Scale 套餐（含广告）',      price: '¥30,000/月' },
+    { value: 'enterprise',          label: 'Enterprise（多市场）',      price: '¥69,100/月 起' },
+    { value: 'not-sure',            label: '还没定，电话里聊',         price: '' },
   ],
   consulting: [
-    { value: 'exec-profile',        label: '高管主页优化',              price: '每位 $500（一次性）' },
-    { value: 'training-workshop',   label: '培训工作坊（2 小时）',      price: '每场 $2,500' },
-    { value: 'training-program',    label: '团队培训项目（4 节）',      price: '$8,000（一次性）' },
-    { value: 'advocacy',            label: '员工分享计划',              price: '$2,500/月' },
-    { value: 'enterprise',          label: 'Enterprise（多市场）',      price: '$10,000/月 起' },
-    { value: 'not-sure',            label: '还没想好 — 先聊聊',         price: '' },
+    { value: 'exec-profile',        label: '高管主页优化',              price: '每位 ¥3,500（一次性）' },
+    { value: 'training-workshop',   label: '培训工作坊（2 小时）',      price: '每场 ¥17,500' },
+    { value: 'training-program',    label: '团队培训项目（4 节）',      price: '¥55,000（一次性）' },
+    { value: 'advocacy',            label: '员工分享计划',              price: '¥17,500/月' },
+    { value: 'enterprise',          label: 'Enterprise（多市场）',      price: '¥69,100/月 起' },
+    { value: 'not-sure',            label: '还没定，电话里聊',         price: '' },
   ],
 };
 
@@ -73,9 +73,9 @@ if (intentParam === 'retainer' && tierParam) {
 
 <Layout
   lang="zh"
-  title="联系 Nuvora Studio｜聊聊你的 LinkedIn 项目"
-  description="不管你 LinkedIn 这块的事已经成形，还是仍在权衡——都欢迎讲给我们听。每条留言都有真人在认真看，一个工作日内必有回复。"
-  abstract="跟我们说说你的想法。每条留言都会在一个工作日内拿到一份认真的回复——没有自动回复，更没有推销话术。"
+  title="联系 Nuvora Studio｜聊聊 LinkedIn"
+  description="告诉我们你在忙什么。每条留言都由团队真人阅读，一个工作日内回复。没有自动回复，没有推销话术。"
+  abstract="告诉我们你在忙什么。每条留言由团队成员亲自处理，一个工作日内回复。"
 >
   <NavBar lang="zh" />
   <main id="main-content">
@@ -86,15 +86,15 @@ if (intentParam === 'retainer' && tierParam) {
       <div class="contact-hero__overlay" aria-hidden="true"></div>
       <div class="container" style="position: relative; z-index: 2;">
         <div class="contact-hero__content">
-          <p class="eyebrow eyebrow--light reveal">来跟我们聊一聊</p>
+          <p class="eyebrow eyebrow--light reveal">联系我们</p>
           <h1 id="contact-heading" class="contact-hero__h1 reveal reveal-delay-1">
-            说一说你 LinkedIn 上<span class="text-gradient">的那些事。</span>
+            聊一聊你的 <span class="text-gradient">LinkedIn。</span>
           </h1>
           <p class="contact-hero__sub reveal reveal-delay-2">
-            不管你 LinkedIn 这块的事已经成形，还是还在权衡——都欢迎讲给我们听。每条留言都有真人在看，一个工作日内必有一份用心写的回复。
+            项目已成形也好，还在打磨也罢，都欢迎告诉我们。每条留言由团队真人阅读，一个工作日内回复。
           </p>
           <div class="contact-hero__actions reveal reveal-delay-3">
-            <a href="#contact-form" class="btn btn--primary btn--lg">说说你的项目</a>
+            <a href="#contact-form" class="btn btn--primary btn--lg">开始对话</a>
           </div>
         </div>
       </div>
@@ -115,9 +115,9 @@ if (intentParam === 'retainer' && tierParam) {
                   <path d="M5 14l6.5 6.5L23 8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
-              <h2 class="contact-success__title">谢谢你，留言已送达。</h2>
+              <h2 class="contact-success__title">收到了，留言已送达。</h2>
               <p class="contact-success__body">
-                接下来交给我们。团队成员会认真读完你的留言，一个工作日内给你一份用心的回复。
+                团队成员会仔细看完，一个工作日内回复你。
               </p>
               <a href="/zh/" class="btn btn--primary" style="margin-top: var(--sp-6)">返回首页</a>
             </div>
@@ -132,9 +132,9 @@ if (intentParam === 'retainer' && tierParam) {
                   </svg>
                 </div>
                 <div>
-                  <h2 class="contact-card__title">几项信息，让我们提前做点准备</h2>
+                  <h2 class="contact-card__title">几项信息，让我们提前准备</h2>
                   <p class="contact-card__note">
-                    标有星号 <span aria-hidden="true">*</span> 的项目必填，其他都看你自己。
+                    带星号 <span aria-hidden="true">*</span> 的为必填，其他随意。
                   </p>
                 </div>
               </div>
@@ -148,27 +148,27 @@ if (intentParam === 'retainer' && tierParam) {
                       你的姓名 <span class="required-mark" aria-hidden="true">*</span>
                     </label>
                     <input class="form-input" type="text" id="name" name="name"
-                      autocomplete="name" required placeholder="例如：张薇" />
+                      autocomplete="name" required placeholder="张薇" />
                     <span class="form-error" id="name-error" role="alert"></span>
                   </div>
 
                   <!-- 邮箱 -->
                   <div class="form-group">
                     <label class="form-label" for="email">
-                      回复发到哪个邮箱？ <span class="required-mark" aria-hidden="true">*</span>
+                      你的邮箱 <span class="required-mark" aria-hidden="true">*</span>
                     </label>
                     <input class="form-input" type="email" id="email" name="email"
-                      autocomplete="email" required placeholder="例如：zhangwei@boyan.com" />
+                      autocomplete="email" required placeholder="zhangwei@boyan.com" />
                     <span class="form-error" id="email-error" role="alert"></span>
                   </div>
 
                   <!-- 电话 -->
                   <div class="form-group">
                     <label class="form-label" for="phone">
-                      想电话沟通的话，留个号码 <span class="form-optional">（选填）</span>
+                      电话 <span class="form-optional">（选填）</span>
                     </label>
                     <input class="form-input" type="tel" id="phone" name="phone"
-                      autocomplete="tel" placeholder="例如：+86 185 1234 5678" />
+                      autocomplete="tel" placeholder="+86 185 1234 5678" />
                   </div>
 
                   <!-- 网站 -->
@@ -177,7 +177,7 @@ if (intentParam === 'retainer' && tierParam) {
                       公司官网 <span class="required-mark" aria-hidden="true">*</span>
                     </label>
                     <input class="form-input" type="url" id="website" name="website"
-                      autocomplete="url" required placeholder="例如：https://boyan.com" />
+                      autocomplete="url" required placeholder="https://boyan.com" />
                     <span class="form-error" id="website-error" role="alert"></span>
                   </div>
 
@@ -187,7 +187,7 @@ if (intentParam === 'retainer' && tierParam) {
                       公司名称 <span class="required-mark" aria-hidden="true">*</span>
                     </label>
                     <input class="form-input" type="text" id="company" name="company"
-                      autocomplete="organization" required placeholder="例如：博研科技" />
+                      autocomplete="organization" required placeholder="博研科技" />
                     <span class="form-error" id="company-error" role="alert"></span>
                   </div>
 
@@ -195,7 +195,7 @@ if (intentParam === 'retainer' && tierParam) {
                   <div class="form-group contact-form__full">
                     <label class="form-label">
                       你对哪些服务感兴趣？ <span class="required-mark" aria-hidden="true">*</span>
-                      <span class="form-optional">可以多选，几项都行</span>
+                      <span class="form-optional">可多选。</span>
                     </label>
                     <div class="form-chips" role="group" aria-label="服务" id="service-group">
                       {services.map((s) => (
@@ -227,35 +227,35 @@ if (intentParam === 'retainer' && tierParam) {
                       有看中的套餐吗？ <span class="form-optional">（选填）</span>
                     </label>
                     <div class="form-checklist" role="group" aria-labelledby="package-label" id="package-list">
-                      <p class="form-checklist__empty">先在上面选一个服务，对应的套餐就会出现在这里。</p>
+                      <p class="form-checklist__empty">先选一个服务，对应的套餐会出现在这里。</p>
                     </div>
-                    <p class="form-hint" id="package-hint">价格与我们的<a href="/zh/pricing">报价页</a>完全一致。还没想好？留空就行，电话里我们一起捋。</p>
+                    <p class="form-hint" id="package-hint">价格与<a href="/zh/pricing">报价页</a>一致。拿不准？留空就行，电话里再聊。</p>
                   </div>
 
                   <!-- 时间 -->
                   <div class="form-group contact-form__full">
                     <label class="form-label">
-                      你希望什么时候启动？ <span class="required-mark" aria-hidden="true">*</span>
+                      希望什么时候启动？ <span class="required-mark" aria-hidden="true">*</span>
                     </label>
                     <div class="form-chips form-chips--compact" role="radiogroup" aria-label="时间" id="timeline-group">
                       <label class="form-chip form-chip--compact">
                         <input type="radio" name="timeline" value="now" class="form-chip__input" required />
                         <span class="form-chip__inner">
                           <strong class="form-chip__label">尽快</strong>
-                          <span class="form-chip__sub">未来几周内</span>
+                          <span class="form-chip__sub">未来几周</span>
                         </span>
                       </label>
                       <label class="form-chip form-chip--compact">
                         <input type="radio" name="timeline" value="3-months" class="form-chip__input" />
                         <span class="form-chip__inner">
-                          <strong class="form-chip__label">大约三个月后</strong>
+                          <strong class="form-chip__label">约三个月后</strong>
                           <span class="form-chip__sub">先把基础打好</span>
                         </span>
                       </label>
                       <label class="form-chip form-chip--compact">
                         <input type="radio" name="timeline" value="6-months" class="form-chip__input" />
                         <span class="form-chip__inner">
-                          <strong class="form-chip__label">大约六个月后</strong>
+                          <strong class="form-chip__label">约六个月后</strong>
                           <span class="form-chip__sub">今年晚些时候</span>
                         </span>
                       </label>
@@ -266,11 +266,11 @@ if (intentParam === 'retainer' && tierParam) {
                   <!-- 项目 -->
                   <div class="form-group contact-form__full">
                     <label class="form-label" for="project">
-                      用你自己的话，说说项目情况 <span class="required-mark" aria-hidden="true">*</span>
+                      用自己的话说说项目情况 <span class="required-mark" aria-hidden="true">*</span>
                     </label>
                     <textarea class="form-textarea" id="project" name="project"
                       required rows="5"
-                      placeholder="几句话就够。比如：我们做工业自动化，公司约 200 人，希望让高管团队在 LinkedIn 上活跃起来，主攻欧洲和东南亚的潜在客户……"
+                      placeholder="几句话就够。比如：我们是一家 200 人的工业自动化公司，想让高管团队在 LinkedIn 上活跃起来，主攻欧洲和东南亚客户……"
                     ></textarea>
                     <span class="form-error" id="project-error" role="alert"></span>
                   </div>
@@ -299,7 +299,7 @@ if (intentParam === 'retainer' && tierParam) {
                   </button>
                   <p class="contact-form__privacy">
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 1L2 3v3c0 2.5 1.7 4.7 4 5.4C8.3 10.7 10 8.5 10 6V3L6 1z" stroke="var(--text-3)" stroke-width="1.2" fill="none"/></svg>
-                    你提交的信息只保留在我们手里，绝不外传，绝不转售。
+                    你的信息只留在我们这里，绝不外传，绝不出售。
                   </p>
                 </div>
               </form>
@@ -312,27 +312,27 @@ if (intentParam === 'retainer' && tierParam) {
 
             <!-- 接下来会发生什么 -->
             <div class="sidebar-card sidebar-card--steps reveal">
-              <h3 class="sidebar-card__title">接下来的流程</h3>
+              <h3 class="sidebar-card__title">接下来怎么走</h3>
               <ol class="steps-list">
                 <li class="step-item">
                   <div class="step-item__number" aria-hidden="true">1</div>
                   <div class="step-item__content">
-                    <strong>真人会认真读你的留言</strong>
-                    <p>每条留言都由团队成员亲自阅读，通常几个小时之内，最迟也在一个工作日内回到你这里。没有自动回复，没有排队。</p>
+                    <strong>真人阅读你的留言</strong>
+                    <p>通常几个小时内，最迟一个工作日内有回应。没有自动回复，没有排队。</p>
                   </div>
                 </li>
                 <li class="step-item">
                   <div class="step-item__number" aria-hidden="true">2</div>
                   <div class="step-item__content">
-                    <strong>约一次三十分钟的电话</strong>
-                    <p>如果双方都觉得合适，就安排一次半小时的电话，聊聊你这边的目标。没有 PPT，没有推销，就是一场坦诚的交流。</p>
+                    <strong>一次三十分钟的电话，不用 PPT</strong>
+                    <p>双方都觉得合适，就约个半小时电话聊聊你的目标。一场坦诚的交流，而非推销。</p>
                   </div>
                 </li>
                 <li class="step-item">
                   <div class="step-item__number" aria-hidden="true">3</div>
                   <div class="step-item__content">
-                    <strong>一份真正为你而写的方案</strong>
-                    <p>几天之内，你会收到一份围绕你的业务、受众和目标量身撰写的方案。绝不是套用模板再贴上你的 logo。</p>
+                    <strong>一份为你量身写的方案</strong>
+                    <p>几天内，你会收到一份围绕你的受众和目标撰写的书面方案。不是套用模板再贴上你的 logo。</p>
                   </div>
                 </li>
               </ol>
@@ -348,7 +348,7 @@ if (intentParam === 'retainer' && tierParam) {
                       <path d="M8 1.5l1.8 3.6 4 .58-2.9 2.83.69 3.99L8 10.27l-3.59 1.88.69-3.99-2.9-2.83 4-.58L8 1.5z" fill="var(--cyan)" opacity="0.9"/>
                     </svg>
                   </div>
-                  <span>AI 在幕后帮忙，品牌内容始终由真人把关</span>
+                  <span>AI 在幕后干活，品牌的声音由真人把握</span>
                 </li>
                 <li class="trust-item">
                   <div class="trust-item__icon" aria-hidden="true">
@@ -357,7 +357,7 @@ if (intentParam === 'retainer' && tierParam) {
                       <path d="M5 4V3a3 3 0 016 0v1" stroke="var(--cyan)" stroke-width="1.4"/>
                     </svg>
                   </div>
-                  <span>每条内容发布前都先经你确认</span>
+                  <span>每条内容发布前都经你确认</span>
                 </li>
                 <li class="trust-item">
                   <div class="trust-item__icon" aria-hidden="true">
@@ -366,7 +366,7 @@ if (intentParam === 'retainer' && tierParam) {
                       <path d="M8 5v3l2 1" stroke="var(--cyan)" stroke-width="1.4" stroke-linecap="round"/>
                     </svg>
                   </div>
-                  <span>B2B 客户横跨四大洲，各时区都对得上</span>
+                  <span>B2B 客户横跨各大时区</span>
                 </li>
                 <li class="trust-item">
                   <div class="trust-item__icon" aria-hidden="true">
@@ -374,7 +374,7 @@ if (intentParam === 'retainer' && tierParam) {
                       <path d="M13 5L6 12 3 9" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                   </div>
-                  <span>所有内容版权永远归你，毫无例外</span>
+                  <span>所有产出内容版权归你</span>
                 </li>
               </ul>
             </div>
@@ -383,9 +383,9 @@ if (intentParam === 'retainer' && tierParam) {
             <div class="sidebar-card sidebar-card--pricing reveal reveal-delay-2">
               <div class="pricing-anchor__top">
                 <span class="pricing-anchor__label">合作起步价</span>
-                <span class="pricing-anchor__value">$1,800<span>/月</span></span>
+                <span class="pricing-anchor__value">¥9,000<span>/月</span></span>
               </div>
-              <p class="pricing-anchor__note">灵活按月付费。前三个月之后没有任何长期捆绑。</p>
+              <p class="pricing-anchor__note">按月付费。前三个月之后无任何长期捆绑。</p>
               <a href="/zh/pricing" class="pricing-anchor__link">
                 查看完整报价
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -1035,57 +1035,57 @@ if (intentParam === 'retainer' && tierParam) {
     const remember = (el: HTMLElement | null) => { if (el && !firstInvalid) firstInvalid = el; };
 
     if (!(data.get('name') as string)?.trim()) {
-      setFieldError('name', '麻烦把姓名填一下，方便我们称呼你。');
+      setFieldError('name', '麻烦留下你的姓名。');
       remember(document.getElementById('name'));
     }
 
     const email = (data.get('email') as string)?.trim();
     if (!email) {
-      setFieldError('email', '没有邮箱，我们没法回复给你。');
+      setFieldError('email', '没有邮箱，没法回复给你。');
       remember(document.getElementById('email'));
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-      setFieldError('email', '这个邮箱格式看着有点不对，麻烦再核对一下。');
+      setFieldError('email', '这个邮箱格式看着不太对，再核对一下？');
       remember(document.getElementById('email'));
     }
 
     const website = (data.get('website') as string)?.trim();
     if (!website) {
-      setFieldError('website', '麻烦填一下公司网址，方便我们提前了解一下。');
+      setFieldError('website', '留一下公司网址，方便我们提前了解。');
       remember(document.getElementById('website'));
     } else {
       try {
         const url = new URL(website);
         if (url.protocol !== 'http:' && url.protocol !== 'https:') {
-          setFieldError('website', '网址要以 https:// 或 http:// 开头。');
+          setFieldError('website', '网址需要以 https:// 或 http:// 开头。');
           remember(document.getElementById('website'));
         }
       } catch {
-        setFieldError('website', '网址好像写得不完整。参考写法：https://boyan.com');
+        setFieldError('website', '网址似乎不完整。比如：https://boyan.com');
         remember(document.getElementById('website'));
       }
     }
 
     if (!(data.get('company') as string)?.trim()) {
-      setFieldError('company', '麻烦也填一下公司名称。');
+      setFieldError('company', '公司名称是？');
       remember(document.getElementById('company'));
     }
 
     const services = data.getAll('service') as string[];
     if (services.length === 0) {
       const serviceErr = document.getElementById('service-error');
-      if (serviceErr) serviceErr.textContent = '至少选一个服务，方便我们把重点聊到位。';
+      if (serviceErr) serviceErr.textContent = '至少选一个服务，方便我们对焦。';
       remember(document.querySelector<HTMLInputElement>('input[name="service"]'));
     }
 
     const timeline = data.get('timeline') as string | null;
     if (!timeline) {
       const timelineErr = document.getElementById('timeline-error');
-      if (timelineErr) timelineErr.textContent = '挑一个大致的启动时间吧。';
+      if (timelineErr) timelineErr.textContent = '大概什么时候启动？挑一个吧。';
       remember(document.querySelector<HTMLInputElement>('input[name="timeline"]'));
     }
 
     if (!(data.get('project') as string)?.trim()) {
-      setFieldError('project', '几句话说说项目情况，方便我们准备回复。');
+      setFieldError('project', '几句话说说项目情况，方便我们准备一份实用的回复。');
       remember(document.getElementById('project'));
     }
 
@@ -1137,7 +1137,7 @@ if (intentParam === 'retainer' && tierParam) {
     });
 
     if (!merged.length) {
-      packageList.innerHTML = '<p class="form-checklist__empty">先在上面选一个服务。</p>';
+      packageList.innerHTML = '<p class="form-checklist__empty">先选一个服务。</p>';
       return;
     }
 
@@ -1197,11 +1197,11 @@ if (intentParam === 'retainer' && tierParam) {
         if (success) success.classList.add('is-visible');
       } else {
         if (errorBanner)  errorBanner.classList.add('is-visible');
-        if (errorMessage) errorMessage.textContent = json.error ?? '这次没能发送出去，请稍后再试一次。';
+        if (errorMessage) errorMessage.textContent = json.error ?? '这次没能发出去，稍后再试一次吧。';
       }
     } catch {
       if (errorBanner)  errorBanner.classList.add('is-visible');
-      if (errorMessage) errorMessage.textContent = '网络好像有点问题，麻烦检查一下再试。';
+      if (errorMessage) errorMessage.textContent = '网络似乎不太通畅，检查一下再试。';
     } finally {
       if (submitBtn)     submitBtn.disabled = false;
       if (submitLabel)   submitLabel.textContent = '发送留言';

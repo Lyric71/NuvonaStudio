@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Layout.astro';
 import NavBar from '../../../components/NavBar.astro';
 import FAQ from '../../../components/FAQ.astro';
+import { servicePageSchemas } from '../../../i18n/schemas';
 
 const capabilities = [
   {
@@ -221,6 +222,7 @@ const faqs = [
   description="Todos los formatos publicitarios de LinkedIn gestionados dentro de un mismo dispositivo, diseñado para generar leads B2B. Segmentación quirúrgica, optimización con IA e informes orientados a pipeline."
   abstract="Operamos todos los formatos publicitarios de LinkedIn para que generes más leads B2B cualificados. Segmentación precisa, dispositivo que cubre todo el embudo de venta e informes que miden negocio firmado, no impresiones."
   lang="es"
+  schemas={servicePageSchemas('es', 'advertising')}
 >
   <NavBar lang="es" />
   <main id="main-content">

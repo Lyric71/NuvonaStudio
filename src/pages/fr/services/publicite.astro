@@ -2,6 +2,7 @@
 import Layout from '../../../layouts/Layout.astro';
 import NavBar from '../../../components/NavBar.astro';
 import FAQ from '../../../components/FAQ.astro';
+import { servicePageSchemas } from '../../../i18n/schemas';
 
 const capabilities = [
   {
@@ -221,6 +222,7 @@ const faqs = [
   description="Tous les formats publicitaires LinkedIn pilotés dans un même dispositif, pensé pour la génération de prospects B2B. Ciblage de précision, optimisation pilotée par l'IA, reporting orienté résultats."
   abstract="On pilote tous les formats publicitaires LinkedIn pour vous générer davantage de prospects qualifiés. Ciblage précis, dispositif qui couvre tout le parcours d'achat, et des reportings qui mesurent les affaires signées. Pas les impressions."
   lang="fr"
+  schemas={servicePageSchemas('fr', 'advertising')}
 >
   <NavBar lang="fr" />
   <main id="main-content">
