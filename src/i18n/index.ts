@@ -38,7 +38,7 @@ export const ui = {
     'form.send':    'Send message',
     'form.sending': 'Sending…',
     'form.success_title': 'Message sent.',
-    'form.success_body':  "Thanks for reaching out. We will get back to you within one business day.",
+    'form.success_body':  "Thanks for reaching out. We'll come back to you inside one working day.",
     'form.back_home':     'Back to home',
 
     // Footer
@@ -64,10 +64,10 @@ export const ui = {
     'cta.eyebrow':    'Start here',
     'cta.headline':   'Ready to make LinkedIn',
     'cta.headline2':  'pay back?',
-    'cta.sub':        "Tell us about your company. We'll show you where the opportunity is, and what it would take to capture it.",
+    'cta.sub':        "Tell us about your company. We'll show you where the opportunity sits, and what it would take to capture it.",
     'cta.book':       'Book a call',
     'cta.pricing':    'View pricing',
-    'cta.note':       '30 minutes. No pitch. Straight answers.',
+    'cta.note':       'Thirty minutes. No pitch. Straight answers.',
 
     // Translation banner (not shown for EN)
     'lang.banner': '',

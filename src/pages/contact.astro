@@ -90,10 +90,7 @@ if (intentParam === 'retainer' && tierParam) {
             Let's talk <span class="text-gradient">LinkedIn.</span>
           </h1>
           <p class="contact-hero__sub reveal reveal-delay-2">
-            Whether you've mapped your LinkedIn programme in detail or you're still weighing
-            up what's possible, we'd love to hear from you. Every message that lands in our
-            inbox is read by a real person on the team. You'll have a considered reply waiting
-            inside one working day.
+            Whether your project is fully scoped or you're still weighing the options, drop us a line. A real person reads every message, and you'll have a considered reply within one working day.
           </p>
           <div class="contact-hero__actions reveal reveal-delay-3">
             <a href="#contact-form" class="btn btn--primary btn--lg">Tell us about your project</a>
@@ -119,9 +116,7 @@ if (intentParam === 'retainer' && tierParam) {
               </div>
               <h2 class="contact-success__title">Thank you. Your message is on its way.</h2>
               <p class="contact-success__body">
-                We've got it from here. Someone on the team will read it carefully and come
-                back to you with a proper reply inside one working day. In the meantime, feel
-                free to look around the rest of the site.
+                We've got it from here. Someone on the team will read it carefully and come back to you within one working day.
               </p>
               <a href="/" class="btn btn--primary" style="margin-top: var(--sp-6)">Back to the homepage</a>
             </div>
@@ -200,8 +195,8 @@ if (intentParam === 'retainer' && tierParam) {
                   <!-- Service (multi-select) -->
                   <div class="form-group contact-form__full">
                     <label class="form-label">
-                      Which of our services would you like to talk about? <span class="required-mark" aria-hidden="true">*</span>
-                      <span class="form-optional">Pick as many as feel relevant. There is no wrong answer here.</span>
+                      Which of our services interest you? <span class="required-mark" aria-hidden="true">*</span>
+                      <span class="form-optional">Pick as many as feel relevant.</span>
                     </label>
                     <div class="form-chips" role="group" aria-label="Services" id="service-group">
                       {services.map((s) => (
@@ -230,39 +225,39 @@ if (intentParam === 'retainer' && tierParam) {
                   <!-- Package (multi-select) -->
                   <div class="form-group contact-form__full">
                     <label class="form-label" id="package-label">
-                      Anything in our packages catching your eye? <span class="form-optional">(entirely optional)</span>
+                      Any of our packages catching your eye? <span class="form-optional">(optional)</span>
                     </label>
                     <div class="form-checklist" role="group" aria-labelledby="package-label" id="package-list">
-                      <p class="form-checklist__empty">Pick a service above and the relevant packages will appear here for you to choose from.</p>
+                      <p class="form-checklist__empty">Pick a service above to see the matching packages.</p>
                     </div>
-                    <p class="form-hint" id="package-hint">The figures below mirror our <a href="/pricing">pricing page</a> down to the penny. Still weighing things up? Leave this blank and we'll work through it together on the call.</p>
+                    <p class="form-hint" id="package-hint">Prices match our <a href="/pricing">pricing page</a>. Still weighing things up? Leave it blank and we'll cover it on the call.</p>
                   </div>
 
                   <!-- Timeline -->
                   <div class="form-group contact-form__full">
                     <label class="form-label">
-                      When would you ideally like things to get moving? <span class="required-mark" aria-hidden="true">*</span>
+                      When would you like to get started? <span class="required-mark" aria-hidden="true">*</span>
                     </label>
                     <div class="form-chips form-chips--compact" role="radiogroup" aria-label="Timeline" id="timeline-group">
                       <label class="form-chip form-chip--compact">
                         <input type="radio" name="timeline" value="now" class="form-chip__input" required />
                         <span class="form-chip__inner">
                           <strong class="form-chip__label">As soon as possible</strong>
-                          <span class="form-chip__sub">Aiming to kick off in the next few weeks</span>
+                          <span class="form-chip__sub">Within the next few weeks</span>
                         </span>
                       </label>
                       <label class="form-chip form-chip--compact">
                         <input type="radio" name="timeline" value="3-months" class="form-chip__input" />
                         <span class="form-chip__inner">
                           <strong class="form-chip__label">In about three months</strong>
-                          <span class="form-chip__sub">Laying the groundwork now</span>
+                          <span class="form-chip__sub">Laying the groundwork</span>
                         </span>
                       </label>
                       <label class="form-chip form-chip--compact">
                         <input type="radio" name="timeline" value="6-months" class="form-chip__input" />
                         <span class="form-chip__inner">
                           <strong class="form-chip__label">Roughly six months out</strong>
-                          <span class="form-chip__sub">Planning ahead for later in the year</span>
+                          <span class="form-chip__sub">Planning ahead for later</span>
                         </span>
                       </label>
                     </div>
@@ -276,7 +271,7 @@ if (intentParam === 'retainer' && tierParam) {
                     </label>
                     <textarea class="form-textarea" id="project" name="project"
                       required rows="5"
-                      placeholder="A few sentences are plenty. For example: We're a 120-person biotech company opening up to the European market, and we'd like our leadership team to become much more visible on LinkedIn over the next year…"
+                      placeholder="A few sentences are plenty. For example: We're a 120-person biotech expanding into Europe and want our leadership team much more visible on LinkedIn over the next year…"
                     ></textarea>
                     <span class="form-error" id="project-error" role="alert"></span>
                   </div>
@@ -317,21 +312,21 @@ if (intentParam === 'retainer' && tierParam) {
                   <div class="step-item__number" aria-hidden="true">1</div>
                   <div class="step-item__content">
                     <strong>A real person reads what you sent</strong>
-                    <p>Every message is read carefully by someone on the team, usually within a few hours and always inside one working day. No auto-replies, no triage queue.</p>
+                    <p>Someone on the team reads your message carefully, usually within a few hours and always inside one working day. No auto-replies, no queue.</p>
                   </div>
                 </li>
                 <li class="step-item">
                   <div class="step-item__number" aria-hidden="true">2</div>
                   <div class="step-item__content">
                     <strong>A proper, thirty-minute call</strong>
-                    <p>If it feels like a good fit on both sides, we set up a short call to talk through what you are hoping to achieve. No slides, no pitch, just an honest exchange so we both know where we stand.</p>
+                    <p>If it feels like a fit on both sides, we set up a short call to talk through your goals. No slides, no pitch, just an honest exchange.</p>
                   </div>
                 </li>
                 <li class="step-item">
                   <div class="step-item__number" aria-hidden="true">3</div>
                   <div class="step-item__content">
                     <strong>A proposal that actually fits you</strong>
-                    <p>Within a few working days you receive a written proposal shaped around your audience, your goals and the realities of your business. Never a template with your logo dropped on top.</p>
+                    <p>Within a few days you receive a written proposal shaped around your audience and your goals. Never a template with your logo on top.</p>
                   </div>
                 </li>
               </ol>
@@ -384,7 +379,7 @@ if (intentParam === 'retainer' && tierParam) {
                 <span class="pricing-anchor__label">Engagements start at</span>
                 <span class="pricing-anchor__value">$1,800<span>/month</span></span>
               </div>
-              <p class="pricing-anchor__note">Flexible monthly retainers, with no long-term lock-in once the first three months are behind us.</p>
+              <p class="pricing-anchor__note">Flexible monthly retainers. No long-term lock-in after the first three months.</p>
               <a href="/pricing" class="pricing-anchor__link">
                 See the full pricing
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -1110,24 +1105,24 @@ if (intentParam === 'retainer' && tierParam) {
 
     // — Name —
     if (!(data.get('name') as string)?.trim()) {
-      setFieldError('name', 'We would love to know who we are talking to. Could you pop your name in here?');
+      setFieldError('name', 'Could you pop your name in here for us?');
       remember(document.getElementById('name'));
     }
 
     // — Email —
     const email = (data.get('email') as string)?.trim();
     if (!email) {
-      setFieldError('email', 'Without an email address we will have no way to write back to you.');
+      setFieldError('email', "We'll need an email address to write back to you.");
       remember(document.getElementById('email'));
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-      setFieldError('email', 'That email address does not look quite right. Could you double-check it for us?');
+      setFieldError('email', "That email address looks off — could you double-check?");
       remember(document.getElementById('email'));
     }
 
     // — Website —
     const website = (data.get('website') as string)?.trim();
     if (!website) {
-      setFieldError('website', 'Pop in your company website so we can read up on you before we reply.');
+      setFieldError('website', 'Pop in your company website so we can read up on you.');
       remember(document.getElementById('website'));
     } else {
       try {
@@ -1137,14 +1132,14 @@ if (intentParam === 'retainer' && tierParam) {
           remember(document.getElementById('website'));
         }
       } catch {
-        setFieldError('website', 'That web address does not look quite right. Try something like https://heliobio.com');
+        setFieldError('website', 'That web address looks off — try something like https://heliobio.com');
         remember(document.getElementById('website'));
       }
     }
 
     // — Company —
     if (!(data.get('company') as string)?.trim()) {
-      setFieldError('company', 'Could you share the name of your company too? It really helps us prepare.');
+      setFieldError('company', 'Could you share the name of your company?');
       remember(document.getElementById('company'));
     }
 
@@ -1152,7 +1147,7 @@ if (intentParam === 'retainer' && tierParam) {
     const services = data.getAll('service') as string[];
     if (services.length === 0) {
       const serviceErr = document.getElementById('service-error');
-      if (serviceErr) serviceErr.textContent = 'Pick at least one service so we know where to focus the conversation.';
+      if (serviceErr) serviceErr.textContent = 'Pick at least one service so we know where to focus.';
       remember(document.querySelector<HTMLInputElement>('input[name="service"]'));
     }
 
@@ -1160,13 +1155,13 @@ if (intentParam === 'retainer' && tierParam) {
     const timeline = data.get('timeline') as string | null;
     if (!timeline) {
       const timelineErr = document.getElementById('timeline-error');
-      if (timelineErr) timelineErr.textContent = 'Let us know roughly when you would like to get started.';
+      if (timelineErr) timelineErr.textContent = "Let us know roughly when you'd like to start.";
       remember(document.querySelector<HTMLInputElement>('input[name="timeline"]'));
     }
 
     // — Project (now at the bottom of the form) —
     if (!(data.get('project') as string)?.trim()) {
-      setFieldError('project', 'A few short lines about your project will really help us prepare a thoughtful reply.');
+      setFieldError('project', 'A few lines about your project will help us prepare a useful reply.');
       remember(document.getElementById('project'));
     }
 
@@ -1286,7 +1281,7 @@ if (intentParam === 'retainer' && tierParam) {
     }
 
     if (submitBtn)     submitBtn.disabled = true;
-    if (submitLabel)   submitLabel.textContent = 'Sending your message…';
+    if (submitLabel)   submitLabel.textContent = 'Sending…';
     if (submitSpinner) submitSpinner.style.display = 'inline-block';
 
     try {
@@ -1298,11 +1293,11 @@ if (intentParam === 'retainer' && tierParam) {
         if (success) success.classList.add('is-visible');
       } else {
         if (errorBanner)  errorBanner.classList.add('is-visible');
-        if (errorMessage) errorMessage.textContent = json.error ?? 'Something did not quite go through on our end. Please give it another try in a moment.';
+        if (errorMessage) errorMessage.textContent = json.error ?? "Something didn't go through on our end. Please try again in a moment.";
       }
     } catch {
       if (errorBanner)  errorBanner.classList.add('is-visible');
-      if (errorMessage) errorMessage.textContent = 'Looks like a connection hiccup. Have a quick look at your network and please try again.';
+      if (errorMessage) errorMessage.textContent = 'Looks like a connection hiccup. Check your network and try again.';
     } finally {
       if (submitBtn)     submitBtn.disabled = false;
       if (submitLabel)   submitLabel.textContent = 'Send my message';

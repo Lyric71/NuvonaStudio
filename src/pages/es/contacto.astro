@@ -73,9 +73,9 @@ if (intentParam === 'retainer' && tierParam) {
 
 <Layout
   lang="es"
-  title="Contacto Nuvora Studio | Una primera conversación sobre tu estrategia en LinkedIn"
-  description="Nuvora Studio te invita a una primera llamada de 30 minutos para revisar tu estrategia en LinkedIn. O directamente déjanos un mensaje: contestamos antes de que pase un día hábil."
-  abstract="Media hora por videollamada o un mensaje, como prefieras. Contestamos antes de que termine el siguiente día hábil. Sin rodeos."
+  title="Contactar con Nuvora Studio | Hablemos de tu proyecto en LinkedIn"
+  description="Tanto si tu proyecto en LinkedIn ya está perfilado como si todavía lo estás madurando, cuéntanoslo. Cada mensaje lo lee una persona del equipo y recibe respuesta dentro del siguiente día hábil."
+  abstract="Cuéntanos qué tienes en mente. Cada mensaje recibe una respuesta cuidada dentro del siguiente día hábil. Sin contestadores automáticos ni discursos comerciales."
 >
   <NavBar lang="es" />
   <main id="main-content">
@@ -85,15 +85,15 @@ if (intentParam === 'retainer' && tierParam) {
       <div class="contact-hero__overlay" aria-hidden="true"></div>
       <div class="container" style="position: relative; z-index: 2;">
         <div class="contact-hero__content">
-          <p class="eyebrow eyebrow--light reveal">Contáctanos</p>
+          <p class="eyebrow eyebrow--light reveal">Empecemos a hablar</p>
           <h1 id="contact-heading" class="contact-hero__h1 reveal reveal-delay-1">
             Hablemos de <span class="text-gradient">LinkedIn.</span>
           </h1>
           <p class="contact-hero__sub reveal reveal-delay-2">
-            Cuéntanos qué te trae por aquí. Leemos cada mensaje y contestamos antes de que termine el siguiente día hábil. Sin excusas.
+            Tanto si tu proyecto en LinkedIn ya está perfilado como si todavía lo estás madurando, escríbenos. Cada mensaje lo lee una persona del equipo y recibirás una respuesta meditada dentro del siguiente día hábil.
           </p>
           <div class="contact-hero__actions reveal reveal-delay-3">
-            <a href="#contact-form" class="btn btn--primary btn--lg">Escríbenos</a>
+            <a href="#contact-form" class="btn btn--primary btn--lg">Contarnos tu proyecto</a>
           </div>
         </div>
       </div>
@@ -111,11 +111,11 @@ if (intentParam === 'retainer' && tierParam) {
                   <path d="M5 14l6.5 6.5L23 8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
-              <h2 class="contact-success__title">Mensaje recibido.</h2>
+              <h2 class="contact-success__title">Gracias, tu mensaje está en camino.</h2>
               <p class="contact-success__body">
-                Ya está en nuestra bandeja. Te escribimos en cuanto lo revisemos.
+                Ya lo tenemos. Alguien del equipo lo leerá con calma y te escribirá una respuesta meditada dentro del siguiente día hábil.
               </p>
-              <a href="/es/" class="btn btn--primary" style="margin-top: var(--sp-6)">Volver al inicio</a>
+              <a href="/es/" class="btn btn--primary" style="margin-top: var(--sp-6)">Volver a la página de inicio</a>
             </div>
 
             <div class="contact-card" id="contact-card">
@@ -127,9 +127,9 @@ if (intentParam === 'retainer' && tierParam) {
                   </svg>
                 </div>
                 <div>
-                  <h2 class="contact-card__title">Cuéntanos qué tienes entre manos</h2>
+                  <h2 class="contact-card__title">Unos datos para preparar nuestra conversación</h2>
                   <p class="contact-card__note">
-                    Los campos marcados con <span aria-hidden="true">*</span><span class="sr-only">asterisco</span> son obligatorios.
+                    Los campos marcados con un asterisco <span aria-hidden="true">*</span> son imprescindibles. El resto, solo si te apetece.
                   </p>
                 </div>
               </div>
@@ -141,45 +141,45 @@ if (intentParam === 'retainer' && tierParam) {
 
                   <div class="form-group">
                     <label class="form-label" for="name">
-                      Tu nombre <span class="required-mark" aria-hidden="true">*</span>
+                      Tu nombre y apellidos <span class="required-mark" aria-hidden="true">*</span>
                     </label>
                     <input class="form-input" type="text" id="name" name="name"
-                      autocomplete="name" required placeholder="María Fernández" />
+                      autocomplete="name" required placeholder="por ejemplo, María Fernández" />
                     <span class="form-error" id="name-error" role="alert"></span>
                   </div>
 
                   <div class="form-group">
                     <label class="form-label" for="email">
-                      Tu correo electrónico <span class="required-mark" aria-hidden="true">*</span>
+                      ¿A qué correo te respondemos? <span class="required-mark" aria-hidden="true">*</span>
                     </label>
                     <input class="form-input" type="email" id="email" name="email"
-                      autocomplete="email" required placeholder="maria@heliobio.es" />
+                      autocomplete="email" required placeholder="por ejemplo, maria@heliobio.es" />
                     <span class="form-error" id="email-error" role="alert"></span>
                   </div>
 
                   <div class="form-group">
                     <label class="form-label" for="phone">
-                      Tu teléfono <span class="form-optional">(opcional)</span>
+                      Un teléfono, si prefieres una llamada <span class="form-optional">(opcional)</span>
                     </label>
                     <input class="form-input" type="tel" id="phone" name="phone"
-                      autocomplete="tel" placeholder="+34 91 423 80 00" />
+                      autocomplete="tel" placeholder="por ejemplo, +34 91 423 80 00" />
                   </div>
 
                   <div class="form-group">
                     <label class="form-label" for="website">
-                      Tu web <span class="required-mark" aria-hidden="true">*</span>
+                      La web de tu empresa <span class="required-mark" aria-hidden="true">*</span>
                     </label>
                     <input class="form-input" type="url" id="website" name="website"
-                      autocomplete="url" required placeholder="https://heliobio.es" />
+                      autocomplete="url" required placeholder="por ejemplo, https://heliobio.es" />
                     <span class="form-error" id="website-error" role="alert"></span>
                   </div>
 
                   <div class="form-group contact-form__full">
                     <label class="form-label" for="company">
-                      Nombre de tu empresa <span class="required-mark" aria-hidden="true">*</span>
+                      Y el nombre de tu empresa <span class="required-mark" aria-hidden="true">*</span>
                     </label>
                     <input class="form-input" type="text" id="company" name="company"
-                      autocomplete="organization" required placeholder="Helio Biosciences" />
+                      autocomplete="organization" required placeholder="por ejemplo, Helio Biosciences" />
                     <span class="form-error" id="company-error" role="alert"></span>
                   </div>
 
@@ -187,7 +187,7 @@ if (intentParam === 'retainer' && tierParam) {
                   <div class="form-group contact-form__full">
                     <label class="form-label">
                       ¿Qué servicios te interesan? <span class="required-mark" aria-hidden="true">*</span>
-                      <span class="form-optional">Marca uno o varios</span>
+                      <span class="form-optional">Marca los que consideres oportunos</span>
                     </label>
                     <div class="form-chips" role="group" aria-label="Servicios" id="service-group">
                       {services.map((s) => (
@@ -216,39 +216,39 @@ if (intentParam === 'retainer' && tierParam) {
                   <!-- Paquetes (multiselección) -->
                   <div class="form-group contact-form__full">
                     <label class="form-label" id="package-label">
-                      Elige uno o varios paquetes <span class="form-optional">(opcional)</span>
+                      ¿Algún paquete te encaja ya? <span class="form-optional">(opcional)</span>
                     </label>
                     <div class="form-checklist" role="group" aria-labelledby="package-label" id="package-list">
-                      <p class="form-checklist__empty">Primero marca un servicio arriba.</p>
+                      <p class="form-checklist__empty">Marca un servicio arriba y aparecerán los paquetes correspondientes.</p>
                     </div>
-                    <p class="form-hint" id="package-hint">Los precios coinciden con nuestra <a href="/es/precios">página de precios</a>. ¿Aún no lo tienes claro? Sáltate este paso y lo vemos en la llamada.</p>
+                    <p class="form-hint" id="package-hint">Los precios coinciden con nuestra <a href="/es/precios">página de precios</a>. ¿Todavía dudas? Déjalo en blanco y lo vemos en la llamada.</p>
                   </div>
 
                   <!-- Plazo -->
                   <div class="form-group contact-form__full">
                     <label class="form-label">
-                      ¿Cuándo te gustaría empezar? <span class="required-mark" aria-hidden="true">*</span>
+                      ¿Cuándo te gustaría arrancar? <span class="required-mark" aria-hidden="true">*</span>
                     </label>
                     <div class="form-chips form-chips--compact" role="radiogroup" aria-label="Plazo" id="timeline-group">
                       <label class="form-chip form-chip--compact">
                         <input type="radio" name="timeline" value="now" class="form-chip__input" required />
                         <span class="form-chip__inner">
                           <strong class="form-chip__label">Cuanto antes</strong>
-                          <span class="form-chip__sub">En los próximos 30 días</span>
+                          <span class="form-chip__sub">En las próximas semanas</span>
                         </span>
                       </label>
                       <label class="form-chip form-chip--compact">
                         <input type="radio" name="timeline" value="3-months" class="form-chip__input" />
                         <span class="form-chip__inner">
-                          <strong class="form-chip__label">En 3 meses</strong>
-                          <span class="form-chip__sub">Lo voy planeando</span>
+                          <strong class="form-chip__label">En unos tres meses</strong>
+                          <span class="form-chip__sub">Vamos preparando el terreno</span>
                         </span>
                       </label>
                       <label class="form-chip form-chip--compact">
                         <input type="radio" name="timeline" value="6-months" class="form-chip__input" />
                         <span class="form-chip__inner">
-                          <strong class="form-chip__label">En 6 meses</strong>
-                          <span class="form-chip__sub">Horizonte más amplio</span>
+                          <strong class="form-chip__label">Hacia los seis meses</strong>
+                          <span class="form-chip__sub">Más adelante en el año</span>
                         </span>
                       </label>
                     </div>
@@ -258,11 +258,11 @@ if (intentParam === 'retainer' && tierParam) {
                   <!-- Proyecto -->
                   <div class="form-group contact-form__full">
                     <label class="form-label" for="project">
-                      Tu proyecto <span class="required-mark" aria-hidden="true">*</span>
+                      Cuéntanos tu proyecto, con tus propias palabras <span class="required-mark" aria-hidden="true">*</span>
                     </label>
                     <textarea class="form-textarea" id="project" name="project"
                       required rows="5"
-                      placeholder="Somos una biotech de 120 personas en plena expansión europea, y queremos que nuestros directivos por fin pesen en LinkedIn..."
+                      placeholder="Con unas frases basta. Por ejemplo: somos una biotech de 120 personas en plena expansión europea y queremos que nuestros directivos ganen visibilidad en LinkedIn…"
                     ></textarea>
                     <span class="form-error" id="project-error" role="alert"></span>
                   </div>
@@ -278,12 +278,12 @@ if (intentParam === 'retainer' && tierParam) {
 
                 <div class="contact-form__actions">
                   <button type="submit" class="btn btn--primary btn--lg" id="submit-btn">
-                    <span id="submit-label">Enviar mensaje</span>
+                    <span id="submit-label">Enviar mi mensaje</span>
                     <span id="submit-spinner" class="submit-spinner" style="display:none" aria-hidden="true"></span>
                   </button>
                   <p class="contact-form__privacy">
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 1L2 3v3c0 2.5 1.7 4.7 4 5.4C8.3 10.7 10 8.5 10 6V3L6 1z" stroke="var(--text-3)" stroke-width="1.2" fill="none"/></svg>
-                    Tus datos no salen de aquí. Punto.
+                    Tus datos se quedan aquí. Nunca los compartimos ni los vendemos.
                   </p>
                 </div>
               </form>
@@ -294,27 +294,27 @@ if (intentParam === 'retainer' && tierParam) {
           <aside class="contact-sidebar" aria-label="Información de contacto">
 
             <div class="sidebar-card sidebar-card--steps reveal">
-              <h3 class="sidebar-card__title">¿Y después?</h3>
+              <h3 class="sidebar-card__title">Lo que viene a continuación</h3>
               <ol class="steps-list">
                 <li class="step-item">
                   <div class="step-item__number" aria-hidden="true">1</div>
                   <div class="step-item__content">
-                    <strong>Leemos tu mensaje</strong>
-                    <p>Aquí no responde un bot. Te lee una persona y vuelve a ti en menos de 24 horas hábiles.</p>
+                    <strong>Una persona del equipo lee lo que nos envías</strong>
+                    <p>Cada mensaje lo lee alguien del equipo con calma, normalmente en pocas horas y siempre dentro del siguiente día hábil. Nada de respuestas automáticas.</p>
                   </div>
                 </li>
                 <li class="step-item">
                   <div class="step-item__number" aria-hidden="true">2</div>
                   <div class="step-item__content">
-                    <strong>Hablamos</strong>
-                    <p>Media hora por videollamada. Cero diapositivas, cero discurso. Tus retos y cómo podemos echar una mano.</p>
+                    <strong>Una llamada de treinta minutos</strong>
+                    <p>Si vemos encaje por ambas partes, reservamos media hora para repasar tus objetivos. Sin diapositivas, sin discurso comercial, una conversación franca.</p>
                   </div>
                 </li>
                 <li class="step-item">
                   <div class="step-item__number" aria-hidden="true">3</div>
                   <div class="step-item__content">
-                    <strong>Propuesta a medida</strong>
-                    <p>Después de la llamada recibirás una propuesta ajustada a tu caso. Nada de presupuestos copiados y pegados.</p>
+                    <strong>Una propuesta hecha para ti</strong>
+                    <p>A los pocos días recibirás una propuesta por escrito ajustada a tu negocio, a tu audiencia y a los objetivos que hayamos hablado. Nunca una plantilla con tu logo encima.</p>
                   </div>
                 </li>
               </ol>
@@ -329,7 +329,7 @@ if (intentParam === 'retainer' && tierParam) {
                       <path d="M8 1.5l1.8 3.6 4 .58-2.9 2.83.69 3.99L8 10.27l-3.59 1.88.69-3.99-2.9-2.83 4-.58L8 1.5z" fill="var(--cyan)" opacity="0.9"/>
                     </svg>
                   </div>
-                  <span>Usamos IA, pero detrás siempre decide una persona</span>
+                  <span>La IA trabaja en segundo plano, las personas cuidan de tu marca</span>
                 </li>
                 <li class="trust-item">
                   <div class="trust-item__icon" aria-hidden="true">
@@ -338,7 +338,7 @@ if (intentParam === 'retainer' && tierParam) {
                       <path d="M5 4V3a3 3 0 016 0v1" stroke="var(--cyan)" stroke-width="1.4"/>
                     </svg>
                   </div>
-                  <span>Ninguna pieza se publica sin tu visto bueno</span>
+                  <span>Nada se publica sin tu visto bueno previo</span>
                 </li>
                 <li class="trust-item">
                   <div class="trust-item__icon" aria-hidden="true">
@@ -347,7 +347,7 @@ if (intentParam === 'retainer' && tierParam) {
                       <path d="M8 5v3l2 1" stroke="var(--cyan)" stroke-width="1.4" stroke-linecap="round"/>
                     </svg>
                   </div>
-                  <span>Cartera de clientes repartida en cuatro continentes</span>
+                  <span>Clientes B2B en cuatro continentes, todas las franjas horarias</span>
                 </li>
                 <li class="trust-item">
                   <div class="trust-item__icon" aria-hidden="true">
@@ -355,19 +355,19 @@ if (intentParam === 'retainer' && tierParam) {
                       <path d="M13 5L6 12 3 9" stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                   </div>
-                  <span>El contenido que producimos es tuyo. Y punto.</span>
+                  <span>Todo el contenido que producimos es tuyo, para siempre</span>
                 </li>
               </ul>
             </div>
 
             <div class="sidebar-card sidebar-card--pricing reveal reveal-delay-2">
               <div class="pricing-anchor__top">
-                <span class="pricing-anchor__label">Desde</span>
+                <span class="pricing-anchor__label">Colaboración desde</span>
                 <span class="pricing-anchor__value">1.500 €<span>/mes</span></span>
               </div>
-              <p class="pricing-anchor__note">Planes flexibles, sin permanencia disfrazada.</p>
+              <p class="pricing-anchor__note">Planes mensuales flexibles. Sin permanencia tras los tres primeros meses.</p>
               <a href="/es/precios" class="pricing-anchor__link">
-                Ver precios
+                Ver los precios completos
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                   <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
@@ -530,22 +530,22 @@ if (intentParam === 'retainer' && tierParam) {
     const remember = (el: HTMLElement | null) => { if (el && !firstInvalid) firstInvalid = el; };
 
     if (!(data.get('name') as string)?.trim()) {
-      setFieldError('name', '¿Cómo te llamas? Nos hace falta para responderte.');
+      setFieldError('name', '¿Nos dices cómo te llamas?');
       remember(document.getElementById('name'));
     }
 
     const email = (data.get('email') as string)?.trim();
     if (!email) {
-      setFieldError('email', 'Necesitamos un correo donde escribirte.');
+      setFieldError('email', 'Sin un correo, no podremos escribirte.');
       remember(document.getElementById('email'));
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-      setFieldError('email', 'Ese correo no nos cuadra. Revísalo y vuelve a probar.');
+      setFieldError('email', 'Ese correo nos resulta raro. ¿Le echas un vistazo?');
       remember(document.getElementById('email'));
     }
 
     const website = (data.get('website') as string)?.trim();
     if (!website) {
-      setFieldError('website', 'Indícanos la web de tu empresa.');
+      setFieldError('website', 'Indícanos la web de tu empresa, así llegamos preparados.');
       remember(document.getElementById('website'));
     } else {
       try {
@@ -555,32 +555,32 @@ if (intentParam === 'retainer' && tierParam) {
           remember(document.getElementById('website'));
         }
       } catch {
-        setFieldError('website', 'La dirección no parece correcta (por ejemplo, https://heliobio.es).');
+        setFieldError('website', 'La dirección parece incompleta. Por ejemplo: https://heliobio.es');
         remember(document.getElementById('website'));
       }
     }
 
     if (!(data.get('company') as string)?.trim()) {
-      setFieldError('company', 'Indícanos el nombre de tu empresa.');
+      setFieldError('company', 'Dinos también el nombre de tu empresa.');
       remember(document.getElementById('company'));
     }
 
     const services = data.getAll('service') as string[];
     if (services.length === 0) {
       const serviceErr = document.getElementById('service-error');
-      if (serviceErr) serviceErr.textContent = 'Marca al menos un servicio.';
+      if (serviceErr) serviceErr.textContent = 'Marca al menos un servicio para enfocar la charla.';
       remember(document.querySelector<HTMLInputElement>('input[name="service"]'));
     }
 
     const timeline = data.get('timeline') as string | null;
     if (!timeline) {
       const timelineErr = document.getElementById('timeline-error');
-      if (timelineErr) timelineErr.textContent = 'Dinos cuándo te gustaría empezar.';
+      if (timelineErr) timelineErr.textContent = 'Dinos más o menos cuándo te gustaría arrancar.';
       remember(document.querySelector<HTMLInputElement>('input[name="timeline"]'));
     }
 
     if (!(data.get('project') as string)?.trim()) {
-      setFieldError('project', 'Cuéntanos un par de líneas más sobre el proyecto.');
+      setFieldError('project', 'Unas líneas sobre tu proyecto nos ayudarán a preparar la respuesta.');
       remember(document.getElementById('project'));
     }
 
@@ -680,7 +680,7 @@ if (intentParam === 'retainer' && tierParam) {
     }
 
     if (submitBtn)     submitBtn.disabled = true;
-    if (submitLabel)   submitLabel.textContent = 'Enviando…';
+    if (submitLabel)   submitLabel.textContent = 'Enviando tu mensaje…';
     if (submitSpinner) submitSpinner.style.display = 'inline-block';
 
     try {
@@ -692,14 +692,14 @@ if (intentParam === 'retainer' && tierParam) {
         if (success) success.classList.add('is-visible');
       } else {
         if (errorBanner)  errorBanner.classList.add('is-visible');
-        if (errorMessage) errorMessage.textContent = json.error ?? 'Algo se ha torcido por el camino. Vuelve a intentarlo en un momento.';
+        if (errorMessage) errorMessage.textContent = json.error ?? 'El envío no se ha completado. Vuelve a probar en un momento.';
       }
     } catch {
       if (errorBanner)  errorBanner.classList.add('is-visible');
-      if (errorMessage) errorMessage.textContent = 'Parece un fallo de conexión. Revisa tu red y vuelve a probar.';
+      if (errorMessage) errorMessage.textContent = 'Parece un fallo de conexión. Revisa tu red e inténtalo de nuevo.';
     } finally {
       if (submitBtn)     submitBtn.disabled = false;
-      if (submitLabel)   submitLabel.textContent = 'Enviar mensaje';
+      if (submitLabel)   submitLabel.textContent = 'Enviar mi mensaje';
       if (submitSpinner) submitSpinner.style.display = 'none';
     }
   });

@@ -7,31 +7,31 @@ import FAQ from '../../components/FAQ.astro';
 
 const values = [
   {
-    title: '出谋划策的人，自己也下场干活',
-    body: '定策略和动手执行的，永远是同一拨人。我们从不把策略和落地拆成两张皮。',
+    title: '出主意的人，自己也下场干活',
+    body: '定策略和动手执行的，永远是同一拨人——我们从不把策略和落地拆成两张皮。',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.09 6.26L20 10l-5.91 1.74L12 18l-2.09-6.26L4 10l5.91-1.74L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
   },
   {
     title: '把话讲清楚，不绕弯子',
-    body: '我们不写花团锦簇但毫无用处的报告。哪条没起作用，直接讲明。',
+    body: '我们不写花团锦簇但毫无用处的报告。哪一条没起作用——直接讲明白。',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" stroke="currentColor" stroke-width="1.6"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
   },
   {
-    title: '长期跑赢一时爆发',
-    body: '一条公司主页贴文、一条广告、一个高管主页——都得对得起对方点开它的那几秒钟。',
+    title: '长跑赢过一时爆发',
+    body: '一条公司主页贴文、一条广告、一位高管的主页——都得对得起对方点开它的那几秒钟。',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/></svg>`,
   },
 ];
 
 const whyWorkWithUs = [
   {
-    title: '只做 LinkedIn，不分散火力',
-    body: '我们不铺多个平台。团队上下所有人，都围着 LinkedIn 的策略、内容、广告这一件事转。承认我们是偏科的团队——但偏的这一科，我们扎得真够深。',
+    title: '只做 LinkedIn，火力不分散',
+    body: '我们不在多个平台上铺。团队上下所有人，都围着 LinkedIn 的策略、内容、广告这一件事转。承认我们是偏科的团队——但偏的这一科，我们扎得真够深。',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
   },
   {
     title: '资深成员全程盯，不层层转手',
-    body: '跟你对接的人，就是亲自上手干活的那位。策略负责人、内容作者、广告经理——本人是谁，你都能直接对上号。',
+    body: '跟你对接的人，就是亲手干活的那位。策略负责人、内容作者、广告经理——本人是谁，你都能一一对上号。',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
   },
   {
@@ -40,13 +40,13 @@ const whyWorkWithUs = [
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 9h17M3.5 15h17" stroke="currentColor" stroke-width="1.6"/><ellipse cx="12" cy="12" rx="4" ry="9" stroke="currentColor" stroke-width="1.6"/></svg>`,
   },
   {
-    title: 'AI 负责提效，关键环节人来把关',
-    body: '我们用 AIGC 工作流给内容撰写和翻译提速，但每一条内容上线之前都得过真人编辑的审稿和润色。说白了，工具帮我们把成本压下来，最终决定内容值不值得发的，还是人。',
+    title: 'AI 负责提速，关键环节人来兜底',
+    body: '我们用 AIGC 工作流，把内容撰写和翻译的速度往上拉一拉。但每一条内容上线之前，都得过真人编辑的审稿和润色。说白了——工具帮我们把成本压下来，最终决定一条内容值不值得发的，还是人。',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l2.09 6.26L20 10l-5.91 1.74L12 18l-2.09-6.26L4 10l5.91-1.74L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
   },
   {
     title: 'LinkedIn 官方认证的团队',
-    body: '团队成员持有 LinkedIn Marketing 官方认证。这是我们的招人门槛，不是用来贴金的营销噱头。',
+    body: '团队成员持有 LinkedIn Marketing 官方认证——这是我们招人的门槛，不是拿来贴金的营销噱头。',
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l3 6h6l-5 4 2 6-6-4-6 4 2-6-5-4h6l3-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`,
   },
 ];
@@ -82,10 +82,10 @@ const faqs = [
         <div class="ab-hero__content">
           <p class="eyebrow eyebrow--light reveal">关于 Nuvora Studio</p>
           <h1 id="ab-hero-h" class="ab-hero__h1 reveal reveal-delay-1">
-            B2B 赛道这么挤，我们让你的声音被听见<span class="text-gradient">。</span>
+            B2B 赛道这么拥挤，我们让你的声音真的被听见<span class="text-gradient">。</span>
           </h1>
           <p class="ab-hero__sub reveal reveal-delay-2">
-            我们帮 B2B 公司在 LinkedIn 上建起真实、有分量的存在感。一个平台，把这一件事彻底做对。官方认证的专家团队、带策略的内容打法，最终回到一件事——更多高质量的销售线索。
+            我们帮 B2B 公司在 LinkedIn 上建起一份真实、有分量的存在感。一个平台，把这一件事彻底做对。官方认证的专家团队、有策略的内容打法——最终都回到同一件事：更多高质量的销售线索。
           </p>
         </div>
       </div>
@@ -100,8 +100,8 @@ const faqs = [
           <div class="ab-exist__text reveal">
             <p class="eyebrow">我们的故事</p>
             <h2 id="exist-h">我们为什么会出现</h2>
-            <p>Nuvora Studio 之所以会创立，是因为我们在客户身上反反复复看到同一个症结。</p>
-            <p>大家都知道 LinkedIn 重要，但公司内部要么没专业的人、要么没时间、要么没清晰的方法。最后就拖成了这副样子：想起来发一条、想起来投一笔，钱花出去了，水花没几个，慢慢就开始嘀咕——LinkedIn 是不是不行。</p>
+            <p>Nuvora Studio 之所以会创立，是因为我们在一个又一个客户身上，反反复复看到同一个症结。</p>
+            <p>大家都知道 LinkedIn 重要——但公司内部要么没专业的人、要么没时间、要么没一套清晰的方法。最后就拖成了这副样子：想起来发一条、想起来投一笔；钱花出去了，水花没溅起几朵，渐渐就开始嘀咕一句——LinkedIn 是不是真不行。</p>
             <p>我们的使命只有一条：把这个渠道经营到极致。</p>
             <p class="ab-exist__closing"><strong>这就是我们存在的全部理由。</strong></p>
           </div>
@@ -175,9 +175,9 @@ const faqs = [
     <section class="section ab-team" aria-labelledby="team-h">
       <div class="container">
         <div class="ab-team__head reveal">
-          <p class="eyebrow">好的 LinkedIn 运营，靠的不是模板和自动化工具</p>
+          <p class="eyebrow">好的 LinkedIn 运营，从来不靠模板和自动化工具</p>
           <h2 id="team-h">带队的人</h2>
-          <p class="ab-team__sub">一线打过仗的人攒出来的团队，跑过规模、见过真章</p>
+          <p class="ab-team__sub">一线打过仗的人攒出来的团队——跑过规模、见过真章</p>
         </div>
 
         <!-- Cyril Drouin -->
@@ -272,7 +272,7 @@ const faqs = [
             </h2>
           </div>
           <div class="ab-cta__right reveal reveal-delay-2">
-            <p class="ab-cta__sub">先约个电话也成，我们帮你把 LinkedIn 现状从头过一遍，看看还有哪些机会没被你抓住。</p>
+            <p class="ab-cta__sub">先约个电话也行——我们陪你把 LinkedIn 现状从头过一遍，看看还有哪些机会被你漏掉了。</p>
             <div class="ab-cta__actions">
               <a href="/zh/contact?intent=call" class="btn btn--primary btn--lg">预约通话</a>
             </div>
