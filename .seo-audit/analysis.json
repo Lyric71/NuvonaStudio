@@ -1,0 +1,355 @@
+{
+  "home.html": {
+    "file": "C:/Users/cyril/Project/NuvoraStudioWeb/.seo-audit/home.html",
+    "total_bytes": 124195,
+    "inline_css_bytes": 50688,
+    "inline_css_blocks": 1,
+    "inline_js_bytes": 2350,
+    "inline_js_blocks": 4,
+    "external_scripts": [],
+    "external_stylesheets": 0,
+    "preconnect": 0,
+    "preload": [
+      "<link rel=\"preload\" href=\"/fonts/inter-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>",
+      "<link rel=\"preload\" href=\"/fonts/poppins-600-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>",
+      "<link rel=\"preload\" href=\"/images/hero-notification.webp\" as=\"image\" type=\"image/webp\" fetchpriority=\"high\">"
+    ],
+    "font_links": [
+      "<link rel=\"preload\" href=\"/fonts/inter-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>",
+      "<link rel=\"preload\" href=\"/fonts/poppins-600-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>"
+    ],
+    "img_count": 25,
+    "img_with_lazy": 22,
+    "img_with_alt_empty": 16,
+    "img_missing_alt": 0,
+    "img_with_dimensions": 19,
+    "img_srcs": [
+      "/images/nuvora-logo.webp",
+      "/flags/fr.svg",
+      "/flags/cn.svg",
+      "/flags/es.svg",
+      "/flags/de.svg",
+      "/flags/fr.svg",
+      "/flags/cn.svg",
+      "/flags/es.svg",
+      "/flags/de.svg",
+      "/images/hero-notification.webp",
+      "/images/problem-linkedin.webp",
+      "/images/content-calendar-v2.webp",
+      "/images/ad-creative-stack.webp",
+      "/images/consulting-workshop.webp",
+      "/images/audit-strategy.webp",
+      "/images/build-launch.webp",
+      "/images/grow-report.webp",
+      "/images/global-connections.webp",
+      "/images/nuvora-logo.webp",
+      "/AgencyLogos/BBG%20PNG.webp",
+      "/AgencyLogos/Logo-ChinaWebFoundry-transparent.webp",
+      "/AgencyLogos/BeyondCompass%20-%20Transparent%20-%204K.webp",
+      "/AgencyLogos/TheredScroll%20PNG.webp",
+      "/AgencyLogos/hubStudio%20%282%29.webp",
+      "/AgencyLogos/BBG%20PNG.webp"
+    ],
+    "h1": [
+      "We turn LinkedIn into your top sales channel."
+    ],
+    "title": "LinkedIn Agency for B2B | Nuvora Studio",
+    "meta_description": "LinkedIn-only B2B agency. Strategy, content, ads, all built for the channel that matters most for B2B. We work for pipeline, not vanity numbers.",
+    "viewport": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"
+  },
+  "page_services.html": {
+    "file": "C:/Users/cyril/Project/NuvoraStudioWeb/.seo-audit/page_services.html",
+    "total_bytes": 76883,
+    "inline_css_bytes": 39517,
+    "inline_css_blocks": 1,
+    "inline_js_bytes": 2361,
+    "inline_js_blocks": 3,
+    "external_scripts": [],
+    "external_stylesheets": 0,
+    "preconnect": 0,
+    "preload": [
+      "<link rel=\"preload\" href=\"/fonts/inter-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>",
+      "<link rel=\"preload\" href=\"/fonts/poppins-600-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>"
+    ],
+    "font_links": [
+      "<link rel=\"preload\" href=\"/fonts/inter-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>",
+      "<link rel=\"preload\" href=\"/fonts/poppins-600-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>"
+    ],
+    "img_count": 19,
+    "img_with_lazy": 17,
+    "img_with_alt_empty": 8,
+    "img_missing_alt": 0,
+    "img_with_dimensions": 13,
+    "img_srcs": [
+      "/images/nuvora-logo.webp",
+      "/flags/fr.svg",
+      "/flags/cn.svg",
+      "/flags/es.svg",
+      "/flags/de.svg",
+      "/flags/fr.svg",
+      "/flags/cn.svg",
+      "/flags/es.svg",
+      "/flags/de.svg",
+      "/images/services-content.webp",
+      "/images/services-advertising.webp",
+      "/images/services-consulting.webp",
+      "/images/nuvora-logo.webp",
+      "/AgencyLogos/BBG%20PNG.webp",
+      "/AgencyLogos/Logo-ChinaWebFoundry-transparent.webp",
+      "/AgencyLogos/BeyondCompass%20-%20Transparent%20-%204K.webp",
+      "/AgencyLogos/TheredScroll%20PNG.webp",
+      "/AgencyLogos/hubStudio%20%282%29.webp",
+      "/AgencyLogos/BBG%20PNG.webp"
+    ],
+    "h1": [
+      "We grow LinkedIn presence and generate more leads."
+    ],
+    "title": "LinkedIn services for B2B lead generation",
+    "meta_description": "Three service lines built to turn LinkedIn into the place where your next clients find you. Content, advertising, and consulting for B2B companies.",
+    "viewport": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"
+  },
+  "page_pricing.html": {
+    "file": "C:/Users/cyril/Project/NuvoraStudioWeb/.seo-audit/page_pricing.html",
+    "total_bytes": 131149,
+    "inline_css_bytes": 51466,
+    "inline_css_blocks": 1,
+    "inline_js_bytes": 2617,
+    "inline_js_blocks": 4,
+    "external_scripts": [],
+    "external_stylesheets": 0,
+    "preconnect": 0,
+    "preload": [
+      "<link rel=\"preload\" href=\"/fonts/inter-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>",
+      "<link rel=\"preload\" href=\"/fonts/poppins-600-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>"
+    ],
+    "font_links": [
+      "<link rel=\"preload\" href=\"/fonts/inter-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>",
+      "<link rel=\"preload\" href=\"/fonts/poppins-600-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>"
+    ],
+    "img_count": 16,
+    "img_with_lazy": 14,
+    "img_with_alt_empty": 8,
+    "img_missing_alt": 0,
+    "img_with_dimensions": 10,
+    "img_srcs": [
+      "/images/nuvora-logo.webp",
+      "/flags/fr.svg",
+      "/flags/cn.svg",
+      "/flags/es.svg",
+      "/flags/de.svg",
+      "/flags/fr.svg",
+      "/flags/cn.svg",
+      "/flags/es.svg",
+      "/flags/de.svg",
+      "/images/nuvora-logo.webp",
+      "/AgencyLogos/BBG%20PNG.webp",
+      "/AgencyLogos/Logo-ChinaWebFoundry-transparent.webp",
+      "/AgencyLogos/BeyondCompass%20-%20Transparent%20-%204K.webp",
+      "/AgencyLogos/TheredScroll%20PNG.webp",
+      "/AgencyLogos/hubStudio%20%282%29.webp",
+      "/AgencyLogos/BBG%20PNG.webp"
+    ],
+    "h1": [
+      "One goal: more leads on LinkedIn."
+    ],
+    "title": "LinkedIn services pricing &amp; plans | Nuvora Studio",
+    "meta_description": "Our LinkedIn services pricing in one place. Three retainer tiers, ads management, executive branding, and training. Clear plans built to bring you more leads.",
+    "viewport": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"
+  },
+  "page_work.html": {
+    "file": "C:/Users/cyril/Project/NuvoraStudioWeb/.seo-audit/page_work.html",
+    "total_bytes": 112117,
+    "inline_css_bytes": 44119,
+    "inline_css_blocks": 1,
+    "inline_js_bytes": 2830,
+    "inline_js_blocks": 4,
+    "external_scripts": [],
+    "external_stylesheets": 0,
+    "preconnect": 0,
+    "preload": [
+      "<link rel=\"preload\" href=\"/fonts/inter-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>",
+      "<link rel=\"preload\" href=\"/fonts/poppins-600-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>"
+    ],
+    "font_links": [
+      "<link rel=\"preload\" href=\"/fonts/inter-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>",
+      "<link rel=\"preload\" href=\"/fonts/poppins-600-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>"
+    ],
+    "img_count": 17,
+    "img_with_lazy": 15,
+    "img_with_alt_empty": 8,
+    "img_missing_alt": 0,
+    "img_with_dimensions": 10,
+    "img_srcs": [
+      "/images/nuvora-logo.webp",
+      "/flags/fr.svg",
+      "/flags/cn.svg",
+      "/flags/es.svg",
+      "/flags/de.svg",
+      "/flags/fr.svg",
+      "/flags/cn.svg",
+      "/flags/es.svg",
+      "/flags/de.svg",
+      "/images/Cyril-Drouin-LinkedIn-03-29-2026_09_55_AM.webp",
+      "/images/nuvora-logo.webp",
+      "/AgencyLogos/BBG%20PNG.webp",
+      "/AgencyLogos/Logo-ChinaWebFoundry-transparent.webp",
+      "/AgencyLogos/BeyondCompass%20-%20Transparent%20-%204K.webp",
+      "/AgencyLogos/TheredScroll%20PNG.webp",
+      "/AgencyLogos/hubStudio%20%282%29.webp",
+      "/AgencyLogos/BBG%20PNG.webp"
+    ],
+    "h1": [
+      "The work speaks.So do the numbers."
+    ],
+    "title": "Case studies | Nuvora Studio",
+    "meta_description": "Real results from real clients. How we help B2B companies grow with LinkedIn content, advertising, personal branding, and employee advocacy.",
+    "viewport": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"
+  },
+  "page_insights_why-your-reach-dropped.html": {
+    "file": "C:/Users/cyril/Project/NuvoraStudioWeb/.seo-audit/page_insights_why-your-reach-dropped.html",
+    "total_bytes": 69417,
+    "inline_css_bytes": 33237,
+    "inline_css_blocks": 1,
+    "inline_js_bytes": 2513,
+    "inline_js_blocks": 3,
+    "external_scripts": [],
+    "external_stylesheets": 0,
+    "preconnect": 0,
+    "preload": [
+      "<link rel=\"preload\" href=\"/fonts/inter-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>",
+      "<link rel=\"preload\" href=\"/fonts/poppins-600-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>"
+    ],
+    "font_links": [
+      "<link rel=\"preload\" href=\"/fonts/inter-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>",
+      "<link rel=\"preload\" href=\"/fonts/poppins-600-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>"
+    ],
+    "img_count": 16,
+    "img_with_lazy": 14,
+    "img_with_alt_empty": 8,
+    "img_missing_alt": 0,
+    "img_with_dimensions": 10,
+    "img_srcs": [
+      "/images/nuvora-logo.webp",
+      "/flags/fr.svg",
+      "/flags/cn.svg",
+      "/flags/es.svg",
+      "/flags/de.svg",
+      "/flags/fr.svg",
+      "/flags/cn.svg",
+      "/flags/es.svg",
+      "/flags/de.svg",
+      "/images/nuvora-logo.webp",
+      "/AgencyLogos/BBG%20PNG.webp",
+      "/AgencyLogos/Logo-ChinaWebFoundry-transparent.webp",
+      "/AgencyLogos/BeyondCompass%20-%20Transparent%20-%204K.webp",
+      "/AgencyLogos/TheredScroll%20PNG.webp",
+      "/AgencyLogos/hubStudio%20%282%29.webp",
+      "/AgencyLogos/BBG%20PNG.webp"
+    ],
+    "h1": [
+      "Why your reach dropped 50%+in 2026(and no, it isn't your content)"
+    ],
+    "title": "Why your LinkedIn reach dropped 50% in 2026",
+    "meta_description": "LinkedIn organic reach is down 50% since 2023. It isn",
+    "viewport": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"
+  },
+  "page_linkedin-optimizer.html": {
+    "file": "C:/Users/cyril/Project/NuvoraStudioWeb/.seo-audit/page_linkedin-optimizer.html",
+    "total_bytes": 83515,
+    "inline_css_bytes": 47084,
+    "inline_css_blocks": 1,
+    "inline_js_bytes": 2391,
+    "inline_js_blocks": 3,
+    "external_scripts": [
+      "/_astro/LinkedInOptimizer.astro_astro_type_script_index_0_lang.9AP2KYYa.js"
+    ],
+    "external_stylesheets": 0,
+    "preconnect": 0,
+    "preload": [
+      "<link rel=\"preload\" href=\"/fonts/inter-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>",
+      "<link rel=\"preload\" href=\"/fonts/poppins-600-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>"
+    ],
+    "font_links": [
+      "<link rel=\"preload\" href=\"/fonts/inter-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>",
+      "<link rel=\"preload\" href=\"/fonts/poppins-600-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>"
+    ],
+    "img_count": 17,
+    "img_with_lazy": 14,
+    "img_with_alt_empty": 8,
+    "img_missing_alt": 0,
+    "img_with_dimensions": 10,
+    "img_srcs": [
+      "/images/nuvora-logo.webp",
+      "/flags/fr.svg",
+      "/flags/cn.svg",
+      "/flags/es.svg",
+      "/flags/de.svg",
+      "/flags/fr.svg",
+      "/flags/cn.svg",
+      "/flags/es.svg",
+      "/flags/de.svg",
+      "/images/nuvora-logo.webp",
+      "/AgencyLogos/BBG%20PNG.webp",
+      "/AgencyLogos/Logo-ChinaWebFoundry-transparent.webp",
+      "/AgencyLogos/BeyondCompass%20-%20Transparent%20-%204K.webp",
+      "/AgencyLogos/TheredScroll%20PNG.webp",
+      "/AgencyLogos/hubStudio%20%282%29.webp",
+      "/AgencyLogos/BBG%20PNG.webp"
+    ],
+    "h1": [
+      "LinkedIn profile optimizer",
+      "LinkedIn profile optimizer"
+    ],
+    "title": "Free LinkedIn Profile Optimizer | Nuvora",
+    "meta_description": "Analyze your LinkedIn profile against 100+ best-practice checks. Get a personalized score, priorities, and clear recommendations. Free.",
+    "viewport": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"
+  },
+  "page_case.html": {
+    "file": "C:/Users/cyril/Project/NuvoraStudioWeb/.seo-audit/page_case.html",
+    "total_bytes": 57413,
+    "inline_css_bytes": 32344,
+    "inline_css_blocks": 1,
+    "inline_js_bytes": 2524,
+    "inline_js_blocks": 3,
+    "external_scripts": [],
+    "external_stylesheets": 0,
+    "preconnect": 0,
+    "preload": [
+      "<link rel=\"preload\" href=\"/fonts/inter-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>",
+      "<link rel=\"preload\" href=\"/fonts/poppins-600-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>"
+    ],
+    "font_links": [
+      "<link rel=\"preload\" href=\"/fonts/inter-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>",
+      "<link rel=\"preload\" href=\"/fonts/poppins-600-latin.woff2\" as=\"font\" type=\"font/woff2\" crossorigin>"
+    ],
+    "img_count": 16,
+    "img_with_lazy": 14,
+    "img_with_alt_empty": 8,
+    "img_missing_alt": 0,
+    "img_with_dimensions": 10,
+    "img_srcs": [
+      "/images/nuvora-logo.webp",
+      "/flags/fr.svg",
+      "/flags/cn.svg",
+      "/flags/es.svg",
+      "/flags/de.svg",
+      "/flags/fr.svg",
+      "/flags/cn.svg",
+      "/flags/es.svg",
+      "/flags/de.svg",
+      "/images/nuvora-logo.webp",
+      "/AgencyLogos/BBG%20PNG.webp",
+      "/AgencyLogos/Logo-ChinaWebFoundry-transparent.webp",
+      "/AgencyLogos/BeyondCompass%20-%20Transparent%20-%204K.webp",
+      "/AgencyLogos/TheredScroll%20PNG.webp",
+      "/AgencyLogos/hubStudio%20%282%29.webp",
+      "/AgencyLogos/BBG%20PNG.webp"
+    ],
+    "h1": [
+      "A Swedish polymer brand became the name aerospace buyers searched for.Their LinkedIn page was the bottleneck."
+    ],
+    "title": "Swedish aerospace polymer brand | Case study",
+    "meta_description": "A Swedish polymer manufacturer became the name aerospace buyers searched for on LinkedIn. From 340 followers to a Fortune 500 inbound.",
+    "viewport": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"
+  }
+}
