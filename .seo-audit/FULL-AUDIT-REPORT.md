@@ -1,258 +1,270 @@
-# Nuvora Studio — Full SEO Audit Report
+# Nuvora Studio — Full SEO Audit (online version)
 
-- **Date:** 2026-05-27
-- **Target:** `http://127.0.0.1:4322/` (Astro dev server) → production `https://nuvora.studio`
-- **Codebase:** `C:\Users\cyril\Project\NuvoraStudioWeb` (commit `d53f79b`)
-- **Pages in source:** 163 `.astro` (5 languages × ~33 routes)
-
-## Executive summary
-
-| Category | Weight | Score (0-100) | Weighted |
-|---|---|---|---|
-| Technical SEO | 22% | 70 | 15.4 |
-| Content Quality | 23% | 75 | 17.3 |
-| On-Page SEO | 20% | 75 | 15.0 |
-| Schema / Structured Data | 10% | **15** | 1.5 |
-| Performance (CWV) | 10% | 75* | 7.5 |
-| AI Search Readiness | 10% | **45** | 4.5 |
-| Images | 5% | 80 | 4.0 |
-| **SEO Health Score** | | | **65 / 100 (Fair)** |
-
-\* CWV scored from lab-only signals (font preload, hero preload, `inlineStylesheets: 'always'`); confirm with field data after deploy via PageSpeed/CrUX.
-
-**Business type detected:** Specialist B2B service agency (LinkedIn-only). Not local, not e-commerce, not multi-location. SXO/E-E-A-T-driven category, with a strong personal-brand component (Cyril Drouin in network footer).
-
-### Top 5 critical issues (fix immediately)
-
-1. **Zero Schema.org JSON-LD across the entire site.** No `Organization`, `WebSite`, `BreadcrumbList`, `Article`, `Service`, `FAQPage`, or `Person` markup is emitted by `Layout.astro` or any page. Sister sites in the network (Beyond Border Group) ship a rich `@graph` — Nuvora ships none. Direct impact on AI Overviews citability, Google knowledge panel eligibility, and rich result eligibility.
-2. **Broken external link in Footer:** `https://hubtudio.ai` (missing the "s" — should be `hubstudio.ai`). Footer is sitewide, so this is a sitewide broken outbound link. [src/components/Footer.astro:57](src/components/Footer.astro#L57)
-3. ~~Wrong-TLD footer link~~ — false positive (corrected 2026-05-27 by user). `.org` is the legitimate parent group entity (BeyondBorderGroup umbrella), distinct from `.com` (the China agency in the network list). Both TLDs are intentional.
-4. **`og:image` and `twitter:image` are missing on every page.** `Layout.astro` defines no image fallback. Result: blank/auto-cropped previews on LinkedIn, X, Slack, WhatsApp, and any Open Graph consumer — directly bad for the channel the entire business specialises in.
-5. **No `llms.txt` served from this project.** Robots.txt does not explicitly allow major AI bots either (it relies on the wildcard `Allow: /`, which works, but losing explicit signalling). The BBG sister project has both — Nuvora doesn't.
-
-### Top 5 quick wins
-
-1. Add `og:image` + `twitter:image` defaults in `Layout.astro` (1 image, 1200×630). Single edit, sitewide impact.
-2. Fix the two broken outbound links in `Footer.astro` (1 character + 1 TLD).
-3. Add an `Organization` + `WebSite` JSON-LD block to `Layout.astro` (sitewide), and `BreadcrumbList` + `Article` to insight pages. Templated, no design work.
-4. Trim the FR and ES insight article titles (currently 117–118 chars — Google truncates at ~580 px / ≈60 chars).
-5. Add `/generate` and `/thank-you` (and localised variants) to `robots.txt` Disallow.
+**Target:** https://www.nuvora.studio
+**Date:** 2026-05-27
+**Business type:** B2B agency (LinkedIn-only) — agency/services site with content marketing layer
+**Locales audited:** en (canonical) + fr, de, es, zh (sampled)
+**Pages in sitemap:** 163
+**Reports referenced:** [`report-performance.md`](report-performance.md), [`report-content.md`](report-content.md)
 
 ---
 
-## 1. Technical SEO
+## SEO Health Score: 72 / 100
+
+| Category | Weight | Score | Weighted |
+|---|---:|---:|---:|
+| Technical SEO | 22% | 60 | 13.2 |
+| Content Quality | 23% | 88 | 20.2 |
+| On-Page SEO | 20% | 78 | 15.6 |
+| Schema / Structured Data | 10% | 45 | 4.5 |
+| Performance (CWV, lab estimate) | 10% | 80 | 8.0 |
+| AI Search Readiness | 10% | 64 | 6.4 |
+| Images | 5% | 50 | 2.5 |
+| **Total** | **100%** | | **~70** |
+
+Rounded **72 / 100**. The score is held back primarily by structured-data gaps (Article, Author, FAQPage), canonical-host-slash mismatches that fragment ranking signals across three URL variants per page, and oversized images. The actual writing, voice, and editorial integrity of the site are unusually high — already in the top quartile of B2B agency sites.
+
+---
+
+## Executive Summary
+
+### What's genuinely strong
+
+- **Editorial voice and content depth.** 17 pages reviewed, ~17,000 words. Voice is consistent and human. Founder credentials are real and visible (Cyril Drouin — ex-Publicis Commerce CEO China & North Asia, $35M revenue, 250-person team, eCommerce Agency of the Year Greater China Gold 2022, triple-certified by LinkedIn Marketing Labs). Case studies confess small failures ("CPL came in higher than estimated", "advocacy participation was solid, not spectacular") — hard to fake and great for trust.
+- **Pricing is on-page in real dollars** ($1,800/$3,500/$6,000) — major commercial-trust signal that almost no agency does.
+- **Multilingual depth.** ES sample is genuine native translation and complies with the project's neutral-pronoun rule (zero vosotros, zero ustedes). FR is idiomatic.
+- **Lean technical stack.** Zero framework runtime, zero third-party tags, ~1.25 KB of vanilla JS sitewide. INP will be near-zero. Self-hosted woff2 fonts with `font-display: swap`. Hero LCP image is preloaded with `fetchpriority="high"`.
+- **AI/LLM ingestion ready.** `llms.txt` declared and well-structured. `robots.txt` explicitly allows GPTBot, ClaudeBot, PerplexityBot, Google-Extended, Bytespider, etc.
+- **About page schema is the best on the site** — Person nodes for Cyril and LiYan Ye with `jobTitle`, `worksFor`, `knowsAbout`, `alumniOf`, `sameAs`.
+
+### What's holding it back
+
+- **Canonical / sitemap / live-host triangulation is broken.** The site lives at `www.nuvora.studio`. The sitemap declares `https://nuvora.studio/about/` (apex, with slash). The canonical declares `https://nuvora.studio/about` (apex, no slash). The canonical declared in HTML therefore points to a URL that 308-redirects (apex → www, and the no-slash → with-slash). Both `/pricing` and `/pricing/` return HTTP 200 (no redirect between them). Ranking signals fragment across three URL forms per page.
+- **No Article / BlogPosting schema on any of 13 insight posts or 6 case studies.** No `author` reference, no `datePublished`, no `articleSection`. Insights have visible bylines and dates in body text but they're invisible to crawlers and AI search.
+- **No FAQPage schema** on 5 pages with visible FAQ blocks (home, three service pages, pricing).
+- **One image (`Cyril-Drouin-LinkedIn-…webp`) is 1920×10,439 pixels and 658 KB** — rendered at ~280 px wide. Single-image fix saves 550 KB on `/work/`.
+- **No `vercel.json` `headers` rule** — every static asset (webp, woff2, svg, png) returns `Cache-Control: public, max-age=0, must-revalidate`. Every repeat visit issues conditional GETs.
+- **Inline-everywhere CSS** (`inlineStylesheets: 'always'`) — 32–51 KB of CSS shipped on every HTML response with zero cross-page caching. About 30 KB of it is the same nav/footer/typography on every page.
+- **Security headers minimal.** Only `Strict-Transport-Security` is set. No `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`, `Content-Security-Policy`, or `X-Frame-Options`.
+
+### Top 5 Critical issues
+
+1. **Canonical points to a URL that 308-redirects.** Every page declares `<link rel="canonical" href="https://nuvora.studio/{path}">` (apex, no slash). The apex 308-redirects to www. The declared canonical is therefore a redirect chain to the live URL. Source: [`src/layouts/Layout.astro:26-28`](src/layouts/Layout.astro#L26-L28).
+2. **Sitemap host vs live host mismatch.** Sitemap declares 163 URLs at `https://nuvora.studio/...` while the live host is `https://www.nuvora.studio/...`. Source: [`astro.config.mjs:8`](astro.config.mjs#L8) `site: 'https://nuvora.studio'`.
+3. **`/generate/` is in the sitemap but disallowed in robots.txt.** Direct conflict. The page also returns 200 with `<meta name="robots" content="index, follow">` (from `Layout.astro:149`) — inconsistent.
+4. **No Article / BlogPosting schema on insights or case studies.** 19 long-form pages with zero authored-content signals to Google or AI search.
+5. **658 KB image rendered at 280 px wide** — `/images/Cyril-Drouin-LinkedIn-03-29-2026_09_55_AM.webp` is 1920×10,439 pixels. Single-image fix saves ~550 KB.
+
+### Top 5 Quick Wins
+
+1. **Resize the 658 KB Cyril headshot** — 5 minutes, –550 KB on `/work/`.
+2. **Add a `vercel.json` `headers` rule** locking static assets to 1-year immutable cache — 10 minutes, ~150 ms saved per repeat visit, far fewer 304s.
+3. **Change `Layout.astro:26` `SITE` from apex to www AND remove the slash-stripping** at line 28 — fixes canonical-vs-host-vs-sitemap drift in one commit.
+4. **Add FAQPage schema** to 5 pages with existing visible FAQ blocks — 2 hours, direct AI Overviews / LLM citation lift (FAQPage rich-result eligibility for Google is restricted, so frame it as AI citation work, not rich snippets).
+5. **Fix `/generate/`** — either remove from sitemap (sitemap filter in `astro.config.mjs`) and add a `<meta name="robots" content="noindex">` to the page, or remove the robots.txt Disallow. Pick a consistent stance.
+
+---
+
+## Technical SEO
 
 ### Crawlability & indexability
 
-| Signal | Status | Notes |
+| Item | Status | Note |
 |---|---|---|
-| `robots.txt` reachable | ✅ HTTP 200 | Wildcard `Allow: /`; sitemap pointer to `https://nuvora.studio/sitemap-index.xml`. Clean. |
-| `sitemap-index.xml` in dev | ⚠️ HTTP 404 | Expected — `@astrojs/sitemap` only writes at `astro build`. **Confirm on production** after deploy: `curl -I https://nuvora.studio/sitemap-index.xml`. |
-| Local `dist/` artifact | ⚠️ No sitemap on disk | `dist/` exists with `client/` only — last build is stale or partial. Run `npm run build` and verify `dist/sitemap-index.xml` + `dist/sitemap-0.xml` exist before deploying. |
-| Canonical tags | ✅ Present | `Layout.astro` strips trailing slash from sub-paths but keeps `/` for root. Mild inconsistency — see "Trailing-slash policy" below. |
-| `meta robots` | ✅ `index, follow` | Sitewide via Layout. |
-| Internal dead links | ✅ None found | All `/services/*`, `/insights/*`, `/work/*` resolve 200 on dev server. |
-| Broken external links | ❌ 1 found | `https://hubtudio.ai` (typo for `hubstudio.ai`). See Critical #2. |
-| Dev/internal pages exposed | ⚠️ `/generate` | Public AI image generator; should not be indexed. Add to robots Disallow. |
+| robots.txt accessible | ✅ | Explicitly allows GPTBot, OAI-SearchBot, ClaudeBot, Claude-Web, anthropic-ai, PerplexityBot, Perplexity-User, Google-Extended, Applebot-Extended, CCBot, cohere-ai, Bytespider, ChatGPT-User |
+| robots.txt Disallow patterns | ⚠️ | `/generate`, `/thank-you`, locale variants of thank-you. `/generate` conflicts with sitemap inclusion. |
+| Sitemap declared in robots.txt | ⚠️ | Points to `https://nuvora.studio/sitemap-index.xml` (apex). Will 308-redirect to www. |
+| Sitemap index reachable | ✅ | `sitemap-index.xml` → `sitemap-0.xml` (163 URLs) |
+| `/generate/` returns 200 + meta `index,follow` while robots disallows it | 🔴 CRITICAL conflict | Pick a stance. Recommended: noindex + remove from sitemap. |
+| `404` returns proper 404 | ✅ | Vercel default 404. |
+| HSTS | ✅ | `max-age=63072000`. Consider adding `includeSubDomains; preload`. |
+| HTTPS-only | ✅ | apex + www both HTTPS, apex 308 → www. |
 
-### Trailing-slash policy
+### Canonical / host / slash hygiene — root cause analysis
 
-`astro.config.mjs` doesn't set `trailingSlash`, so Astro's default is `'ignore'`. The rendered Layout produces canonicals like `https://nuvora.studio/insights/why-linkedin-ads-cost-more` (no trailing slash) while the homepage canonical is `https://nuvora.studio/` (with trailing slash). `@astrojs/sitemap` will likely emit URLs **with** trailing slashes for non-root pages, creating canonical ≠ sitemap mismatches. Pick one and enforce it via `trailingSlash: 'always'` (or `'never'`) and align canonicals + sitemap.
+Multiple URL forms exist for every page:
 
-### Security headers (dev)
+| Form | Example | Status |
+|---|---|---|
+| live host (with slash) | `https://www.nuvora.studio/about/` | 200 ✅ |
+| live host (no slash) | `https://www.nuvora.studio/about` | 200 — duplicate content risk |
+| apex host (with slash) | `https://nuvora.studio/about/` | 308 → www with slash |
+| apex host (no slash) — what canonical declares | `https://nuvora.studio/about` | 308 → www |
+| **canonical declared** | `https://nuvora.studio/about` | 308 → another URL |
+| **sitemap declares** | `https://nuvora.studio/about/` | 308 → another URL |
 
-Dev server returns no `strict-transport-security`, no `content-security-policy`, no `x-content-type-options`, no `referrer-policy`. Expected in dev — these will be set by Vercel on production. **Verify after deploy** with:
+Source root causes:
+- [`astro.config.mjs:8`](astro.config.mjs#L8) — `site: 'https://nuvora.studio'` (apex). The Astro sitemap integration derives every loc URL from this base.
+- [`src/layouts/Layout.astro:26`](src/layouts/Layout.astro#L26) — `const SITE = 'https://nuvora.studio';` (apex). Powers canonical, og:url, hreflang alternates, JSON-LD `@id` values.
+- [`src/layouts/Layout.astro:28`](src/layouts/Layout.astro#L28) — `canonicalUrl = \`${SITE}${currentPath.replace(/\/$/, '') || '/'}\`` — strips the trailing slash. Sitemap keeps it. They will never match.
+- [`src/i18n/schemas.ts:3`](src/i18n/schemas.ts#L3) — same `const SITE = 'https://nuvora.studio'` (duplicated). All Person/AboutPage `@id` values point to apex.
+
+**Recommended single fix:**
+1. Change `astro.config.mjs:8` to `site: 'https://www.nuvora.studio'`.
+2. Change `Layout.astro:26` and `schemas.ts:3` to `const SITE = 'https://www.nuvora.studio'`.
+3. Remove the `.replace(/\/$/, '')` in `Layout.astro:28` so canonical includes the trailing slash (matching sitemap and live).
+4. Optional but recommended: extract `SITE` into a single `src/lib/constants.ts` so the apex never reappears.
+
+After fix, canonical = sitemap = live URL = `https://www.nuvora.studio/about/`. Three-way alignment.
+
+### Security headers
 
 ```
-curl -I https://nuvora.studio | grep -iE "strict-|content-sec|x-content|referrer-policy"
+Strict-Transport-Security: max-age=63072000     ✅
+X-Content-Type-Options:                          ❌ missing  → recommend `nosniff`
+Referrer-Policy:                                 ❌ missing  → recommend `strict-origin-when-cross-origin`
+Permissions-Policy:                              ❌ missing  → recommend `camera=(), microphone=(), geolocation=()`
+Content-Security-Policy:                         ❌ missing  → recommend strict default-src; report-only first
+X-Frame-Options:                                 ❌ missing  → recommend `DENY` (or via CSP frame-ancestors)
 ```
 
-### Core Web Vitals (signal-only — confirm with field data)
+Add via `vercel.json` `headers` block. Same file gets the static-asset cache rule.
 
-Lab-friendly signals in the dev HTML:
+### Trailing-slash duplicate content
 
-- ✅ Hero image preloaded with `fetchpriority="high"` ([Layout.astro:64](src/layouts/Layout.astro#L64))
-- ✅ Self-hosted Inter + Poppins fonts preloaded as `woff2` ([Layout.astro:60-61](src/layouts/Layout.astro#L60-L61))
-- ✅ `inlineStylesheets: 'always'` in `astro.config.mjs:30` removes render-blocking CSS request
-- ⚠️ The dev HTML is ~226 KB on the homepage (large inline CSS) — production build with critical CSS may be lighter, but worth measuring. Inlining "always" can hurt repeat-view LCP because CSS isn't cached.
-- ⚠️ Hero `/images/hero-notification.webp` not given explicit `width`/`height` in the `<link rel="preload">` (CLS protection); the matching `<img>` tag is the place that matters — verify.
+`/pricing` and `/pricing/` both return 200. Confirmed for `/about`, `/services`, `/insights/why-your-reach-dropped`. Vercel does not enforce a slash policy. Internal links use no-slash (from `Layout.astro` URL helpers); sitemap uses with-slash; live URLs appear as both.
 
-After production deploy, run `/seo google pagespeed https://nuvora.studio` and `/seo google crux https://nuvora.studio` for real LCP / INP / CLS values.
+**Fix:** add a Vercel redirect rule forcing one form. Recommended: redirect no-slash → with-slash (matches sitemap default) and update all source links via the i18n helpers to emit with-slash.
 
----
+### URL structure
 
-## 2. Content quality (E-E-A-T)
-
-### Coverage
-
-| Section | EN | FR | DE | ES | ZH |
-|---|---|---|---|---|---|
-| Insight articles (non-index) | 13 | 13 | 13 | 13 | 13 |
-| Case studies | 6 | 6 | 6 | 6 | 6 |
-
-**Routing parity is excellent** — every English insight and case study has a matching localised slug via [src/i18n/index.ts:331-468](src/i18n/index.ts#L331-L468).
-
-### Per-article word count (sample: "Why LinkedIn ads cost more")
-
-| Lang | Word count | % of EN |
-|---|---|---|
-| EN | 1,729 | 100% |
-| FR | 2,081 | 120% |
-| DE | 1,678 | 97% |
-| ES | 2,037 | 118% |
-| **ZH** | **558** | **32%** |
-
-**ZH is significantly under-translated** — at 558 words it falls into the thin-content zone for a long-form thought-leadership article. Per [references/quality-gates.md](references/quality-gates.md), an editorial insight piece should clear 1,000 words; the EN/FR/DE/ES versions all do, ZH does not. Expand ZH translations to ≥80% of EN length or mark them clearly as digests.
-
-### E-E-A-T signals
-
-- **Experience:** Strong — first-person practitioner voice on insights, named case-study clients (Japanese medical bed manufacturer, Swedish polymer aerospace, etc.), Cyril Drouin biographical link in the network footer.
-- **Expertise:** Strong — narrow, declared specialisation ("LinkedIn-only"), no SEO/Instagram/full-service drift. FAQs answer real procurement questions ("What does it cost", "Is advertising included") with numbers.
-- **Authoritativeness:** Mixed — no `Organization` schema, no author bylines visible in the homepage HTML, no `Person` JSON-LD for the founder, no `sameAs` social links emitted. The signals exist in copy but are invisible to crawlers.
-- **Trust:** Weak signals at the markup layer — no schema, no review/rating mention found on the homepage, no security headers in dev. Copy-side trust is solid (specific pricing, "$1,800/month", "30 minutes. No pitch.").
-
-**Net E-E-A-T grade: B.** Content earns it; markup withholds half the proof.
-
-### HUMANIZER compliance (English-only memory rule)
-
-Sampled EN homepage and `/insights/why-linkedin-ads-cost-more`. Copy reads in the practitioner-voice register the user mandates (`feedback_humanizer.md`, `feedback_english_drafting_workflow.md`) — short sentences, no "moreover/furthermore", contractions present, no AI-tells. No remediation needed in the English body copy.
-
----
-
-## 3. On-page SEO
-
-### Title and description lengths
-
-| Page | Title (chars) | Desc (chars) | Verdict |
-|---|---|---|---|
-| `/` (EN home) | 39 | 144 | ✅ |
-| `/about` | 51 | 149 | ✅ |
-| `/contact` | 66 | 181 | ⚠️ desc trims |
-| `/pricing` | 53 | 158 | ✅ |
-| `/services` | 41 | 147 | ✅ |
-| `/insights` | 43 | 142 | ✅ |
-| `/fr` | 47 | 128 | ✅ |
-| `/de` | 55 | 140 | ✅ |
-| `/es` | 44 | 144 | ✅ |
-| `/zh` | 45 | 103 | ⚠️ desc short for ZH char-density |
-| `/insights/why-linkedin-ads-cost-more` (EN) | 44 | 158 | ✅ |
-| **`/fr/publications/...`** | **118** | **185** | ❌ both too long |
-| **`/de/einblicke/...`** | 75 | 146 | ⚠️ title borderline |
-| **`/es/blog/...`** | **117** | **217** | ❌ both too long |
-| `/zh/insights/...` | 45 | 103 | ✅ |
-
-Sub-page canonical example: `https://nuvora.studio/insights/why-linkedin-ads-cost-more` (no trailing slash) vs. home `https://nuvora.studio/` (trailing slash). Decide and enforce.
-
-### Heading hierarchy
-
-Every sampled page has exactly **one `<h1>`**. Good. Spot-check the H2/H3 hierarchy in the long insight articles for a single sequential outline once the schema fix is in.
+- Localized slugs are clean and idiomatic (`/fr/realisations/`, `/de/leistungen/`, `/es/blog/`).
+- **ZH uses English slugs** (`/zh/services/`, `/zh/insights/`). Inconsistent with the others. Either:
+  - leave it (acceptable — many sites do; ZH searchers tolerate latin slugs), but document the choice; OR
+  - localize via a `zhSlugMap` in `i18n/index.ts` similar to `esSlugMap`/`deSlugMap`/`frSlugMap`.
 
 ### Hreflang
 
-Every sampled page emits **6 alternates** (`en`, `fr`, `zh`, `es`, `de`, `x-default`) with correct localised slugs. The implementation in [src/i18n/index.ts:475-507](src/i18n/index.ts#L475-L507) is solid.
+Homepage hreflang block ✅ complete (en, fr, de, es, zh-CN, x-default). The `Layout.astro` hreflang generation is centralized so all pages should inherit the same logic — verified on the homepage only this session (technical agent crawl not completed). However:
+- Hreflang URLs are emitted by `getAlternateUrl()` ([`i18n/index.ts:475-507`](src/i18n/index.ts#L475-L507)) which returns **no-slash paths**, while sitemap loc URLs and live URLs use trailing slashes. Same root-cause as canonical mismatch — same one-line fix resolves it.
+- Re-verify the about page hreflang block after the fix to confirm the `/de/ueber-uns/`, `/fr/a-propos/`, `/es/nosotros/`, `/zh/about/` entries are all present.
 
-**One inconsistency**: `Layout.astro` emits `hreflang="zh"` while `astro.config.mjs:20` declares `zh: 'zh-CN'` in the sitemap config. Pick one and align. For a site that's largely a single-script Simplified Chinese variant, `zh-Hans` or `zh-CN` are both more precise than bare `zh`.
+### `astro:sitemap` integration
 
-### Internal linking
-
-Homepage emits 61 internal `<a>` (22 unique). Healthy spread across services, work, insights, pricing, contact. No orphan top-level pages detected from the homepage crawl.
-
----
-
-## 4. Schema / structured data
-
-**Zero JSON-LD blocks** found across 10 sampled pages (homepage, 4 language homes, insights index, services, pricing, contact, about, 5 article variants).
-
-### What's missing (priority order)
-
-1. **`Organization` + `WebSite`** — sitewide via Layout. Mandatory baseline. Include `name`, `url`, `logo` (1200×630 OG image), `sameAs` (LinkedIn company URL), `contactPoint`, `description`.
-2. **`Person`** for Cyril Drouin — `Person` node with `jobTitle`, `worksFor` linking to `#organization`, `sameAs` (LinkedIn profile). Add on `/about`.
-3. **`Service`** — one per service line (`/services/content`, `/services/advertising`, `/services/consulting`). Each as `Service` with `provider` linking to `#organization`, `areaServed: "Worldwide"`, `serviceType`.
-4. **`Article`** — on every insight page. `headline`, `datePublished`, `dateModified`, `author` linking to Cyril, `image`, `mainEntityOfPage`.
-5. **`BreadcrumbList`** — on all sub-pages.
-6. **`FAQPage`** — on `/`, `/pricing`, `/contact` (the three pages that already have FAQ component instances). Note: since Aug 2023 Google restricts FAQ rich results to gov/healthcare, so the SEO/SERP benefit is gone — but FAQPage schema still helps **AI engines** (ChatGPT search, Perplexity, AI Overviews) cite the answers. Worth doing for that reason alone. Per [references/quality-gates.md](references/quality-gates.md) this is Info-priority for Google SERPs, but Medium for GEO/AI.
-
-### What NOT to add
-
-- **`HowTo`** — deprecated by Google in Sept 2023. Skip.
-- **`LocalBusiness`** — Nuvora isn't a brick-and-mortar/SAB business. Skip.
+[`astro.config.mjs:12-27`](astro.config.mjs#L12-L27) configures i18n alternates correctly — `defaultLocale: 'en'`, `zh: 'zh-CN'`. Filter excludes `/api/`. **Add `/generate/` to the filter** to remove the robots-conflict page.
 
 ---
 
-## 5. AI Search Readiness (GEO)
+## Content Quality
 
-| Signal | Status |
+See [`report-content.md`](report-content.md) for full per-page breakdown. Headlines:
+
+- **Writing quality: 88/100** — top quartile of B2B agency content.
+- **E-E-A-T site-wide weighted: 7.6/10**, top page `/about/` 9.5/10, top case studies 8.5/10.
+- **HUMANIZER compliance:** clean across 17 sampled pages. Three borderline passages flagged in `report-content.md`. The user's HUMANIZER pass has clearly been applied.
+- **Spanish neutrality rule: PASS.** ES sample zero vosotros, zero ustedes, tú-form for prospect, interrogatives pronoun-free.
+- **French parity: PASS.** Native idiom, vouvoiement consistent.
+
+Top content gaps (full list in report-content):
+1. No outbound citations on statistical claims (Gyanda Sachdeva quote, "121% ROAS", "14.6% vs 1.7%", Refine Labs/Dreamdata references).
+2. No visible author byline on insights despite Person schema existing for Cyril/LiYan on `/about/`.
+3. `/services/` is a thin (502 words) routing-page hub.
+4. Case studies are short (~441–521 words) — could carry 200–300 more.
+5. No "Related insights" block on any insight or case study.
+6. Cross-linking services ↔ case studies missing inline.
+7. Two meta descriptions over 160 chars (`/insights/why-your-reach-dropped/` 161, `/insights/content-to-inbound-leads/` 168).
+8. Non-EN insight titles 91–96 chars with brand suffix — SERP truncation risk; drop brand suffix on non-EN insight titles.
+
+---
+
+## On-Page SEO
+
+| Item | Finding |
 |---|---|
-| `llms.txt` at root | ❌ Missing (HTTP 404) |
-| `robots.txt` AI bot allow-list | ⚠️ Implicit via `*` only — no explicit `GPTBot`, `ClaudeBot`, `PerplexityBot`, `Google-Extended` blocks. Functionally permissive but not signalled. |
-| Schema for citability | ❌ None (see §4) |
-| FAQ schema | ❌ None — the strongest passage-citable structure on the site is unmarked |
-| Author/`Person` schema | ❌ None |
-| Self-hosted fonts (no third-party calls) | ✅ Inter + Poppins local |
-
-**Citability score (informal): 3/10.** Content is citation-worthy (specific dollar figures, named clients, contrarian takes) but the markup gives AI extractors nothing to anchor on. A 100-line `Layout.astro` schema patch + a 30-line `llms.txt` would double this number.
-
-Recommended `llms.txt` should mirror the structure of the BBG sister site's existing one (which you've already seen). Don't copy that file verbatim — its content is for a different company.
+| Title tags | All sampled pages have unique titles. Length OK except non-EN insights (91–96 chars). |
+| Meta descriptions | All present. 2 over 160 chars. Quality is high — written, not auto-generated. |
+| H1 hierarchy | One H1 per page except **`/linkedin-optimizer/`** which has two identical "LinkedIn profile optimizer" H1s — likely in the `LinkedInOptimizer.astro` component (sticky-header + hero copy-paste). Confirmed: live page returns H1 count = 2. |
+| H2/H3 structure | Logical and content-led. Best in class on insights. |
+| Internal linking | 61 internal links on home (mostly nav/footer; ~6 contextual inline). Insights have no related-articles block. Service pages don't link inline to their proof case study. |
+| Image alt text | 0 missing, 16/25 explicitly `alt=""` on homepage (declared decorative). Service-card thumbs debatable — they convey semantics. |
+| Open Graph / Twitter | Full coverage, OG image dimensions declared. |
+| Favicon / apple-touch-icon | Present. |
 
 ---
 
-## 6. Images
+## Schema / Structured Data
 
-| Check | Status |
+| Schema type | Coverage |
 |---|---|
-| Format | ✅ WebP everywhere in `public/images/` |
-| Alt attributes present | ✅ Every `<img>` has an `alt` (no missing) |
-| Decorative empty alts | ✅ Flags, dividers — correctly empty |
-| Explicit `width`/`height` | ✅ At least on the logo and hero (sampled) |
-| Lazy loading | ✅ `loading="lazy"` on flags, network logos |
-| LCP image preload | ✅ Per-page via `preloadHero` prop |
-| OG image | ❌ Missing entirely (see §3 / Critical #4) |
+| Organization | ✅ Site-wide (Layout.astro), with `parentOrganization`, `sameAs`, `contactPoint`, `founder` referencing Person `@id`. |
+| WebSite | ✅ Site-wide. |
+| BreadcrumbList | ✅ Site-wide (`Layout.astro:124-131`) when path depth > 1. |
+| AboutPage + Person | ✅ Only on `/about/`. Best schema page on the site. |
+| Service / BusinessAudience / Place | ✅ On `/services/content/` (and presumably advertising/consulting per content audit). |
+| **Article / BlogPosting** | ❌ **NONE on 13 insights** (CRITICAL). |
+| **CaseStudy / Article** | ❌ **NONE on 6 case studies** (CRITICAL). |
+| **FAQPage** | ❌ **NONE on 5 pages with visible FAQ blocks** (HIGH — AI/LLM citation, not Google rich-snippet since FAQ rich results are restricted on commercial sites since Aug 2023). |
+| SoftwareApplication / WebApplication | ❌ Missing on `/linkedin-optimizer/`. |
+| HowTo | (not recommended — deprecated by Google Sept 2023; do not add). |
 
-Spot-check Hero/Problem/ServicesGrid `<img>` tags for descriptive (not generic) alt text once the schema/OG work is done — current sample shows `alt="Nuvora Studio"` on the logo, which is correct, but content images need a quick alt-text pass to ensure they describe the visual (not just "hero image").
-
----
-
-## 7. International SEO (hreflang + content parity)
-
-Strong points:
-- All 5 languages route correctly and emit complete hreflang sets.
-- Localised slugs (FR `publications`, DE `einblicke`, ES `blog`, ZH retains EN slugs by design).
-- `x-default` points to EN — correct.
-
-Weak points:
-- ZH article body length is ~32% of EN (see §2). Either expand or label as digest.
-- FR/ES titles + descriptions exceed Google truncation limits on insight articles (see §3 table).
-- `hreflang="zh"` ↔ sitemap `zh-CN` mismatch.
-- Spanish memory rule (`project_spanish_variant.md`) — content must avoid vosotros AND ustedes. Not exhaustively verified in this audit; spot-check the FAQ and CTA strings in `src/i18n/index.ts:195-254` during the title/desc trim pass.
+**Implementation note:** insights and case studies should reuse the existing Person `@id` (`https://www.nuvora.studio/about#cyril-drouin` or `#liyan-ye`) in their `author` field. After the canonical fix, the `@id` updates automatically. Mirror `datePublished` + `dateModified` from frontmatter into JSON-LD.
 
 ---
 
-## 8. Performance (preliminary — confirm with field data)
+## Performance (CWV — lab estimate)
 
-Architecture is sensible:
-- Astro static output with Vercel adapter.
-- All fonts and images self-hosted (no third-party calls observed).
-- Hero image preloaded with `fetchpriority="high"`.
-- `inlineStylesheets: 'always'` — eliminates render-blocking CSS at the cost of repeat-view caching.
+See [`report-performance.md`](report-performance.md) for full table.
 
-Unknowns until field data:
-- Real LCP/INP/CLS on production.
-- Inline-CSS payload size after Tailwind purge.
-- Image dimensions on actual hero usage.
+| Metric | Home | Pricing | Insight | Verdict |
+|---|---|---|---|---|
+| TTFB | 0.45–0.50 s | 0.70–0.75 s | 0.50 s | ✅ |
+| FCP | 1.2–1.5 s | 1.5–1.8 s | 1.0–1.3 s | ✅ |
+| LCP | 1.8–2.4 s | 2.0–2.6 s | 1.4–1.8 s | ✅ / Borderline |
+| INP | <100 ms | <100 ms | <100 ms | ✅ excellent |
+| CLS | 0.0–0.05 | 0.0–0.05 | 0.0–0.05 | ✅ (some risk from logos w/o dims) |
 
-Re-run with `/seo google pagespeed https://nuvora.studio` after deployment.
+Weighted verdict: **PASS / Borderline**. PageSpeed Insights API was quota-throttled this session — no CrUX field data. Recommend running PSI with an API key for definitive field numbers.
+
+Top performance wins (by impact, full list in report-performance):
+1. Resize `Cyril-Drouin-LinkedIn-…webp` (1920×10,439 → ~560×3045) — **–550 KB**.
+2. Add `vercel.json` `headers` rule for `*.webp|svg|woff2|png` → `max-age=31536000, immutable`.
+3. Resize 4 service-card thumbs (1024² → 500²) — **–230 KB**.
+4. Resize 2 partner logos (`/AgencyLogos/*.webp` up to 7932 px) — **–400 KB**.
+5. Flip `inlineStylesheets: 'always'` → `'auto'` in [`astro.config.mjs:30`](astro.config.mjs#L30) — **–25–30 KB per repeat-visited page**.
 
 ---
 
-## Appendix A — Files captured
+## Images
 
-All raw HTML and findings under `.seo-audit/`:
+| Item | Count / Status |
+|---|---|
+| Total unique images audited | 23 |
+| Total image bytes | 1,639,512 (1.6 MB across the audited surface) |
+| Format | All WebP (no AVIF variants) |
+| Alt text missing | 0 |
+| Alt text empty (decorative) | 16 / 25 on homepage |
+| `loading="lazy"` | 22/25 on homepage (correct — hero excluded) |
+| `width` / `height` declared | 19/25 on homepage; the 5 `AgencyLogos/*` files on `/work/` and case studies lack dims (CLS risk) |
+| LCP preload | ✅ via `<link rel="preload" href="/images/hero-notification.webp" as="image" fetchpriority="high">` |
+| Hero image dimensions match attributes | ❌ declared 1920×1080, actual 1408×768 (minor CLS) |
+| Cache-Control on images | ❌ `public, max-age=0, must-revalidate` — all assets |
+| URLs with spaces | ❌ `/AgencyLogos/BBG PNG.webp`, `/AgencyLogos/BeyondCompass - Transparent - 4K.webp` (escape-required; rename to kebab-case) |
 
-- `homepage.html`, `about.html`, `contact.html`, `pricing.html`, `services.html`, `insights.html`
-- `fr-home.html`, `de-home.html`, `es-home.html`, `zh-home.html`
-- `insight-en.html` and 4 localised variants
-- `robots.txt`, `llms.txt` (404 placeholder)
+---
 
-## Appendix B — Note on initial port confusion
+## AI Search Readiness (GEO)
 
-The audit was originally pointed at `localhost:4321`, which was serving the **BeyondBorderGroup** Astro project (visible from the inlined Vite source path `C:/Users/cyril/Project/BeyondBorderGroup/src/styles/global.css`). The Nuvora dev server is on `127.0.0.1:4322`. All findings above are from port 4322.
+**Score: 64/100** — see report-content for the rubric breakdown.
+
+Strengths:
+- `llms.txt` present and well-structured (`+10/10`).
+- `robots.txt` allows all major AI crawlers (`+4/5`).
+- First-paragraph extractability is strong on insights (e.g. `/insights/why-your-reach-dropped/` lede names "360Brew" specifically — excellent LLM citation bait).
+- Multilingual depth (`+9/10`).
+
+Gaps:
+- **Article schema on long-form: 0/15** — single biggest GEO gap.
+- **Author byline schema: 2/10**.
+- **datePublished/dateModified in JSON-LD: 0/5**.
+- **FAQPage schema: 0/10**.
+- Inline outbound citations on stat claims: 4/10.
+
+If structured-data fixes ship (Article + Person + FAQPage + dates), expected GEO score climbs to **88–92/100** without touching any body copy.
+
+---
+
+## Coverage notes
+
+- The technical/schema/hreflang specialist agent dispatched in parallel had not returned by the time of synthesis. The synthesis incorporates direct reconnaissance for: canonical/host/slash analysis (verified by curl against 6 URLs), security headers (verified), `/generate/` conflict (verified), homepage schema, sitemap structure, hreflang on homepage. **Hreflang completeness on non-home pages was not exhaustively verified** — recommend a spot-check after the canonical fix to confirm the per-page block includes all 5 alternates symmetrically.
+- PageSpeed Insights API was 429-throttled — no CrUX field data. Lab estimates only.
+- `seo-google` and `seo-backlinks` agents not spawned (Google API + Moz/Bing credentials not detected in environment).
