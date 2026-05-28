@@ -2,7 +2,31 @@
   "buildCommand": "npm run build",
   "installCommand": "npm install",
   "framework": "astro",
+  "trailingSlash": false,
   "env": {
     "VERCEL_FORCE_NO_BUILD_CACHE": "1"
-  }
+  },
+  "headers": [
+    {
+      "source": "/(.+\\.(webp|avif|svg|woff2|png|jpg|jpeg|ico|gif))",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/fonts/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
+        { "key": "X-Frame-Options", "value": "DENY" }
+      ]
+    }
+  ]
 }

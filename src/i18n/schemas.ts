@@ -1,6 +1,6 @@
 import { type Lang } from './index';
 
-const SITE = 'https://nuvora.studio';
+const SITE = 'https://www.nuvora.studio';
 
 // ── Reusable Person nodes (canonical @ids; safe to reference across pages) ──
 const cyrilDrouin = {
@@ -204,4 +204,189 @@ export function servicePageSchemas(lang: Lang, service: ServiceKey): Record<stri
       inLanguage: inLanguageByLang[lang],
     },
   ];
+}
+
+// ── Article / case-study registry ─────────────────────────────────────────────
+// Keyed by canonical English slug (no leading slash, no trailing slash).
+// Each entry powers BlogPosting (insight) or Article (case study) JSON-LD across
+// all 5 languages — the slug→lang URL is resolved via i18n helpers.
+
+type ArticleAuthor = 'cyril' | 'liyan';
+type ArticleType = 'insight' | 'case';
+
+interface ArticleMeta {
+  type: ArticleType;
+  datePublished: string;   // ISO 8601
+  dateModified?: string;   // optional; defaults to datePublished
+  author: ArticleAuthor;
+  image?: string;          // absolute path under /public, optional
+}
+
+export const articleRegistry: Record<string, ArticleMeta> = {
+  // Insights
+  'insights/algorithm-change-small-vs-large-accounts': { type: 'insight', datePublished: '2026-03-29', author: 'cyril' },
+  'insights/content-to-inbound-leads':                 { type: 'insight', datePublished: '2026-03-29', author: 'cyril' },
+  'insights/how-to-grow-on-linkedin':                  { type: 'insight', datePublished: '2026-03-29', author: 'cyril' },
+  'insights/linkedin-ad-roi-measurement-problem':      { type: 'insight', datePublished: '2026-03-29', author: 'cyril' },
+  'insights/linkedin-ads-vs-organic-content':          { type: 'insight', datePublished: '2026-03-29', author: 'cyril' },
+  'insights/linkedin-headline-costing-opportunities':  { type: 'insight', datePublished: '2026-03-29', author: 'cyril' },
+  'insights/minimum-viable-linkedin-ads-budget':       { type: 'insight', datePublished: '2026-03-29', author: 'cyril' },
+  'insights/profile-mistakes-killing-conversions':     { type: 'insight', datePublished: '2026-03-29', author: 'cyril' },
+  'insights/stop-wasting-money-low-intent-audiences':  { type: 'insight', datePublished: '2026-03-29', author: 'cyril' },
+  'insights/the-real-linkedin-problem':                { type: 'insight', datePublished: '2026-03-23', author: 'cyril' },
+  'insights/why-linkedin-ads-cost-more':               { type: 'insight', datePublished: '2026-03-29', author: 'cyril' },
+  'insights/why-your-reach-dropped':                   { type: 'insight', datePublished: '2026-03-29', author: 'cyril' },
+  'insights/your-linkedin-post-is-already-dead':       { type: 'insight', datePublished: '2026-03-23', author: 'cyril' },
+
+  // Case studies
+  'work/chinese-cable-manufacturer-employee-advocacy': { type: 'case', datePublished: '2026-03-29', author: 'cyril' },
+  'work/french-accounting-firm-partner-linkedin':      { type: 'case', datePublished: '2026-03-29', author: 'cyril' },
+  'work/french-fragrance-lab-personal-branding':       { type: 'case', datePublished: '2026-03-29', author: 'cyril' },
+  'work/hong-kong-law-firm-cross-border-deals':        { type: 'case', datePublished: '2026-03-29', author: 'cyril' },
+  'work/japanese-medical-bed-maker-linkedin-leads':    { type: 'case', datePublished: '2026-03-29', author: 'cyril' },
+  'work/swedish-polymer-brand-aerospace':              { type: 'case', datePublished: '2026-03-29', author: 'cyril' },
+};
+
+// Resolve a path (any locale, with or without trailing slash) to its canonical
+// English slug. Returns null if the path isn't an insight or case study.
+function canonicalSlugFromPath(pathname: string): string | null {
+  // strip leading + trailing slashes
+  const clean = pathname.replace(/^\/+/, '').replace(/\/+$/, '');
+  if (!clean) return null;
+
+  // strip lang prefix
+  const langMatch = clean.match(/^(fr|de|es|zh)\/(.+)$/);
+  const segment = langMatch ? langMatch[2] : clean;
+  const lang: Lang = langMatch ? (langMatch[1] as Lang) : 'en';
+
+  // map back to canonical EN slug for non-EN locales
+  let canonical = segment;
+  if (lang === 'es') canonical = canonicalFromEs(segment);
+  else if (lang === 'de') canonical = canonicalFromDe(segment);
+  else if (lang === 'fr') canonical = canonicalFromFr(segment);
+
+  return articleRegistry[canonical] ? canonical : null;
+}
+
+// Reverse the slug maps from i18n/index.ts. Inlined here to avoid a circular
+// import (i18n/index already imports nothing from schemas, schemas only imports
+// the Lang type — so the inverse lookup is duplicated here intentionally).
+function canonicalFromEs(esSegment: string): string {
+  const map: Record<string, string> = {
+    'nosotros': 'about', 'contacto': 'contact', 'optimizador-de-perfil': 'linkedin-optimizer',
+    'precios': 'pricing', 'privacidad': 'privacy', 'terminos': 'terms',
+    'servicios': 'services', 'servicios/contenido': 'services/content',
+    'servicios/publicidad': 'services/advertising', 'servicios/consultoria': 'services/consulting',
+    'casos': 'work',
+    'casos/fabricante-chino-cables-defensa-empleados': 'work/chinese-cable-manufacturer-employee-advocacy',
+    'casos/socio-bufete-contable-frances-linkedin': 'work/french-accounting-firm-partner-linkedin',
+    'casos/laboratorio-perfumes-frances-marca-personal': 'work/french-fragrance-lab-personal-branding',
+    'casos/bufete-hong-kong-operaciones-transfronterizas': 'work/hong-kong-law-firm-cross-border-deals',
+    'casos/fabricante-camas-medicas-japones-linkedin': 'work/japanese-medical-bed-maker-linkedin-leads',
+    'casos/empresa-polimeros-sueca-aeroespacial': 'work/swedish-polymer-brand-aerospace',
+    'blog': 'insights',
+    'blog/cambio-algoritmo-cuentas-pequenas-vs-grandes': 'insights/algorithm-change-small-vs-large-accounts',
+    'blog/de-contenido-a-leads-entrantes': 'insights/content-to-inbound-leads',
+    'blog/como-crecer-en-linkedin': 'insights/how-to-grow-on-linkedin',
+    'blog/problema-medicion-roi-publicidad-linkedin': 'insights/linkedin-ad-roi-measurement-problem',
+    'blog/publicidad-linkedin-vs-contenido-organico': 'insights/linkedin-ads-vs-organic-content',
+    'blog/titular-linkedin-cuesta-oportunidades': 'insights/linkedin-headline-costing-opportunities',
+    'blog/presupuesto-minimo-publicidad-linkedin': 'insights/minimum-viable-linkedin-ads-budget',
+    'blog/errores-perfil-matan-conversiones': 'insights/profile-mistakes-killing-conversions',
+    'blog/deja-de-gastar-en-audiencias-sin-intencion': 'insights/stop-wasting-money-low-intent-audiences',
+    'blog/el-verdadero-problema-de-linkedin': 'insights/the-real-linkedin-problem',
+    'blog/por-que-la-publicidad-linkedin-cuesta-mas': 'insights/why-linkedin-ads-cost-more',
+    'blog/por-que-cayo-tu-alcance': 'insights/why-your-reach-dropped',
+    'blog/tu-publicacion-linkedin-ya-esta-muerta': 'insights/your-linkedin-post-is-already-dead',
+  };
+  return map[esSegment] ?? esSegment;
+}
+
+function canonicalFromDe(deSegment: string): string {
+  const map: Record<string, string> = {
+    'referenzen/chinesischer-kabelhersteller-employee-advocacy': 'work/chinese-cable-manufacturer-employee-advocacy',
+    'referenzen/franzoesische-wirtschaftspruefer-partner': 'work/french-accounting-firm-partner-linkedin',
+    'referenzen/franzoesisches-parfuemlabor-personal-branding': 'work/french-fragrance-lab-personal-branding',
+    'referenzen/hongkong-kanzlei-cross-border-transaktionen': 'work/hong-kong-law-firm-cross-border-deals',
+    'referenzen/japanischer-medizinbettenhersteller-leads': 'work/japanese-medical-bed-maker-linkedin-leads',
+    'referenzen/schwedische-polymermarke-luftfahrt': 'work/swedish-polymer-brand-aerospace',
+    'einblicke/algorithmus-kleine-vs-grosse-accounts': 'insights/algorithm-change-small-vs-large-accounts',
+    'einblicke/vom-content-zum-inbound-lead': 'insights/content-to-inbound-leads',
+    'einblicke/wachstum-auf-linkedin': 'insights/how-to-grow-on-linkedin',
+    'einblicke/linkedin-ads-roi-messproblem': 'insights/linkedin-ad-roi-measurement-problem',
+    'einblicke/linkedin-ads-vs-organisch': 'insights/linkedin-ads-vs-organic-content',
+    'einblicke/headline-fehler-die-geschaeft-kosten': 'insights/linkedin-headline-costing-opportunities',
+    'einblicke/mindestbudget-linkedin-ads': 'insights/minimum-viable-linkedin-ads-budget',
+    'einblicke/profilfehler-die-konversionen-kosten': 'insights/profile-mistakes-killing-conversions',
+    'einblicke/schluss-mit-niedrig-intent-zielgruppen': 'insights/stop-wasting-money-low-intent-audiences',
+    'einblicke/das-eigentliche-linkedin-problem': 'insights/the-real-linkedin-problem',
+    'einblicke/warum-linkedin-ads-teurer-werden': 'insights/why-linkedin-ads-cost-more',
+    'einblicke/warum-ihre-reichweite-eingebrochen-ist': 'insights/why-your-reach-dropped',
+    'einblicke/ihr-linkedin-beitrag-ist-bereits-tot': 'insights/your-linkedin-post-is-already-dead',
+  };
+  return map[deSegment] ?? deSegment;
+}
+
+function canonicalFromFr(frSegment: string): string {
+  const map: Record<string, string> = {
+    'realisations/fabricant-chinois-cables-mobilisation-equipes': 'work/chinese-cable-manufacturer-employee-advocacy',
+    'realisations/cabinet-comptable-francais-associes-linkedin': 'work/french-accounting-firm-partner-linkedin',
+    'realisations/laboratoire-parfums-francais-visibilite-dirigeant': 'work/french-fragrance-lab-personal-branding',
+    'realisations/cabinet-avocats-hong-kong-transfrontalier': 'work/hong-kong-law-firm-cross-border-deals',
+    'realisations/fabricant-japonais-lits-medicaux-linkedin': 'work/japanese-medical-bed-maker-linkedin-leads',
+    'realisations/fabricant-suedois-polymeres-aeronautique': 'work/swedish-polymer-brand-aerospace',
+    'publications/changement-algorithme-petits-vs-gros-comptes': 'insights/algorithm-change-small-vs-large-accounts',
+    'publications/du-contenu-aux-prospects-entrants': 'insights/content-to-inbound-leads',
+    'publications/comment-grandir-sur-linkedin': 'insights/how-to-grow-on-linkedin',
+    'publications/probleme-mesure-roi-publicite-linkedin': 'insights/linkedin-ad-roi-measurement-problem',
+    'publications/publicite-linkedin-vs-contenu-organique': 'insights/linkedin-ads-vs-organic-content',
+    'publications/accroche-linkedin-coute-opportunites': 'insights/linkedin-headline-costing-opportunities',
+    'publications/budget-minimum-publicite-linkedin': 'insights/minimum-viable-linkedin-ads-budget',
+    'publications/erreurs-profil-tuent-conversions': 'insights/profile-mistakes-killing-conversions',
+    'publications/arretez-gaspiller-audiences-faible-intention': 'insights/stop-wasting-money-low-intent-audiences',
+    'publications/le-vrai-probleme-linkedin': 'insights/the-real-linkedin-problem',
+    'publications/pourquoi-publicite-linkedin-coute-plus': 'insights/why-linkedin-ads-cost-more',
+    'publications/pourquoi-votre-portee-a-chute': 'insights/why-your-reach-dropped',
+    'publications/votre-publication-linkedin-est-deja-morte': 'insights/your-linkedin-post-is-already-dead',
+  };
+  return map[frSegment] ?? frSegment;
+}
+
+const personIdByAuthor: Record<ArticleAuthor, string> = {
+  cyril: `${SITE}/about#cyril-drouin`,
+  liyan: `${SITE}/about#liyan-ye`,
+};
+
+// Build a BlogPosting / Article JSON-LD node for the current page if its path
+// matches a registered insight or case study. Returns null otherwise.
+export function articleSchemaFromPath(
+  pathname: string,
+  title: string,
+  description: string,
+  lang: Lang,
+  ogImage: string,
+): Record<string, unknown> | null {
+  const slug = canonicalSlugFromPath(pathname);
+  if (!slug) return null;
+  const meta = articleRegistry[slug];
+  const url = `${SITE}${pathname.replace(/\/$/, '') || '/'}`;
+  const image = meta.image
+    ? `${SITE}${meta.image}`
+    : ogImage.startsWith('http') ? ogImage : `${SITE}${ogImage}`;
+
+  return {
+    '@type': meta.type === 'insight' ? 'BlogPosting' : 'Article',
+    '@id': `${url}#article`,
+    headline: title,
+    description,
+    image,
+    datePublished: meta.datePublished,
+    dateModified: meta.dateModified ?? meta.datePublished,
+    inLanguage: inLanguageByLang[lang],
+    isPartOf: { '@id': `${SITE}/#website` },
+    publisher: { '@id': `${SITE}/#organization` },
+    author: { '@id': personIdByAuthor[meta.author] },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    articleSection: meta.type === 'insight' ? 'LinkedIn Strategy' : 'Case Study',
+  };
 }

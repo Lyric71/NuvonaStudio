@@ -1,7 +1,9 @@
 ---
 import '../styles/global.css';
+import Analytics from '@vercel/analytics/astro';
 import Footer from '../components/Footer.astro';
 import { getAlternateUrl, languages, type Lang } from '../i18n/index';
+import { articleSchemaFromPath } from '../i18n/schemas';
 
 interface Props {
   title?: string;
@@ -11,6 +13,7 @@ interface Props {
   preloadHero?: string;
   ogImage?: string;
   schemas?: Record<string, unknown>[];
+  robots?: string;
 }
 
 const {
@@ -21,11 +24,14 @@ const {
   preloadHero,
   ogImage = '/og/default.png',
   schemas = [],
+  robots = 'index, follow',
 } = Astro.props;
 
-const SITE = 'https://nuvora.studio';
+const SITE = 'https://www.nuvora.studio';
 const currentPath = Astro.url.pathname;
-const canonicalUrl = `${SITE}${currentPath.replace(/\/$/, '') || '/'}`;
+// No-trailing-slash policy site-wide (matches astro.config trailingSlash: 'never'
+// and the sitemap serialize). Root collapses to bare origin to match sitemap.
+const canonicalUrl = `${SITE}${currentPath.replace(/\/$/, '')}`;
 const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${SITE}${ogImage}`;
 
 const ogLocaleMap: Record<Lang, string> = {
@@ -130,8 +136,11 @@ const breadcrumbNode =
       }
     : null;
 
+const articleNode = articleSchemaFromPath(currentPath, title, description, lang, ogImage);
+
 const graph: Record<string, unknown>[] = [organizationNode, websiteNode];
 if (breadcrumbNode) graph.push(breadcrumbNode);
+if (articleNode) graph.push(articleNode);
 if (schemas.length) graph.push(...schemas);
 
 const jsonLd = JSON.stringify({
@@ -146,7 +155,7 @@ const jsonLd = JSON.stringify({
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={robots} />
     <meta name="theme-color" content="#0a1633" />
 
     <!-- Open Graph -->
@@ -197,6 +206,7 @@ const jsonLd = JSON.stringify({
   <body>
     <slot />
     <Footer lang={lang} />
+    <Analytics />
 
     <!-- Scroll-reveal observer -->
     <script>

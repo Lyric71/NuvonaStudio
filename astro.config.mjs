@@ -5,8 +5,9 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://nuvora.studio',
+  site: 'https://www.nuvora.studio',
   output: 'static',
+  trailingSlash: 'never',
   adapter: vercel(),
   integrations: [
     sitemap({
@@ -22,19 +23,26 @@ export default defineConfig({
       },
       filter: (page) => {
         const disallowed = [
-          '/api/',
-          '/generate/',
-          '/thank-you/',
-          '/fr/merci/',
-          '/de/danke/',
-          '/es/gracias/',
-          '/zh/thank-you/',
+          '/api',
+          '/generate',
+          '/thank-you',
+          '/fr/merci',
+          '/de/danke',
+          '/es/gracias',
+          '/zh/thank-you',
         ];
-        return !disallowed.some((path) => page.includes(path));
+        return !disallowed.some(
+          (path) => page.includes(`${path}/`) || page.endsWith(path),
+        );
       },
       serialize(item) {
-        const stripSlash = (url) =>
-          url === 'https://nuvora.studio/' ? url : url.replace(/\/$/, '');
+        const stripSlash = (url) => {
+          const stripped = url.replace(/\/$/, '');
+          // Keep the trailing slash on the bare root only.
+          return stripped === 'https://www.nuvora.studio'
+            ? 'https://www.nuvora.studio/'
+            : stripped;
+        };
         item.url = stripSlash(item.url);
         if (item.links) {
           item.links = item.links.map((link) => ({ ...link, url: stripSlash(link.url) }));
