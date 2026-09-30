@@ -54,6 +54,10 @@ export default defineConfig({
       lastmod: new Date(),
     }),
   ],
+  // Astro 7's default strips whitespace between tags the way JSX does, which
+  // runs inline elements written on separate lines into the next word. `true`
+  // keeps the Astro 6 behavior the templates were written for.
+  compressHTML: true,
   build: {
     inlineStylesheets: 'always',
   },
