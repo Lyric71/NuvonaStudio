@@ -24,7 +24,6 @@ export default defineConfig({
       filter: (page) => {
         const disallowed = [
           '/api',
-          '/generate',
           '/thank-you',
           '/fr/merci',
           '/de/danke',

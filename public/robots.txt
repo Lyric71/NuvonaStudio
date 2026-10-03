@@ -1,7 +1,6 @@
 User-agent: *
 Allow: /
 
-Disallow: /generate
 Disallow: /thank-you
 Disallow: /fr/merci
 Disallow: /de/danke

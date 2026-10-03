@@ -25,3 +25,8 @@ pnpm-debug.log*
 .idea/
 
 .vercel
+
+# scratch output from scripts/generate-image.mjs
+generated-*.png
+generated-*.jpeg
+generated-*.webp

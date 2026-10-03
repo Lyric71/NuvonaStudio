@@ -19,8 +19,6 @@
     "@astrojs/vercel": "^11.0.11",
     "@vercel/analytics": "^2.0.1",
     "astro": "^7.3.5",
-    "dotenv": "^18.0.4",
-    "resend": "^6.9.4",
-    "wavespeed": "^0.2.3"
+    "resend": "^6.9.4"
   }
 }
