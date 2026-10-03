@@ -12,13 +12,20 @@
     "preview": "astro preview",
     "astro": "astro",
     "generate": "node scripts/generate-image.mjs",
-    "optimize-images": "node scripts/optimize-images.mjs"
+    "optimize-images": "node scripts/optimize-images.mjs",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
     "@astrojs/vercel": "^11.0.11",
     "@vercel/analytics": "^2.0.1",
     "astro": "^7.3.5",
-    "resend": "^6.9.4"
+    "resend": "^6.9.4",
+    "sharp": "^0.35.5"
+  },
+  "overrides": {
+    "@vercel/routing-utils": {
+      "path-to-regexp": "6.3.0"
+    }
   }
 }

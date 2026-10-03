@@ -13,9 +13,11 @@ const QUALITY = 80;
 // These must stay as PNG (browser compatibility)
 const SKIP = new Set([
   'favicon.png',
-  'favicon-256.png',
   'apple-touch-icon.png',
 ]);
+
+// Social share images (og:image) stay JPEG/PNG: not every platform reads WebP.
+const SKIP_DIRS = new Set([join(PUBLIC, 'og')]);
 
 async function scanDir(dir) {
   let files = [];
@@ -23,7 +25,7 @@ async function scanDir(dir) {
     const entries = await readdir(dir, { withFileTypes: true });
     for (const entry of entries) {
       const fullPath = join(dir, entry.name);
-      if (entry.isDirectory() && !entry.name.startsWith('.')) {
+      if (entry.isDirectory() && !entry.name.startsWith('.') && !SKIP_DIRS.has(fullPath)) {
         files.push(...await scanDir(fullPath));
       } else if (/\.(png|jpe?g)$/i.test(entry.name) && !SKIP.has(entry.name)) {
         files.push(fullPath);

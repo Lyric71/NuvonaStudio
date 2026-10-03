@@ -224,19 +224,19 @@ interface ArticleMeta {
 
 export const articleRegistry: Record<string, ArticleMeta> = {
   // Insights
-  'insights/algorithm-change-small-vs-large-accounts': { type: 'insight', datePublished: '2026-03-29', author: 'cyril' },
-  'insights/content-to-inbound-leads':                 { type: 'insight', datePublished: '2026-03-29', author: 'cyril' },
-  'insights/how-to-grow-on-linkedin':                  { type: 'insight', datePublished: '2026-03-29', author: 'cyril' },
-  'insights/linkedin-ad-roi-measurement-problem':      { type: 'insight', datePublished: '2026-03-29', author: 'cyril' },
-  'insights/linkedin-ads-vs-organic-content':          { type: 'insight', datePublished: '2026-03-29', author: 'cyril' },
-  'insights/linkedin-headline-costing-opportunities':  { type: 'insight', datePublished: '2026-03-29', author: 'cyril' },
-  'insights/minimum-viable-linkedin-ads-budget':       { type: 'insight', datePublished: '2026-03-29', author: 'cyril' },
-  'insights/profile-mistakes-killing-conversions':     { type: 'insight', datePublished: '2026-03-29', author: 'cyril' },
-  'insights/stop-wasting-money-low-intent-audiences':  { type: 'insight', datePublished: '2026-03-29', author: 'cyril' },
-  'insights/the-real-linkedin-problem':                { type: 'insight', datePublished: '2026-03-23', author: 'cyril' },
-  'insights/why-linkedin-ads-cost-more':               { type: 'insight', datePublished: '2026-03-29', author: 'cyril' },
-  'insights/why-your-reach-dropped':                   { type: 'insight', datePublished: '2026-03-29', author: 'cyril' },
-  'insights/your-linkedin-post-is-already-dead':       { type: 'insight', datePublished: '2026-03-23', author: 'cyril' },
+  'insights/algorithm-change-small-vs-large-accounts': { type: 'insight', datePublished: '2026-03-29', author: 'cyril', image: '/og/algorithm-change-small-vs-large-accounts.jpg' },
+  'insights/content-to-inbound-leads':                 { type: 'insight', datePublished: '2026-03-29', author: 'cyril', image: '/og/content-to-inbound-leads.jpg' },
+  'insights/how-to-grow-on-linkedin':                  { type: 'insight', datePublished: '2026-03-29', author: 'cyril', image: '/og/how-to-grow-on-linkedin.jpg' },
+  'insights/linkedin-ad-roi-measurement-problem':      { type: 'insight', datePublished: '2026-03-29', author: 'cyril', image: '/og/linkedin-ad-roi-measurement-problem.jpg' },
+  'insights/linkedin-ads-vs-organic-content':          { type: 'insight', datePublished: '2026-03-29', author: 'cyril', image: '/og/linkedin-ads-vs-organic-content.jpg' },
+  'insights/linkedin-headline-costing-opportunities':  { type: 'insight', datePublished: '2026-03-29', author: 'cyril', image: '/og/linkedin-headline-costing-opportunities.jpg' },
+  'insights/minimum-viable-linkedin-ads-budget':       { type: 'insight', datePublished: '2026-03-29', author: 'cyril', image: '/og/minimum-viable-linkedin-ads-budget.jpg' },
+  'insights/profile-mistakes-killing-conversions':     { type: 'insight', datePublished: '2026-03-29', author: 'cyril', image: '/og/profile-mistakes-killing-conversions.jpg' },
+  'insights/stop-wasting-money-low-intent-audiences':  { type: 'insight', datePublished: '2026-03-29', author: 'cyril', image: '/og/stop-wasting-money-low-intent-audiences.jpg' },
+  'insights/the-real-linkedin-problem':                { type: 'insight', datePublished: '2026-03-23', author: 'cyril', image: '/og/the-real-linkedin-problem.jpg' },
+  'insights/why-linkedin-ads-cost-more':               { type: 'insight', datePublished: '2026-03-29', author: 'cyril', image: '/og/why-linkedin-ads-cost-more.jpg' },
+  'insights/why-your-reach-dropped':                   { type: 'insight', datePublished: '2026-03-29', author: 'cyril', image: '/og/why-your-reach-dropped.jpg' },
+  'insights/your-linkedin-post-is-already-dead':       { type: 'insight', datePublished: '2026-03-23', author: 'cyril', image: '/og/your-linkedin-post-is-already-dead.jpg' },
 
   // Case studies
   'work/chinese-cable-manufacturer-employee-advocacy': { type: 'case', datePublished: '2026-03-29', author: 'cyril' },
@@ -352,10 +352,49 @@ function canonicalFromFr(frSegment: string): string {
   return map[frSegment] ?? frSegment;
 }
 
-const personIdByAuthor: Record<ArticleAuthor, string> = {
-  cyril: `${SITE}/about#cyril-drouin`,
-  liyan: `${SITE}/about#liyan-ye`,
+// Inline name/url so consumers that don't resolve nested @ids still get the
+// author; the @id ties it to the full Person node on the about pages.
+const authorByKey: Record<ArticleAuthor, { id: string; name: string }> = {
+  cyril: { id: `${SITE}/about#cyril-drouin`, name: 'Cyril Drouin' },
+  liyan: { id: `${SITE}/about#liyan-ye`, name: 'LiYan Ye' },
 };
+
+const articleSectionByLang: Record<ArticleType, Record<Lang, string>> = {
+  insight: {
+    en: 'LinkedIn Strategy',
+    fr: 'Stratégie LinkedIn',
+    de: 'LinkedIn-Strategie',
+    es: 'Estrategia de LinkedIn',
+    zh: 'LinkedIn 策略',
+  },
+  case: {
+    en: 'Case Study',
+    fr: 'Étude de cas',
+    de: 'Fallstudie',
+    es: 'Caso de éxito',
+    zh: '客户案例',
+  },
+};
+
+// Google recommends headlines of 110 characters or fewer.
+function headlineFromTitle(title: string): string {
+  const bare = title.replace(/\s*[|｜]\s*Nuvora Studio\s*$/, '');
+  if (bare.length <= 110) return bare;
+  const cut = bare.slice(0, 109);
+  return `${cut.slice(0, cut.lastIndexOf(' ') > 80 ? cut.lastIndexOf(' ') : 109)}…`;
+}
+
+// Registry entry for an article or case study in any locale; null otherwise.
+export function articleMetaFromPath(pathname: string): ArticleMeta | null {
+  const slug = canonicalSlugFromPath(pathname);
+  return slug ? articleRegistry[slug] : null;
+}
+
+// Sitemap lastmod for registered articles (any locale); null for other pages.
+export function articleLastmod(pathname: string): string | null {
+  const meta = articleMetaFromPath(pathname);
+  return meta ? meta.dateModified ?? meta.datePublished : null;
+}
 
 // Build a BlogPosting / Article JSON-LD node for the current page if its path
 // matches a registered insight or case study. Returns null otherwise.
@@ -377,7 +416,7 @@ export function articleSchemaFromPath(
   return {
     '@type': meta.type === 'insight' ? 'BlogPosting' : 'Article',
     '@id': `${url}#article`,
-    headline: title,
+    headline: headlineFromTitle(title),
     description,
     image,
     datePublished: meta.datePublished,
@@ -385,8 +424,13 @@ export function articleSchemaFromPath(
     inLanguage: inLanguageByLang[lang],
     isPartOf: { '@id': `${SITE}/#website` },
     publisher: { '@id': `${SITE}/#organization` },
-    author: { '@id': personIdByAuthor[meta.author] },
+    author: {
+      '@type': 'Person',
+      '@id': authorByKey[meta.author].id,
+      name: authorByKey[meta.author].name,
+      url: `${SITE}${aboutPathByLang[lang]}`,
+    },
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-    articleSection: meta.type === 'insight' ? 'LinkedIn Strategy' : 'Case Study',
+    articleSection: articleSectionByLang[meta.type][lang],
   };
 }

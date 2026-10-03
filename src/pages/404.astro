@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/NavBar.astro';
+---
+
+<Layout
+  title="Page not found | Nuvora Studio"
+  description="This page doesn't exist or has moved."
+  notFound
+>
+  <NavBar />
+  <main id="main-content">
+    <section class="nf" aria-labelledby="nf-h">
+      <div class="container container--sm">
+        <p class="eyebrow">404</p>
+        <h1 id="nf-h" class="nf__h1">This page doesn't exist</h1>
+        <p class="nf__lead">The link may be old, or the page may have moved. Try one of these instead.</p>
+        <div class="nf__actions">
+          <a href="/" class="btn btn--primary">Back to the homepage</a>
+          <a href="/insights" class="btn btn--outline">Read our insights</a>
+        </div>
+        <ul class="nf__langs" aria-label="Other languages">
+          <li><a href="/fr">Français</a></li>
+          <li><a href="/de">Deutsch</a></li>
+          <li><a href="/es">Español</a></li>
+          <li><a href="/zh">中文</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .nf { padding-block: var(--sp-24) var(--sp-20); text-align: center; }
+  .nf__h1 { margin: var(--sp-3) 0 var(--sp-4); }
+  .nf__lead { color: var(--text-2); margin-bottom: var(--sp-8); }
+  .nf__actions { display: flex; flex-wrap: wrap; gap: var(--sp-4); justify-content: center; }
+  .nf__langs { display: flex; flex-wrap: wrap; gap: var(--sp-6); justify-content: center; margin-top: var(--sp-10); font-size: var(--fs-sm); }
+  .nf__langs a { color: var(--text-2); }
+  .nf__langs a:hover { color: var(--text); }
+</style>

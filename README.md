@@ -1,43 +1,26 @@
-# Astro Starter Kit: Minimal
+# Nuvora Studio website
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Source for [www.nuvora.studio](https://www.nuvora.studio): an Astro static site deployed on Vercel, in five languages (English at the root, plus `/fr`, `/de`, `/es` and `/zh` with localized slugs).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Commands
 
-## 🚀 Project Structure
+| Command | What it does |
+| :-- | :-- |
+| `npm run dev` | Dev server on `127.0.0.1:4321` (next free port if taken) |
+| `npm run build` | Converts new PNG/JPG in `public/` to WebP, then builds to `dist/` |
+| `npm run preview` | Serves the production build locally |
+| `npm run generate -- "<prompt>"` | Generates an image with the OpenAI Images API (needs `OPENAI_API_KEY`) |
+| `npm run indexnow` | Submits the built sitemap's URLs to IndexNow, after a deploy is live |
 
-Inside of your Astro project, you'll see the following folders and files:
+## Where things live
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- `src/pages/`: one `.astro` file per page and locale. `src/pages/api/` holds the server routes (contact forms, LinkedIn optimizer).
+- `src/layouts/Layout.astro`: head tags, canonical, hreflang, Open Graph and the JSON-LD graph.
+- `src/i18n/index.ts`: UI strings and the slug maps behind `getAlternateUrl` and `localizedPath`.
+- `src/i18n/schemas.ts`: page schemas and the article registry (dates, author, share image).
+- `public/og/`: 1200x630 share images. These stay JPEG; the WebP optimizer skips this folder.
+- `astro.config.mjs`: the sitemap, with hreflang alternates built from the same slug maps as the pages.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Environment
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+`.env` needs `RESEND_API_KEY`, `RECAPTCHA_SECRET_KEY` and `ANTHROPIC_API_KEY` for the API routes. `OPENAI_API_KEY` is only used by the local image script.

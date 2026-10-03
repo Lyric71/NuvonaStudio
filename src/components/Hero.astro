@@ -4,13 +4,15 @@
 <section class="hero" aria-labelledby="hero-heading">
   <img
     src="/images/hero-notification.webp"
+    srcset="/images/hero-notification-640.webp 640w, /images/hero-notification-1024.webp 1024w, /images/hero-notification.webp 1408w"
+    sizes="100vw"
     alt=""
     aria-hidden="true"
     class="hero__bg"
     fetchpriority="high"
     decoding="async"
-    width="1920"
-    height="1080"
+    width="1408"
+    height="768"
   />
   <div class="hero__overlay" aria-hidden="true"></div>
   <div class="container" style="position: relative; z-index: 2;">
@@ -108,6 +110,14 @@
   .hero__anim--1 { animation-delay: 0.06s; }
   .hero__anim--2 { animation-delay: 0.14s; }
   .hero__anim--3 { animation-delay: 0.22s; }
+  /* The h1 is the LCP text: slide it in without starting invisible. */
+  @keyframes heroRise {
+    from { transform: translateY(20px); }
+    to   { transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero__h1.hero__anim { animation-name: heroRise; }
+  }
 
   @media (prefers-reduced-motion: reduce) {
     .hero__anim { animation: none; opacity: 1; transform: none; }

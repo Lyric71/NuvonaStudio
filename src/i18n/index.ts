@@ -503,7 +503,7 @@ export function getAlternateUrl(currentPath: string, targetLang: Lang): string {
   if (targetLang === 'en') {
     return (targetSegment ? `/${targetSegment}` : '/') + tail;
   }
-  return (targetSegment ? `/${targetLang}/${targetSegment}` : `/${targetLang}/`) + tail;
+  return (targetSegment ? `/${targetLang}/${targetSegment}` : `/${targetLang}`) + tail;
 }
 
 export function getLangFromPath(pathname: string): Lang {
@@ -523,5 +523,5 @@ export function localizedPath(canonicalEn: string, lang: Lang): string {
   else if (lang === 'de') segment = deSlugMap[clean] ?? clean;
   else if (lang === 'fr') segment = frSlugMap[clean] ?? clean;
   if (lang === 'en') return segment ? `/${segment}` : '/';
-  return segment ? `/${lang}/${segment}` : `/${lang}/`;
+  return segment ? `/${lang}/${segment}` : `/${lang}`;
 }

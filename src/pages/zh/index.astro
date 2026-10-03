@@ -162,13 +162,15 @@ const faqs = [
   description="只服务 B2B 企业、只做 LinkedIn 一件事的营销咨询公司。LinkedIn 内容代运营、LinkedIn 广告投放、高管个人品牌、团队培训，全都围绕这一个平台。"
   abstract="只做 LinkedIn 的 B2B 营销公司。策略、内容、广告、培训，在这一个平台上一次性解决。"
   preloadHero="/images/hero-notification.webp"
+  preloadHeroSrcset="/images/hero-notification-640.webp 640w, /images/hero-notification-1024.webp 1024w, /images/hero-notification.webp 1408w"
+  preloadHeroSizes="100vw"
 >
   <NavBar lang="zh" />
   <main id="main-content">
 
     <!-- ═══════════════════════════ 1. HERO ═══════════════════════════ -->
     <section class="hero" aria-labelledby="hero-heading">
-      <img src="/images/hero-notification.webp" alt="" aria-hidden="true" class="hero__bg" fetchpriority="high" decoding="async" width="1920" height="1080" />
+      <img src="/images/hero-notification.webp" srcset="/images/hero-notification-640.webp 640w, /images/hero-notification-1024.webp 1024w, /images/hero-notification.webp 1408w" sizes="100vw" alt="" aria-hidden="true" class="hero__bg" fetchpriority="high" decoding="async" width="1408" height="768" />
       <div class="hero__overlay" aria-hidden="true"></div>
       <div class="container" style="position: relative; z-index: 2;">
         <div class="hero__content">
@@ -623,6 +625,14 @@ const faqs = [
   .hero__anim--1 { animation-delay: 0.06s; }
   .hero__anim--2 { animation-delay: 0.14s; }
   .hero__anim--3 { animation-delay: 0.22s; }
+  /* The h1 is the LCP text: slide it in without starting invisible. */
+  @keyframes heroRise {
+    from { transform: translateY(20px); }
+    to   { transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero__h1.hero__anim { animation-name: heroRise; }
+  }
   @media (prefers-reduced-motion: reduce) {
     .hero__anim { animation: none; opacity: 1; transform: none; }
   }

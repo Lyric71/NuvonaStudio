@@ -4,54 +4,54 @@
 
 ## Primary Pages
 
-- [Home](https://nuvora.studio/): What Nuvora Studio does and why a LinkedIn-only agency exists. Lays out the three service lines (content, advertising, consulting), the working model, and the kinds of B2B companies it serves.
-- [Services](https://nuvora.studio/services): Overview of the three service lines that turn LinkedIn into a B2B lead channel — content, advertising, consulting and executive branding.
-- [Content services](https://nuvora.studio/services/content): Company page management, content production, LinkedIn newsletters, LinkedIn events, employee advocacy programmes, and executive ghostwriting.
-- [Advertising services](https://nuvora.studio/services/advertising): LinkedIn ads management end to end — sponsored content, lead gen forms, dynamic ads, sponsored messaging, and text ads. Ad spend always goes directly to the client's LinkedIn account.
-- [Consulting services](https://nuvora.studio/services/consulting): LinkedIn strategy consulting, employee advocacy programme design, personal branding for founders and executives, and team training.
-- [Pricing](https://nuvora.studio/pricing): Three retainer tiers starting at $1,800/month for Foundation, plus standalone ads management, executive branding, and training. Clear scope and deliverables per tier.
-- [Work](https://nuvora.studio/work): Case studies across manufacturing, professional services, healthcare, and B2B technology — each with starting state, intervention, and the result attributed to LinkedIn.
-- [Insights](https://nuvora.studio/insights): Long-form analysis on LinkedIn strategy, B2B content, advertising, and platform updates. Written by practitioners running campaigns, not by content mills.
-- [About](https://nuvora.studio/about): Why Nuvora exists, the team's values, the working model (senior people doing the work, no handoffs), and leadership bios.
-- [Contact](https://nuvora.studio/contact): Direct contact for new business. Replies from a senior team member within one working day.
-- [LinkedIn Profile Optimizer](https://nuvora.studio/linkedin-optimizer): Free diagnostic tool that audits a LinkedIn profile against the patterns Nuvora uses with clients and returns a concrete punch list.
+- [Home](https://www.nuvora.studio/): What Nuvora Studio does and why a LinkedIn-only agency exists. Lays out the three service lines (content, advertising, consulting), the working model, and the kinds of B2B companies it serves.
+- [Services](https://www.nuvora.studio/services): Overview of the three service lines that turn LinkedIn into a B2B lead channel — content, advertising, consulting and executive branding.
+- [Content services](https://www.nuvora.studio/services/content): Company page management, content production, LinkedIn newsletters, LinkedIn events, employee advocacy programmes, and executive ghostwriting.
+- [Advertising services](https://www.nuvora.studio/services/advertising): LinkedIn ads management end to end — sponsored content, lead gen forms, dynamic ads, sponsored messaging, and text ads. Ad spend always goes directly to the client's LinkedIn account.
+- [Consulting services](https://www.nuvora.studio/services/consulting): LinkedIn strategy consulting, employee advocacy programme design, personal branding for founders and executives, and team training.
+- [Pricing](https://www.nuvora.studio/pricing): Three retainer tiers starting at $1,800/month for Foundation, plus standalone ads management, executive branding, and training. Clear scope and deliverables per tier.
+- [Work](https://www.nuvora.studio/work): Case studies across manufacturing, professional services, healthcare, and B2B technology — each with starting state, intervention, and the result attributed to LinkedIn.
+- [Insights](https://www.nuvora.studio/insights): Long-form analysis on LinkedIn strategy, B2B content, advertising, and platform updates. Written by practitioners running campaigns, not by content mills.
+- [About](https://www.nuvora.studio/about): Why Nuvora exists, the team's values, the working model (senior people doing the work, no handoffs), and leadership bios.
+- [Contact](https://www.nuvora.studio/contact): Direct contact for new business. Replies from a senior team member within one working day.
+- [LinkedIn Profile Optimizer](https://www.nuvora.studio/linkedin-optimizer): Free diagnostic tool that audits a LinkedIn profile against the patterns Nuvora uses with clients and returns a concrete punch list.
 
 ## Insights
 
-- [The real LinkedIn problem isn't writing. It's thinking.](https://nuvora.studio/insights/the-real-linkedin-problem): AI can polish sentences. It cannot tell a brand what to say. That gap is where most B2B companies quietly disappear on LinkedIn.
-- [LinkedIn's algorithm in 2026: small accounts vs. large ones](https://nuvora.studio/insights/algorithm-change-small-vs-large-accounts): LinkedIn's 2026 algorithm rewards small, engaged accounts over large, passive ones. A page with 500 active followers can now beat one with 50,000.
-- [How to turn LinkedIn content into inbound leads](https://nuvora.studio/insights/content-to-inbound-leads): Most LinkedIn content pulls views and zero leads. Inbound converts at 14.6%, outbound stalls at 1.7%. How to build a content system that moves pipeline.
-- [How to grow on LinkedIn when the feed is full](https://nuvora.studio/insights/how-to-grow-on-linkedin): LinkedIn has 5x more active creators than in 2023. Two million posts go live every day. How to cut through and grow when everyone else is also posting.
-- [Your LinkedIn ad ROI is a measurement problem](https://nuvora.studio/insights/linkedin-ad-roi-measurement-problem): LinkedIn Ads deliver 121% ROAS for B2B, but most companies measure at 30 days while the average B2B deal closes in 272. Why the numbers lie.
-- [LinkedIn ads vs. organic: where to put your money in 2026](https://nuvora.studio/insights/linkedin-ads-vs-organic-content): Organic LinkedIn content pulls leads at roughly half the cost of ads. How to split a budget based on stage, deal size, and where pipeline needs to move.
-- [Your LinkedIn headline is costing you leads](https://nuvora.studio/insights/linkedin-headline-costing-opportunities): The LinkedIn headline shows up everywhere — posts, comments, search results, connection requests. Most people use less than 40% of the characters available.
-- [The minimum viable LinkedIn Ads budget](https://nuvora.studio/insights/minimum-viable-linkedin-ads-budget): LinkedIn lets advertisers start at $10 a day. That won't get anywhere useful. What it actually takes to move pipeline, by offer and sales cycle.
-- [The LinkedIn profile mistakes that kill conversions](https://nuvora.studio/insights/profile-mistakes-killing-conversions): A LinkedIn profile gets clicked after every post, comment, and connection request. Most profiles waste the moment. The mistakes quietly costing leads.
-- [Stop wasting LinkedIn ad spend on low-intent audiences](https://nuvora.studio/insights/stop-wasting-money-low-intent-audiences): Most LinkedIn ad budgets are wasted on audiences too broad to convert. Only 3 to 6% of a market is buying at any given moment. How to fix targeting.
-- [Why LinkedIn ads cost 4 to 6x more per click](https://nuvora.studio/insights/why-linkedin-ads-cost-more): LinkedIn ads cost $5 to $12 per click. Meta gets a click for $0.50. Cost per click is the wrong yardstick. When the premium actually pays back.
-- [Why your LinkedIn reach dropped 50% in 2026](https://nuvora.studio/insights/why-your-reach-dropped): LinkedIn organic reach is down 50% since 2023. It isn't the content. It's a new algorithm called 360Brew. What changed and what works under it.
-- [Your LinkedIn post is already dead](https://nuvora.studio/insights/your-linkedin-post-is-already-dead): The feed is drowning in AI-generated content. The window to be seen is roughly two hours. What the companies surviving this know that most brands haven't worked out.
+- [The real LinkedIn problem isn't writing. It's thinking.](https://www.nuvora.studio/insights/the-real-linkedin-problem): AI can polish sentences. It cannot tell a brand what to say. That gap is where most B2B companies quietly disappear on LinkedIn.
+- [LinkedIn's algorithm in 2026: small accounts vs. large ones](https://www.nuvora.studio/insights/algorithm-change-small-vs-large-accounts): LinkedIn's 2026 algorithm rewards small, engaged accounts over large, passive ones. A page with 500 active followers can now beat one with 50,000.
+- [How to turn LinkedIn content into inbound leads](https://www.nuvora.studio/insights/content-to-inbound-leads): Most LinkedIn content pulls views and zero leads. Inbound converts at 14.6%, outbound stalls at 1.7%. How to build a content system that moves pipeline.
+- [How to grow on LinkedIn when the feed is full](https://www.nuvora.studio/insights/how-to-grow-on-linkedin): LinkedIn has 5x more active creators than in 2023. Two million posts go live every day. How to cut through and grow when everyone else is also posting.
+- [Your LinkedIn ad ROI is a measurement problem](https://www.nuvora.studio/insights/linkedin-ad-roi-measurement-problem): LinkedIn Ads deliver 121% ROAS for B2B, but most companies measure at 30 days while the average B2B deal closes in 272. Why the numbers lie.
+- [LinkedIn ads vs. organic: where to put your money in 2026](https://www.nuvora.studio/insights/linkedin-ads-vs-organic-content): Organic LinkedIn content pulls leads at roughly half the cost of ads. How to split a budget based on stage, deal size, and where pipeline needs to move.
+- [Your LinkedIn headline is costing you leads](https://www.nuvora.studio/insights/linkedin-headline-costing-opportunities): The LinkedIn headline shows up everywhere — posts, comments, search results, connection requests. Most people use less than 40% of the characters available.
+- [The minimum viable LinkedIn Ads budget](https://www.nuvora.studio/insights/minimum-viable-linkedin-ads-budget): LinkedIn lets advertisers start at $10 a day. That won't get anywhere useful. What it actually takes to move pipeline, by offer and sales cycle.
+- [The LinkedIn profile mistakes that kill conversions](https://www.nuvora.studio/insights/profile-mistakes-killing-conversions): A LinkedIn profile gets clicked after every post, comment, and connection request. Most profiles waste the moment. The mistakes quietly costing leads.
+- [Stop wasting LinkedIn ad spend on low-intent audiences](https://www.nuvora.studio/insights/stop-wasting-money-low-intent-audiences): Most LinkedIn ad budgets are wasted on audiences too broad to convert. Only 3 to 6% of a market is buying at any given moment. How to fix targeting.
+- [Why LinkedIn ads cost 4 to 6x more per click](https://www.nuvora.studio/insights/why-linkedin-ads-cost-more): LinkedIn ads cost $5 to $12 per click. Meta gets a click for $0.50. Cost per click is the wrong yardstick. When the premium actually pays back.
+- [Why your LinkedIn reach dropped 50% in 2026](https://www.nuvora.studio/insights/why-your-reach-dropped): LinkedIn organic reach is down 50% since 2023. It isn't the content. It's a new algorithm called 360Brew. What changed and what works under it.
+- [Your LinkedIn post is already dead](https://www.nuvora.studio/insights/your-linkedin-post-is-already-dead): The feed is drowning in AI-generated content. The window to be seen is roughly two hours. What the companies surviving this know that most brands haven't worked out.
 
 ## Case Studies
 
-- [Swedish aerospace polymer brand](https://nuvora.studio/work/swedish-polymer-brand-aerospace): A Swedish polymer manufacturer became the name aerospace buyers searched for on LinkedIn. From 340 followers to a Fortune 500 inbound.
-- [French fragrance lab — founder branding](https://nuvora.studio/work/french-fragrance-lab-personal-branding): A French fragrance lab pulled luxury clients through one founder's LinkedIn voice. Cold emails never worked. Personal branding opened every door.
-- [Chinese cable manufacturer — employee advocacy](https://nuvora.studio/work/chinese-cable-manufacturer-employee-advocacy): A Chinese cable manufacturer turned 40 field engineers into LinkedIn ambassadors. 160K impressions in 60 days, from a near-zero starting point.
-- [French accounting firm — partner LinkedIn](https://nuvora.studio/work/french-accounting-firm-partner-linkedin): A French accounting firm gave its partners a reason to post on LinkedIn. Six of twelve posting weekly inside 90 days. Forty-two leads on the board.
-- [Hong Kong law firm — cross-border deals](https://nuvora.studio/work/hong-kong-law-firm-cross-border-deals): A Hong Kong law firm turned senior partners into magnets for cross-border deals on LinkedIn. Two new mandates traced back to the platform inside two quarters.
-- [Japanese medical bed maker — LinkedIn leads](https://nuvora.studio/work/japanese-medical-bed-maker-linkedin-leads): A Japanese hospital-bed manufacturer had no digital footprint in Europe. Ninety days later, LinkedIn was delivering a steady pipeline of European distributors.
+- [Swedish aerospace polymer brand](https://www.nuvora.studio/work/swedish-polymer-brand-aerospace): A Swedish polymer manufacturer became the name aerospace buyers searched for on LinkedIn. From 340 followers to a Fortune 500 inbound.
+- [French fragrance lab — founder branding](https://www.nuvora.studio/work/french-fragrance-lab-personal-branding): A French fragrance lab pulled luxury clients through one founder's LinkedIn voice. Cold emails never worked. Personal branding opened every door.
+- [Chinese cable manufacturer — employee advocacy](https://www.nuvora.studio/work/chinese-cable-manufacturer-employee-advocacy): A Chinese cable manufacturer turned 40 field engineers into LinkedIn ambassadors. 160K impressions in 60 days, from a near-zero starting point.
+- [French accounting firm — partner LinkedIn](https://www.nuvora.studio/work/french-accounting-firm-partner-linkedin): A French accounting firm gave its partners a reason to post on LinkedIn. Six of twelve posting weekly inside 90 days. Forty-two leads on the board.
+- [Hong Kong law firm — cross-border deals](https://www.nuvora.studio/work/hong-kong-law-firm-cross-border-deals): A Hong Kong law firm turned senior partners into magnets for cross-border deals on LinkedIn. Two new mandates traced back to the platform inside two quarters.
+- [Japanese medical bed maker — LinkedIn leads](https://www.nuvora.studio/work/japanese-medical-bed-maker-linkedin-leads): A Japanese hospital-bed manufacturer had no digital footprint in Europe. Ninety days later, LinkedIn was delivering a steady pipeline of European distributors.
 
 ## Languages
 
 Content is published in five languages with localised URL slugs:
 
-- English: https://nuvora.studio/
-- French: https://nuvora.studio/fr/
-- German: https://nuvora.studio/de/
-- Spanish: https://nuvora.studio/es/
-- Simplified Chinese: https://nuvora.studio/zh/
+- English: https://www.nuvora.studio/
+- French: https://www.nuvora.studio/fr
+- German: https://www.nuvora.studio/de
+- Spanish: https://www.nuvora.studio/es
+- Simplified Chinese: https://www.nuvora.studio/zh
 
 ## Optional
 
-- [Sitemap](https://nuvora.studio/sitemap-index.xml): Machine-readable index of every URL on the site, in all five languages.
-- [Privacy Policy](https://nuvora.studio/privacy): How Nuvora handles visitor and lead data.
+- [Sitemap](https://www.nuvora.studio/sitemap-index.xml): Machine-readable index of every URL on the site, in all five languages.
+- [Privacy Policy](https://www.nuvora.studio/privacy): How Nuvora handles visitor and lead data.

@@ -107,6 +107,7 @@ const allServices = [...new Set(caseStudies.flatMap(cs => cs.services))].sort();
 ---
 
 <Layout
+  preloadHero="/images/work-hero.webp"
   title="Case studies | Nuvora Studio"
   description="Real results from real clients. How we help B2B companies grow on LinkedIn through content, advertising, personal branding and employee advocacy."
   abstract="Case studies from Nuvora Studio. LinkedIn strategy that moves pipeline, not dashboards."
@@ -260,7 +261,9 @@ const allServices = [...new Set(caseStudies.flatMap(cs => cs.services))].sort();
             >
               <div class="founder-card__photo-wrap">
                 <img
-                  src="/images/Cyril-Drouin-LinkedIn-03-29-2026_09_55_AM.webp"
+                  src="/images/linkedin-profile-cyril-drouin.webp"
+                  width="560"
+                  height="3044"
                   alt="Cyril Drouin's LinkedIn profile screenshot"
                   class="founder-card__photo"
                   loading="lazy"
@@ -856,6 +859,7 @@ const allServices = [...new Set(caseStudies.flatMap(cs => cs.services))].sort();
   }
   .founder-card__photo {
     width: 100%;
+    height: auto;
     display: block;
   }
 
