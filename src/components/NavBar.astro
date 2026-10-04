@@ -1,5 +1,5 @@
 ---
-import { useTranslations, getAlternateUrl, localizedPath, type Lang } from '../i18n/index.ts';
+import { useTranslations, getAlternateUrl, localizedPath, pageLangs, type Lang } from '../i18n/index.ts';
 
 interface Props {
   lang?: Lang;
@@ -15,7 +15,7 @@ const langOptions = [
   { code: 'zh' as Lang, label: '中文',     flag: '/flags/cn.svg' },
   { code: 'es' as Lang, label: 'Español',  flag: '/flags/es.svg' },
   { code: 'de' as Lang, label: 'Deutsch',  flag: '/flags/de.svg' },
-].filter(l => l.code !== lang);
+].filter(l => l.code !== lang && pageLangs(currentPath).includes(l.code));
 
 
 const links = [

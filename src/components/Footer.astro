@@ -21,6 +21,10 @@ const companyLinks = [
   { label: t('footer.contact'),  href: localizedPath('contact', lang) },
 ];
 
+// The app's help center, written in English, French and Chinese only.
+const helpLabel: Partial<Record<Lang, string>> = { en: 'Help center', fr: 'Centre d’aide', zh: '帮助中心' };
+if (helpLabel[lang]) companyLinks.push({ label: helpLabel[lang]!, href: localizedPath('help', lang) });
+
 const legalLinks = [
   { label: t('footer.privacy'), href: localizedPath('privacy', lang) },
   { label: t('footer.terms'),   href: localizedPath('terms', lang) },

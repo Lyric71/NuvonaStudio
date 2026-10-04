@@ -1,0 +1,13 @@
+---
+/** /fr/aide/<slug>: one article of the help center, French, under its French address (src/components/help/HelpArticle.astro). */
+import HelpArticle from '../../../components/help/HelpArticle.astro';
+import { helpArticles } from '../../../lib/help';
+
+export function getStaticPaths() {
+  return helpArticles('fr').map((a) => ({ params: { slug: a.slug } }));
+}
+
+const { slug } = Astro.params;
+---
+
+<HelpArticle lang="fr" slug={slug!} />

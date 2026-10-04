@@ -1,0 +1,13 @@
+---
+/** /zh/help/<slug>: one article of the help center, Chinese (src/components/help/HelpArticle.astro). */
+import HelpArticle from '../../../components/help/HelpArticle.astro';
+import { helpArticles } from '../../../lib/help';
+
+export function getStaticPaths() {
+  return helpArticles('zh').map((a) => ({ params: { slug: a.slug } }));
+}
+
+const { slug } = Astro.params;
+---
+
+<HelpArticle lang="zh" slug={slug!} />

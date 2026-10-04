@@ -1,0 +1,456 @@
+---
+/**
+ * One article of the help center, in one language. A navy header band with
+ * the breadcrumb, the title and the date; below it three columns on wide
+ * screens: every guide on the left (grouped as on the home), the article in
+ * the middle, "On this page" on the right. Below 1000px the guide list folds
+ * into a disclosure above the article and the outline is dropped. Previous
+ * and next follow the reading order.
+ */
+import Layout from '../../layouts/Layout.astro';
+import NavBar from '../NavBar.astro';
+import { localizedPath } from '../../i18n/index';
+import { HELP_HOME, HELP_UI, formatDate, helpArticles, helpGroups, type HelpLang } from '../../lib/help';
+
+interface Props {
+  lang: HelpLang;
+  slug: string;
+}
+const { lang, slug } = Astro.props;
+const ui = HELP_UI[lang];
+const SITE = 'https://www.nuvora.studio';
+const articles = helpArticles(lang);
+const groups = helpGroups(lang);
+const i = articles.findIndex((a) => a.slug === slug);
+const article = articles[i];
+const prev = articles[i - 1];
+const next = articles[i + 1];
+const { Content } = article;
+const outline = article.headings.filter((h) => h.depth === 2);
+const updated = formatDate(article.updated, lang);
+const contactHref = localizedPath('contact', lang);
+const audience =
+  article.audience && lang !== 'zh'
+    ? article.audience.charAt(0).toLowerCase() + article.audience.slice(1)
+    : article.audience;
+
+const articleSchema = {
+  '@type': 'TechArticle',
+  '@id': `${SITE}${article.url}#article`,
+  headline: article.title,
+  description: article.description,
+  url: `${SITE}${article.url}`,
+  inLanguage: lang === 'zh' ? 'zh-CN' : lang,
+  ...(article.updated ? { dateModified: article.updated } : {}),
+  isPartOf: { '@id': `${SITE}${HELP_HOME[lang]}#collection` },
+  publisher: { '@id': `${SITE}/#organization` },
+};
+---
+
+<Layout title={article.seoTitle} description={article.description} lang={lang} schemas={[articleSchema]}>
+  <NavBar lang={lang} />
+  <main id="main-content">
+    <section class="ha-hero" aria-labelledby="ha-heading">
+      <div class="container">
+        <nav class="ha-crumb" aria-label="Breadcrumb">
+          <a href={HELP_HOME[lang]}>{ui.eyebrow}</a>
+          <span aria-hidden="true">/</span>
+          <span>{article.group}</span>
+        </nav>
+        <h1 id="ha-heading" class="ha-hero__h1">{article.title}</h1>
+        <p class="ha-hero__deck">{article.excerpt}</p>
+        {
+          (updated || audience) && (
+            <p class="ha-hero__meta">
+              {updated && <span>{ui.updated} {updated}</span>}
+              {updated && audience && <span class="ha-hero__sep" aria-hidden="true">·</span>}
+              {audience && <span>{ui.for} {audience}</span>}
+            </p>
+          )
+        }
+      </div>
+    </section>
+
+    <div class="ha-body">
+      <div class="container ha-layout">
+        <aside class="ha-nav">
+          <details class="ha-nav__fold">
+            <summary>{ui.allGuides}</summary>
+            <nav aria-label={ui.allGuides}>
+              {
+                groups.map((g) => (
+                  <div class="ha-nav__group">
+                    <p class="ha-nav__head">{g.title}</p>
+                    <ul>
+                      {g.articles.map((a) => (
+                        <li>
+                          <a href={a.url} aria-current={a.slug === article.slug ? 'page' : undefined}>
+                            {a.title}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))
+              }
+            </nav>
+          </details>
+        </aside>
+
+        <article class="ha-main">
+          <div class="ha-prose">
+            <Content />
+          </div>
+
+          <nav class="ha-pager" aria-label={ui.allGuides}>
+            {
+              prev ? (
+                <a class="ha-pager__link" href={prev.url}>
+                  <span class="ha-pager__dir">&larr; {ui.previous}</span>
+                  <span class="ha-pager__title">{prev.title}</span>
+                </a>
+              ) : (
+                <span />
+              )
+            }
+            {
+              next && (
+                <a class="ha-pager__link ha-pager__link--next" href={next.url}>
+                  <span class="ha-pager__dir">{ui.next} &rarr;</span>
+                  <span class="ha-pager__title">{next.title}</span>
+                </a>
+              )
+            }
+          </nav>
+
+          <aside class="ha-cta">
+            <p class="eyebrow eyebrow--light">{ui.ctaEyebrow}</p>
+            <p class="ha-cta__title">{ui.ctaTitle}</p>
+            <p class="ha-cta__text">{ui.ctaText}</p>
+            <a href={contactHref} class="btn btn--primary">{ui.ctaButton}</a>
+          </aside>
+        </article>
+
+        {
+          outline.length > 1 && (
+            <aside class="ha-toc" aria-label={ui.onThisPage}>
+              <p class="ha-nav__head">{ui.onThisPage}</p>
+              <ul>
+                {outline.map((h) => (
+                  <li>
+                    <a href={`#${h.slug}`} data-toc={h.slug}>
+                      {h.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </aside>
+          )
+        }
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  // Wide screens show every guide at once; narrow ones keep the list folded.
+  const fold = document.querySelector<HTMLDetailsElement>('.ha-nav__fold');
+  const wide = window.matchMedia('(min-width: 1000px)');
+  const sync = () => {
+    if (fold) fold.open = wide.matches;
+  };
+  sync();
+  wide.addEventListener('change', sync);
+
+  // "On this page" follows the section being read.
+  const links = new Map(
+    Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-toc]')).map((a) => [a.dataset.toc, a]),
+  );
+  if (links.size) {
+    const seen = new Set<string>();
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) (e.isIntersecting ? seen.add(e.target.id) : seen.delete(e.target.id));
+        const first = Array.from(links.keys()).find((id) => id && seen.has(id));
+        if (!first) return;
+        for (const [id, a] of links) a.classList.toggle('is-on', id === first);
+      },
+      { rootMargin: '-90px 0px -60% 0px' },
+    );
+    for (const id of links.keys()) {
+      const h = id ? document.getElementById(id) : null;
+      if (h) io.observe(h);
+    }
+  }
+</script>
+
+<style>
+  /* ── Header band ── */
+  .ha-hero {
+    background: var(--gradient-hero);
+    padding-block: clamp(2.5rem, 5vw, 4rem);
+    position: relative;
+    overflow: hidden;
+  }
+  .ha-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 55% 80% at 85% 30%, rgba(6, 182, 212, 0.1) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .ha-hero .container { position: relative; z-index: 1; }
+  .ha-crumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--navy-text-3);
+    margin-bottom: var(--sp-5);
+  }
+  .ha-crumb a { color: var(--cyan); }
+  .ha-crumb a:hover { color: var(--white); }
+  .ha-hero__h1 {
+    font-size: clamp(2rem, 4.2vw, 3rem);
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.015em;
+    max-width: 820px;
+  }
+  .ha-hero__deck {
+    margin-top: var(--sp-5);
+    max-width: 680px;
+    font-size: var(--fs-md);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.66);
+  }
+  .ha-hero__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+    margin-top: var(--sp-6);
+    font-size: var(--fs-xs);
+    letter-spacing: 0.04em;
+    color: var(--navy-text-3);
+  }
+
+  /* ── Columns ── */
+  .ha-body {
+    background: var(--white);
+    padding-block: clamp(2rem, 5vw, 4rem);
+  }
+  .ha-layout {
+    display: grid;
+    gap: var(--sp-8);
+    max-width: var(--max-w-wide);
+  }
+  @media (min-width: 1000px) {
+    .ha-layout {
+      grid-template-columns: 230px minmax(0, 1fr);
+      gap: clamp(2rem, 4vw, 3.5rem);
+      align-items: start;
+    }
+  }
+  @media (min-width: 1280px) {
+    .ha-layout { grid-template-columns: 230px minmax(0, 1fr) 210px; }
+  }
+
+  /* ── Every guide ── */
+  .ha-nav { min-width: 0; }
+  @media (min-width: 1000px) {
+    .ha-nav {
+      position: sticky;
+      top: calc(70px + var(--sp-6));
+      max-height: calc(100vh - 110px);
+      overflow-y: auto;
+    }
+  }
+  .ha-nav__fold > summary {
+    cursor: pointer;
+    list-style: none;
+    padding: var(--sp-3) var(--sp-4);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--text);
+    background: var(--off-white);
+  }
+  .ha-nav__fold > summary::-webkit-details-marker { display: none; }
+  @media (min-width: 1000px) {
+    .ha-nav__fold > summary { display: none; }
+  }
+  .ha-nav__group { margin-top: var(--sp-5); }
+  .ha-nav__head {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin-bottom: var(--sp-2);
+  }
+  .ha-nav ul, .ha-toc ul { display: grid; gap: 2px; }
+  .ha-nav a, .ha-toc a {
+    display: block;
+    padding: 0.35rem 0 0.35rem var(--sp-3);
+    border-left: 2px solid var(--border);
+    font-size: var(--fs-sm);
+    line-height: 1.45;
+    color: var(--text-2);
+    transition: color var(--t-fast), border-color var(--t-fast);
+  }
+  .ha-nav a:hover, .ha-toc a:hover { color: var(--sky); border-left-color: var(--sky); }
+  .ha-nav a[aria-current='page'] {
+    color: var(--text);
+    font-weight: 600;
+    border-left-color: var(--sky);
+  }
+
+  /* ── On this page ── */
+  .ha-toc { display: none; }
+  @media (min-width: 1280px) {
+    .ha-toc {
+      display: block;
+      position: sticky;
+      top: calc(70px + var(--sp-6));
+      max-height: calc(100vh - 110px);
+      overflow-y: auto;
+    }
+  }
+  .ha-toc a { font-size: var(--fs-xs); }
+  .ha-toc a.is-on { color: var(--text); border-left-color: var(--cyan); }
+
+  /* ── The article ── */
+  .ha-main { min-width: 0; max-width: 780px; }
+  .ha-prose { color: var(--text); font-size: var(--fs-base); line-height: 1.8; }
+  .ha-prose > :global(*) + :global(*) { margin-top: var(--sp-5); }
+  .ha-prose :global(h2) {
+    font-size: clamp(1.4rem, 2.2vw, 1.75rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    margin-top: clamp(2.5rem, 4vw, 3.25rem);
+    scroll-margin-top: 90px;
+  }
+  .ha-prose :global(h2:first-child) { margin-top: 0; }
+  .ha-prose :global(h3) {
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    line-height: 1.35;
+    margin-top: var(--sp-8);
+    scroll-margin-top: 90px;
+  }
+  .ha-prose :global(h4) { font-size: var(--fs-base); font-weight: 600; margin-top: var(--sp-6); }
+  .ha-prose :global(p) { line-height: 1.8; }
+  .ha-prose :global(strong) { font-weight: 600; color: var(--deep-navy); }
+  .ha-prose :global(a) {
+    color: var(--blue);
+    text-decoration: underline;
+    text-decoration-color: rgba(3, 105, 161, 0.3);
+    text-underline-offset: 3px;
+  }
+  .ha-prose :global(a:hover) { color: var(--sky); text-decoration-color: var(--sky); }
+  .ha-prose :global(ul), .ha-prose :global(ol) { padding-left: 1.4rem; display: grid; gap: var(--sp-2); }
+  .ha-prose :global(ul) { list-style: disc; }
+  .ha-prose :global(ol) { list-style: decimal; }
+  .ha-prose :global(li::marker) { color: var(--sky); }
+  .ha-prose :global(li > ul), .ha-prose :global(li > ol) { margin-top: var(--sp-2); }
+  .ha-prose :global(code) {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.88em;
+    padding: 0.1em 0.4em;
+    border-radius: var(--r-sm);
+    background: var(--off-white);
+    border: 1px solid var(--border);
+  }
+  .ha-prose :global(blockquote) {
+    border-left: 3px solid var(--sky);
+    padding: var(--sp-1) var(--sp-5);
+    color: var(--text-2);
+  }
+  .ha-prose :global(img) {
+    width: 100%;
+    height: auto;
+    border-radius: var(--r-lg);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-lg);
+    margin-block: var(--sp-6);
+  }
+  .ha-prose :global(table) {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
+    font-size: var(--fs-sm);
+    line-height: 1.6;
+  }
+  .ha-prose :global(th), .ha-prose :global(td) {
+    padding: var(--sp-3) var(--sp-4);
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    vertical-align: top;
+  }
+  .ha-prose :global(th) {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-2);
+    background: var(--off-white);
+  }
+  .ha-prose :global(hr) { border: 0; height: 1px; background: var(--border); }
+
+  /* ── Previous / next ── */
+  .ha-pager {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-4);
+    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+    padding-top: var(--sp-8);
+    border-top: 1px solid var(--border);
+  }
+  .ha-pager__link {
+    display: grid;
+    gap: var(--sp-1);
+    padding: var(--sp-5);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    transition: border-color var(--t-base), box-shadow var(--t-base), transform var(--t-base);
+  }
+  .ha-pager__link:hover { border-color: var(--border-2); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .ha-pager__link--next { text-align: right; grid-column: 2; }
+  .ha-pager__dir {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sky);
+  }
+  .ha-pager__title { font-family: var(--font-display); font-weight: 600; color: var(--text); line-height: 1.35; }
+  @media (max-width: 640px) {
+    .ha-pager { grid-template-columns: 1fr; }
+    .ha-pager__link--next { grid-column: auto; }
+  }
+
+  /* ── Contact ── */
+  .ha-cta {
+    display: grid;
+    gap: var(--sp-3);
+    justify-items: start;
+    margin-top: var(--sp-10);
+    padding: clamp(1.75rem, 3.5vw, 2.5rem);
+    background: var(--gradient-section);
+    border-radius: var(--r-2xl);
+  }
+  .ha-cta .eyebrow { margin-bottom: 0; }
+  .ha-cta__title {
+    font-family: var(--font-display);
+    font-size: var(--fs-xl);
+    font-weight: 700;
+    color: var(--white);
+  }
+  .ha-cta__text { color: var(--navy-text-2); max-width: 56ch; margin-bottom: var(--sp-2); }
+</style>

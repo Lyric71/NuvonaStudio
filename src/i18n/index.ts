@@ -1,3 +1,5 @@
+import helpFrSlugs from './help-slugs.json';
+
 export const languages = {
   en: 'English',
   fr: 'Français',
@@ -465,11 +467,28 @@ export const frSlugMap: Record<string, string> = {
   'insights/why-linkedin-ads-cost-more': 'publications/pourquoi-publicite-linkedin-coute-plus',
   'insights/why-your-reach-dropped': 'publications/pourquoi-votre-portee-a-chute',
   'insights/your-linkedin-post-is-already-dead': 'publications/votre-publication-linkedin-est-deja-morte',
+
+  // Help center: French addresses under /fr/aide, written by
+  // scripts/sync-help.mjs from the French articles' own slugs.
+  'help': 'aide',
+  ...Object.fromEntries(Object.entries(helpFrSlugs).map(([en, fr]) => [`help/${en}`, `aide/${fr}`])),
 };
 
 const enFromFrSlug: Record<string, string> = Object.fromEntries(
   Object.entries(frSlugMap).map(([en, fr]) => [fr, en])
 );
+
+// ── Languages a page exists in ───────────────────────────────────────────────
+// Most pages exist in every language. The help center is written in English,
+// French and Chinese only, so its pages offer only those three in the
+// language switcher, the hreflang tags and the sitemap.
+const HELP_LANGS: Lang[] = ['en', 'fr', 'zh'];
+
+export function pageLangs(path: string): Lang[] {
+  const p = path.replace(/[?#].*$/, '').replace(/\/$/, '');
+  if (/^\/(?:help|fr\/aide|zh\/help)(?:\/|$)/.test(p)) return HELP_LANGS;
+  return Object.keys(languages) as Lang[];
+}
 
 // ── URL helpers ───────────────────────────────────────────────────────────────
 export function getAlternateUrl(currentPath: string, targetLang: Lang): string {

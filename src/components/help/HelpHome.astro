@@ -1,0 +1,306 @@
+---
+/**
+ * The help center home, in one language: a navy hero with a filter box, then
+ * one band per group of index.md, each with its article cards, then the way
+ * to a person. Rendered by /help, /fr/aide and /zh/help. The articles come
+ * from src/content/help/<lang>/ (npm run help:sync).
+ */
+import Layout from '../../layouts/Layout.astro';
+import NavBar from '../NavBar.astro';
+import { localizedPath } from '../../i18n/index';
+import { HELP_HOME, HELP_UI, helpArticles, helpGroups, helpIntro, type HelpLang } from '../../lib/help';
+
+interface Props {
+  lang: HelpLang;
+}
+const { lang } = Astro.props;
+const ui = HELP_UI[lang];
+const SITE = 'https://www.nuvora.studio';
+const articles = helpArticles(lang);
+const groups = helpGroups(lang);
+const intro = helpIntro(lang);
+const contactHref = localizedPath('contact', lang);
+
+const listSchema = {
+  '@type': 'CollectionPage',
+  '@id': `${SITE}${HELP_HOME[lang]}#collection`,
+  name: ui.collection,
+  description: ui.homeDescription,
+  url: `${SITE}${HELP_HOME[lang]}`,
+  inLanguage: lang === 'zh' ? 'zh-CN' : lang,
+  hasPart: articles.map((a) => ({
+    '@type': 'TechArticle',
+    headline: a.title,
+    description: a.description,
+    url: `${SITE}${a.url}`,
+  })),
+};
+---
+
+<Layout title={ui.homeTitle} description={ui.homeDescription} lang={lang} schemas={[listSchema]}>
+  <NavBar lang={lang} />
+  <main id="main-content">
+    <section class="hc-hero" aria-labelledby="hc-heading">
+      <div class="container">
+        <p class="eyebrow eyebrow--light reveal">{ui.eyebrow}</p>
+        <h1 id="hc-heading" class="hc-hero__h1 reveal reveal-delay-1">
+          {ui.heading} <em>{ui.headingAccent}</em>
+        </h1>
+        <p class="hc-hero__sub reveal reveal-delay-2">{intro}</p>
+
+        <label class="hc-search" for="hc-filter">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-4-4" /></svg>
+          <span class="sr-only">{ui.search}</span>
+          <input id="hc-filter" type="search" placeholder={ui.searchPlaceholder} autocomplete="off" />
+        </label>
+      </div>
+    </section>
+
+    <section class="hc-body" aria-label={ui.allGuides}>
+      <div class="container">
+        <p class="hc-empty" hidden>{ui.empty} <a href={contactHref}>{ui.emptyLink}</a>.</p>
+        {
+          groups.map((g) => (
+            <section class="hc-group" data-hc-group>
+              <h2 class="hc-group__title">{g.title}</h2>
+              <div class="hc-grid">
+                {g.articles.map((a) => (
+                  <a
+                    class="hc-card"
+                    href={a.url}
+                    data-hc-card
+                    data-hc-text={`${a.title} ${a.excerpt} ${a.description}`.toLowerCase()}
+                  >
+                    <h3 class="hc-card__title">{a.title}</h3>
+                    <p class="hc-card__desc">{a.excerpt}</p>
+                    <span class="hc-card__cta">
+                      {ui.read} <span aria-hidden="true">&rarr;</span>
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </section>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="hc-cta" aria-labelledby="hc-cta-heading">
+      <div class="container">
+        <div class="hc-cta__card">
+          <p class="eyebrow eyebrow--light">{ui.ctaEyebrow}</p>
+          <h2 id="hc-cta-heading" class="hc-cta__title">{ui.ctaTitle}</h2>
+          <p class="hc-cta__text">{ui.ctaText}</p>
+          <a href={contactHref} class="btn btn--primary btn--lg">{ui.ctaButton}</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  const input = document.getElementById('hc-filter') as HTMLInputElement | null;
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('[data-hc-card]'));
+  const groups = Array.from(document.querySelectorAll<HTMLElement>('[data-hc-group]'));
+  const empty = document.querySelector<HTMLElement>('.hc-empty');
+  input?.addEventListener('input', () => {
+    const words = input.value.toLowerCase().split(/\s+/).filter(Boolean);
+    for (const c of cards) c.hidden = !words.every((w) => (c.dataset.hcText ?? '').includes(w));
+    for (const g of groups) g.hidden = !g.querySelector('[data-hc-card]:not([hidden])');
+    if (empty) empty.hidden = cards.some((c) => !c.hidden);
+  });
+</script>
+
+<style>
+  /* ── Hero ── */
+  .hc-hero {
+    background: var(--gradient-hero);
+    padding-block: clamp(3rem, 6vw, 5rem);
+    position: relative;
+    overflow: hidden;
+  }
+  .hc-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 70% at 78% 35%, rgba(6, 182, 212, 0.1) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hc-hero .container { position: relative; z-index: 1; }
+  .hc-hero__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    margin-block: var(--sp-5) var(--sp-6);
+  }
+  .hc-hero__h1 em {
+    color: rgba(255, 255, 255, 0.38);
+    font-weight: 300;
+    font-style: normal;
+  }
+  .hc-hero__sub {
+    font-size: var(--fs-md);
+    color: rgba(255, 255, 255, 0.62);
+    max-width: 640px;
+    line-height: 1.7;
+  }
+  .hc-search {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    max-width: 560px;
+    margin-top: var(--sp-8);
+    padding: 0 var(--sp-5);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--navy-border);
+    border-radius: var(--r-full);
+    transition: border-color var(--t-fast), box-shadow var(--t-fast), background var(--t-fast);
+  }
+  .hc-search:focus-within {
+    border-color: var(--sky);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.18);
+  }
+  .hc-search svg {
+    flex: none;
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: var(--navy-text-2);
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+  .hc-search input {
+    flex: 1;
+    min-width: 0;
+    padding: 0.95rem 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    font-size: var(--fs-base);
+    color: var(--white);
+  }
+  .hc-search input::placeholder { color: var(--navy-text-3); }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  /* ── Groups ── */
+  .hc-body {
+    background: var(--off-white);
+    padding-block: clamp(2.5rem, 5vw, 4rem);
+  }
+  .hc-empty {
+    color: var(--text-2);
+    padding-block: var(--sp-8);
+  }
+  .hc-empty a { color: var(--sky); text-decoration: underline; text-underline-offset: 3px; }
+  .hc-group {
+    display: grid;
+    gap: var(--sp-6);
+    padding-block: clamp(1.75rem, 3vw, 2.5rem);
+    border-top: 1px solid var(--border);
+  }
+  .hc-group:first-of-type { border-top: 0; padding-top: 0; }
+  .hc-group[hidden] { display: none; }
+  @media (min-width: 1000px) {
+    .hc-group { grid-template-columns: 240px 1fr; gap: var(--sp-12); }
+  }
+  .hc-group__title {
+    font-family: var(--font-body);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text);
+    padding-top: var(--sp-2);
+  }
+  .hc-group__title::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 3px;
+    margin-bottom: var(--sp-3);
+    border-radius: var(--r-full);
+    background: var(--gradient-accent);
+  }
+  .hc-grid {
+    display: grid;
+    gap: var(--sp-5);
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 720px) {
+    .hc-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .hc-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    padding: clamp(1.5rem, 2.4vw, 2rem);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    transition: box-shadow var(--t-base), border-color var(--t-base), transform var(--t-base);
+  }
+  .hc-card[hidden] { display: none; }
+  .hc-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--border-2);
+    transform: translateY(-3px);
+  }
+  .hc-card__title {
+    font-family: var(--font-display);
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+  .hc-card__desc {
+    font-size: var(--fs-sm);
+    line-height: 1.7;
+    color: var(--text-2);
+  }
+  .hc-card__cta {
+    margin-top: auto;
+    padding-top: var(--sp-2);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--sky);
+  }
+  .hc-card__cta span { display: inline-block; transition: transform var(--t-fast); }
+  .hc-card:hover .hc-card__cta span { transform: translateX(4px); }
+
+  /* ── Contact ── */
+  .hc-cta {
+    background: var(--off-white);
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+  }
+  .hc-cta__card {
+    display: grid;
+    gap: var(--sp-4);
+    justify-items: start;
+    padding: clamp(2rem, 4vw, 3.5rem);
+    background: var(--gradient-section);
+    border-radius: var(--r-2xl);
+  }
+  .hc-cta__card .eyebrow { margin-bottom: 0; }
+  .hc-cta__title {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    color: var(--white);
+  }
+  .hc-cta__text {
+    max-width: 56ch;
+    color: var(--navy-text-2);
+    margin-bottom: var(--sp-2);
+  }
+</style>

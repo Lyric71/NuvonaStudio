@@ -2,7 +2,7 @@
 import { defineConfig } from 'astro/config';
 import vercel from '@astrojs/vercel';
 import sitemap from '@astrojs/sitemap';
-import { getAlternateUrl, languages } from './src/i18n/index.ts';
+import { getAlternateUrl, pageLangs } from './src/i18n/index.ts';
 import { articleLastmod } from './src/i18n/schemas.ts';
 
 const SITE = 'https://www.nuvora.studio';
@@ -34,7 +34,7 @@ export default defineConfig({
         item.url = stripSlash(item.url);
         const path = new URL(item.url).pathname;
         item.links = [
-          ...Object.keys(languages).map((l) => ({
+          ...pageLangs(path).map((l) => ({
             lang: l === 'zh' ? 'zh-CN' : l,
             url: stripSlash(`${SITE}${getAlternateUrl(path, l)}`),
           })),
