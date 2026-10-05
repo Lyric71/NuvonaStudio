@@ -10,7 +10,7 @@ Source for [www.nuvora.studio](https://www.nuvora.studio): an Astro static site 
 | `npm run build` | Converts new PNG/JPG in `public/` to WebP, then builds to `dist/` |
 | `npm run preview` | Serves the production build locally |
 | `npm run generate -- "<prompt>"` | Generates an image with the OpenAI Images API (needs `OPENAI_API_KEY`) |
-| `npm run indexnow` | Submits the built sitemap's URLs to IndexNow, after a deploy is live |
+| `npm run indexnow` | Submits the built sitemap's URLs to IndexNow by hand. Not needed after a deploy: `.github/workflows/indexnow.yml` submits new and changed pages automatically |
 
 ## Where things live
 
