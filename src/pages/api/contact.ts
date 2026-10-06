@@ -3,6 +3,22 @@ export const prerender = false;
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
 
+// "How did you hear about us?": the only accepted values, with their labels for the email.
+// Every localized contact page posts these same English slugs.
+const SOURCE_LABELS: Record<string, string> = {
+  google:     'Google or another search engine',
+  ai:         'An AI assistant (ChatGPT, Gemini, Claude, Perplexity…)',
+  exhibition: 'An exhibition or a trade show',
+  referral:   'A referral, someone recommended us',
+  other:      'Somewhere else',
+};
+const SOURCE_VALUES      = new Set(Object.keys(SOURCE_LABELS));
+const SOURCE_WITH_DETAIL = new Set(['exhibition', 'referral', 'other']);
+const SOURCE_DETAIL_MAX  = 120;
+
+const escapeHtml = (s: string) =>
+  s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+
 export const POST: APIRoute = async ({ request }) => {
   const data = await request.formData();
 
@@ -31,9 +47,15 @@ export const POST: APIRoute = async ({ request }) => {
   const services = (data.getAll('service') as string[]).map(s => s.trim()).filter(Boolean);
   const packages = (data.getAll('package') as string[]).map(s => s.trim()).filter(Boolean);
   const timeline = (data.get('timeline') as string)?.trim();
+  const source   = (data.get('source')   as string)?.trim();
+  // The detail only counts for the choices that reveal it, and is capped like the input.
+  const sourceDetail = source && SOURCE_WITH_DETAIL.has(source)
+    ? ((data.get('sourceDetail') as string) ?? '').trim().slice(0, SOURCE_DETAIL_MAX)
+    : '';
 
-  // Validate required fields
-  if (!name || !email || !website || !company || !project || services.length === 0 || !timeline) {
+  // Validate required fields (source must be one of the whitelisted values)
+  if (!name || !email || !website || !company || !project || services.length === 0 || !timeline
+      || !source || !SOURCE_VALUES.has(source)) {
     return new Response(JSON.stringify({ error: 'Please fill in all required fields.' }), {
       status: 400,
       headers: { 'Content-Type': 'application/json' },
@@ -71,6 +93,8 @@ export const POST: APIRoute = async ({ request }) => {
 
   const serviceLabel  = services.map(s => serviceLabels[s] ?? s).join(', ');
   const timelineLabel = timelineLabels[timeline] ?? timeline;
+  const sourceLabel   = SOURCE_LABELS[source]
+    + (sourceDetail ? `<br/><span style="color: #56687A; font-weight: 400;">${escapeHtml(sourceDetail)}</span>` : '');
   const packageLabel  = packages.length
     ? packages.map(p => packageLabels[p] ?? p).map(l => `• ${l}`).join('<br/>')
     : '—';
@@ -128,6 +152,10 @@ export const POST: APIRoute = async ({ request }) => {
           <tr>
             <td style="padding: 10px 0; border-bottom: 1px solid #E8ECF2; color: #56687A; font-size: 13px;">Timeline</td>
             <td style="padding: 10px 0; border-bottom: 1px solid #E8ECF2; font-weight: 600; color: #1A1F2E;">${timelineLabel}</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px 0; border-bottom: 1px solid #E8ECF2; color: #56687A; font-size: 13px; vertical-align: top;">Heard about us</td>
+            <td style="padding: 10px 0; border-bottom: 1px solid #E8ECF2; font-weight: 600; color: #1A1F2E; line-height: 1.6;">${sourceLabel}</td>
           </tr>
           <tr>
             <td style="padding: 10px 0; color: #56687A; font-size: 13px; vertical-align: top; padding-top: 16px;">Project</td>

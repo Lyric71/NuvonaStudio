@@ -55,6 +55,15 @@ const packagesByService: Record<string, { value: string; label: string; price: s
   ],
 };
 
+/* ── Origine du contact (valeurs alignées sur la liste blanche de /api/contact) ── */
+const sources = [
+  { value: 'google',     label: 'Google ou un autre moteur de recherche' },
+  { value: 'ai',         label: 'Un assistant IA (ChatGPT, Gemini, Claude, Perplexity…)' },
+  { value: 'exhibition', label: 'Un salon professionnel ou une exposition', detail: true },
+  { value: 'referral',   label: "Une recommandation, quelqu'un vous a parlé de nous", detail: true },
+  { value: 'other',      label: 'Par un autre biais', detail: true },
+];
+
 /* ── Présélection depuis les paramètres d'URL (CTAs de la page Tarifs) ── */
 const url = new URL(Astro.request.url);
 const intentParam = url.searchParams.get('intent');
@@ -276,6 +285,33 @@ if (intentParam === 'retainer' && tierParam) {
                       placeholder="Quelques phrases suffisent. Exemple : nous sommes une biotech de 120 personnes qui s'ouvre au marché européen et nous aimerions que notre équipe dirigeante gagne en visibilité sur LinkedIn cette année…"
                     ></textarea>
                     <span class="form-error" id="project-error" role="alert"></span>
+                  </div>
+
+                  <!-- Origine -->
+                  <div class="form-group contact-form__full">
+                    <label class="form-label">
+                      Comment nous avez-vous connus ? <span class="required-mark" aria-hidden="true">*</span>
+                    </label>
+                    <div class="form-chips form-chips--compact" role="radiogroup" aria-label="Comment nous avez-vous connus ?" id="source-group">
+                      {sources.map((s, i) => (
+                        <label class="form-chip form-chip--compact">
+                          <input type="radio" name="source" value={s.value} class="form-chip__input"
+                            data-source-detail={s.detail ? '' : undefined} required={i === 0} />
+                          <span class="form-chip__inner">
+                            <strong class="form-chip__label">{s.label}</strong>
+                          </span>
+                        </label>
+                      ))}
+                    </div>
+                    <span class="form-error" id="source-error" role="alert"></span>
+                    <div class="source-detail" id="source-detail" hidden>
+                      <label class="form-label" for="sourceDetail">
+                        Pouvez-vous préciser ? <span class="form-optional">(facultatif)</span>
+                      </label>
+                      <input class="form-input" type="text" id="sourceDetail" name="sourceDetail"
+                        maxlength="120" autocomplete="off" disabled
+                        placeholder="Le nom, pour pouvoir les remercier" />
+                    </div>
                   </div>
                 </div>
 
@@ -697,6 +733,15 @@ if (intentParam === 'retainer' && tierParam) {
     padding: var(--sp-3) var(--sp-4);
   }
 
+  /* Champ de précision facultatif (salon, recommandation, autre) */
+  .source-detail {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+    margin-top: var(--sp-1);
+  }
+  .source-detail[hidden] { display: none; }
+
   /* ── Liste de forfaits (checklist multi-sélection) ── */
   .form-checklist {
     display: flex;
@@ -1022,8 +1067,10 @@ if (intentParam === 'retainer' && tierParam) {
     ['name', 'email', 'website', 'company', 'project'].forEach(id => setFieldError(id, ''));
     const serviceErr  = document.getElementById('service-error');
     const timelineErr = document.getElementById('timeline-error');
+    const sourceErr   = document.getElementById('source-error');
     if (serviceErr)  serviceErr.textContent  = '';
     if (timelineErr) timelineErr.textContent = '';
+    if (sourceErr)   sourceErr.textContent   = '';
     if (errorBanner) errorBanner.classList.remove('is-visible');
   }
 
@@ -1084,6 +1131,12 @@ if (intentParam === 'retainer' && tierParam) {
     if (!(data.get('project') as string)?.trim()) {
       setFieldError('project', "Quelques lignes sur votre projet nous aideront à préparer une réponse utile.");
       remember(document.getElementById('project'));
+    }
+
+    if (!data.get('source')) {
+      const sourceErr = document.getElementById('source-error');
+      if (sourceErr) sourceErr.textContent = 'Un clic suffit : comment nous avez-vous connus ?';
+      remember(document.querySelector<HTMLInputElement>('input[name="source"]'));
     }
 
     return firstInvalid;
@@ -1169,6 +1222,19 @@ if (intentParam === 'retainer' && tierParam) {
       packageHint.innerHTML = 'Présélectionné depuis la page Tarifs. À ajuster si besoin.';
     }
   }
+
+  /* ── Origine : champ de précision affiché pour salon, recommandation ou autre ── */
+  const sourceDetail      = document.getElementById('source-detail') as HTMLElement | null;
+  const sourceDetailInput = document.getElementById('sourceDetail') as HTMLInputElement | null;
+
+  document.querySelectorAll<HTMLInputElement>('input[name="source"]').forEach(input => {
+    input.addEventListener('change', () => {
+      const show = input.checked && input.hasAttribute('data-source-detail');
+      if (sourceDetail) sourceDetail.hidden = !show;
+      // Désactivé tant qu'il est masqué, pour qu'une ancienne réponse ne parte pas avec un autre choix.
+      if (sourceDetailInput) sourceDetailInput.disabled = !show;
+    });
+  });
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();

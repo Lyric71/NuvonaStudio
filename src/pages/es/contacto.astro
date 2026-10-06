@@ -55,6 +55,15 @@ const packagesByService: Record<string, { value: string; label: string; price: s
   ],
 };
 
+/* ── ¿Cómo nos conociste? (valores alineados con la lista blanca de /api/contact) ── */
+const sources = [
+  { value: 'google',     label: 'Google u otro buscador' },
+  { value: 'ai',         label: 'Un asistente de IA (ChatGPT, Gemini, Claude, Perplexity…)' },
+  { value: 'exhibition', label: 'Una feria o una exposición', detail: true },
+  { value: 'referral',   label: 'Una recomendación, alguien te habló de nosotros', detail: true },
+  { value: 'other',      label: 'Por otra vía', detail: true },
+];
+
 /* ── Preselección desde los parámetros de URL (CTAs de la página de precios) ── */
 const url = new URL(Astro.request.url);
 const intentParam = url.searchParams.get('intent');
@@ -267,6 +276,33 @@ if (intentParam === 'retainer' && tierParam) {
                     ></textarea>
                     <span class="form-error" id="project-error" role="alert"></span>
                   </div>
+
+                  <!-- Origen -->
+                  <div class="form-group contact-form__full">
+                    <label class="form-label">
+                      ¿Cómo nos conociste? <span class="required-mark" aria-hidden="true">*</span>
+                    </label>
+                    <div class="form-chips form-chips--compact" role="radiogroup" aria-label="¿Cómo nos conociste?" id="source-group">
+                      {sources.map((s, i) => (
+                        <label class="form-chip form-chip--compact">
+                          <input type="radio" name="source" value={s.value} class="form-chip__input"
+                            data-source-detail={s.detail ? '' : undefined} required={i === 0} />
+                          <span class="form-chip__inner">
+                            <strong class="form-chip__label">{s.label}</strong>
+                          </span>
+                        </label>
+                      ))}
+                    </div>
+                    <span class="form-error" id="source-error" role="alert"></span>
+                    <div class="source-detail" id="source-detail" hidden>
+                      <label class="form-label" for="sourceDetail">
+                        ¿Nos das más detalles? <span class="form-optional">(opcional)</span>
+                      </label>
+                      <input class="form-input" type="text" id="sourceDetail" name="sourceDetail"
+                        maxlength="120" autocomplete="off" disabled
+                        placeholder="El nombre, para poder darle las gracias" />
+                    </div>
+                  </div>
                 </div>
 
                 <!-- Datos de catálogo para el script del cliente -->
@@ -437,6 +473,9 @@ if (intentParam === 'retainer' && tierParam) {
   .form-chip__label { font-family: var(--font-body); font-size: var(--fs-sm); font-weight: 600; color: var(--text); line-height: 1.2; }
   .form-chip__sub { font-family: var(--font-body); font-size: var(--fs-xs); color: var(--text-3); line-height: 1.35; }
   .form-chips--compact .form-chip__inner { flex-direction: column; align-items: flex-start; gap: 2px; padding: var(--sp-3) var(--sp-4); }
+  /* Campo de detalle opcional (feria, recomendación, otra vía) */
+  .source-detail { display: flex; flex-direction: column; gap: var(--sp-2); margin-top: var(--sp-1); }
+  .source-detail[hidden] { display: none; }
   .form-checklist { display: flex; flex-direction: column; gap: var(--sp-2); margin-top: var(--sp-1); padding: var(--sp-2); background: var(--off-white); border: 1px solid var(--border); border-radius: var(--r-lg); }
   .form-checklist__empty { font-family: var(--font-body); font-size: var(--fs-sm); color: var(--text-3); padding: var(--sp-4); text-align: center; }
   .form-check { position: relative; display: block; cursor: pointer; }
@@ -521,8 +560,10 @@ if (intentParam === 'retainer' && tierParam) {
     ['name', 'email', 'website', 'company', 'project'].forEach(id => setFieldError(id, ''));
     const serviceErr  = document.getElementById('service-error');
     const timelineErr = document.getElementById('timeline-error');
+    const sourceErr   = document.getElementById('source-error');
     if (serviceErr)  serviceErr.textContent  = '';
     if (timelineErr) timelineErr.textContent = '';
+    if (sourceErr)   sourceErr.textContent   = '';
     if (errorBanner) errorBanner.classList.remove('is-visible');
   }
 
@@ -583,6 +624,12 @@ if (intentParam === 'retainer' && tierParam) {
     if (!(data.get('project') as string)?.trim()) {
       setFieldError('project', 'Unas líneas sobre tu proyecto nos ayudarán a preparar una respuesta útil.');
       remember(document.getElementById('project'));
+    }
+
+    if (!data.get('source')) {
+      const sourceErr = document.getElementById('source-error');
+      if (sourceErr) sourceErr.textContent = 'Basta con un clic: ¿cómo nos conociste?';
+      remember(document.querySelector<HTMLInputElement>('input[name="source"]'));
     }
 
     return firstInvalid;
@@ -668,6 +715,19 @@ if (intentParam === 'retainer' && tierParam) {
       packageHint.innerHTML = 'Preseleccionado desde la página de precios. Cámbialo si hace falta.';
     }
   }
+
+  /* ── Origen: campo de detalle visible para feria, recomendación u otra vía ── */
+  const sourceDetail      = document.getElementById('source-detail') as HTMLElement | null;
+  const sourceDetailInput = document.getElementById('sourceDetail') as HTMLInputElement | null;
+
+  document.querySelectorAll<HTMLInputElement>('input[name="source"]').forEach(input => {
+    input.addEventListener('change', () => {
+      const show = input.checked && input.hasAttribute('data-source-detail');
+      if (sourceDetail) sourceDetail.hidden = !show;
+      // Desactivado mientras está oculto, para que una respuesta antigua no viaje con otra opción.
+      if (sourceDetailInput) sourceDetailInput.disabled = !show;
+    });
+  });
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();

@@ -55,6 +55,15 @@ const packagesByService: Record<string, { value: string; label: string; price: s
   ],
 };
 
+/* ── 你是从哪里了解到我们的（取值与 /api/contact 白名单一致） ── */
+const sources = [
+  { value: 'google',     label: 'Google 或其他搜索引擎' },
+  { value: 'ai',         label: 'AI 助手（ChatGPT、Gemini、Claude、Perplexity 等）' },
+  { value: 'exhibition', label: '展会或行业博览会', detail: true },
+  { value: 'referral',   label: '朋友或合作伙伴推荐', detail: true },
+  { value: 'other',      label: '其他渠道', detail: true },
+];
+
 /* ── 从 URL 参数预选（来自报价页 CTA） ── */
 const url = new URL(Astro.request.url);
 const intentParam = url.searchParams.get('intent');
@@ -274,6 +283,33 @@ if (intentParam === 'retainer' && tierParam) {
                       placeholder="几句话就够。比如：我们是一家 200 人的工业自动化公司，想让高管团队在 LinkedIn 上活跃起来，主攻欧洲和东南亚客户……"
                     ></textarea>
                     <span class="form-error" id="project-error" role="alert"></span>
+                  </div>
+
+                  <!-- 来源 -->
+                  <div class="form-group contact-form__full">
+                    <label class="form-label">
+                      你是从哪里了解到我们的？ <span class="required-mark" aria-hidden="true">*</span>
+                    </label>
+                    <div class="form-chips form-chips--compact" role="radiogroup" aria-label="你是从哪里了解到我们的？" id="source-group">
+                      {sources.map((s, i) => (
+                        <label class="form-chip form-chip--compact">
+                          <input type="radio" name="source" value={s.value} class="form-chip__input"
+                            data-source-detail={s.detail ? '' : undefined} required={i === 0} />
+                          <span class="form-chip__inner">
+                            <strong class="form-chip__label">{s.label}</strong>
+                          </span>
+                        </label>
+                      ))}
+                    </div>
+                    <span class="form-error" id="source-error" role="alert"></span>
+                    <div class="source-detail" id="source-detail" hidden>
+                      <label class="form-label" for="sourceDetail">
+                        能具体说说吗？ <span class="form-optional">（选填）</span>
+                      </label>
+                      <input class="form-input" type="text" id="sourceDetail" name="sourceDetail"
+                        maxlength="120" autocomplete="off" disabled
+                        placeholder="留个名字，方便我们表示感谢" />
+                    </div>
                   </div>
                 </div>
 
@@ -702,6 +738,15 @@ if (intentParam === 'retainer' && tierParam) {
     padding: var(--sp-3) var(--sp-4);
   }
 
+  /* 选填的补充说明（展会、推荐、其他渠道） */
+  .source-detail {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+    margin-top: var(--sp-1);
+  }
+  .source-detail[hidden] { display: none; }
+
   /* ── 套餐清单（多选） ── */
   .form-checklist {
     display: flex;
@@ -1026,8 +1071,10 @@ if (intentParam === 'retainer' && tierParam) {
     ['name', 'email', 'website', 'company', 'project'].forEach(id => setFieldError(id, ''));
     const serviceErr  = document.getElementById('service-error');
     const timelineErr = document.getElementById('timeline-error');
+    const sourceErr   = document.getElementById('source-error');
     if (serviceErr)  serviceErr.textContent  = '';
     if (timelineErr) timelineErr.textContent = '';
+    if (sourceErr)   sourceErr.textContent   = '';
     if (errorBanner) errorBanner.classList.remove('is-visible');
   }
 
@@ -1088,6 +1135,12 @@ if (intentParam === 'retainer' && tierParam) {
     if (!(data.get('project') as string)?.trim()) {
       setFieldError('project', '几句话说说项目情况，方便我们准备一份实用的回复。');
       remember(document.getElementById('project'));
+    }
+
+    if (!data.get('source')) {
+      const sourceErr = document.getElementById('source-error');
+      if (sourceErr) sourceErr.textContent = '点一下就好：你是从哪里了解到我们的？';
+      remember(document.querySelector<HTMLInputElement>('input[name="source"]'));
     }
 
     return firstInvalid;
@@ -1173,6 +1226,19 @@ if (intentParam === 'retainer' && tierParam) {
       packageHint.innerHTML = '已根据报价页预选，需要的话可以改。';
     }
   }
+
+  /* ── 来源：选择展会、推荐或其他渠道时显示补充说明 ── */
+  const sourceDetail      = document.getElementById('source-detail') as HTMLElement | null;
+  const sourceDetailInput = document.getElementById('sourceDetail') as HTMLInputElement | null;
+
+  document.querySelectorAll<HTMLInputElement>('input[name="source"]').forEach(input => {
+    input.addEventListener('change', () => {
+      const show = input.checked && input.hasAttribute('data-source-detail');
+      if (sourceDetail) sourceDetail.hidden = !show;
+      // 隐藏时禁用，避免换选项后把旧的说明一起提交。
+      if (sourceDetailInput) sourceDetailInput.disabled = !show;
+    });
+  });
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();

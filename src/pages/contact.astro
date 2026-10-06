@@ -55,6 +55,15 @@ const packagesByService: Record<string, { value: string; label: string; price: s
   ],
 };
 
+/* ── "How did you hear about us?" (values mirror the whitelist in /api/contact) ── */
+const sources = [
+  { value: 'google',     label: 'Google or another search engine' },
+  { value: 'ai',         label: 'An AI assistant (ChatGPT, Gemini, Claude, Perplexity…)' },
+  { value: 'exhibition', label: 'An exhibition or a trade show', detail: true },
+  { value: 'referral',   label: 'A referral, someone recommended us', detail: true },
+  { value: 'other',      label: 'Somewhere else', detail: true },
+];
+
 /* ── Pre-selection from URL params (set by pricing page CTAs) ── */
 const url = new URL(Astro.request.url);
 const intentParam = url.searchParams.get('intent');
@@ -275,6 +284,33 @@ if (intentParam === 'retainer' && tierParam) {
                       placeholder="A few sentences are plenty. For example: we're a 120-person biotech expanding into Europe and want our leadership team much more visible on LinkedIn next year…"
                     ></textarea>
                     <span class="form-error" id="project-error" role="alert"></span>
+                  </div>
+
+                  <!-- Source -->
+                  <div class="form-group contact-form__full">
+                    <label class="form-label">
+                      How did you hear about us? <span class="required-mark" aria-hidden="true">*</span>
+                    </label>
+                    <div class="form-chips form-chips--compact" role="radiogroup" aria-label="How did you hear about us?" id="source-group">
+                      {sources.map((s, i) => (
+                        <label class="form-chip form-chip--compact">
+                          <input type="radio" name="source" value={s.value} class="form-chip__input"
+                            data-source-detail={s.detail ? '' : undefined} required={i === 0} />
+                          <span class="form-chip__inner">
+                            <strong class="form-chip__label">{s.label}</strong>
+                          </span>
+                        </label>
+                      ))}
+                    </div>
+                    <span class="form-error" id="source-error" role="alert"></span>
+                    <div class="source-detail" id="source-detail" hidden>
+                      <label class="form-label" for="sourceDetail">
+                        Which one? <span class="form-optional">(optional)</span>
+                      </label>
+                      <input class="form-input" type="text" id="sourceDetail" name="sourceDetail"
+                        maxlength="120" autocomplete="off" disabled
+                        placeholder="The name, so we can thank them" />
+                    </div>
                   </div>
                 </div>
 
@@ -727,6 +763,15 @@ if (intentParam === 'retainer' && tierParam) {
     padding: var(--sp-3) var(--sp-4);
   }
 
+  /* Optional "which one?" box, revealed for exhibition, referral and other */
+  .source-detail {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+    margin-top: var(--sp-1);
+  }
+  .source-detail[hidden] { display: none; }
+
   /* Disabled state for the package select before service is chosen */
   .form-select:disabled {
     background: var(--off-white);
@@ -1088,8 +1133,10 @@ if (intentParam === 'retainer' && tierParam) {
     ['name', 'email', 'website', 'company', 'project'].forEach(id => setFieldError(id, ''));
     const serviceErr  = document.getElementById('service-error');
     const timelineErr = document.getElementById('timeline-error');
+    const sourceErr   = document.getElementById('source-error');
     if (serviceErr)  serviceErr.textContent  = '';
     if (timelineErr) timelineErr.textContent = '';
+    if (sourceErr)   sourceErr.textContent   = '';
     if (errorBanner) errorBanner.classList.remove('is-visible');
   }
 
@@ -1164,6 +1211,13 @@ if (intentParam === 'retainer' && tierParam) {
     if (!(data.get('project') as string)?.trim()) {
       setFieldError('project', 'A few lines about your project will help us prepare a useful reply.');
       remember(document.getElementById('project'));
+    }
+
+    // — Source (how they heard about us) —
+    if (!data.get('source')) {
+      const sourceErr = document.getElementById('source-error');
+      if (sourceErr) sourceErr.textContent = 'One click is enough: how did you hear about us?';
+      remember(document.querySelector<HTMLInputElement>('input[name="source"]'));
     }
 
     return firstInvalid;
@@ -1269,6 +1323,19 @@ if (intentParam === 'retainer' && tierParam) {
       packageHint.innerHTML = 'Pre-selected from the pricing page. Adjust if needed.';
     }
   }
+
+  /* ── Source: reveal the optional "which one?" box for exhibition, referral, other ── */
+  const sourceDetail      = document.getElementById('source-detail') as HTMLElement | null;
+  const sourceDetailInput = document.getElementById('sourceDetail') as HTMLInputElement | null;
+
+  document.querySelectorAll<HTMLInputElement>('input[name="source"]').forEach(input => {
+    input.addEventListener('change', () => {
+      const show = input.checked && input.hasAttribute('data-source-detail');
+      if (sourceDetail) sourceDetail.hidden = !show;
+      // Disabled while hidden, so a stale answer never travels with another choice.
+      if (sourceDetailInput) sourceDetailInput.disabled = !show;
+    });
+  });
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
