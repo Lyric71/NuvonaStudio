@@ -6,10 +6,10 @@ description: "两个标准智能体（LinkedIn 发布监测和 LinkedIn 广告�
 excerpt: "智能体按计划重新读取你的 LinkedIn 发布情况和广告账户，告诉你哪里有了变化，并附上真实的日期和数字。"
 section: "intelligence"
 order: 7
-updated: 2026-10-04
+updated: 2026-10-08
 appPaths: ["/agents", "/agents/organization", "/agents/catalog", "/agents/runs"]
 audience: "所有人；创作者和管理员可以添加、修改和运行智能体；团队智能体仅限管理员"
-related: ["linkedin-ads", "calendar", "linkedin-posts", "ask", "assets-library", "balance-and-payments", "your-team"]
+related: ["linkedin-ads", "calendar", "linkedin-posts", "ask", "assets-library", "campaigns", "balance-and-payments", "your-team"]
 shots:
   - file: "/images/help/agents-catalog.zh.webp"
     route: "/agents/catalog"
@@ -19,7 +19,7 @@ shots:
     route: "/agents/runs"
     alt: "尚无内容的智能体指挥室标签页：正在运行、已开启和历史运行，以及智能体所属筛选器"
     captured: 2026-10-04
-sources: ["src/pages/agents/index.astro", "src/pages/agents/organization.astro", "src/pages/agents/catalog.astro", "src/pages/agents/runs.astro", "src/scripts/agentsAdminPanel.ts", "src/scripts/agentForm.ts", "src/scripts/agentsCatalog.ts", "src/scripts/agentRunsPanel.ts", "src/scripts/agentFindings.ts", "src/components/AgentFindings.astro", "src/pages/ads/linkedin/index.astro", "src/pages/social/calendar/monthly.astro", "src/lib/agents/watchers.ts", "src/lib/agents/data-sources.ts", "src/lib/agents/external-sources.ts", "src/lib/agents/agent-spend.ts", "src/lib/agents/agent-web.ts", "src/lib/agents/scheduler.ts", "src/lib/agents/run-notify.ts", "src/pages/api/agents/run.ts", "src/pages/api/agents/runs.ts", "src/pages/api/agents/finding-action.ts", "src/pages/api/agents/settings.ts", "src/lib/app.ts", "vercel.json"]
+sources: ["src/pages/agents/index.astro", "src/pages/agents/organization.astro", "src/pages/agents/catalog.astro", "src/pages/agents/runs.astro", "src/scripts/agentsAdminPanel.ts", "src/scripts/agentForm.ts", "src/scripts/agentsCatalog.ts", "src/scripts/agentRunsPanel.ts", "src/scripts/agentFindings.ts", "src/components/AgentFindings.astro", "src/pages/ads/linkedin/index.astro", "src/pages/social/calendar/monthly.astro", "src/lib/agents/watchers.ts", "src/lib/agents/data-sources.ts", "src/lib/agents/external-sources.ts", "src/lib/campaigns.ts", "src/lib/agents/agent-spend.ts", "src/lib/agents/agent-web.ts", "src/lib/agents/scheduler.ts", "src/lib/agents/run-notify.ts", "src/pages/api/agents/run.ts", "src/pages/api/agents/runs.ts", "src/pages/api/agents/finding-action.ts", "src/pages/api/agents/settings.ts", "src/lib/app.ts", "vercel.json"]
 ---
 
 **智能体** 替你盯住 LinkedIn 工作的某个方面。它按计划重新读取数据，与上次所见对比，再把变化写成 **发现**：简短的提醒，附有真实的日期和数字，以及建议的下一步。
@@ -89,7 +89,7 @@ sources: ["src/pages/agents/index.astro", "src/pages/agents/organization.astro",
    - **社交动态**：最近 30 天的社交内容，包括起草、计划和发布的内容。
    - **LinkedIn 发布**：最近 30 天和未来 14 天的 LinkedIn 帖子，包括已发布、已排期和发布失败的帖子，以及待处理的草稿。
    - **LinkedIn 广告账户**：智能体运行对象的广告账户，实时读取，对比最近 7 天与此前 7 天。
-   - **来自素材库**：素材库中的任意文件夹或文档。选择一个文件夹，会带上其中及其子文件夹里的所有文档。可读取 PDF、Word、Excel、Markdown 和文本文件；图片和视频片段不读。
+   - **来自素材库**：团队的任意 [营销活动](/zh/help/campaigns)（排在最前，标有 **营销活动**），以及素材库中的任意文件夹或文档。选择一个营销活动，会带上它的简报和其中全部素材，图片和视频片段以提示词呈现。选择一个文件夹，会带上其中及其子文件夹里的所有文档。可读取 PDF、Word、Excel、Markdown 和文本文件；图片和视频片段不读。每次下载都按素材库的下载标准计费。条目超过六个时，可用搜索框（**搜索营销活动、文件夹或文档**）缩小范围。
 4. 撰写 **指令**：它要在这些数据中找什么、什么算一条发现、哪些可以忽略。
 5. 点击 **创建智能体**。新智能体一创建就处于开启状态。
 

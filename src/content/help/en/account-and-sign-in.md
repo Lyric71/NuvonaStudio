@@ -1,20 +1,20 @@
 ---
 title: "Account and sign-in"
 seoTitle: "Your account settings and signing in | Nuvora Help"
-description: "The Settings page in Nuvora: your name, picture, sign-in email and password, light or dark, the interface in English, French or Chinese, date and time, your home page, the weekly digest, My models, voice input, your agents, invoices and the activity log; then the sign-in code by email, trusted browsers, password reset and signing out."
+description: "The Settings page in Nuvora: your name, picture, sign-in email and password, light or dark, the interface in English, French or Chinese, date and time, your home page, the weekly digest, My models, voice input, your agents, invoices and the activity log; then the sign-in code by email, trusted browsers, password reset, logins left unused and signing out."
 excerpt: "Everything in User Settings that applies to you, and how signing in, the sign-in code and password recovery work."
 section: "account"
 order: 14
-updated: 2026-10-04
+updated: 2026-10-08
 appPaths: ["/settings", "/login", "/forgot-password", "/reset-password"]
 audience: "Everyone"
-related: ["getting-started", "my-connections", "your-team", "balance-and-payments", "agents", "troubleshooting"]
+related: ["getting-started", "my-connections", "your-team", "balance-and-payments", "agents", "choosing-a-model", "troubleshooting"]
 shots:
   - file: "/images/help/account-and-sign-in-settings.webp"
     route: "/settings"
     alt: "The Settings page: the band with the person signed in, their role and team, Available now, Spent today and Spent this month; the sections list on the left; the Account overview and Your name cards"
     captured: 2026-10-04
-sources: ["src/pages/settings.astro", "src/styles/apps/nuvora.css", "public/apps/nuvora/vocabulary.js", "src/lib/app.ts", "src/layouts/Layout.astro", "src/components/ThemeSwitch.astro", "src/pages/login.astro", "src/lib/mfa.ts", "src/pages/api/login.ts", "src/pages/api/login/mfa.ts", "src/pages/forgot-password.astro", "src/pages/reset-password.astro", "src/lib/auth.ts", "src/pages/api/team.ts"]
+sources: ["src/pages/settings.astro", "src/styles/apps/nuvora.css", "public/apps/nuvora/vocabulary.js", "src/lib/app.ts", "src/layouts/Layout.astro", "src/components/ThemeSwitch.astro", "src/pages/login.astro", "src/lib/mfa.ts", "src/pages/api/login.ts", "src/pages/api/login/mfa.ts", "src/pages/forgot-password.astro", "src/pages/reset-password.astro", "src/lib/auth.ts", "src/pages/api/team.ts", "src/lib/inactivity-cleanup.ts", "src/lib/inactivity-mail.ts"]
 ---
 
 Open **User Settings** from the menu under your picture, at the top right of every page. The band at the top of the page shows who is signed in, your role, your team and the day you joined, then three figures: **Available now**, **Spent today** and **Spent this month**. When your balance is empty or running low, **Buy credits** appears under the first one. A client login holds no balance.
@@ -96,6 +96,8 @@ Each switch is saved the moment you flip it. Every digest also carries an unsubs
 
 A model switched off still runs where it is already set: this only tidies the lists you pick from. The last model of each kind always stays on. A model your team forbids is not listed at all.
 
+**Compare the models on public benchmarks**, on the card, opens **Model benchmarks**, where the text models your team allows are compared on public scores and on what a post or an article costs. A text model you switch off also leaves the **Quick**, **Balanced** and **Best** choices: the choice moves to the closest model in price that you kept. See [Choosing a model](/help/choosing-a-model).
+
 ## Voice input
 
 Every text box with more than one line, the brief of a post included, has a microphone in its corner. Click it and speak: your words appear where your cursor is as you say them. Click again to stop.
@@ -145,6 +147,12 @@ The **Sign-in code** tab in **Sign-in and security** lists the browsers you told
 5. The page says **Password updated**. Click **Sign in**.
 
 A reset link works once. If it has expired, the page says **This link is invalid or has expired**: click **Request a new link**.
+
+## A login left unused
+
+A login nobody has used for two months can receive an email asking its owner to sign in before a date, one month later. The email gives the last time the login was used (or says it never was) and the day it will be deactivated. Signing in once before that day is enough: the login stays as it is and nothing else changes. Staying signed in on a browser you use every day counts as using it too.
+
+If nobody signs in by then, the login is deactivated and you get an email saying so. Nothing is deleted: the account and its history are kept, and an admin of your team can let you back in from the **Team** page (see [Your team](/help/your-team#pause-a-login)). Forgot your password in the meantime? Use **Forgot password?** on the sign-in page, as described above.
 
 ## Sign out
 

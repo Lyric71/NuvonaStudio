@@ -1,0 +1,779 @@
+---
+// The AI model benchmarks page body: the public copy of the app's Model
+// benchmarks page (Settings), in this site's skin. Same sections in the same
+// order: the three choices as hue cards, the Scores card (provider filter and
+// the sortable table), then what the benchmarks measure. A Text / Image /
+// Video switch (state in the URL hash, e.g. #image) shows one kind of model
+// at a time; the three choices belong to text. The public copy shows the
+// relative price level only, never an amount.
+//
+// Every figure is read from src/data/model-benchmarks.json through
+// src/i18n/model-benchmarks.ts; nothing here is hardcoded. A missing score
+// stays empty: no figure is ever estimated. A kind with no benchmark yet
+// still lists its models with their price level.
+import {
+  benchData, benchStrings, benchName, benchMeasures, benchNote, displayLabel, fill,
+  formatDate, formatValue, kindOf, KIND_ORDER, PRICE_LEVELS, TIER_ORDER,
+  type BenchLang, type Benchmark, type Kind, type Model, type Tier,
+} from '../i18n/model-benchmarks';
+
+interface Props { lang: BenchLang }
+const { lang } = Astro.props;
+const s = benchStrings[lang];
+const { benchmarks, models, tiers, collectedOn } = benchData;
+
+const tierOf = new Map(tiers.map((t) => [t.model, t.tier]));
+const byId = new Map(models.map((m) => [m.id, m]));
+
+// The best of each column, for the bars.
+const bestOf: Record<string, number | null> = {};
+for (const b of benchmarks) {
+  const vals = models
+    .map((m) => m.scores[b.key]?.value)
+    .filter((v): v is number => typeof v === 'number' && Number.isFinite(v));
+  bestOf[b.key] = vals.length ? (b.higherIsBetter ? Math.max(...vals) : Math.min(...vals)) : null;
+}
+function barPct(b: Benchmark, v: number): number {
+  const best = bestOf[b.key];
+  if (best == null || best === 0 || v === 0) return 0;
+  const r = b.higherIsBetter ? v / best : best / v;
+  return Math.max(4, Math.min(100, Math.round(r * 100)));
+}
+
+// One panel per kind: its models (strongest first on its headline benchmark,
+// models without it last, by name), its benchmark columns, its providers.
+const panels = KIND_ORDER.map((kind) => {
+  const cols = benchmarks.filter((b) => kindOf(b) === kind);
+  const first = cols[0];
+  const rows = models
+    .filter((m) => kindOf(m) === kind)
+    .sort((a, b) => {
+      const x = first ? a.scores[first.key]?.value : undefined;
+      const y = first ? b.scores[first.key]?.value : undefined;
+      if (x != null && y != null) return first!.higherIsBetter ? y - x : x - y;
+      if (x != null) return -1;
+      if (y != null) return 1;
+      return displayLabel(a.label).localeCompare(displayLabel(b.label));
+    });
+  const providers = [...new Set(rows.map((r) => r.provider))];
+  return { kind, cols, first, rows, providers };
+});
+
+// A colon as each language writes it, for the screen-reader suffixes.
+const colon = lang === 'fr' ? '\u00a0: ' : lang === 'zh' ? '：' : ': ';
+const priceAria = (n: number | null) =>
+  n == null ? s.priceNone : fill(s.priceAria, { n, max: PRICE_LEVELS });
+
+const TIER_HUE: Record<Tier, number> = { quick: 160, balanced: 210, best: 285 };
+const TIER_ICON: Record<Tier, string> = {
+  quick: '<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>',
+  balanced: '<path d="M12 3v18M5 7h14M5 7l-3 6a3 3 0 0 0 6 0zM19 7l-3 6a3 3 0 0 0 6 0z"/>',
+  best: '<path d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/>',
+};
+const KIND_ICON: Record<Kind, string> = {
+  text: '<path d="M4 6h16M4 12h16M4 18h10"/>',
+  image: '<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="m21 16-5-5-9 9"/>',
+  video: '<rect x="2" y="5" width="14" height="14" rx="2"/><path d="m16 10 6-3v10l-6-3z"/>',
+};
+
+// Row attributes the sort and the filter read: the label, never an id.
+function rowAttrs(m: Model, cols: Benchmark[]): Record<string, string> {
+  const attrs: Record<string, string> = {
+    'data-provider': m.provider,
+    'data-label': displayLabel(m.label),
+    'data-level': m.level == null ? '' : String(m.level),
+  };
+  for (const b of cols) {
+    const v = m.scores[b.key]?.value;
+    attrs[`data-s-${b.key}`] = typeof v === 'number' ? String(v) : '';
+  }
+  return attrs;
+}
+---
+
+<div class="mb" data-mb data-lang={lang}>
+
+  <!-- ── Hero ─────────────────────────────────────────────────────────── -->
+  <section class="mb-hero" aria-labelledby="mb-h1">
+    <div class="mb-hero__grid" aria-hidden="true"></div>
+    <div class="container mb-hero__inner">
+      <p class="eyebrow eyebrow--light reveal">{s.eyebrow}</p>
+      <h1 id="mb-h1" class="mb-hero__h1 reveal reveal-delay-1">
+        {s.h1a}<br /><em>{s.h1b}</em>
+      </h1>
+      <p class="mb-hero__promise reveal reveal-delay-2">{s.promise}</p>
+      <p class="mb-hero__meta reveal reveal-delay-3">
+        <span class="mb-hero__date">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          <time datetime={collectedOn}>{fill(s.readOn, { date: formatDate(collectedOn, lang) })}</time>
+        </span>
+        <span class="mb-hero__dot" aria-hidden="true"></span>
+        <span>{s.refresh}</span>
+      </p>
+    </div>
+  </section>
+
+  <div class="mb-body">
+    <div class="container mb-page">
+
+      <!-- ── Text / Image / Video ─────────────────────────────────────── -->
+      <div class="mb-switch-wrap" data-mb-reveal>
+        <div class="mb-switch" role="tablist" aria-label={s.kindsLabel} data-mb-tabs style={`--n: ${KIND_ORDER.length}; --i: 0`}>
+          <span class="mb-switch__thumb" aria-hidden="true"></span>
+          {panels.map(({ kind, rows }, i) => (
+            <button
+              type="button"
+              role="tab"
+              id={`mb-tab-${kind}`}
+              class="mb-switch__tab"
+              aria-controls={`mb-panel-${kind}`}
+              aria-selected={i === 0 ? 'true' : 'false'}
+              tabindex={i === 0 ? 0 : -1}
+              data-kind={kind}
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={KIND_ICON[kind]} />
+              <span>{s.kindNames[kind]}</span>
+              <span class="mb-switch__count">{rows.length}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {panels.map(({ kind, cols, first, rows, providers }, pi) => (
+        <div
+          class="mb-panel"
+          role="tabpanel"
+          id={`mb-panel-${kind}`}
+          aria-labelledby={`mb-tab-${kind}`}
+          data-mb-panel={kind}
+          hidden={pi !== 0}
+        >
+
+          <!-- ── The three choices (text only) ───────────────────────── -->
+          {kind === 'text' && (
+            <section class="mb-tiers" data-mb-reveal aria-label={s.tiersLabel}>
+              {TIER_ORDER.map((t) => {
+                const placed = tiers.find((x) => x.tier === t);
+                const model = placed ? byId.get(placed.model) : undefined;
+                return (
+                  <article class="mb-tier" style={`--mb-hue: ${TIER_HUE[t]}`} data-mb-spot>
+                    <span class="mb-tier__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={TIER_ICON[t]} /></span>
+                    <h2 class="mb-kicker">{s.tierNames[t]}</h2>
+                    <p class="mb-tier__blurb">{s.tierPurposes[t]}</p>
+                    {model
+                      ? <p class="mb-tier__model"><span>{s.runsOn}</span> <strong>{displayLabel(model.label)}</strong></p>
+                      : <p class="mb-tier__model">{s.notAvailable}</p>}
+                    {model && model.level != null && (
+                      <p class="mb-level" role="img" aria-label={priceAria(model.level)} title={priceAria(model.level)}>
+                        <span class="mb-level__on" aria-hidden="true">{'$'.repeat(model.level)}</span><span class="mb-level__off" aria-hidden="true">{'$'.repeat(PRICE_LEVELS - model.level)}</span>
+                      </p>
+                    )}
+                  </article>
+                );
+              })}
+            </section>
+          )}
+
+          <!-- ── The table ───────────────────────────────────────────── -->
+          <section class="mb-card" data-mb-reveal aria-labelledby={`mb-scores-${kind}`}>
+            <header class="mb-card__head">
+              <div>
+                <h2 id={`mb-scores-${kind}`} class="mb-card__title">{s.scoresTitle}<span class="sr-only">{colon}{s.kindNames[kind]}</span></h2>
+                <p class="mb-card__desc">
+                  {s.scoresDesc[kind]}
+                  {cols.length > 0 && <> <span><time datetime={collectedOn}>{fill(s.scoresDate, { date: formatDate(collectedOn, lang) })}</time></span></>}
+                </p>
+              </div>
+              {providers.length > 1 && (
+                <label class="mb-filter">
+                  <span>{s.providerLabel}</span>
+                  <span class="mb-filter__select">
+                    <select data-mb-provider>
+                      <option value="">{s.everyProvider}</option>
+                      {providers.map((p) => <option value={p}>{p}</option>)}
+                    </select>
+                    <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5l3 3 3-3" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+                  </span>
+                </label>
+              )}
+            </header>
+
+            {cols.length === 0 && (
+              <p class="mb-collecting">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                <span>{s.collecting[kind]}</span>
+              </p>
+            )}
+
+            {rows.length === 0 ? (
+              <p class="mb-empty">{s.noModels}</p>
+            ) : (
+              <div class="mb-scroll" tabindex="0" aria-labelledby={`mb-scores-${kind}`}>
+                <table class={`mb-table${cols.length > 0 ? ' mb-table--wide' : ''}`} data-mb-table>
+                  <caption class="sr-only">{s.scoresDesc[kind]}</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col" class="mb-th--model"><button type="button" data-mb-sort="label">{s.colModel}</button></th>
+                      <th scope="col" title={s.priceNote[kind]}><button type="button" data-mb-sort="level" data-mb-num data-mb-asc>{s.colPrice}</button></th>
+                      {cols.map((b) => (
+                        <th scope="col" title={benchMeasures(b, lang)}>
+                          <button
+                            type="button"
+                            data-mb-sort={b.key}
+                            data-mb-num
+                            data-mb-asc={b.higherIsBetter ? undefined : ''}
+                            aria-sort={b.key === first?.key ? (b.higherIsBetter ? 'descending' : 'ascending') : undefined}
+                          >{benchName(b, lang)}</button>
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {rows.map((r) => {
+                      const tier = kind === 'text' ? tierOf.get(r.id) : undefined;
+                      return (
+                        <tr {...rowAttrs(r, cols)}>
+                          <th scope="row" class="mb-model">
+                            <span class="mb-model__name">{displayLabel(r.label)}</span>
+                            <span class="mb-model__meta">
+                              <span>{r.provider}</span>
+                              {tier && <span class={`mb-chip mb-chip--${tier}`}>{s.tierNames[tier]}</span>}
+                              {r.web && <span class="mb-cap" role="img" title={s.capWeb} aria-label={s.capWeb}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>}
+                              {r.vision && <span class="mb-cap" role="img" title={s.capVision} aria-label={s.capVision}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="m21 16-5-5-9 9"/></svg></span>}
+                            </span>
+                          </th>
+                          <td class="mb-level-cell">
+                            {r.level != null
+                              ? <span class="mb-level" role="img" aria-label={priceAria(r.level)} title={priceAria(r.level)}><span class="mb-level__on" aria-hidden="true">{'$'.repeat(r.level)}</span><span class="mb-level__off" aria-hidden="true">{'$'.repeat(PRICE_LEVELS - r.level)}</span></span>
+                              : <span class="mb-none" role="img" aria-label={s.priceNone} title={s.priceNone}></span>}
+                          </td>
+                          {cols.map((b) => {
+                            const sc = r.scores[b.key];
+                            if (!sc) return <td class="mb-none-cell"><span class="mb-none" role="img" aria-label={s.missingNote} title={s.missingNote}></span></td>;
+                            return (
+                              <td>
+                                <a href={sc.sourceUrl} target="_blank" rel="noopener" class="mb-score" title={fill(s.sourceTitle, { source: b.sourceName })}>
+                                  <span class="mb-score__bar" style={`--w: ${barPct(b, sc.value)}%`} aria-hidden="true"></span>
+                                  <span class="mb-score__v">{formatValue(sc.value, b.unit, lang)}</span>
+                                  {sc.vendor && <sup class="mb-vendor" title={s.vendorNote}>v<span class="sr-only"> ({s.vendorNote})</span></sup>}
+                                  <span class="sr-only"> {s.newTab}</span>
+                                </a>
+                              </td>
+                            );
+                          })}
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+                <p class="mb-empty" data-mb-empty hidden>{s.empty}</p>
+              </div>
+            )}
+
+            <ul class="mb-legend" role="list">
+              <li><span class="mb-level" aria-hidden="true"><span class="mb-level__on">$$</span><span class="mb-level__off">$$</span></span><span>{s.priceNote[kind]}</span></li>
+              {cols.length > 0 && <li><sup class="mb-vendor mb-vendor--legend" aria-hidden="true">v</sup><span>{s.vendorNote}</span></li>}
+              {cols.length > 0 && <li><span class="mb-none" aria-hidden="true"></span><span>{s.missingNote}</span></li>}
+            </ul>
+          </section>
+
+          <!-- ── What each benchmark measures, and where it comes from ─── -->
+          <section class="mb-card" data-mb-reveal aria-labelledby={`mb-measures-${kind}`}>
+            <header class="mb-card__head">
+              <div>
+                <h2 id={`mb-measures-${kind}`} class="mb-card__title">{s.measuresTitle}<span class="sr-only">{colon}{s.kindNames[kind]}</span></h2>
+                <p class="mb-card__desc">{cols.length > 0 ? s.measuresDesc[kind] : s.measuresEmpty[kind]}</p>
+              </div>
+            </header>
+            {cols.length > 0 && (
+              <dl class="mb-sources">
+                {cols.map((b) => {
+                  const note = benchNote(b, lang);
+                  return (
+                    <div class="mb-source">
+                      <dt>{benchName(b, lang)}</dt>
+                      <dd>
+                        <p>{benchMeasures(b, lang)}</p>
+                        <p class="mb-source__from">
+                          <a href={b.sourceUrl} target="_blank" rel="noopener">{b.sourceName}<span class="sr-only"> {s.newTab}</span></a>
+                          {note && <span> · <span>{note}</span></span>}
+                        </p>
+                      </dd>
+                    </div>
+                  );
+                })}
+              </dl>
+            )}
+          </section>
+
+        </div>
+      ))}
+
+    </div>
+  </div>
+</div>
+
+<style>
+  /* ── Hero (the site's dark band) ── */
+  .mb-hero {
+    position: relative;
+    overflow: hidden;
+    background: var(--deep-navy);
+    padding-block: clamp(3rem, 6vw, 5rem);
+    isolation: isolate;
+  }
+  .mb-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 55% 60% at 85% 20%, rgba(6,182,212,0.16) 0%, transparent 60%),
+      radial-gradient(ellipse 45% 55% at 10% 100%, rgba(14,165,233,0.12) 0%, transparent 60%);
+    z-index: -1;
+    pointer-events: none;
+  }
+  .mb-hero__grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 70% 80% at 70% 30%, #000 0%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 80% at 70% 30%, #000 0%, transparent 75%);
+    z-index: -1;
+    pointer-events: none;
+  }
+  .mb-hero__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    margin-block: var(--sp-5) var(--sp-6);
+    max-width: 880px;
+  }
+  .mb-hero__h1 em { color: rgba(255,255,255,0.38); font-weight: 300; }
+  .mb-hero__promise {
+    font-size: var(--fs-md);
+    color: rgba(255,255,255,0.62);
+    max-width: 600px;
+    line-height: 1.7;
+  }
+  .mb-hero__meta {
+    display: flex; flex-wrap: wrap; align-items: center;
+    gap: var(--sp-3);
+    margin-top: var(--sp-6);
+    font-size: var(--fs-sm);
+    color: rgba(255,255,255,0.55);
+  }
+  .mb-hero__date {
+    display: inline-flex; align-items: center; gap: var(--sp-2);
+    padding: 0.35rem 0.85rem;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: var(--r-full);
+    background: rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.85);
+  }
+  .mb-hero__date svg { color: var(--cyan); }
+  .mb-hero__dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.3); }
+
+  /* ── Page body ── */
+  .mb-body { background: var(--off-white); padding-block: var(--sp-12) var(--sp-20); }
+  .mb-page { display: flex; flex-direction: column; gap: var(--sp-6); min-width: 0; }
+
+  .mb-kicker {
+    font-family: var(--font-body);
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin: 0;
+  }
+
+  /* The three choices: hue cards with a pointer spotlight. */
+  .mb-tiers { display: grid; gap: var(--sp-4); grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+  .mb-tier {
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column; gap: 0.4rem;
+    padding: var(--sp-6) var(--sp-6) var(--sp-5);
+    border-radius: var(--r-xl);
+    background: var(--white);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow var(--t-base), transform var(--t-base);
+  }
+  .mb-tier:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .mb-tier::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(22rem circle at var(--mx, 50%) var(--my, -20%), hsl(var(--mb-hue) 80% 60% / .14), transparent 60%);
+    transition: opacity .3s ease;
+  }
+  .mb-tier::after {
+    content: ''; position: absolute; left: 0; right: 0; top: 0; height: 3px;
+    background: linear-gradient(90deg, hsl(var(--mb-hue) 75% 55%), hsl(calc(var(--mb-hue) + 40) 75% 60%));
+  }
+  .mb-tier__icon {
+    position: relative;
+    width: 2.5rem; height: 2.5rem;
+    border-radius: var(--r-md);
+    display: grid; place-items: center;
+    color: #fff;
+    background: linear-gradient(135deg, hsl(var(--mb-hue) 70% 50%), hsl(calc(var(--mb-hue) + 40) 70% 58%));
+    box-shadow: 0 6px 16px -6px hsl(var(--mb-hue) 70% 45% / .55);
+    margin-bottom: var(--sp-2);
+  }
+  .mb-tier__icon svg { width: 1.2rem; height: 1.2rem; }
+  .mb-tier__blurb { position: relative; margin: 0; font-size: var(--fs-sm); color: var(--text-2); line-height: 1.55; }
+  .mb-tier__model { position: relative; margin: var(--sp-2) 0 0; font-size: var(--fs-sm); color: var(--text-2); }
+  .mb-tier__model strong { color: var(--text); font-weight: 600; }
+  .mb-tier .mb-level { position: relative; font-size: var(--fs-base); }
+
+  /* Cards */
+  .mb-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    box-shadow: var(--shadow-sm);
+    padding: var(--sp-6);
+    min-width: 0;
+  }
+  .mb-card__head {
+    display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+    gap: var(--sp-3) var(--sp-6);
+    margin-bottom: var(--sp-5);
+  }
+  .mb-card__title {
+    font-family: var(--font-display);
+    font-size: var(--fs-xl);
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--text);
+    margin: 0 0 var(--sp-1);
+  }
+  .mb-card__desc { font-size: var(--fs-sm); color: var(--text-2); margin: 0; max-width: 46rem; line-height: 1.6; }
+
+  .mb-filter { display: inline-flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-xs); font-weight: 600; color: var(--text-3); letter-spacing: 0.04em; }
+  .mb-filter__select { position: relative; display: inline-flex; align-items: center; }
+  .mb-filter__select select {
+    appearance: none; -webkit-appearance: none;
+    padding: 0.5rem 2rem 0.5rem 0.9rem;
+    font-size: var(--fs-sm); font-weight: 500; color: var(--text);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-full);
+    outline: none; cursor: pointer;
+    transition: border-color var(--t-fast), box-shadow var(--t-fast);
+  }
+  .mb-filter__select select:hover { border-color: var(--border-2); }
+  .mb-filter__select select:focus-visible { border-color: var(--sky); box-shadow: 0 0 0 3px rgba(14,165,233,0.12); }
+  .mb-filter__select svg { position: absolute; right: 12px; color: var(--text-3); pointer-events: none; }
+
+  /* The table scrolls inside its card, never the page. */
+  .mb-scroll { overflow-x: auto; margin: 0 calc(-1 * var(--sp-6)); padding: 0 var(--sp-6); -webkit-overflow-scrolling: touch; }
+  .mb-scroll:focus-visible { outline: 2px solid var(--sky); outline-offset: -2px; border-radius: var(--r-sm); }
+  .mb-table { width: 100%; border-collapse: collapse; font-size: var(--fs-sm); }
+  .mb-table--wide { min-width: 54rem; }
+  .mb-table thead th {
+    position: sticky; top: 0;
+    background: var(--white);
+    text-align: left; font-weight: 600; color: var(--text-3);
+    border-bottom: 1px solid var(--border);
+    padding: 0; white-space: nowrap;
+  }
+  .mb-table thead button {
+    all: unset; cursor: pointer; display: block;
+    padding: 0.6rem 0.65rem;
+    font-size: var(--fs-xs); letter-spacing: 0.01em;
+    transition: color var(--t-fast);
+  }
+  .mb-table thead button:hover, .mb-table thead button[aria-sort] { color: var(--text); }
+  .mb-table thead button[aria-sort='descending']::after { content: ' ↓'; color: var(--sky); }
+  .mb-table thead button[aria-sort='ascending']::after { content: ' ↑'; color: var(--sky); }
+  .mb-table thead button:focus-visible { outline: 2px solid var(--sky); outline-offset: -2px; border-radius: var(--r-sm); }
+  .mb-table tbody tr { border-bottom: 1px solid var(--border); transition: background var(--t-fast); }
+  .mb-table tbody tr:last-child { border-bottom: none; }
+  .mb-table tbody tr:hover { background: var(--off-white); }
+  .mb-table td, .mb-table tbody th { padding: 0.6rem 0.65rem; vertical-align: middle; }
+
+  .mb-model { text-align: left; font-weight: 400; min-width: 12rem; }
+  .mb-model__name { display: block; font-family: var(--font-display); font-weight: 600; color: var(--text); }
+  .mb-model__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.3rem; font-size: 0.72rem; color: var(--text-3); margin-top: 0.15rem; }
+  .mb-cap { display: inline-flex; width: 0.9rem; height: 0.9rem; color: var(--text-3); }
+  .mb-cap svg { width: 100%; height: 100%; }
+  .mb-chip { display: inline-flex; padding: 0 0.45rem; border-radius: var(--r-full); border: 1px solid var(--border); font-size: 0.66rem; font-weight: 600; line-height: 1.55; }
+  .mb-chip--quick { border-color: hsl(160 60% 45% / .5); color: hsl(160 60% 30%); }
+  .mb-chip--balanced { border-color: hsl(210 70% 50% / .5); color: hsl(210 70% 40%); }
+  .mb-chip--best { border-color: #FCD34D; background: #FFFBEB; color: #B45309; }
+
+  .mb-score {
+    position: relative;
+    display: flex; align-items: center; gap: 0.25rem;
+    min-width: 4.75rem; height: 1.6rem;
+    padding: 0 0.45rem;
+    border-radius: var(--r-sm);
+    color: var(--text);
+    overflow: hidden;
+  }
+  .mb-score__bar {
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: var(--w);
+    background: linear-gradient(90deg, rgba(14,165,233,0.10), rgba(6,182,212,0.20));
+    border-radius: var(--r-sm);
+    transform-origin: left;
+    animation: mb-bar .7s var(--ease) both;
+  }
+  .mb-score__v { position: relative; font-variant-numeric: tabular-nums; font-weight: 600; }
+  .mb-score:hover .mb-score__v { text-decoration: underline; text-underline-offset: 2px; color: var(--blue); }
+  .mb-score:focus-visible { outline: 2px solid var(--sky); outline-offset: 1px; }
+  .mb-vendor { position: relative; font-size: 0.62rem; font-weight: 700; color: #B45309; cursor: help; }
+  .mb-vendor--legend { top: 0; }
+
+  .mb-none-cell, .mb-level-cell { white-space: nowrap; }
+  .mb-none-cell { text-align: center; }
+  .mb-none {
+    display: inline-block;
+    width: 0.8rem; height: 2px;
+    border-radius: 2px;
+    background: var(--border-2);
+    vertical-align: middle;
+    cursor: help;
+  }
+
+  .mb-level { margin: 0.15rem 0 0; font-family: var(--font-display); font-weight: 700; letter-spacing: 0.08em; font-variant-numeric: tabular-nums; font-size: var(--fs-sm); white-space: nowrap; }
+  .mb-level__on { color: var(--text); }
+  .mb-level__off { color: var(--text-3); opacity: 0.45; }
+
+  .mb-empty { padding: var(--sp-10) 0; text-align: center; color: var(--text-3); }
+
+  .mb-legend {
+    display: flex; flex-wrap: wrap;
+    gap: var(--sp-2) var(--sp-6);
+    margin-top: var(--sp-4);
+    padding-top: var(--sp-4);
+    border-top: 1px solid var(--border);
+    font-size: var(--fs-xs);
+    color: var(--text-2);
+  }
+  .mb-legend li { display: inline-flex; align-items: baseline; gap: var(--sp-2); }
+  .mb-legend .mb-level { font-size: var(--fs-xs); margin: 0; }
+
+  @keyframes mb-bar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+  /* Sources */
+  .mb-sources { display: grid; gap: var(--sp-5) var(--sp-8); grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); margin: 0; }
+  .mb-source dt { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-base); color: var(--text); }
+  .mb-source dd { margin: 0.25rem 0 0; font-size: var(--fs-sm); color: var(--text-2); line-height: 1.6; }
+  .mb-source dd p { margin: 0 0 0.3rem; }
+  .mb-source__from { color: var(--text-3); }
+  .mb-source__from a { color: var(--sky); font-weight: 600; }
+  .mb-source__from a:hover { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
+
+  /* Reveal on scroll (threshold 0, so a tall card shows on a short window). */
+  [data-mb-reveal] { opacity: 0; transform: translateY(10px); transition: opacity .5s ease, transform .5s var(--ease); }
+  [data-mb-reveal].is-in { opacity: 1; transform: none; }
+
+  /* ── Text / Image / Video: a segmented switch with a sliding thumb ── */
+  .mb-switch-wrap { display: flex; justify-content: flex-start; }
+  .mb-switch {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(var(--n), minmax(0, 1fr));
+    padding: 4px;
+    border-radius: var(--r-full);
+    background: var(--white);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    max-width: 100%;
+  }
+  .mb-switch__thumb {
+    position: absolute;
+    top: 4px; bottom: 4px; left: 4px;
+    width: calc((100% - 8px) / var(--n));
+    border-radius: var(--r-full);
+    background: var(--deep-navy);
+    box-shadow: 0 6px 18px -6px rgba(15,23,42,0.45);
+    transform: translateX(calc(var(--i) * 100%));
+    transition: transform .35s var(--ease);
+  }
+  .mb-switch__tab {
+    position: relative; z-index: 1;
+    display: inline-flex; align-items: center; justify-content: center; gap: var(--sp-2);
+    min-width: 7.5rem;
+    padding: 0.6rem 1.1rem;
+    border-radius: var(--r-full);
+    font-size: var(--fs-sm); font-weight: 600;
+    color: var(--text-2);
+    white-space: nowrap;
+    transition: color .25s ease;
+  }
+  .mb-switch__tab svg { width: 1rem; height: 1rem; flex: none; }
+  .mb-switch__tab:hover { color: var(--text); }
+  .mb-switch__tab[aria-selected='true'] { color: var(--white); }
+  .mb-switch__tab[aria-selected='true'] svg { color: var(--cyan); }
+  .mb-switch__tab:focus-visible { outline: 2px solid var(--sky); outline-offset: 2px; }
+  .mb-switch__count {
+    padding: 0 0.45rem;
+    border-radius: var(--r-full);
+    font-size: 0.68rem; font-weight: 600; line-height: 1.6;
+    font-variant-numeric: tabular-nums;
+    background: var(--off-white);
+    color: var(--text-3);
+    transition: background .25s ease, color .25s ease;
+  }
+  .mb-switch__tab[aria-selected='true'] .mb-switch__count { background: rgba(255,255,255,0.14); color: rgba(255,255,255,0.85); }
+
+  .mb-panel { display: flex; flex-direction: column; gap: var(--sp-6); min-width: 0; }
+  .mb-panel[hidden] { display: none; }
+
+  .mb-collecting {
+    display: flex; align-items: flex-start; gap: var(--sp-3);
+    margin-bottom: var(--sp-4);
+    padding: var(--sp-3) var(--sp-4);
+    border: 1px solid rgba(14,165,233,0.22);
+    border-radius: var(--r-md);
+    background: linear-gradient(135deg, rgba(14,165,233,0.06), rgba(6,182,212,0.03));
+    font-size: var(--fs-sm); color: var(--text-2); line-height: 1.6;
+  }
+  .mb-collecting svg { flex: none; width: 1.1rem; height: 1.1rem; margin-top: 2px; color: var(--sky); }
+
+  @media (max-width: 640px) {
+    .mb-switch-wrap { justify-content: stretch; }
+    .mb-switch { width: 100%; }
+    .mb-switch__tab { min-width: 0; padding: 0.6rem 0.5rem; gap: 6px; }
+  }
+  @media (max-width: 380px) {
+    .mb-switch__count { display: none; }
+  }
+
+  @media (max-width: 640px) {
+    .mb-body { padding-block: var(--sp-8) var(--sp-12); }
+    .mb-card { padding: var(--sp-5) var(--sp-4); }
+    .mb-scroll { margin: 0 calc(-1 * var(--sp-4)); padding: 0 var(--sp-4); }
+    .mb-legend li { align-items: flex-start; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-mb-reveal] { opacity: 1; transform: none; transition: none; }
+    .mb-score__bar { animation: none; }
+    .mb-tier, .mb-tier:hover { transition: none; transform: none; }
+    .mb-tier::before { transition: none; }
+    .mb-switch__thumb, .mb-switch__tab, .mb-switch__count { transition: none; }
+  }
+</style>
+
+<script>
+  // Reveal, spotlight, the Text / Image / Video switch, and in each panel the
+  // provider filter and the column sort (ported from the app).
+  const io: IntersectionObserver | null = 'IntersectionObserver' in window
+    ? new IntersectionObserver((entries) => {
+        for (const e of entries) if (e.isIntersecting) { e.target.classList.add('is-in'); io?.unobserve(e.target); }
+      }, { threshold: 0 })
+    : null;
+  for (const el of document.querySelectorAll('[data-mb-reveal]')) {
+    if (io) io.observe(el); else el.classList.add('is-in');
+  }
+
+  const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!still) {
+    for (const card of document.querySelectorAll<HTMLElement>('[data-mb-spot]')) {
+      card.addEventListener('pointermove', (e) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+        card.style.setProperty('--my', `${e.clientY - r.top}px`);
+      });
+    }
+  }
+
+  const root = document.querySelector<HTMLElement>('[data-mb]');
+  const lang = root?.dataset.lang || 'en';
+
+  // ── The switch: one tab per kind, the state in the URL hash (#image). ──
+  const tablist = document.querySelector<HTMLElement>('[data-mb-tabs]');
+  const tabs = [...(tablist?.querySelectorAll<HTMLButtonElement>('[role="tab"]') ?? [])];
+  const kinds = tabs.map((t) => t.dataset.kind!);
+
+  function activate(kind: string, opts: { focus?: boolean; hash?: boolean } = {}) {
+    const i = kinds.indexOf(kind);
+    if (i < 0 || !tablist) return;
+    tabs.forEach((t, k) => {
+      const on = k === i;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      const panel = document.getElementById(t.getAttribute('aria-controls')!);
+      if (panel) panel.hidden = !on;
+    });
+    tablist.style.setProperty('--i', String(i));
+    if (opts.focus) tabs[i].focus();
+    if (opts.hash && location.hash !== `#${kind}`) history.replaceState(null, '', `#${kind}`);
+  }
+
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => activate(kinds[i], { hash: true }));
+    t.addEventListener('keydown', (e) => {
+      let next = -1;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = (i + 1) % tabs.length;
+      else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = (i - 1 + tabs.length) % tabs.length;
+      else if (e.key === 'Home') next = 0;
+      else if (e.key === 'End') next = tabs.length - 1;
+      if (next < 0) return;
+      e.preventDefault();
+      activate(kinds[next], { focus: true, hash: true });
+    });
+  });
+
+  const fromHash = () => location.hash.replace(/^#/, '').toLowerCase();
+  if (kinds.includes(fromHash())) {
+    activate(fromHash());
+    // A shared link to a kind opens on the switch.
+    if (fromHash() !== kinds[0]) tablist?.scrollIntoView({ block: 'start' });
+  }
+  window.addEventListener('hashchange', () => {
+    if (kinds.includes(fromHash())) activate(fromHash());
+  });
+
+  // ── Each panel: provider filter and column sort. ──
+  for (const panel of document.querySelectorAll<HTMLElement>('[data-mb-panel]')) {
+    const table = panel.querySelector<HTMLTableElement>('[data-mb-table]');
+    const body = table?.tBodies[0];
+    const empty = panel.querySelector<HTMLElement>('[data-mb-empty]');
+
+    panel.querySelector<HTMLSelectElement>('[data-mb-provider]')?.addEventListener('change', (e) => {
+      const p = (e.target as HTMLSelectElement).value;
+      let shown = 0;
+      for (const tr of body?.rows ?? []) {
+        tr.hidden = !!p && tr.dataset.provider !== p;
+        if (!tr.hidden) shown++;
+      }
+      if (empty) empty.hidden = shown !== 0;
+    });
+
+    for (const btn of table?.querySelectorAll<HTMLButtonElement>('[data-mb-sort]') ?? []) {
+      btn.addEventListener('click', () => {
+        if (!body) return;
+        const key = btn.dataset.mbSort!;
+        const numeric = btn.hasAttribute('data-mb-num');
+        // A score sorts strongest first, a price level cheapest first, a name
+        // A to Z; a second click turns the order round.
+        const natural = numeric && !btn.hasAttribute('data-mb-asc') ? 'descending' : 'ascending';
+        const was = btn.getAttribute('aria-sort');
+        const dir = was ? (was === 'ascending' ? 'descending' : 'ascending') : natural;
+        for (const b of table!.querySelectorAll('[data-mb-sort]')) b.removeAttribute('aria-sort');
+        btn.setAttribute('aria-sort', dir);
+        const attr = ['label', 'level'].includes(key) ? key : `s-${key}`;
+        const rows = [...body.rows];
+        rows.sort((a, b) => {
+          const x = a.getAttribute(`data-${attr}`) ?? '';
+          const y = b.getAttribute(`data-${attr}`) ?? '';
+          if (!numeric) return dir === 'ascending' ? x.localeCompare(y, lang) : y.localeCompare(x, lang);
+          // A model with no figure always goes last.
+          if (x === '' && y === '') return 0;
+          if (x === '') return 1;
+          if (y === '') return -1;
+          return dir === 'ascending' ? Number(x) - Number(y) : Number(y) - Number(x);
+        });
+        body.append(...rows);
+      });
+    }
+  }
+</script>

@@ -1,0 +1,1913 @@
+{
+  "collectedOn": "2026-10-08",
+  "benchmarks": [
+    {
+      "kind": "text",
+      "key": "aa_index",
+      "name": "Intelligence Index",
+      "measures": "One overall score that blends ten hard tests of reasoning, knowledge, coding and agent work. The quickest way to compare general ability.",
+      "unit": "score",
+      "higherIsBetter": true,
+      "sourceName": "Artificial Analysis",
+      "sourceUrl": "https://artificialanalysis.ai/leaderboards/models",
+      "asOf": "2026-10-08",
+      "note": "Version 4.3, ten tests, each model at its strongest reasoning setting",
+      "i18n": {
+        "measures": {
+          "fr": "Un score global qui combine dix tests exigeants de raisonnement, de connaissances, de code et de travail d’agent. Le moyen le plus rapide de comparer le niveau général.",
+          "zh": "综合十项高难度测试（推理、知识、编程与智能体任务）的总分，是比较整体能力最快捷的方式。"
+        },
+        "note": {
+          "fr": "Version 4.3, dix tests, chaque modèle à son réglage de raisonnement le plus poussé",
+          "zh": "4.3 版，共十项测试，各模型均采用其最强推理设置"
+        }
+      }
+    },
+    {
+      "kind": "text",
+      "key": "lmarena_text",
+      "name": "LMArena Text",
+      "measures": "A rating built from millions of blind votes in which people pick the better of two answers. It shows whose answers people prefer.",
+      "unit": "elo",
+      "higherIsBetter": true,
+      "sourceName": "LMArena",
+      "sourceUrl": "https://arena.ai/leaderboard/text",
+      "asOf": "2026-10-02",
+      "note": "Overall text ranking, with style control",
+      "i18n": {
+        "measures": {
+          "fr": "Une note bâtie sur des millions de votes à l’aveugle, où chacun choisit la meilleure de deux réponses. Elle montre quelles réponses les gens préfèrent.",
+          "zh": "基于数百万次盲测投票得出的评分：用户在两个回答中选出更好的一个。它反映人们更偏爱哪个模型的回答。"
+        },
+        "note": {
+          "fr": "Classement texte général, avec contrôle du style",
+          "zh": "文本总榜（启用风格控制）"
+        }
+      }
+    },
+    {
+      "kind": "text",
+      "key": "aa_speed",
+      "name": "Output speed",
+      "measures": "How many tokens, roughly words, the model writes per second once it starts answering. Higher feels faster.",
+      "unit": "tokens/s",
+      "higherIsBetter": true,
+      "sourceName": "Artificial Analysis",
+      "sourceUrl": "https://artificialanalysis.ai/leaderboards/models",
+      "asOf": "2026-10-08",
+      "note": "Median speed measured by Artificial Analysis",
+      "i18n": {
+        "measures": {
+          "fr": "Le nombre de tokens, à peu près des mots, que le modèle écrit par seconde une fois lancé. Plus il est élevé, plus la réponse paraît rapide.",
+          "zh": "模型开始作答后每秒输出的 token 数（大致相当于词数）。数值越高，感觉越快。"
+        },
+        "note": {
+          "fr": "Vitesse médiane mesurée par Artificial Analysis",
+          "zh": "Artificial Analysis 测得的中位速度"
+        }
+      }
+    },
+    {
+      "kind": "text",
+      "key": "hle",
+      "name": "Humanity's Last Exam",
+      "measures": "About 2,000 very hard expert questions across many fields. Even the best models score well under 100%.",
+      "unit": "%",
+      "higherIsBetter": true,
+      "sourceName": "Artificial Analysis",
+      "sourceUrl": "https://artificialanalysis.ai/leaderboards/models",
+      "asOf": "2026-10-08",
+      "note": "Without tools",
+      "i18n": {
+        "measures": {
+          "fr": "Environ 2 000 questions d’experts très difficiles, dans de nombreux domaines. Même les meilleurs modèles restent loin des 100 %.",
+          "zh": "约 2,000 道跨多个领域的高难度专家级题目。即便最强的模型，得分也远低于 100%。"
+        },
+        "note": {
+          "fr": "Sans outils",
+          "zh": "不使用工具"
+        }
+      }
+    },
+    {
+      "kind": "text",
+      "key": "gpqa_diamond",
+      "name": "GPQA Diamond",
+      "measures": "Graduate-level science questions that are hard to answer even with a web search. A test of expert reasoning.",
+      "unit": "%",
+      "higherIsBetter": true,
+      "sourceName": "Artificial Analysis",
+      "sourceUrl": "https://artificialanalysis.ai/leaderboards/models",
+      "asOf": "2026-10-08",
+      "note": "No longer run on the newest models, which show a dash",
+      "i18n": {
+        "measures": {
+          "fr": "Des questions de sciences de niveau universitaire avancé, difficiles même avec une recherche web. Un test de raisonnement expert.",
+          "zh": "研究生水平的科学题目，即便借助网络搜索也很难作答，用于检验专家级推理能力。"
+        },
+        "note": {
+          "fr": "N’est plus mené sur les modèles les plus récents, qui affichent un tiret",
+          "zh": "最新模型已不再参与此项测试，显示为短横线"
+        }
+      }
+    },
+    {
+      "kind": "text",
+      "key": "tau2_telecom",
+      "name": "tau2-bench Telecom",
+      "measures": "A customer support conversation in which the model must use tools and follow the rules correctly.",
+      "unit": "%",
+      "higherIsBetter": true,
+      "sourceName": "Artificial Analysis",
+      "sourceUrl": "https://artificialanalysis.ai/leaderboards/models",
+      "asOf": "2026-10-08",
+      "note": "No longer run on the newest models, which show a dash",
+      "i18n": {
+        "measures": {
+          "fr": "Une conversation de service client dans laquelle le modèle doit utiliser des outils et respecter les règles.",
+          "zh": "一段客服对话：模型须正确调用工具并遵守规则。"
+        },
+        "note": {
+          "fr": "N’est plus mené sur les modèles les plus récents, qui affichent un tiret",
+          "zh": "最新模型已不再参与此项测试，显示为短横线"
+        }
+      }
+    },
+    {
+      "kind": "image",
+      "key": "aa_t2i",
+      "name": "AA Text to Image",
+      "measures": "How often people prefer this model's pictures over other models' in blind side by side votes on the same text prompt.",
+      "unit": "elo",
+      "higherIsBetter": true,
+      "sourceName": "Artificial Analysis",
+      "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image",
+      "asOf": "2026-10-08",
+      "note": "Overall board, all categories",
+      "i18n": {
+        "measures": {
+          "fr": "La fréquence à laquelle les internautes préfèrent les images de ce modèle à celles des autres, lors de votes à l’aveugle sur une même consigne.",
+          "zh": "在同一文字提示下进行盲测对比投票时，用户更偏爱该模型生成图片的频率。"
+        },
+        "note": {
+          "fr": "Classement général, toutes catégories",
+          "zh": "总榜，涵盖全部类别"
+        }
+      }
+    },
+    {
+      "kind": "image",
+      "key": "lm_t2i",
+      "name": "Arena Text to Image",
+      "measures": "Score from public blind votes comparing two models' pictures for the same prompt.",
+      "unit": "score",
+      "higherIsBetter": true,
+      "sourceName": "LMArena",
+      "sourceUrl": "https://arena.ai/leaderboard/text-to-image",
+      "asOf": "2026-10-07",
+      "note": "Overall board",
+      "i18n": {
+        "measures": {
+          "fr": "Une note issue de votes publics à l’aveugle qui comparent les images de deux modèles pour une même consigne.",
+          "zh": "基于公开盲测投票的评分：针对同一提示词，比较两个模型生成的图片。"
+        },
+        "note": {
+          "fr": "Classement général",
+          "zh": "总榜"
+        }
+      }
+    },
+    {
+      "kind": "image",
+      "key": "aa_edit",
+      "name": "AA Image Editing",
+      "measures": "How often people prefer this model's edits of a supplied picture in blind side by side votes.",
+      "unit": "elo",
+      "higherIsBetter": true,
+      "sourceName": "Artificial Analysis",
+      "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing",
+      "asOf": "2026-10-08",
+      "note": "Overall board, all categories",
+      "i18n": {
+        "measures": {
+          "fr": "La fréquence à laquelle les internautes préfèrent les retouches de ce modèle sur une image fournie, lors de votes à l’aveugle.",
+          "zh": "在盲测对比投票中，用户更偏爱该模型对指定图片所做修改的频率。"
+        },
+        "note": {
+          "fr": "Classement général, toutes catégories",
+          "zh": "总榜，涵盖全部类别"
+        }
+      }
+    },
+    {
+      "kind": "image",
+      "key": "lm_edit",
+      "name": "Arena Image Edit",
+      "measures": "Score from public blind votes comparing two models' edits of the same picture.",
+      "unit": "score",
+      "higherIsBetter": true,
+      "sourceName": "LMArena",
+      "sourceUrl": "https://arena.ai/leaderboard/image-edit",
+      "asOf": "2026-10-06",
+      "note": "Overall board",
+      "i18n": {
+        "measures": {
+          "fr": "Une note issue de votes publics à l’aveugle qui comparent les retouches de deux modèles sur une même image.",
+          "zh": "基于公开盲测投票的评分：比较两个模型对同一张图片的修改效果。"
+        },
+        "note": {
+          "fr": "Classement général",
+          "zh": "总榜"
+        }
+      }
+    },
+    {
+      "kind": "image",
+      "key": "aa_img_time",
+      "name": "Generation time",
+      "measures": "Typical number of seconds the model takes to deliver one picture.",
+      "unit": "s",
+      "higherIsBetter": false,
+      "sourceName": "Artificial Analysis",
+      "sourceUrl": "https://artificialanalysis.ai/image/models",
+      "asOf": "2026-10-08",
+      "note": "Median on the maker's own API, moves from day to day",
+      "i18n": {
+        "measures": {
+          "fr": "Le nombre de secondes qu’il faut en général au modèle pour livrer une image.",
+          "zh": "模型生成一张图片通常所需的秒数。"
+        },
+        "note": {
+          "fr": "Médiane mesurée sur l’API de l’éditeur, variable d’un jour à l’autre",
+          "zh": "在厂商自有 API 上测得的中位数，每日略有变化"
+        }
+      }
+    },
+    {
+      "kind": "video",
+      "key": "aa_t2v",
+      "name": "AA Text to Video",
+      "measures": "How often people prefer this model's silent clips over other models' in blind side by side votes on the same text prompt.",
+      "unit": "elo",
+      "higherIsBetter": true,
+      "sourceName": "Artificial Analysis",
+      "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+      "asOf": "2026-10-08",
+      "note": "Without audio",
+      "i18n": {
+        "measures": {
+          "fr": "La fréquence à laquelle les internautes préfèrent les clips sans son de ce modèle à ceux des autres, lors de votes à l’aveugle sur une même consigne.",
+          "zh": "在同一文字提示下进行盲测对比投票时，用户更偏爱该模型无声视频的频率。"
+        },
+        "note": {
+          "fr": "Sans son",
+          "zh": "无声音"
+        }
+      }
+    },
+    {
+      "kind": "video",
+      "key": "lm_t2v",
+      "name": "Arena Text to Video",
+      "measures": "Score from public blind votes comparing two models' clips for the same text prompt.",
+      "unit": "score",
+      "higherIsBetter": true,
+      "sourceName": "LMArena",
+      "sourceUrl": "https://arena.ai/leaderboard/text-to-video",
+      "asOf": "2026-09-21",
+      "note": "Overall board",
+      "i18n": {
+        "measures": {
+          "fr": "Une note issue de votes publics à l’aveugle qui comparent les clips de deux modèles pour une même consigne.",
+          "zh": "基于公开盲测投票的评分：针对同一文字提示，比较两个模型生成的视频。"
+        },
+        "note": {
+          "fr": "Classement général",
+          "zh": "总榜"
+        }
+      }
+    },
+    {
+      "kind": "video",
+      "key": "aa_t2v_audio",
+      "name": "AA Text to Video, with audio",
+      "measures": "How often people prefer this model's clips with sound over other models' in blind side by side votes on the same text prompt.",
+      "unit": "elo",
+      "higherIsBetter": true,
+      "sourceName": "Artificial Analysis",
+      "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+      "asOf": "2026-10-08",
+      "note": "With audio",
+      "i18n": {
+        "measures": {
+          "fr": "La fréquence à laquelle les internautes préfèrent les clips sonores de ce modèle à ceux des autres, lors de votes à l’aveugle sur une même consigne.",
+          "zh": "在同一文字提示下进行盲测对比投票时，用户更偏爱该模型有声视频的频率。"
+        },
+        "note": {
+          "fr": "Avec son",
+          "zh": "含声音"
+        }
+      }
+    },
+    {
+      "kind": "video",
+      "key": "aa_i2v",
+      "name": "AA Image to Video",
+      "measures": "How often people prefer this model's silent animation of a supplied picture in blind side by side votes.",
+      "unit": "elo",
+      "higherIsBetter": true,
+      "sourceName": "Artificial Analysis",
+      "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/image-to-video",
+      "asOf": "2026-10-08",
+      "note": "Without audio",
+      "i18n": {
+        "measures": {
+          "fr": "La fréquence à laquelle les internautes préfèrent l’animation sans son d’une image fournie par ce modèle, lors de votes à l’aveugle.",
+          "zh": "在盲测对比投票中，用户更偏爱该模型将指定图片制作成无声动画的频率。"
+        },
+        "note": {
+          "fr": "Sans son",
+          "zh": "无声音"
+        }
+      }
+    },
+    {
+      "kind": "video",
+      "key": "lm_i2v",
+      "name": "Arena Image to Video",
+      "measures": "Score from public blind votes comparing two models' animation of the same picture.",
+      "unit": "score",
+      "higherIsBetter": true,
+      "sourceName": "LMArena",
+      "sourceUrl": "https://arena.ai/leaderboard/image-to-video",
+      "asOf": "2026-09-21",
+      "note": "Overall board",
+      "i18n": {
+        "measures": {
+          "fr": "Une note issue de votes publics à l’aveugle qui comparent l’animation d’une même image par deux modèles.",
+          "zh": "基于公开盲测投票的评分：比较两个模型将同一张图片制作成动画的效果。"
+        },
+        "note": {
+          "fr": "Classement général",
+          "zh": "总榜"
+        }
+      }
+    }
+  ],
+  "tiers": [
+    {
+      "tier": "quick",
+      "model": "openai/gpt-6-luna"
+    },
+    {
+      "tier": "balanced",
+      "model": "anthropic/claude-sonnet-5.5"
+    },
+    {
+      "tier": "best",
+      "model": "anthropic/claude-opus-5.5"
+    }
+  ],
+  "models": [
+    {
+      "id": "anthropic/claude-haiku-4.5",
+      "kind": "text",
+      "label": "Claude Haiku 4.5",
+      "provider": "Anthropic",
+      "level": 3,
+      "web": true,
+      "vision": true,
+      "scores": {
+        "aa_index": {
+          "value": 16.9,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "aa_speed": {
+          "value": 90,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "gpqa_diamond": {
+          "value": 67.2,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 10.4,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "tau2_telecom": {
+          "value": 54.7,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "lmarena_text": {
+          "value": 1414,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        }
+      }
+    },
+    {
+      "id": "anthropic/claude-fable-5",
+      "kind": "text",
+      "label": "Claude Fable 5",
+      "provider": "Anthropic",
+      "level": 4,
+      "web": true,
+      "vision": true,
+      "scores": {
+        "aa_index": {
+          "value": 49.6,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "aa_speed": {
+          "value": 65,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "gpqa_diamond": {
+          "value": 92.6,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 55.5,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "tau2_telecom": {
+          "value": 98.5,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "lmarena_text": {
+          "value": 1504,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        }
+      }
+    },
+    {
+      "id": "openai/gpt-5.2",
+      "kind": "text",
+      "label": "GPT-5.2",
+      "provider": "OpenAI",
+      "level": 4,
+      "web": true,
+      "vision": true,
+      "scores": {
+        "aa_index": {
+          "value": 30.4,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "aa_speed": {
+          "value": 75,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "gpqa_diamond": {
+          "value": 90.3,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 37.7,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "tau2_telecom": {
+          "value": 84.8,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "lmarena_text": {
+          "value": 1436,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        }
+      }
+    },
+    {
+      "id": "openai/gpt-5.6-sol",
+      "kind": "text",
+      "label": "GPT-5.6 Sol",
+      "provider": "OpenAI",
+      "level": 4,
+      "web": true,
+      "vision": true,
+      "scores": {
+        "aa_index": {
+          "value": 47,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "aa_speed": {
+          "value": 78,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "gpqa_diamond": {
+          "value": 94.1,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 49.5,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "tau2_telecom": {
+          "value": 85.1,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "lmarena_text": {
+          "value": 1484,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        }
+      }
+    },
+    {
+      "id": "openai/gpt-5.6-terra",
+      "kind": "text",
+      "label": "GPT-5.6 Terra",
+      "provider": "OpenAI",
+      "level": 4,
+      "web": true,
+      "vision": true,
+      "scores": {
+        "aa_index": {
+          "value": 42.1,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "aa_speed": {
+          "value": 108,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "gpqa_diamond": {
+          "value": 92.5,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 42.9,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "tau2_telecom": {
+          "value": 86.3,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "lmarena_text": {
+          "value": 1465,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        }
+      }
+    },
+    {
+      "id": "openai/gpt-5.6-luna",
+      "kind": "text",
+      "label": "GPT-5.6 Luna",
+      "provider": "OpenAI",
+      "level": 2,
+      "web": true,
+      "vision": true,
+      "scores": {
+        "aa_index": {
+          "value": 37.3,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "aa_speed": {
+          "value": 117,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "gpqa_diamond": {
+          "value": 91.1,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 39.5,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "lmarena_text": {
+          "value": 1453,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        }
+      }
+    },
+    {
+      "id": "openai/gpt-5-mini",
+      "kind": "text",
+      "label": "GPT-5 Mini",
+      "provider": "OpenAI",
+      "level": 2,
+      "web": true,
+      "vision": true,
+      "scores": {
+        "aa_index": {
+          "value": 16.8,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "aa_speed": {
+          "value": 125,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "gpqa_diamond": {
+          "value": 82.8,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 21.5,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "tau2_telecom": {
+          "value": 68.4,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "lmarena_text": {
+          "value": 1390,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        }
+      }
+    },
+    {
+      "id": "openai/gpt-5-nano",
+      "kind": "text",
+      "label": "GPT-5 Nano",
+      "provider": "OpenAI",
+      "level": 1,
+      "web": true,
+      "vision": false,
+      "scores": {
+        "aa_index": {
+          "value": 13,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "aa_speed": {
+          "value": 131,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "gpqa_diamond": {
+          "value": 67.6,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 9.5,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "tau2_telecom": {
+          "value": 36.5,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "lmarena_text": {
+          "value": 1338,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        }
+      }
+    },
+    {
+      "id": "deepseek/deepseek-v4-pro",
+      "kind": "text",
+      "label": "DeepSeek V4 Pro",
+      "provider": "DeepSeek",
+      "level": 3,
+      "web": false,
+      "vision": false,
+      "scores": {
+        "aa_index": {
+          "value": 30.4,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "aa_speed": {
+          "value": 98,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "gpqa_diamond": {
+          "value": 88.8,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 37.5,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "tau2_telecom": {
+          "value": 96.2,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "lmarena_text": {
+          "value": 1458,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        }
+      }
+    },
+    {
+      "id": "deepseek/deepseek-v4-flash",
+      "kind": "text",
+      "label": "DeepSeek V4 Flash",
+      "provider": "DeepSeek",
+      "level": 1,
+      "web": false,
+      "vision": false,
+      "scores": {
+        "aa_index": {
+          "value": 24.2,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "gpqa_diamond": {
+          "value": 89.4,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 34.8,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "tau2_telecom": {
+          "value": 95,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "lmarena_text": {
+          "value": 1436,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        }
+      }
+    },
+    {
+      "id": "alibaba/qwen3.8-max",
+      "kind": "text",
+      "label": "Qwen 3.8 Max",
+      "provider": "Qwen",
+      "level": 3,
+      "web": false,
+      "vision": true,
+      "scores": {
+        "aa_index": {
+          "value": 40.2,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "aa_speed": {
+          "value": 37,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "gpqa_diamond": {
+          "value": 92.7,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 43,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "lmarena_text": {
+          "value": 1482,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        }
+      }
+    },
+    {
+      "id": "alibaba/qwen3.7-plus",
+      "kind": "text",
+      "label": "Qwen 3.7 Plus",
+      "provider": "Qwen",
+      "level": 2,
+      "web": false,
+      "vision": false,
+      "scores": {
+        "aa_index": {
+          "value": 25.2,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "aa_speed": {
+          "value": 54,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "gpqa_diamond": {
+          "value": 90,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 35.6,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "tau2_telecom": {
+          "value": 93,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "lmarena_text": {
+          "value": 1456,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        }
+      }
+    },
+    {
+      "id": "alibaba/qwen3.8-flash",
+      "kind": "text",
+      "label": "Qwen 3.8 Flash",
+      "provider": "Qwen",
+      "level": 1,
+      "web": false,
+      "vision": true,
+      "scores": {
+        "aa_index": {
+          "value": 39.8,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "aa_speed": {
+          "value": 56,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "gpqa_diamond": {
+          "value": 92.3,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 38,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        }
+      }
+    },
+    {
+      "id": "spacexai/grok-4.6",
+      "kind": "text",
+      "label": "Grok 4.6",
+      "provider": "xAI",
+      "level": 3,
+      "web": true,
+      "vision": false,
+      "scores": {
+        "aa_index": {
+          "value": 44.3,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "aa_speed": {
+          "value": 62,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "gpqa_diamond": {
+          "value": 94.9,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 42.9,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "lmarena_text": {
+          "value": 1454,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        }
+      }
+    },
+    {
+      "id": "spacexai/grok-4.20-reasoning",
+      "kind": "text",
+      "label": "Grok 4.20 Reasoning",
+      "provider": "xAI",
+      "level": 2,
+      "web": true,
+      "vision": false,
+      "scores": {
+        "aa_index": {
+          "value": 25.2,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "gpqa_diamond": {
+          "value": 88.5,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 32.4,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "tau2_telecom": {
+          "value": 96.5,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "lmarena_text": {
+          "value": 1472,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        }
+      }
+    },
+    {
+      "id": "spacexai/grok-4.1-fast-reasoning",
+      "kind": "text",
+      "label": "Grok 4.1 Fast",
+      "provider": "xAI",
+      "level": 1,
+      "web": false,
+      "vision": false,
+      "scores": {
+        "aa_index": {
+          "value": 20.4,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "gpqa_diamond": {
+          "value": 85.3,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 19.3,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "tau2_telecom": {
+          "value": 93.3,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "lmarena_text": {
+          "value": 1430,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        }
+      }
+    },
+    {
+      "id": "zai/glm-5.3",
+      "kind": "text",
+      "label": "GLM 5.3",
+      "provider": "Zhipu",
+      "level": 3,
+      "web": false,
+      "vision": false,
+      "scores": {
+        "aa_index": {
+          "value": 44.8,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "aa_speed": {
+          "value": 79,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "gpqa_diamond": {
+          "value": 91.7,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 42.3,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "lmarena_text": {
+          "value": 1478,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        }
+      }
+    },
+    {
+      "id": "zai/glm-5.3-flash",
+      "kind": "text",
+      "label": "GLM 5.3 Flash",
+      "provider": "Zhipu",
+      "level": 1,
+      "web": false,
+      "vision": true,
+      "scores": {
+        "aa_index": {
+          "value": 41.8,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "aa_speed": {
+          "value": 51,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "gpqa_diamond": {
+          "value": 91.2,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 39.9,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "lmarena_text": {
+          "value": 1473,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        }
+      }
+    },
+    {
+      "id": "zai/glm-5v-turbo",
+      "kind": "text",
+      "label": "GLM 5V Turbo",
+      "provider": "Zhipu",
+      "level": 3,
+      "web": false,
+      "vision": true,
+      "scores": {
+        "aa_index": {
+          "value": 23.5,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "gpqa_diamond": {
+          "value": 80.9,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 17.1,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "tau2_telecom": {
+          "value": 98.5,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "lmarena_text": {
+          "value": 1433,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        }
+      }
+    },
+    {
+      "id": "moonshotai/kimi-k3",
+      "kind": "text",
+      "label": "Kimi K3",
+      "provider": "Kimi",
+      "level": 4,
+      "web": false,
+      "vision": false,
+      "scores": {
+        "aa_index": {
+          "value": 43.6,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "aa_speed": {
+          "value": 42,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "gpqa_diamond": {
+          "value": 93.5,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 46.9,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "lmarena_text": {
+          "value": 1488,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        }
+      }
+    },
+    {
+      "id": "mistral/mistral-medium-3.5",
+      "kind": "text",
+      "label": "Mistral Medium 3.5",
+      "provider": "Mistral",
+      "level": 3,
+      "web": false,
+      "vision": true,
+      "scores": {
+        "aa_index": {
+          "value": 14.2,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "aa_speed": {
+          "value": 168,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "gpqa_diamond": {
+          "value": 74.8,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 13.8,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "tau2_telecom": {
+          "value": 94.2,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "lmarena_text": {
+          "value": 1427,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        }
+      }
+    },
+    {
+      "id": "mistral/mistral-large-3",
+      "kind": "text",
+      "label": "Mistral Large 3",
+      "provider": "Mistral",
+      "level": 2,
+      "web": false,
+      "vision": false,
+      "scores": {
+        "aa_index": {
+          "value": 9.3,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "aa_speed": {
+          "value": 78,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "gpqa_diamond": {
+          "value": 68,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 4.2,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "tau2_telecom": {
+          "value": 24.6,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "lmarena_text": {
+          "value": 1414,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        }
+      }
+    },
+    {
+      "id": "mistral/mistral-small",
+      "kind": "text",
+      "label": "Mistral Small",
+      "provider": "Mistral",
+      "level": 1,
+      "web": false,
+      "vision": false,
+      "scores": {
+        "aa_index": {
+          "value": 11.3,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "aa_speed": {
+          "value": 160,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "gpqa_diamond": {
+          "value": 76.9,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 9.9,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "tau2_telecom": {
+          "value": 41.2,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        }
+      }
+    },
+    {
+      "id": "openai/gpt-6-luna",
+      "kind": "text",
+      "label": "GPT-6 Luna",
+      "provider": "OpenAI",
+      "level": 1,
+      "web": true,
+      "vision": true,
+      "scores": {
+        "aa_index": {
+          "value": 38.1,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "aa_speed": {
+          "value": 129,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 38.5,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "lmarena_text": {
+          "value": 1443,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        }
+      }
+    },
+    {
+      "id": "alibaba/qwen3.8-omni-flash",
+      "kind": "text",
+      "label": "Qwen 3.8 Omni Flash",
+      "provider": "Qwen",
+      "level": 1,
+      "web": false,
+      "vision": true,
+      "scores": {
+        "gpqa_diamond": {
+          "value": 91,
+          "sourceUrl": "https://benchlm.ai/md/models/qwen3-8-omni-flash.md",
+          "vendor": true
+        }
+      }
+    },
+    {
+      "id": "anthropic/claude-opus-5.5",
+      "kind": "text",
+      "label": "Claude Opus 5.5",
+      "provider": "Anthropic",
+      "level": 3,
+      "web": true,
+      "vision": true,
+      "scores": {
+        "aa_index": {
+          "value": 57.6,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "aa_speed": {
+          "value": 95,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 61.4,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "lmarena_text": {
+          "value": 1504,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        }
+      }
+    },
+    {
+      "id": "anthropic/claude-sonnet-5.5",
+      "kind": "text",
+      "label": "Claude Sonnet 5.5",
+      "provider": "Anthropic",
+      "level": 2,
+      "web": true,
+      "vision": true,
+      "scores": {
+        "aa_index": {
+          "value": 56,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "aa_speed": {
+          "value": 129,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 55,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "lmarena_text": {
+          "value": 1471,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        }
+      }
+    },
+    {
+      "id": "openai/gpt-6.1-sol",
+      "kind": "text",
+      "label": "GPT-6.1 Sol",
+      "provider": "OpenAI",
+      "level": 4,
+      "web": true,
+      "vision": true,
+      "scores": {
+        "aa_index": {
+          "value": 51.8,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "aa_speed": {
+          "value": 55,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 52.9,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "lmarena_text": {
+          "value": 1483,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        }
+      }
+    },
+    {
+      "id": "spacexai/grok-4.7",
+      "kind": "text",
+      "label": "Grok 4.7",
+      "provider": "xAI",
+      "level": 4,
+      "web": false,
+      "vision": true,
+      "scores": {
+        "aa_index": {
+          "value": 46.4,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "aa_speed": {
+          "value": 73,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 43.1,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "lmarena_text": {
+          "value": 1442,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        }
+      }
+    },
+    {
+      "id": "zai/glm-5.3-flashx",
+      "kind": "text",
+      "label": "GLM 5.3 FlashX",
+      "provider": "Zhipu",
+      "level": 2,
+      "web": false,
+      "vision": true,
+      "scores": {
+        "aa_index": {
+          "value": 41.8,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "gpqa_diamond": {
+          "value": 91.2,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 39.9,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "lmarena_text": {
+          "value": 1473,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        }
+      }
+    },
+    {
+      "id": "openai/gpt-image-2",
+      "kind": "image",
+      "label": "ChatGPT Image 2",
+      "provider": "OpenAI",
+      "level": 2,
+      "scores": {
+        "aa_t2i": {
+          "value": 1172.43,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
+        },
+        "aa_edit": {
+          "value": 1124.83,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
+        },
+        "lm_t2i": {
+          "value": 1383.04,
+          "sourceUrl": "https://arena.ai/leaderboard/text-to-image"
+        },
+        "lm_edit": {
+          "value": 1461.74,
+          "sourceUrl": "https://arena.ai/leaderboard/image-edit"
+        },
+        "aa_img_time": {
+          "value": 116.5,
+          "sourceUrl": "https://artificialanalysis.ai/image/models"
+        }
+      }
+    },
+    {
+      "id": "openai/gpt-image-2.5-flare",
+      "kind": "image",
+      "label": "ChatGPT Image 2.5 Flare",
+      "provider": "OpenAI",
+      "level": 2,
+      "scores": {
+        "aa_t2i": {
+          "value": 1190.85,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
+        },
+        "aa_edit": {
+          "value": 1163.12,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
+        },
+        "lm_t2i": {
+          "value": 1397.62,
+          "sourceUrl": "https://arena.ai/leaderboard/text-to-image"
+        },
+        "lm_edit": {
+          "value": 1481.02,
+          "sourceUrl": "https://arena.ai/leaderboard/image-edit"
+        },
+        "aa_img_time": {
+          "value": 54.7,
+          "sourceUrl": "https://artificialanalysis.ai/image/models"
+        }
+      }
+    },
+    {
+      "id": "openai/gpt-image-2.5-sunburst",
+      "kind": "image",
+      "label": "ChatGPT Image 2.5 Sunburst",
+      "provider": "OpenAI",
+      "level": 2,
+      "scores": {
+        "aa_t2i": {
+          "value": 1197.57,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
+        },
+        "aa_edit": {
+          "value": 1182.58,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
+        },
+        "lm_t2i": {
+          "value": 1424.55,
+          "sourceUrl": "https://arena.ai/leaderboard/text-to-image"
+        },
+        "lm_edit": {
+          "value": 1523.57,
+          "sourceUrl": "https://arena.ai/leaderboard/image-edit"
+        },
+        "aa_img_time": {
+          "value": 120.4,
+          "sourceUrl": "https://artificialanalysis.ai/image/models"
+        }
+      }
+    },
+    {
+      "id": "google/gemini-3.1-flash-image",
+      "kind": "image",
+      "label": "Nano Banana 2",
+      "provider": "Google",
+      "level": 3,
+      "scores": {
+        "aa_t2i": {
+          "value": 1125.56,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
+        },
+        "aa_edit": {
+          "value": 1109.83,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
+        },
+        "lm_t2i": {
+          "value": 1261.76,
+          "sourceUrl": "https://arena.ai/leaderboard/text-to-image"
+        },
+        "lm_edit": {
+          "value": 1387.4,
+          "sourceUrl": "https://arena.ai/leaderboard/image-edit"
+        },
+        "aa_img_time": {
+          "value": 8.2,
+          "sourceUrl": "https://artificialanalysis.ai/image/models"
+        }
+      }
+    },
+    {
+      "id": "google/gemini-3-pro-image",
+      "kind": "image",
+      "label": "Nano Banana Pro",
+      "provider": "Google",
+      "level": 4,
+      "scores": {
+        "aa_t2i": {
+          "value": 1102.22,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
+        },
+        "aa_edit": {
+          "value": 1100.91,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
+        },
+        "lm_t2i": {
+          "value": 1234.07,
+          "sourceUrl": "https://arena.ai/leaderboard/text-to-image"
+        },
+        "lm_edit": {
+          "value": 1385.96,
+          "sourceUrl": "https://arena.ai/leaderboard/image-edit"
+        },
+        "aa_img_time": {
+          "value": 16.7,
+          "sourceUrl": "https://artificialanalysis.ai/image/models"
+        }
+      }
+    },
+    {
+      "id": "bfl/flux-kontext-pro",
+      "kind": "image",
+      "label": "FLUX.1 Kontext Pro",
+      "provider": "Black Forest Labs",
+      "level": 2,
+      "scores": {
+        "aa_t2i": {
+          "value": 909.11,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
+        },
+        "aa_edit": {
+          "value": 912.82,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
+        },
+        "lm_t2i": {
+          "value": 1058.72,
+          "sourceUrl": "https://arena.ai/leaderboard/text-to-image"
+        },
+        "lm_edit": {
+          "value": 1176.46,
+          "sourceUrl": "https://arena.ai/leaderboard/image-edit"
+        }
+      }
+    },
+    {
+      "id": "bfl/flux-kontext-max",
+      "kind": "image",
+      "label": "FLUX.1 Kontext Max",
+      "provider": "Black Forest Labs",
+      "level": 4,
+      "scores": {
+        "aa_t2i": {
+          "value": 932.5,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
+        },
+        "aa_edit": {
+          "value": 931.24,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
+        },
+        "lm_t2i": {
+          "value": 1074.43,
+          "sourceUrl": "https://arena.ai/leaderboard/text-to-image"
+        },
+        "lm_edit": {
+          "value": 1180.68,
+          "sourceUrl": "https://arena.ai/leaderboard/image-edit"
+        }
+      }
+    },
+    {
+      "id": "bytedance/seedream-4.5",
+      "kind": "image",
+      "label": "Seedream 4.5",
+      "provider": "ByteDance",
+      "level": 2,
+      "scores": {
+        "aa_t2i": {
+          "value": 1022.1,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
+        },
+        "aa_edit": {
+          "value": 1036.82,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
+        },
+        "lm_t2i": {
+          "value": 1148.51,
+          "sourceUrl": "https://arena.ai/leaderboard/text-to-image"
+        },
+        "lm_edit": {
+          "value": 1301.88,
+          "sourceUrl": "https://arena.ai/leaderboard/image-edit"
+        },
+        "aa_img_time": {
+          "value": 11.3,
+          "sourceUrl": "https://artificialanalysis.ai/image/models"
+        }
+      }
+    },
+    {
+      "id": "bytedance/seedream-5.0-pro",
+      "kind": "image",
+      "label": "Seedream 5.0 Pro",
+      "provider": "ByteDance",
+      "level": 3,
+      "scores": {
+        "aa_t2i": {
+          "value": 1080.51,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
+        },
+        "aa_edit": {
+          "value": 1107.88,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
+        },
+        "lm_t2i": {
+          "value": 1255.5,
+          "sourceUrl": "https://arena.ai/leaderboard/text-to-image"
+        },
+        "lm_edit": {
+          "value": 1393.59,
+          "sourceUrl": "https://arena.ai/leaderboard/image-edit"
+        },
+        "aa_img_time": {
+          "value": 68.1,
+          "sourceUrl": "https://artificialanalysis.ai/image/models"
+        }
+      }
+    },
+    {
+      "id": "meta/muse-image-1.0",
+      "kind": "image",
+      "label": "Muse Image 1.0",
+      "provider": "Meta",
+      "level": 2,
+      "scores": {
+        "aa_t2i": {
+          "value": 1115.1,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
+        },
+        "aa_edit": {
+          "value": 1119.82,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
+        },
+        "lm_t2i": {
+          "value": 1274.04,
+          "sourceUrl": "https://arena.ai/leaderboard/text-to-image"
+        },
+        "lm_edit": {
+          "value": 1402.65,
+          "sourceUrl": "https://arena.ai/leaderboard/image-edit"
+        },
+        "aa_img_time": {
+          "value": 14.6,
+          "sourceUrl": "https://artificialanalysis.ai/image/models"
+        }
+      }
+    },
+    {
+      "id": "spacexai/grok-imagine-image-2.0",
+      "kind": "image",
+      "label": "Grok Imagine Image 2.0",
+      "provider": "xAI",
+      "level": 3,
+      "scores": {
+        "aa_t2i": {
+          "value": 1155.66,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
+        },
+        "aa_edit": {
+          "value": 1109.97,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
+        },
+        "lm_t2i": {
+          "value": 1294.21,
+          "sourceUrl": "https://arena.ai/leaderboard/text-to-image"
+        },
+        "lm_edit": {
+          "value": 1424.54,
+          "sourceUrl": "https://arena.ai/leaderboard/image-edit"
+        }
+      }
+    },
+    {
+      "id": "bfl/flux-pro-1.1",
+      "kind": "image",
+      "label": "FLUX Pro 1.1",
+      "provider": "Black Forest Labs",
+      "level": 2,
+      "scores": {
+        "aa_t2i": {
+          "value": 891.36,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
+        },
+        "lm_t2i": {
+          "value": 1015.62,
+          "sourceUrl": "https://arena.ai/leaderboard/text-to-image"
+        }
+      }
+    },
+    {
+      "id": "bfl/flux-pro-1.1-ultra",
+      "kind": "image",
+      "label": "FLUX Pro 1.1 Ultra",
+      "provider": "Black Forest Labs",
+      "level": 3,
+      "scores": {
+        "aa_t2i": {
+          "value": 894.68,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
+        }
+      }
+    },
+    {
+      "id": "recraft/recraft-v4.1-flash",
+      "kind": "image",
+      "label": "Recraft V4.1 Flash",
+      "provider": "Recraft",
+      "level": 1,
+      "scores": {
+        "aa_t2i": {
+          "value": 956.86,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
+        },
+        "lm_t2i": {
+          "value": 1099.5,
+          "sourceUrl": "https://arena.ai/leaderboard/text-to-image"
+        }
+      }
+    },
+    {
+      "id": "google/veo-3.1-fast-generate-001",
+      "kind": "video",
+      "label": "Veo 3.1 Fast",
+      "provider": "Google",
+      "level": 2,
+      "scores": {
+        "aa_t2v": {
+          "value": 964.55,
+          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+        },
+        "aa_t2v_audio": {
+          "value": 960.6,
+          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+        },
+        "aa_i2v": {
+          "value": 1259.24,
+          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+        },
+        "lm_t2v": {
+          "value": 1361.91,
+          "sourceUrl": "https://arena.ai/leaderboard/text-to-video"
+        },
+        "lm_i2v": {
+          "value": 1385.06,
+          "sourceUrl": "https://arena.ai/leaderboard/image-to-video"
+        }
+      }
+    },
+    {
+      "id": "klingai/kling-v2.6-t2v",
+      "kind": "video",
+      "label": "Kling 2.6",
+      "provider": "Kling",
+      "level": 1,
+      "scores": {
+        "lm_t2v": {
+          "value": 1216.24,
+          "sourceUrl": "https://arena.ai/leaderboard/text-to-video"
+        }
+      }
+    },
+    {
+      "id": "klingai/kling-v2.5-turbo-t2v",
+      "kind": "video",
+      "label": "Kling 2.5 Turbo",
+      "provider": "Kling",
+      "level": 1,
+      "scores": {
+        "lm_t2v": {
+          "value": 1219.81,
+          "sourceUrl": "https://arena.ai/leaderboard/text-to-video"
+        }
+      }
+    },
+    {
+      "id": "klingai/kling-v3.0-t2v",
+      "kind": "video",
+      "label": "Kling 3.0",
+      "provider": "Kling",
+      "level": 3,
+      "scores": {
+        "aa_t2v": {
+          "value": 1000,
+          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+        },
+        "aa_t2v_audio": {
+          "value": 1000,
+          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+        }
+      }
+    },
+    {
+      "id": "alibaba/wan-v3.0-video",
+      "kind": "video",
+      "label": "Wan 3.0",
+      "provider": "Alibaba",
+      "level": 2,
+      "scores": {
+        "aa_t2v": {
+          "value": 1126.7,
+          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+        },
+        "aa_t2v_audio": {
+          "value": 1156.11,
+          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+        },
+        "aa_i2v": {
+          "value": 1361.76,
+          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+        },
+        "lm_t2v": {
+          "value": 1476.27,
+          "sourceUrl": "https://arena.ai/leaderboard/text-to-video"
+        },
+        "lm_i2v": {
+          "value": 1479.81,
+          "sourceUrl": "https://arena.ai/leaderboard/image-to-video"
+        }
+      }
+    },
+    {
+      "id": "spacexai/grok-imagine-video-1.5",
+      "kind": "video",
+      "label": "Grok Imagine 1.5",
+      "provider": "xAI",
+      "level": 3,
+      "scores": {
+        "aa_t2v": {
+          "value": 1035.96,
+          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+        },
+        "aa_t2v_audio": {
+          "value": 1044.76,
+          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+        },
+        "aa_i2v": {
+          "value": 1330.98,
+          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+        },
+        "lm_i2v": {
+          "value": 1456.02,
+          "sourceUrl": "https://arena.ai/leaderboard/image-to-video"
+        }
+      }
+    },
+    {
+      "id": "bytedance/seedance-v1.0-pro-fast",
+      "kind": "video",
+      "label": "Seedance 1.0 Pro Fast",
+      "provider": "ByteDance",
+      "level": 1,
+      "scores": {}
+    },
+    {
+      "id": "bytedance/seedance-2.0",
+      "kind": "video",
+      "label": "Seedance 2.0",
+      "provider": "ByteDance",
+      "level": 3,
+      "scores": {
+        "aa_t2v": {
+          "value": 1079.49,
+          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+        },
+        "aa_t2v_audio": {
+          "value": 1116.36,
+          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+        },
+        "aa_i2v": {
+          "value": 1338.93,
+          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+        },
+        "lm_t2v": {
+          "value": 1479.18,
+          "sourceUrl": "https://arena.ai/leaderboard/text-to-video"
+        },
+        "lm_i2v": {
+          "value": 1474.57,
+          "sourceUrl": "https://arena.ai/leaderboard/image-to-video"
+        }
+      }
+    },
+    {
+      "id": "bytedance/seedance-2.5",
+      "kind": "video",
+      "label": "Seedance 2.5",
+      "provider": "ByteDance",
+      "level": 4,
+      "scores": {
+        "aa_t2v": {
+          "value": 1104.12,
+          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+        },
+        "aa_t2v_audio": {
+          "value": 1142.52,
+          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+        },
+        "lm_t2v": {
+          "value": 1473.93,
+          "sourceUrl": "https://arena.ai/leaderboard/text-to-video"
+        },
+        "lm_i2v": {
+          "value": 1477.41,
+          "sourceUrl": "https://arena.ai/leaderboard/image-to-video"
+        }
+      }
+    },
+    {
+      "id": "minimax/minimax-h3",
+      "kind": "video",
+      "label": "MiniMax H3",
+      "provider": "MiniMax",
+      "level": 3,
+      "scores": {
+        "aa_t2v": {
+          "value": 1116.44,
+          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+        },
+        "aa_t2v_audio": {
+          "value": 1137.38,
+          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+        },
+        "aa_i2v": {
+          "value": 1356.42,
+          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+        },
+        "lm_t2v": {
+          "value": 1460.34,
+          "sourceUrl": "https://arena.ai/leaderboard/text-to-video"
+        },
+        "lm_i2v": {
+          "value": 1495.41,
+          "sourceUrl": "https://arena.ai/leaderboard/image-to-video"
+        }
+      }
+    },
+    {
+      "id": "google/gemini-omni-flash-preview",
+      "kind": "video",
+      "label": "Gemini Omni Flash",
+      "provider": "Google",
+      "level": null,
+      "scores": {
+        "aa_i2v": {
+          "value": 1368.15,
+          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
+        },
+        "lm_t2v": {
+          "value": 1512.89,
+          "sourceUrl": "https://arena.ai/leaderboard/text-to-video"
+        },
+        "lm_i2v": {
+          "value": 1464.83,
+          "sourceUrl": "https://arena.ai/leaderboard/image-to-video"
+        }
+      }
+    },
+    {
+      "id": "spacexai/grok-imagine-video-1.5-lite",
+      "kind": "video",
+      "label": "Grok Imagine Video 1.5 Lite",
+      "provider": "xAI",
+      "level": 2,
+      "scores": {
+        "aa_t2v": {
+          "value": 985.38,
+          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+        },
+        "aa_t2v_audio": {
+          "value": 993.29,
+          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+        }
+      }
+    }
+  ]
+}

@@ -3,27 +3,27 @@ title: "Interroger"
 slug: "interroger"
 lang: "fr"
 seoTitle: "Interroger vos posts et vos publicités LinkedIn | Aide Nuvora"
-description: "Ask Intelligence répond aux questions formulées avec vos mots à partir de vos posts LinkedIn, de votre calendrier de publication, de votre compte publicitaire LinkedIn, de la Bibliothèque de contenus et de la file de validation. Données incluses, recherche web, modèles, compétences, références avec @, conversations conservées et prix de chaque réponse."
+description: "Ask Intelligence répond aux questions formulées avec vos mots à partir de vos posts LinkedIn, de votre calendrier de publication, de votre compte publicitaire LinkedIn, de la Bibliothèque de contenus, de vos campagnes et de la file de validation. Données incluses, recherche web, modèles, compétences, références avec @, conversations conservées et prix de chaque réponse."
 excerpt: "Des questions en langage courant, des réponses tirées de vos données LinkedIn, et le prix affiché sous chaque réponse."
 section: "intelligence"
 order: 6
-updated: 2026-10-04
+updated: 2026-10-08
 appPaths: ["/ask"]
 audience: "Les créateurs et les administrateurs posent des questions ; les lecteurs peuvent ouvrir la page, mais pas interroger"
-related: ["linkedin-posts", "calendar", "linkedin-ads", "assets-library", "validation", "skills", "balance-and-payments", "account-and-sign-in"]
+related: ["linkedin-posts", "calendar", "linkedin-ads", "assets-library", "campaigns", "validation", "skills", "choosing-a-model", "balance-and-payments", "account-and-sign-in"]
 shots:
   - file: "/images/help/ask-page.fr.webp"
     route: "/ask"
-    alt: "La page Ask Intelligence : Conversations précédentes, Données incluses et Nouvelle conversation dans le bandeau, l’interrupteur Recherche web sur OFF avec la mention La recherche web est désactivée pour votre équipe, la liste Modèle, Utiliser une compétence et la zone de saisie de la question"
-    captured: 2026-10-04
-sources: ["src/pages/ask.astro", "src/scripts/askIntelligence.ts", "src/scripts/askMentions.ts", "src/scripts/modelPicker.ts", "src/scripts/skillsPicker.ts", "src/pages/api/intelligence/ask.ts", "src/pages/api/intelligence/sources.ts", "src/pages/api/intelligence/chats/index.ts", "src/lib/intelligence.ts", "src/lib/skills-db.ts", "src/lib/playground.ts", "src/middleware.ts", "src/lib/app.ts"]
+    alt: "La page Ask Intelligence : Conversations précédentes, Données incluses et Nouvelle conversation dans le bandeau, l’interrupteur Recherche web sur NON, le sélecteur de modèle sur Équilibré avec le prix d’une réponse, Utiliser une compétence et la zone de saisie de la question"
+    captured: 2026-10-08
+sources: ["src/pages/ask.astro", "src/scripts/askIntelligence.ts", "src/scripts/askMentions.ts", "src/scripts/modelPicker.ts", "src/scripts/skillsPicker.ts", "src/pages/api/intelligence/ask.ts", "src/pages/api/intelligence/sources.ts", "src/pages/api/intelligence/chats/index.ts", "src/lib/intelligence.ts", "src/lib/campaigns.ts", "src/lib/skills-db.ts", "src/lib/playground.ts", "src/middleware.ts", "src/lib/app.ts"]
 ---
 
 **Interroger** est l’endroit où vous posez, avec vos propres mots, vos questions sur votre travail LinkedIn. Ouvrez **Interroger** dans le menu : la page s’intitule **Ask Intelligence**. Elle lit vos données, dans la limite de vos droits d’accès, et rédige la réponse en précisant sur quoi elle s’appuie et ce qu’elle a coûté.
 
 Par exemple : « Quels posts sont parus ce mois-ci, et comment s’est comporté le compte publicitaire la semaine dernière ? »
 
-![La page Ask Intelligence : Conversations précédentes, Données incluses et Nouvelle conversation dans le bandeau, l’interrupteur Recherche web sur OFF avec la mention La recherche web est désactivée pour votre équipe, la liste Modèle, Utiliser une compétence et la zone de saisie de la question](/images/help/ask-page.fr.webp)
+![La page Ask Intelligence : Conversations précédentes, Données incluses et Nouvelle conversation dans le bandeau, l’interrupteur Recherche web sur NON, le sélecteur de modèle sur Équilibré avec le prix d’une réponse, Utiliser une compétence et la zone de saisie de la question](/images/help/ask-page.fr.webp)
 
 ## Ce qu’Interroger peut lire
 
@@ -32,9 +32,10 @@ Par exemple : « Quels posts sont parus ce mois-ci, et comment s’est comport
 | **Posts LinkedIn** | Vos posts LinkedIn : en brouillon, programmés et publiés, avec leur statut et leur date prévue, lus en entier quand la question porte sur le texte. Également le calendrier de publication : ce qui est prévu et ce qui est paru, avec les dates, le statut et le lien vers la publication en ligne. |
 | **LinkedIn Ads** | Votre propre compte publicitaire LinkedIn, lu en direct avec votre accès LinkedIn : pour chaque campagne, son groupe, son statut, son objectif, son budget quotidien et son enchère, avec les dépenses, les impressions, les clics, le taux de clic, les résultats et le coût par résultat, sur 7 à 90 jours (30 par défaut), comparés à la période précédente. |
 | **Bibliothèque de contenus** | Les fichiers et les dossiers de l’équipe, ainsi que les documents eux-mêmes : PDF, Word, Excel, Markdown, texte, et les textes rédigés dans Nuvora. |
+| **Campagnes** | Les [campagnes](/fr/aide/campagnes) de l’équipe : le brief de chacune, l’inventaire de ses contenus (nom, type, prompt de chaque image, étiquettes, date) et le texte intégral de ses documents et de ses textes rédigés. |
 | **Validation** | Ce qui attend une validation, qui l’a demandée et qui tranche, et ce qui a été décidé, avec les derniers commentaires. |
 
-Chaque type de données suit vos droits : les posts LinkedIn exigent le droit **Posts** ou **Publication et programmation**, LinkedIn Ads exige le droit **LinkedIn Ads**, et le compte publicitaire est toujours le vôtre, connecté dans [Mes connexions](/fr/aide/mes-connexions). Voir [LinkedIn Ads](/fr/aide/linkedin-ads).
+Chaque type de données suit vos droits : les posts LinkedIn exigent le droit **Posts** ou **Publication et programmation**, LinkedIn Ads exige le droit **LinkedIn Ads**, les campagnes le droit **Campagnes**, et le compte publicitaire est toujours le vôtre, connecté dans [Mes connexions](/fr/aide/mes-connexions). Voir [LinkedIn Ads](/fr/aide/linkedin-ads).
 
 Interroger se contente de lire. Il ne modifie jamais un post, une campagne ou un fichier.
 
@@ -50,11 +51,13 @@ Sous chaque réponse :
 - **Depuis le web :** liste les pages consultées, quand la recherche web était activée.
 - La dernière ligne indique le nombre de tokens et le prix de cette réponse, ainsi que le nombre de recherches web lorsqu’il y en a eu.
 
-### Désigner un dossier ou un document avec @
+### Désigner un dossier, un document ou une campagne avec @
 
-Tapez **@** dans la zone, puis les premières lettres d’un nom. La liste des dossiers et des fichiers de la Bibliothèque de contenus auxquels vous avez accès s’ouvre. Choisissez-en un : il s’inscrit dans votre question, et Interroger lit exactement ce dossier ou ce document au lieu de deviner celui que vous aviez en tête.
+Tapez **@** dans la zone, puis les premières lettres d’un nom. La liste des dossiers et des fichiers de la Bibliothèque de contenus auxquels vous avez accès s’ouvre, et les campagnes de l’équipe y figurent aussi, chacune suivie de la mention **Campagne**. Choisissez-en un : il s’inscrit dans votre question, et Interroger lit exactement ce dossier, ce document ou cette campagne au lieu de deviner celui que vous aviez en tête.
 
-Par exemple : « Résume le brief de @Clients/Acme ».
+Par exemple : « Résume le brief de @Clients/Acme », ou « Propose trois idées de posts tirées de @Spring launch, dans le ton de son brief ».
+
+Depuis la page d’une campagne, **Poser une question sur cette campagne** ouvre Interroger avec la campagne déjà inscrite dans la zone. Il s’agit des campagnes de la Bibliothèque de contenus, pas de vos campagnes publicitaires LinkedIn.
 
 ## Données incluses
 
@@ -79,11 +82,11 @@ Par défaut, Interroger répond à partir de vos seules données. L’interrupte
 
 Quand la recherche web n’est pas autorisée pour votre équipe, l’interrupteur reste sur **OFF** et la page indique « La recherche web est désactivée pour votre équipe. »
 
-Tous les modèles ne savent pas chercher sur le web. Avec un modèle qui ne le sait pas, la page indique « Ce modèle ne dispose pas de sa propre recherche web. » Tant que l’interrupteur est sur ON, la liste **Modèle** ne propose que les modèles capables de chercher.
+Tous les modèles ne savent pas chercher sur le web. Avec un modèle qui ne le sait pas, la page indique « Ce modèle ne dispose pas de sa propre recherche web. » Tant que l’interrupteur est sur ON, le sélecteur de modèle ne propose que les modèles capables de chercher.
 
 ## Choisir un modèle
 
-**Modèle** affiche **Par défaut :** suivi du modèle que votre équipe utilise quand personne n’en choisit. Choisissez-en un autre dans la liste pour l’utiliser pour vos questions. Votre choix est mémorisé sur ce navigateur pour Interroger.
+Le sélecteur de modèle affiche l’option retenue, son modèle et le coût d’une réponse type. Cliquez dessus pour ouvrir **Choisir un modèle** : prenez **Rapide**, **Équilibré** ou **Puissant**, ou n’importe quel modèle sous **Tous les modèles**. L’étoile **Recommandé ici** signale le modèle qu’emploie Interroger quand personne ne choisit. Votre choix est mémorisé sur ce navigateur pour Interroger. Voir [Choisir un modèle](/fr/aide/choisir-un-modele).
 
 Pour masquer les modèles dont vous ne vous servez jamais, rendez-vous dans **Paramètres** > **Mes modèles**. Voir [Compte et connexion](/fr/aide/compte-et-connexion).
 

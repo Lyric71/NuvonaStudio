@@ -1,0 +1,194 @@
+---
+/**
+ * 营销活动 (zh), twin of /campaigns and /fr/campagnes. Layout in
+ * src/components/campaigns/CampaignsFeature.astro; menu and button labels
+ * are the app's own Chinese ones (营销活动, never 广告系列, which names
+ * LinkedIn ad campaigns).
+ */
+import Layout from '../../layouts/Layout.astro';
+import NavBar from '../../components/NavBar.astro';
+import CampaignsFeature from '../../components/campaigns/CampaignsFeature.astro';
+import type { CampaignsCopy } from '../../components/campaigns/types';
+import { campaignsPageSchemas } from '../../components/campaigns/schema';
+import { localizedPath } from '../../i18n/index';
+
+const lang = 'zh';
+const link = (route: string) => localizedPath(route, lang);
+const guideHref = link('help/campaigns');
+
+const title = 'Nuvora 营销活动：一次 LinkedIn 推广，一份简报统管全部物料';
+const description = '把一次 LinkedIn 推广的视觉素材、文档和帖子文案归入同一个 Nuvora 营销活动，提问、智能体和下一篇帖子即可整体读取。营销活动本身免费。';
+const abstract = 'Nuvora 应用中的营销活动以一个名称和一份选填简报，汇总一次 LinkedIn 推广的视觉素材、文档和帖子文案；文件仍保存在素材库，由提问、智能体和帖子简报整体读取。';
+
+const copy: CampaignsCopy = {
+  hero: {
+    eyebrow: 'Nuvora 应用：营销活动模块',
+    h1Html: '一次 LinkedIn 推广的全部物料，<span class="text-gradient">归于同一个名称。</span>',
+    lede: '一场新品发布、一次线下活动、一个季度主题，每轮 LinkedIn 推广都会积累一批视觉素材、轮播图、简报、文档和帖子文案。Nuvora 的营销活动把这些物料收拢在同一个名称下，并附上一份简短的简报。此后，提问、智能体和下一篇帖子都能一次读完整套内容，无需再逐个指定文件。',
+    primary: '了解运作方式',
+    secondary: '阅读使用指南',
+    shotAlt: 'Nuvora 的营销活动页面：新建营销活动按钮，营销活动、图片、视频、文本四项统计，以及一个春季发布营销活动的卡片，展示其图片、简报开头和素材数量',
+  },
+  holds: {
+    label: '收录什么',
+    h2Html: '先起名，再把物料<span class="text-gradient">逐一放进来。</span>',
+    body: [
+      '营销活动从一个名称起步，可再附一份简报，写明目标、受众、核心信息和时间安排。随后放入构成这次推广的各类内容。素材库中的任何内容都能加入：帖子文案和配图、在图片编辑器中保存的视觉图，乃至同事上传的文件。',
+      '简报并非必填。不过，提问和智能体会连同文件一并读取简报，寥寥数语就能让回答更有针对性。',
+    ],
+    listTitle: '营销活动可收录',
+    list: [
+      '视觉素材与轮播图',
+      '简报及其他文档',
+      '帖子文案',
+      '团队上传的文件',
+    ],
+    facts: [
+      ['名称', '最多 120 个字符，团队内不可重名'],
+      ['简报', '选填，最多 4000 个字符'],
+      ['侧边菜单', '每个营销活动均按名称列在“营销活动”下'],
+      ['费用', '新建、整理和打开均不收费'],
+    ],
+  },
+  pointers: {
+    label: '只指向，不复制',
+    h2Html: '营销活动指向文件，<span class="text-gradient">从不复制文件。</span>',
+    intro: '文件始终保存在原处，即素材库中。营销活动只记录哪些文件属于这次推广，因此无论怎样整理营销活动，都不会丢失任何文件。',
+    tiles: [
+      {
+        title: '一个文件，多个营销活动',
+        body: '同一张产品图可以同时用于春季发布和展会推广，无需另存副本，也不必费心同步。',
+      },
+      {
+        title: '移出不等于删除',
+        body: '文件移出营销活动后，仍完好地保留在素材库中。',
+      },
+      {
+        title: '删除营销活动之后',
+        body: '删除的只是营销活动本身，其中的素材全部留在素材库。',
+      },
+      {
+        title: '始终是最新版本',
+        body: '文件更新版本后仍留在营销活动中；文件从素材库删除后，则会自动退出所有营销活动。',
+      },
+    ],
+  },
+  readers: {
+    label: '谁来读取',
+    h2Html: '提问、智能体和帖子，<span class="text-gradient">都能整体读取。</span>',
+    intro: '营销活动的价值正在于此。每个营销活动都有独立页面，页面上的三张卡片分别把它引向用得上的地方：就此营销活动提问、交给智能体、基于它撰写。',
+    shotAlt: 'Nuvora 中某个营销活动的页面：横幅里有全部营销活动、添加素材和删除该营销活动，图片、视频、文本、文档四项统计，就此营销活动提问、交给智能体、基于它撰写三张卡片，名称与简报卡片，以及此营销活动中的素材',
+    cards: [
+      {
+        tag: '就此营销活动提问',
+        title: '提问',
+        body: '输入 @ 和营销活动名称，或直接在问题中写出它的名称。提问会读取简报和素材清单，涵盖每项素材的名称、类型、标签、日期，以及每张图片背后的提示词，并读取其中文档和文案的全文。“纳入的数据”中单设“营销活动”一项，取消勾选即可让某次对话不读取营销活动。',
+      },
+      {
+        tag: '交给智能体',
+        title: '智能体',
+        body: '从零创建智能体，在“来自素材库”下勾选该营销活动。智能体每次运行都会读取它的简报、素材清单和文档。营销活动一经删除，智能体便不再读取。',
+      },
+      {
+        tag: '基于它撰写',
+        title: '下一篇帖子',
+        body: '撰写帖子简报时，“素材库中的上下文文件夹”列表里另有一组“营销活动”。选中其中一个，系统会在起草前读取它的简报、素材清单和每份文档的文字。',
+      },
+    ],
+    exampleHtml: '不妨在提问中试一试：<em>“@Spring launch 在最后两周还缺哪些素材？”</em>',
+  },
+  filling: {
+    label: '边做边归档',
+    h2Html: '新内容一经生成，<span class="text-gradient">即刻进入营销活动。</span>',
+    intro: '无须专门腾出一个下午整理文件。团队在哪里工作，文件就从哪里进入营销活动。',
+    items: [
+      {
+        title: '从创建表单加入',
+        body: 'LinkedIn 帖子表单和素材库上传均设有“营销活动”选项，默认为“无”。选定一个营销活动后，生成或上传的内容会立即加入其中，同时保留在素材库。',
+      },
+      {
+        title: '从素材库加入',
+        body: '文件的“操作”菜单中有“加入营销活动”。勾选多行即可一次性加入，也可以在同一列表中直接新建营销活动。',
+      },
+      {
+        title: '在营销活动页面添加',
+        body: '“添加素材”会在营销活动内打开素材库。按名称、提示词、文本或标签搜索，勾选所需内容后添加即可。',
+      },
+      {
+        title: '随时找回',
+        body: '侧边菜单的“营销活动”下按名称列出每个营销活动。在素材库中，“营销活动”筛选可只显示某一个营销活动的文件，其中的“未加入营销活动”选项则能找出尚未归档的内容。',
+      },
+    ],
+    shotAlt: 'Nuvora 的素材库，一张图片下方展开了营销活动栏：已在春季发布营销活动中，列表末尾是新建营销活动，旁边是营销活动名称输入框和添加按钮',
+  },
+  notAds: {
+    label: '与广告无关',
+    h2Html: '这里说的不是 LinkedIn <span class="text-gradient">广告系列。</span>',
+    body: '英文里两者都叫 campaign，用途却截然不同。Nuvora 的营销活动汇集的是帖子背后的物料；LinkedIn 广告账户中的广告系列则由 LinkedIn Ads 管理，数据直接从广告账户实时读取。LinkedIn Ads 不生成任何文件，因此不会有内容从那里进入营销活动。',
+    link: { label: '了解 Nuvora 中的 LinkedIn Ads', href: link('help/linkedin-ads') },
+  },
+  roles: {
+    label: '谁能做什么',
+    h2Html: '由团队搭建，<span class="text-gradient">客户看不到。</span>',
+    intro: '营销活动归整个团队所有。有权打开营销活动的成员都能看到每一个营销活动，但在其中只能看到自己在素材库中有权查看的文件。设为“仅自己”的文件，即使放进共享的营销活动，也只有所有者本人可见。',
+    rows: [
+      { role: '管理员', can: '创作者能做的都能做，还可以删除任何营销活动。' },
+      { role: '创作者', can: '新建营销活动，添加和移除素材，重命名，改写简报，并可删除自己创建的营销活动。' },
+      { role: '查看者', can: '打开并查看营销活动。' },
+      { role: '客户', can: '看不到营销活动。' },
+    ],
+    noteHtml: `管理员还可以逐人细调：在“逐个模块的权限”中，“素材库”下有“营销活动”一行；也可以为某位成员关闭该模块。详见<a href="${link('help/your-team')}">你的团队</a>。`,
+  },
+  faq: {
+    eyebrow: '常见问题',
+    heading: '团队最常问的几个问题',
+    items: [
+      {
+        q: '营销活动收费吗？',
+        a: '不收费。新建、整理和打开营销活动都免费。读取营销活动的操作照常计费：提问的回答、智能体的一次运行或一篇草稿都会照常显示价格；营销活动收录的内容越多，读取量也越大。',
+      },
+      {
+        q: '它和 LinkedIn 广告系列是一回事吗？',
+        a: '不是。Nuvora 的营销活动汇集一次推广的视觉素材、文档和帖子文案；广告系列则留在 LinkedIn 广告账户中，在 LinkedIn Ads 里查看。',
+      },
+      {
+        q: '同一个文件能放进两个营销活动吗？',
+        a: '可以。营销活动只指向素材库中的文件，并不复制，因此一个文件可以同时属于多个营销活动。',
+      },
+      {
+        q: '删除营销活动后，其中的文件会怎样？',
+        a: '不受任何影响。删除的只是营销活动本身，素材全部留在素材库，原先读取它的智能体也随之停止读取。',
+      },
+      {
+        q: '必须填写简报吗？',
+        a: '不必。简报为选填，最多 4000 个字符。但写上几句很有帮助，因为提问和智能体会连同文件一并读取它。',
+      },
+      {
+        q: '客户能看到我们的营销活动吗？',
+        a: '看不到。客户账号完全看不到营销活动。团队中的查看者可以打开和查看，搭建工作则由创作者和管理员负责。',
+      },
+    ],
+  },
+  close: {
+    h2Html: '不妨从下一次推广<em>开始。</em>',
+    body: '营销活动使用指南逐一介绍了每个按钮和页面。如果希望有人协助，我们的上线辅导会与您一起搭建工作空间，营销活动也在其中。',
+    primary: { label: '阅读营销活动指南', href: guideHref },
+    secondary: { label: '了解上线辅导', href: link('services/onboarding') },
+  },
+};
+---
+
+<Layout
+  lang={lang}
+  title={title}
+  description={description}
+  abstract={abstract}
+  ogImage="/og/campaigns.zh.jpg"
+  schemas={campaignsPageSchemas(lang, title, description)}
+  footerNetwork={false}
+>
+  <NavBar lang={lang} />
+  <main id="main-content">
+    <CampaignsFeature copy={copy} lang={lang} guideHref={guideHref} />
+  </main>
+</Layout>

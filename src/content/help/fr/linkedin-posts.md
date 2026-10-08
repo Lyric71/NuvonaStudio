@@ -3,20 +3,24 @@ title: "Posts LinkedIn"
 slug: "posts-linkedin"
 lang: "fr"
 seoTitle: "Rédiger, programmer et publier des posts LinkedIn | Aide Nuvora"
-description: "Le module Posts : rédiger le brief et le brouillon d’un post LinkedIn, lui ajouter des images, indiquer à quel client il est destiné, le soumettre à validation, puis le publier sur votre profil ou sur une page entreprise que vous administrez, tout de suite ou à l’heure programmée."
+description: "Le module Posts : rédiger le brief et le brouillon d’un post LinkedIn, lui ajouter des images et revenir à un jeu antérieur, indiquer à quel client il est destiné, le soumettre à validation, puis le publier sur votre profil ou sur une page entreprise que vous administrez, tout de suite ou à l’heure programmée."
 excerpt: "Rédigez un post LinkedIn avec l’IA ou à la main, donnez-lui une image ou un carrousel, et publiez-le sur votre profil ou votre page entreprise, tout de suite ou à l’heure de votre choix."
 section: "linkedin"
 order: 2
-updated: 2026-10-04
+updated: 2026-10-08
 appPaths: ["/social/linkedin/posts", "/my-connections"]
 audience: "Créateurs et administrateurs ; les lecteurs consultent"
-related: ["calendar", "validation", "my-connections", "assets-library", "skills", "client-space", "your-team", "agents"]
+related: ["calendar", "validation", "my-connections", "assets-library", "campaigns", "skills", "choosing-a-model", "client-space", "your-team", "agents"]
 shots:
   - file: "/images/help/linkedin-posts-studio.fr.webp"
     route: "/social/linkedin/posts"
-    alt: "Le module Posts sur un nouveau post : le bandeau avec All posts, Fonctionnement de cette page, Nouveau post et les quatre tuiles d’étape, puis le brief avec Format, Émoticônes, Langue, Modèle, Importer un fichier, Rédiger avec l’IA et Je l’écris moi-même"
-    captured: 2026-10-04
-sources: ["src/lib/app.ts", "src/pages/social/linkedin/posts.astro", "src/pages/social/linkedin/articles.astro", "src/components/panels/SocialContentPanel.astro", "src/components/panels/SocialFormatBlock.astro", "src/scripts/socialContent.ts", "src/scripts/selectionRewrite.ts", "src/scripts/emojiPicker.ts", "src/scripts/modelPicker.ts", "src/scripts/imageEditor.ts", "src/scripts/imageEditorNetworks.ts", "src/pages/api/social-content/draft.ts", "src/pages/api/social-content/[id].ts", "src/pages/api/social/publications/index.ts", "src/lib/social-format-skills.ts", "src/lib/social/networks/linkedin.ts", "src/lib/social/connect-guide.ts", "src/lib/social/limits.ts", "src/lib/social/live.ts", "src/lib/social/scheduler.ts", "src/lib/social/fault.ts", "src/lib/social/http.ts", "src/lib/social/notify.ts", "src/lib/own-work.ts", "src/lib/team-clients.ts", "src/lib/validation-lock.ts", "public/apps/nuvora/vocabulary.js"]
+    alt: "Le module Posts sur un nouveau post : le bandeau avec Tous les posts, Fonctionnement de cette page, Nouveau post et les quatre tuiles d’étape, puis le brief avec Format, Émoticônes, Langue, le sélecteur de modèle sur Équilibré, Importer un fichier, Rédiger avec l’IA et Je l’écris moi-même"
+    captured: 2026-10-08
+  - file: "/images/help/linkedin-posts-picture-versions.fr.webp"
+    route: "/social/linkedin/posts"
+    alt: "L’étape des images d’un post en carrousel : Texte seul, Une image et Carrousel avec 2 diapositives, les cartes Générer à nouveau, Ajouter depuis la bibliothèque et Importer depuis votre ordinateur à gauche, les deux diapositives à droite avec Modifier la diapositive 1 dans l’éditeur d’images, et Versions des visuels avec v2 Sur la publication et v1 avec Utiliser cette version"
+    captured: 2026-10-08
+sources: ["src/lib/app.ts", "src/pages/social/linkedin/posts.astro", "src/pages/social/linkedin/articles.astro", "src/components/panels/SocialContentPanel.astro", "src/components/panels/SocialFormatBlock.astro", "src/scripts/socialContent.ts", "src/scripts/selectionRewrite.ts", "src/scripts/emojiPicker.ts", "src/scripts/modelPicker.ts", "src/scripts/imageEditor.ts", "src/scripts/imageEditorNetworks.ts", "src/pages/api/social-content/draft.ts", "src/pages/api/social-content/[id].ts", "src/pages/api/social/publications/index.ts", "src/lib/social-format-skills.ts", "src/lib/social/networks/linkedin.ts", "src/lib/social/connect-guide.ts", "src/lib/social/limits.ts", "src/lib/social/live.ts", "src/lib/social/scheduler.ts", "src/lib/social/fault.ts", "src/lib/social/http.ts", "src/lib/social/notify.ts", "src/lib/own-work.ts", "src/lib/team-clients.ts", "src/lib/validation-lock.ts", "src/lib/social-content-db.ts", "src/pages/api/social-content/visual-versions/[id].ts", "src/scripts/libraryFolderPicker.ts", "src/lib/brief-sources.ts", "public/apps/nuvora/vocabulary.js", "src/scripts/campaignChoice.ts", "src/lib/request-campaign.ts"]
 ---
 
 **Posts**, dans le menu, rassemble vos posts LinkedIn, du premier brouillon jusqu’à la mise en ligne. Vous rédigez un post avec l’IA ou à la main, vous lui donnez une image ou un carrousel, et vous le publiez sur votre profil LinkedIn ou sur une page entreprise que vous administrez, tout de suite ou au moment de votre choix. À moins que vous ne préfériez le publier vous-même depuis l’éditeur de LinkedIn.
@@ -42,7 +46,7 @@ Cliquez sur **Posts** dans le menu. Le bandeau sombre, en haut, comporte :
 - **Nouveau post**, qui vide le formulaire pour un nouveau post ;
 - les quatre étapes du post ouvert, sous forme de tuiles numérotées de 00 à 03 : **Le brief**, **Le texte**, **Les images** et **La publication**. Chaque tuile indique où en est l’étape (terminée, en cours, à faire ou sans objet) ; un clic ouvre l’étape correspondante.
 
-![Le module Posts sur un nouveau post : le bandeau avec All posts, Fonctionnement de cette page, Nouveau post et les quatre tuiles d’étape, puis le brief avec Format, Émoticônes, Langue, Modèle, Importer un fichier, Rédiger avec l’IA et Je l’écris moi-même](/images/help/linkedin-posts-studio.fr.webp)
+![Le module Posts sur un nouveau post : le bandeau avec Tous les posts, Fonctionnement de cette page, Nouveau post et les quatre tuiles d’étape, puis le brief avec Format, Émoticônes, Langue, le sélecteur de modèle sur Équilibré, Importer un fichier, Rédiger avec l’IA et Je l’écris moi-même](/images/help/linkedin-posts-studio.fr.webp)
 
 ## Retrouver un post
 
@@ -63,13 +67,15 @@ Un post conçu pour un client est également visible par les collaborateurs de c
 
 1. Choisissez le **Format** : **Texte seul**, **+ Image** ou **+ Carrousel**. Vous pourrez le changer plus tard, à l’étape des images.
 2. Laissez **Émoticônes** coché pour semer quelques emoji dans le post, ou décochez-le pour n’en avoir aucun.
-3. Choisissez la **Langue**, ainsi que le **Modèle** chargé de la rédaction. **Par défaut** fait appel au modèle défini par votre équipe. Votre choix est conservé pour la fois suivante.
+3. Choisissez la **Langue**, ainsi que le modèle chargé de la rédaction : **Rapide**, **Équilibré**, **Puissant** ou n’importe quel modèle sous **Tous les modèles**, chacun avec le coût d’un post. L’étoile **Recommandé ici** signale le modèle qu’emploie Nuvora quand personne ne choisit. Votre choix est conservé pour la fois suivante. Voir [Choisir un modèle](/fr/aide/choisir-un-modele).
 4. Rédigez le brief comme vous brieferiez un rédacteur : l’angle ou l’actualité, le public visé et ce que le post doit obtenir. La zone accepte jusqu’à 20 000 caractères. **Importer un fichier** ajoute dans la zone le texte d’un fichier .txt ou .md ; le fichier lui-même n’est pas conservé.
 5. Cliquez sur **Rédiger avec l’IA**, ou sur **Je l’écris moi-même** pour ouvrir l’éditeur sans appel à l’IA et sans rien facturer. Ce qui figure déjà dans la zone du brief devient alors le premier texte de votre post.
 
+Le choix **Campagne**, à côté de **Rédiger avec l’IA**, range dans une campagne le post, ses images et chaque modification enregistrée automatiquement. L’étape des images affiche le même choix. Voir [Campagnes](/fr/aide/campagnes#remplir-une-campagne-au-fil-de-la-création).
+
 Le volet situé au bord droit, **Compétences et matière**, déplie deux cartes :
 
-- **Matière première**, entièrement facultative : **Fichiers** (PDF ou texte brut ; le texte en est extrait et conservé avec le post, le fichier lui-même n’est jamais stocké), un **Dossier de contexte tiré de la bibliothèque** (chaque document texte de ce dossier et de ses sous-dossiers est lu avant le début de la rédaction), **Pages à lire** (des adresses web, une par ligne, lues au moment de l’exécution) et **Mots-clés à viser** (tapez un terme et appuyez sur Entrée).
+- **Matière première**, entièrement facultative : **Fichiers** (PDF ou texte brut ; le texte en est extrait et conservé avec le post, le fichier lui-même n’est jamais stocké), un **Dossier de contexte tiré de la bibliothèque** (chaque document texte de ce dossier et de ses sous-dossiers est lu avant le début de la rédaction ; la même liste propose, sous **Campagnes**, les [campagnes](/fr/aide/campagnes) de l’équipe, dont le brief, l’inventaire des contenus et le texte des documents sont alors lus), **Pages à lire** (des adresses web, une par ligne, lues au moment de l’exécution) et **Mots-clés à viser** (tapez un terme et appuyez sur Entrée).
 - **Compétences**, où **Format de post LinkedIn** est déjà sélectionné. Cette compétence porte les règles de publication de LinkedIn : grâce à elle, le brouillon est contrôlé au regard de ces règles et corrigé une fois s’il en enfreint une ; un brouillon qui dépasse encore 3 000 caractères après cette correction est refusé plutôt qu’enregistré. Ajoutez vos propres compétences, ou désélectionnez-la pour écrire en toute liberté. Voir [Compétences](/fr/aide/competences).
 
 Le brouillon s’ouvre à l’étape du texte, avec une ligne qui indique ce qu’il a coûté. L’opération apparaît aussi dans **Activité**, en haut de la page : vous pouvez donc vous éloigner pendant qu’elle tourne.
@@ -90,13 +96,21 @@ L’étape du texte se résume à un éditeur, avec un titre de travail en haut 
 
 Ouvrez **Les images**. La forme vient en premier, et vous pouvez la modifier à tout moment : **Texte seul**, **Une image** ou **Carrousel**. Pour un carrousel, **Diapositives** fixe leur nombre (de 2 à 8). Choisissez ensuite l’une des trois voies :
 
-- **Générer avec l’IA** (**Générer à nouveau** une fois qu’une image existe). Rédigez la consigne, ou laissez-la vide pour qu’elle soit tirée du brief et du post ; **Améliorer avec l’IA** la rédige pour vous, à retoucher ensuite. Choisissez le **Moteur** et le **Format**. Le prix figure sur le bouton avant que vous ne cliquiez.
-- **Choisir dans la bibliothèque** : une image déjà présente dans votre [Bibliothèque de contenus](/fr/aide/bibliotheque-de-contenus).
+- **Générer avec l’IA** (**Générer à nouveau** une fois qu’une image existe), avec son prix sous l’intitulé.
+- **Choisir dans la bibliothèque** (**Ajouter depuis la bibliothèque** une fois qu’une image existe) : une image déjà présente dans votre [Bibliothèque de contenus](/fr/aide/bibliotheque-de-contenus).
 - **Importer depuis votre ordinateur** : le fichier est enregistré dans votre Bibliothèque de contenus et placé sur le post.
+
+L’étape se partage en deux colonnes. À gauche, les trois voies et les réglages de génération ; à droite, ce que porte le post à cet instant, qui reste sous vos yeux pendant une génération.
+
+**Générer avec l’IA.** Sous **Créée par l’IA : le prompt**, décrivez l’image, ou, pour un carrousel, consacrez un bloc à chaque diapositive. Laissé vide, le prompt est tiré du brief et du post. **Améliorer avec l’IA** le rédige pour vous, à retoucher ensuite ; le sélecteur de modèle placé à côté désigne le modèle de texte qui l’écrit, avec son coût. Choisissez le **Moteur** et le **Format** : la liste des moteurs s’ouvre sur le moins cher, si bien qu’une génération lancée sans y toucher coûte toujours le moins possible. Le bouton placé sous les réglages (**Générer l’image**, **Générer le carrousel**, ou **Générer une nouvelle image** quand il en existe déjà une) affiche le prix avant que vous ne cliquiez.
 
 Une génération apparaît dans **Activité**, et le post en conserve le résultat même si vous partez. Le **×** d’une image la retire du post ; elle reste dans la Bibliothèque de contenus. Cliquez sur une image pour l’afficher en grand.
 
-**Modifier une image.** Survolez une image du post et cliquez sur le crayon situé sous le **×**. L’image s’ouvre dans l’Éditeur d’images, sur son panneau **Réseaux sociaux** réglé sur LinkedIn. Choisissez son emplacement (**Post, format portrait** occupe le plus de place sur téléphone ; **Post, format carré** et **Post, landscape** sont les autres options), optez pour **Recadrer** ou pour **Image entière** sur fond d’image floutée ou de couleur, puis cliquez sur **Appliquer le format**. Vous pouvez aussi en régler la lumière et les couleurs, y écrire, dessiner une flèche ou placer un logo. Enregistrez ensuite avec **Enregistrer et l’utiliser dans la publication** : la copie retouchée remplace l’image dans le post, sur la même diapositive, et l’original reste dans la Bibliothèque de contenus. La retouche est gratuite.
+**Versions des visuels.** Chaque jeu d’images qu’a porté le post est conservé et numéroté **v1**, **v2**, etc. : chaque génération, chaque retouche, chaque choix dans la bibliothèque et chaque import en crée un. La liste figure sous les images, de la plus récente à la plus ancienne ; chaque version montre sa première image, le nombre d’images qu’elle compte et sa date. Celle que porte le post est signalée par **Sur la publication**. **Utiliser cette version** remet un jeu antérieur sur le post ; le **×** voisin retire cette version de la liste, et ses fichiers restent dans la Bibliothèque de contenus.
+
+**Modifier une image.** Sous les images, cliquez sur **Modifier dans l’éditeur d’images** (**Modifier la diapositive 1 dans l’éditeur d’images** pour un carrousel), ou survolez n’importe quelle image et cliquez sur son crayon, sous le **×** : chaque diapositive a le sien. L’image s’ouvre dans l’Éditeur d’images, sur son panneau **Réseaux sociaux** réglé sur LinkedIn. Choisissez son emplacement (**Post, format portrait** occupe le plus de place sur téléphone ; **Post, format carré** et **Post, paysage** sont les autres options), optez pour **Recadrer** ou pour **Image entière** sur fond d’image floutée ou de couleur, puis cliquez sur **Appliquer le format**. Vous pouvez aussi en régler la lumière et les couleurs, y écrire, dessiner une flèche ou placer un logo. Enregistrez ensuite avec **Enregistrer et l’utiliser dans la publication** : la copie retouchée remplace l’image dans le post, sur la même diapositive, et devient une nouvelle version des visuels. L’original reste parmi les versions et dans la Bibliothèque de contenus. La retouche est gratuite.
+
+![L’étape des images d’un post en carrousel : Texte seul, Une image et Carrousel avec 2 diapositives, les cartes Générer à nouveau, Ajouter depuis la bibliothèque et Importer depuis votre ordinateur à gauche, les deux diapositives à droite avec Modifier la diapositive 1 dans l’éditeur d’images, et Versions des visuels avec v2 Sur la publication et v1 avec Utiliser cette version](/images/help/linkedin-posts-picture-versions.fr.webp)
 
 Vous pouvez choisir un fichier PNG, JPEG, WebP, GIF ou AVIF. LinkedIn accepte tels quels le JPG, le PNG et le GIF ; une image WebP ou AVIF est convertie en JPG au moment de la publication. Une image publiée telle quelle peut peser jusqu’à 10 Mo.
 
@@ -158,9 +172,9 @@ Une fois un post parti, Nuvora ne peut plus le modifier ni le retirer de LinkedI
 
 ## Ce que cela coûte
 
-Sont payants : **Rédiger avec l’IA**, **Draft again**, **Écrire une autre version**, la réécriture d’un passage, **Améliorer avec l’IA** et chaque image générée. Le prix d’une génération figure sur le bouton avant que vous ne cliquiez. Pour les autres, le coût de l’opération s’affiche sur la ligne d’état dès son retour.
+Sont payants : **Rédiger avec l’IA**, **Draft again**, **Écrire une autre version**, la réécriture d’un passage, **Améliorer avec l’IA** et chaque image générée. Le prix d’une génération figure sur les boutons avant que vous ne cliquiez, et **Améliorer avec l’IA** affiche le sien dans le sélecteur de modèle voisin. Pour les autres, le coût de l’opération s’affiche sur la ligne d’état dès son retour.
 
-Sont gratuits : **Je l’écris moi-même**, la saisie dans l’éditeur, la retouche d’une image dans l’Éditeur d’images et la publication sur LinkedIn, par Nuvora ou à la main. Les fichiers que vous importez sont conservés dans la Bibliothèque de contenus et comptent dans votre espace de stockage. Chaque débit sur vos crédits est détaillé dans **Consommation**, sous **Crédits** dans le menu.
+Sont gratuits : **Je l’écris moi-même**, la saisie dans l’éditeur, la retouche d’une image dans l’Éditeur d’images, le retour à une version antérieure des visuels et la publication sur LinkedIn, par Nuvora ou à la main. Les fichiers que vous importez sont conservés dans la Bibliothèque de contenus et comptent dans votre espace de stockage. Chaque débit sur vos crédits est détaillé dans **Consommation**, sous **Crédits** dans le menu.
 
 ## Supprimer un post
 

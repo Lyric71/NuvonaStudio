@@ -1,20 +1,24 @@
 ---
 title: "LinkedIn posts"
 seoTitle: "Write, schedule and publish LinkedIn posts | Nuvora Help"
-description: "The Posts module: brief and draft a LinkedIn post, add its pictures, say which client it is for, send it for approval, then publish it on your profile or a company page you administer, now or on schedule."
+description: "The Posts module: brief and draft a LinkedIn post, add its pictures and go back to an earlier set, say which client it is for, send it for approval, then publish it on your profile or a company page you administer, now or on schedule."
 excerpt: "Draft a LinkedIn post with AI or by hand, give it a picture or a carousel, and publish it on your profile or your company page, now or at the hour you pick."
 section: "linkedin"
 order: 2
-updated: 2026-10-04
+updated: 2026-10-08
 appPaths: ["/social/linkedin/posts", "/my-connections"]
 audience: "Creators and admins; viewers read"
-related: ["calendar", "validation", "my-connections", "assets-library", "skills", "client-space", "your-team", "agents"]
+related: ["calendar", "validation", "my-connections", "assets-library", "campaigns", "skills", "choosing-a-model", "client-space", "your-team", "agents"]
 shots:
   - file: "/images/help/linkedin-posts-studio.webp"
     route: "/social/linkedin/posts"
-    alt: "The Posts module on a new post: the band with All posts, How this page works, New post and the four step tiles, and the brief with Format, Emoticons, Language, Model, Import a file, Draft with AI and Write it myself"
-    captured: 2026-10-04
-sources: ["src/lib/app.ts", "src/pages/social/linkedin/posts.astro", "src/pages/social/linkedin/articles.astro", "src/components/panels/SocialContentPanel.astro", "src/components/panels/SocialFormatBlock.astro", "src/scripts/socialContent.ts", "src/scripts/selectionRewrite.ts", "src/scripts/emojiPicker.ts", "src/scripts/modelPicker.ts", "src/scripts/imageEditor.ts", "src/scripts/imageEditorNetworks.ts", "src/pages/api/social-content/draft.ts", "src/pages/api/social-content/[id].ts", "src/pages/api/social/publications/index.ts", "src/lib/social-format-skills.ts", "src/lib/social/networks/linkedin.ts", "src/lib/social/connect-guide.ts", "src/lib/social/limits.ts", "src/lib/social/live.ts", "src/lib/social/scheduler.ts", "src/lib/social/fault.ts", "src/lib/social/http.ts", "src/lib/social/notify.ts", "src/lib/own-work.ts", "src/lib/team-clients.ts", "src/lib/validation-lock.ts", "public/apps/nuvora/vocabulary.js"]
+    alt: "The Posts module on a new post: the band with All posts, How this page works, New post and the four step tiles, and the brief with Format, Emoticons, Language, the model picker on Balanced, Import a file, Draft with AI and Write it myself"
+    captured: 2026-10-08
+  - file: "/images/help/linkedin-posts-picture-versions.webp"
+    route: "/social/linkedin/posts"
+    alt: "The pictures step of a carousel post: Text only, One image and Carousel with 2 slides, the Render again, Add from the library and Upload from your computer cards on the left, the two slides on the right with Edit slide 1 in the image editor, and Picture versions with v2 On the post and v1 with Use this version"
+    captured: 2026-10-08
+sources: ["src/lib/app.ts", "src/pages/social/linkedin/posts.astro", "src/pages/social/linkedin/articles.astro", "src/components/panels/SocialContentPanel.astro", "src/components/panels/SocialFormatBlock.astro", "src/scripts/socialContent.ts", "src/scripts/selectionRewrite.ts", "src/scripts/emojiPicker.ts", "src/scripts/modelPicker.ts", "src/scripts/imageEditor.ts", "src/scripts/imageEditorNetworks.ts", "src/pages/api/social-content/draft.ts", "src/pages/api/social-content/[id].ts", "src/pages/api/social/publications/index.ts", "src/lib/social-format-skills.ts", "src/lib/social/networks/linkedin.ts", "src/lib/social/connect-guide.ts", "src/lib/social/limits.ts", "src/lib/social/live.ts", "src/lib/social/scheduler.ts", "src/lib/social/fault.ts", "src/lib/social/http.ts", "src/lib/social/notify.ts", "src/lib/own-work.ts", "src/lib/team-clients.ts", "src/lib/validation-lock.ts", "src/lib/social-content-db.ts", "src/pages/api/social-content/visual-versions/[id].ts", "src/scripts/libraryFolderPicker.ts", "src/lib/brief-sources.ts", "public/apps/nuvora/vocabulary.js", "src/scripts/campaignChoice.ts", "src/lib/request-campaign.ts"]
 ---
 
 **Posts** in the menu holds your LinkedIn posts, from the first draft to the published post. You write a post with AI or by hand, give it a picture or a carousel, and publish it on your LinkedIn profile or on a company page you administer, now or at a time you pick. Or you post it yourself in LinkedIn's own composer.
@@ -40,7 +44,7 @@ Click **Posts** in the menu. The dark band at the top holds:
 - **New post**, which clears the form for a fresh post;
 - the four steps of the open post as tiles, numbered 00 to 03: **The brief**, **The copy**, **The pictures** and **Publishing**. Each tile shows its state (done, in progress, to do or not needed); click it to open that step.
 
-![The Posts module on a new post: the band with All posts, How this page works, New post and the four step tiles, and the brief with Format, Emoticons, Language, Model, Import a file, Draft with AI and Write it myself](/images/help/linkedin-posts-studio.webp)
+![The Posts module on a new post: the band with All posts, How this page works, New post and the four step tiles, and the brief with Format, Emoticons, Language, the model picker on Balanced, Import a file, Draft with AI and Write it myself](/images/help/linkedin-posts-studio.webp)
 
 ## Find a post
 
@@ -61,13 +65,15 @@ A post made for a client is also shown to that client's people, whoever it is sh
 
 1. Pick the **Format**: **Text only**, **+ Image** or **+ Carousel**. You can change it later, on the pictures step.
 2. Leave **Emoticons** ticked to have a few emoji spread through the post, or untick it for none.
-3. Pick the **Language**, and the **Model** that writes. **Default** runs the model your team set. Your pick is remembered for next time.
+3. Pick the **Language**, and the model that writes: **Quick**, **Balanced**, **Best** or any model under **All models**, each with what a post costs. The star **Recommended here** marks the model Nuvora runs when nobody chooses. Your pick is remembered for next time. See [Choosing a model](/help/choosing-a-model).
 4. Write the brief the way you'd brief a writer: the angle or the news, who it speaks to, and what the post has to achieve. The box takes up to 20,000 characters. **Import a file** adds the text of a .txt or .md file to the box; the file itself isn't kept.
 5. Click **Draft with AI**, or **Write it myself** to open the editor with no AI call and nothing billed. Whatever is already in the brief box becomes the first text of your post.
 
+The **Campaign** choice next to **Draft with AI** files the post, its pictures and every autosaved edit in a campaign. The pictures step shows the same choice. See [Campaigns](/help/campaigns#fill-a-campaign-as-you-create).
+
 The strip at the right edge, **Skills and material**, unfolds two cards:
 
-- **Material to write from**, all optional: **Files** (PDF or plain text; the text is taken out and kept with the post, the file itself is never stored), a **Context folder from the Assets Library** (every text document in that folder and its subfolders is read before the writing starts), **Pages to read** (web addresses, one per line, read at the moment of the run) and **Keywords to target** (type a term and press Enter).
+- **Material to write from**, all optional: **Files** (PDF or plain text; the text is taken out and kept with the post, the file itself is never stored), a **Context folder from the Assets Library** (every text document in that folder and its subfolders is read before the writing starts; the same list holds your team's [campaigns](/help/campaigns) under **Campaigns**, and a campaign brings its brief, the list of its assets and the text of its documents), **Pages to read** (web addresses, one per line, read at the moment of the run) and **Keywords to target** (type a term and press Enter).
 - **Skills**, where **LinkedIn post format** is already picked. It carries LinkedIn's posting rules: with it, the draft is checked against them and fixed once if it breaks one, and a draft still over 3,000 characters after that is refused rather than saved. Add your own skills, or unpick it to write free-form. See [Skills](/help/skills).
 
 The draft opens on the copy step, with a line that says what it cost. The run also shows in **Activity** at the top of the page, so you can leave while it works.
@@ -88,13 +94,21 @@ Beside the editor, **The post itself** shows the post as LinkedIn will. You can 
 
 Open **The pictures**. The shape comes first, and you can change it at any time: **Text only**, **One image** or **Carousel**. For a carousel, **Slides** sets how many (2 to 8). Then pick one of three ways in:
 
-- **Render with AI** (**Render again** once there's a picture). Write the prompt, or leave it empty to have it written from the brief and the post; **Improve with AI** writes it for you to edit. Pick the **Engine** and the **Aspect**. The price is on the button before you press.
-- **Pick from the library**: a picture already in your [Assets Library](/help/assets-library).
+- **Render with AI** (**Render again** once there's a picture), with its price under the name.
+- **Pick from the library** (**Add from the library** once there's a picture): a picture already in your [Assets Library](/help/assets-library).
 - **Upload from your computer**: the file is saved in your Assets Library and put on the post.
+
+The step is split in two. On the left, the three ways in and the render settings; on the right, what the post carries now, which stays in sight while a render runs.
+
+**Render with AI.** Under **Created with AI: the prompt**, write what the picture shows, or for a carousel one block per slide. Leave it empty to have it written from the brief and the post. **Improve with AI** writes the prompt for you to edit; the model picker beside it chooses the text model that writes it, with what that costs. Pick the **Engine** and the **Aspect**: the engine list opens on the cheapest engine, so a render you start without touching it always costs the least. The button under the settings (**Generate the image**, **Generate the carousel**, or **Generate a new image** once there is one) shows the price before you press.
 
 A render shows in **Activity**, and the post keeps the result if you leave. The **×** on a picture takes it off the post; it stays in the Assets Library. Click a picture to see it large.
 
-**Edit a picture.** Point at a picture of the post and click the pencil under the **×**. The picture opens in the Image editor, on its **Social** panel set to LinkedIn. Pick where it goes (**Post, portrait** takes the most room on phones; **Post, square** and **Post, landscape** are the others), choose **Crop to fill** or **Fit it whole** over a blurred picture or a color, then click **Apply the format**. You can also adjust its light and colors, write on it, draw an arrow or place a logo. Then save with **Save and use it in the post**: the edited copy takes the place of the picture in the post, in the same slide, and the original stays in the Assets Library. Editing is free.
+**Picture versions.** Every set of pictures the post has carried is kept, numbered **v1**, **v2** and so on: each render, each edit, each pick from the library and each upload makes one. The list sits under the pictures, newest first, each version with its first picture, how many pictures it holds and when it was made. The one the post carries reads **On the post**. Click **Use this version** to put an earlier set back on the post; the **×** next to it removes that version from the list, and its files stay in the Assets Library.
+
+**Edit a picture.** Under the pictures, click **Edit in the image editor** (**Edit slide 1 in the image editor** on a carousel), or point at any picture and click its pencil under the **×**: every slide has its own. The picture opens in the Image editor, on its **Social** panel set to LinkedIn. Pick where it goes (**Post, portrait** takes the most room on phones; **Post, square** and **Post, landscape** are the others), choose **Crop to fill** or **Fit it whole** over a blurred picture or a color, then click **Apply the format**. You can also adjust its light and colors, write on it, draw an arrow or place a logo. Then save with **Save and use it in the post**: the edited copy takes the place of the picture in the post, in the same slide, as a new picture version. The original stays in the versions and in the Assets Library. Editing is free.
+
+![The pictures step of a carousel post: Text only, One image and Carousel with 2 slides, the Render again, Add from the library and Upload from your computer cards on the left, the two slides on the right with Edit slide 1 in the image editor, and Picture versions with v2 On the post and v1 with Use this version](/images/help/linkedin-posts-picture-versions.webp)
 
 You can pick a PNG, JPEG, WebP, GIF or AVIF file. LinkedIn takes JPG, PNG and GIF as they are; a WebP or AVIF picture is turned into a JPG when the post goes out. A picture that goes out as it is can weigh up to 10 MB.
 
@@ -156,9 +170,9 @@ Once a post is out, Nuvora can't change or remove it on LinkedIn. To edit or del
 
 ## What it costs
 
-These are paid: **Draft with AI**, **Draft again**, **Write another version**, a rewritten passage, **Improve with AI**, and each picture rendered. The price of a render is on the button before you press. For the others, what the run cost shows on the status line as soon as it comes back.
+These are paid: **Draft with AI**, **Draft again**, **Write another version**, a rewritten passage, **Improve with AI**, and each picture rendered. The price of a render is on the buttons before you press, and **Improve with AI** shows its price in the model picker beside it. For the others, what the run cost shows on the status line as soon as it comes back.
 
-These cost nothing: **Write it myself**, typing in the editor, editing a picture in the Image editor, and publishing on LinkedIn, through Nuvora or by hand. Files you upload are kept in the Assets Library and count toward storage. Every charge against your credits is listed in **Usage**, under **Credits** in the menu.
+These cost nothing: **Write it myself**, typing in the editor, editing a picture in the Image editor, going back to an earlier picture version, and publishing on LinkedIn, through Nuvora or by hand. Files you upload are kept in the Assets Library and count toward storage. Every charge against your credits is listed in **Usage**, under **Credits** in the menu.
 
 ## Delete a post
 

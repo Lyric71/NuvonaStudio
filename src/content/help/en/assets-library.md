@@ -1,19 +1,23 @@
 ---
 title: "Assets Library and the Image editor"
 seoTitle: "Assets Library and Image editor for LinkedIn visuals | Nuvora Help"
-description: "Every file of your team in one place, in folders: find, tag, move and download them, then frame a picture for LinkedIn in the Image editor (a post, a profile banner, a page cover, a profile photo), crop it, adjust it, apply a look, write and draw on it and place a logo."
+description: "Every file of your team in one place, in folders: find, tag, move and download them, add them to a campaign, then frame a picture for LinkedIn in the Image editor (a post, a profile banner, a page cover, a profile photo), crop it, adjust it, apply a look, write and draw on it and place a logo."
 excerpt: "Your team's files in folders, and the Image editor that frames a picture for LinkedIn, in your browser and for free."
 section: "library"
 order: 8
-updated: 2026-10-04
+updated: 2026-10-08
 appPaths: ["/files", "/files/tools/image-editor"]
 audience: "Everyone except client logins"
-related: ["linkedin-posts", "validation", "ask", "balance-and-payments"]
+related: ["campaigns", "linkedin-posts", "validation", "ask", "balance-and-payments"]
 shots:
   - file: "/images/help/assets-library-page.webp"
     route: "/files"
     alt: "The Assets Library of an empty team: New folder and Upload files in the dark band, the Images, Videos, Texts, Documents and Other tiles at 0, the search with the Type, Date, Tags and Added by filters, and the empty list"
     captured: 2026-10-04
+  - file: "/images/help/assets-library-add-to-campaign.webp"
+    route: "/files"
+    alt: "The Assets Library with five files of a test team: under the first row, mat-1008-launch-hero.jpg, the Campaigns strip says Already in: mat-1008 Spring launch, with the campaign list on New campaign…, the Name of the campaign field, Add and Cancel"
+    captured: 2026-10-08
   - file: "/images/help/image-editor-page.webp"
     route: "/files/tools/image-editor"
     alt: "The Image editor page: the box to drop a picture, From the Assets Library, and the four steps Open a picture, Frame it for LinkedIn, Crop, adjust, write, draw, and Save it"
@@ -22,7 +26,7 @@ shots:
     route: "/files/tools/image-editor?network=linkedin"
     alt: "The Image editor open on a photo of a desk with a laptop, on its Social panel: the rail with Social, Crop, Adjust, Effects, Text, Draw and Picture, Save at the top right, the six LinkedIn placements under Where it goes with Post, portrait marked Best, and the Good practice on LinkedIn card"
     captured: 2026-10-04
-sources: ["src/lib/app.ts", "src/middleware.ts", "src/layouts/Layout.astro", "src/pages/files/index.astro", "src/scripts/filesPanel.ts", "src/pages/api/files/index.ts", "src/pages/api/files/[id].ts", "src/pages/api/files/folders/[id].ts", "src/lib/stored-files.ts", "src/lib/storage-billing.ts", "src/components/AssetToolsNav.astro", "src/pages/files/tools/image-editor.astro", "src/scripts/imageEditor.ts", "src/scripts/imageEditorNetworks.ts", "src/scripts/imageEditorLauncher.ts", "src/lib/social/limits.ts", "src/scripts/lightbox.ts", "src/scripts/socialContent.ts", "src/components/panels/SocialContentPanel.astro", "public/apps/nuvora/vocabulary.js"]
+sources: ["src/lib/app.ts", "src/middleware.ts", "src/layouts/Layout.astro", "src/pages/files/index.astro", "src/scripts/filesPanel.ts", "src/pages/api/files/index.ts", "src/pages/api/files/[id].ts", "src/pages/api/files/folders/[id].ts", "src/lib/stored-files.ts", "src/lib/storage-billing.ts", "src/components/AssetToolsNav.astro", "src/pages/files/tools/image-editor.astro", "src/scripts/imageEditor.ts", "src/scripts/imageEditorNetworks.ts", "src/scripts/imageEditorLauncher.ts", "src/lib/social/limits.ts", "src/scripts/lightbox.ts", "src/scripts/socialContent.ts", "src/components/panels/SocialContentPanel.astro", "src/lib/campaigns.ts", "src/pages/api/asset-campaigns/index.ts", "public/apps/nuvora/vocabulary.js", "src/scripts/campaignChoice.ts", "src/lib/request-campaign.ts"]
 ---
 
 The **Assets Library** holds every file of your team in one place, in folders: the visuals, documents and briefs you upload, and the pictures you add to your posts or save from the Image editor. **Assets Library** in the menu opens it.
@@ -43,10 +47,12 @@ What you upload here is seen by everyone in your team. The pictures you add to a
 
 Click **Upload files** and pick one file or several. They go into the folder you have open, or into **All assets** at the top. A bar fills while each file uploads.
 
+To file the upload in a campaign, pick it in the list next to **New folder**, which reads **No campaign** until you do. See [Campaigns](/help/campaigns#fill-a-campaign-as-you-create).
+
 ### Find a file
 
 - Type in **Search names, prompts, texts and tags…**: the words are looked for in the file names, the texts and the tags.
-- Narrow with the filters under it: **Type** (each type, and whether it was **Made here** or **Uploaded**), **Date** (**Today**, **Last 7 days**, **Last 30 days**, **Last 90 days**, **This year**, or two days of your own), **Tags** and **Added by**.
+- Narrow with the filters under it: **Type** (each type, and whether it was **Made here** or **Uploaded**), **Date** (**Today**, **Last 7 days**, **Last 30 days**, **Last 90 days**, **This year**, or two days of your own), **Tags**, **Campaign** (once your team has a campaign; see [Campaigns](/help/campaigns#filter-the-library-by-campaign)) and **Added by**.
 - A search or a filter looks across the whole library, not only the open folder.
 - Sort the list with **Newest first**, **Oldest first**, **Name, A to Z** or **Largest first**, and switch between **List** and **Grid**.
 
@@ -54,11 +60,22 @@ Click **Upload files** and pick one file or several. They go into the folder you
 
 Click **New folder**, type its name, and it appears in the folder you have open. Open a folder with a click; the path above the list takes you back up. To move a file, drag its row onto a folder, or pick **Move** in its **Actions** menu.
 
-Tick several rows to act on them together: move them, add or remove a tag, or delete them.
+Tick several rows to act on them together: move them, add or remove a tag, add them to a campaign, or delete them.
 
 Deleting a folder deletes everything inside it. A folder that holds files added by someone else can't be deleted: only the person who added a file can delete it.
 
 A folder also serves as material to write from: in a post's brief, **Context folder from the Assets Library** has every text document of the folder read before the writing starts (see [LinkedIn posts](/help/linkedin-posts)), and [Ask](/help/ask) can read a folder when you name it.
+
+### Add files to a campaign
+
+A [campaign](/help/campaigns) gathers the files of one LinkedIn push under a name and a brief, so that Ask, your agents and your posts can read them together. The files stay where they are: a campaign only points at them, and one file can sit in several campaigns.
+
+- **One file:** in its **Actions** menu, pick **Add to a campaign**. A **Campaigns** strip opens under the row and says which campaigns already hold the file (**Already in:**, each name a link to the campaign) or that it is **In no campaign yet**. Pick a campaign and click **Add**. On a file that already sits in a campaign, the menu item reads **Campaigns**.
+- **Several files:** tick their rows, pick a campaign in the bar that appears, and click **Add to campaign**.
+
+To start a campaign on the spot, pick **New campaign…** at the end of the list, type its name in **Name of the campaign**, and add. The new campaign holds the files right away; write its brief later, on its page.
+
+![The Assets Library with five files of a test team: under the first row, mat-1008-launch-hero.jpg, the Campaigns strip says Already in: mat-1008 Spring launch, with the campaign list on New campaign…, the Name of the campaign field, Add and Cancel](/images/help/assets-library-add-to-campaign.webp)
 
 ### The Actions menu
 
@@ -75,6 +92,7 @@ Click a row to open the file. Each row also has an **Actions** menu. What it off
 | **Tags** | Your own words, such as "Q3 launch" or "approved". Type a tag and press Enter, or click one of the tags already **In use**, then **Save**. Click a tag anywhere to filter on it. |
 | **Rename** | Changes the name shown in the library. |
 | **Move** | Puts the file in another folder. |
+| **Add to a campaign** | Adds the file to a [campaign](/help/campaigns), or to a new one named on the spot. Reads **Campaigns** once the file sits in one. |
 | **Who sees it** | Shown on a file of your own work that you added: **Only me** or **Everyone in the team**. |
 | **Delete** | Removes the file for good, after you confirm. Only the person who added a file sees it. |
 

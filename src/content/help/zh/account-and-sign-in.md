@@ -2,20 +2,20 @@
 title: "账户与登录"
 lang: "zh"
 seoTitle: "账户设置与登录｜Nuvora 帮助中心"
-description: "Nuvora 的设置页：你的姓名、头像、登录邮箱和密码，浅色或深色，英文、法文或中文界面，日期和时间，主页，每周摘要，我的模型，语音输入，你的智能体，发票和操作日志；以及邮件登录验证码、受信任的浏览器、重置密码和退出登录。"
+description: "Nuvora 的设置页：你的姓名、头像、登录邮箱和密码，浅色或深色，英文、法文或中文界面，日期和时间，主页，每周摘要，我的模型，语音输入，你的智能体，发票和操作日志；以及邮件登录验证码、受信任的浏览器、重置密码、长期未用的登录账号和退出登录。"
 excerpt: "账户设置里与你有关的每一项，以及登录、登录验证码和找回密码是怎么运作的。"
 section: "account"
 order: 14
-updated: 2026-10-04
+updated: 2026-10-08
 appPaths: ["/settings", "/login", "/forgot-password", "/reset-password"]
 audience: "所有人"
-related: ["getting-started", "my-connections", "your-team", "balance-and-payments", "agents", "troubleshooting"]
+related: ["getting-started", "my-connections", "your-team", "balance-and-payments", "agents", "choosing-a-model", "troubleshooting"]
 shots:
   - file: "/images/help/account-and-sign-in-settings.zh.webp"
     route: "/settings"
     alt: "设置页：顶部横幅写着当前登录的人、角色和团队，以及当前可用、今日支出和本月支出；左侧是分区列表；右侧是账户总览和您的姓名两张卡片"
     captured: 2026-10-04
-sources: ["src/pages/settings.astro", "src/styles/apps/nuvora.css", "public/apps/nuvora/vocabulary.js", "src/lib/app.ts", "src/layouts/Layout.astro", "src/components/ThemeSwitch.astro", "src/pages/login.astro", "src/lib/mfa.ts", "src/pages/api/login.ts", "src/pages/api/login/mfa.ts", "src/pages/forgot-password.astro", "src/pages/reset-password.astro", "src/lib/auth.ts", "src/pages/api/team.ts"]
+sources: ["src/pages/settings.astro", "src/styles/apps/nuvora.css", "public/apps/nuvora/vocabulary.js", "src/lib/app.ts", "src/layouts/Layout.astro", "src/components/ThemeSwitch.astro", "src/pages/login.astro", "src/lib/mfa.ts", "src/pages/api/login.ts", "src/pages/api/login/mfa.ts", "src/pages/forgot-password.astro", "src/pages/reset-password.astro", "src/lib/auth.ts", "src/pages/api/team.ts", "src/lib/inactivity-cleanup.ts", "src/lib/inactivity-mail.ts"]
 ---
 
 在任意页面右上角点你的头像，从菜单里打开 **账户设置**。页面顶部的横幅写着当前登录的是谁、你的角色、你的团队和你加入的日期，旁边是三个数字：**当前可用**、**今日支出** 和 **本月支出**。余额为零或见紧时，第一个数字下面会出现 **购买额度**。客户登录账号没有余额。
@@ -97,6 +97,8 @@ Nuvora 支持英文、法文和中文。语言只改变界面，也就是菜单�
 
 关掉的模型在已经设定好的地方照常运行：这里只是精简你挑选时看到的列表。每一类模型至少保留一个开启。团队禁用的模型根本不会出现在这里。
 
+卡片上的 **通过公开基准测试比较模型** 链接会打开 **模型基准测试** 页面，用公开得分以及写一条帖子或一篇文章的费用，比较团队允许使用的文本模型。你关闭的文本模型也会退出 **快速**、**均衡** 和 **旗舰** 三个选项：该选项会改用你保留的模型中价格最接近的一个。参见 [选择模型](/zh/help/choosing-a-model)。
+
 ## 语音输入
 
 每个多行文本框，包括帖子的内容简报，角落里都有一个麦克风。点它然后开口说话：你说的话会实时出现在光标所在的位置。再点一下就停止。
@@ -146,6 +148,12 @@ Nuvora 支持英文、法文和中文。语言只改变界面，也就是菜单�
 5. 页面显示 **密码已更新**。点 **登录**。
 
 重置链接只能用一次。如果已经过期，页面会显示 **链接无效或已过期**：点 **重新申请链接**。
+
+## 长期未用的登录账号
+
+连续两个月没人使用的登录账号，可能会收到一封邮件，请账号主人在一个月后的某个日期之前登录。邮件会写明该账号最近一次使用的时间（或注明从未使用过），以及将被停用的日期。在此之前登录一次即可，账号保持原样，其他一切不变。在每天使用的浏览器上保持登录状态，也算作使用。
+
+如果到期仍无人登录，账号就会被停用，你会收到邮件通知。账号不会被删除：账户和历史记录都会保留，团队管理员可以在 **团队** 页面为你恢复登录（参见 [你的团队](/zh/help/your-team#暂停登录)）。如果这期间忘了密码，可以按上文所述，在登录页点 **忘记密码？**。
 
 ## 退出登录
 

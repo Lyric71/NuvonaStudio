@@ -7,7 +7,7 @@ description: "Ce qu’est Nuvora, comment créer votre compte seul ou en équipe
 excerpt: "Créez votre compte, repérez-vous dans le menu et publiez votre premier post LinkedIn en quelques minutes."
 section: "getting-started"
 order: 1
-updated: 2026-10-04
+updated: 2026-10-08
 appPaths: ["/signup", "/login", "/social/linkedin/posts"]
 audience: "Tout le monde"
 related: ["linkedin-posts", "calendar", "linkedin-ads", "validation", "ask", "agents", "assets-library", "my-connections", "balance-and-payments", "your-team", "client-space", "account-and-sign-in"]
@@ -15,12 +15,12 @@ shots:
   - file: "/images/help/getting-started-menu.fr.webp"
     route: "/social/linkedin/posts"
     clip: "#side-nav"
-    alt: "Le menu de gauche : Posts, Calendrier, LinkedIn Ads, Validation, Interroger, Agents, Bibliothèque de contenus, Éditeur d’images et Compétences, avec Équipe et Crédits tout en bas"
-    captured: 2026-10-04
+    alt: "Le menu de gauche : Posts, Calendrier, LinkedIn Ads, Validation, Interroger, Agents, Bibliothèque de contenus, Éditeur d’images, Campagnes et Compétences, avec Équipe et Crédits tout en bas"
+    captured: 2026-10-08
 sources: ["src/lib/app.ts", "src/layouts/Layout.astro", "src/styles/apps/nuvora.css", "public/apps/nuvora/vocabulary.js", "src/lib/auth.ts", "src/middleware.ts", "src/pages/signup.astro", "src/lib/signup.ts", "src/pages/api/signup/verify.ts", "src/pages/login.astro", "src/lib/mfa.ts", "src/pages/invite/[token].astro", "src/scripts/creditChip.ts", "src/components/ThemeSwitch.astro", "src/components/panels/SocialContentPanel.astro", "src/scripts/socialContent.ts", "src/lib/social/connect-guide.ts"]
 ---
 
-Nuvora est un espace de travail pour LinkedIn, et pour LinkedIn seulement. Vous y rédigez vos posts avec l’IA ou à la main, puis vous les publiez sur votre profil LinkedIn ou sur les pages entreprise que vous administrez, tout de suite ou à l’heure de votre choix. Chaque post prévu, programmé ou publié apparaît dans un calendrier. Votre compte publicitaire LinkedIn est lu en direct, avec son tableau de bord, ses campagnes et la Bibliothèque publicitaire. Un post peut attendre l’approbation d’un collègue ou d’un client avant de partir. **Interroger** répond à vos questions sur vos posts, votre calendrier et votre compte publicitaire, et des agents surveillent pour vous votre rythme de publication et votre compte publicitaire. Vos visuels sont rangés dans la Bibliothèque de contenus, où l’Éditeur d’images met une image au format LinkedIn.
+Nuvora est un espace de travail pour LinkedIn, et pour LinkedIn seulement. Vous y rédigez vos posts avec l’IA ou à la main, puis vous les publiez sur votre profil LinkedIn ou sur les pages entreprise que vous administrez, tout de suite ou à l’heure de votre choix. Chaque post prévu, programmé ou publié apparaît dans un calendrier. Votre compte publicitaire LinkedIn est lu en direct, avec son tableau de bord, ses campagnes et la Bibliothèque publicitaire. Un post peut attendre l’approbation d’un collègue ou d’un client avant de partir. **Interroger** répond à vos questions sur vos posts, votre calendrier et votre compte publicitaire, et des agents surveillent pour vous votre rythme de publication et votre compte publicitaire. Vos visuels sont rangés dans la Bibliothèque de contenus, où l’Éditeur d’images met une image au format LinkedIn, et les campagnes rassemblent le matériel d’une opération LinkedIn à l’intention d’Interroger, de vos agents et de vos posts.
 
 Vous pouvez travailler seul, ou au sein d’une équipe qui partage un solde prépayé unique, tenu en dollars américains, et qui travaille pour des clients ; ceux-ci se connectent pour voir ce qui a été conçu pour eux. Chaque opération payante annonce son coût : la génération d’une image ou une publication affiche son prix avant que vous ne cliquiez, et un brouillon ou une réponse de l’IA indique ce qu’il a coûté dès qu’il est prêt.
 
@@ -70,6 +70,7 @@ Le menu de gauche réunit d’abord les modules LinkedIn, puis, tout en bas, l�
 | **Agents** | **Mes agents**, **Agents de l’équipe** (administrateurs seulement), **Catalogue** et **Exécutions** : des agents qui surveillent la publication et le compte publicitaire. Voir [Agents](/fr/aide/agents). |
 | **Bibliothèque de contenus** | Tous les fichiers de votre équipe, rangés en dossiers. Voir [Bibliothèque de contenus](/fr/aide/bibliotheque-de-contenus). |
 | **Éditeur d’images** | Une image mise aux formats LinkedIn, recadrée, retouchée, enrichie de texte et aux couleurs de votre marque. Voir [L’Éditeur d’images](/fr/aide/bibliotheque-de-contenus#léditeur-dimages). |
+| **Campagnes** | Les visuels, documents et posts d’une opération LinkedIn, réunis sous un nom et un brief pour Interroger, vos agents et vos posts. À ne pas confondre avec l’onglet **Campagnes** de LinkedIn Ads, qui regroupe vos campagnes publicitaires. Voir [Campagnes](/fr/aide/campagnes). |
 | **Compétences** | **Mes compétences**, **Compétences de l’équipe** (administrateurs seulement) et le **Catalogue** : les consignes qui façonnent vos brouillons. Voir [Compétences](/fr/aide/competences). |
 | **Partenaire** | Réservé aux partenaires commerciaux. Voir [Partenaires](/fr/aide/partenaires). |
 | **Équipe** | Les personnes qui partagent votre solde, et vos clients. Voir [Votre équipe](/fr/aide/votre-equipe). |
@@ -77,7 +78,7 @@ Le menu de gauche réunit d’abord les modules LinkedIn, puis, tout en bas, l�
 
 Un administrateur peut désactiver un module pour une personne en particulier : il disparaît alors de son menu. Un accès client voit un menu bien plus court : **Espace client** et **Validation**. Voir [Espace client](/fr/aide/espace-client).
 
-![Le menu de gauche : Posts, Calendrier, LinkedIn Ads, Validation, Interroger, Agents, Bibliothèque de contenus, Éditeur d’images et Compétences, avec Équipe et Crédits tout en bas](/images/help/getting-started-menu.fr.webp)
+![Le menu de gauche : Posts, Calendrier, LinkedIn Ads, Validation, Interroger, Agents, Bibliothèque de contenus, Éditeur d’images, Campagnes et Compétences, avec Équipe et Crédits tout en bas](/images/help/getting-started-menu.fr.webp)
 
 La barre en haut de chaque page comporte :
 
@@ -94,7 +95,7 @@ Le pied de page renvoie au **Centre d’aide**, à **Signaler un bug**, à **Nou
 1. **Connectez LinkedIn.** Cliquez sur votre photo en haut à droite, puis sur **Mes connexions**. Sur la carte **LinkedIn**, sous **Vos comptes sociaux**, cliquez sur **Connecter un compte**, connectez-vous à LinkedIn sous votre propre nom et appuyez sur **Allow**. Votre profil revient, accompagné des pages entreprise dont LinkedIn vous reconnaît administrateur. Gardez celles pour lesquelles vous publiez. Voir [Mes connexions](/fr/aide/mes-connexions).
 2. **Vérifiez votre solde.** Le montant affiché dans la barre du haut correspond à ce que vous pouvez dépenser. S’il indique **Acheter des crédits**, rechargez d’abord votre solde depuis **Crédits** > **Acheter des crédits**. Voir [Solde et paiements](/fr/aide/solde-et-paiements).
 3. **Ouvrez Posts** dans le menu. Un nouveau post vous attend ; **Nouveau post** vide le formulaire pour en commencer un autre.
-4. **Rédigez le brief.** Choisissez le **Format** (**Texte seul**, **+ Image** ou **+ Carrousel**), la **Langue** et le **Modèle** chargé de la rédaction. Dans la zone du brief, indiquez le sujet du post, à qui il s’adresse et ce qu’il doit obtenir.
+4. **Rédigez le brief.** Choisissez le **Format** (**Texte seul**, **+ Image** ou **+ Carrousel**), la **Langue** et le modèle chargé de la rédaction (**Rapide**, **Équilibré** ou **Puissant** : voir [Choisir un modèle](/fr/aide/choisir-un-modele)). Dans la zone du brief, indiquez le sujet du post, à qui il s’adresse et ce qu’il doit obtenir.
 5. **Cliquez sur Rédiger avec l’IA.** Le texte revient à l’étape suivante, prêt à être retouché, avec une ligne qui indique ce qu’a coûté le brouillon. Vous préférez l’écrire vous-même ? **Je l’écris moi-même** ouvre l’éditeur sans appel à l’IA et sans rien facturer.
 6. **Publiez.** Ouvrez **La publication**. Dans l’onglet **Publier automatiquement**, cochez votre profil ou une page sous **Sous quelle identité il part**, puis cliquez sur **Publier maintenant**, ou sur **Programmer** pour choisir un jour et une heure. Rien n’est coché d’avance : **Programmer** et **Publier maintenant** restent verrouillés tant que vous n’avez pas coché de compte.
 

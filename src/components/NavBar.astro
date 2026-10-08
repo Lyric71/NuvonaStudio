@@ -1,5 +1,5 @@
 ---
-import { useTranslations, getAlternateUrl, localizedPath, pageLangs, type Lang } from '../i18n/index.ts';
+import { useTranslations, getAlternateUrl, localizedPath, pageLangs, BENCHMARKS_LANGS, CAMPAIGNS_LANGS, type Lang } from '../i18n/index.ts';
 
 interface Props {
   lang?: Lang;
@@ -27,13 +27,32 @@ const links = [
       { label: t('nav.advertising'), href: localizedPath('services/advertising', lang) },
       { label: t('nav.consulting'),  href: localizedPath('services/consulting', lang) },
       { label: t('nav.onboarding'),  href: localizedPath('services/onboarding', lang) },
+      // The app's Campaigns page, in the languages it exists in.
+      ...(CAMPAIGNS_LANGS.includes(lang)
+        ? [{ label: t('nav.campaigns'), href: localizedPath('campaigns', lang) }]
+        : []),
     ],
   },
   { label: t('nav.pricing'),  href: localizedPath('pricing', lang) },
   { label: t('nav.work'),     href: localizedPath('work', lang) },
-  { label: t('nav.insights'), href: localizedPath('insights', lang) },
+  insightsLink(),
   { label: t('nav.about'),    href: localizedPath('about', lang) },
 ];
+
+// Insights opens on the articles and the AI model benchmarks page, in the
+// languages that page exists in; elsewhere it stays a plain link.
+function insightsLink() {
+  const href = localizedPath('insights', lang);
+  if (!BENCHMARKS_LANGS.includes(lang)) return { label: t('nav.insights'), href };
+  return {
+    label: t('nav.insights'),
+    href,
+    children: [
+      { label: t('nav.all_insights'),     href },
+      { label: t('nav.model_benchmarks'), href: localizedPath('insights/ai-model-benchmarks', lang) },
+    ],
+  };
+}
 
 const optimizerHref = localizedPath('linkedin-optimizer', lang);
 

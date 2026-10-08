@@ -1,10 +1,13 @@
 ---
-import { useTranslations, localizedPath, type Lang } from '../i18n/index.ts';
+import { useTranslations, localizedPath, BENCHMARKS_LANGS, CAMPAIGNS_LANGS, type Lang } from '../i18n/index.ts';
 
 interface Props {
   lang?: Lang;
+  // false leaves out the "Our network" block, for a page that must name
+  // Nuvora only (the AI model benchmarks page).
+  network?: boolean;
 }
-const { lang = 'en' } = Astro.props;
+const { lang = 'en', network = true } = Astro.props;
 const t = useTranslations(lang);
 
 const servicesLinks = [
@@ -12,12 +15,19 @@ const servicesLinks = [
   { label: t('footer.advertising'),  href: localizedPath('services/advertising', lang) },
   { label: t('footer.consulting'),   href: localizedPath('services/consulting', lang) },
   { label: t('footer.onboarding'),   href: localizedPath('services/onboarding', lang) },
+  // The app's Campaigns page, in the languages it exists in.
+  ...(CAMPAIGNS_LANGS.includes(lang)
+    ? [{ label: t('footer.campaigns'), href: localizedPath('campaigns', lang) }]
+    : []),
 ];
 
 const companyLinks = [
   { label: t('footer.about'),    href: localizedPath('about', lang) },
   { label: t('footer.work'),     href: localizedPath('work', lang) },
   { label: t('footer.insights'), href: localizedPath('insights', lang) },
+  ...(BENCHMARKS_LANGS.includes(lang)
+    ? [{ label: t('nav.model_benchmarks'), href: localizedPath('insights/ai-model-benchmarks', lang) }]
+    : []),
   { label: t('footer.pricing'),  href: localizedPath('pricing', lang) },
   { label: t('footer.contact'),  href: localizedPath('contact', lang) },
 ];
@@ -121,6 +131,7 @@ const year = new Date().getFullYear();
 
     </div>
 
+    {network && (<>
     <div class="footer__rule"></div>
 
     <section class="footer__network" aria-label="Our network">
@@ -158,6 +169,7 @@ const year = new Date().getFullYear();
         </span>
       </a>
     </section>
+    </>)}
 
     <div class="footer__rule"></div>
 

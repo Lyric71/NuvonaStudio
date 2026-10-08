@@ -2,19 +2,23 @@
 title: "素材库与图片编辑器"
 lang: "zh"
 seoTitle: "素材库与图片编辑器：做好 LinkedIn 配图｜Nuvora 帮助中心"
-description: "团队的每个文件都按文件夹收在一处：查找、打标签、移动、下载。再用图片编辑器把图片裁成 LinkedIn 要的样子（帖子、个人主页横幅、公司主页封面、头像），裁剪、调色、套用风格、写字、手绘，还能叠上标志。"
+description: "团队的每个文件都按文件夹收在一处：查找、打标签、移动、下载，还能加入营销活动。再用图片编辑器把图片裁成 LinkedIn 要的样子（帖子、个人主页横幅、公司主页封面、头像），裁剪、调色、套用风格、写字、手绘，还能叠上标志。"
 excerpt: "团队的文件按文件夹收好，图片编辑器替你把图片调成 LinkedIn 要的尺寸，在浏览器里完成，不收费。"
 section: "library"
 order: 8
-updated: 2026-10-04
+updated: 2026-10-08
 appPaths: ["/files", "/files/tools/image-editor"]
 audience: "除客户登录外的所有人"
-related: ["linkedin-posts", "validation", "ask", "balance-and-payments"]
+related: ["campaigns", "linkedin-posts", "validation", "ask", "balance-and-payments"]
 shots:
   - file: "/images/help/assets-library-page.zh.webp"
     route: "/files"
     alt: "一个空团队的素材库：深色横栏里的新建文件夹和上传文件，图片、视频、文本、文档、其他五个磁贴都是 0，搜索框带类型、日期、标签和添加者筛选，列表为空"
     captured: 2026-10-04
+  - file: "/images/help/assets-library-add-to-campaign.zh.webp"
+    route: "/files"
+    alt: "一个测试团队的素材库，列有五个文件：第一行 mat-1008-launch-hero.jpg 下方展开营销活动栏，显示已在：mat-1008 Spring launch，营销活动列表停在新建营销活动…，旁边是营销活动名称输入框、添加和取消"
+    captured: 2026-10-08
   - file: "/images/help/image-editor-page.zh.webp"
     route: "/files/tools/image-editor"
     alt: "图片编辑器页面：拖入图片的方框、来自素材库，以及四个步骤：打开图片；按 LinkedIn 构图；裁剪、调整、写字、绘制；保存"
@@ -23,7 +27,7 @@ shots:
     route: "/files/tools/image-editor?network=linkedin"
     alt: "图片编辑器打开一张书桌和笔记本电脑的照片，停在社交媒体面板：左侧工具栏有社交媒体、裁剪、调整、效果、文本、手绘、图片，右上角是保存，发布位置下列出 LinkedIn 的六种版位，帖子 · 竖版标着推荐，下方是 LinkedIn 最佳实践卡片"
     captured: 2026-10-04
-sources: ["src/lib/app.ts", "src/middleware.ts", "src/layouts/Layout.astro", "src/pages/files/index.astro", "src/scripts/filesPanel.ts", "src/pages/api/files/index.ts", "src/pages/api/files/[id].ts", "src/pages/api/files/folders/[id].ts", "src/lib/stored-files.ts", "src/lib/storage-billing.ts", "src/components/AssetToolsNav.astro", "src/pages/files/tools/image-editor.astro", "src/scripts/imageEditor.ts", "src/scripts/imageEditorNetworks.ts", "src/scripts/imageEditorLauncher.ts", "src/lib/social/limits.ts", "src/scripts/lightbox.ts", "src/scripts/socialContent.ts", "src/components/panels/SocialContentPanel.astro", "public/apps/nuvora/vocabulary.js"]
+sources: ["src/lib/app.ts", "src/middleware.ts", "src/layouts/Layout.astro", "src/pages/files/index.astro", "src/scripts/filesPanel.ts", "src/pages/api/files/index.ts", "src/pages/api/files/[id].ts", "src/pages/api/files/folders/[id].ts", "src/lib/stored-files.ts", "src/lib/storage-billing.ts", "src/components/AssetToolsNav.astro", "src/pages/files/tools/image-editor.astro", "src/scripts/imageEditor.ts", "src/scripts/imageEditorNetworks.ts", "src/scripts/imageEditorLauncher.ts", "src/lib/social/limits.ts", "src/scripts/lightbox.ts", "src/scripts/socialContent.ts", "src/components/panels/SocialContentPanel.astro", "src/lib/campaigns.ts", "src/pages/api/asset-campaigns/index.ts", "public/apps/nuvora/vocabulary.js", "src/scripts/campaignChoice.ts", "src/lib/request-campaign.ts"]
 ---
 
 **素材库** 把团队的每个文件按文件夹收在一处：你上传的图片、文档和简报，加进帖子的图片，从图片编辑器保存下来的作品，都在这里。点菜单里的 **素材库** 打开它。
@@ -44,10 +48,12 @@ sources: ["src/lib/app.ts", "src/middleware.ts", "src/layouts/Layout.astro", "sr
 
 点 **上传文件**，选一个或多个文件。它们会进入你当前打开的文件夹，没打开文件夹时就放在顶层的 **全部素材**。每个文件上传时，都有一条进度条随之填满。
 
+如需把上传的文件归入某个营销活动，请在 **新建文件夹** 旁边的列表中选择；未作选择时，列表显示 **不加入营销活动**。参见 [营销活动](/zh/help/campaigns#边创作边归入营销活动)。
+
 ### 查找文件
 
 - 在 **搜索名称、提示词、文本和标签…** 里输入关键词：系统会在文件名、文本和标签里查找。
-- 用下面的筛选缩小范围：**类型**（按类型分，也能区分 **在此生成** 还是 **已上传**），**日期**（**今天**、**最近 7 天**、**最近 30 天**、**最近 90 天**、**今年**，或自选起止两天），**标签** 和 **添加者**。
+- 用下面的筛选缩小范围：**类型**（按类型分，也能区分 **在此生成** 还是 **已上传**），**日期**（**今天**、**最近 7 天**、**最近 30 天**、**最近 90 天**、**今年**，或自选起止两天），**标签**、**营销活动**（团队有营销活动后才会出现，参见 [营销活动](/zh/help/campaigns#按营销活动筛选素材库)）和 **添加者**。
 - 搜索和筛选覆盖整个素材库，不只是当前打开的文件夹。
 - 列表可按 **最新优先**、**最早优先**、**名称 A 到 Z** 或 **最大优先** 排序，并可在 **列表** 和 **网格** 两种视图间切换。
 
@@ -55,11 +61,22 @@ sources: ["src/lib/app.ts", "src/middleware.ts", "src/layouts/Layout.astro", "sr
 
 点 **新建文件夹**，输入名称，它就出现在你当前打开的文件夹里。点一下即可打开文件夹，列表上方的路径带你逐级返回。要移动文件，把它那一行拖到某个文件夹上，或者在它的 **操作** 菜单里选 **移动**。
 
-勾选多行，可以一次性处理：移动、添加或去掉标签，或者删除。
+勾选多行，可以一次性处理：移动、添加或去掉标签、加入营销活动，或者删除。
 
 删除文件夹，里面的东西会一并删掉。文件夹里只要有别人添加的文件，就删不掉：文件只有添加它的人才能删除。
 
 文件夹还能当写作素材用：在帖子的简报里，**素材库中的上下文文件夹** 会在动笔之前读完该文件夹里的全部文本文档（参见 [LinkedIn 帖子](/zh/help/linkedin-posts)）；在 [提问](/zh/help/ask) 里点出文件夹的名字，它也能读取。
+
+### 把文件加入营销活动
+
+[营销活动](/zh/help/campaigns) 以一个名称和一份简报，把同一轮 LinkedIn 推广的文件归在一起，方便提问、智能体和帖子一并读取。文件本身原地不动：营销活动只是指向它们，同一个文件也可以属于多个营销活动。
+
+- **单个文件**：在它的 **操作** 菜单中选择 **加入营销活动**。该行下方会展开 **营销活动** 栏，列出已收录该文件的营销活动（**已在：**，每个名称都链接到对应的营销活动），或注明 **尚未加入任何营销活动。** 选一个营销活动，点击 **添加**。文件已属于某个营销活动时，这个菜单项显示为 **营销活动**。
+- **多个文件**：勾选这些文件所在的行，在随即出现的操作栏中选一个营销活动，再点击 **加入营销活动**。
+
+想当场新建一个营销活动，就选列表最后的 **新建营销活动…**，在 **营销活动名称** 中输入名称后添加。新营销活动会立即收录这些文件，简报可以之后到它的页面上补写。
+
+![一个测试团队的素材库，列有五个文件：第一行 mat-1008-launch-hero.jpg 下方展开营销活动栏，显示已在：mat-1008 Spring launch，营销活动列表停在新建营销活动…，旁边是营销活动名称输入框、添加和取消](/images/help/assets-library-add-to-campaign.zh.webp)
 
 ### 操作菜单
 
@@ -76,6 +93,7 @@ sources: ["src/lib/app.ts", "src/middleware.ts", "src/layouts/Layout.astro", "sr
 | **标签** | 你自己定的词，比如“Q3 发布”或“已通过”。输入标签后按 Enter，或点 **已在使用** 中现成的标签，再点 **保存**。在任何地方点一个标签，就按它筛选。 |
 | **重命名** | 修改素材库里显示的名称。 |
 | **移动** | 把文件放进另一个文件夹。 |
+| **加入营销活动** | 把文件加入某个 [营销活动](/zh/help/campaigns)，也可以当场新建一个。文件一旦属于某个营销活动，这一项就显示为 **营销活动**。 |
 | **可见范围** | 出现在你自己添加的作品文件上：**仅自己** 或 **团队内所有成员**。 |
 | **删除** | 确认后永久删除文件。只有添加文件的人才看得到这一项。 |
 

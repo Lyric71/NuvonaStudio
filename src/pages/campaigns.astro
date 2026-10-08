@@ -1,0 +1,195 @@
+---
+/**
+ * Campaigns, a module of the Nuvora app: the material of one LinkedIn push
+ * under one name and one brief. French and Chinese twins: fr/campagnes,
+ * zh/campaigns (no German or Spanish page: the app and its captures exist in
+ * English, French and Chinese only, see CAMPAIGNS_LANGS in src/i18n/index.ts).
+ * Layout in src/components/campaigns/CampaignsFeature.astro.
+ */
+import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/NavBar.astro';
+import CampaignsFeature from '../components/campaigns/CampaignsFeature.astro';
+import type { CampaignsCopy } from '../components/campaigns/types';
+import { campaignsPageSchemas } from '../components/campaigns/schema';
+import { localizedPath } from '../i18n/index';
+
+const lang = 'en';
+const link = (route: string) => localizedPath(route, lang);
+const guideHref = link('help/campaigns');
+
+const title = 'Nuvora Campaigns: group a LinkedIn push under one brief';
+const description = 'Put the visuals, documents, and post texts of a LinkedIn push in one Nuvora campaign. Ask, your agents, and your next post then read them as a set.';
+const abstract = 'Campaigns in Nuvora gather the visuals, documents, and post texts of one LinkedIn push under a name and a brief that Ask and agents read.';
+
+const copy: CampaignsCopy = {
+  hero: {
+    eyebrow: 'Campaigns, in the Nuvora app',
+    h1Html: 'Everything behind a LinkedIn push, filed under <span class="text-gradient">one name.</span>',
+    lede: 'A launch, an event, a quarter’s theme: every LinkedIn push leaves a trail of visuals, carousel slides, briefs, documents, and post texts. A campaign in Nuvora keeps them together under one name, with a short brief on top. Ask, your agents, and your next post can then read the whole set at once, instead of you pointing at files one by one.',
+    primary: 'See how it works',
+    secondary: 'Read the guide',
+    shotAlt: 'The Campaigns page in Nuvora: the New campaign button, counters for campaigns, images, videos, and texts, and the card of a spring launch campaign with its pictures, the start of its brief, and its asset counts',
+  },
+  holds: {
+    label: 'What goes in',
+    h2Html: 'Start with a name, then bring in the <span class="text-gradient">material.</span>',
+    body: [
+      'A campaign starts with a name and, if you want one, a brief: the goal, the audience, the key message, the dates. Then you add what the push is made of. Anything in the Assets Library can join, from the text of a post and the picture that runs with it to a visual saved in the Image editor or a file a colleague uploaded.',
+      'The brief is optional. Still, Ask and the agents read it along with the files, so a few lines there pay off in sharper answers.',
+    ],
+    listTitle: 'What a campaign can hold',
+    list: [
+      'Visuals and carousel slides',
+      'Briefs and other documents',
+      'The text of your posts',
+      'Files your team uploaded',
+    ],
+    facts: [
+      ['Name', 'Up to 120 characters, unique in your team'],
+      ['Brief', 'Optional, up to 4,000 characters'],
+      ['In the menu', 'Each campaign listed by name under Campaigns'],
+      ['Cost', 'Nothing to create, fill, or open'],
+    ],
+  },
+  pointers: {
+    label: 'Pointers, not copies',
+    h2Html: 'A campaign points at your files. It never <span class="text-gradient">copies them.</span>',
+    intro: 'Files stay where they live, in the Assets Library. The campaign only records which ones belong to the push, so cleaning up a campaign can’t cost you a file.',
+    tiles: [
+      {
+        title: 'One file, several campaigns',
+        body: 'The same product shot can sit in your spring launch and your trade show push at once. There’s no duplicate to keep in sync.',
+      },
+      {
+        title: 'Take it out, keep it',
+        body: 'Removing a file from a campaign leaves it in the library, untouched.',
+      },
+      {
+        title: 'When a campaign goes',
+        body: 'Deleting a campaign deletes the campaign and nothing else. Every asset stays in the library.',
+      },
+      {
+        title: 'Always the current version',
+        body: 'A new version of a file stays in the campaign. Delete a file from the library, and it drops out of every campaign by itself.',
+      },
+    ],
+  },
+  readers: {
+    label: 'Who reads it',
+    h2Html: 'Ask, the agents, and your posts read it <span class="text-gradient">as a whole.</span>',
+    intro: 'This is where a campaign earns its keep. Each one has its own page, and three cards on it send the campaign where it’s useful: Ask about this campaign, Give it to an agent, and Write from it.',
+    shotAlt: 'A campaign’s page in Nuvora: All campaigns, Add assets, and Delete the campaign in the band, counters for images, videos, texts, and documents, the three cards Ask about this campaign, Give it to an agent, and Write from it, the Name and brief card, and the assets under In this campaign',
+    cards: [
+      {
+        tag: 'Ask about this campaign',
+        title: 'Ask',
+        body: 'Type @ and the campaign’s name, or just name it in your question. Ask reads the brief and a list of the assets with each one’s name, type, tags, date, and the prompt behind each picture. It also reads the full text of the documents and written pieces. Campaigns has its own row under Data included, so you can leave them out of a conversation.',
+      },
+      {
+        tag: 'Give it to an agent',
+        title: 'Agents',
+        body: 'Create an agent from scratch and tick the campaign under From the Assets Library. On every run, the agent reads the brief, the list of assets, and the documents. If you delete the campaign, the agent simply stops reading it.',
+      },
+      {
+        tag: 'Write from it',
+        title: 'Your next post',
+        body: 'In a post’s brief, the Context folder from the Assets Library list has a Campaigns group. Pick a campaign, and its brief, its list of assets, and the text of each document are read before the draft is written.',
+      },
+    ],
+    exampleHtml: 'A question worth trying in Ask: <em>“What does @Spring launch still lack for its last two weeks?”</em>',
+  },
+  filling: {
+    label: 'Fill it as you work',
+    h2Html: 'New work lands in the campaign as soon as it’s <span class="text-gradient">made.</span>',
+    intro: 'Nobody needs to set aside an afternoon to sort files. Work reaches a campaign from the places your team already uses.',
+    items: [
+      {
+        title: 'From the forms',
+        body: 'The LinkedIn post form and the Assets Library upload each have a Campaign choice, set to None by default. Pick a campaign, and whatever you make or upload joins it right away. It stays in the library too.',
+      },
+      {
+        title: 'From the library',
+        body: 'A file’s Actions menu has Add to a campaign. Tick several rows to add them together, or start a new campaign from the same list.',
+      },
+      {
+        title: 'From the campaign’s page',
+        body: 'Add assets opens the library inside the campaign. Search by name, prompt, text, or tag, tick what belongs, and add it.',
+      },
+      {
+        title: 'Finding it later',
+        body: 'Each campaign shows up by name under Campaigns in the side menu. In the Assets Library, the Campaign filter narrows the list to one campaign, and its In no campaign option shows what nobody has filed yet.',
+      },
+    ],
+    shotAlt: 'The Assets Library in Nuvora with the Campaigns strip open under a picture: Already in the spring launch campaign, a list ending in New campaign, a Name of the campaign field, and the Add button',
+  },
+  notAds: {
+    label: 'Not an ad campaign',
+    h2Html: 'These aren’t your LinkedIn ad <span class="text-gradient">campaigns.</span>',
+    body: 'Same word, different job. A Nuvora campaign holds the material behind your posts. The campaigns of your LinkedIn ad account belong to LinkedIn Ads, which reads them live from the account. LinkedIn Ads doesn’t create files, so nothing from it ends up in a campaign.',
+    link: { label: 'How LinkedIn Ads works in Nuvora', href: link('help/linkedin-ads') },
+  },
+  roles: {
+    label: 'Who does what',
+    h2Html: 'Built by your team, hidden from <span class="text-gradient">clients.</span>',
+    intro: 'A campaign belongs to the whole team. Anyone allowed to open Campaigns sees every campaign, but inside it they see only the files the Assets Library already lets them see. A file set to Only me stays visible to its owner alone, even in a shared campaign.',
+    rows: [
+      { role: 'Admin', can: 'Everything a creator does, and deletes any campaign.' },
+      { role: 'Creator', can: 'Creates campaigns, adds and removes assets, renames campaigns, rewrites their brief, and deletes the ones they created.' },
+      { role: 'Viewer', can: 'Opens campaigns and reads them.' },
+      { role: 'Client', can: 'Doesn’t see Campaigns.' },
+    ],
+    noteHtml: `An admin can fine-tune this person by person with the Campaigns row of Rights, module by module, under Assets Library, or switch the module off for someone. More in <a href="${link('help/your-team')}">Your team</a>.`,
+  },
+  faq: {
+    eyebrow: 'Questions',
+    heading: 'What teams ask about campaigns',
+    items: [
+      {
+        q: 'Do campaigns cost anything?',
+        a: 'No. Creating, filling, and opening a campaign are free. Whatever reads a campaign is billed like any other run: an answer in Ask, an agent’s run, or a draft shows its price as usual, and a bigger campaign makes for a longer read.',
+      },
+      {
+        q: 'Is this the same as a LinkedIn ad campaign?',
+        a: 'No. A Nuvora campaign groups the visuals, documents, and post texts of one push. Ad campaigns stay in your LinkedIn ad account, and you follow them in LinkedIn Ads.',
+      },
+      {
+        q: 'Can one file sit in two campaigns?',
+        a: 'Yes. A campaign points at files in the Assets Library rather than copying them, so a file can belong to as many campaigns as you like.',
+      },
+      {
+        q: 'What happens to the files if we delete a campaign?',
+        a: 'Nothing. Only the campaign goes. The assets stay in the Assets Library, and any agent that read the campaign stops reading it.',
+      },
+      {
+        q: 'Do we have to write a brief?',
+        a: 'No, it’s optional, and it can run up to 4,000 characters. It helps, though: Ask and the agents read it along with the files.',
+      },
+      {
+        q: 'Can our clients see our campaigns?',
+        a: 'No. Client logins don’t see Campaigns at all. Viewers on your team can open and read them, while creators and admins build them.',
+      },
+    ],
+  },
+  close: {
+    h2Html: 'Your next push is a good place to <em>start.</em>',
+    body: 'The Campaigns guide covers every button and screen. If you’d rather have a hand, our onboarding sets up your workspace with you, campaigns included.',
+    primary: { label: 'Read the Campaigns guide', href: guideHref },
+    secondary: { label: 'See onboarding', href: link('services/onboarding') },
+  },
+};
+---
+
+<Layout
+  lang={lang}
+  title={title}
+  description={description}
+  abstract={abstract}
+  ogImage="/og/campaigns.jpg"
+  schemas={campaignsPageSchemas(lang, title, description)}
+  footerNetwork={false}
+>
+  <NavBar lang={lang} />
+  <main id="main-content">
+    <CampaignsFeature copy={copy} lang={lang} guideHref={guideHref} />
+  </main>
+</Layout>

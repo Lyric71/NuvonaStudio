@@ -7,10 +7,10 @@ description: "Les deux agents standard, Veilleur des publications LinkedIn et Ve
 excerpt: "Les agents relisent à intervalle régulier vos publications LinkedIn et votre compte publicitaire, puis vous signalent ce qui a changé, dates et chiffres réels à l’appui."
 section: "intelligence"
 order: 7
-updated: 2026-10-04
+updated: 2026-10-08
 appPaths: ["/agents", "/agents/organization", "/agents/catalog", "/agents/runs"]
 audience: "Tout le monde ; les créateurs et les administrateurs ajoutent, modifient et lancent les agents ; les agents de l’équipe sont réservés aux administrateurs"
-related: ["linkedin-ads", "calendar", "linkedin-posts", "ask", "assets-library", "balance-and-payments", "your-team"]
+related: ["linkedin-ads", "calendar", "linkedin-posts", "ask", "assets-library", "campaigns", "balance-and-payments", "your-team"]
 shots:
   - file: "/images/help/agents-catalog.fr.webp"
     route: "/agents/catalog"
@@ -20,7 +20,7 @@ shots:
     route: "/agents/runs"
     alt: "L’onglet Poste de commande des agents, vide : En cours, Activés et Exécutions précédentes avec le filtre Agents de"
     captured: 2026-10-04
-sources: ["src/pages/agents/index.astro", "src/pages/agents/organization.astro", "src/pages/agents/catalog.astro", "src/pages/agents/runs.astro", "src/scripts/agentsAdminPanel.ts", "src/scripts/agentForm.ts", "src/scripts/agentsCatalog.ts", "src/scripts/agentRunsPanel.ts", "src/scripts/agentFindings.ts", "src/components/AgentFindings.astro", "src/pages/ads/linkedin/index.astro", "src/pages/social/calendar/monthly.astro", "src/lib/agents/watchers.ts", "src/lib/agents/data-sources.ts", "src/lib/agents/external-sources.ts", "src/lib/agents/agent-spend.ts", "src/lib/agents/agent-web.ts", "src/lib/agents/scheduler.ts", "src/lib/agents/run-notify.ts", "src/pages/api/agents/run.ts", "src/pages/api/agents/runs.ts", "src/pages/api/agents/finding-action.ts", "src/pages/api/agents/settings.ts", "src/lib/app.ts", "vercel.json"]
+sources: ["src/pages/agents/index.astro", "src/pages/agents/organization.astro", "src/pages/agents/catalog.astro", "src/pages/agents/runs.astro", "src/scripts/agentsAdminPanel.ts", "src/scripts/agentForm.ts", "src/scripts/agentsCatalog.ts", "src/scripts/agentRunsPanel.ts", "src/scripts/agentFindings.ts", "src/components/AgentFindings.astro", "src/pages/ads/linkedin/index.astro", "src/pages/social/calendar/monthly.astro", "src/lib/agents/watchers.ts", "src/lib/agents/data-sources.ts", "src/lib/agents/external-sources.ts", "src/lib/campaigns.ts", "src/lib/agents/agent-spend.ts", "src/lib/agents/agent-web.ts", "src/lib/agents/scheduler.ts", "src/lib/agents/run-notify.ts", "src/pages/api/agents/run.ts", "src/pages/api/agents/runs.ts", "src/pages/api/agents/finding-action.ts", "src/pages/api/agents/settings.ts", "src/lib/app.ts", "vercel.json"]
 ---
 
 Un **agent** surveille pour vous une partie de votre travail sur LinkedIn. À intervalle régulier, il relit ses données, les compare à ce qu’il avait vu la fois précédente et signale ce qui a changé sous forme de **constats** : de courtes alertes, avec les dates et les chiffres réels, et une suggestion pour la suite.
@@ -90,7 +90,7 @@ Un agent personnalisé lit les données que vous choisissez et suit les instruct
    - **Activité sociale** : les contenus sociaux des 30 derniers jours, ce qui a été rédigé, planifié et publié.
    - **Publications LinkedIn** : les posts LinkedIn des 30 derniers jours et des 14 prochains, publiés, programmés ou en échec, ainsi que les brouillons en attente.
    - **Compte publicitaire LinkedIn** : le compte publicitaire de la personne pour qui l’agent tourne, lu en direct, les 7 derniers jours comparés aux 7 précédents.
-   - **Dans la Bibliothèque de contenus** : n’importe quel dossier ou document de la bibliothèque. Un dossier apporte tous les documents qu’il contient, sous-dossiers compris. Les fichiers PDF, Word, Excel, Markdown et texte sont lus ; les images et les clips sont laissés de côté.
+   - **Dans la Bibliothèque de contenus** : n’importe quelle [campagne](/fr/aide/campagnes) de l’équipe, en tête de liste et signalée par **Campagne**, ainsi que n’importe quel dossier ou document de la bibliothèque. Une campagne apporte son brief et chacun de ses contenus, les images et les clips décrits par leur prompt. Un dossier apporte tous les documents qu’il contient, sous-dossiers compris. Les fichiers PDF, Word, Excel, Markdown et texte sont lus ; les images et les clips sont laissés de côté. Chaque téléchargement est facturé comme depuis la Bibliothèque de contenus. Au-delà de six entrées, un champ de recherche (**Rechercher une campagne, un dossier ou un document**) resserre la liste.
 4. Rédigez ses **Instructions** : ce qu’il doit chercher dans ces données, ce qui mérite un constat, et ce qu’il doit ignorer.
 5. Cliquez sur **Créer l’agent**. Il démarre activé.
 

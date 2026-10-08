@@ -5,7 +5,7 @@ description: "What Nuvora is, how to create your account alone or with a team, h
 excerpt: "Create your account, find your way around the menu and publish your first LinkedIn post in a few minutes."
 section: "getting-started"
 order: 1
-updated: 2026-10-04
+updated: 2026-10-08
 appPaths: ["/signup", "/login", "/social/linkedin/posts"]
 audience: "Everyone"
 related: ["linkedin-posts", "calendar", "linkedin-ads", "validation", "ask", "agents", "assets-library", "my-connections", "balance-and-payments", "your-team", "client-space", "account-and-sign-in"]
@@ -13,12 +13,12 @@ shots:
   - file: "/images/help/getting-started-menu.webp"
     route: "/social/linkedin/posts"
     clip: "#side-nav"
-    alt: "The menu on the left: Posts, Calendar, LinkedIn Ads, Validation, Ask, Agents, Assets Library, Image editor and Skills, with Team and Credits at the foot"
-    captured: 2026-10-04
+    alt: "The menu on the left: Posts, Calendar, LinkedIn Ads, Validation, Ask, Agents, Assets Library, Image editor, Campaigns and Skills, with Team and Credits at the foot"
+    captured: 2026-10-08
 sources: ["src/lib/app.ts", "src/layouts/Layout.astro", "src/styles/apps/nuvora.css", "public/apps/nuvora/vocabulary.js", "src/lib/auth.ts", "src/middleware.ts", "src/pages/signup.astro", "src/lib/signup.ts", "src/pages/api/signup/verify.ts", "src/pages/login.astro", "src/lib/mfa.ts", "src/pages/invite/[token].astro", "src/scripts/creditChip.ts", "src/components/ThemeSwitch.astro", "src/components/panels/SocialContentPanel.astro", "src/scripts/socialContent.ts", "src/lib/social/connect-guide.ts"]
 ---
 
-Nuvora is a workspace for LinkedIn, and for LinkedIn only. You write posts with AI or by hand and publish them on your LinkedIn profile or on the company pages you administer, now or at the hour you pick. Every post planned, scheduled and published shows on a calendar. Your LinkedIn ad account is read live, with its dashboard, its campaigns and the Ad Library. Posts can wait for a teammate's or a client's approval before they go out. **Ask** answers questions about your posts, your calendar and your ad account, and agents watch your publishing rhythm and your ad account for you. Your visuals live in the Assets Library, where the Image editor frames a picture for LinkedIn.
+Nuvora is a workspace for LinkedIn, and for LinkedIn only. You write posts with AI or by hand and publish them on your LinkedIn profile or on the company pages you administer, now or at the hour you pick. Every post planned, scheduled and published shows on a calendar. Your LinkedIn ad account is read live, with its dashboard, its campaigns and the Ad Library. Posts can wait for a teammate's or a client's approval before they go out. **Ask** answers questions about your posts, your calendar and your ad account, and agents watch your publishing rhythm and your ad account for you. Your visuals live in the Assets Library, where the Image editor frames a picture for LinkedIn, and campaigns gather the material of one LinkedIn push for Ask, your agents and your posts.
 
 You can work alone, or in a team that shares one prepaid balance, held in US dollars, and works for clients who sign in to see what was made for them. Every paid run says what it costs: a picture render or a publication shows its price before you press, and an AI draft or answer shows its cost as soon as it's done.
 
@@ -68,6 +68,7 @@ The menu on the left holds the LinkedIn modules first, then the housekeeping at 
 | **Agents** | **My agents**, **Team agents** (admins only), **Catalog** and **Runs**: agents that watch the publishing and the ad account. See [Agents](/help/agents). |
 | **Assets Library** | Every file of your team, in folders. See [Assets Library](/help/assets-library). |
 | **Image editor** | A picture framed to the LinkedIn sizes, cropped, adjusted, written on and branded. See [The Image editor](/help/assets-library#the-image-editor). |
+| **Campaigns** | The visuals, documents and posts of one LinkedIn push, gathered under a name and a brief for Ask, your agents and your posts. Not the **Campaigns** tab of LinkedIn Ads, which holds your ad campaigns. See [Campaigns](/help/campaigns). |
 | **Skills** | **My skills**, **Team skills** (admins only) and the **Catalog**: the instructions that shape your drafts. See [Skills](/help/skills). |
 | **Partner** | Only for commercial partners. See [Partners](/help/partners). |
 | **Team** | The people who share your balance, and your clients. See [Your team](/help/your-team). |
@@ -75,7 +76,7 @@ The menu on the left holds the LinkedIn modules first, then the housekeeping at 
 
 An admin can switch a module off for one person; it then leaves that person's menu. A client login sees a much shorter menu: **Client space** and **Validation**. See [Client space](/help/client-space).
 
-![The menu on the left: Posts, Calendar, LinkedIn Ads, Validation, Ask, Agents, Assets Library, Image editor and Skills, with Team and Credits at the foot](/images/help/getting-started-menu.webp)
+![The menu on the left: Posts, Calendar, LinkedIn Ads, Validation, Ask, Agents, Assets Library, Image editor, Campaigns and Skills, with Team and Credits at the foot](/images/help/getting-started-menu.webp)
 
 The bar at the top of every page holds:
 
@@ -92,7 +93,7 @@ The footer links to the **Help center**, **Report a bug**, **Contact us**, the n
 1. **Connect LinkedIn.** Click your picture at the top right, then **My Connections**. On the **LinkedIn** card under **Your social accounts**, click **Connect an account**, sign in to LinkedIn as yourself and press **Allow**. Your profile comes back, along with the company pages LinkedIn lists you as an administrator of. Keep the ones you post for. See [My Connections](/help/my-connections).
 2. **Check your balance.** The amount in the top bar is what you can spend. If it reads **Buy credits**, top up first on **Credits** > **Buy credits**. See [Balance and payments](/help/balance-and-payments).
 3. **Open Posts** in the menu. A new post is ready; **New post** clears the form for another one.
-4. **Write the brief.** Pick the **Format** (**Text only**, **+ Image** or **+ Carousel**), the **Language** and the **Model** that writes. In the brief box, say what the post is about, who it speaks to and what it has to achieve.
+4. **Write the brief.** Pick the **Format** (**Text only**, **+ Image** or **+ Carousel**), the **Language** and the model that writes (**Quick**, **Balanced** or **Best**: see [Choosing a model](/help/choosing-a-model)). In the brief box, say what the post is about, who it speaks to and what it has to achieve.
 5. **Click Draft with AI.** The copy comes back on the next step, ready to edit, with a line that says what the draft cost. Prefer to write it yourself? **Write it myself** opens the editor with no AI call and nothing billed.
 6. **Publish.** Open **Publishing**. On the **Publish automatically** tab, tick your profile or a page under **Who it goes out as**, then click **Publish now**, or **Schedule** to pick a day and a time. Nothing is ticked for you: **Schedule** and **Publish now** stay locked until you tick an account.
 

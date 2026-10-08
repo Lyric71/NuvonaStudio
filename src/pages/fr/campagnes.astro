@@ -1,0 +1,193 @@
+---
+/**
+ * Campagnes (fr), twin of /campaigns and /zh/campaigns. Layout in
+ * src/components/campaigns/CampaignsFeature.astro; menu and button labels
+ * are the app's own French ones.
+ */
+import Layout from '../../layouts/Layout.astro';
+import NavBar from '../../components/NavBar.astro';
+import CampaignsFeature from '../../components/campaigns/CampaignsFeature.astro';
+import type { CampaignsCopy } from '../../components/campaigns/types';
+import { campaignsPageSchemas } from '../../components/campaigns/schema';
+import { localizedPath } from '../../i18n/index';
+
+const lang = 'fr';
+const link = (route: string) => localizedPath(route, lang);
+const guideHref = link('help/campaigns');
+
+const title = 'Nuvora : réunir une opération LinkedIn dans une campagne';
+const description = 'Visuels, documents, textes de posts : la campagne Nuvora rassemble le matériel d’une opération LinkedIn, que lisent ensuite Interroger, vos agents et vos posts.';
+const abstract = 'Dans l’application Nuvora, une campagne regroupe sous un nom et un brief facultatif le matériel d’une opération LinkedIn ; Interroger, les agents et les posts le lisent d’un seul tenant. Les campagnes sont gratuites.';
+
+const copy: CampaignsCopy = {
+  hero: {
+    eyebrow: 'Campagnes, un module de l’application Nuvora',
+    h1Html: 'Toute une opération LinkedIn, réunie sous <span class="text-gradient">un seul nom.</span>',
+    lede: 'Lancement, événement, thème du trimestre : chaque opération LinkedIn produit son lot de visuels, de diapositives de carrousel, de briefs, de documents et de textes de posts. Dans Nuvora, la campagne rassemble ce matériel sous un nom unique, assorti d’un court brief. Interroger, vos agents et votre prochain post lisent alors l’ensemble d’un seul tenant, sans qu’il faille leur désigner les fichiers un à un.',
+    primary: 'Découvrir le fonctionnement',
+    secondary: 'Consulter le guide',
+    shotAlt: 'La page Campagnes de Nuvora : le bouton Nouvelle campagne, les compteurs des campagnes, images, vidéos et textes, et la carte d’une campagne de lancement printanier avec ses images, le début de son brief et le décompte de ses contenus',
+  },
+  holds: {
+    label: 'Son contenu',
+    h2Html: 'Un nom pour commencer, puis tout le <span class="text-gradient">matériel.</span>',
+    body: [
+      'Une campagne naît d’un nom, éventuellement complété d’un brief : l’objectif, la cible, le message clé, le calendrier. Vient ensuite tout ce qui compose l’opération. Le moindre élément de la Bibliothèque de contenus peut y entrer, du texte d’un post et de l’image qui l’illustre au visuel enregistré dans l’Éditeur d’images, en passant par le fichier importé par un collègue.',
+      'Le brief n’est pas obligatoire. Interroger et les agents le lisent toutefois en même temps que les fichiers : quelques lignes suffisent à affûter leurs réponses.',
+    ],
+    listTitle: 'Ce qu’une campagne peut rassembler',
+    list: [
+      'Visuels et diapositives de carrousel',
+      'Briefs et autres documents',
+      'Textes de vos posts',
+      'Fichiers importés par l’équipe',
+    ],
+    facts: [
+      ['Nom', '120 caractères au maximum, sans doublon dans l’équipe'],
+      ['Brief', 'Facultatif, 4 000 caractères au maximum'],
+      ['Menu', 'Chaque campagne y figure sous son nom, dans Campagnes'],
+      ['Coût', 'Aucun pour créer, alimenter ou consulter une campagne'],
+    ],
+  },
+  pointers: {
+    label: 'Des renvois, pas des copies',
+    h2Html: 'La campagne renvoie à vos fichiers, elle ne les copie <span class="text-gradient">jamais.</span>',
+    intro: 'Chaque fichier reste à sa place, dans la Bibliothèque de contenus. La campagne se borne à recenser ceux qui relèvent de l’opération : la remanier ne fait donc courir aucun risque à vos fichiers.',
+    tiles: [
+      {
+        title: 'Un fichier, plusieurs campagnes',
+        body: 'Une même photo produit peut servir à la fois au lancement de printemps et à l’opération salon, sans doublon à synchroniser.',
+      },
+      {
+        title: 'Retirer sans perdre',
+        body: 'Un fichier retiré d’une campagne demeure intact dans la bibliothèque.',
+      },
+      {
+        title: 'Une campagne supprimée',
+        body: 'La suppression d’une campagne n’emporte qu’elle : tous ses contenus restent dans la bibliothèque.',
+      },
+      {
+        title: 'Toujours à jour',
+        body: 'La nouvelle version d’un fichier demeure dans la campagne. Supprimé de la bibliothèque, un fichier sort de lui-même de toutes les campagnes.',
+      },
+    ],
+  },
+  readers: {
+    label: 'Ses lecteurs',
+    h2Html: 'Interroger, les agents et vos posts la lisent <span class="text-gradient">d’un seul tenant.</span>',
+    intro: 'C’est à ce stade que la campagne rend service. Chacune dispose de sa propre page, où trois cartes l’orientent vers l’usage voulu : Poser une question sur cette campagne, La confier à un agent et Écrire à partir de cette campagne.',
+    shotAlt: 'La page d’une campagne dans Nuvora : Toutes les campagnes, Ajouter des contenus et Supprimer la campagne dans le bandeau, les compteurs d’images, de vidéos, de textes et de documents, les trois cartes Poser une question sur cette campagne, La confier à un agent et Écrire à partir de cette campagne, la carte Nom et brief, puis les contenus sous Dans cette campagne',
+    cards: [
+      {
+        tag: 'Poser une question sur cette campagne',
+        title: 'Interroger',
+        body: 'Tapez @ puis le nom de la campagne, ou citez-la simplement dans votre question. Interroger lit le brief et l’inventaire des contenus : nom, type, étiquettes, date et, pour les images, le prompt qui les a produites. Il prend aussi connaissance du texte intégral des documents et des textes rédigés. Les campagnes disposent de leur propre ligne dans Données incluses, ce qui permet de les écarter d’une conversation.',
+      },
+      {
+        tag: 'La confier à un agent',
+        title: 'Agents',
+        body: 'Créez un agent de zéro et cochez la campagne sous Dans la Bibliothèque de contenus. À chaque exécution, l’agent lit le brief, l’inventaire des contenus et les documents. Une campagne supprimée cesse simplement d’être lue.',
+      },
+      {
+        tag: 'Écrire à partir de cette campagne',
+        title: 'Votre prochain post',
+        body: 'Dans le brief d’un post, la liste Dossier de contexte tiré de la bibliothèque comporte un groupe Campagnes. Une fois la campagne choisie, son brief, l’inventaire de ses contenus et le texte de chaque document sont lus avant la rédaction du brouillon.',
+      },
+    ],
+    exampleHtml: 'Question à soumettre à Interroger : <em>« Que manque-t-il encore à @Spring launch pour ses deux dernières semaines ? »</em>',
+  },
+  filling: {
+    label: 'Au fil du travail',
+    h2Html: 'Toute nouvelle production rejoint la campagne dès sa <span class="text-gradient">création.</span>',
+    intro: 'Nul besoin de consacrer un après-midi au classement. Les fichiers gagnent la campagne depuis les outils que votre équipe utilise déjà.',
+    items: [
+      {
+        title: 'Depuis les formulaires',
+        body: 'Le formulaire des posts LinkedIn et l’import de la Bibliothèque de contenus comportent chacun un choix Campagne, réglé par défaut sur Aucune. Sélectionnez une campagne : ce que vous créez ou importez la rejoint aussitôt, tout en restant dans la bibliothèque.',
+      },
+      {
+        title: 'Depuis la bibliothèque',
+        body: 'Le menu Actions d’un fichier propose Ajouter à une campagne. Il suffit de cocher plusieurs lignes pour les verser d’un coup, ou de créer une campagne depuis la même liste.',
+      },
+      {
+        title: 'Depuis la page de la campagne',
+        body: 'Ajouter des contenus ouvre la bibliothèque sans quitter la campagne. Recherchez par nom, prompt, texte ou étiquette, cochez les éléments voulus, puis ajoutez-les.',
+      },
+      {
+        title: 'Retrouver ses fichiers',
+        body: 'Le menu latéral liste chaque campagne sous son nom, dans Campagnes. Dans la Bibliothèque de contenus, le filtre Campagne restreint l’affichage à une seule campagne, et son option Hors campagne révèle ce qui n’a encore été classé nulle part.',
+      },
+    ],
+    shotAlt: 'La Bibliothèque de contenus de Nuvora, avec le volet Campagnes déplié sous une image : Déjà dans la campagne de lancement de printemps, une liste qui s’achève sur Nouvelle campagne, le champ Nom de la campagne et le bouton Ajouter',
+  },
+  notAds: {
+    label: 'À ne pas confondre',
+    h2Html: 'Rien à voir avec vos campagnes publicitaires <span class="text-gradient">LinkedIn.</span>',
+    body: 'Le mot est le même, la fonction diffère. Une campagne Nuvora rassemble le matériel de vos posts. Les campagnes de votre compte publicitaire LinkedIn relèvent, elles, de LinkedIn Ads, qui les lit en direct sur le compte. Ce module ne produisant aucun fichier, rien n’en parvient dans une campagne.',
+    link: { label: 'Comprendre LinkedIn Ads dans Nuvora', href: link('help/linkedin-ads') },
+  },
+  roles: {
+    label: 'Qui fait quoi',
+    h2Html: 'Bâties par votre équipe, invisibles pour vos <span class="text-gradient">clients.</span>',
+    intro: 'Une campagne appartient à l’ensemble de l’équipe. Quiconque peut ouvrir Campagnes voit toutes les campagnes, mais n’y trouve que les fichiers auxquels la Bibliothèque de contenus lui donne déjà accès. Un fichier réglé sur Moi seulement reste ainsi réservé à son propriétaire, même dans une campagne partagée.',
+    rows: [
+      { role: 'Administrateur', can: 'Tous les droits du créateur, plus la suppression de n’importe quelle campagne.' },
+      { role: 'Créateur', can: 'Crée des campagnes, y ajoute ou en retire des contenus, les renomme, réécrit leur brief et supprime celles dont il est l’auteur.' },
+      { role: 'Lecteur', can: 'Ouvre et consulte les campagnes.' },
+      { role: 'Client', can: 'N’a pas accès à Campagnes.' },
+    ],
+    noteHtml: `Un administrateur peut ajuster ces droits personne par personne, avec la ligne Campagnes de Les droits, module par module, sous Bibliothèque de contenus, ou désactiver le module pour un membre. Le détail figure dans <a href="${link('help/your-team')}">Votre équipe</a>.`,
+  },
+  faq: {
+    eyebrow: 'Questions',
+    heading: 'Les questions qui reviennent',
+    items: [
+      {
+        q: 'Les campagnes sont-elles payantes ?',
+        a: 'Non. Créer, alimenter et ouvrir une campagne est gratuit. Ce qui la lit est facturé comme n’importe quelle exécution : une réponse d’Interroger, l’exécution d’un agent ou un brouillon affiche son prix comme à l’accoutumée, et plus la campagne est fournie, plus la lecture est longue.',
+      },
+      {
+        q: 'S’agit-il de campagnes publicitaires LinkedIn ?',
+        a: 'Non. Une campagne Nuvora regroupe les visuels, les documents et les textes de posts d’une opération. Les campagnes publicitaires restent dans votre compte publicitaire LinkedIn, et leur suivi se fait dans LinkedIn Ads.',
+      },
+      {
+        q: 'Un fichier peut-il appartenir à deux campagnes ?',
+        a: 'Oui. La campagne renvoie aux fichiers de la Bibliothèque de contenus sans les copier : un même fichier peut donc figurer dans autant de campagnes que nécessaire.',
+      },
+      {
+        q: 'Que deviennent les fichiers d’une campagne supprimée ?',
+        a: 'Ils ne bougent pas. Seule la campagne disparaît : les contenus restent dans la Bibliothèque de contenus, et les agents qui la lisaient cessent de la lire.',
+      },
+      {
+        q: 'Le brief est-il obligatoire ?',
+        a: 'Non. Facultatif, il peut atteindre 4 000 caractères. Il est pourtant utile, puisqu’Interroger et les agents le lisent en même temps que les fichiers.',
+      },
+      {
+        q: 'Nos clients voient-ils nos campagnes ?',
+        a: 'Non. Les accès client n’affichent pas Campagnes. Au sein de votre équipe, les lecteurs les ouvrent et les consultent, tandis que créateurs et administrateurs les construisent.',
+      },
+    ],
+  },
+  close: {
+    h2Html: 'Commencez par votre prochaine <em>opération.</em>',
+    body: 'Le guide des Campagnes détaille chaque bouton et chaque écran. Pour être accompagné, optez pour notre prise en main : nous configurons votre espace de travail avec vous, campagnes comprises.',
+    primary: { label: 'Lire le guide des Campagnes', href: guideHref },
+    secondary: { label: 'Découvrir la prise en main', href: link('services/onboarding') },
+  },
+};
+---
+
+<Layout
+  lang={lang}
+  title={title}
+  description={description}
+  abstract={abstract}
+  ogImage="/og/campaigns.fr.jpg"
+  schemas={campaignsPageSchemas(lang, title, description)}
+  footerNetwork={false}
+>
+  <NavBar lang={lang} />
+  <main id="main-content">
+    <CampaignsFeature copy={copy} lang={lang} guideHref={guideHref} />
+  </main>
+</Layout>

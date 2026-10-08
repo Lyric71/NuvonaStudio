@@ -2,20 +2,24 @@
 title: "LinkedIn 帖子"
 lang: "zh"
 seoTitle: "撰写、排期和发布 LinkedIn 帖子｜Nuvora 帮助中心"
-description: "帖子模块：为 LinkedIn 帖子写简报、起草，配上图片，标明是为哪位客户而作，提交审批，再发到你的个人主页或你管理的公司主页，立即发出或按排期发出。"
+description: "帖子模块：为 LinkedIn 帖子写简报、起草，配上图片并可换回之前的一组，标明是为哪位客户而作，提交审批，再发到你的个人主页或你管理的公司主页，立即发出或按排期发出。"
 excerpt: "用 AI 或亲手起草一篇 LinkedIn 帖子，配一张图或一组轮播，发到你的个人主页或公司主页，立即发出，或定在你选的时间。"
 section: "linkedin"
 order: 2
-updated: 2026-10-04
+updated: 2026-10-08
 appPaths: ["/social/linkedin/posts", "/my-connections"]
 audience: "创作者和管理员；查看者只读"
-related: ["calendar", "validation", "my-connections", "assets-library", "skills", "client-space", "your-team", "agents"]
+related: ["calendar", "validation", "my-connections", "assets-library", "campaigns", "skills", "choosing-a-model", "client-space", "your-team", "agents"]
 shots:
   - file: "/images/help/linkedin-posts-studio.zh.webp"
     route: "/social/linkedin/posts"
-    alt: "帖子模块中的一篇新帖子：横栏上有 All posts、本页说明、新帖子和四个步骤卡片，下方的简报区有格式、表情符号、语言、模型、导入文件、AI 起草和我自己写"
-    captured: 2026-10-04
-sources: ["src/lib/app.ts", "src/pages/social/linkedin/posts.astro", "src/pages/social/linkedin/articles.astro", "src/components/panels/SocialContentPanel.astro", "src/components/panels/SocialFormatBlock.astro", "src/scripts/socialContent.ts", "src/scripts/selectionRewrite.ts", "src/scripts/emojiPicker.ts", "src/scripts/modelPicker.ts", "src/scripts/imageEditor.ts", "src/scripts/imageEditorNetworks.ts", "src/pages/api/social-content/draft.ts", "src/pages/api/social-content/[id].ts", "src/pages/api/social/publications/index.ts", "src/lib/social-format-skills.ts", "src/lib/social/networks/linkedin.ts", "src/lib/social/connect-guide.ts", "src/lib/social/limits.ts", "src/lib/social/live.ts", "src/lib/social/scheduler.ts", "src/lib/social/fault.ts", "src/lib/social/http.ts", "src/lib/social/notify.ts", "src/lib/own-work.ts", "src/lib/team-clients.ts", "src/lib/validation-lock.ts", "public/apps/nuvora/vocabulary.js"]
+    alt: "帖子模块中的一篇新帖子：横栏上有全部帖子、本页说明、新帖子和四个步骤卡片，下方的简报区有格式、表情符号、语言、停在均衡上的模型选择器、导入文件、AI 起草和我自己写"
+    captured: 2026-10-08
+  - file: "/images/help/linkedin-posts-picture-versions.zh.webp"
+    route: "/social/linkedin/posts"
+    alt: "轮播帖子的图片步骤：纯文字、单张图片和轮播（2 张），左侧是重新生成、从素材库添加和从您的电脑上传三张卡片，右侧是两张轮播图和在图片编辑器中编辑第 1 张，以及图片版本：v2 当前使用，v1 带有使用此版本"
+    captured: 2026-10-08
+sources: ["src/lib/app.ts", "src/pages/social/linkedin/posts.astro", "src/pages/social/linkedin/articles.astro", "src/components/panels/SocialContentPanel.astro", "src/components/panels/SocialFormatBlock.astro", "src/scripts/socialContent.ts", "src/scripts/selectionRewrite.ts", "src/scripts/emojiPicker.ts", "src/scripts/modelPicker.ts", "src/scripts/imageEditor.ts", "src/scripts/imageEditorNetworks.ts", "src/pages/api/social-content/draft.ts", "src/pages/api/social-content/[id].ts", "src/pages/api/social/publications/index.ts", "src/lib/social-format-skills.ts", "src/lib/social/networks/linkedin.ts", "src/lib/social/connect-guide.ts", "src/lib/social/limits.ts", "src/lib/social/live.ts", "src/lib/social/scheduler.ts", "src/lib/social/fault.ts", "src/lib/social/http.ts", "src/lib/social/notify.ts", "src/lib/own-work.ts", "src/lib/team-clients.ts", "src/lib/validation-lock.ts", "src/lib/social-content-db.ts", "src/pages/api/social-content/visual-versions/[id].ts", "src/scripts/libraryFolderPicker.ts", "src/lib/brief-sources.ts", "public/apps/nuvora/vocabulary.js", "src/scripts/campaignChoice.ts", "src/lib/request-campaign.ts"]
 ---
 
 菜单里的 **帖子** 存放你的 LinkedIn 帖子，从第一份草稿一直到发布。帖子可以交给 AI 写，也可以亲手写，配上一张图或一组轮播，然后发到你的 LinkedIn 个人主页，或你管理的公司主页，立即发出，或定在你选的时间。你也可以在 LinkedIn 自己的编辑框里亲手发出。
@@ -41,7 +45,7 @@ sources: ["src/lib/app.ts", "src/pages/social/linkedin/posts.astro", "src/pages/
 - **新帖子**，清空表单，开始一篇新帖子；
 - 当前帖子的四个步骤卡片，编号从 00 到 03：**内容简报**、**文案**、**图片** 和 **发布**。每张卡片标出自己的状态（已完成、进行中、待办或无需），点击即可打开该步骤。
 
-![帖子模块中的一篇新帖子：横栏上有 All posts、本页说明、新帖子和四个步骤卡片，下方的简报区有格式、表情符号、语言、模型、导入文件、AI 起草和我自己写](/images/help/linkedin-posts-studio.zh.webp)
+![帖子模块中的一篇新帖子：横栏上有全部帖子、本页说明、新帖子和四个步骤卡片，下方的简报区有格式、表情符号、语言、停在均衡上的模型选择器、导入文件、AI 起草和我自己写](/images/help/linkedin-posts-studio.zh.webp)
 
 ## 查找帖子
 
@@ -62,13 +66,15 @@ sources: ["src/lib/app.ts", "src/pages/social/linkedin/posts.astro", "src/pages/
 
 1. 选择 **格式**：**纯文字**、**+ 图片** 或 **+ 轮播**。之后在图片步骤里还可以更改。
 2. 保持勾选 **表情符号**，帖子里会点缀几个表情；取消勾选则一个也不加。
-3. 选择 **语言**，以及负责撰写的 **模型**。**默认** 使用你的团队设定的模型。你的选择会被记住，下次沿用。
+3. 选择 **语言**，以及负责撰写的模型：**快速**、**均衡**、**旗舰**，或 **全部模型** 中的任意一个，每个都标明写一条帖子的费用。带 **此处推荐** 星标的，就是无人选择时 Nuvora 使用的模型。你的选择会被记住，下次沿用。参见 [选择模型](/zh/help/choosing-a-model)。
 4. 像给撰稿人交代任务那样写简报：切入角度或新闻点，面向谁，帖子要达成什么效果。简报框最多容纳 20,000 个字符。**导入文件** 会把一个 .txt 或 .md 文件的文字加进框里，文件本身不保留。
 5. 点击 **AI 起草**；或者点 **我自己写**，直接打开编辑器，不调用 AI，也不计费。简报框里已有的内容会成为帖子的初稿。
 
+**AI 起草** 旁边的 **营销活动** 选项，会把帖子、图片和每一次自动保存的修改归入选定的营销活动。图片步骤里也有同一个选项。参见 [营销活动](/zh/help/campaigns#边创作边归入营销活动)。
+
 右侧边缘的 **技能与素材** 栏展开后有两张卡片：
 
-- **写作素材**，均为可选：**文件**（PDF 或纯文本；文字被提取出来随帖子保存，文件本身从不存储）、**素材库中的上下文文件夹**（开始撰写前，会读取该文件夹及其子文件夹中的每个文本文档）、**要读取的页面**（网址，每行一个，在运行时读取）和 **目标关键词**（输入一个词后按 Enter）。
+- **写作素材**，均为可选：**文件**（PDF 或纯文本；文字被提取出来随帖子保存，文件本身从不存储）、**素材库中的上下文文件夹**（开始撰写前，会读取该文件夹及其子文件夹中的每个文本文档；同一列表的 **营销活动** 组里还有团队的[营销活动](/zh/help/campaigns)，选中后会读取其简报、素材清单和文档文字）、**要读取的页面**（网址，每行一个，在运行时读取）和 **目标关键词**（输入一个词后按 Enter）。
 - **技能**，其中已经选好 **LinkedIn 帖子格式**。它承载着 LinkedIn 的发帖规则：选中它，草稿会按这些规则检查，违规时自动修正一次；修正后仍超过 3,000 个字符的草稿会被拒绝，不予保存。你可以添加自己的技能，或取消选中它，自由撰写。参见[技能](/zh/help/skills)。
 
 草稿在文案步骤中打开，附有一行写明花费。这次运行也会出现在页面顶部的 **动态** 中，所以它在运行时你可以先离开。
@@ -89,13 +95,21 @@ sources: ["src/lib/app.ts", "src/pages/social/linkedin/posts.astro", "src/pages/
 
 打开 **图片**。先定形式，之后随时可以更改：**纯文字**、**单张图片** 或 **轮播**。轮播时，**张数** 决定有几张（2 到 8 张）。然后从三种方式中选一种：
 
-- **AI 生成**（已有图片时变为 **重新生成**）。写好提示词，或者留空，由系统根据简报和帖子来写；**用 AI 优化** 会替你写好，供你修改。选择 **引擎** 和 **画幅**。按下按钮之前，价格就写在按钮上。
-- **从素材库选择**：选一张已在你[素材库](/zh/help/assets-library)里的图片。
+- **AI 生成**（已有图片时变为 **重新生成**），名称下方标有价格。
+- **从素材库选择**（已有图片时变为 **从素材库添加**）：选一张已在你[素材库](/zh/help/assets-library)里的图片。
 - **从您的电脑上传**：文件存进你的素材库，并放到帖子上。
+
+这一步分为左右两栏：左边是三种方式和生成设置，右边是帖子当前的图片，生成过程中始终可见。
+
+**AI 生成。** 在 **AI 生成：提示词** 下写明图片的内容；轮播则每张写一段。留空时，系统会根据简报和帖子来写。**用 AI 优化** 会替你写好提示词，供你修改；旁边的模型选择器决定由哪个文本模型来写，并标出费用。再选择 **引擎** 和 **画幅**：引擎列表默认停在最便宜的一项，不动它直接生成，花费总是最低。设置下方的按钮（**生成图片**、**生成轮播图**，已有图片时为 **重新生成图片**）在按下前就显示价格。
 
 生成任务会出现在 **动态** 中，你离开后帖子也会保留结果。图片上的 **×** 把它从帖子上拿掉，但它仍留在素材库里。点击图片可以放大查看。
 
-**编辑图片。** 把鼠标移到帖子的某张图片上，点击 **×** 下方的铅笔。图片会在图片编辑器中打开，停在 **社交媒体** 面板上，网络已设为 LinkedIn。选择图片的位置（**帖子 · 竖版** 在手机上占的面积最大；另外两种是 **帖子 · 方形** 和 **Post, landscape**），选择 **裁切填满**，或在模糊背景或纯色上 **完整放入**，然后点击 **应用格式**。你还可以调整它的明暗和色彩，在上面写字、画箭头或放上标志。最后点 **保存并用于该帖子**：编辑后的副本取代帖子里原来的图片，位置仍在同一张轮播里，原图留在素材库中。编辑不收费。
+**图片版本。** 帖子用过的每一组图片都会保留，依次编号为 **v1**、**v2** 等：每次生成、每次编辑、每次从素材库选图、每次上传，都会产生一个版本。版本列表位于图片下方，最新的排在最前，每个版本显示第一张图片、图片张数和生成时间。帖子正在使用的版本标有 **当前使用**。点 **使用此版本**，可以把之前的一组图片换回帖子上；旁边的 **×** 只把该版本从列表中移除，其中的文件仍留在素材库里。
+
+**编辑图片。** 在图片下方点击 **在图片编辑器中编辑**（轮播时为 **在图片编辑器中编辑第 1 张**），或者把鼠标移到任意一张图片上，点击 **×** 下方的铅笔：每张图片都有自己的编辑按钮。图片会在图片编辑器中打开，停在 **社交媒体** 面板上，网络已设为 LinkedIn。选择图片的位置（**帖子 · 竖版** 在手机上占的面积最大；另外两种是 **帖子 · 方形** 和 **帖子，横版**），选择 **裁切填满**，或在模糊背景或纯色上 **完整放入**，然后点击 **应用格式**。你还可以调整它的明暗和色彩，在上面写字、画箭头或放上标志。最后点 **保存并用于该帖子**：编辑后的副本取代帖子里原来的图片，位置仍在同一张轮播里，并成为一个新的图片版本；原图仍保留在版本列表和素材库中。编辑不收费。
+
+![轮播帖子的图片步骤：纯文字、单张图片和轮播（2 张），左侧是重新生成、从素材库添加和从您的电脑上传三张卡片，右侧是两张轮播图和在图片编辑器中编辑第 1 张，以及图片版本：v2 当前使用，v1 带有使用此版本](/images/help/linkedin-posts-picture-versions.zh.webp)
 
 你可以选择 PNG、JPEG、WebP、GIF 或 AVIF 文件。LinkedIn 直接接受 JPG、PNG 和 GIF；WebP 或 AVIF 图片会在帖子发出时转成 JPG。原样发出的图片最大可达 10 MB。
 
@@ -157,9 +171,9 @@ LinkedIn 那边的临时故障会自动重试，总共三次，这一行会显�
 
 ## 费用
 
-以下操作收费：**AI 起草**、**Draft again**、**再写一个版本**、重写某一段、**用 AI 优化**，以及每生成一张图片。生成图片的价格在按下按钮前就写在按钮上。其他操作的费用，结果一返回就显示在状态行上。
+以下操作收费：**AI 起草**、**Draft again**、**再写一个版本**、重写某一段、**用 AI 优化**，以及每生成一张图片。生成图片的价格在按下按钮前就写在按钮上，**用 AI 优化** 的费用则显示在旁边的模型选择器里。其他操作的费用，结果一返回就显示在状态行上。
 
-以下操作免费：**我自己写**、在编辑器里输入、在图片编辑器里编辑图片，以及在 LinkedIn 上发布，无论通过 Nuvora 还是亲手发。你上传的文件保存在素材库中，计入存储用量。从你额度中扣除的每一笔费用，都列在菜单 **额度** 下的 **用量** 里。
+以下操作免费：**我自己写**、在编辑器里输入、在图片编辑器里编辑图片、换回之前的图片版本，以及在 LinkedIn 上发布，无论通过 Nuvora 还是亲手发。你上传的文件保存在素材库中，计入存储用量。从你额度中扣除的每一笔费用，都列在菜单 **额度** 下的 **用量** 里。
 
 ## 删除帖子
 

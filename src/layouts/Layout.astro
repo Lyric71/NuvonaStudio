@@ -19,6 +19,8 @@ interface Props {
   robots?: string;
   // 404 page: noindex, and no canonical, hreflang or breadcrumbs.
   notFound?: boolean;
+  // false leaves the footer's "Our network" block out (see Footer.astro).
+  footerNetwork?: boolean;
 }
 
 const {
@@ -33,6 +35,7 @@ const {
   schemas = [],
   robots: robotsProp = 'index, follow',
   notFound = false,
+  footerNetwork = true,
 } = Astro.props;
 const robots = notFound ? 'noindex, follow' : robotsProp;
 
@@ -85,6 +88,7 @@ const crumbLabelKeys: Record<string, UiKey> = {
   'services/advertising': 'nav.advertising',
   'services/consulting': 'nav.consulting',
   'services/onboarding': 'nav.onboarding',
+  campaigns: 'nav.campaigns',
   pricing: 'nav.pricing',
   work: 'nav.work',
   insights: 'nav.insights',
@@ -257,7 +261,7 @@ const jsonLd = JSON.stringify({
   </head>
   <body>
     <slot />
-    <Footer lang={lang} />
+    <Footer lang={lang} network={footerNetwork} />
     <Analytics />
 
     <!-- Scroll-reveal observer -->

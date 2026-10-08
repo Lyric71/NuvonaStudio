@@ -22,9 +22,12 @@ export const ui = {
     'nav.advertising':  'Advertising',
     'nav.consulting':   'Consulting',
     'nav.onboarding':   'Onboarding',
+    'nav.campaigns':    'Campaigns in the app',
     'nav.pricing':      'Pricing',
     'nav.work':         'Work',
     'nav.insights':     'Insights',
+    'nav.all_insights': 'All articles',
+    'nav.model_benchmarks': 'AI model benchmarks',
     'nav.about':        'About',
     'nav.optimizer':    'Profile Optimizer',
     'nav.book_call':    'Book a call',
@@ -60,6 +63,7 @@ export const ui = {
     'footer.advertising':   'Advertising',
     'footer.consulting':    'Consulting',
     'footer.onboarding':    'Onboarding',
+    'footer.campaigns':     'Campaigns in the app',
     'footer.privacy':       'Privacy Policy',
     'footer.terms':         'Terms of Service',
     'footer.cookies':       'Cookie Policy',
@@ -84,9 +88,12 @@ export const ui = {
     'nav.advertising':  'Publicité',
     'nav.consulting':   'Conseil',
     'nav.onboarding':   'Prise en main',
+    'nav.campaigns':    'Campagnes dans l’application',
     'nav.pricing':      'Tarifs',
     'nav.work':         'Réalisations',
     'nav.insights':     'Publications',
+    'nav.all_insights': 'Tous les articles',
+    'nav.model_benchmarks': 'Comparatif des modèles d’IA',
     'nav.about':        'À propos',
     'nav.optimizer':    'Optimiseur de Profil',
     'nav.book_call':    'Prendre rendez-vous',
@@ -122,6 +129,7 @@ export const ui = {
     'footer.advertising':   'Publicité',
     'footer.consulting':    'Conseil',
     'footer.onboarding':    'Prise en main',
+    'footer.campaigns':     'Campagnes dans l’application',
     'footer.privacy':       'Politique de confidentialité',
     'footer.terms':         'Conditions d\'utilisation',
     'footer.cookies':       'Politique de cookies',
@@ -146,9 +154,12 @@ export const ui = {
     'nav.advertising':  'LinkedIn广告服务',
     'nav.consulting':   '策略咨询',
     'nav.onboarding':   '上线辅导',
+    'nav.campaigns':    '应用内的营销活动',
     'nav.pricing':      '价格',
     'nav.work':         '客户案例',
     'nav.insights':     '专栏',
+    'nav.all_insights': '全部文章',
+    'nav.model_benchmarks': 'AI 模型评测榜',
     'nav.about':        '关于',
     'nav.optimizer':    '主页诊断',
     'nav.book_call':    '预约沟通',
@@ -184,6 +195,7 @@ export const ui = {
     'footer.advertising':   'LinkedIn广告服务',
     'footer.consulting':    '策略咨询',
     'footer.onboarding':    '上线辅导',
+    'footer.campaigns':     '应用内的营销活动',
     'footer.privacy':       '隐私条款',
     'footer.terms':         '我们的服务协议',
     'footer.cookies':       'Cookie条款',
@@ -446,6 +458,7 @@ const enFromDeSlug: Record<string, string> = Object.fromEntries(
 export const frSlugMap: Record<string, string> = {
   // Top-level
   'about': 'a-propos',
+  'campaigns': 'campagnes',
   'contact': 'contact',
   'cookies': 'cookies',
   'linkedin-optimizer': 'optimiseur-linkedin',
@@ -486,6 +499,7 @@ export const frSlugMap: Record<string, string> = {
   'insights/why-linkedin-ads-cost-more': 'publications/pourquoi-publicite-linkedin-coute-plus',
   'insights/why-your-reach-dropped': 'publications/pourquoi-votre-portee-a-chute',
   'insights/your-linkedin-post-is-already-dead': 'publications/votre-publication-linkedin-est-deja-morte',
+  'insights/ai-model-benchmarks': 'publications/comparatif-modeles-ia',
 
   // Help center: French addresses under /fr/aide, written by
   // scripts/sync-help.mjs from the French articles' own slugs.
@@ -503,9 +517,23 @@ const enFromFrSlug: Record<string, string> = Object.fromEntries(
 // language switcher, the hreflang tags and the sitemap.
 const HELP_LANGS: Lang[] = ['en', 'fr', 'zh'];
 
+// The AI model benchmarks page exists in the same three languages: its
+// benchmark wording comes from the app in English, French and Chinese only.
+// Its menu entries (nav, footer, Insights index) show in those three only.
+export const BENCHMARKS_LANGS: Lang[] = ['en', 'fr', 'zh'];
+const BENCHMARKS_PATHS = ['/insights/ai-model-benchmarks', '/fr/publications/comparatif-modeles-ia', '/zh/insights/ai-model-benchmarks'];
+
+// The Campaigns page presents a module of the app, which speaks English,
+// French and Chinese; its captures exist in those three only. Its menu
+// entries (Services in the nav and the footer) show in those three only.
+export const CAMPAIGNS_LANGS: Lang[] = ['en', 'fr', 'zh'];
+const CAMPAIGNS_PATHS = ['/campaigns', '/fr/campagnes', '/zh/campaigns'];
+
 export function pageLangs(path: string): Lang[] {
   const p = path.replace(/[?#].*$/, '').replace(/\/$/, '');
   if (/^\/(?:help|fr\/aide|zh\/help)(?:\/|$)/.test(p)) return HELP_LANGS;
+  if (BENCHMARKS_PATHS.includes(p)) return BENCHMARKS_LANGS;
+  if (CAMPAIGNS_PATHS.includes(p)) return CAMPAIGNS_LANGS;
   return Object.keys(languages) as Lang[];
 }
 

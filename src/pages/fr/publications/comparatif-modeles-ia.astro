@@ -1,0 +1,26 @@
+---
+// AI model benchmarks (fr). The page body and its wording live in
+// src/components/ModelBenchmarks.astro and src/i18n/model-benchmarks.ts; the
+// figures come from src/data/model-benchmarks.json only.
+import Layout from '../../../layouts/Layout.astro';
+import NavBar from '../../../components/NavBar.astro';
+import ModelBenchmarks from '../../../components/ModelBenchmarks.astro';
+import ContactCTA from '../../../components/ContactCTA.astro';
+import { benchStrings, benchPageSchemas } from '../../../i18n/model-benchmarks';
+
+const s = benchStrings.fr;
+---
+
+<Layout
+  lang="fr"
+  title={s.metaTitle}
+  description={s.metaDescription}
+  schemas={benchPageSchemas('fr')}
+  footerNetwork={false}
+>
+  <NavBar lang="fr" />
+  <main id="main-content">
+    <ModelBenchmarks lang="fr" />
+    <ContactCTA lang="fr" />
+  </main>
+</Layout>

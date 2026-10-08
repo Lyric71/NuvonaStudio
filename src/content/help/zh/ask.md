@@ -2,27 +2,27 @@
 title: "提问"
 lang: "zh"
 seoTitle: "就你的 LinkedIn 帖子和广告提问｜Nuvora 帮助中心"
-description: "Ask Intelligence 用你自己的话回答问题，依据是你的 LinkedIn 帖子、发布日历、LinkedIn 广告账户、素材库和审核队列。本文介绍纳入的数据、联网搜索、模型、技能、@ 引用、对话保存，以及每个回答的价格。"
+description: "Ask Intelligence 用你自己的话回答问题，依据是你的 LinkedIn 帖子、发布日历、LinkedIn 广告账户、素材库、营销活动和审核队列。本文介绍纳入的数据、联网搜索、模型、技能、@ 引用、对话保存，以及每个回答的价格。"
 excerpt: "用大白话提问，答案来自你的 LinkedIn 数据，每个回答下方都标明价格。"
 section: "intelligence"
 order: 6
-updated: 2026-10-04
+updated: 2026-10-08
 appPaths: ["/ask"]
 audience: "创作者和管理员可以提问；查看者能打开页面，但不能提问"
-related: ["linkedin-posts", "calendar", "linkedin-ads", "assets-library", "validation", "skills", "balance-and-payments", "account-and-sign-in"]
+related: ["linkedin-posts", "calendar", "linkedin-ads", "assets-library", "campaigns", "validation", "skills", "choosing-a-model", "balance-and-payments", "account-and-sign-in"]
 shots:
   - file: "/images/help/ask-page.zh.webp"
     route: "/ask"
-    alt: "Ask Intelligence 页面：横栏中有历史对话、纳入的数据和新对话，联网搜索开关处于关，并提示您的团队已关闭联网搜索，下方是模型列表、使用技能和提问框"
-    captured: 2026-10-04
-sources: ["src/pages/ask.astro", "src/scripts/askIntelligence.ts", "src/scripts/askMentions.ts", "src/scripts/modelPicker.ts", "src/scripts/skillsPicker.ts", "src/pages/api/intelligence/ask.ts", "src/pages/api/intelligence/sources.ts", "src/pages/api/intelligence/chats/index.ts", "src/lib/intelligence.ts", "src/lib/skills-db.ts", "src/lib/playground.ts", "src/middleware.ts", "src/lib/app.ts"]
+    alt: "Ask Intelligence 页面：横栏中有历史对话、纳入的数据和新对话，联网搜索开关处于关，旁边是停在均衡上、标出单次回答价格的模型选择器，以及使用技能和提问框"
+    captured: 2026-10-08
+sources: ["src/pages/ask.astro", "src/scripts/askIntelligence.ts", "src/scripts/askMentions.ts", "src/scripts/modelPicker.ts", "src/scripts/skillsPicker.ts", "src/pages/api/intelligence/ask.ts", "src/pages/api/intelligence/sources.ts", "src/pages/api/intelligence/chats/index.ts", "src/lib/intelligence.ts", "src/lib/campaigns.ts", "src/lib/skills-db.ts", "src/lib/playground.ts", "src/middleware.ts", "src/lib/app.ts"]
 ---
 
 **提问** 是用你自己的话询问 LinkedIn 工作情况的地方。在菜单中打开 **提问**，页面标题为 **Ask Intelligence**。它在你的访问权限范围内读取数据，写出答案，并注明依据了哪些数据、花了多少钱。
 
 例如：“这个月发出了哪些帖子？广告账户上周表现如何？”
 
-![Ask Intelligence 页面：横栏中有历史对话、纳入的数据和新对话，联网搜索开关处于关，并提示您的团队已关闭联网搜索，下方是模型列表、使用技能和提问框](/images/help/ask-page.zh.webp)
+![Ask Intelligence 页面：横栏中有历史对话、纳入的数据和新对话，联网搜索开关处于关，旁边是停在均衡上、标出单次回答价格的模型选择器，以及使用技能和提问框](/images/help/ask-page.zh.webp)
 
 ## 提问能读取什么
 
@@ -31,9 +31,10 @@ sources: ["src/pages/ask.astro", "src/scripts/askIntelligence.ts", "src/scripts/
 | **LinkedIn 帖子** | 你的 LinkedIn 帖子：草稿、已排期和已发布的帖子，包括状态和计划日期；问题需要正文时，会读取全文。还有发布日历：计划了什么、发出了什么，附日期、状态和线上链接。 |
 | **LinkedIn Ads** | 你自己的 LinkedIn 广告账户，用你的 LinkedIn 权限实时读取：每个广告系列所属的组、状态、目标、每日预算和出价，以及 7 到 90 天（默认 30 天）内的花费、展示量、点击量、点击率、结果和每个结果的费用，并与上一时段对比。 |
 | **素材库** | 团队的文件和文件夹，以及文档内容本身：PDF、Word、Excel、Markdown、文本，以及在 Nuvora 中撰写的文字。 |
+| **营销活动** | 团队的 [营销活动](/zh/help/campaigns)：每个营销活动的简报、素材清单（名称、类型、每张图片的提示词、标签、日期），以及其中文档和文案的全文。 |
 | **审核** | 哪些内容在等待审核、由谁申请、由谁决定、结果如何，以及最近的评论。 |
 
-每类数据都遵循你的权限：LinkedIn 帖子需要 **帖子** 或 **发布与定时** 权限，LinkedIn Ads 需要 **LinkedIn Ads** 权限，而且读取的广告账户始终是你自己在 [我的连接](/zh/help/my-connections) 中连接的那一个。见 [LinkedIn Ads](/zh/help/linkedin-ads)。
+每类数据都遵循你的权限：LinkedIn 帖子需要 **帖子** 或 **发布与定时** 权限，LinkedIn Ads 需要 **LinkedIn Ads** 权限，营销活动需要 **营销活动** 权限，而且读取的广告账户始终是你自己在 [我的连接](/zh/help/my-connections) 中连接的那一个。见 [LinkedIn Ads](/zh/help/linkedin-ads)。
 
 提问只读不写，从不修改帖子、广告系列或文件。
 
@@ -49,11 +50,13 @@ sources: ["src/pages/ask.astro", "src/scripts/askIntelligence.ts", "src/scripts/
 - **来自网络：** 开启联网搜索时，列出用到的网页。
 - 最后一行给出 token 数和这个回答的价格；用到联网搜索时，还会注明搜索次数。
 
-### 用 @ 指定文件夹或文档
+### 用 @ 指定文件夹、文档或营销活动
 
-在输入框中输入 **@**，再输入名称的前几个字，就会弹出一个列表，列出你有权查看的素材库文件夹和文件。选中一个，它就会写进你的问题，提问会精确读取这个文件夹或文档，而不必去猜你指的是哪一个。
+在输入框中输入 **@**，再输入名称的前几个字，就会弹出一个列表，列出你有权查看的素材库文件夹和文件，团队的营销活动也在其中，名称旁标有 **营销活动**。选中一个，它就会写进你的问题，提问会精确读取这个文件夹、文档或营销活动，而不必去猜你指的是哪一个。
 
-例如：“总结 @Clients/Acme 里的简报”。
+例如：“总结 @Clients/Acme 里的简报”，或者“按 @Spring launch 简报的语气，提三个帖子选题”。
+
+在营销活动的页面上点 **就此营销活动提问**，会打开提问，并在输入框里写好该营销活动。这里说的是素材库中的营销活动，不是 LinkedIn 广告账户里的广告系列。
 
 ## 纳入的数据
 
@@ -78,11 +81,11 @@ sources: ["src/pages/ask.astro", "src/scripts/askIntelligence.ts", "src/scripts/
 
 如果你的团队不允许联网搜索，开关会停在 **关**，页面显示“您的团队已关闭联网搜索。”
 
-并非每个模型都能联网搜索。选了不能搜索的模型时，页面显示“该模型没有自带的联网搜索。”开关处于开时，**模型** 列表只提供能联网搜索的模型。
+并非每个模型都能联网搜索。选了不能搜索的模型时，页面显示“该模型没有自带的联网搜索。”开关处于开时，模型选择器只提供能联网搜索的模型。
 
 ## 选择模型
 
-**模型** 显示 **默认：** 以及无人指定时团队所用的模型。从列表中另选一个，你的问题就会改用它来回答。在这个浏览器上，提问会记住你的选择。
+模型选择器显示你当前的选项、对应的模型，以及一个典型回答的费用。点击它打开 **选择模型**：可以选 **快速**、**均衡** 或 **旗舰**，也可以在 **全部模型** 中任选一个。带 **此处推荐** 星标的，就是无人选择时提问使用的模型。在这个浏览器上，提问会记住你的选择。参见 [选择模型](/zh/help/choosing-a-model)。
 
 想隐藏从来不用的模型，请前往 **设置** > **我的模型**。见 [账户与登录](/zh/help/account-and-sign-in)。
 

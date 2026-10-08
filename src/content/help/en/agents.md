@@ -5,10 +5,10 @@ description: "The two standard agents, LinkedIn publishing watcher and LinkedIn 
 excerpt: "Agents re-read your LinkedIn publishing and your ad account on a schedule and tell you what changed, with the real dates and figures."
 section: "intelligence"
 order: 7
-updated: 2026-10-04
+updated: 2026-10-08
 appPaths: ["/agents", "/agents/organization", "/agents/catalog", "/agents/runs"]
 audience: "Everyone; Creators and Admins add, change and run agents; team agents are for Admins"
-related: ["linkedin-ads", "calendar", "linkedin-posts", "ask", "assets-library", "balance-and-payments", "your-team"]
+related: ["linkedin-ads", "calendar", "linkedin-posts", "ask", "assets-library", "campaigns", "balance-and-payments", "your-team"]
 shots:
   - file: "/images/help/agents-catalog.webp"
     route: "/agents/catalog"
@@ -18,7 +18,7 @@ shots:
     route: "/agents/runs"
     alt: "The Agents Command Room tab, empty: Running now, Switched on and Previous runs with the Agents of filter"
     captured: 2026-10-04
-sources: ["src/pages/agents/index.astro", "src/pages/agents/organization.astro", "src/pages/agents/catalog.astro", "src/pages/agents/runs.astro", "src/scripts/agentsAdminPanel.ts", "src/scripts/agentForm.ts", "src/scripts/agentsCatalog.ts", "src/scripts/agentRunsPanel.ts", "src/scripts/agentFindings.ts", "src/components/AgentFindings.astro", "src/pages/ads/linkedin/index.astro", "src/pages/social/calendar/monthly.astro", "src/lib/agents/watchers.ts", "src/lib/agents/data-sources.ts", "src/lib/agents/external-sources.ts", "src/lib/agents/agent-spend.ts", "src/lib/agents/agent-web.ts", "src/lib/agents/scheduler.ts", "src/lib/agents/run-notify.ts", "src/pages/api/agents/run.ts", "src/pages/api/agents/runs.ts", "src/pages/api/agents/finding-action.ts", "src/pages/api/agents/settings.ts", "src/lib/app.ts", "vercel.json"]
+sources: ["src/pages/agents/index.astro", "src/pages/agents/organization.astro", "src/pages/agents/catalog.astro", "src/pages/agents/runs.astro", "src/scripts/agentsAdminPanel.ts", "src/scripts/agentForm.ts", "src/scripts/agentsCatalog.ts", "src/scripts/agentRunsPanel.ts", "src/scripts/agentFindings.ts", "src/components/AgentFindings.astro", "src/pages/ads/linkedin/index.astro", "src/pages/social/calendar/monthly.astro", "src/lib/agents/watchers.ts", "src/lib/agents/data-sources.ts", "src/lib/agents/external-sources.ts", "src/lib/campaigns.ts", "src/lib/agents/agent-spend.ts", "src/lib/agents/agent-web.ts", "src/lib/agents/scheduler.ts", "src/lib/agents/run-notify.ts", "src/pages/api/agents/run.ts", "src/pages/api/agents/runs.ts", "src/pages/api/agents/finding-action.ts", "src/pages/api/agents/settings.ts", "src/lib/app.ts", "vercel.json"]
 ---
 
 An **agent** watches part of your LinkedIn work for you. On a schedule, it re-reads its data, compares it with what it saw last time, and reports what changed as **findings**: short alerts with the real dates and figures, and a suggested next step.
@@ -88,7 +88,7 @@ A custom agent reads the data you pick and follows instructions you write.
    - **Social activity**: the social content of the last 30 days, what was drafted, planned and published.
    - **LinkedIn publishing**: the LinkedIn posts of the last 30 days and the next 14, published, scheduled, failed, and the drafts waiting.
    - **LinkedIn ad account**: the ad account of the person the agent runs for, read live, the last 7 days against the 7 before.
-   - **From the Assets Library**: any folder or document of the library. A folder brings every document in it and in its subfolders. PDF, Word, Excel, Markdown and text files are read; pictures and clips are left aside.
+   - **From the Assets Library**: any of your team's [campaigns](/help/campaigns), listed first and marked **Campaign**, and any folder or document of the library. A campaign brings its brief and every asset in it, pictures and clips by their prompt. A folder brings every document in it and in its subfolders. PDF, Word, Excel, Markdown and text files are read; pictures and clips are left aside. Every download is billed like one from the Assets Library. Past six entries, a search box (**Search a campaign, a folder or a document**) narrows the list.
 4. Write its **Instructions**: what it should look for in that data, what counts as a finding, and what it should ignore.
 5. Click **Create the agent**. It starts switched on.
 

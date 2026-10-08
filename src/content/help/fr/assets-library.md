@@ -3,19 +3,23 @@ title: "Bibliothèque de contenus et Éditeur d’images"
 slug: "bibliotheque-de-contenus"
 lang: "fr"
 seoTitle: "Bibliothèque de contenus et Éditeur d’images pour vos visuels LinkedIn | Aide Nuvora"
-description: "Tous les fichiers de votre équipe au même endroit, rangés en dossiers : retrouvez-les, étiquetez-les, déplacez-les et téléchargez-les, puis cadrez une image pour LinkedIn dans l’Éditeur d’images (post, bannière de profil, couverture de page, photo de profil) avant de la recadrer, de la retoucher, de lui appliquer un rendu, d’y écrire, d’y dessiner et d’y placer un logo."
+description: "Tous les fichiers de votre équipe au même endroit, rangés en dossiers : retrouvez-les, étiquetez-les, déplacez-les, téléchargez-les et versez-les dans une campagne, puis cadrez une image pour LinkedIn dans l’Éditeur d’images (post, bannière de profil, couverture de page, photo de profil) avant de la recadrer, de la retoucher, de lui appliquer un rendu, d’y écrire, d’y dessiner et d’y placer un logo."
 excerpt: "Les fichiers de votre équipe rangés en dossiers, et l’Éditeur d’images qui cadre une image pour LinkedIn, dans votre navigateur et gratuitement."
 section: "library"
 order: 8
-updated: 2026-10-04
+updated: 2026-10-08
 appPaths: ["/files", "/files/tools/image-editor"]
 audience: "Tout le monde, sauf les accès client"
-related: ["linkedin-posts", "validation", "ask", "balance-and-payments"]
+related: ["campaigns", "linkedin-posts", "validation", "ask", "balance-and-payments"]
 shots:
   - file: "/images/help/assets-library-page.fr.webp"
     route: "/files"
     alt: "La Bibliothèque de contenus d’une équipe encore vide : Nouveau dossier et Importer des fichiers dans le bandeau sombre, les tuiles Images, Vidéos, Textes, Documents et Autre à 0, la recherche avec les filtres Type, Date, Étiquettes et Ajouté par, et la liste vide"
     captured: 2026-10-04
+  - file: "/images/help/assets-library-add-to-campaign.fr.webp"
+    route: "/files"
+    alt: "La Bibliothèque de contenus avec cinq fichiers d’une équipe de test : sous la première ligne, mat-1008-launch-hero.jpg, le volet Campagnes indique Déjà dans : mat-1008 Spring launch, avec la liste des campagnes sur Nouvelle campagne…, le champ Nom de la campagne, Ajouter et Annuler"
+    captured: 2026-10-08
   - file: "/images/help/image-editor-page.fr.webp"
     route: "/files/tools/image-editor"
     alt: "La page de l’Éditeur d’images : la zone où déposer une image, Dans la Bibliothèque de contenus, et les quatre étapes Ouvrir une image, Cadrer pour LinkedIn, Recadrer, ajuster, écrire, dessiner, et L’enregistrer"
@@ -24,7 +28,7 @@ shots:
     route: "/files/tools/image-editor?network=linkedin"
     alt: "L’Éditeur d’images ouvert sur la photo d’un bureau avec un ordinateur portable, panneau Réseaux sociaux affiché : le rail avec Réseaux sociaux, Recadrer, Ajuster, Effets, Texte, Dessiner et Image, Enregistrer en haut à droite, les six emplacements LinkedIn sous Emplacement avec Post, format portrait marqué Conseillé, et la carte Bonnes pratiques sur LinkedIn"
     captured: 2026-10-04
-sources: ["src/lib/app.ts", "src/middleware.ts", "src/layouts/Layout.astro", "src/pages/files/index.astro", "src/scripts/filesPanel.ts", "src/pages/api/files/index.ts", "src/pages/api/files/[id].ts", "src/pages/api/files/folders/[id].ts", "src/lib/stored-files.ts", "src/lib/storage-billing.ts", "src/components/AssetToolsNav.astro", "src/pages/files/tools/image-editor.astro", "src/scripts/imageEditor.ts", "src/scripts/imageEditorNetworks.ts", "src/scripts/imageEditorLauncher.ts", "src/lib/social/limits.ts", "src/scripts/lightbox.ts", "src/scripts/socialContent.ts", "src/components/panels/SocialContentPanel.astro", "public/apps/nuvora/vocabulary.js"]
+sources: ["src/lib/app.ts", "src/middleware.ts", "src/layouts/Layout.astro", "src/pages/files/index.astro", "src/scripts/filesPanel.ts", "src/pages/api/files/index.ts", "src/pages/api/files/[id].ts", "src/pages/api/files/folders/[id].ts", "src/lib/stored-files.ts", "src/lib/storage-billing.ts", "src/components/AssetToolsNav.astro", "src/pages/files/tools/image-editor.astro", "src/scripts/imageEditor.ts", "src/scripts/imageEditorNetworks.ts", "src/scripts/imageEditorLauncher.ts", "src/lib/social/limits.ts", "src/scripts/lightbox.ts", "src/scripts/socialContent.ts", "src/components/panels/SocialContentPanel.astro", "src/lib/campaigns.ts", "src/pages/api/asset-campaigns/index.ts", "public/apps/nuvora/vocabulary.js", "src/scripts/campaignChoice.ts", "src/lib/request-campaign.ts"]
 ---
 
 La **Bibliothèque de contenus** réunit tous les fichiers de votre équipe au même endroit, rangés en dossiers : les visuels, documents et briefs que vous importez, ainsi que les images ajoutées à vos posts ou enregistrées depuis l’Éditeur d’images. Elle s’ouvre depuis l’entrée **Bibliothèque de contenus** du menu.
@@ -45,10 +49,12 @@ Ce que vous importez ici est visible par toute votre équipe. Les images ajouté
 
 Cliquez sur **Importer des fichiers** et choisissez un ou plusieurs fichiers. Ils rejoignent le dossier ouvert, ou **Tous les contenus**, à la racine. Une barre se remplit pendant l’envoi de chaque fichier.
 
+Pour verser vos imports dans une campagne, retenez-la dans la liste voisine de **Nouveau dossier**, qui indique **Aucune campagne** tant que vous n’y touchez pas. Voir [Campagnes](/fr/aide/campagnes#remplir-une-campagne-au-fil-de-la-création).
+
 ### Retrouver un fichier
 
 - Tapez dans **Chercher dans les noms, prompts, textes et étiquettes…** : les mots sont recherchés dans les noms de fichiers, les textes et les étiquettes.
-- Affinez avec les filtres placés dessous : **Type** (chaque type, et son origine, **Créé ici** ou **Importé**), **Date** (**Aujourd’hui**, **7 derniers jours**, **30 derniers jours**, **90 derniers jours**, **Cette année**, ou deux dates de votre choix), **Étiquettes** et **Ajouté par**.
+- Affinez avec les filtres placés dessous : **Type** (chaque type, et son origine, **Créé ici** ou **Importé**), **Date** (**Aujourd’hui**, **7 derniers jours**, **30 derniers jours**, **90 derniers jours**, **Cette année**, ou deux dates de votre choix), **Étiquettes**, **Campagne** (dès que l’équipe compte une campagne ; voir [Campagnes](/fr/aide/campagnes#filtrer-la-bibliothèque-par-campagne)) et **Ajouté par**.
 - Une recherche ou un filtre parcourt toute la bibliothèque, et pas seulement le dossier ouvert.
 - Triez la liste par **Plus récents d’abord**, **Plus anciens d’abord**, **Nom, de A à Z** ou **Plus lourds d’abord**, et basculez entre **Liste** et **Grille**.
 
@@ -56,11 +62,22 @@ Cliquez sur **Importer des fichiers** et choisissez un ou plusieurs fichiers. Il
 
 Cliquez sur **Nouveau dossier**, saisissez son nom : il apparaît dans le dossier ouvert. Un clic ouvre un dossier ; le chemin affiché au-dessus de la liste permet de remonter. Pour déplacer un fichier, faites glisser sa ligne sur un dossier, ou choisissez **Déplacer** dans son menu **Actions**.
 
-Cochez plusieurs lignes pour les traiter d’un coup : les déplacer, leur ajouter ou leur retirer une étiquette, ou les supprimer.
+Cochez plusieurs lignes pour les traiter d’un coup : les déplacer, leur ajouter ou leur retirer une étiquette, les verser dans une campagne, ou les supprimer.
 
 Supprimer un dossier supprime tout ce qu’il contient. Un dossier qui renferme des fichiers ajoutés par quelqu’un d’autre ne peut pas être supprimé : seule la personne qui a ajouté un fichier peut le supprimer.
 
 Un dossier sert aussi de matière à la rédaction : dans le brief d’un post, **Dossier de contexte tiré de la bibliothèque** fait lire chaque document texte du dossier avant que l’écriture ne commence (voir [Posts LinkedIn](/fr/aide/posts-linkedin)), et [Interroger](/fr/aide/interroger) peut lire un dossier dès que vous le nommez.
+
+### Verser des fichiers dans une campagne
+
+Une [campagne](/fr/aide/campagnes) réunit sous un nom et un brief les fichiers d’une même opération LinkedIn, pour qu’Interroger, vos agents et vos posts les lisent ensemble. Les fichiers ne bougent pas : la campagne se contente d’y renvoyer, et un même fichier peut appartenir à plusieurs campagnes.
+
+- **Un seul fichier** : dans son menu **Actions**, choisissez **Ajouter à une campagne**. Un volet **Campagnes** se déplie sous la ligne et cite les campagnes qui contiennent déjà le fichier (**Déjà dans :**, chaque nom renvoyant à sa campagne), ou signale qu’il n’est **Dans aucune campagne pour l’instant**. Choisissez une campagne, puis cliquez sur **Ajouter**. Pour un fichier qui figure déjà dans une campagne, l’entrée du menu s’intitule **Campagnes**.
+- **Plusieurs fichiers** : cochez leurs lignes, choisissez une campagne dans la barre qui apparaît, puis cliquez sur **Ajouter à la campagne**.
+
+Pour lancer une campagne sur-le-champ, prenez **Nouvelle campagne…** en bas de la liste, saisissez son nom dans **Nom de la campagne**, puis ajoutez. La campagne contient aussitôt les fichiers ; son brief s’écrira plus tard, sur sa page.
+
+![La Bibliothèque de contenus avec cinq fichiers d’une équipe de test : sous la première ligne, mat-1008-launch-hero.jpg, le volet Campagnes indique Déjà dans : mat-1008 Spring launch, avec la liste des campagnes sur Nouvelle campagne…, le champ Nom de la campagne, Ajouter et Annuler](/images/help/assets-library-add-to-campaign.fr.webp)
 
 ### Le menu Actions
 
@@ -77,6 +94,7 @@ Un clic sur une ligne ouvre le fichier. Chaque ligne possède en outre un menu *
 | **Étiquettes** | Vos propres mots, comme « lancement T3 » ou « validé ». Tapez une étiquette et appuyez sur Entrée, ou cliquez sur l’une des étiquettes **Déjà utilisées**, puis sur **Enregistrer**. Un clic sur une étiquette, où qu’elle apparaisse, filtre la liste sur elle. |
 | **Renommer** | Change le nom affiché dans la bibliothèque. |
 | **Déplacer** | Range le fichier dans un autre dossier. |
+| **Ajouter à une campagne** | Verse le fichier dans une [campagne](/fr/aide/campagnes), existante ou créée sur-le-champ. L’entrée devient **Campagnes** dès que le fichier figure dans l’une d’elles. |
 | **Qui le voit** | Proposé sur un fichier issu de votre propre travail que vous avez ajouté : **Moi seulement** ou **Toute l’équipe**. |
 | **Supprimer** | Efface définitivement le fichier, après confirmation. Seule la personne qui l’a ajouté voit cette option. |
 

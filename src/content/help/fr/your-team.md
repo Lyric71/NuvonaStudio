@@ -7,7 +7,7 @@ description: "Travailler seul ou en équipe, les rôles Administrateur, Créateu
 excerpt: "Une équipe partage une même réserve de crédits et travaille pour ses clients. Les administrateurs invitent les personnes, fixent les limites quotidiennes, ajoutent les clients et ouvrent des accès à leurs collaborateurs."
 section: "team"
 order: 10
-updated: 2026-10-05
+updated: 2026-10-08
 appPaths: ["/team", "/invite"]
 audience: "Tout le monde ; la plupart des actions reviennent aux administrateurs"
 related: ["getting-started", "balance-and-payments", "client-space", "linkedin-posts", "validation", "skills", "agents", "account-and-sign-in"]
@@ -46,8 +46,8 @@ La personne qui crée une équipe en est le premier administrateur. Votre propre
 
 Au-delà du rôle, l’accès de chacun peut être réglé plus finement :
 
-- **Modules** : un module désactivé pour une personne disparaît entièrement pour elle, du menu comme des pages. Les modules sont **Posts**, **Calendrier**, **LinkedIn Ads**, **Validation**, **Interroger**, **Agents**, **Bibliothèque de contenus**, **Éditeur d’images** et **Compétences**.
-- **Droits** : ce qu’une personne peut faire dans chaque domaine (le voir, y créer, y modifier, y supprimer), réglé pour **Posts**, **Publication et programmation**, **LinkedIn Ads**, **Validation**, **Contenus**, **Éditeur d’images**, **Interroger**, **Agents**, **Compétences**, **Membres de l’équipe**, **Réglages de l’équipe** et **Crédits partagés**. Chaque droit suit le rôle de la personne tant qu’il n’est pas modifié pour elle.
+- **Modules** : un module désactivé pour une personne disparaît entièrement pour elle, du menu comme des pages. Les modules sont **Posts**, **Calendrier**, **LinkedIn Ads**, **Validation**, **Interroger**, **Agents**, **Bibliothèque de contenus**, **Éditeur d’images**, **Campagnes** et **Compétences**.
+- **Droits** : ce qu’une personne peut faire dans chaque domaine (le voir, y créer, y modifier, y supprimer), réglé pour **Posts**, **Publication et programmation**, **LinkedIn Ads**, **Validation**, **Contenus**, **Éditeur d’images**, **Campagnes**, **Interroger**, **Agents**, **Compétences**, **Membres de l’équipe**, **Réglages de l’équipe** et **Crédits partagés**. Chaque droit suit le rôle de la personne tant qu’il n’est pas modifié pour elle.
 
 Un administrateur règle les deux sur la page de la personne : sur la page Équipe, cliquez sur **Détails** dans sa ligne, ajustez les cartes **Modules** et **Les droits, module par module**, puis cliquez sur **Enregistrer les modifications**. **Retour à l’équipe** ramène à la liste. Personne ne peut modifier ses propres droits.
 
@@ -91,6 +91,8 @@ Sur la ligne d’une personne, choisissez **Créateur**, **Lecteur** ou **Admini
 **Suspendre l’accès** empêche une personne de se connecter, après confirmation. Rien de ce qu’elle a produit n’est perdu, et elle en est avertie par e-mail. **Rétablir l’accès** lui rend la main à tout moment, et elle en est de nouveau avertie. Chaque ligne affiche aussi **Dernière connexion** et une date, ou **Jamais connecté**.
 
 Vous ne pouvez pas suspendre votre propre accès.
+
+Un accès resté inutilisé pendant deux mois peut aussi être suspendu sans intervention de votre part : son titulaire reçoit d’abord un e-mail l’invitant à se connecter dans le mois, et s’il ne le fait pas, l’accès est suspendu et il en est averti par e-mail. L’accès apparaît alors dans la liste comme tout accès suspendu, et **Rétablir l’accès** le rouvre. Voir [Compte et connexion](/fr/aide/compte-et-connexion#un-accès-resté-inutilisé).
 
 ## Clients
 

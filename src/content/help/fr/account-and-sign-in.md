@@ -3,20 +3,20 @@ title: "Compte et connexion"
 slug: "compte-et-connexion"
 lang: "fr"
 seoTitle: "Les paramètres de votre compte et la connexion | Aide Nuvora"
-description: "La page Paramètres de Nuvora : votre nom, votre photo, votre adresse de connexion et votre mot de passe, le mode clair ou sombre, l’interface en anglais, en français ou en chinois, la date et l’heure, votre page d’accueil, le récapitulatif hebdomadaire, Mes modèles, la saisie vocale, vos agents, les factures et le journal d’activité ; puis le code de connexion par e-mail, les navigateurs de confiance, la réinitialisation du mot de passe et la déconnexion."
+description: "La page Paramètres de Nuvora : votre nom, votre photo, votre adresse de connexion et votre mot de passe, le mode clair ou sombre, l’interface en anglais, en français ou en chinois, la date et l’heure, votre page d’accueil, le récapitulatif hebdomadaire, Mes modèles, la saisie vocale, vos agents, les factures et le journal d’activité ; puis le code de connexion par e-mail, les navigateurs de confiance, la réinitialisation du mot de passe, le sort d’un accès resté inutilisé et la déconnexion."
 excerpt: "Tout ce qui vous concerne dans les Paramètres du compte, et le fonctionnement de la connexion, du code de connexion et de la récupération du mot de passe."
 section: "account"
 order: 14
-updated: 2026-10-04
+updated: 2026-10-08
 appPaths: ["/settings", "/login", "/forgot-password", "/reset-password"]
 audience: "Tout le monde"
-related: ["getting-started", "my-connections", "your-team", "balance-and-payments", "agents", "troubleshooting"]
+related: ["getting-started", "my-connections", "your-team", "balance-and-payments", "agents", "choosing-a-model", "troubleshooting"]
 shots:
   - file: "/images/help/account-and-sign-in-settings.fr.webp"
     route: "/settings"
     alt: "La page Paramètres : le bandeau avec la personne connectée, son rôle et son équipe, Disponible maintenant, Dépensé aujourd’hui et Dépensé ce mois-ci ; la liste des sections à gauche ; les cartes Vue d’ensemble du compte et Votre nom"
     captured: 2026-10-04
-sources: ["src/pages/settings.astro", "src/styles/apps/nuvora.css", "public/apps/nuvora/vocabulary.js", "src/lib/app.ts", "src/layouts/Layout.astro", "src/components/ThemeSwitch.astro", "src/pages/login.astro", "src/lib/mfa.ts", "src/pages/api/login.ts", "src/pages/api/login/mfa.ts", "src/pages/forgot-password.astro", "src/pages/reset-password.astro", "src/lib/auth.ts", "src/pages/api/team.ts"]
+sources: ["src/pages/settings.astro", "src/styles/apps/nuvora.css", "public/apps/nuvora/vocabulary.js", "src/lib/app.ts", "src/layouts/Layout.astro", "src/components/ThemeSwitch.astro", "src/pages/login.astro", "src/lib/mfa.ts", "src/pages/api/login.ts", "src/pages/api/login/mfa.ts", "src/pages/forgot-password.astro", "src/pages/reset-password.astro", "src/lib/auth.ts", "src/pages/api/team.ts", "src/lib/inactivity-cleanup.ts", "src/lib/inactivity-mail.ts"]
 ---
 
 Ouvrez **Paramètres du compte** depuis le menu placé sous votre photo, en haut à droite de chaque page. Le bandeau en tête de page indique qui est connecté, votre rôle, votre équipe et la date de votre arrivée, puis trois chiffres : **Disponible maintenant**, **Dépensé aujourd’hui** et **Dépensé ce mois-ci**. Quand votre solde est vide ou s’épuise, le bouton **Acheter des crédits** apparaît sous le premier. Un accès client n’a pas de solde.
@@ -98,6 +98,8 @@ Chaque interrupteur est enregistré dès que vous le basculez. Chaque récapitul
 
 Un modèle désactivé continue de tourner là où il est déjà réglé : ce réglage ne fait qu’alléger les listes dans lesquelles vous choisissez. Le dernier modèle de chaque type reste toujours activé. Un modèle interdit par votre équipe n’apparaît pas du tout.
 
+Le lien **Comparer les modèles sur des benchmarks publics**, sur la carte, ouvre **Benchmarks des modèles**, qui compare les modèles de texte autorisés dans votre équipe sur des scores publics et sur le coût d’un post ou d’un article. Un modèle de texte désactivé quitte aussi les options **Rapide**, **Équilibré** et **Puissant** : l’option se reporte sur le modèle le plus proche en prix parmi ceux que vous avez gardés. Voir [Choisir un modèle](/fr/aide/choisir-un-modele).
+
 ## Saisie vocale
 
 Chaque zone de texte de plusieurs lignes, le brief d’un post compris, porte un micro dans son coin. Cliquez dessus et parlez : vos mots s’inscrivent à l’endroit du curseur au fur et à mesure que vous les prononcez. Cliquez de nouveau pour arrêter.
@@ -147,6 +149,12 @@ L’onglet **Code de connexion** de **Connexion et sécurité** liste les naviga
 5. La page affiche **Mot de passe mis à jour**. Cliquez sur **Se connecter**.
 
 Un lien de réinitialisation ne sert qu’une fois. S’il a expiré, la page affiche **Ce lien est invalide ou a expiré** : cliquez sur **Demander un nouveau lien**.
+
+## Un accès resté inutilisé
+
+Un accès que personne n’a utilisé depuis deux mois peut recevoir un e-mail invitant son titulaire à se connecter avant une date, fixée un mois plus tard. Le message rappelle la dernière utilisation de l’accès (ou indique qu’il n’a jamais servi) et le jour où il sera désactivé. Une seule connexion avant cette échéance suffit : l’accès reste tel quel et rien d’autre ne change. Rester connecté sur un navigateur utilisé chaque jour compte aussi comme une utilisation.
+
+Faute de connexion d’ici là, l’accès est désactivé et un e-mail vous en avertit. Rien n’est supprimé : le compte et son historique sont conservés, et un administrateur de votre équipe peut vous rendre l’accès depuis la page **Équipe** (voir [Votre équipe](/fr/aide/votre-equipe#suspendre-un-accès)). Mot de passe oublié entre-temps ? Passez par **Mot de passe oublié ?** sur la page de connexion, comme indiqué plus haut.
 
 ## Se déconnecter
 

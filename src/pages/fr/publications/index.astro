@@ -183,6 +183,18 @@ const allTags = [...new Set(posts.flatMap(p => p.tags))].sort();
     <section class="section" style="background: var(--off-white);" aria-label="Tous les articles">
       <div class="container">
 
+        <!-- AI model benchmarks -->
+        <a href="/fr/publications/comparatif-modeles-ia" class="bench-link">
+          <span class="bench-link__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+          </span>
+          <span class="bench-link__text">
+            <span class="bench-link__title">Comparatif des modèles d’IA</span>
+            <span class="bench-link__sub">Les scores de chaque modèle d’IA de Nuvora aux benchmarks publics, mis à jour deux fois par mois.</span>
+          </span>
+          <span class="bench-link__cta" aria-hidden="true">Comparer les modèles →</span>
+        </a>
+
         <!-- Tag filters -->
         <div class="tag-filters" role="group" aria-label="Filtrer par sujet">
           <button class="tag-btn tag-btn--active" data-tag="all">Tous</button>
@@ -276,6 +288,39 @@ const allTags = [...new Set(posts.flatMap(p => p.tags))].sort();
     color: rgba(255,255,255,0.58);
     max-width: 540px;
     line-height: 1.7;
+  }
+
+  /* ── AI model benchmarks link ── */
+  .bench-link {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-5);
+    margin-bottom: var(--sp-8);
+    padding: var(--sp-5) var(--sp-6);
+    border-radius: var(--r-xl);
+    background: var(--deep-navy) radial-gradient(ellipse 60% 120% at 100% 0%, rgba(6,182,212,0.18) 0%, transparent 60%);
+    color: var(--white);
+    transition: transform var(--t-base) ease, box-shadow var(--t-base) ease;
+  }
+  .bench-link:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+  .bench-link__icon {
+    flex: none;
+    display: grid; place-items: center;
+    width: 44px; height: 44px;
+    border-radius: var(--r-md);
+    background: var(--gradient-accent);
+    color: var(--white);
+  }
+  .bench-link__text { display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0; }
+  .bench-link__title { font-family: var(--font-display), sans-serif; font-weight: 600; font-size: var(--fs-lg); }
+  .bench-link__sub { font-size: var(--fs-sm); color: rgba(255,255,255,0.62); }
+  .bench-link__cta { flex: none; font-size: var(--fs-xs); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cyan); }
+  @media (max-width: 640px) {
+    .bench-link { flex-wrap: wrap; }
+    .bench-link__cta { width: 100%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .bench-link, .bench-link:hover { transition: none; transform: none; }
   }
 
   /* ── Tag filters ── */
