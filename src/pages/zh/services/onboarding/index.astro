@@ -1,0 +1,146 @@
+---
+/**
+ * 上线辅导：Nuvora 应用的付费 onboarding 服务。/services/onboarding 的中文版。
+ * 布局见 src/components/onboarding/OnboardingOffer.astro，付款链接和路径见
+ * src/lib/onboarding.ts。价格以人民币显示（3,500 元，银行卡、支付宝或微信支付）。
+ */
+import Layout from '../../../../layouts/Layout.astro';
+import NavBar from '../../../../components/NavBar.astro';
+import OnboardingOffer from '../../../../components/onboarding/OnboardingOffer.astro';
+import type { OfferCopy } from '../../../../components/onboarding/types';
+import { localizedPath } from '../../../../i18n/index';
+import { onboardingPageSchemas } from '../../../../i18n/schemas';
+import { ONBOARDING_PAY, onboardingPath } from '../../../../lib/onboarding';
+
+const lang = 'zh';
+const link = (route: string) => localizedPath(route, lang);
+
+const copy: OfferCopy = {
+  hero: {
+    eyebrow: '上线辅导',
+    h1Html: '支付 3,500 元，1,750 元返还到您的<span class="text-gradient">钱包。</span>',
+    lede: '上线辅导费用为 3,500 元人民币，其中 1,750 元会立即返还到您团队在 Nuvora 的钱包，在应用内随时可用。另外 1,750 元用于至少 4 小时的实时会议：我们的团队与您一起搭建工作空间，并逐一培训每位使用者。此后三个月，任何问题都免费解答。',
+    primary: '预约日期',
+    secondary: '我们帮您搭建什么',
+  },
+  invoice: {
+    label: '一次付清 3,500 元',
+    walletLabel: '返还到您的钱包',
+    walletValue: '1,750 元',
+    serviceLabel: '会议、培训与三个月答疑',
+    serviceValue: '1,750 元',
+    facts: [
+      ['会议', '至少 4 小时，实时进行'],
+      ['培训', '全员参与，细致到位'],
+      ['答疑', '三个月免费'],
+      ['语言', '英语、法语或中文'],
+    ],
+  },
+  wallet: {
+    label: '您的 1,750 元',
+    h2Html: '前 1,750 元的 LinkedIn 工作，<span class="text-gradient">已经付清。</span>',
+    body: [
+      '相当于我们替您完成了第一次充值。这笔钱并入团队余额，价格与其余部分相同，而且永不过期。',
+      '在 Nuvora 里，把帖子发布到 LinkedIn 不收费，自己动手写的帖子也不收费。这 1,750 元专门用来支付 AI 的工作。',
+    ],
+    listTitle: '可以用来支付',
+    list: [
+      'AI 撰写或改写的帖子',
+      '为帖子生成的配图',
+      '“提问”的回答及其联网搜索',
+      '智能体的每一次运行',
+      '团队文件的存储',
+    ],
+    link: { label: '余额如何运作', href: link('help/balance-and-payments') },
+  },
+  setup: {
+    label: '我们帮您搭建什么',
+    h2Html: '工作空间，<span class="text-gradient">与您一起搭建。</span>',
+    intro: '会议可用英语、法语或中文进行，正是应用支持的三种语言。请带上需要开通账号的人员名单，并确认每位负责发帖的同事都能登录自己的 LinkedIn。其余的事，我们一起完成。',
+    tiles: [
+      {
+        title: '您的团队',
+        body: '为团队命名，并为每位需要的人开通账号，角色分为管理员、创作者和查看者。我们为每个人开启相应模块，并逐个模块设定权限。',
+      },
+      {
+        title: '接入 LinkedIn',
+        body: '每位发帖的人连接自己的个人主页和自己管理的公司主页。负责广告的人连接广告账户，仪表盘和广告系列随即实时呈现。',
+      },
+      {
+        title: '费用管理',
+        body: '整个团队共用一个余额。可按需为每位创作者设定每日限额，开启银行卡自动充值，发票开具到贵公司名下。',
+      },
+      {
+        title: '您的客户',
+        body: '为客户服务？我们逐一添加客户，并为客户方人员开通账号。他们只看得到为自己制作的内容，可以评论、审批，不产生任何费用。',
+      },
+    ],
+    proseHtml: `接下来要定的，是 AI 怎么写。LinkedIn post format 技能默认开启：开头不超过 140 个字符，正文 1,300 至 2,500 个字符，3 至 5 个话题标签。我们把贵公司的写作规范和检查清单写成团队<a href="${link('help/skills')}">技能</a>，让每份草稿都从这里出发；再在“审核”里约定发布前由谁把关，同事或客户均可。最后是两个标准<a href="${link('help/agents')}">智能体</a>：一个盯着发帖节奏，一周没有新帖或发布失败就会提醒；另一个盯着广告账户，花费或单个结果成本明显波动时就会示警。每个智能体多久运行一次、每月预算多少、结果邮件发给谁，都由我们与您一起设定。`,
+    asideHtml: '最后是素材库：用文件夹归档视觉素材和简报，图片编辑器则可把图片调整为 LinkedIn 的各种尺寸。',
+  },
+  training: {
+    label: '培训',
+    h2Html: '按岗位培训，<span class="text-gradient">人人上手。</span>',
+    body: '接着轮到真正使用它的人。每个人在 Nuvora 里、用贵公司的 LinkedIn 账号，把自己的工作完整走一遍，直到能够独立完成。管理员的大部分时间花在团队页面和余额上；创作者则练习撰写、排期和提交审核。',
+    listTitle: '结束时，每个人都能',
+    list: [
+      '用 AI 起草帖子、修改，并排期发到正确的个人主页或公司主页',
+      '把帖子提交审核，或附上评论审批一篇帖子',
+      '看懂广告账户的仪表盘和广告系列',
+      '用“提问”查询帖子、日历或广告的情况',
+      '把智能体的一条发现变成草稿',
+      '自行邀请同事或添加客户，不必找我们',
+    ],
+    noteHtml: `想让团队在 LinkedIn 本身也更上一层楼，而不只是会用这个应用？我们的工作坊专门解决这个问题，详见<a href="${link('services/consulting')}">策略咨询</a>。`,
+  },
+  support: {
+    label: '之后',
+    h2Html: '三个月答疑，<span class="text-gradient">分文不取。</span>',
+    body: '会议结束后的三个月内，关于 Nuvora 的任何问题都可以问我们，再小的问题也行。请发邮件至 hello@nuvora.studio。',
+    afterHtml: `此后，<a href="${link('help')}">帮助中心</a>为菜单里的每一项都准备了指南，<a href="${link('contact')}">联系表单</a>也一直开放。`,
+    listTitle: '常见的问题',
+    list: [
+      '怎么再连接一个公司主页？',
+      '智能体为什么标记了这个广告系列？',
+      '这个每日限额设得合适吗？',
+      '客户怎么审批帖子？',
+    ],
+  },
+  order: {
+    label: '下单',
+    h2Html: '先预约日期，<span class="text-gradient">再付款。</span>',
+    line: '还在掂量价格？别忘了，其中 1,750 元会返还给您继续使用。',
+    first: {
+      tag: '首先',
+      title: '预约日期',
+      body: '告诉我们谁参加、哪天合适，以及会议用英语、法语还是中文。填写表单不会产生任何扣款。',
+      button: '预约日期',
+    },
+    then: {
+      tag: '然后',
+      title: '支付 3,500 元',
+      body: '提交表单后即可付款，支持银行卡、支付宝或微信支付。我们会在一个工作日内通过邮件确认首次会议。',
+      alreadyHtml: '已经预约？<a href="{pay}" rel="noopener">点此付款</a>。',
+    },
+  },
+  close: {
+    h2Html: '也可以<em>自己上手。</em>',
+    body: '使用 Nuvora 并不一定需要上线辅导。帮助中心会带您完成第一篇帖子，之后有需要随时找我们。',
+    primary: { label: '打开帮助中心', href: link('help') },
+    secondary: { label: '先和我们聊聊', href: link('contact') },
+  },
+};
+---
+
+<Layout
+  lang="zh"
+  title="Nuvora 上线辅导：1,750 元返还到您的钱包"
+  description="至少 4 小时实时会议：搭建 Nuvora 团队、全员培训、三个月免费答疑。费用 3,500 元，其中 1,750 元返还到您的钱包。"
+  abstract="Nuvora 应用的付费上线辅导：至少 4 小时实时会议，全员培训，三个月免费答疑，3,500 元中的 1,750 元返还到团队钱包。"
+  schemas={onboardingPageSchemas(lang)}
+>
+  <NavBar lang="zh" />
+  <main id="main-content">
+    <OnboardingOffer copy={copy} bookHref={onboardingPath('book', lang)} payHref={ONBOARDING_PAY[lang]} />
+  </main>
+</Layout>

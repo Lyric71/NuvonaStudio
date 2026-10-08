@@ -1,0 +1,147 @@
+---
+/**
+ * Puesta en marcha: la oferta de onboarding de pago de la aplicación Nuvora.
+ * Gemela en español de /services/onboarding. Diseño en
+ * src/components/onboarding/OnboardingOffer.astro; enlaces de pago y rutas en
+ * src/lib/onboarding.ts. Precios en euros (500 €, solo con tarjeta).
+ * El centro de ayuda no existe en español: esta página no lo enlaza.
+ */
+import Layout from '../../../../layouts/Layout.astro';
+import NavBar from '../../../../components/NavBar.astro';
+import OnboardingOffer from '../../../../components/onboarding/OnboardingOffer.astro';
+import type { OfferCopy } from '../../../../components/onboarding/types';
+import { localizedPath } from '../../../../i18n/index';
+import { onboardingPageSchemas } from '../../../../i18n/schemas';
+import { ONBOARDING_PAY, onboardingPath } from '../../../../lib/onboarding';
+
+const lang = 'es';
+const link = (route: string) => localizedPath(route, lang);
+
+const copy: OfferCopy = {
+  hero: {
+    eyebrow: 'Puesta en marcha',
+    h1Html: 'Paga 500 €, recupera 250 en tu <span class="text-gradient">monedero.</span>',
+    lede: 'La puesta en marcha cuesta 500 €. De ellos, 250 vuelven de inmediato al monedero de tu equipo en Nuvora, para gastarlos en la aplicación. Los otros 250 pagan al menos cuatro horas de sesiones en directo con nuestro equipo, en las que configuramos contigo tu espacio de trabajo y formamos a todas las personas que vayan a usarlo. Después, durante tres meses, tus consultas no te cuestan nada.',
+    primary: 'Reservar fecha',
+    secondary: 'Qué configuramos',
+  },
+  invoice: {
+    label: 'Un único pago de 500 €',
+    walletLabel: 'De vuelta en tu monedero',
+    walletValue: '250 €',
+    serviceLabel: 'Sesiones, formación y tres meses de soporte',
+    serviceValue: '250 €',
+    facts: [
+      ['Sesiones', 'Al menos cuatro horas, en directo'],
+      ['Formación', 'Todo tu equipo, a fondo'],
+      ['Soporte', 'Gratuito durante tres meses'],
+      ['Idiomas', 'Inglés, francés o chino'],
+    ],
+  },
+  wallet: {
+    label: 'Tus 250 €',
+    h2Html: 'Tus primeros 250 € de trabajo en LinkedIn, <span class="text-gradient">ya pagados.</span>',
+    body: [
+      'Considéralos tu primera recarga, hecha por nosotros. El dinero se suma al saldo de tu equipo, se gasta con las mismas tarifas que el resto y no caduca nunca.',
+      'Publicar en LinkedIn no cuesta nada en Nuvora, como tampoco una publicación que escribas tú mismo. Los 250 € pagan el trabajo de la inteligencia artificial.',
+    ],
+    listTitle: 'Lo que cubren',
+    list: [
+      'Publicaciones redactadas o reescritas con IA',
+      'Imágenes generadas para una publicación',
+      'Las respuestas de Ask y sus búsquedas en la web',
+      'Cada ejecución de un agente',
+      'El almacenamiento de los archivos de tu equipo',
+    ],
+  },
+  setup: {
+    label: 'Qué configuramos',
+    h2Html: 'Tu espacio de trabajo, configurado <span class="text-gradient">contigo.</span>',
+    intro: 'Las sesiones se imparten en inglés, francés o chino, los tres idiomas de la aplicación. Trae la lista de personas que necesitan acceso y comprueba que quienes publican pueden entrar en su propia cuenta de LinkedIn. Lo demás lo hacemos juntos.',
+    tiles: [
+      {
+        title: 'Tu equipo',
+        body: 'Con nombre propio y un acceso para cada persona que lo necesite, con el rol de Admin, Creator o Viewer. Activamos los módulos de cada uno y fijamos sus permisos módulo a módulo.',
+      },
+      {
+        title: 'LinkedIn, conectado',
+        body: 'Cada persona que publica conecta su propio perfil y las páginas de empresa que administra. Quien lleva tus campañas conecta la cuenta publicitaria, y el panel y las campañas se leen en tiempo real.',
+      },
+      {
+        title: 'El dinero',
+        body: 'Un único saldo, compartido por todo el equipo. Un límite diario para cada Creator si quieres, recarga automática con tarjeta y facturas a nombre de tu empresa.',
+      },
+      {
+        title: 'Tus clientes',
+        body: '¿Trabajas para clientes? Damos de alta a cada uno y abrimos un acceso a su gente. Solo ven lo que se ha hecho para ellos, comentan, aprueban y no gastan nada.',
+      },
+    ],
+    proseHtml: 'Llega después lo que decide cómo escribe la IA. La skill LinkedIn post format viene activada: un gancho de menos de 140 caracteres, un texto de entre 1300 y 2500 caracteres y de tres a cinco hashtags. Convertimos tu libro de estilo y tus listas de comprobación en Skills de equipo, para que cada borrador parta de ellas, y acordamos en Validation quién aprueba qué antes de publicar, un colega o un cliente. Quedan los dos agentes estándar. Uno vigila tus publicaciones y avisa de una semana sin publicar o de una publicación fallida. El otro vigila la cuenta publicitaria y detecta cualquier movimiento en el gasto o en el coste por resultado. De cada uno fijamos la frecuencia, el presupuesto mensual y quién recibe sus correos.',
+    asideHtml: 'Por último, la biblioteca de archivos, la Assets Library: carpetas para tus imágenes y tus briefings, y un editor que adapta cada imagen a los formatos de LinkedIn.',
+  },
+  training: {
+    label: 'Formación',
+    h2Html: 'Cada persona, formada en lo que hace a <span class="text-gradient">diario.</span>',
+    body: 'Llega el turno de quienes van a usarla. Cada persona recorre su propio trabajo en Nuvora, sobre tus cuentas de LinkedIn, hasta poder hacerlo sola. Los administradores dedican la mayor parte del tiempo a la página Team y al saldo. Los Creators redactan, programan y envían a aprobación.',
+    listTitle: 'Lo que todos saben hacer al terminar',
+    list: [
+      'Redactar una publicación con IA, retocarla y programarla en el perfil o la página que corresponda',
+      'Enviar una publicación a aprobación, o aprobar una con un comentario',
+      'Leer el panel y las campañas de la cuenta publicitaria',
+      'Preguntar a Ask por tus publicaciones, tu calendario o tus anuncios',
+      'Convertir el hallazgo de un agente en un borrador',
+      'Invitar a un colega o dar de alta a un cliente sin llamarnos',
+    ],
+    noteHtml: `¿Quieres que tu equipo domine también LinkedIn, más allá de la aplicación? Para eso están nuestros talleres. Consulta <a href="${link('services/consulting')}">Consultoría</a>.`,
+  },
+  support: {
+    label: 'Después',
+    h2Html: 'Tres meses de respuestas, <span class="text-gradient">sin coste.</span>',
+    body: 'Durante los tres meses siguientes a las sesiones, pregúntanos lo que quieras sobre Nuvora, hasta lo más pequeño. Escribe a hello@nuvora.studio.',
+    afterHtml: `Pasado ese plazo, nuestro <a href="${link('contact')}">formulario de contacto</a> sigue abierto.`,
+    listTitle: 'Lo que suelen preguntarnos',
+    list: [
+      '¿Cómo conecto una segunda página de empresa?',
+      '¿Por qué ha señalado el agente esta campaña?',
+      '¿Está bien fijado este límite diario?',
+      '¿Cómo aprueba un cliente una publicación?',
+    ],
+  },
+  order: {
+    label: 'Contratar',
+    h2Html: 'Reserva la fecha y después <span class="text-gradient">paga.</span>',
+    line: '¿Te frena el precio? Recuerda que 250 € vuelven a tu monedero para gastarlos.',
+    first: {
+      tag: 'Primero',
+      title: 'Reserva tu fecha',
+      body: 'Dinos quién asistirá, qué fecha te conviene y si prefieres las sesiones en inglés, francés o chino. Al enviar el formulario no se cobra nada.',
+      button: 'Reservar fecha',
+    },
+    then: {
+      tag: 'Después',
+      title: 'Paga 500 €',
+      body: 'Con tarjeta y con factura, justo después del formulario. Te confirmamos la primera sesión por correo electrónico en un día hábil.',
+      alreadyHtml: '¿Ya has reservado? <a href="{pay}" rel="noopener">Paga aquí</a>.',
+    },
+  },
+  close: {
+    h2Html: 'O empieza por tu <em>cuenta.</em>',
+    body: 'No necesitas la puesta en marcha para usar Nuvora. Puedes empezar cuando quieras y recurrir a nosotros más adelante si te hace falta una mano.',
+    primary: { label: 'Hablar con nosotros', href: link('contact') },
+    secondary: { label: 'Ver todos los servicios', href: link('services') },
+  },
+};
+---
+
+<Layout
+  lang="es"
+  title="Puesta en marcha de Nuvora: 250 € de vuelta en tu monedero"
+  description="Al menos cuatro horas en directo: tu equipo en Nuvora configurado, todos formados y tres meses de soporte gratuito. 500 €, y 250 vuelven a tu monedero."
+  abstract="Puesta en marcha de pago de la aplicación Nuvora: al menos cuatro horas de sesiones en directo, el equipo formado, tres meses de soporte gratuito y 250 € de los 500 de vuelta en el monedero del equipo."
+  schemas={onboardingPageSchemas(lang)}
+>
+  <NavBar lang="es" />
+  <main id="main-content">
+    <OnboardingOffer copy={copy} bookHref={onboardingPath('book', lang)} payHref={ONBOARDING_PAY[lang]} />
+  </main>
+</Layout>

@@ -1,0 +1,60 @@
+---
+/**
+ * Onboarding, Schritt zwei: die Zahlung. Das Buchungsformular führt hierher;
+ * der Button öffnet den Zahlungslink in Euro (ONBOARDING_PAY in
+ * src/lib/onboarding.ts). Noindex und nicht in der Sitemap.
+ * Layout in src/components/onboarding/OnboardingPayment.astro.
+ */
+import Layout from '../../../../layouts/Layout.astro';
+import NavBar from '../../../../components/NavBar.astro';
+import OnboardingPayment from '../../../../components/onboarding/OnboardingPayment.astro';
+import type { PaymentCopy } from '../../../../components/onboarding/types';
+import { localizedPath } from '../../../../i18n/index';
+import { ONBOARDING_PAY, onboardingPath } from '../../../../lib/onboarding';
+
+const lang = 'de';
+
+const copy: PaymentCopy = {
+  hero: {
+    eyebrow: 'Onboarding gebucht',
+    h1Html: 'Ihre Anfrage ist eingegangen. Jetzt fehlt nur noch die <span class="text-gradient">Zahlung.</span>',
+    lead: 'Zahlen Sie die 500 € per Karte, mit Rechnung, und wir bestätigen Ihre erste Sitzung innerhalb eines Werktags per E-Mail.',
+    button: '500 € bezahlen',
+    note: '250 € davon gehen als Guthaben an Ihr Team in Nuvora. Achten Sie auf unsere E-Mail an die Adresse, die Sie angegeben haben.',
+  },
+  stepsTitle: 'Wie es weitergeht',
+  steps: [
+    { when: 'Innerhalb eines Werktags', body: 'Wir bestätigen die erste Sitzung per E-Mail, mit Uhrzeiten, am gewünschten Tag oder so nah daran wie möglich.' },
+    { when: 'Vor der ersten Sitzung', body: 'Halten Sie die Teilnehmerliste bereit, und sorgen Sie dafür, dass sich alle, die veröffentlichen, bei ihrem eigenen LinkedIn-Konto anmelden können.' },
+    { when: 'Mindestens vier Stunden, live', body: 'Team, LinkedIn-Konten, Guthaben, Kunden, Skills, Freigaben und Agenten gemeinsam eingerichtet, danach alle geschult.' },
+    { when: 'Drei Monate lang', body: 'Jede Frage zu Nuvora, kostenlos beantwortet. Ihre 250 € liegen als Guthaben bereit.' },
+  ],
+  onwardTitle: 'In der Zwischenzeit',
+  onward: [
+    {
+      label: 'Was das Onboarding umfasst',
+      body: 'Die Einrichtung, die Schulung, der Support und die 250 € Guthaben für Ihr Team.',
+      href: onboardingPath('offer', lang),
+      cta: 'Zum Angebot',
+    },
+    {
+      label: 'Noch Fragen?',
+      body: 'Schreiben Sie uns. Ein Mensch antwortet Ihnen innerhalb eines Werktags.',
+      href: localizedPath('contact', lang),
+      cta: 'Kontakt aufnehmen',
+    },
+  ],
+};
+---
+
+<Layout
+  lang="de"
+  title="Onboarding gebucht: nur noch ein Schritt"
+  description="Ihre Onboarding-Anfrage ist eingegangen. Zahlen Sie die 500 €, und wir bestätigen Ihre erste Sitzung innerhalb eines Werktags per E-Mail."
+  robots="noindex, follow"
+>
+  <NavBar lang="de" />
+  <main id="main-content">
+    <OnboardingPayment copy={copy} payHref={ONBOARDING_PAY[lang]} />
+  </main>
+</Layout>

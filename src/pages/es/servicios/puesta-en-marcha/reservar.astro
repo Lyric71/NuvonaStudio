@@ -1,0 +1,88 @@
+---
+/**
+ * Reservar la puesta en marcha: primer paso de dos. El formulario se envía a
+ * /api/onboarding, que manda la solicitud con la etiqueta [Onboarding] y lleva
+ * al visitante a /es/servicios/puesta-en-marcha/pago. Aquí no se cobra nada.
+ * Diseño en src/components/onboarding/OnboardingBooking.astro.
+ */
+import Layout from '../../../../layouts/Layout.astro';
+import NavBar from '../../../../components/NavBar.astro';
+import OnboardingBooking from '../../../../components/onboarding/OnboardingBooking.astro';
+import type { BookingCopy } from '../../../../components/onboarding/types';
+import { localizedPath } from '../../../../i18n/index';
+import { onboardingPath } from '../../../../lib/onboarding';
+
+const lang = 'es';
+
+const copy: BookingCopy = {
+  hero: {
+    eyebrow: 'Reservar la puesta en marcha',
+    h1Html: 'Elige la fecha. Lo configuramos todo <span class="text-gradient">contigo.</span>',
+    sub: 'Al menos cuatro horas en directo: tu espacio de trabajo configurado, tu equipo formado y, después, tres meses de soporte gratuito.',
+    noteHtml: `En este paso no se cobra nada. <a href="${onboardingPath('offer', lang)}">Mira qué incluye la puesta en marcha</a>.`,
+    facts: ['Al menos cuatro horas', '500 €, con 250 de vuelta', 'Confirmación en un día hábil'],
+  },
+  card: {
+    title: 'Tres apartados breves',
+    note: 'Nos dicen a quién configurar y cuándo empezar. Los campos con asterisco son obligatorios.',
+  },
+  legends: { you: 'Tus datos', company: 'La empresa', sessions: 'Las sesiones' },
+  optional: '(opcional)',
+  fields: {
+    name: { label: 'Nombre y apellidos', placeholder: 'Lucía Fernández' },
+    email: { label: 'Correo profesional', placeholder: 'lucia@heliobio.es' },
+    phone: { label: 'Teléfono', placeholder: '+34 912 34 56 78' },
+    role: { label: 'Cargo', placeholder: 'Directora de marketing' },
+    company: { label: 'Empresa', placeholder: 'Helio Biosciences' },
+    website: { label: 'Sitio web', placeholder: 'heliobio.es' },
+    team: {
+      label: 'Nombre de tu equipo en Nuvora',
+      placeholder: 'Helio Marketing',
+      hint: 'Si ya lo has creado. Si no, lo creamos contigo.',
+    },
+    language: { label: 'Idioma de las sesiones', options: { en: 'Inglés', fr: 'Francés', zh: 'Chino' } },
+    date: { label: 'Fecha preferida', hint: 'Te proponemos el horario por correo electrónico.' },
+    attendees: {
+      label: 'Número de asistentes',
+      options: { '1': 'Solo yo', '2-5': 'De 2 a 5', '6-15': 'De 6 a 15', '16+': 'Más de 15' },
+    },
+    people: {
+      label: 'Quiénes son',
+      placeholder: 'Nombres y cargos, si ya los conoces. Por ejemplo: dos redactores, nuestro administrador y la responsable de marketing de un cliente.',
+    },
+  },
+  submit: 'Reservar las sesiones',
+  sending: 'Enviando…',
+  privacy: 'Solo usamos estos datos para preparar y confirmar tus sesiones.',
+  errors: {
+    name: 'Indica tu nombre, por favor.',
+    email: 'Necesitamos un correo para confirmarte la fecha.',
+    emailInvalid: 'Esa dirección no parece correcta. ¿Puedes revisarla?',
+    company: '¿Qué empresa vamos a configurar?',
+    language: 'Elige el idioma de las sesiones.',
+    date: 'Elige la fecha de la primera sesión.',
+    datePast: 'Elige una fecha entre hoy y dentro de un año.',
+    attendees: '¿Cuántas personas asistirán, más o menos?',
+    server: 'Algo ha fallado por nuestra parte. Vuelve a intentarlo dentro de un momento.',
+    network: 'Parece un problema de conexión. Comprueba tu red y vuelve a intentarlo.',
+  },
+  aside: {
+    nextTitle: 'Después, el pago',
+    nextBody: 'Una vez enviado el formulario, pagas los 500 € con tarjeta y con factura. De ellos, 250 € van al monedero de tu equipo en Nuvora.',
+    unsureTitle: '¿Aún no lo tienes claro?',
+    unsureBody: 'Cuéntanos primero qué necesita tu equipo. Te responde una persona de verdad en un día hábil.',
+    unsureLink: { label: 'Contactar', href: localizedPath('contact', lang) },
+  },
+};
+---
+
+<Layout
+  lang="es"
+  title="Reserva la puesta en marcha de Nuvora"
+  description="Elige la fecha de tu puesta en marcha: al menos cuatro horas en directo para configurar tu equipo en Nuvora y formar a todos. Confirmación en un día hábil."
+>
+  <NavBar lang="es" />
+  <main id="main-content">
+    <OnboardingBooking lang={lang} copy={copy} endpoint="/api/onboarding" paymentHref={onboardingPath('payment', lang)} />
+  </main>
+</Layout>

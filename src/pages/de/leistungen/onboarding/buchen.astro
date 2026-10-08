@@ -1,0 +1,88 @@
+---
+/**
+ * Onboarding buchen: Schritt eins von zwei. Das Formular geht an
+ * /api/onboarding, das die Anfrage unter [Onboarding] verschickt und den
+ * Besucher zu /de/leistungen/onboarding/zahlung führt. Hier wird nichts
+ * abgebucht. Layout in src/components/onboarding/OnboardingBooking.astro.
+ */
+import Layout from '../../../../layouts/Layout.astro';
+import NavBar from '../../../../components/NavBar.astro';
+import OnboardingBooking from '../../../../components/onboarding/OnboardingBooking.astro';
+import type { BookingCopy } from '../../../../components/onboarding/types';
+import { localizedPath } from '../../../../i18n/index';
+import { onboardingPath } from '../../../../lib/onboarding';
+
+const lang = 'de';
+
+const copy: BookingCopy = {
+  hero: {
+    eyebrow: 'Onboarding buchen',
+    h1Html: 'Sie wählen den Termin. Wir richten alles <span class="text-gradient">mit Ihnen ein.</span>',
+    sub: 'Mindestens vier Stunden live: Ihr Arbeitsbereich eingerichtet, Ihr Team geschult, danach drei Monate kostenloser Support.',
+    noteHtml: `In diesem Schritt wird nichts abgebucht. <a href="${onboardingPath('offer', lang)}">Was das Onboarding umfasst</a>.`,
+    facts: ['Mindestens vier Stunden', '500 €, davon 250 € zurück', 'Bestätigung binnen eines Werktags'],
+  },
+  card: {
+    title: 'Drei kurze Abschnitte',
+    note: 'Sie sagen uns, wen wir einrichten und wann es losgeht. Mit Sternchen markierte Felder sind Pflichtfelder.',
+  },
+  legends: { you: 'Zu Ihrer Person', company: 'Das Unternehmen', sessions: 'Die Sitzungen' },
+  optional: '(optional)',
+  fields: {
+    name: { label: 'Vor- und Nachname', placeholder: 'Julia Becker' },
+    email: { label: 'Geschäftliche E-Mail', placeholder: 'julia.becker@heliobio.de' },
+    phone: { label: 'Telefon', placeholder: '+49 30 1234567' },
+    role: { label: 'Position', placeholder: 'Leiterin Marketing' },
+    company: { label: 'Unternehmen', placeholder: 'Helio Biosciences' },
+    website: { label: 'Website', placeholder: 'heliobio.de' },
+    team: {
+      label: 'Name Ihres Teams in Nuvora',
+      placeholder: 'Helio Marketing',
+      hint: 'Falls Sie es schon angelegt haben. Sonst legen wir es gemeinsam an.',
+    },
+    language: { label: 'Sprache der Sitzungen', options: { en: 'Englisch', fr: 'Französisch', zh: 'Chinesisch' } },
+    date: { label: 'Wunschtermin', hint: 'Die Uhrzeiten schlagen wir Ihnen per E-Mail vor.' },
+    attendees: {
+      label: 'Teilnehmerzahl',
+      options: { '1': 'Nur ich', '2-5': '2 bis 5', '6-15': '6 bis 15', '16+': 'Mehr als 15' },
+    },
+    people: {
+      label: 'Wer nimmt teil',
+      placeholder: 'Namen und Funktionen, soweit bekannt. Zum Beispiel: zwei Redakteure, unsere Administratorin und die Marketingleiterin eines Kunden.',
+    },
+  },
+  submit: 'Sitzungen buchen',
+  sending: 'Wird gesendet…',
+  privacy: 'Wir nutzen diese Angaben ausschließlich, um Ihre Sitzungen vorzubereiten und zu bestätigen.',
+  errors: {
+    name: 'Bitte geben Sie Ihren Namen an.',
+    email: 'Wir brauchen eine E-Mail-Adresse, um den Termin zu bestätigen.',
+    emailInvalid: 'Diese Adresse scheint nicht zu stimmen. Bitte prüfen Sie sie.',
+    company: 'Welches Unternehmen richten wir ein?',
+    language: 'Bitte wählen Sie die Sprache der Sitzungen.',
+    date: 'Bitte wählen Sie einen Termin für die erste Sitzung.',
+    datePast: 'Bitte wählen Sie ein Datum zwischen heute und einem Jahr ab heute.',
+    attendees: 'Wie viele Personen nehmen ungefähr teil?',
+    server: 'Bei uns ist etwas schiefgelaufen. Bitte versuchen Sie es gleich noch einmal.',
+    network: 'Offenbar gibt es ein Verbindungsproblem. Prüfen Sie Ihr Netz und versuchen Sie es erneut.',
+  },
+  aside: {
+    nextTitle: 'Danach: die Zahlung',
+    nextBody: 'Sobald Sie das Formular abgeschickt haben, zahlen Sie die 500 € per Karte, mit Rechnung. 250 € davon gehen als Guthaben an Ihr Team in Nuvora.',
+    unsureTitle: 'Noch unentschlossen?',
+    unsureBody: 'Schildern Sie uns zuerst, was Ihr Team braucht. Ein Mensch antwortet Ihnen innerhalb eines Werktags.',
+    unsureLink: { label: 'Kontakt aufnehmen', href: localizedPath('contact', lang) },
+  },
+};
+---
+
+<Layout
+  lang="de"
+  title="Nuvora-Onboarding buchen"
+  description="Wählen Sie den Termin für Ihr Onboarding: mindestens vier Stunden live, um Ihr Nuvora-Team einzurichten und alle zu schulen. Bestätigung binnen eines Werktags."
+>
+  <NavBar lang="de" />
+  <main id="main-content">
+    <OnboardingBooking lang={lang} copy={copy} endpoint="/api/onboarding" paymentHref={onboardingPath('payment', lang)} />
+  </main>
+</Layout>

@@ -1,0 +1,551 @@
+---
+/**
+ * The onboarding booking page, body of /services/onboarding/book and its four
+ * twins. Step one of two: who is coming, the company, the preferred date and
+ * the session language (English, French or Chinese). No preferred time (we
+ * propose the hours, four or more), no "how did you hear about us" (whoever
+ * books this already uses Nuvora). Nothing is charged here.
+ *
+ * Sent to /api/onboarding (or /api/onboarding-zh from the Chinese page),
+ * which checks every field again, mails the request through Resend under
+ * [Onboarding], and the visitor lands on the payment page, step two.
+ * Anti-spam is the contact forms' own: the company_url honeypot and the
+ * form_ts render time.
+ *
+ * Without JavaScript the form still posts, the browser checks the required
+ * fields, and the endpoint answers with a redirect.
+ *
+ * Layout only: the copy comes from the locale page (see ./types.ts).
+ */
+import type { Lang } from '../../i18n/index';
+import type { BookingCopy } from './types';
+import { LIMITS } from '../../lib/onboarding';
+
+interface Props {
+  lang: Lang;
+  copy: BookingCopy;
+  endpoint: string;
+  paymentHref: string;
+}
+
+const { lang, copy, endpoint, paymentHref } = Astro.props;
+const f = copy.fields;
+const languageOptions = (['en', 'fr', 'zh'] as const).map((value) => ({ value, label: f.language.options[value] }));
+const attendeeOptions = (['1', '2-5', '6-15', '16+'] as const).map((value) => ({ value, label: f.attendees.options[value] }));
+---
+
+<!-- ═══════════════════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════════════════ -->
+<section class="ob-bhero" aria-labelledby="ob-bhero-h">
+  <div class="ob-bhero__glow" aria-hidden="true"></div>
+  <div class="container ob-bhero__inner">
+    <p class="eyebrow eyebrow--light reveal">{copy.hero.eyebrow}</p>
+    <h1 id="ob-bhero-h" class="ob-bhero__h1 reveal reveal-delay-1" set:html={copy.hero.h1Html} />
+    <p class="ob-bhero__sub reveal reveal-delay-2">{copy.hero.sub}</p>
+    <p class="ob-bhero__note reveal reveal-delay-2" set:html={copy.hero.noteHtml} />
+    <ul class="ob-bhero__facts reveal reveal-delay-3" role="list">
+      {copy.hero.facts.map((fact) => <li>{fact}</li>)}
+    </ul>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     THE FORM, AND WHAT COMES NEXT
+     ═══════════════════════════════════════════════════════ -->
+<section class="section ob-book" aria-label={copy.card.title}>
+  <div class="container ob-book__layout">
+
+    <div class="ob-card">
+      <div class="ob-card__header">
+        <div class="ob-card__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="17" rx="2" stroke="var(--blue)" stroke-width="1.6"/><path d="M16 2v4M8 2v4M3 10h18" stroke="var(--blue)" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <h2 class="ob-card__title">{copy.card.title}</h2>
+          <p class="ob-card__note">{copy.card.note}</p>
+        </div>
+      </div>
+
+      <form id="ob-form" class="ob-form" action={endpoint} method="post" data-payment={paymentHref}>
+        <input type="text" name="company_url" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;opacity:0;pointer-events:none;" />
+        <input type="hidden" name="form_ts" id="ob-form-ts" value="" />
+        <input type="hidden" name="lang" value={lang} />
+
+        <!-- Who you are -->
+        <fieldset class="ob-fieldset">
+          <legend class="ob-legend">{copy.legends.you}</legend>
+          <div class="ob-grid">
+            <div class="form-group">
+              <label class="form-label" for="ob-name">{f.name.label} <span class="required-mark" aria-hidden="true">*</span></label>
+              <input class="form-input" type="text" id="ob-name" name="name" maxlength={LIMITS.name} autocomplete="name" required placeholder={f.name.placeholder} />
+              <span class="form-error" id="ob-name-error" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ob-email">{f.email.label} <span class="required-mark" aria-hidden="true">*</span></label>
+              <input class="form-input" type="email" id="ob-email" name="email" maxlength={LIMITS.email} autocomplete="email" required placeholder={f.email.placeholder} />
+              <span class="form-error" id="ob-email-error" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ob-role">{f.role.label} <span class="form-optional">{copy.optional}</span></label>
+              <input class="form-input" type="text" id="ob-role" name="role" maxlength={LIMITS.role} autocomplete="organization-title" placeholder={f.role.placeholder} />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ob-phone">{f.phone.label} <span class="form-optional">{copy.optional}</span></label>
+              <input class="form-input" type="tel" id="ob-phone" name="phone" maxlength={LIMITS.phone} autocomplete="tel" placeholder={f.phone.placeholder} />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- The company -->
+        <fieldset class="ob-fieldset">
+          <legend class="ob-legend">{copy.legends.company}</legend>
+          <div class="ob-grid">
+            <div class="form-group">
+              <label class="form-label" for="ob-company">{f.company.label} <span class="required-mark" aria-hidden="true">*</span></label>
+              <input class="form-input" type="text" id="ob-company" name="company" maxlength={LIMITS.company} autocomplete="organization" required placeholder={f.company.placeholder} />
+              <span class="form-error" id="ob-company-error" role="alert"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ob-website">{f.website.label} <span class="form-optional">{copy.optional}</span></label>
+              <input class="form-input" type="text" inputmode="url" id="ob-website" name="website" maxlength={LIMITS.website} autocomplete="url" placeholder={f.website.placeholder} />
+            </div>
+            <div class="form-group ob-full">
+              <label class="form-label" for="ob-team">{f.team.label} <span class="form-optional">{copy.optional}</span></label>
+              <input class="form-input" type="text" id="ob-team" name="team" maxlength={LIMITS.team} autocomplete="off" placeholder={f.team.placeholder} />
+              <p class="form-hint">{f.team.hint}</p>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- The sessions -->
+        <fieldset class="ob-fieldset">
+          <legend class="ob-legend">{copy.legends.sessions}</legend>
+          <div class="ob-grid">
+            <div class="form-group ob-full">
+              <span class="form-label" id="ob-language-label">{f.language.label} <span class="required-mark" aria-hidden="true">*</span></span>
+              <div class="ob-chips ob-chips--3" role="radiogroup" aria-labelledby="ob-language-label">
+                {languageOptions.map((o, i) => (
+                  <label class="ob-chip">
+                    <input type="radio" name="sessionLanguage" value={o.value} class="ob-chip__input" required={i === 0} />
+                    <span class="ob-chip__inner">{o.label}</span>
+                  </label>
+                ))}
+              </div>
+              <span class="form-error" id="ob-language-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="ob-date">{f.date.label} <span class="required-mark" aria-hidden="true">*</span></label>
+              <input class="form-input" type="date" id="ob-date" name="date" required autocomplete="off" />
+              <p class="form-hint">{f.date.hint}</p>
+              <span class="form-error" id="ob-date-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <span class="form-label" id="ob-attendees-label">{f.attendees.label} <span class="required-mark" aria-hidden="true">*</span></span>
+              <div class="ob-chips ob-chips--2" role="radiogroup" aria-labelledby="ob-attendees-label">
+                {attendeeOptions.map((o, i) => (
+                  <label class="ob-chip">
+                    <input type="radio" name="attendees" value={o.value} class="ob-chip__input" required={i === 0} />
+                    <span class="ob-chip__inner">{o.label}</span>
+                  </label>
+                ))}
+              </div>
+              <span class="form-error" id="ob-attendees-error" role="alert"></span>
+            </div>
+
+            <div class="form-group ob-full">
+              <label class="form-label" for="ob-people">{f.people.label} <span class="form-optional">{copy.optional}</span></label>
+              <textarea class="form-textarea ob-textarea" id="ob-people" name="people" rows="3" maxlength={LIMITS.people} placeholder={f.people.placeholder}></textarea>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="form-banner" id="ob-form-banner" role="alert"><span id="ob-form-message"></span></div>
+
+        <div class="ob-form__actions">
+          <button type="submit" class="btn btn--primary btn--lg" id="ob-submit">
+            <span id="ob-submit-label">{copy.submit}</span>
+            <span id="ob-submit-spinner" class="ob-spinner" style="display:none" aria-hidden="true"></span>
+          </button>
+          <p class="ob-form__privacy">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 1L2 3v3c0 2.5 1.7 4.7 4 5.4C8.3 10.7 10 8.5 10 6V3L6 1z" stroke="var(--text-3)" stroke-width="1.2" fill="none"/></svg>
+            {copy.privacy}
+          </p>
+        </div>
+
+        <script type="application/json" id="ob-form-copy" is:inline set:html={JSON.stringify({ errors: copy.errors, submit: copy.submit, sending: copy.sending })}></script>
+      </form>
+    </div>
+
+    <aside class="ob-aside" aria-label={copy.aside.nextTitle}>
+      <div class="ob-aside__card ob-aside__card--next reveal">
+        <p class="ob-aside__title">{copy.aside.nextTitle}</p>
+        <p class="ob-aside__body">{copy.aside.nextBody}</p>
+      </div>
+      <div class="ob-aside__card reveal reveal-delay-1">
+        <p class="ob-aside__title ob-aside__title--muted">{copy.aside.unsureTitle}</p>
+        <p class="ob-aside__body ob-aside__body--muted">{copy.aside.unsureBody}</p>
+        <a href={copy.aside.unsureLink.href} class="ob-aside__link">
+          {copy.aside.unsureLink.label}
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+
+<style>
+  /* ── Hero ── */
+  .ob-bhero {
+    position: relative;
+    overflow: hidden;
+    background: var(--deep-navy);
+    padding-block: var(--sp-20) var(--sp-16);
+  }
+  .ob-bhero__glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 50% 70% at 100% 0%, rgba(6,182,212,.14) 0%, transparent 60%),
+      radial-gradient(ellipse 45% 60% at 0% 100%, rgba(3,105,161,.16) 0%, transparent 60%);
+  }
+  .ob-bhero__inner { position: relative; z-index: 1; }
+  .ob-bhero__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-block: var(--sp-5) var(--sp-6);
+    max-width: 18em;
+  }
+  .ob-bhero__h1 :global(.text-gradient) {
+    background: linear-gradient(135deg, var(--cyan) 0%, var(--sky) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .ob-bhero__sub { font-size: var(--fs-md); color: rgba(255,255,255,0.72); line-height: 1.75; max-width: 620px; }
+  .ob-bhero__note { margin-top: var(--sp-4); font-size: var(--fs-sm); color: rgba(255,255,255,0.55); }
+  .ob-bhero__note :global(a) { color: var(--cyan); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+  .ob-bhero__note :global(a:hover) { color: var(--white); }
+  .ob-bhero__facts { display: flex; flex-wrap: wrap; gap: var(--sp-3); margin-top: var(--sp-10); }
+  .ob-bhero__facts li {
+    padding: 0.4rem 0.9rem;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.82);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--r-full);
+  }
+
+  /* ── Layout ── */
+  .ob-book { background: var(--off-white); padding-block: var(--sp-16) var(--sp-24); }
+  .ob-book__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: var(--sp-10);
+    align-items: start;
+  }
+
+  /* ── Form card ── */
+  .ob-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-2xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  .ob-card__header {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+    padding: var(--sp-8) var(--sp-10) var(--sp-6);
+    border-bottom: 1px solid var(--border);
+  }
+  .ob-card__icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; height: 40px;
+    background: rgba(14,165,233,0.07);
+    border-radius: var(--r-lg);
+  }
+  .ob-card__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 600;
+    color: var(--deep-navy);
+    letter-spacing: -0.01em;
+    margin-bottom: 2px;
+  }
+  .ob-card__note { font-size: var(--fs-xs); color: var(--text-3); }
+
+  .ob-form { padding: var(--sp-8) var(--sp-10); display: flex; flex-direction: column; gap: var(--sp-8); }
+  .ob-fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+  .ob-legend {
+    display: block;
+    width: 100%;
+    padding: 0 0 var(--sp-3);
+    margin-bottom: var(--sp-5);
+    border-bottom: 1px solid var(--border);
+    font-family: var(--font-display);
+    font-size: var(--fs-base);
+    font-weight: 600;
+    color: var(--deep-navy);
+  }
+  .ob-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--sp-5); }
+  .ob-full { grid-column: 1 / -1; }
+  .ob-textarea { min-height: 96px; }
+
+  .required-mark { color: var(--sky); margin-left: 2px; }
+  .form-optional { color: var(--text-3); font-weight: 400; font-size: var(--fs-xs); letter-spacing: 0; text-transform: none; margin-left: 4px; }
+  .form-error { display: block; min-height: 16px; font-size: var(--fs-xs); color: #c0392b; }
+  .form-input.is-invalid,
+  .form-textarea.is-invalid { border-color: #c0392b; box-shadow: 0 0 0 3px rgba(192,57,43,0.08); }
+  .form-banner {
+    display: none;
+    padding: var(--sp-4);
+    background: #FEF2F2;
+    border: 1px solid rgba(192,57,43,0.15);
+    border-radius: var(--r-md);
+    font-size: var(--fs-sm);
+    color: #c0392b;
+  }
+  .form-banner.is-visible { display: block; }
+
+  /* Chips: the session language and the head count */
+  .ob-chips { display: grid; gap: var(--sp-3); margin-top: var(--sp-1); }
+  .ob-chips--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ob-chips--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ob-chip { position: relative; display: block; cursor: pointer; }
+  .ob-chip__input { position: absolute; inset: 0; opacity: 0; pointer-events: none; }
+  .ob-chip__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 46px;
+    padding: var(--sp-3) var(--sp-4);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--text);
+    text-align: center;
+    line-height: 1.3;
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--r-lg);
+    transition: border-color var(--t-fast), background var(--t-fast), box-shadow var(--t-fast);
+  }
+  .ob-chip:hover .ob-chip__inner { border-color: var(--border-2); background: var(--off-white); }
+  .ob-chip__input:focus-visible + .ob-chip__inner { border-color: var(--sky); box-shadow: 0 0 0 3px rgba(14,165,233,0.18); }
+  .ob-chip__input:checked + .ob-chip__inner {
+    border-color: var(--sky);
+    background: rgba(14,165,233,0.05);
+    box-shadow: 0 0 0 1px var(--sky) inset;
+    color: var(--blue);
+  }
+  .ob-chips.is-invalid .ob-chip__inner { border-color: rgba(192,57,43,0.45); }
+
+  .ob-form__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-6); }
+  .ob-form__privacy { display: flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-xs); color: var(--text-3); line-height: 1.5; }
+  .ob-form__privacy svg { flex-shrink: 0; }
+  .ob-spinner {
+    display: inline-block;
+    width: 16px; height: 16px;
+    margin-left: var(--sp-2);
+    border: 2px solid rgba(255,255,255,0.30);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: ob-spin 0.6s linear infinite;
+  }
+  @keyframes ob-spin { to { transform: rotate(360deg); } }
+
+  /* ── Aside ── */
+  .ob-aside { display: flex; flex-direction: column; gap: var(--sp-4); position: sticky; top: 96px; }
+  .ob-aside__card {
+    padding: var(--sp-6);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-2xl);
+    box-shadow: var(--shadow-sm);
+  }
+  .ob-aside__card--next { background: var(--deep-navy); border-color: rgba(255,255,255,0.08); }
+  .ob-aside__title {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: var(--sp-3);
+  }
+  .ob-aside__title--muted { color: var(--blue); }
+  .ob-aside__body { font-size: var(--fs-sm); color: rgba(255,255,255,0.78); line-height: 1.7; }
+  .ob-aside__body--muted { color: var(--text-2); }
+  .ob-aside__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    margin-top: var(--sp-4);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--blue);
+    transition: gap var(--t-fast), color var(--t-fast);
+  }
+  .ob-aside__link:hover { gap: var(--sp-3); color: var(--sky); }
+
+  @media (max-width: 1024px) {
+    .ob-book__layout { grid-template-columns: minmax(0, 1fr); }
+    .ob-aside { position: static; }
+  }
+  @media (max-width: 640px) {
+    .ob-bhero { padding-block: var(--sp-16) var(--sp-12); }
+    .ob-bhero__h1 { font-size: clamp(2rem, 7.5vw, 2.5rem); }
+    .ob-card__header { padding: var(--sp-6); }
+    .ob-form { padding: var(--sp-6); }
+    .ob-grid { grid-template-columns: minmax(0, 1fr); }
+    .ob-chips--3 { grid-template-columns: minmax(0, 1fr); }
+  }
+</style>
+
+<script>
+  /*
+   * Progressive enhancement over a form that already posts on its own:
+   * stamp the render time (anti-spam), bound the date picker, check the
+   * fields in the page's language, and send over fetch so a refused request
+   * is corrected in place. On success the visitor lands on the payment page.
+   * The endpoint checks everything again.
+   */
+  type Errors = Record<
+    'name' | 'email' | 'emailInvalid' | 'company' | 'language' | 'date' | 'datePast' | 'attendees' | 'server' | 'network',
+    string
+  >;
+
+  const form = document.getElementById('ob-form') as HTMLFormElement | null;
+  const copyEl = document.getElementById('ob-form-copy');
+
+  if (form && copyEl) {
+    const copy = JSON.parse(copyEl.textContent || '{}') as { errors: Errors; submit: string; sending: string };
+    form.noValidate = true;
+
+    const ts = document.getElementById('ob-form-ts') as HTMLInputElement | null;
+    if (ts) ts.value = String(Date.now());
+
+    // The bookable range, as src/lib/onboarding.ts DATE_RANGE: today, up to a year out.
+    const dateInput = document.getElementById('ob-date') as HTMLInputElement | null;
+    const DAY = 86_400_000;
+    const todayMs = new Date().setHours(0, 0, 0, 0);
+    const iso = (ms: number) => {
+      const d = new Date(ms);
+      return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    };
+    if (dateInput) {
+      dateInput.min = iso(todayMs);
+      dateInput.max = iso(todayMs + 365 * DAY);
+    }
+
+    const banner = document.getElementById('ob-form-banner');
+    const bannerText = document.getElementById('ob-form-message');
+    const submit = document.getElementById('ob-submit') as HTMLButtonElement | null;
+    const submitLabel = document.getElementById('ob-submit-label');
+    const spinner = document.getElementById('ob-submit-spinner');
+
+    const showBanner = (message: string) => {
+      if (bannerText) bannerText.textContent = message;
+      banner?.classList.add('is-visible');
+    };
+
+    const setError = (id: string, message: string, target?: HTMLElement | null) => {
+      const el = document.getElementById(`ob-${id}-error`);
+      if (el) el.textContent = message;
+      target?.classList.toggle('is-invalid', Boolean(message));
+    };
+
+    const fields = ['name', 'email', 'company', 'language', 'date', 'attendees'];
+    const clear = () => {
+      fields.forEach((id) => setError(id, ''));
+      form.querySelectorAll('.is-invalid').forEach((el) => el.classList.remove('is-invalid'));
+      banner?.classList.remove('is-visible');
+    };
+
+    /** Flags every problem in form order and returns the first field to fix, or null. */
+    const validate = (data: FormData): HTMLElement | null => {
+      const problems: HTMLElement[] = [];
+      const flag = (id: string, message: string, el: HTMLElement | null, mark?: HTMLElement | null) => {
+        setError(id, message, mark ?? el);
+        if (el) problems.push(el);
+      };
+      const text = (name: string) => String(data.get(name) ?? '').trim();
+      const chips = (name: string) => form.querySelector<HTMLInputElement>(`input[name="${name}"]`);
+
+      if (!text('name')) flag('name', copy.errors.name, document.getElementById('ob-name'));
+      const email = text('email');
+      if (!email) flag('email', copy.errors.email, document.getElementById('ob-email'));
+      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) flag('email', copy.errors.emailInvalid, document.getElementById('ob-email'));
+      if (!text('company')) flag('company', copy.errors.company, document.getElementById('ob-company'));
+
+      if (!text('sessionLanguage')) {
+        const radio = chips('sessionLanguage');
+        flag('language', copy.errors.language, radio, radio?.closest<HTMLElement>('.ob-chips'));
+      }
+      const date = text('date');
+      if (!date) flag('date', copy.errors.date, dateInput);
+      else if (dateInput && (date < dateInput.min || date > dateInput.max)) flag('date', copy.errors.datePast, dateInput);
+      if (!text('attendees')) {
+        const radio = chips('attendees');
+        flag('attendees', copy.errors.attendees, radio, radio?.closest<HTMLElement>('.ob-chips'));
+      }
+      return problems[0] ?? null;
+    };
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      clear();
+      const data = new FormData(form);
+      const invalid = validate(data);
+      if (invalid) {
+        (invalid.closest('.form-group') ?? invalid).scrollIntoView({ behavior: 'smooth', block: 'center' });
+        window.setTimeout(() => invalid.focus({ preventScroll: true }), 80);
+        return;
+      }
+
+      if (submit) submit.disabled = true;
+      if (submitLabel) submitLabel.textContent = copy.sending;
+      if (spinner) spinner.style.display = 'inline-block';
+
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+        const json = await res.json().catch(() => ({}));
+        if (res.ok && json.success) {
+          // replace(), not assign(): Back should not return to a spent form.
+          location.replace(form.dataset.payment || '/services/onboarding/payment');
+          return;
+        }
+        showBanner(json.error ?? copy.errors.server);
+      } catch {
+        showBanner(copy.errors.network);
+      }
+      if (submit) submit.disabled = false;
+      if (submitLabel) submitLabel.textContent = copy.submit;
+      if (spinner) spinner.style.display = 'none';
+    });
+
+    // Carried back by the endpoint's redirect when the browser posted the form itself.
+    const carried = new URLSearchParams(location.search).get('error');
+    if (carried) {
+      showBanner(carried);
+      history.replaceState(null, '', location.pathname);
+    }
+  }
+</script>

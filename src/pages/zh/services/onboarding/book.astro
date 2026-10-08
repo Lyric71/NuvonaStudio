@@ -1,0 +1,87 @@
+---
+/**
+ * 预约上线辅导：两步中的第一步。表单提交到 /api/onboarding-zh，以
+ * [Onboarding] 标记发送邮件，随后把访客带到 /zh/services/onboarding/payment。
+ * 此步骤不收费。布局见 src/components/onboarding/OnboardingBooking.astro。
+ */
+import Layout from '../../../../layouts/Layout.astro';
+import NavBar from '../../../../components/NavBar.astro';
+import OnboardingBooking from '../../../../components/onboarding/OnboardingBooking.astro';
+import type { BookingCopy } from '../../../../components/onboarding/types';
+import { localizedPath } from '../../../../i18n/index';
+import { onboardingPath } from '../../../../lib/onboarding';
+
+const lang = 'zh';
+
+const copy: BookingCopy = {
+  hero: {
+    eyebrow: '预约上线辅导',
+    h1Html: '您选日期，我们<span class="text-gradient">陪您搭建。</span>',
+    sub: '至少 4 小时实时会议：搭好工作空间，培训好团队，之后三个月免费答疑。',
+    noteHtml: `此步骤不收取任何费用。<a href="${onboardingPath('offer', lang)}">查看上线辅导包含哪些内容</a>。`,
+    facts: ['至少 4 小时', '3,500 元，返还 1,750 元', '一个工作日内确认'],
+  },
+  card: {
+    title: '三个简短部分',
+    note: '告诉我们要为谁搭建、何时开始。带星号的为必填项。',
+  },
+  legends: { you: '您的信息', company: '公司信息', sessions: '会议安排' },
+  optional: '（选填）',
+  fields: {
+    name: { label: '姓名', placeholder: '王丽' },
+    email: { label: '工作邮箱', placeholder: 'wangli@heliobio.cn' },
+    phone: { label: '电话', placeholder: '+86 21 1234 5678' },
+    role: { label: '职位', placeholder: '市场总监' },
+    company: { label: '公司', placeholder: 'Helio 生物科技' },
+    website: { label: '网站', placeholder: 'heliobio.cn' },
+    team: {
+      label: '您在 Nuvora 的团队名称',
+      placeholder: 'Helio 市场部',
+      hint: '如已创建请填写；还没有的话，我们和您一起创建。',
+    },
+    language: { label: '会议语言', options: { en: '英语', fr: '法语', zh: '中文' } },
+    date: { label: '期望日期', hint: '具体时间我们会通过邮件与您商定。' },
+    attendees: {
+      label: '参加人数',
+      options: { '1': '仅我一人', '2-5': '2 至 5 人', '6-15': '6 至 15 人', '16+': '15 人以上' },
+    },
+    people: {
+      label: '参加人员',
+      placeholder: '如已确定，请填写姓名和职位。例如：两位创作者、我们的管理员，以及一位客户的市场负责人。',
+    },
+  },
+  submit: '预约会议',
+  sending: '提交中…',
+  privacy: '这些信息仅用于准备和确认您的会议。',
+  errors: {
+    name: '请填写您的姓名。',
+    email: '请留下邮箱，方便我们确认日期。',
+    emailInvalid: '邮箱格式似乎不对，请再检查一下。',
+    company: '请告诉我们要为哪家公司搭建。',
+    language: '请选择会议语言。',
+    date: '请选择首次会议的日期。',
+    datePast: '请选择今天起一年以内的日期。',
+    attendees: '大约有几个人参加？',
+    server: '我们这边出了点问题，请稍后再试。',
+    network: '网络连接似乎中断了，请检查网络后重试。',
+  },
+  aside: {
+    nextTitle: '下一步：付款',
+    nextBody: '提交表单后，您可通过银行卡、支付宝或微信支付 3,500 元。其中 1,750 元会返还到您团队在 Nuvora 的钱包。',
+    unsureTitle: '还没想好？',
+    unsureBody: '先跟我们说说团队的需求，真人会在一个工作日内回复。',
+    unsureLink: { label: '联系我们', href: localizedPath('contact', lang) },
+  },
+};
+---
+
+<Layout
+  lang="zh"
+  title="预约 Nuvora 上线辅导"
+  description="选择上线辅导日期：至少 4 小时实时会议，搭建 Nuvora 团队并培训全员。一个工作日内确认。"
+>
+  <NavBar lang="zh" />
+  <main id="main-content">
+    <OnboardingBooking lang={lang} copy={copy} endpoint="/api/onboarding-zh" paymentHref={onboardingPath('payment', lang)} />
+  </main>
+</Layout>

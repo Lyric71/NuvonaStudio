@@ -1,0 +1,147 @@
+---
+/**
+ * Onboarding: das kostenpflichtige Einstiegsangebot für die Nuvora-App.
+ * Deutsche Fassung von /services/onboarding. Layout in
+ * src/components/onboarding/OnboardingOffer.astro; Zahlungslinks und Pfade in
+ * src/lib/onboarding.ts. Preise in Euro (500 €, nur per Karte).
+ * Das Hilfecenter gibt es nicht auf Deutsch: Diese Seite verlinkt es nicht.
+ */
+import Layout from '../../../../layouts/Layout.astro';
+import NavBar from '../../../../components/NavBar.astro';
+import OnboardingOffer from '../../../../components/onboarding/OnboardingOffer.astro';
+import type { OfferCopy } from '../../../../components/onboarding/types';
+import { localizedPath } from '../../../../i18n/index';
+import { onboardingPageSchemas } from '../../../../i18n/schemas';
+import { ONBOARDING_PAY, onboardingPath } from '../../../../lib/onboarding';
+
+const lang = 'de';
+const link = (route: string) => localizedPath(route, lang);
+
+const copy: OfferCopy = {
+  hero: {
+    eyebrow: 'Onboarding',
+    h1Html: 'Sie zahlen 500 €, 250 € fließen als <span class="text-gradient">Guthaben zurück.</span>',
+    lede: 'Das Onboarding kostet 500 €. Davon schreiben wir 250 € sofort dem Guthaben Ihres Teams in Nuvora gut, frei verwendbar in der App. Die übrigen 250 € decken mindestens vier Stunden Live-Sitzungen mit unserem Team: Wir richten Ihren Arbeitsbereich gemeinsam mit Ihnen ein und schulen alle, die ihn nutzen werden. Danach sind Ihre Fragen drei Monate lang kostenlos.',
+    primary: 'Termin buchen',
+    secondary: 'Was wir einrichten',
+  },
+  invoice: {
+    label: 'Eine Zahlung, 500 €',
+    walletLabel: 'Zurück als Guthaben',
+    walletValue: '250 €',
+    serviceLabel: 'Sitzungen, Schulung und drei Monate Support',
+    serviceValue: '250 €',
+    facts: [
+      ['Sitzungen', 'Mindestens vier Stunden, live'],
+      ['Schulung', 'Ihr ganzes Team, gründlich'],
+      ['Support', 'Drei Monate kostenlos'],
+      ['Sprachen', 'Englisch, Französisch oder Chinesisch'],
+    ],
+  },
+  wallet: {
+    label: 'Ihre 250 €',
+    h2Html: 'Ihre ersten 250 € LinkedIn-Arbeit sind <span class="text-gradient">schon bezahlt.</span>',
+    body: [
+      'Betrachten Sie es als erste Aufladung, die wir für Sie übernehmen. Der Betrag landet im Guthaben Ihres Teams, wird zu denselben Preisen verbraucht wie der Rest und verfällt nie.',
+      'Einen Beitrag auf LinkedIn zu veröffentlichen kostet in Nuvora nichts, ebenso wenig ein Beitrag, den Sie selbst schreiben. Die 250 € bezahlen die Arbeit der KI.',
+    ],
+    listTitle: 'Was davon bezahlt wird',
+    list: [
+      'Beiträge, die die KI entwirft oder umschreibt',
+      'Bilder, die für einen Beitrag erzeugt werden',
+      'Antworten in Ask samt ihrer Websuchen',
+      'Jeder Lauf eines Agenten',
+      'Die Speicherung der Dateien Ihres Teams',
+    ],
+  },
+  setup: {
+    label: 'Was wir einrichten',
+    h2Html: 'Ihr Arbeitsbereich, gemeinsam <span class="text-gradient">eingerichtet.</span>',
+    intro: 'Die Sitzungen finden auf Englisch, Französisch oder Chinesisch statt, in den drei Sprachen der App. Bringen Sie die Liste der Personen mit, die einen Zugang brauchen, und sorgen Sie dafür, dass sich alle, die veröffentlichen, bei ihrem eigenen LinkedIn-Konto anmelden können. Den Rest erledigen wir gemeinsam.',
+    tiles: [
+      {
+        title: 'Ihr Team',
+        body: 'Mit Namen und einem Zugang für jede Person, die einen braucht, als Admin, Creator oder Viewer. Wir schalten für jeden die passenden Module frei und legen die Rechte Modul für Modul fest.',
+      },
+      {
+        title: 'LinkedIn, verbunden',
+        body: 'Wer veröffentlicht, verbindet das eigene Profil und die Unternehmensseiten, die er verwaltet. Wer Ihre Kampagnen steuert, verbindet das Werbekonto, sodass Dashboard und Kampagnen live einlaufen.',
+      },
+      {
+        title: 'Das Budget',
+        body: 'Ein gemeinsames Guthaben für das ganze Team. Auf Wunsch ein Tageslimit für jeden Creator, automatisches Aufladen per Karte und Rechnungen auf den Namen Ihres Unternehmens.',
+      },
+      {
+        title: 'Ihre Kunden',
+        body: 'Sie arbeiten für Kunden? Wir legen jeden einzeln an und richten Zugänge für deren Mitarbeiter ein. Sie sehen nur, was für sie erstellt wurde, kommentieren, erteilen Freigaben und verursachen keine Kosten.',
+      },
+    ],
+    proseHtml: 'Danach geht es darum, wie die KI schreibt. Der Skill LinkedIn post format ist von Anfang an aktiv: ein Einstieg unter 140 Zeichen, ein Text von 1.300 bis 2.500 Zeichen, drei bis fünf Hashtags. Ihren Styleguide und Ihre Checklisten legen wir als Team-Skills an, damit jeder Entwurf darauf aufbaut, und wir halten in Validation fest, wer was vor der Veröffentlichung freigibt, ein Kollege oder ein Kunde. Bleiben die beiden Standard-Agenten. Der eine beobachtet Ihre Veröffentlichungen und meldet eine Woche ohne Beitrag oder eine gescheiterte Veröffentlichung. Der andere behält das Werbekonto im Blick und schlägt an, wenn sich Ausgaben oder Kosten pro Ergebnis deutlich bewegen. Für beide legen wir fest, wie oft sie laufen, welches Monatsbudget sie haben und wer ihre E-Mails erhält.',
+    asideHtml: 'Zum Schluss die Assets Library: Ordner für Ihre Visuals und Briefings, dazu ein Bildeditor, der jedes Bild auf die LinkedIn-Formate zuschneidet.',
+  },
+  training: {
+    label: 'Schulung',
+    h2Html: 'Jeder lernt, was er im Alltag <span class="text-gradient">braucht.</span>',
+    body: 'Dann sind die Menschen an der Reihe, die damit arbeiten werden. Jeder spielt seine eigenen Aufgaben in Nuvora durch, mit Ihren LinkedIn-Konten, bis er sie allein beherrscht. Admins verbringen die meiste Zeit auf der Team-Seite und beim Guthaben. Creators entwerfen, planen und reichen zur Freigabe ein.',
+    listTitle: 'Was danach jeder beherrscht',
+    list: [
+      'Einen Beitrag mit KI entwerfen, überarbeiten und auf dem richtigen Profil oder der richtigen Seite einplanen',
+      'Einen Beitrag zur Freigabe einreichen oder einen mit Kommentar freigeben',
+      'Dashboard und Kampagnen des Werbekontos lesen',
+      'Ask zu Beiträgen, Kalender oder Anzeigen befragen',
+      'Aus dem Befund eines Agenten einen Entwurf machen',
+      'Kollegen einladen oder einen Kunden anlegen, ohne uns anzurufen',
+    ],
+    noteHtml: `Soll Ihr Team auch auf LinkedIn selbst sicherer werden, über die App hinaus? Dafür gibt es unsere Workshops. Mehr unter <a href="${link('services/consulting')}">Beratung</a>.`,
+  },
+  support: {
+    label: 'Danach',
+    h2Html: 'Drei Monate Antworten, <span class="text-gradient">kostenlos.</span>',
+    body: 'Drei Monate lang nach den Sitzungen beantworten wir jede Frage zu Nuvora, auch die kleinen. Schreiben Sie an hello@nuvora.studio.',
+    afterHtml: `Danach steht Ihnen unser <a href="${link('contact')}">Kontaktformular</a> weiter offen.`,
+    listTitle: 'Typische Fragen',
+    list: [
+      'Wie verbinde ich eine zweite Unternehmensseite?',
+      'Warum hat der Agent diese Kampagne gemeldet?',
+      'Ist dieses Tageslimit richtig gesetzt?',
+      'Wie gibt ein Kunde einen Beitrag frei?',
+    ],
+  },
+  order: {
+    label: 'Bestellen',
+    h2Html: 'Erst den Termin buchen, dann <span class="text-gradient">bezahlen.</span>',
+    line: 'Sie zögern beim Preis? Denken Sie daran: 250 € davon fließen als Guthaben an Sie zurück.',
+    first: {
+      tag: 'Zuerst',
+      title: 'Termin buchen',
+      body: 'Sagen Sie uns, wer teilnimmt, welcher Termin Ihnen passt und ob die Sitzungen auf Englisch, Französisch oder Chinesisch stattfinden sollen. Über das Formular wird nichts abgebucht.',
+      button: 'Termin buchen',
+    },
+    then: {
+      tag: 'Danach',
+      title: '500 € bezahlen',
+      body: 'Per Karte und mit Rechnung, direkt nach dem Formular. Wir bestätigen Ihre erste Sitzung innerhalb eines Werktags per E-Mail.',
+      alreadyHtml: 'Schon gebucht? <a href="{pay}" rel="noopener">Hier bezahlen</a>.',
+    },
+  },
+  close: {
+    h2Html: 'Oder legen Sie <em>selbst los.</em>',
+    body: 'Für Nuvora brauchen Sie kein Onboarding. Sie können jederzeit starten und uns später dazuholen, wenn Sie Unterstützung wünschen.',
+    primary: { label: 'Mit uns sprechen', href: link('contact') },
+    secondary: { label: 'Alle Leistungen', href: link('services') },
+  },
+};
+---
+
+<Layout
+  lang="de"
+  title="Nuvora-Onboarding: 250 € fließen als Guthaben zurück"
+  description="Mindestens vier Stunden live: Ihr Nuvora-Team eingerichtet, alle geschult, drei Monate kostenloser Support. 500 €, davon 250 € zurück als Guthaben."
+  abstract="Kostenpflichtiges Onboarding für die Nuvora-App: mindestens vier Stunden Live-Sitzungen, das Team geschult, drei Monate kostenloser Support, und 250 der 500 € fließen als Guthaben an das Team zurück."
+  schemas={onboardingPageSchemas(lang)}
+>
+  <NavBar lang="de" />
+  <main id="main-content">
+    <OnboardingOffer copy={copy} bookHref={onboardingPath('book', lang)} payHref={ONBOARDING_PAY[lang]} />
+  </main>
+</Layout>

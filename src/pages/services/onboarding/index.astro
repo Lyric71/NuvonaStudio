@@ -1,0 +1,147 @@
+---
+/**
+ * Onboarding, the paid offer for teams starting on the Nuvora app.
+ * French, Spanish, German and Chinese twins: fr/services/prise-en-main,
+ * es/servicios/puesta-en-marcha, de/leistungen/onboarding, zh/services/onboarding.
+ * Layout in src/components/onboarding/OnboardingOffer.astro; payment links
+ * and routes in src/lib/onboarding.ts.
+ */
+import Layout from '../../../layouts/Layout.astro';
+import NavBar from '../../../components/NavBar.astro';
+import OnboardingOffer from '../../../components/onboarding/OnboardingOffer.astro';
+import type { OfferCopy } from '../../../components/onboarding/types';
+import { localizedPath } from '../../../i18n/index';
+import { onboardingPageSchemas } from '../../../i18n/schemas';
+import { ONBOARDING_PAY, onboardingPath } from '../../../lib/onboarding';
+
+const lang = 'en';
+const link = (route: string) => localizedPath(route, lang);
+
+const copy: OfferCopy = {
+  hero: {
+    eyebrow: 'Onboarding',
+    h1Html: 'Pay 500 USD, get 250 back in your <span class="text-gradient">wallet.</span>',
+    lede: 'Onboarding costs 500 USD. We put 250 of it straight back into your team’s wallet in Nuvora, to spend in the app. The other 250 buys at least four hours of live sessions with our team, where we set up your workspace with you and train everyone who’ll use it. After that, questions are free for three months.',
+    primary: 'Book your date',
+    secondary: 'What we set up',
+  },
+  invoice: {
+    label: 'One payment, 500 USD',
+    walletLabel: 'Back into your wallet',
+    walletValue: '250 USD',
+    serviceLabel: 'Sessions, training, and three months of support',
+    serviceValue: '250 USD',
+    facts: [
+      ['Sessions', 'At least four hours, live'],
+      ['Training', 'Your whole team, in detail'],
+      ['Support', 'Free for three months'],
+      ['Languages', 'English, French, or Chinese'],
+    ],
+  },
+  wallet: {
+    label: 'Your 250 USD',
+    h2Html: 'Your first 250 USD of LinkedIn work, paid <span class="text-gradient">for.</span>',
+    body: [
+      'Think of it as your first top-up, done for you. The money sits in your team’s balance with the rest of it, at the same prices, and it never expires.',
+      'Publishing a post on LinkedIn costs nothing in Nuvora, and neither does a post you write yourself. The 250 USD goes on the AI work.',
+    ],
+    listTitle: 'What it pays for',
+    list: [
+      'Posts drafted or rewritten with AI',
+      'Pictures rendered for a post',
+      'Answers in Ask, and their web searches',
+      'Every run of an agent',
+      'Storage for your team’s files',
+    ],
+    link: { label: 'How the balance works', href: link('help/balance-and-payments') },
+  },
+  setup: {
+    label: 'What we set up',
+    h2Html: 'Your workspace, set up <span class="text-gradient">with you.</span>',
+    intro: 'Sessions run in English, French, or Chinese, the three languages the app speaks. Bring the list of people who need a login, and make sure everyone who publishes can sign in to their own LinkedIn. We do the rest together.',
+    tiles: [
+      {
+        title: 'Your team',
+        body: 'Named, with everyone who needs a login as an Admin, a Creator, or a Viewer. We switch each person’s modules on or off and set their rights module by module.',
+      },
+      {
+        title: 'LinkedIn, connected',
+        body: 'Each person who publishes connects their own profile and the company pages they run. Whoever runs your ads connects the ad account, so its dashboard and campaigns read live.',
+      },
+      {
+        title: 'The money',
+        body: 'One shared balance for the team. A daily limit for each creator if you want one, automatic top-up on a card, and invoices made out to your company.',
+      },
+      {
+        title: 'Your clients',
+        body: 'Working for clients? We add each one and give their people a login. They see only what was made for them, comment, approve, and spend nothing.',
+      },
+    ],
+    proseHtml: `Then the part that decides how the AI writes. The LinkedIn post format comes switched on: a hook under 140 characters, 1,300 to 2,500 characters, three to five hashtags. We write your house style and checklists as team <a href="${link('help/skills')}">skills</a>, so every draft starts from them, and agree in Validation who approves what before it goes out, a colleague or a client. Then the two standard <a href="${link('help/agents')}">agents</a>. One watches your publishing and flags a week without a post or a failed publication. The other watches the ad account and flags spend or cost per result that moved. We set how often each one runs, its monthly budget, and who gets its emails.`,
+    asideHtml: 'Last, the Assets Library: folders for your visuals and briefs, and the Image editor, which frames a picture to the LinkedIn sizes.',
+  },
+  training: {
+    label: 'Training',
+    h2Html: 'Everyone trained on the work they <span class="text-gradient">do.</span>',
+    body: 'Next, the people who’ll use it. Each person works through their own job in Nuvora, on your LinkedIn accounts, until they can do it alone. Admins spend most of the time on the Team page and the balance. Creators draft, schedule, and send for approval.',
+    listTitle: 'What everyone leaves able to do',
+    list: [
+      'Draft a post with AI, edit it, and schedule it on the right profile or page',
+      'Send a post for approval, or approve one with a comment',
+      'Read the ad account’s dashboard and campaigns',
+      'Ask a question about your posts, your calendar, or your ads',
+      'Turn an agent’s finding into a draft',
+      'Invite a teammate or add a client without calling us',
+    ],
+    noteHtml: `Want your team sharper on LinkedIn itself, beyond the app? Our workshops cover that. See <a href="${link('services/consulting')}">Consulting</a>.`,
+  },
+  support: {
+    label: 'Afterwards',
+    h2Html: 'Three months of answers, at no <span class="text-gradient">charge.</span>',
+    body: 'For three months after the sessions, ask us anything about Nuvora. Small questions too. Write to hello@nuvora.studio.',
+    afterHtml: `After that, the <a href="${link('help')}">help center</a> has a guide for every entry in the menu, and our <a href="${link('contact')}">contact form</a> stays open.`,
+    listTitle: 'The kind of thing people ask',
+    list: [
+      'How do I connect a second company page?',
+      'Why did the agent flag this campaign?',
+      'Is this daily limit set right?',
+      'How does a client approve a post?',
+    ],
+  },
+  order: {
+    label: 'Order',
+    h2Html: 'Book the date, then <span class="text-gradient">pay.</span>',
+    line: 'Weighing the price? Remember that 250 of it comes back to spend.',
+    first: {
+      tag: 'First',
+      title: 'Book your date',
+      body: 'Tell us who’s coming, the date that suits you, and whether the sessions run in English, French, or Chinese. Nothing is charged on the form.',
+      button: 'Book your date',
+    },
+    then: {
+      tag: 'Then',
+      title: 'Pay 500 USD',
+      body: 'By card or Alipay, with an invoice, right after the form. We confirm your first session by email within one working day.',
+      alreadyHtml: 'Already booked? <a href="{pay}" rel="noopener">Pay here</a>.',
+    },
+  },
+  close: {
+    h2Html: 'Or start on your <em>own.</em>',
+    body: 'You don’t need onboarding to use Nuvora. The help center walks you through your first post, and you can call us in later.',
+    primary: { label: 'Open the help center', href: link('help') },
+    secondary: { label: 'Talk to us first', href: link('contact') },
+  },
+};
+---
+
+<Layout
+  title="Nuvora onboarding, with 250 USD back in your wallet"
+  description="Four hours or more, live: your Nuvora team set up, everyone trained, three months of free support. 500 USD, and 250 goes back into your wallet."
+  abstract="Paid onboarding for the Nuvora app: at least four hours of live sessions, the team trained, three months of free support, and 250 USD of the 500 back in the team's wallet."
+  schemas={onboardingPageSchemas(lang)}
+>
+  <NavBar />
+  <main id="main-content">
+    <OnboardingOffer copy={copy} bookHref={onboardingPath('book', lang)} payHref={ONBOARDING_PAY[lang]} />
+  </main>
+</Layout>

@@ -1,0 +1,60 @@
+---
+/**
+ * Puesta en marcha, segundo paso: el pago. El formulario de reserva lleva
+ * aquí; el botón abre el enlace de pago en euros (ONBOARDING_PAY en
+ * src/lib/onboarding.ts). Noindex y fuera del mapa del sitio.
+ * Diseño en src/components/onboarding/OnboardingPayment.astro.
+ */
+import Layout from '../../../../layouts/Layout.astro';
+import NavBar from '../../../../components/NavBar.astro';
+import OnboardingPayment from '../../../../components/onboarding/OnboardingPayment.astro';
+import type { PaymentCopy } from '../../../../components/onboarding/types';
+import { localizedPath } from '../../../../i18n/index';
+import { ONBOARDING_PAY, onboardingPath } from '../../../../lib/onboarding';
+
+const lang = 'es';
+
+const copy: PaymentCopy = {
+  hero: {
+    eyebrow: 'Puesta en marcha reservada',
+    h1Html: 'Hemos recibido tu solicitud. Falta el <span class="text-gradient">pago.</span>',
+    lead: 'Paga los 500 € con tarjeta, con factura incluida, y te confirmaremos la primera sesión por correo electrónico en un día hábil.',
+    button: 'Pagar 500 €',
+    note: 'De ellos, 250 € van al monedero de tu equipo en Nuvora. Revisa tu bandeja de entrada: te escribiremos a la dirección que nos has dado.',
+  },
+  stepsTitle: 'Qué ocurre ahora',
+  steps: [
+    { when: 'En un día hábil', body: 'Te confirmamos la primera sesión por correo electrónico, con el horario, en la fecha elegida o lo más cerca posible.' },
+    { when: 'Antes de la primera sesión', body: 'Ten lista la relación de asistentes y comprueba que quienes publican pueden entrar en su propia cuenta de LinkedIn.' },
+    { when: 'Al menos cuatro horas, en directo', body: 'Equipo, cuentas de LinkedIn, saldo, clientes, Skills, aprobaciones y agentes configurados contigo, y después todos formados.' },
+    { when: 'Durante tres meses', body: 'Cualquier consulta sobre Nuvora, resuelta sin coste. Tus 250 € esperan en el monedero, listos para gastar.' },
+  ],
+  onwardTitle: 'Mientras tanto',
+  onward: [
+    {
+      label: 'Qué incluye la puesta en marcha',
+      body: 'La configuración, la formación, el soporte y los 250 € para tu monedero.',
+      href: onboardingPath('offer', lang),
+      cta: 'Volver a la oferta',
+    },
+    {
+      label: '¿Alguna duda?',
+      body: 'Escríbenos. Una persona de verdad te responde en un día hábil.',
+      href: localizedPath('contact', lang),
+      cta: 'Contactar',
+    },
+  ],
+};
+---
+
+<Layout
+  lang="es"
+  title="Puesta en marcha reservada: solo falta un paso"
+  description="Hemos recibido tu solicitud de puesta en marcha. Paga los 500 € y te confirmaremos la primera sesión por correo electrónico en un día hábil."
+  robots="noindex, follow"
+>
+  <NavBar lang="es" />
+  <main id="main-content">
+    <OnboardingPayment copy={copy} payHref={ONBOARDING_PAY[lang]} />
+  </main>
+</Layout>

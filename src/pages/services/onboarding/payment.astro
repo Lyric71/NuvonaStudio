@@ -1,0 +1,59 @@
+---
+/**
+ * Onboarding, step two: the payment. The booking form lands here; the button
+ * is the payment link in this page's currency (ONBOARDING_PAY in
+ * src/lib/onboarding.ts). Noindex, and out of the sitemap.
+ * Layout in src/components/onboarding/OnboardingPayment.astro.
+ */
+import Layout from '../../../layouts/Layout.astro';
+import NavBar from '../../../components/NavBar.astro';
+import OnboardingPayment from '../../../components/onboarding/OnboardingPayment.astro';
+import type { PaymentCopy } from '../../../components/onboarding/types';
+import { localizedPath } from '../../../i18n/index';
+import { ONBOARDING_PAY, onboardingPath } from '../../../lib/onboarding';
+
+const lang = 'en';
+
+const copy: PaymentCopy = {
+  hero: {
+    eyebrow: 'Onboarding booked',
+    h1Html: 'Your request is in. Now the <span class="text-gradient">payment.</span>',
+    lead: 'Pay the 500 USD by card or Alipay, with an invoice, and we confirm your first session by email within one working day.',
+    button: 'Pay 500 USD',
+    note: '250 USD of it goes into your team’s wallet in Nuvora. Watch for our email at the address you gave us.',
+  },
+  stepsTitle: 'What happens next',
+  steps: [
+    { when: 'Within one working day', body: 'We confirm the first session by email, with the hours, on or near the date you picked.' },
+    { when: 'Before the first session', body: 'Have your list of people ready, and make sure everyone who publishes can sign in to their own LinkedIn.' },
+    { when: 'At least four hours, live', body: 'Your team, LinkedIn accounts, balance, clients, skills, approvals, and agents set up with you, then everyone trained.' },
+    { when: 'For three months', body: 'Any question about Nuvora, answered free. Your 250 USD sits in the wallet, ready to spend.' },
+  ],
+  onwardTitle: 'Meanwhile',
+  onward: [
+    {
+      label: 'What onboarding covers',
+      body: 'The setup, the training, the support, and the 250 USD for your wallet.',
+      href: onboardingPath('offer', lang),
+      cta: 'Read onboarding',
+    },
+    {
+      label: 'The help center',
+      body: 'A guide for every entry in the Nuvora menu, from your first post to your invoices.',
+      href: localizedPath('help', lang),
+      cta: 'Open the help center',
+    },
+  ],
+};
+---
+
+<Layout
+  title="Onboarding booked: one step left"
+  description="Your onboarding request is in. Pay the 500 USD, and we confirm your first session by email within one working day."
+  robots="noindex, follow"
+>
+  <NavBar />
+  <main id="main-content">
+    <OnboardingPayment copy={copy} payHref={ONBOARDING_PAY[lang]} />
+  </main>
+</Layout>

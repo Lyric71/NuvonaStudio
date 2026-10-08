@@ -1,0 +1,59 @@
+---
+/**
+ * 上线辅导第二步：付款。预约表单提交后来到这里，按钮打开人民币付款链接
+ * （src/lib/onboarding.ts 中的 ONBOARDING_PAY）。不被索引，也不进站点地图。
+ * 布局见 src/components/onboarding/OnboardingPayment.astro。
+ */
+import Layout from '../../../../layouts/Layout.astro';
+import NavBar from '../../../../components/NavBar.astro';
+import OnboardingPayment from '../../../../components/onboarding/OnboardingPayment.astro';
+import type { PaymentCopy } from '../../../../components/onboarding/types';
+import { localizedPath } from '../../../../i18n/index';
+import { ONBOARDING_PAY, onboardingPath } from '../../../../lib/onboarding';
+
+const lang = 'zh';
+
+const copy: PaymentCopy = {
+  hero: {
+    eyebrow: '已预约上线辅导',
+    h1Html: '预约已收到，<span class="text-gradient">就差付款了。</span>',
+    lead: '通过银行卡、支付宝或微信支付 3,500 元，我们会在一个工作日内通过邮件确认首次会议。',
+    button: '支付 3,500 元',
+    note: '其中 1,750 元会返还到您团队在 Nuvora 的钱包。请留意我们发往您所填邮箱的邮件。',
+  },
+  stepsTitle: '接下来',
+  steps: [
+    { when: '一个工作日内', body: '我们通过邮件确认首次会议并附上具体时间，尽量安排在您选的日期。' },
+    { when: '首次会议前', body: '准备好参加人员名单，并确认每位负责发帖的同事都能登录自己的 LinkedIn。' },
+    { when: '至少 4 小时，实时进行', body: '与您一起搭建团队、LinkedIn 账号、余额、客户、技能、审核流程和智能体，然后培训全员。' },
+    { when: '此后三个月', body: '关于 Nuvora 的任何问题，免费解答。您的 1,750 元就在钱包里，随时可用。' },
+  ],
+  onwardTitle: '这期间',
+  onward: [
+    {
+      label: '上线辅导包含什么',
+      body: '搭建、培训、答疑，以及返还到钱包的 1,750 元。',
+      href: onboardingPath('offer', lang),
+      cta: '查看详情',
+    },
+    {
+      label: '帮助中心',
+      body: '菜单里的每一项都有对应指南，从第一篇帖子到发票。',
+      href: localizedPath('help', lang),
+      cta: '打开帮助中心',
+    },
+  ],
+};
+---
+
+<Layout
+  lang="zh"
+  title="上线辅导已预约：只差一步"
+  description="您的上线辅导预约已收到。支付 3,500 元后，我们会在一个工作日内通过邮件确认首次会议。"
+  robots="noindex, follow"
+>
+  <NavBar lang="zh" />
+  <main id="main-content">
+    <OnboardingPayment copy={copy} payHref={ONBOARDING_PAY[lang]} />
+  </main>
+</Layout>

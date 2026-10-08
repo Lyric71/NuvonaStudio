@@ -206,6 +206,79 @@ export function servicePageSchemas(lang: Lang, service: ServiceKey): Record<stri
   ];
 }
 
+// ── Onboarding page schema ────────────────────────────────────────────────────
+// The paid onboarding of the Nuvora app, priced in the currency each locale
+// shows (src/lib/onboarding.ts holds the matching payment links).
+const onboardingPathByLang: Record<Lang, string> = {
+  en: '/services/onboarding',
+  fr: '/fr/services/prise-en-main',
+  de: '/de/leistungen/onboarding',
+  es: '/es/servicios/puesta-en-marcha',
+  zh: '/zh/services/onboarding',
+};
+
+const onboardingOfferByLang: Record<Lang, { price: string; currency: string }> = {
+  en: { price: '500', currency: 'USD' },
+  fr: { price: '500', currency: 'EUR' },
+  de: { price: '500', currency: 'EUR' },
+  es: { price: '500', currency: 'EUR' },
+  zh: { price: '3500', currency: 'CNY' },
+};
+
+const onboardingTextByLang: Record<Lang, { name: string; description: string }> = {
+  en: {
+    name: 'Nuvora onboarding',
+    description:
+      'At least four hours of live sessions to set up your Nuvora team and LinkedIn accounts and train everyone who uses the app, then three months of free support. 250 USD of the price goes back into your wallet.',
+  },
+  fr: {
+    name: 'Prise en main de Nuvora',
+    description:
+      'Au moins quatre heures de séances en direct pour configurer votre équipe Nuvora et vos comptes LinkedIn, puis former chaque utilisateur, avant trois mois d’assistance gratuite. 250 € du prix sont reversés dans votre portefeuille.',
+  },
+  de: {
+    name: 'Nuvora-Onboarding',
+    description:
+      'Mindestens vier Stunden Live-Sitzungen: Ihr Nuvora-Team und Ihre LinkedIn-Konten eingerichtet, alle Nutzer geschult, danach drei Monate kostenloser Support. 250 € des Preises fließen als Guthaben an Ihr Team zurück.',
+  },
+  es: {
+    name: 'Puesta en marcha de Nuvora',
+    description:
+      'Al menos cuatro horas de sesiones en directo para configurar tu equipo en Nuvora y tus cuentas de LinkedIn y formar a cada usuario, seguidas de tres meses de soporte gratuito. 250 € del precio vuelven a tu monedero.',
+  },
+  zh: {
+    name: 'Nuvora 上线辅导',
+    description:
+      '至少 4 小时实时会议：与您一起搭建 Nuvora 团队、接入 LinkedIn 账号，并逐一培训每位使用者，此后三个月免费答疑。费用中的 1,750 元返还至您的钱包。',
+  },
+};
+
+export function onboardingPageSchemas(lang: Lang): Record<string, unknown>[] {
+  const path = onboardingPathByLang[lang];
+  const offer = onboardingOfferByLang[lang];
+  return [
+    {
+      '@type': 'Service',
+      '@id': `${SITE}${path}#service`,
+      name: onboardingTextByLang[lang].name,
+      description: onboardingTextByLang[lang].description,
+      serviceType: 'Software onboarding and training',
+      provider: { '@id': `${SITE}/#organization` },
+      areaServed: { '@type': 'Place', name: 'Worldwide' },
+      audience: { '@type': 'BusinessAudience', audienceType: 'B2B companies' },
+      url: `${SITE}${path}`,
+      inLanguage: inLanguageByLang[lang],
+      offers: {
+        '@type': 'Offer',
+        price: offer.price,
+        priceCurrency: offer.currency,
+        url: `${SITE}${path}`,
+        availability: 'https://schema.org/InStock',
+      },
+    },
+  ];
+}
+
 // ── Article / case-study registry ─────────────────────────────────────────────
 // Keyed by canonical English slug (no leading slash, no trailing slash).
 // Each entry powers BlogPosting (insight) or Article (case study) JSON-LD across

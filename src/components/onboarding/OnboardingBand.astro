@@ -1,0 +1,146 @@
+---
+/**
+ * The onboarding entry on the services index of every locale, between the
+ * three service lines and the team. One band, one link to the offer page.
+ * The copy is per language here, as ContactCTA reads its own from the UI
+ * strings.
+ */
+import type { Lang } from '../../i18n/index';
+import { onboardingPath } from '../../lib/onboarding';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'en' } = Astro.props;
+
+const COPY: Record<Lang, { label: string; h2Html: string; body: string; cta: string; price: string; back: string }> = {
+  en: {
+    label: 'Onboarding',
+    h2Html: 'New to the Nuvora app? We set it up <span class="text-gradient">with you.</span>',
+    body: 'At least four hours of live sessions, your whole team trained, then three months of free support.',
+    cta: 'See onboarding',
+    price: '500 USD',
+    back: '250 USD back in your wallet',
+  },
+  fr: {
+    label: 'Prise en main',
+    h2Html: 'Vous démarrez sur Nuvora ? Nous configurons l’application <span class="text-gradient">avec vous.</span>',
+    body: 'Au moins quatre heures de séances en direct, toute votre équipe formée, puis trois mois d’assistance gratuite.',
+    cta: 'Découvrir la prise en main',
+    price: '500 €',
+    back: '250 € reversés sur votre portefeuille',
+  },
+  es: {
+    label: 'Puesta en marcha',
+    h2Html: '¿Empiezas con Nuvora? Configuramos la aplicación <span class="text-gradient">contigo.</span>',
+    body: 'Al menos cuatro horas de sesiones en directo, todo tu equipo formado y, después, tres meses de soporte gratuito.',
+    cta: 'Ver la puesta en marcha',
+    price: '500 €',
+    back: '250 € de vuelta en tu monedero',
+  },
+  de: {
+    label: 'Onboarding',
+    h2Html: 'Neu bei Nuvora? Wir richten die App <span class="text-gradient">mit Ihnen ein.</span>',
+    body: 'Mindestens vier Stunden live, Ihr ganzes Team geschult, danach drei Monate kostenloser Support.',
+    cta: 'Zum Onboarding',
+    price: '500 €',
+    back: '250 € fließen als Guthaben zurück',
+  },
+  zh: {
+    label: '上线辅导',
+    h2Html: '刚开始用 Nuvora？我们<span class="text-gradient">陪您一起搭建。</span>',
+    body: '至少 4 小时实时会议，全员逐一培训，之后三个月免费答疑。',
+    cta: '了解上线辅导',
+    price: '3,500 元人民币',
+    back: '其中 1,750 元返还至您的钱包',
+  },
+};
+
+const c = COPY[lang];
+---
+
+<section class="section ob-band" aria-labelledby="ob-band-h">
+  <div class="ob-band__bg" aria-hidden="true"></div>
+  <div class="container ob-band__layout">
+    <div class="reveal">
+      <span class="ob-band__label">{c.label}</span>
+      <h2 id="ob-band-h" class="ob-band__h2" set:html={c.h2Html} />
+      <p class="ob-band__body">{c.body}</p>
+    </div>
+    <div class="ob-band__price reveal reveal-delay-2">
+      <p class="ob-band__amount">{c.price}</p>
+      <p class="ob-band__back">{c.back}</p>
+      <a href={onboardingPath('offer', lang)} class="btn btn--primary btn--lg">{c.cta}</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ob-band { background: var(--deep-navy); position: relative; overflow: hidden; }
+  .ob-band__bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 50% 70% at 100% 0%, rgba(6,182,212,.14) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 0% 100%, rgba(3,105,161,.14) 0%, transparent 60%);
+  }
+  .ob-band__layout {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: var(--sp-16);
+    align-items: center;
+  }
+  .ob-band__label {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: var(--fs-xl);
+    font-weight: 600;
+    color: var(--cyan);
+    letter-spacing: -0.01em;
+    margin-bottom: var(--sp-3);
+    padding-bottom: var(--sp-2);
+    border-bottom: 3px solid rgba(6,182,212,.40);
+  }
+  .ob-band__h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    margin-block: var(--sp-4) var(--sp-6);
+  }
+  .ob-band__h2 :global(.text-gradient) {
+    background: linear-gradient(135deg, var(--cyan) 0%, var(--sky) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .ob-band__body { font-size: var(--fs-md); color: rgba(255,255,255,0.68); line-height: 1.75; max-width: 600px; }
+  .ob-band__price {
+    padding: var(--sp-8);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: var(--r-2xl);
+  }
+  .ob-band__amount {
+    font-family: var(--font-display);
+    font-size: var(--fs-3xl);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .ob-band__back { margin-block: var(--sp-3) var(--sp-8); font-size: var(--fs-sm); font-weight: 600; color: var(--cyan); }
+  @media (max-width: 1024px) {
+    .ob-band__layout { grid-template-columns: minmax(0, 1fr); gap: var(--sp-10); }
+  }
+  @media (max-width: 640px) {
+    .ob-band__price { padding: var(--sp-6); }
+    .ob-band__price .btn { width: 100%; justify-content: center; }
+  }
+</style>

@@ -1,0 +1,663 @@
+---
+/**
+ * The onboarding offer, body of /services/onboarding and its four twins.
+ *
+ * The 250 USD (250 €, 1,750 元) that goes back into the team's wallet is the
+ * reason to buy, so it leads: the headline, the invoice card beside it, the
+ * first section, and the line just above the two order cards. Then the setup
+ * in detail, every claim taken from the Nuvora app (src/lib/app.ts, entry
+ * 'nuvora', in the BearingBridgeIntelligence repo) and from this site's help
+ * center, so the other half of the price is justified by work a buyer can
+ * check. Then training, support, and the two steps in order: book the date,
+ * then pay. The order cards are labelled in words, never numbered.
+ *
+ * Layout only: the copy comes from the locale page (see ./types.ts).
+ */
+import type { OfferCopy } from './types';
+
+interface Props {
+  copy: OfferCopy;
+  bookHref: string;
+  payHref: string;
+}
+
+const { copy, bookHref, payHref } = Astro.props;
+
+const tileIcons = [
+  // The team
+  `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="1.6"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="1.6"/></svg>`,
+  // LinkedIn, connected
+  `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M8 11v5M8 8v.01M12 16v-5M12 13a2 2 0 0 1 4 0v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
+  // The money
+  `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h13a1 1 0 0 1 1 1v2" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="7" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 13.5h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>`,
+  // The clients
+  `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2M2 13h20" stroke="currentColor" stroke-width="1.6"/></svg>`,
+];
+
+const check = `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 5L6.5 11.5 3 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const ask = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>`;
+---
+
+<!-- ═══════════════════════════════════════════════════════
+     HERO: the headline and the invoice beside it
+     ═══════════════════════════════════════════════════════ -->
+<section class="ob-hero" aria-labelledby="ob-hero-h">
+  <div class="ob-hero__glow" aria-hidden="true"></div>
+  <div class="container ob-hero__layout">
+    <div class="ob-hero__content">
+      <p class="eyebrow eyebrow--light reveal">{copy.hero.eyebrow}</p>
+      <h1 id="ob-hero-h" class="ob-hero__h1 reveal reveal-delay-1" set:html={copy.hero.h1Html} />
+      <p class="ob-hero__lede reveal reveal-delay-2">{copy.hero.lede}</p>
+      <div class="ob-hero__actions reveal reveal-delay-3">
+        <a href={bookHref} class="btn btn--primary btn--lg">{copy.hero.primary}</a>
+        <a href="#ob-setup" class="btn btn--outline-white btn--lg">{copy.hero.secondary}</a>
+      </div>
+    </div>
+
+    <aside class="ob-invoice reveal reveal-delay-2" aria-label={copy.invoice.label}>
+      <p class="ob-invoice__label">{copy.invoice.label}</p>
+      <div class="ob-split" aria-hidden="true">
+        <span class="ob-split__wallet"></span>
+        <span class="ob-split__service"></span>
+      </div>
+      <dl class="ob-invoice__rows">
+        <div class="ob-invoice__row">
+          <dt><span class="ob-dot ob-dot--wallet" aria-hidden="true"></span>{copy.invoice.walletLabel}</dt>
+          <dd>{copy.invoice.walletValue}</dd>
+        </div>
+        <div class="ob-invoice__row">
+          <dt><span class="ob-dot ob-dot--service" aria-hidden="true"></span>{copy.invoice.serviceLabel}</dt>
+          <dd>{copy.invoice.serviceValue}</dd>
+        </div>
+      </dl>
+      <dl class="ob-facts">
+        {copy.invoice.facts.map(([label, value]) => (
+          <div class="ob-facts__item">
+            <dt>{label}</dt>
+            <dd>{value}</dd>
+          </div>
+        ))}
+      </dl>
+    </aside>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     THE WALLET MONEY
+     ═══════════════════════════════════════════════════════ -->
+<section class="section ob-wallet" aria-labelledby="ob-wallet-h">
+  <div class="container ob-two">
+    <div class="reveal">
+      <span class="ob-label">{copy.wallet.label}</span>
+      <h2 id="ob-wallet-h" class="ob-h2" set:html={copy.wallet.h2Html} />
+      <div class="ob-body">
+        {copy.wallet.body.map((p) => <p>{p}</p>)}
+      </div>
+    </div>
+    <div class="ob-panel reveal reveal-delay-2">
+      <p class="ob-panel__title">{copy.wallet.listTitle}</p>
+      <ul class="ob-checks" role="list">
+        {copy.wallet.list.map((item) => (
+          <li><span class="ob-checks__icon" set:html={check} />{item}</li>
+        ))}
+      </ul>
+      {copy.wallet.link && (
+        <a href={copy.wallet.link.href} class="ob-arrow-link">
+          {copy.wallet.link.label}
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      )}
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     WHAT WE SET UP
+     ═══════════════════════════════════════════════════════ -->
+<section class="section ob-setup" id="ob-setup" aria-labelledby="ob-setup-h">
+  <div class="container">
+    <div class="ob-head reveal">
+      <span class="ob-label">{copy.setup.label}</span>
+      <h2 id="ob-setup-h" class="ob-h2" set:html={copy.setup.h2Html} />
+      <p class="ob-intro">{copy.setup.intro}</p>
+    </div>
+
+    <div class="ob-tiles">
+      {copy.setup.tiles.map((tile, i) => (
+        <div class={`ob-tile reveal${i > 0 ? ` reveal-delay-${i}` : ''}`}>
+          <span class="ob-tile__icon" set:html={tileIcons[i]} />
+          <strong class="ob-tile__title">{tile.title}</strong>
+          <p class="ob-tile__body">{tile.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="ob-prose">
+      <p class="ob-prose__main reveal" set:html={copy.setup.proseHtml} />
+      <p class="ob-prose__aside reveal reveal-delay-2" set:html={copy.setup.asideHtml} />
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     TRAINING
+     ═══════════════════════════════════════════════════════ -->
+<section class="section ob-training" aria-labelledby="ob-training-h">
+  <div class="ob-training__bg" aria-hidden="true"></div>
+  <div class="container ob-two ob-two--top">
+    <div class="reveal">
+      <span class="ob-label ob-label--dark">{copy.training.label}</span>
+      <h2 id="ob-training-h" class="ob-h2 ob-h2--dark" set:html={copy.training.h2Html} />
+      <p class="ob-body ob-body--dark">{copy.training.body}</p>
+      <p class="ob-note ob-note--dark" set:html={copy.training.noteHtml} />
+    </div>
+    <div class="ob-panel ob-panel--dark reveal reveal-delay-2">
+      <p class="ob-panel__title">{copy.training.listTitle}</p>
+      <ul class="ob-checks ob-checks--dark" role="list">
+        {copy.training.list.map((item) => (
+          <li><span class="ob-checks__icon" set:html={check} />{item}</li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SUPPORT
+     ═══════════════════════════════════════════════════════ -->
+<section class="section ob-support" aria-labelledby="ob-support-h">
+  <div class="container ob-two">
+    <div class="reveal">
+      <span class="ob-label">{copy.support.label}</span>
+      <h2 id="ob-support-h" class="ob-h2" set:html={copy.support.h2Html} />
+      <p class="ob-body">{copy.support.body}</p>
+      <p class="ob-note" set:html={copy.support.afterHtml} />
+    </div>
+    <div class="ob-panel reveal reveal-delay-2">
+      <p class="ob-panel__title">{copy.support.listTitle}</p>
+      <ul class="ob-checks ob-checks--ask" role="list">
+        {copy.support.list.map((item) => (
+          <li><span class="ob-checks__icon" set:html={ask} />{item}</li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     ORDER: book the date, then pay
+     ═══════════════════════════════════════════════════════ -->
+<section class="section ob-order" id="ob-order" aria-labelledby="ob-order-h">
+  <div class="container">
+    <div class="ob-head reveal">
+      <span class="ob-label">{copy.order.label}</span>
+      <h2 id="ob-order-h" class="ob-h2" set:html={copy.order.h2Html} />
+      <p class="ob-intro">{copy.order.line}</p>
+    </div>
+
+    <div class="ob-steps">
+      <div class="ob-step reveal">
+        <span class="ob-step__tag">{copy.order.first.tag}</span>
+        <h3 class="ob-step__title">{copy.order.first.title}</h3>
+        <p class="ob-step__body">{copy.order.first.body}</p>
+        <div class="ob-step__foot">
+          <a href={bookHref} class="btn btn--primary btn--lg">{copy.order.first.button}</a>
+        </div>
+      </div>
+      <div class="ob-step ob-step--then reveal reveal-delay-1">
+        <span class="ob-step__tag">{copy.order.then.tag}</span>
+        <h3 class="ob-step__title">{copy.order.then.title}</h3>
+        <p class="ob-step__body">{copy.order.then.body}</p>
+        <div class="ob-step__foot">
+          <p class="ob-step__already" set:html={copy.order.then.alreadyHtml.replace('{pay}', payHref)} />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     CLOSE: or start on your own
+     ═══════════════════════════════════════════════════════ -->
+<section class="section ob-close" aria-labelledby="ob-close-h">
+  <div class="container">
+    <div class="ob-close__inner reveal">
+      <h2 id="ob-close-h" class="ob-close__h2" set:html={copy.close.h2Html} />
+      <p class="ob-close__body">{copy.close.body}</p>
+      <div class="ob-close__actions">
+        <a href={copy.close.primary.href} class="btn btn--outline-white btn--lg">{copy.close.primary.label}</a>
+        <a href={copy.close.secondary.href} class="btn btn--ghost ob-close__ghost">{copy.close.secondary.label}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<style>
+  /* ╔═══════════════════════════════════════════╗
+     ║  HERO                                     ║
+     ╚═══════════════════════════════════════════╝ */
+  .ob-hero {
+    position: relative;
+    overflow: hidden;
+    background: var(--deep-navy);
+    padding-block: var(--sp-24) var(--sp-20);
+  }
+  .ob-hero__glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 50% 70% at 100% 0%, rgba(6,182,212,.16) 0%, transparent 60%),
+      radial-gradient(ellipse 45% 60% at 0% 100%, rgba(3,105,161,.18) 0%, transparent 60%);
+  }
+  .ob-hero__layout {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: var(--sp-16);
+    align-items: center;
+  }
+  .ob-hero__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-block: var(--sp-5) var(--sp-6);
+  }
+  .ob-hero__h1 :global(.text-gradient) {
+    background: linear-gradient(135deg, var(--cyan) 0%, var(--sky) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .ob-hero__lede {
+    font-size: var(--fs-md);
+    color: rgba(255,255,255,0.72);
+    line-height: 1.75;
+    max-width: 580px;
+    margin-bottom: var(--sp-10);
+  }
+  .ob-hero__actions { display: flex; flex-wrap: wrap; gap: var(--sp-4); }
+
+  /* The invoice card */
+  .ob-invoice {
+    padding: var(--sp-8);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: var(--r-2xl);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.25);
+    backdrop-filter: blur(6px);
+  }
+  .ob-invoice__label {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: var(--sp-5);
+  }
+  .ob-split {
+    display: flex;
+    height: 14px;
+    border-radius: var(--r-full);
+    overflow: hidden;
+    gap: 3px;
+    margin-bottom: var(--sp-6);
+  }
+  .ob-split__wallet { flex: 1; background: linear-gradient(90deg, var(--cyan), var(--sky)); border-radius: var(--r-full) 0 0 var(--r-full); }
+  .ob-split__service { flex: 1; background: rgba(255,255,255,0.22); border-radius: 0 var(--r-full) var(--r-full) 0; }
+  .ob-invoice__rows { display: flex; flex-direction: column; gap: var(--sp-4); }
+  .ob-invoice__row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--sp-4);
+  }
+  .ob-invoice__row dt {
+    display: flex;
+    align-items: baseline;
+    gap: var(--sp-3);
+    font-size: var(--fs-sm);
+    color: rgba(255,255,255,0.72);
+    line-height: 1.5;
+  }
+  .ob-invoice__row dd {
+    font-family: var(--font-display);
+    font-size: var(--fs-xl);
+    font-weight: 700;
+    color: var(--white);
+    white-space: nowrap;
+  }
+  .ob-dot { flex-shrink: 0; width: 10px; height: 10px; border-radius: 50%; transform: translateY(1px); }
+  .ob-dot--wallet { background: var(--cyan); }
+  .ob-dot--service { background: rgba(255,255,255,0.35); }
+
+  .ob-facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-4) var(--sp-6);
+    margin-top: var(--sp-8);
+    padding-top: var(--sp-6);
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .ob-facts dt {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.42);
+    margin-bottom: 2px;
+  }
+  .ob-facts dd { font-size: var(--fs-sm); color: var(--white); line-height: 1.5; }
+
+
+  /* ╔═══════════════════════════════════════════╗
+     ║  SHARED SECTION PARTS                     ║
+     ╚═══════════════════════════════════════════╝ */
+  .ob-label {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: var(--fs-xl);
+    font-weight: 600;
+    color: var(--blue);
+    letter-spacing: -0.01em;
+    margin-bottom: var(--sp-3);
+    padding-bottom: var(--sp-2);
+    border-bottom: 3px solid var(--cyan);
+  }
+  .ob-label--dark { color: var(--cyan); border-bottom-color: rgba(6,182,212,.40); }
+
+  .ob-h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    margin-top: var(--sp-4);
+    margin-bottom: var(--sp-6);
+  }
+  .ob-h2 :global(.text-gradient) {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--sky) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .ob-h2--dark { color: var(--white); }
+  .ob-h2--dark :global(.text-gradient) {
+    background: linear-gradient(135deg, var(--cyan) 0%, var(--sky) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .ob-head { max-width: 760px; margin-bottom: var(--sp-12); }
+  .ob-intro { font-size: var(--fs-md); color: var(--text-2); line-height: 1.75; }
+
+  .ob-body { display: flex; flex-direction: column; gap: var(--sp-4); }
+  .ob-body, .ob-body p { font-size: var(--fs-md); color: var(--text-2); line-height: 1.75; }
+  .ob-body--dark { color: rgba(255,255,255,0.68); }
+
+  .ob-note { margin-top: var(--sp-6); font-size: var(--fs-sm); color: var(--text-2); line-height: 1.7; }
+  .ob-note--dark { color: rgba(255,255,255,0.55); }
+  .ob-note :global(a),
+  .ob-prose :global(a),
+  .ob-step__already :global(a) {
+    color: var(--blue);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+  }
+  .ob-note--dark :global(a) { color: var(--cyan); }
+  .ob-note :global(a:hover),
+  .ob-prose :global(a:hover),
+  .ob-step__already :global(a:hover) { color: var(--sky); }
+
+  .ob-two {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--sp-16);
+    align-items: center;
+  }
+  .ob-two--top { align-items: start; }
+
+  .ob-panel {
+    padding: var(--sp-8);
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+  }
+  .ob-panel--dark {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.08);
+  }
+  .ob-panel__title {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: var(--sp-5);
+  }
+  .ob-panel--dark .ob-panel__title { color: var(--cyan); }
+
+  .ob-checks { display: flex; flex-direction: column; gap: var(--sp-3); }
+  .ob-checks li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-3);
+    font-size: var(--fs-base);
+    color: var(--text);
+    line-height: 1.55;
+  }
+  .ob-checks--dark li { color: rgba(255,255,255,0.88); }
+  .ob-checks__icon {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px; height: 24px;
+    margin-top: 1px;
+    border-radius: var(--r-sm);
+    background: rgba(6,182,212,0.10);
+    color: var(--blue);
+  }
+  .ob-checks--dark .ob-checks__icon { background: rgba(6,182,212,0.15); color: var(--cyan); }
+  .ob-checks--ask li { font-style: italic; color: var(--text-2); }
+
+  .ob-arrow-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    margin-top: var(--sp-6);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--blue);
+    transition: gap var(--t-fast), color var(--t-fast);
+  }
+  .ob-arrow-link:hover { gap: var(--sp-3); color: var(--sky); }
+
+
+  /* ╔═══════════════════════════════════════════╗
+     ║  SECTIONS                                 ║
+     ╚═══════════════════════════════════════════╝ */
+  .ob-wallet { background: var(--white); }
+
+  .ob-setup { background: var(--off-white); }
+  .ob-tiles {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--sp-5);
+  }
+  .ob-tile {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    padding: var(--sp-8) var(--sp-6);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    position: relative;
+    overflow: hidden;
+    transition: border-color var(--t-base), box-shadow var(--t-base), transform var(--t-base);
+  }
+  .ob-tile::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--sky), var(--cyan));
+    opacity: 0;
+    transition: opacity var(--t-base);
+  }
+  .ob-tile:hover { border-color: rgba(3,105,161,.18); box-shadow: var(--shadow-md); transform: translateY(-3px); }
+  .ob-tile:hover::before { opacity: 1; }
+  .ob-tile__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px; height: 44px;
+    margin-bottom: var(--sp-2);
+    border-radius: var(--r-lg);
+    background: linear-gradient(135deg, rgba(3,105,161,.08), rgba(6,182,212,.06));
+    color: var(--sky);
+  }
+  .ob-tile__title { font-size: var(--fs-lg); font-weight: 600; color: var(--text); }
+  .ob-tile__body { font-size: var(--fs-sm); color: var(--text-2); line-height: 1.7; }
+
+  .ob-prose {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    gap: var(--sp-12);
+    margin-top: var(--sp-12);
+    align-items: start;
+  }
+  .ob-prose__main { font-size: var(--fs-md); color: var(--text-2); line-height: 1.8; }
+  .ob-prose__aside {
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.75;
+    padding-left: var(--sp-6);
+    border-left: 3px solid var(--cyan);
+  }
+
+  .ob-training { background: var(--deep-navy); position: relative; overflow: hidden; }
+  .ob-training__bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 50% 60% at 0% 100%, rgba(6,182,212,.12) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 50% at 100% 0%, rgba(3,105,161,.10) 0%, transparent 60%);
+  }
+  .ob-training .container { position: relative; z-index: 1; }
+
+  .ob-support { background: var(--white); }
+
+  .ob-order { background: var(--off-white); }
+  .ob-steps {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sp-6);
+  }
+  .ob-step {
+    display: flex;
+    flex-direction: column;
+    padding: var(--sp-10) var(--sp-8);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    box-shadow: var(--shadow-sm);
+  }
+  .ob-step--then { border-top: 3px solid var(--cyan); }
+  .ob-step:not(.ob-step--then) { border-top: 3px solid var(--sky); }
+  .ob-step__tag {
+    align-self: flex-start;
+    padding: 0.25rem 0.75rem;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--blue);
+    background: #EFF6FF;
+    border-radius: var(--r-full);
+    margin-bottom: var(--sp-5);
+  }
+  .ob-step__title {
+    font-family: var(--font-display);
+    font-size: var(--fs-2xl);
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin-bottom: var(--sp-4);
+  }
+  .ob-step__body { font-size: var(--fs-base); color: var(--text-2); line-height: 1.75; }
+  .ob-step__foot { margin-top: auto; padding-top: var(--sp-8); }
+  .ob-step__already { font-size: var(--fs-sm); color: var(--text-2); }
+
+  .ob-close { background: var(--deep-navy); position: relative; overflow: hidden; }
+  .ob-close::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse 55% 75% at 100% 50%, rgba(14,165,233,0.08) 0%, transparent 60%);
+  }
+  .ob-close__inner { position: relative; z-index: 1; max-width: 720px; }
+  .ob-close__h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--sp-6);
+  }
+  .ob-close__h2 :global(em) { font-style: normal; color: rgba(255,255,255,0.45); }
+  .ob-close__body { font-size: var(--fs-md); color: rgba(255,255,255,0.62); line-height: 1.75; margin-bottom: var(--sp-10); }
+  .ob-close__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-6); }
+  .ob-close__ghost { color: rgba(255,255,255,0.72); }
+  .ob-close__ghost:hover { color: var(--white); }
+
+
+  /* ╔═══════════════════════════════════════════╗
+     ║  RESPONSIVE                               ║
+     ╚═══════════════════════════════════════════╝ */
+  @media (max-width: 1100px) {
+    .ob-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 1024px) {
+    .ob-hero__layout,
+    .ob-two,
+    .ob-prose { grid-template-columns: minmax(0, 1fr); gap: var(--sp-10); }
+    .ob-hero__content { max-width: 680px; }
+    .ob-invoice { max-width: 560px; }
+  }
+  @media (max-width: 768px) {
+    .ob-hero { padding-block: var(--sp-16) var(--sp-12); }
+    .ob-steps,
+    .ob-tiles { grid-template-columns: minmax(0, 1fr); }
+    .ob-step { padding: var(--sp-8) var(--sp-6); }
+    .ob-tile { padding: var(--sp-6); }
+    .ob-panel { padding: var(--sp-6); }
+    .ob-invoice { padding: var(--sp-6); }
+    .ob-prose__aside { padding-left: var(--sp-4); }
+  }
+  @media (max-width: 640px) {
+    .ob-hero__h1 { font-size: clamp(2rem, 7.5vw, 2.5rem); }
+    .ob-hero__actions { flex-direction: column; align-items: stretch; }
+    .ob-hero__actions .btn { justify-content: center; }
+    .ob-facts { grid-template-columns: minmax(0, 1fr); }
+    .ob-invoice__row dd { font-size: var(--fs-lg); }
+  }
+</style>

@@ -1,0 +1,87 @@
+---
+/**
+ * Book onboarding: step one of two. The form posts to /api/onboarding, which
+ * mails the request under [Onboarding] and lands the visitor on
+ * /services/onboarding/payment, step two. Nothing is charged here.
+ * Layout in src/components/onboarding/OnboardingBooking.astro.
+ */
+import Layout from '../../../layouts/Layout.astro';
+import NavBar from '../../../components/NavBar.astro';
+import OnboardingBooking from '../../../components/onboarding/OnboardingBooking.astro';
+import type { BookingCopy } from '../../../components/onboarding/types';
+import { localizedPath } from '../../../i18n/index';
+import { onboardingPath } from '../../../lib/onboarding';
+
+const lang = 'en';
+
+const copy: BookingCopy = {
+  hero: {
+    eyebrow: 'Book onboarding',
+    h1Html: 'Pick the date. We set it up <span class="text-gradient">with you.</span>',
+    sub: 'At least four hours, live: your workspace set up, your team trained, then three months of free support.',
+    noteHtml: `Nothing is charged here. <a href="${onboardingPath('offer', lang)}">Read what onboarding covers</a>.`,
+    facts: ['At least four hours', '500 USD, 250 back in your wallet', 'Confirmed within one working day'],
+  },
+  card: {
+    title: 'Three short sections',
+    note: 'They tell us who to set up, and when to start. Fields with an asterisk are required.',
+  },
+  legends: { you: 'Who you are', company: 'The company', sessions: 'The sessions' },
+  optional: '(optional)',
+  fields: {
+    name: { label: 'Your name', placeholder: 'Mariana Castillo' },
+    email: { label: 'Work email', placeholder: 'mariana@heliobio.com' },
+    phone: { label: 'Phone', placeholder: '+44 20 7946 0958' },
+    role: { label: 'Your role', placeholder: 'Head of marketing' },
+    company: { label: 'Company', placeholder: 'Helio Biosciences' },
+    website: { label: 'Website', placeholder: 'heliobio.com' },
+    team: {
+      label: 'Your team’s name in Nuvora',
+      placeholder: 'Helio Marketing',
+      hint: 'If you’ve already opened one. If not, we open it with you.',
+    },
+    language: { label: 'Session language', options: { en: 'English', fr: 'French', zh: 'Chinese' } },
+    date: { label: 'Preferred date', hint: 'We propose the hours by email.' },
+    attendees: {
+      label: 'People joining',
+      options: { '1': 'Just me', '2-5': '2 to 5', '6-15': '6 to 15', '16+': 'More than 15' },
+    },
+    people: {
+      label: 'Who they are',
+      placeholder: 'Names and roles, if you know them. For example: two creators, our admin, and the marketing lead of a client.',
+    },
+  },
+  submit: 'Book the sessions',
+  sending: 'Sending…',
+  privacy: 'We use this only to prepare and confirm your sessions.',
+  errors: {
+    name: 'Please add your name.',
+    email: 'We need an email to confirm the date.',
+    emailInvalid: 'That email looks off. Could you check it?',
+    company: 'Which company are we setting up?',
+    language: 'Pick the language for the sessions.',
+    date: 'Pick a date for the first session.',
+    datePast: 'Pick a date between today and a year from now.',
+    attendees: 'Roughly how many people join?',
+    server: 'Something went wrong on our side. Please try again in a moment.',
+    network: 'Looks like a connection problem. Check your network and try again.',
+  },
+  aside: {
+    nextTitle: 'Next, the payment',
+    nextBody: 'Once you send this, you pay the 500 USD by card or Alipay, with an invoice. 250 USD of it goes into your team’s wallet in Nuvora.',
+    unsureTitle: 'Not sure yet?',
+    unsureBody: 'Tell us what your team needs first. A real person answers within one working day.',
+    unsureLink: { label: 'Contact us', href: localizedPath('contact', lang) },
+  },
+};
+---
+
+<Layout
+  title="Book your Nuvora onboarding"
+  description="Pick a date for your onboarding: at least four hours, live, to set up your Nuvora team and train everyone. Confirmed within one working day."
+>
+  <NavBar />
+  <main id="main-content">
+    <OnboardingBooking lang={lang} copy={copy} endpoint="/api/onboarding" paymentHref={onboardingPath('payment', lang)} />
+  </main>
+</Layout>

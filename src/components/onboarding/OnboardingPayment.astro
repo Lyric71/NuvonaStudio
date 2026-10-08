@@ -1,0 +1,205 @@
+---
+/**
+ * The onboarding payment page, body of /services/onboarding/payment and its
+ * four twins. Step two of two: the booking form lands here, and the button
+ * under the deck is the payment, in the page's currency (ONBOARDING_PAY in
+ * src/lib/onboarding.ts). The copy never names the payment provider.
+ *
+ * Noindex and out of the sitemap (astro.config.mjs): it only makes sense
+ * right after the form. What happens next is listed by when it happens,
+ * never numbered.
+ *
+ * Layout only: the copy comes from the locale page (see ./types.ts).
+ */
+import type { PaymentCopy } from './types';
+
+interface Props {
+  copy: PaymentCopy;
+  payHref: string;
+}
+
+const { copy, payHref } = Astro.props;
+---
+
+<section class="ob-phero" aria-labelledby="ob-phero-h">
+  <div class="ob-phero__glow" aria-hidden="true"></div>
+  <div class="container ob-phero__inner">
+    <div class="ob-phero__check reveal" aria-hidden="true">
+      <svg width="26" height="26" viewBox="0 0 28 28" fill="none"><path d="M5 14l6.5 6.5L23 8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <p class="eyebrow eyebrow--light reveal">{copy.hero.eyebrow}</p>
+    <h1 id="ob-phero-h" class="ob-phero__h1 reveal reveal-delay-1" set:html={copy.hero.h1Html} />
+    <p class="ob-phero__lead reveal reveal-delay-2">{copy.hero.lead}</p>
+    <div class="ob-phero__actions reveal reveal-delay-3">
+      <a href={payHref} class="btn btn--primary btn--lg ob-pay" rel="noopener">
+        {copy.hero.button}
+        <svg width="16" height="16" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <p class="ob-phero__note reveal reveal-delay-3">{copy.hero.note}</p>
+  </div>
+</section>
+
+<section class="section ob-next" aria-labelledby="ob-next-h">
+  <div class="container ob-next__layout">
+    <div>
+      <h2 id="ob-next-h" class="ob-next__h2 reveal">{copy.stepsTitle}</h2>
+      <ol class="ob-timeline" role="list">
+        {copy.steps.map((step, i) => (
+          <li class={`ob-timeline__item reveal${i > 0 ? ` reveal-delay-${Math.min(i, 3)}` : ''}`}>
+            <span class="ob-timeline__dot" aria-hidden="true"></span>
+            <p class="ob-timeline__when">{step.when}</p>
+            <p class="ob-timeline__body">{step.body}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+
+    <aside class="ob-onward" aria-labelledby="ob-onward-h">
+      <h2 id="ob-onward-h" class="ob-onward__title">{copy.onwardTitle}</h2>
+      {copy.onward.map((item) => (
+        <div class="ob-onward__card reveal">
+          <p class="ob-onward__label">{item.label}</p>
+          <p class="ob-onward__body">{item.body}</p>
+          <a href={item.href} class="ob-onward__link">
+            {item.cta}
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      ))}
+    </aside>
+  </div>
+</section>
+
+<style>
+  .ob-phero {
+    position: relative;
+    overflow: hidden;
+    background: var(--deep-navy);
+    padding-block: var(--sp-20) var(--sp-20);
+  }
+  .ob-phero__glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 50% 70% at 100% 0%, rgba(6,182,212,.16) 0%, transparent 60%),
+      radial-gradient(ellipse 45% 60% at 0% 100%, rgba(3,105,161,.18) 0%, transparent 60%);
+  }
+  .ob-phero__inner { position: relative; z-index: 1; max-width: 860px; }
+  .ob-phero__check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px; height: 56px;
+    margin-bottom: var(--sp-6);
+    border-radius: 50%;
+    background: var(--sky);
+    box-shadow: 0 0 0 10px rgba(14,165,233,0.14);
+  }
+  .ob-phero__h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-block: var(--sp-5) var(--sp-6);
+  }
+  .ob-phero__h1 :global(.text-gradient) {
+    background: linear-gradient(135deg, var(--cyan) 0%, var(--sky) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .ob-phero__lead { font-size: var(--fs-md); color: rgba(255,255,255,0.75); line-height: 1.75; max-width: 640px; }
+  .ob-phero__actions { margin-top: var(--sp-10); }
+  .ob-pay { gap: var(--sp-3); font-size: var(--fs-sm); padding: 1.1rem 2.5rem; }
+  .ob-phero__note { margin-top: var(--sp-6); font-size: var(--fs-sm); color: rgba(255,255,255,0.55); line-height: 1.7; max-width: 640px; }
+
+  .ob-next { background: var(--off-white); }
+  .ob-next__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: var(--sp-16);
+    align-items: start;
+  }
+  .ob-next__h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.01em;
+    margin-bottom: var(--sp-8);
+  }
+  .ob-timeline { display: flex; flex-direction: column; }
+  .ob-timeline__item { position: relative; padding: 0 0 var(--sp-8) var(--sp-10); }
+  .ob-timeline__item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 22px;
+    bottom: 4px;
+    width: 2px;
+    background: var(--border);
+  }
+  .ob-timeline__dot {
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 3px solid var(--sky);
+  }
+  .ob-timeline__when {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: var(--sp-2);
+  }
+  .ob-timeline__body { font-size: var(--fs-base); color: var(--text-2); line-height: 1.7; }
+
+  .ob-onward { display: flex; flex-direction: column; gap: var(--sp-4); }
+  .ob-onward__title {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin-bottom: var(--sp-1);
+  }
+  .ob-onward__card {
+    padding: var(--sp-6);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    transition: box-shadow var(--t-base), border-color var(--t-base);
+  }
+  .ob-onward__card:hover { box-shadow: var(--shadow-md); border-color: var(--border-2); }
+  .ob-onward__label { font-weight: 600; color: var(--text); margin-bottom: var(--sp-2); }
+  .ob-onward__body { font-size: var(--fs-sm); color: var(--text-2); line-height: 1.7; }
+  .ob-onward__link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    margin-top: var(--sp-4);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--blue);
+    transition: gap var(--t-fast), color var(--t-fast);
+  }
+  .ob-onward__link:hover { gap: var(--sp-3); color: var(--sky); }
+
+  @media (max-width: 1024px) {
+    .ob-next__layout { grid-template-columns: minmax(0, 1fr); gap: var(--sp-10); }
+  }
+  @media (max-width: 640px) {
+    .ob-phero { padding-block: var(--sp-16) var(--sp-12); }
+    .ob-phero__h1 { font-size: clamp(2rem, 7.5vw, 2.5rem); }
+    .ob-pay { width: 100%; justify-content: center; }
+    .ob-timeline__item { padding-left: var(--sp-8); }
+  }
+</style>

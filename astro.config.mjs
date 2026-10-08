@@ -2,10 +2,14 @@
 import { defineConfig } from 'astro/config';
 import vercel from '@astrojs/vercel';
 import sitemap from '@astrojs/sitemap';
-import { getAlternateUrl, pageLangs } from './src/i18n/index.ts';
+import { getAlternateUrl, languages, localizedPath, pageLangs } from './src/i18n/index.ts';
 import { articleLastmod } from './src/i18n/schemas.ts';
 
 const SITE = 'https://www.nuvora.studio';
+
+// The onboarding payment page, in every language: the step after the booking
+// form, noindex, so it stays out of the sitemap.
+const NOT_IN_SITEMAP = Object.keys(languages).map((l) => localizedPath('services/onboarding/payment', l));
 
 // Keep the trailing slash on the bare root only.
 const stripSlash = (url) => {
@@ -23,6 +27,8 @@ export default defineConfig({
     sitemap({
       filter: (page) => {
         const disallowed = ['/api', '/404'];
+        const { pathname } = new URL(page);
+        if (NOT_IN_SITEMAP.includes(pathname.replace(/\/$/, ''))) return false;
         return !disallowed.some(
           (path) => page.includes(`${path}/`) || page.endsWith(path),
         );

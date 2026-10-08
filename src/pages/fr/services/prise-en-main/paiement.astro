@@ -1,0 +1,60 @@
+---
+/**
+ * Prise en main, deuxième étape : le paiement. Le formulaire de réservation
+ * mène ici ; le bouton ouvre le lien de paiement en euros (ONBOARDING_PAY
+ * dans src/lib/onboarding.ts). Noindex, et hors du plan du site.
+ * Mise en page dans src/components/onboarding/OnboardingPayment.astro.
+ */
+import Layout from '../../../../layouts/Layout.astro';
+import NavBar from '../../../../components/NavBar.astro';
+import OnboardingPayment from '../../../../components/onboarding/OnboardingPayment.astro';
+import type { PaymentCopy } from '../../../../components/onboarding/types';
+import { localizedPath } from '../../../../i18n/index';
+import { ONBOARDING_PAY, onboardingPath } from '../../../../lib/onboarding';
+
+const lang = 'fr';
+
+const copy: PaymentCopy = {
+  hero: {
+    eyebrow: 'Prise en main réservée',
+    h1Html: 'Votre demande est bien arrivée. Reste le <span class="text-gradient">paiement.</span>',
+    lead: 'Réglez les 500 € par carte bancaire, avec facture, et nous confirmons votre première séance par e-mail sous un jour ouvré.',
+    button: 'Payer 500 €',
+    note: '250 € en sont reversés dans le portefeuille de votre équipe sur Nuvora. Surveillez notre e-mail à l’adresse que vous nous avez indiquée.',
+  },
+  stepsTitle: 'La suite',
+  steps: [
+    { when: 'Sous un jour ouvré', body: 'Nous confirmons la première séance par e-mail, horaires compris, à la date choisie ou au plus près.' },
+    { when: 'Avant la première séance', body: 'Préparez la liste des participants, et vérifiez que tous ceux qui publient peuvent se connecter à leur propre compte LinkedIn.' },
+    { when: 'Au moins quatre heures, en direct', body: 'Équipe, comptes LinkedIn, solde, clients, compétences, validations et agents configurés avec vous, puis chacun formé.' },
+    { when: 'Pendant trois mois', body: 'Toutes vos questions sur Nuvora, traitées gratuitement. Vos 250 € attendent dans le portefeuille, prêts à être dépensés.' },
+  ],
+  onwardTitle: 'En attendant',
+  onward: [
+    {
+      label: 'Le contenu de la prise en main',
+      body: 'La configuration, la formation, l’assistance et les 250 € reversés dans votre portefeuille.',
+      href: onboardingPath('offer', lang),
+      cta: 'Relire l’offre',
+    },
+    {
+      label: 'Le centre d’aide',
+      body: 'Un guide pour chaque entrée du menu de Nuvora, de votre premier post à vos factures.',
+      href: localizedPath('help', lang),
+      cta: 'Ouvrir le centre d’aide',
+    },
+  ],
+};
+---
+
+<Layout
+  lang="fr"
+  title="Prise en main réservée : une dernière étape"
+  description="Votre demande de prise en main est bien arrivée. Réglez les 500 €, et nous confirmons votre première séance par e-mail sous un jour ouvré."
+  robots="noindex, follow"
+>
+  <NavBar lang="fr" />
+  <main id="main-content">
+    <OnboardingPayment copy={copy} payHref={ONBOARDING_PAY[lang]} />
+  </main>
+</Layout>

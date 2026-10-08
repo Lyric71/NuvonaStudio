@@ -1,0 +1,88 @@
+---
+/**
+ * Réserver la prise en main : première des deux étapes. Le formulaire part
+ * vers /api/onboarding, qui envoie la demande sous [Onboarding] et conduit
+ * le visiteur à /fr/services/prise-en-main/paiement. Rien n’est débité ici.
+ * Mise en page dans src/components/onboarding/OnboardingBooking.astro.
+ */
+import Layout from '../../../../layouts/Layout.astro';
+import NavBar from '../../../../components/NavBar.astro';
+import OnboardingBooking from '../../../../components/onboarding/OnboardingBooking.astro';
+import type { BookingCopy } from '../../../../components/onboarding/types';
+import { localizedPath } from '../../../../i18n/index';
+import { onboardingPath } from '../../../../lib/onboarding';
+
+const lang = 'fr';
+
+const copy: BookingCopy = {
+  hero: {
+    eyebrow: 'Réserver la prise en main',
+    h1Html: 'Choisissez la date. Nous configurons tout <span class="text-gradient">avec vous.</span>',
+    sub: 'Au moins quatre heures en direct : votre espace de travail configuré, votre équipe formée, puis trois mois d’assistance gratuite.',
+    noteHtml: `Rien n’est débité à cette étape. <a href="${onboardingPath('offer', lang)}">Voir le contenu de la prise en main</a>.`,
+    facts: ['Au moins quatre heures', '500 €, dont 250 reversés', 'Confirmation sous un jour ouvré'],
+  },
+  card: {
+    title: 'Trois rubriques, vite remplies',
+    note: 'Elles nous disent qui configurer, et quand commencer. Les champs marqués d’un astérisque sont obligatoires.',
+  },
+  legends: { you: 'Vous', company: 'L’entreprise', sessions: 'Les séances' },
+  optional: '(facultatif)',
+  fields: {
+    name: { label: 'Nom et prénom', placeholder: 'Claire Martin' },
+    email: { label: 'E-mail professionnel', placeholder: 'claire.martin@heliobio.fr' },
+    phone: { label: 'Téléphone', placeholder: '+33 1 23 45 67 89' },
+    role: { label: 'Fonction', placeholder: 'Directrice marketing' },
+    company: { label: 'Entreprise', placeholder: 'Helio Biosciences' },
+    website: { label: 'Site web', placeholder: 'heliobio.fr' },
+    team: {
+      label: 'Nom de votre équipe dans Nuvora',
+      placeholder: 'Helio Marketing',
+      hint: 'Si vous l’avez déjà créée. Sinon, nous la créons avec vous.',
+    },
+    language: { label: 'Langue des séances', options: { en: 'Anglais', fr: 'Français', zh: 'Chinois' } },
+    date: { label: 'Date souhaitée', hint: 'Nous vous proposons les horaires par e-mail.' },
+    attendees: {
+      label: 'Nombre de participants',
+      options: { '1': 'Moi seulement', '2-5': '2 à 5', '6-15': '6 à 15', '16+': 'Plus de 15' },
+    },
+    people: {
+      label: 'Qui sont-ils',
+      placeholder: 'Noms et fonctions, si vous les connaissez. Par exemple : deux créateurs, notre administrateur et la responsable marketing d’un client.',
+    },
+  },
+  submit: 'Réserver les séances',
+  sending: 'Envoi en cours…',
+  privacy: 'Ces informations servent uniquement à préparer et à confirmer vos séances.',
+  errors: {
+    name: 'Merci d’indiquer votre nom.',
+    email: 'Il nous faut un e-mail pour confirmer la date.',
+    emailInvalid: 'Cette adresse semble incorrecte. Pouvez-vous la vérifier ?',
+    company: 'Quelle entreprise configurons-nous ?',
+    language: 'Choisissez la langue des séances.',
+    date: 'Choisissez la date de la première séance.',
+    datePast: 'Choisissez une date comprise entre aujourd’hui et l’an prochain.',
+    attendees: 'Combien de personnes participeront, à peu près ?',
+    server: 'Un incident est survenu de notre côté. Réessayez dans un instant.',
+    network: 'La connexion semble interrompue. Vérifiez votre réseau, puis réessayez.',
+  },
+  aside: {
+    nextTitle: 'Ensuite, le paiement',
+    nextBody: 'Une fois ce formulaire envoyé, vous réglez les 500 € par carte bancaire, avec facture. 250 € en sont reversés dans le portefeuille de votre équipe sur Nuvora.',
+    unsureTitle: 'Pas encore décidé ?',
+    unsureBody: 'Exposez-nous d’abord les besoins de votre équipe. Une vraie personne vous répond sous un jour ouvré.',
+    unsureLink: { label: 'Nous contacter', href: localizedPath('contact', lang) },
+  },
+};
+---
+
+<Layout
+  lang="fr"
+  title="Réserver votre prise en main de Nuvora"
+  description="Choisissez la date de votre prise en main : au moins quatre heures en direct pour configurer votre équipe Nuvora et former chacun. Confirmation sous un jour ouvré."
+>
+  <NavBar lang="fr" />
+  <main id="main-content">
+    <OnboardingBooking lang={lang} copy={copy} endpoint="/api/onboarding" paymentHref={onboardingPath('payment', lang)} />
+  </main>
+</Layout>
