@@ -29,7 +29,7 @@ Vous pouvez travailler seul, ou au sein d’une équipe qui partage un solde pr�
 1. Sur la page de connexion, cliquez sur **Créer un compte**.
 2. Saisissez votre **Prénom**, votre **Nom** et votre **E-mail**.
 3. Sous **How you work**, choisissez l’une des trois options :
-   - **Moi seulement** : « Create on your own, with your own credits. You can invite people later. » Nuvora vous ouvre une équipe d’une seule personne, à votre nom, dont vous êtes l’administrateur.
+   - **Moi seulement** : « Créez seul, avec vos propres crédits. Pas besoin d’équipe : vous pourrez en créer une plus tard depuis la page Équipe. » Aucune équipe n’est créée : vous travaillez en tant que **Créateur**. Si vous créez plus tard une équipe depuis la page **Équipe**, vous en devenez l’administrateur.
    - **Create a team** : « You run it: invite people, and they create from one shared pool of credits. » Un champ apparaît pour saisir le nom de votre équipe. Vous en êtes l’administrateur.
    - **Join a team** : « Votre équipe utilise déjà Nuvora : un administrateur vous donne accès. » Un champ apparaît, où vous indiquez le nom de votre équipe ou l’adresse e-mail de votre administrateur.
 4. Cochez la case d’acceptation des conditions d’utilisation.

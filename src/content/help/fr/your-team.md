@@ -23,7 +23,7 @@ Dans Nuvora, une **équipe** désigne un groupe de personnes qui partagent une m
 
 ## Seul ou en équipe
 
-**Vous travaillez seul ?** Vous formez une équipe d’une personne, et rien ne change pour vous : les crédits que vous achetez paient ce que vous faites. La page Équipe affiche **Vous seul, pour l’instant**. Invitez quelqu’un, et cette personne partage dès lors avec vous les crédits de l’équipe.
+**Vous travaillez seul ?** Aucune équipe n’est nécessaire. Vous travaillez en tant que **Créateur**, et les crédits que vous achetez paient ce que vous faites. La page Équipe affiche **Vous travaillez seul**. Le jour où vous voulez travailler à plusieurs, saisissez-y un **Nom de l’équipe** et cliquez sur **Créer l’équipe** : vous devenez l’**administrateur** de l’équipe, et les personnes que vous invitez partagent avec vous ses crédits.
 
 **En équipe**, la page indique combien de personnes se partagent les crédits de l’équipe et les liste sous **Membres**. Un administrateur y voit aussi le solde de l’équipe, sous **Crédits de l’équipe**.
 

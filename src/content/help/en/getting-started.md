@@ -27,7 +27,7 @@ You can work alone, or in a team that shares one prepaid balance, held in US dol
 1. On the sign-in page, click **Create an account**.
 2. Type your **First name**, **Last name** and **Email**.
 3. Under **How you work**, pick one of the three options:
-   - **Just me**: "Create on your own, with your own credits. You can invite people later." Nuvora opens a team of one for you, named after you, and you are its administrator.
+   - **Just me**: "Create on your own, with your own credits. No team needed: you can create one later from the Team page." No team is created: you work as a **Creator**. If you create a team later from the **Team** page, you become its Admin.
    - **Create a team**: "You run it: invite people, and they create from one shared pool of credits." A field appears: type the name of your team. You are its administrator.
    - **Join a team**: "Your team already uses Nuvora: an admin lets you in." A field appears where you type your team's name or your admin's email address.
 4. Tick the box to accept the Terms of Service.

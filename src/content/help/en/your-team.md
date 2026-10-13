@@ -21,7 +21,7 @@ In Nuvora, a **team** is a group of people who share one pool of credits. Everyt
 
 ## Working alone or in a team
 
-**Working alone?** You are a team of one, and nothing changes for you: the credits you buy pay for what you do. The Team page says **Just you, for now**. Invite someone and they start sharing the team's credits with you.
+**Working alone?** You need no team. You work as a **Creator**, and the credits you buy pay for what you do. The Team page says **You work on your own**. When you want to work with others, type a **Team name** there and click **Create the team**: you become the team's **Admin**, and the people you invite share the team's credits with you.
 
 **In a team**, the page says how many people share the team's credits, and lists them under **Members**. An admin also sees the team's balance there, under **Team credits**.
 

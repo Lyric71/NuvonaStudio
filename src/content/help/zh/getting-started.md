@@ -28,7 +28,7 @@ Nuvora 是一个只为 LinkedIn 而生的工作空间。帖子可以交给 AI �
 1. 在登录页面点击 **创建账户**。
 2. 填写 **名**、**姓** 和 **邮箱**。
 3. 在 **How you work** 下，从三个选项中选一个：
-   - **仅我个人**：“Create on your own, with your own credits. You can invite people later.” Nuvora 会为你开设一个只有你一人的团队，以你的名字命名，你就是管理员。
+   - **仅我个人**：“独自创作，使用您自己的额度。无需团队：之后可在“团队”页面再创建。”不会创建任何团队：你以**创作者**身份工作。之后若在**团队**页面创建团队，你就成为团队管理员。
    - **Create a team**：“You run it: invite people, and they create from one shared pool of credits.” 这时会出现一个输入框，填写团队名称即可。你是这个团队的管理员。
    - **Join a team**：“您的团队已在使用 Nuvora：由管理员为您开通。” 这时会出现一个输入框，填写你所在团队的名称，或管理员的邮箱地址。
 4. 勾选同意服务条款。
