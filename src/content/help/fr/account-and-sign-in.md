@@ -3,25 +3,30 @@ title: "Compte et connexion"
 slug: "compte-et-connexion"
 lang: "fr"
 seoTitle: "Les paramètres de votre compte et la connexion | Aide Nuvora"
-description: "La page Paramètres de Nuvora : votre nom, votre photo, votre adresse de connexion et votre mot de passe, le mode clair ou sombre, l’interface en anglais, en français ou en chinois, la date et l’heure, votre page d’accueil, le récapitulatif hebdomadaire, Mes modèles, la saisie vocale, vos agents, les factures et le journal d’activité ; puis le code de connexion par e-mail, les navigateurs de confiance, la réinitialisation du mot de passe, le sort d’un accès resté inutilisé et la déconnexion."
+description: "La page Paramètres de Nuvora : votre nom, votre photo, votre adresse de connexion et votre mot de passe, le mode clair ou sombre, l’interface en anglais, en français ou en chinois, la date et l’heure, votre page d’accueil, le récapitulatif hebdomadaire, les astuces après la connexion, Mes modèles, la saisie vocale, vos agents, les factures et le journal d’activité ; puis le code de connexion par e-mail, les navigateurs de confiance, la réinitialisation du mot de passe, le sort d’un accès resté inutilisé et la déconnexion."
 excerpt: "Tout ce qui vous concerne dans les Paramètres du compte, et le fonctionnement de la connexion, du code de connexion et de la récupération du mot de passe."
 section: "account"
 order: 14
-updated: 2026-10-08
+updated: 2026-10-14
 appPaths: ["/settings", "/login", "/forgot-password", "/reset-password"]
 audience: "Tout le monde"
-related: ["getting-started", "my-connections", "your-team", "balance-and-payments", "agents", "choosing-a-model", "troubleshooting"]
+related: ["getting-started", "discovery-and-tips", "my-connections", "your-team", "balance-and-payments", "agents", "choosing-a-model", "troubleshooting"]
 shots:
   - file: "/images/help/account-and-sign-in-settings.fr.webp"
     route: "/settings"
     alt: "La page Paramètres : le bandeau avec la personne connectée, son rôle et son équipe, Disponible maintenant, Dépensé aujourd’hui et Dépensé ce mois-ci ; la liste des sections à gauche ; les cartes Vue d’ensemble du compte et Votre nom"
     captured: 2026-10-04
-sources: ["src/pages/settings.astro", "src/styles/apps/nuvora.css", "public/apps/nuvora/vocabulary.js", "src/lib/app.ts", "src/layouts/Layout.astro", "src/components/ThemeSwitch.astro", "src/pages/login.astro", "src/lib/mfa.ts", "src/pages/api/login.ts", "src/pages/api/login/mfa.ts", "src/pages/forgot-password.astro", "src/pages/reset-password.astro", "src/lib/auth.ts", "src/pages/api/team.ts", "src/lib/inactivity-cleanup.ts", "src/lib/inactivity-mail.ts"]
+  - file: "/images/help/account-and-sign-in-tips.fr.webp"
+    route: "/settings"
+    clip: "#tips"
+    alt: "La carte Astuces des Paramètres : l’interrupteur Afficher des astuces à la connexion, activé, la remarque sur Ne plus afficher et les flèches, le bouton Voir une astuce maintenant et l’aperçu d’une carte d’astuce"
+    captured: 2026-10-14
+sources: ["src/pages/settings.astro", "src/styles/apps/nuvora.css", "public/apps/nuvora/vocabulary.js", "src/lib/app.ts", "src/layouts/Layout.astro", "src/components/ThemeSwitch.astro", "src/pages/login.astro", "src/lib/mfa.ts", "src/pages/api/login.ts", "src/pages/api/login/mfa.ts", "src/pages/forgot-password.astro", "src/pages/reset-password.astro", "src/lib/auth.ts", "src/pages/api/team.ts", "src/lib/inactivity-cleanup.ts", "src/lib/inactivity-mail.ts", "src/lib/tips.ts", "src/scripts/tipsNotice.ts"]
 ---
 
 Ouvrez **Paramètres du compte** depuis le menu placé sous votre photo, en haut à droite de chaque page. Le bandeau en tête de page indique qui est connecté, votre rôle, votre équipe et la date de votre arrivée, puis trois chiffres : **Disponible maintenant**, **Dépensé aujourd’hui** et **Dépensé ce mois-ci**. Quand votre solde est vide ou s’épuise, le bouton **Acheter des crédits** apparaît sous le premier. Un accès client n’a pas de solde.
 
-Les sections sont listées à gauche, en quatre groupes : **Compte** (**Vue d’ensemble**, **Votre nom**, **Photo de profil**, **Sécurité**), **Préférences** (**Apparence**, **Langue**, **Date et heure**, **Page d’accueil**, **Vos connexions**, **Récapitulatif hebdomadaire**, **Mes modèles**, **Saisie vocale**), **Automatisation** (**Vos agents**) et **Facturation** (**Factures**, **Journal d’activité**). Un clic sur l’une d’elles vous y amène.
+Les sections sont listées à gauche, en quatre groupes : **Compte** (**Vue d’ensemble**, **Votre nom**, **Photo de profil**, **Sécurité**), **Préférences** (**Apparence**, **Langue**, **Date et heure**, **Page d’accueil**, **Vos connexions**, **Récapitulatif hebdomadaire**, **Astuces**, **Mes modèles**, **Saisie vocale**), **Automatisation** (**Vos agents**) et **Facturation** (**Factures**, **Journal d’activité**). Un clic sur l’une d’elles vous y amène.
 
 ![La page Paramètres : le bandeau avec la personne connectée, son rôle et son équipe, Disponible maintenant, Dépensé aujourd’hui et Dépensé ce mois-ci ; la liste des sections à gauche ; les cartes Vue d’ensemble du compte et Votre nom](/images/help/account-and-sign-in-settings.fr.webp)
 
@@ -92,6 +97,17 @@ Sous **Récapitulatif hebdomadaire** :
 
 Chaque interrupteur est enregistré dès que vous le basculez. Chaque récapitulatif contient aussi un lien de désinscription, pour l’arrêter depuis votre messagerie. **Voir les nouveautés** ouvre la liste des changements, et **Gérer tous vos e-mails** ouvre la page où vous choisissez chacun des e-mails facultatifs que nous vous envoyons.
 
+## Astuces
+
+À chaque connexion, une petite carte s’ouvre dans le coin inférieur droit de la première page et présente quelques astuces, chacune illustrée d’une capture de Nuvora dans votre langue. Son fonctionnement est détaillé dans [Découverte et astuces](/fr/aide/decouverte-et-astuces#les-astuces-après-la-connexion).
+
+Sous **Astuces** :
+
+- **Afficher des astuces à la connexion** : activé, la carte s’ouvre après chaque connexion ; désactivé, elle ne s’affiche plus. L’interrupteur est enregistré dès que vous le basculez. **Ne plus afficher**, sur une astuce, le désactive aussi.
+- **Voir une astuce maintenant** ouvre la carte sur-le-champ, quel que soit l’état de l’interrupteur.
+
+![La carte Astuces des Paramètres : l’interrupteur Afficher des astuces à la connexion, activé, la remarque sur Ne plus afficher et les flèches, le bouton Voir une astuce maintenant et l’aperçu d’une carte d’astuce](/images/help/account-and-sign-in-tips.fr.webp)
+
 ## Mes modèles
 
 **Mes modèles** liste, par onglets, chaque modèle d’IA autorisé par votre équipe. Tous sont activés pour vous, y compris ceux ajoutés par la suite. Désactivez un modèle que vous ne souhaitez pas voir : il disparaît de vos propres listes de modèles, dans Posts, Interroger et partout ailleurs, sans rien changer pour les autres. Chaque interrupteur est enregistré dès que vous le basculez.
@@ -155,6 +171,10 @@ Un lien de réinitialisation ne sert qu’une fois. S’il a expiré, la page af
 Un accès que personne n’a utilisé depuis deux mois peut recevoir un e-mail invitant son titulaire à se connecter avant une date, fixée un mois plus tard. Le message rappelle la dernière utilisation de l’accès (ou indique qu’il n’a jamais servi) et le jour où il sera désactivé. Une seule connexion avant cette échéance suffit : l’accès reste tel quel et rien d’autre ne change. Rester connecté sur un navigateur utilisé chaque jour compte aussi comme une utilisation.
 
 Faute de connexion d’ici là, l’accès est désactivé et un e-mail vous en avertit. Rien n’est supprimé : le compte et son historique sont conservés, et un administrateur de votre équipe peut vous rendre l’accès depuis la page **Équipe** (voir [Votre équipe](/fr/aide/votre-equipe#suspendre-un-accès)). Mot de passe oublié entre-temps ? Passez par **Mot de passe oublié ?** sur la page de connexion, comme indiqué plus haut.
+
+## Découverte
+
+**Découverte**, dans le menu placé sous votre photo, rouvre la page qui vous a accueilli à votre première connexion : tous les modules de votre menu, les premières étapes, le centre d’aide et la visite rapide. Voir [Découverte et astuces](/fr/aide/decouverte-et-astuces).
 
 ## Se déconnecter
 

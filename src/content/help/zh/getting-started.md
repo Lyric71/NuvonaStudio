@@ -2,21 +2,26 @@
 title: "Nuvora 快速上手"
 lang: "zh"
 seoTitle: "快速上手｜Nuvora 帮助中心"
-description: "Nuvora 是什么，如何独自或和团队一起创建账户，如何登录，菜单怎样布局，以及如何撰写并发布你的第一篇 LinkedIn 帖子。"
+description: "Nuvora 是什么，如何独自或和团队一起创建账户，如何登录，首次登录时打开的功能总览页，菜单怎样布局，以及如何撰写并发布你的第一篇 LinkedIn 帖子。"
 excerpt: "几分钟内创建账户，摸清菜单，发出你的第一篇 LinkedIn 帖子。"
 section: "getting-started"
 order: 1
-updated: 2026-10-08
-appPaths: ["/signup", "/login", "/social/linkedin/posts"]
+updated: 2026-10-14
+appPaths: ["/signup", "/login", "/discover", "/social/linkedin/posts"]
 audience: "所有人"
-related: ["linkedin-posts", "calendar", "linkedin-ads", "validation", "ask", "agents", "assets-library", "my-connections", "balance-and-payments", "your-team", "client-space", "account-and-sign-in"]
+related: ["discovery-and-tips", "linkedin-posts", "calendar", "linkedin-ads", "validation", "ask", "agents", "assets-library", "my-connections", "balance-and-payments", "your-team", "client-space", "account-and-sign-in"]
 shots:
+  - file: "/images/help/getting-started-signup.zh.webp"
+    route: "/signup"
+    clip: "“创建您的账户”卡片"
+    alt: "“创建您的账户”卡片：名、姓、邮箱、国家或地区，“您的工作方式”下的三个选项，“您是通过什么渠道了解到我们的？”下的五个答案，服务条款勾选框和“发送验证码”按钮"
+    captured: 2026-10-14
   - file: "/images/help/getting-started-menu.zh.webp"
     route: "/social/linkedin/posts"
     clip: "#side-nav"
     alt: "左侧菜单：帖子、日历、LinkedIn Ads、审核、提问、智能体、素材库、图片编辑器、营销活动和技能，底部是团队和额度"
     captured: 2026-10-08
-sources: ["src/lib/app.ts", "src/layouts/Layout.astro", "src/styles/apps/nuvora.css", "public/apps/nuvora/vocabulary.js", "src/lib/auth.ts", "src/middleware.ts", "src/pages/signup.astro", "src/lib/signup.ts", "src/pages/api/signup/verify.ts", "src/pages/login.astro", "src/lib/mfa.ts", "src/pages/invite/[token].astro", "src/scripts/creditChip.ts", "src/components/ThemeSwitch.astro", "src/components/panels/SocialContentPanel.astro", "src/scripts/socialContent.ts", "src/lib/social/connect-guide.ts"]
+sources: ["src/lib/app.ts", "src/layouts/Layout.astro", "src/styles/apps/nuvora.css", "public/apps/nuvora/vocabulary.js", "src/lib/auth.ts", "src/middleware.ts", "src/pages/signup.astro", "src/lib/signup.ts", "src/lib/signup-fields.ts", "src/pages/discover.astro", "src/pages/api/signup/verify.ts", "src/pages/login.astro", "src/lib/mfa.ts", "src/pages/invite/[token].astro", "src/scripts/creditChip.ts", "src/components/ThemeSwitch.astro", "src/components/panels/SocialContentPanel.astro", "src/scripts/socialContent.ts", "src/lib/social/connect-guide.ts"]
 ---
 
 Nuvora 是一个只为 LinkedIn 而生的工作空间。帖子可以交给 AI 写，也可以自己写，然后发到你的 LinkedIn 个人主页，或你管理的公司主页上，立即发出或定在你选的时间。每篇已计划、已排期和已发布的帖子都显示在日历上。你的 LinkedIn 广告账户被实时读取，包括仪表盘、广告系列和广告库。帖子可以先等同事或客户审批，再对外发出。**提问** 回答关于帖子、日历和广告账户的问题，智能体则替你盯着发布节奏和广告账户。你的视觉素材存放在素材库里，图片编辑器可以把图片调整成 LinkedIn 的尺寸；营销活动则把一轮 LinkedIn 推广的素材归到一起，供提问、智能体和帖子使用。
@@ -27,12 +32,18 @@ Nuvora 是一个只为 LinkedIn 而生的工作空间。帖子可以交给 AI �
 
 1. 在登录页面点击 **创建账户**。
 2. 填写 **名**、**姓** 和 **邮箱**。
-3. 在 **How you work** 下，从三个选项中选一个：
+3. 在 **国家或地区** 中，选择你工作所在的国家或地区。列表使用页面当前的语言；如果 Nuvora 能判断出你从哪里连接，会预先选好对应的国家或地区，不对的话改过来即可。
+4. 在 **您的工作方式** 下，从三个选项中选一个：
    - **仅我个人**：“独自创作，使用您自己的额度。无需团队：之后可在“团队”页面再创建。”不会创建任何团队：你以**创作者**身份工作。之后若在**团队**页面创建团队，你就成为团队管理员。
-   - **Create a team**：“You run it: invite people, and they create from one shared pool of credits.” 这时会出现一个输入框，填写团队名称即可。你是这个团队的管理员。
-   - **Join a team**：“您的团队已在使用 Nuvora：由管理员为您开通。” 这时会出现一个输入框，填写你所在团队的名称，或管理员的邮箱地址。
-4. 勾选同意服务条款。
-5. 点击 **发送验证码**。Nuvora 会给你发一封邮件，里面是 6 位验证码。输入验证码之前，系统不会创建任何东西。
+   - **创建团队**：“由您管理：邀请成员，大家共用一个额度池进行创作。”这时会出现一个输入框，填写团队名称即可。你是这个团队的管理员。
+   - **加入团队**：“您的团队已在使用 Nuvora：由管理员为您开通。”这时会出现一个输入框，填写你所在团队的名称，或管理员的邮箱地址。
+5. 在 **您是通过什么渠道了解到我们的？** 下，选一个最贴切的答案：**Google 或其他搜索引擎**、**AI 助手（ChatGPT、Gemini、Claude、Perplexity 等）**、**展会或行业博览会**、**他人推荐** 或 **其他渠道**。
+6. 勾选同意服务条款。
+7. 点击 **发送验证码**。Nuvora 会给你发一封邮件，里面是 6 位验证码。输入验证码之前，系统不会创建任何东西。
+
+这两项都是必填的：漏填时，表单会提示 **请选择您所在的国家或地区。** 或 **请告诉我们您是通过什么渠道了解到我们的。** 你的国家或地区会显示在你在团队里的个人页面上，供管理员查看；了解渠道只有 Nuvora 能看到。
+
+![“创建您的账户”卡片：名、姓、邮箱、国家或地区，“您的工作方式”下的三个选项，“您是通过什么渠道了解到我们的？”下的五个答案，服务条款勾选框和“发送验证码”按钮](/images/help/getting-started-signup.zh.webp)
 
 验证码 20 分钟内有效。临时邮箱无法开户，请使用工作邮箱或个人邮箱。如果这个地址已经有账户，你收到的会是一封告知邮件，而不是验证码。
 
@@ -40,8 +51,8 @@ Nuvora 是一个只为 LinkedIn 而生的工作空间。帖子可以交给 AI �
 
 下一屏是 **请查收邮箱**。
 
-- **仅我个人** 或 **Create a team**：在 **验证码** 中填入验证码，设置一个不少于 8 个字符的 **密码**，然后点击 **创建我的账户**。你随即登录，进入 **帖子**。
-- **Join a team**：填入验证码，点击 **提交申请**。此时还不需要设置密码。**申请已提交** 页面会告诉你，团队管理员已经收到通知。其中一位管理员同意后，你会收到一封邀请邮件。打开邮件，设置密码，再点击 **加入并登录**。
+- **仅我个人** 或 **创建团队**：在 **验证码** 中填入验证码，设置一个不少于 8 个字符的 **密码**，然后点击 **创建我的账户**。你随即登录，进入 **功能总览**，这个页面会介绍你能做的一切（参见[功能总览与小贴士](/zh/help/discovery-and-tips)）。
+- **加入团队**：填入验证码，点击 **提交申请**。此时还不需要设置密码。**申请已提交** 页面会告诉你，团队管理员已经收到通知。其中一位管理员同意后，你会收到一封邀请邮件。打开邮件，设置密码，再点击 **加入并登录**，同样会进入 **功能总览**。
 
 迟迟没收到？查一下垃圾邮件文件夹，或者点击 **重新开始** 更正邮箱地址。
 
@@ -49,11 +60,13 @@ Nuvora 是一个只为 LinkedIn 而生的工作空间。帖子可以交给 AI �
 
 填写 **登录**（即你的邮箱地址）和 **密码**，然后点击 **登录**。登录页面跟随浏览器的语言显示英文、法文或中文，卡片下方的语言名称可以随时切换。登录之后，Nuvora 使用你账户里保存的语言；随时可以在 **账户设置** 的 **语言** 中更改。
 
-登录后进入 **帖子**，或你在 **账户设置** 中选定的主页。客户的登录账号总是进入它的 **客户空间**，商业合作伙伴则进入 **佣金**。
+第一次登录时，Nuvora 会打开 **功能总览**：菜单里的每个模块、值得先做的几步、帮助中心，以及一段屏幕快速导览。如果你原本要去某个页面，比如从邮件里的链接点进来，点 **进入您的页面** 就能直达。之后登录会进入 **帖子**，或你在 **账户设置** 中选定的主页；**功能总览** 一直留在头像下的菜单里。客户的登录账号总是进入它的 **客户空间**，商业合作伙伴则进入 **佣金**。
 
 新建的团队还会要求第二步验证：一个发到你邮箱的 6 位登录验证码，10 分钟内有效。在 **登录验证码** 中填入，点击 **确认并登录**。在你每天使用的电脑上，保持勾选 **信任此浏览器 30 天，之后只需输入密码。** 管理员可以在 **团队** 页面为整个团队关闭这一步。参见[账户与登录](/zh/help/account-and-sign-in#邮件登录验证码)。
 
 登录后，Nuvora 会在后台检查你的 LinkedIn 连接。如果某个连接需要重新连接，屏幕右下角会弹出通知。参见[我的连接](/zh/help/my-connections#登录后的连接检查)。
+
+登录后的第一个页面还会在右下角弹出一张小卡片，带来几条小贴士：某件事怎么做、你可能错过的功能、省时省力的窍门。第一次登录时，小贴士会等你离开功能总览后再出现。参见[功能总览与小贴士](/zh/help/discovery-and-tips#登录后的小贴士)。
 
 ## 熟悉界面
 
@@ -85,7 +98,7 @@ Nuvora 是一个只为 LinkedIn 而生的工作空间。帖子可以交给 AI �
 - 一个太阳或月亮按钮，在浅色和深色之间切换。
 - **动态**：正在为你运行的草稿、生成和检查任务，以及它们的结果。你换到别的页面，它照样跟着任务走。
 - 你的余额：此刻可以花的金额。点击即可充值。余额用完时，这里显示 **购买额度**。客户的登录账号没有余额，所以这里不显示金额。
-- 你的头像，点开是一个菜单，里面有 **账户设置**、**账单与额度**、**团队**、**我的连接**，**系统**、**浅色** 和 **深色** 三个选项，一排语言，以及 **退出登录**。
+- 你的头像，点开是一个菜单，里面有 **账户设置**、**功能总览**、**账单与额度**、**团队**、**我的连接**，**系统**、**浅色** 和 **深色** 三个选项，一排语言，以及 **退出登录**。
 
 页脚链接到 **帮助中心**、**反馈问题**、**联系我们**、nuvora.studio 网站、**更新日志**、**服务条款** 和 **隐私政策**。
 

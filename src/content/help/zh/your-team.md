@@ -2,11 +2,11 @@
 title: "你的团队"
 lang: "zh"
 seoTitle: "你的团队：角色与客户｜Nuvora 帮助中心"
-description: "一个人用还是团队用，管理员、创作者、查看者和客户四种角色，邀请成员，处理加入申请，每日限额，暂停登录，按人设置模块和权限，添加客户并为客户方人员开通登录，发票信息与登录验证码。"
+description: "一个人用还是团队用，管理员、创作者、查看者和客户四种角色，邀请成员，处理加入申请，每日限额，暂停登录，查看每个人的使用情况，按人设置模块和权限，添加客户并为客户方人员开通登录，发票信息与登录验证码。"
 excerpt: "一个团队共用一笔额度，并为自己的客户工作。管理员负责邀请成员、设定每日限额、添加客户并为客户方人员开通登录。"
 section: "team"
 order: 10
-updated: 2026-10-08
+updated: 2026-10-14
 appPaths: ["/team", "/invite"]
 audience: "所有人；大部分操作仅限管理员"
 related: ["getting-started", "balance-and-payments", "client-space", "linkedin-posts", "validation", "skills", "agents", "account-and-sign-in"]
@@ -15,7 +15,7 @@ shots:
     route: "/team"
     alt: "一个新团队的团队页面：目前只有您，团队名称和保存名称按钮，团队额度为 $0.00 并带购买额度按钮，成员卡片里有一位管理员并标着管理员不设限额，下方是邀请成员、客户、发票与登录几张卡片"
     captured: 2026-10-04
-sources: ["src/pages/team.astro", "src/scripts/teamPanel.ts", "src/pages/api/team.ts", "src/pages/api/team/clients.ts", "src/pages/api/team/clients/[id].ts", "src/lib/team-clients.ts", "src/lib/invitations.ts", "src/lib/user-admin.ts", "src/lib/app.ts", "src/layouts/Layout.astro", "src/pages/settings.astro", "src/pages/invite/[token].astro", "src/pages/signup.astro", "src/scripts/socialContent.ts", "src/pages/api/social-content/[id].ts", "src/lib/stored-files.ts", "src/lib/validation-http.ts", "src/scripts/validationRequest.ts", "src/pages/admin/users/[id].astro", "public/apps/nuvora/vocabulary.js"]
+sources: ["src/pages/team.astro", "src/scripts/teamPanel.ts", "src/pages/api/team.ts", "src/pages/api/team/clients.ts", "src/pages/api/team/clients/[id].ts", "src/lib/team-clients.ts", "src/lib/invitations.ts", "src/lib/user-admin.ts", "src/lib/app.ts", "src/layouts/Layout.astro", "src/pages/settings.astro", "src/pages/invite/[token].astro", "src/pages/signup.astro", "src/scripts/socialContent.ts", "src/pages/api/social-content/[id].ts", "src/lib/stored-files.ts", "src/lib/validation-http.ts", "src/scripts/validationRequest.ts", "src/pages/admin/users/[id].astro", "public/apps/nuvora/vocabulary.js", "src/scripts/userDetail.ts", "src/lib/usage-events.ts", "src/lib/signup-fields.ts"]
 ---
 
 在 Nuvora 里，**团队** 是共用一笔额度的一群人。团队用 AI 做的每件事，都先从团队额度里付费。团队还可以为 **客户** 工作，也就是团队替其撰写 LinkedIn 帖子的那些公司。点菜单里的 **团队** 打开这一页。
@@ -49,6 +49,8 @@ Nuvora 有四种角色。
 - **权限**：一个人在各个领域能做什么（查看、创建、修改、删除），按 **帖子**、**发布与定时**、**LinkedIn Ads**、**审核**、**素材**、**图片编辑器**、**营销活动**、**提问**、**智能体**、**技能**、**团队成员**、**团队设置** 和 **共享额度** 分级设置。每项权限都跟随这个人的角色，除非单独为他改过。
 
 管理员在这个人自己的页面上调整这两项：在团队页面上点他那一行的 **详情**，调整 **模块** 和 **逐个模块的权限** 两张卡片，再点 **保存修改**。点 **返回团队** 回到列表。谁都不能修改自己的权限。
+
+这个页面还会显示此人做过什么。**动态** 卡片汇总了此人今天和本月的花费、开户以来的付费操作，以及过去 30 天用过的功能数。在 **模块与功能（过去 30 天）** 下，此人用过的每个模块都会列出其中的功能：打开过的页面、做过的修改、付费运行、花费，以及最近一次使用的日期。再往下，**全部操作** 列出最近打开的页面和做过的修改，**付费操作** 列出最近的付费运行及其价格。如果此人是自己注册的账户，页面顶部的横幅还会显示其注册时填写的国家或地区。
 
 ## 邀请成员
 

@@ -1,11 +1,11 @@
 ---
 title: "Your team"
 seoTitle: "Your team, its roles and its clients | Nuvora Help"
-description: "Working alone or in a team, the Admin, Creator, Viewer and Client roles, inviting people, answering requests to join, daily limits, pausing a login, modules and rights per person, adding clients and giving their people a login, invoice details and the sign-in code."
+description: "Working alone or in a team, the Admin, Creator, Viewer and Client roles, inviting people, answering requests to join, daily limits, pausing a login, what each person did, modules and rights per person, adding clients and giving their people a login, invoice details and the sign-in code."
 excerpt: "A team shares one pool of credits and works for its clients. Admins invite people, set daily limits, add clients and give their people a login."
 section: "team"
 order: 10
-updated: 2026-10-08
+updated: 2026-10-14
 appPaths: ["/team", "/invite"]
 audience: "Everyone; most actions are for admins"
 related: ["getting-started", "balance-and-payments", "client-space", "linkedin-posts", "validation", "skills", "agents", "account-and-sign-in"]
@@ -14,7 +14,7 @@ shots:
     route: "/team"
     alt: "The Team page of a new team: Just you, for now, the team name with Save the name, Team credits at $0.00 with Buy credits, the Members card with one admin and No limit for admins, then the Invite someone, Clients and Invoices and sign-in cards"
     captured: 2026-10-04
-sources: ["src/pages/team.astro", "src/scripts/teamPanel.ts", "src/pages/api/team.ts", "src/pages/api/team/clients.ts", "src/pages/api/team/clients/[id].ts", "src/lib/team-clients.ts", "src/lib/invitations.ts", "src/lib/user-admin.ts", "src/lib/app.ts", "src/layouts/Layout.astro", "src/pages/settings.astro", "src/pages/invite/[token].astro", "src/pages/signup.astro", "src/scripts/socialContent.ts", "src/pages/api/social-content/[id].ts", "src/lib/stored-files.ts", "src/lib/validation-http.ts", "src/scripts/validationRequest.ts", "src/pages/admin/users/[id].astro", "public/apps/nuvora/vocabulary.js"]
+sources: ["src/pages/team.astro", "src/scripts/teamPanel.ts", "src/pages/api/team.ts", "src/pages/api/team/clients.ts", "src/pages/api/team/clients/[id].ts", "src/lib/team-clients.ts", "src/lib/invitations.ts", "src/lib/user-admin.ts", "src/lib/app.ts", "src/layouts/Layout.astro", "src/pages/settings.astro", "src/pages/invite/[token].astro", "src/pages/signup.astro", "src/scripts/socialContent.ts", "src/pages/api/social-content/[id].ts", "src/lib/stored-files.ts", "src/lib/validation-http.ts", "src/scripts/validationRequest.ts", "src/pages/admin/users/[id].astro", "public/apps/nuvora/vocabulary.js", "src/scripts/userDetail.ts", "src/lib/usage-events.ts", "src/lib/signup-fields.ts"]
 ---
 
 In Nuvora, a **team** is a group of people who share one pool of credits. Everything the team does with AI is paid from the team's credits first. A team can also work for **clients**: the companies it writes LinkedIn posts for. Open **Team** in the menu.
@@ -48,6 +48,8 @@ Beyond the role, each person's access can be fitted more finely:
 - **Rights**: what a person may do in each area (see it, create in it, change it, delete from it), graded on **Posts**, **Publishing and scheduling**, **LinkedIn Ads**, **Validation**, **Assets**, **Image editor**, **Campaigns**, **Ask**, **Agents**, **Skills**, **Team members**, **Team settings** and **Shared credits**. Each right follows the person's role until it is changed for them.
 
 An admin changes both on the person's own page: on the Team page, click **Details** in their row, adjust the **Modules** and **Rights, module by module** cards, then click **Save changes**. **Back to the team** returns to the list. Nobody can change their own rights.
+
+The same page shows what the person did. The **Activity** card sums up what they spent today and this month, their paid actions since the account was opened, and the number of features they used in the last 30 days. Under **Modules and features, last 30 days**, each module they worked in lists its features, with the pages they opened, the changes they made, the paid runs, what those cost and the day they last used it. Below, **Everything they did** lists the last pages opened and changes made, and **Paid actions** the last paid runs with their price. When the person created their account themselves, the band at the top of the page also shows the country they gave at sign-up.
 
 ## Invite someone
 

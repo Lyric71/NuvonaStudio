@@ -3,11 +3,11 @@ title: "Votre équipe"
 slug: "votre-equipe"
 lang: "fr"
 seoTitle: "Votre équipe, ses rôles et ses clients | Aide Nuvora"
-description: "Travailler seul ou en équipe, les rôles Administrateur, Créateur, Lecteur et Client, inviter des personnes, répondre aux demandes d’adhésion, limites quotidiennes, suspension d’un accès, modules et droits par personne, ajout de clients et ouverture d’accès à leurs collaborateurs, informations de facturation et code de connexion."
+description: "Travailler seul ou en équipe, les rôles Administrateur, Créateur, Lecteur et Client, inviter des personnes, répondre aux demandes d’adhésion, limites quotidiennes, suspension d’un accès, ce que fait chaque personne, modules et droits par personne, ajout de clients et ouverture d’accès à leurs collaborateurs, informations de facturation et code de connexion."
 excerpt: "Une équipe partage une même réserve de crédits et travaille pour ses clients. Les administrateurs invitent les personnes, fixent les limites quotidiennes, ajoutent les clients et ouvrent des accès à leurs collaborateurs."
 section: "team"
 order: 10
-updated: 2026-10-08
+updated: 2026-10-14
 appPaths: ["/team", "/invite"]
 audience: "Tout le monde ; la plupart des actions reviennent aux administrateurs"
 related: ["getting-started", "balance-and-payments", "client-space", "linkedin-posts", "validation", "skills", "agents", "account-and-sign-in"]
@@ -16,7 +16,7 @@ shots:
     route: "/team"
     alt: "La page Équipe d’une nouvelle équipe : Vous seul, pour l’instant, le nom de l’équipe avec Enregistrer le nom, Crédits de l’équipe à $0.00 avec Acheter des crédits, la carte Membres avec un administrateur et Aucune limite pour les administrateurs, puis les cartes Inviter quelqu’un, Clients et Factures et connexion"
     captured: 2026-10-04
-sources: ["src/pages/team.astro", "src/scripts/teamPanel.ts", "src/pages/api/team.ts", "src/pages/api/team/clients.ts", "src/pages/api/team/clients/[id].ts", "src/lib/team-clients.ts", "src/lib/invitations.ts", "src/lib/user-admin.ts", "src/lib/app.ts", "src/layouts/Layout.astro", "src/pages/settings.astro", "src/pages/invite/[token].astro", "src/pages/signup.astro", "src/scripts/socialContent.ts", "src/pages/api/social-content/[id].ts", "src/lib/stored-files.ts", "src/lib/validation-http.ts", "src/scripts/validationRequest.ts", "src/pages/admin/users/[id].astro", "public/apps/nuvora/vocabulary.js"]
+sources: ["src/pages/team.astro", "src/scripts/teamPanel.ts", "src/pages/api/team.ts", "src/pages/api/team/clients.ts", "src/pages/api/team/clients/[id].ts", "src/lib/team-clients.ts", "src/lib/invitations.ts", "src/lib/user-admin.ts", "src/lib/app.ts", "src/layouts/Layout.astro", "src/pages/settings.astro", "src/pages/invite/[token].astro", "src/pages/signup.astro", "src/scripts/socialContent.ts", "src/pages/api/social-content/[id].ts", "src/lib/stored-files.ts", "src/lib/validation-http.ts", "src/scripts/validationRequest.ts", "src/pages/admin/users/[id].astro", "public/apps/nuvora/vocabulary.js", "src/scripts/userDetail.ts", "src/lib/usage-events.ts", "src/lib/signup-fields.ts"]
 ---
 
 Dans Nuvora, une **équipe** désigne un groupe de personnes qui partagent une même réserve de crédits. Tout ce que l’équipe fait avec l’IA est d’abord prélevé sur les crédits de l’équipe. Une équipe peut aussi travailler pour des **clients** : les entreprises pour lesquelles elle rédige des posts LinkedIn. Ouvrez **Équipe** dans le menu.
@@ -50,6 +50,8 @@ Au-delà du rôle, l’accès de chacun peut être réglé plus finement :
 - **Droits** : ce qu’une personne peut faire dans chaque domaine (le voir, y créer, y modifier, y supprimer), réglé pour **Posts**, **Publication et programmation**, **LinkedIn Ads**, **Validation**, **Contenus**, **Éditeur d’images**, **Campagnes**, **Interroger**, **Agents**, **Compétences**, **Membres de l’équipe**, **Réglages de l’équipe** et **Crédits partagés**. Chaque droit suit le rôle de la personne tant qu’il n’est pas modifié pour elle.
 
 Un administrateur règle les deux sur la page de la personne : sur la page Équipe, cliquez sur **Détails** dans sa ligne, ajustez les cartes **Modules** et **Les droits, module par module**, puis cliquez sur **Enregistrer les modifications**. **Retour à l’équipe** ramène à la liste. Personne ne peut modifier ses propres droits.
+
+La même page montre ce que la personne a fait. La carte **Activité** résume ses dépenses du jour et du mois, ses actions payantes depuis l’ouverture du compte et le nombre de fonctions utilisées sur les 30 derniers jours. Sous **Modules et fonctions, 30 derniers jours**, chaque module où elle a travaillé détaille ses fonctions : pages ouvertes, modifications apportées, exécutions payantes, leur coût et le jour de la dernière utilisation. Plus bas, **Toute son activité** liste les dernières pages ouvertes et les dernières modifications, et **Actions payantes** les dernières exécutions payantes avec leur prix. Quand la personne a créé son compte elle-même, le bandeau en tête de page indique aussi le pays renseigné à l’inscription.
 
 ## Inviter quelqu’un
 

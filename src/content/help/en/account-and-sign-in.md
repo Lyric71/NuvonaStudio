@@ -1,25 +1,30 @@
 ---
 title: "Account and sign-in"
 seoTitle: "Your account settings and signing in | Nuvora Help"
-description: "The Settings page in Nuvora: your name, picture, sign-in email and password, light or dark, the interface in English, French or Chinese, date and time, your home page, the weekly digest, My models, voice input, your agents, invoices and the activity log; then the sign-in code by email, trusted browsers, password reset, logins left unused and signing out."
+description: "The Settings page in Nuvora: your name, picture, sign-in email and password, light or dark, the interface in English, French or Chinese, date and time, your home page, the weekly digest, the tips after sign-in, My models, voice input, your agents, invoices and the activity log; then the sign-in code by email, trusted browsers, password reset, logins left unused and signing out."
 excerpt: "Everything in User Settings that applies to you, and how signing in, the sign-in code and password recovery work."
 section: "account"
 order: 14
-updated: 2026-10-08
+updated: 2026-10-14
 appPaths: ["/settings", "/login", "/forgot-password", "/reset-password"]
 audience: "Everyone"
-related: ["getting-started", "my-connections", "your-team", "balance-and-payments", "agents", "choosing-a-model", "troubleshooting"]
+related: ["getting-started", "discovery-and-tips", "my-connections", "your-team", "balance-and-payments", "agents", "choosing-a-model", "troubleshooting"]
 shots:
   - file: "/images/help/account-and-sign-in-settings.webp"
     route: "/settings"
     alt: "The Settings page: the band with the person signed in, their role and team, Available now, Spent today and Spent this month; the sections list on the left; the Account overview and Your name cards"
     captured: 2026-10-04
-sources: ["src/pages/settings.astro", "src/styles/apps/nuvora.css", "public/apps/nuvora/vocabulary.js", "src/lib/app.ts", "src/layouts/Layout.astro", "src/components/ThemeSwitch.astro", "src/pages/login.astro", "src/lib/mfa.ts", "src/pages/api/login.ts", "src/pages/api/login/mfa.ts", "src/pages/forgot-password.astro", "src/pages/reset-password.astro", "src/lib/auth.ts", "src/pages/api/team.ts", "src/lib/inactivity-cleanup.ts", "src/lib/inactivity-mail.ts"]
+  - file: "/images/help/account-and-sign-in-tips.webp"
+    route: "/settings"
+    clip: "#tips"
+    alt: "The Tips card in Settings: the Show me tips when I sign in switch, on, the note about Never see this again and the arrows, Show me a tip now, and a small picture of a tip card"
+    captured: 2026-10-14
+sources: ["src/pages/settings.astro", "src/styles/apps/nuvora.css", "public/apps/nuvora/vocabulary.js", "src/lib/app.ts", "src/layouts/Layout.astro", "src/components/ThemeSwitch.astro", "src/pages/login.astro", "src/lib/mfa.ts", "src/pages/api/login.ts", "src/pages/api/login/mfa.ts", "src/pages/forgot-password.astro", "src/pages/reset-password.astro", "src/lib/auth.ts", "src/pages/api/team.ts", "src/lib/inactivity-cleanup.ts", "src/lib/inactivity-mail.ts", "src/lib/tips.ts", "src/scripts/tipsNotice.ts"]
 ---
 
 Open **User Settings** from the menu under your picture, at the top right of every page. The band at the top of the page shows who is signed in, your role, your team and the day you joined, then three figures: **Available now**, **Spent today** and **Spent this month**. When your balance is empty or running low, **Buy credits** appears under the first one. A client login holds no balance.
 
-The sections are listed on the left, in four groups: **Account** (**Overview**, **Your name**, **Profile picture**, **Security**), **Preferences** (**Appearance**, **Language**, **Date and time**, **Home page**, **Your connections**, **Weekly digest**, **My models**, **Voice input**), **Automation** (**Your agents**) and **Billing** (**Invoices**, **Activity log**). Click one to scroll to it.
+The sections are listed on the left, in four groups: **Account** (**Overview**, **Your name**, **Profile picture**, **Security**), **Preferences** (**Appearance**, **Language**, **Date and time**, **Home page**, **Your connections**, **Weekly digest**, **Tips**, **My models**, **Voice input**), **Automation** (**Your agents**) and **Billing** (**Invoices**, **Activity log**). Click one to scroll to it.
 
 ![The Settings page: the band with the person signed in, their role and team, Available now, Spent today and Spent this month; the sections list on the left; the Account overview and Your name cards](/images/help/account-and-sign-in-settings.webp)
 
@@ -90,6 +95,17 @@ Under **Weekly digest**:
 
 Each switch is saved the moment you flip it. Every digest also carries an unsubscribe link, so you can stop it from your inbox. **See what's new** opens the list of changes, and **Manage all your emails** opens the page where you choose every optional email we send you.
 
+## Tips
+
+When you sign in, a small card in the bottom right corner of the first page brings a few tips, each with a screenshot of Nuvora in your language. See [Discovery and tips](/help/discovery-and-tips#tips-after-you-sign-in) for how the card works.
+
+Under **Tips**:
+
+- **Show me tips when I sign in**: on, the card opens after each sign-in; off, it no longer does. The switch is saved the moment you flip it. **Never see this again**, on a tip, switches it off here too.
+- **Show me a tip now** opens the card on the spot, whatever the switch says.
+
+![The Tips card in Settings: the Show me tips when I sign in switch, on, the note about Never see this again and the arrows, Show me a tip now, and a small picture of a tip card](/images/help/account-and-sign-in-tips.webp)
+
 ## My models
 
 **My models** lists every AI model your team allows, in tabs. Every one is switched on for you, the models added later included. Switch off a model you don't want to see: it leaves your own model lists, in Posts, Ask and everywhere else, and nothing changes for anybody else. Each switch is saved the moment you flip it.
@@ -153,6 +169,10 @@ A reset link works once. If it has expired, the page says **This link is invalid
 A login nobody has used for two months can receive an email asking its owner to sign in before a date, one month later. The email gives the last time the login was used (or says it never was) and the day it will be deactivated. Signing in once before that day is enough: the login stays as it is and nothing else changes. Staying signed in on a browser you use every day counts as using it too.
 
 If nobody signs in by then, the login is deactivated and you get an email saying so. Nothing is deleted: the account and its history are kept, and an admin of your team can let you back in from the **Team** page (see [Your team](/help/your-team#pause-a-login)). Forgot your password in the meantime? Use **Forgot password?** on the sign-in page, as described above.
+
+## Discovery
+
+**Discovery**, in the menu under your picture, opens the page your first sign-in landed on: every module of your menu, the first steps, the help center and the quick tour. See [Discovery and tips](/help/discovery-and-tips).
 
 ## Sign out
 

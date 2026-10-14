@@ -3,21 +3,26 @@ title: "Premiers pas avec Nuvora"
 slug: "premiers-pas"
 lang: "fr"
 seoTitle: "Premiers pas | Aide Nuvora"
-description: "Ce qu’est Nuvora, comment créer votre compte seul ou en équipe, comment vous connecter, comment se présente le menu, et comment rédiger et publier votre premier post LinkedIn."
+description: "Ce qu’est Nuvora, comment créer votre compte seul ou en équipe, comment vous connecter, la page Découverte qui vous accueille à la première connexion, comment se présente le menu, et comment rédiger et publier votre premier post LinkedIn."
 excerpt: "Créez votre compte, repérez-vous dans le menu et publiez votre premier post LinkedIn en quelques minutes."
 section: "getting-started"
 order: 1
-updated: 2026-10-08
-appPaths: ["/signup", "/login", "/social/linkedin/posts"]
+updated: 2026-10-14
+appPaths: ["/signup", "/login", "/discover", "/social/linkedin/posts"]
 audience: "Tout le monde"
-related: ["linkedin-posts", "calendar", "linkedin-ads", "validation", "ask", "agents", "assets-library", "my-connections", "balance-and-payments", "your-team", "client-space", "account-and-sign-in"]
+related: ["discovery-and-tips", "linkedin-posts", "calendar", "linkedin-ads", "validation", "ask", "agents", "assets-library", "my-connections", "balance-and-payments", "your-team", "client-space", "account-and-sign-in"]
 shots:
+  - file: "/images/help/getting-started-signup.fr.webp"
+    route: "/signup"
+    clip: "la carte Créez votre compte"
+    alt: "La carte Créez votre compte : Prénom, Nom, E-mail, Pays, les trois choix sous Votre façon de travailler, les cinq réponses sous Comment nous avez-vous connus ?, la case des conditions d’utilisation et Recevoir mon code"
+    captured: 2026-10-14
   - file: "/images/help/getting-started-menu.fr.webp"
     route: "/social/linkedin/posts"
     clip: "#side-nav"
     alt: "Le menu de gauche : Posts, Calendrier, LinkedIn Ads, Validation, Interroger, Agents, Bibliothèque de contenus, Éditeur d’images, Campagnes et Compétences, avec Équipe et Crédits tout en bas"
     captured: 2026-10-08
-sources: ["src/lib/app.ts", "src/layouts/Layout.astro", "src/styles/apps/nuvora.css", "public/apps/nuvora/vocabulary.js", "src/lib/auth.ts", "src/middleware.ts", "src/pages/signup.astro", "src/lib/signup.ts", "src/pages/api/signup/verify.ts", "src/pages/login.astro", "src/lib/mfa.ts", "src/pages/invite/[token].astro", "src/scripts/creditChip.ts", "src/components/ThemeSwitch.astro", "src/components/panels/SocialContentPanel.astro", "src/scripts/socialContent.ts", "src/lib/social/connect-guide.ts"]
+sources: ["src/lib/app.ts", "src/layouts/Layout.astro", "src/styles/apps/nuvora.css", "public/apps/nuvora/vocabulary.js", "src/lib/auth.ts", "src/middleware.ts", "src/pages/signup.astro", "src/lib/signup.ts", "src/lib/signup-fields.ts", "src/pages/discover.astro", "src/pages/api/signup/verify.ts", "src/pages/login.astro", "src/lib/mfa.ts", "src/pages/invite/[token].astro", "src/scripts/creditChip.ts", "src/components/ThemeSwitch.astro", "src/components/panels/SocialContentPanel.astro", "src/scripts/socialContent.ts", "src/lib/social/connect-guide.ts"]
 ---
 
 Nuvora est un espace de travail pour LinkedIn, et pour LinkedIn seulement. Vous y rédigez vos posts avec l’IA ou à la main, puis vous les publiez sur votre profil LinkedIn ou sur les pages entreprise que vous administrez, tout de suite ou à l’heure de votre choix. Chaque post prévu, programmé ou publié apparaît dans un calendrier. Votre compte publicitaire LinkedIn est lu en direct, avec son tableau de bord, ses campagnes et la Bibliothèque publicitaire. Un post peut attendre l’approbation d’un collègue ou d’un client avant de partir. **Interroger** répond à vos questions sur vos posts, votre calendrier et votre compte publicitaire, et des agents surveillent pour vous votre rythme de publication et votre compte publicitaire. Vos visuels sont rangés dans la Bibliothèque de contenus, où l’Éditeur d’images met une image au format LinkedIn, et les campagnes rassemblent le matériel d’une opération LinkedIn à l’intention d’Interroger, de vos agents et de vos posts.
@@ -28,12 +33,18 @@ Vous pouvez travailler seul, ou au sein d’une équipe qui partage un solde pr�
 
 1. Sur la page de connexion, cliquez sur **Créer un compte**.
 2. Saisissez votre **Prénom**, votre **Nom** et votre **E-mail**.
-3. Sous **How you work**, choisissez l’une des trois options :
+3. Sous **Pays**, choisissez le pays depuis lequel vous travaillez. La liste est rédigée dans la langue de la page ; quand Nuvora sait d’où vous vous connectez, ce pays est déjà sélectionné, et vous le corrigez s’il ne convient pas.
+4. Sous **Votre façon de travailler**, choisissez l’une des trois options :
    - **Moi seulement** : « Créez seul, avec vos propres crédits. Pas besoin d’équipe : vous pourrez en créer une plus tard depuis la page Équipe. » Aucune équipe n’est créée : vous travaillez en tant que **Créateur**. Si vous créez plus tard une équipe depuis la page **Équipe**, vous en devenez l’administrateur.
-   - **Create a team** : « You run it: invite people, and they create from one shared pool of credits. » Un champ apparaît pour saisir le nom de votre équipe. Vous en êtes l’administrateur.
-   - **Join a team** : « Votre équipe utilise déjà Nuvora : un administrateur vous donne accès. » Un champ apparaît, où vous indiquez le nom de votre équipe ou l’adresse e-mail de votre administrateur.
-4. Cochez la case d’acceptation des conditions d’utilisation.
-5. Cliquez sur **Recevoir mon code**. Nuvora vous envoie par e-mail un code à 6 chiffres. Rien n’est créé tant que vous ne l’avez pas saisi.
+   - **Créer une équipe** : « Vous la pilotez : vous invitez des personnes, qui créent en puisant dans une réserve de crédits commune. » Un champ apparaît pour saisir le nom de votre équipe. Vous en êtes l’administrateur.
+   - **Rejoindre une équipe** : « Votre équipe utilise déjà Nuvora : un administrateur vous donne accès. » Un champ apparaît, où vous indiquez le nom de votre équipe ou l’adresse e-mail de votre administrateur.
+5. Sous **Comment nous avez-vous connus ?**, choisissez la réponse qui vous correspond : **Google ou un autre moteur de recherche**, **Un assistant IA (ChatGPT, Gemini, Claude, Perplexity…)**, **Un salon professionnel ou une exposition**, **Une recommandation, quelqu’un nous a conseillés** ou **Ailleurs**.
+6. Cochez la case d’acceptation des conditions d’utilisation.
+7. Cliquez sur **Recevoir mon code**. Nuvora vous envoie par e-mail un code à 6 chiffres. Rien n’est créé tant que vous ne l’avez pas saisi.
+
+Ces deux réponses sont obligatoires : s’il en manque une, le formulaire affiche **Choisissez votre pays.** ou **Dites-nous comment vous nous avez connus.** Votre pays apparaît sur votre fiche dans l’équipe, à l’intention de vos administrateurs ; la façon dont vous nous avez connus n’est lue que par Nuvora.
+
+![La carte Créez votre compte : Prénom, Nom, E-mail, Pays, les trois choix sous Votre façon de travailler, les cinq réponses sous Comment nous avez-vous connus ?, la case des conditions d’utilisation et Recevoir mon code](/images/help/getting-started-signup.fr.webp)
 
 Le code reste valable 20 minutes. Les adresses jetables ne permettent pas d’ouvrir un compte : utilisez votre adresse professionnelle ou personnelle. Si l’adresse possède déjà un compte, vous recevez à la place d’un code un e-mail qui vous le signale.
 
@@ -41,8 +52,8 @@ Le code reste valable 20 minutes. Les adresses jetables ne permettent pas d’o
 
 L’écran suivant s’intitule **Consultez votre boîte de réception**.
 
-- **Moi seulement** ou **Create a team** : saisissez le code dans **Code de vérification**, choisissez un **Mot de passe** d’au moins 8 caractères, puis cliquez sur **Créer mon compte**. Vous êtes connecté et arrivez sur **Posts**.
-- **Join a team** : saisissez le code et cliquez sur **Envoyer ma demande**. Aucun mot de passe ne vous est encore demandé. L’écran **Votre demande est envoyée** vous indique que les administrateurs de l’équipe ont été prévenus. Dès que l’un d’eux accepte, vous recevez une invitation par e-mail. Ouvrez-la, choisissez votre mot de passe et cliquez sur **Rejoindre et se connecter**.
+- **Moi seulement** ou **Créer une équipe** : saisissez le code dans **Code de vérification**, choisissez un **Mot de passe** d’au moins 8 caractères, puis cliquez sur **Créer mon compte**. Vous êtes connecté et arrivez sur **Découverte**, la page qui présente tout ce que vous pouvez faire (voir [Découverte et astuces](/fr/aide/decouverte-et-astuces)).
+- **Rejoindre une équipe** : saisissez le code et cliquez sur **Envoyer ma demande**. Aucun mot de passe ne vous est encore demandé. L’écran **Votre demande est envoyée** vous indique que les administrateurs de l’équipe ont été prévenus. Dès que l’un d’eux accepte, vous recevez une invitation par e-mail. Ouvrez-la, choisissez votre mot de passe et cliquez sur **Rejoindre et se connecter** : vous arrivez vous aussi sur **Découverte**.
 
 Rien ne vous parvient ? Regardez dans le dossier des indésirables, ou cliquez sur **recommencez** pour corriger l’adresse.
 
@@ -50,11 +61,13 @@ Rien ne vous parvient ? Regardez dans le dossier des indésirables, ou cliquez 
 
 Saisissez votre **Identifiant** (votre adresse e-mail) et votre **Mot de passe**, puis cliquez sur **Se connecter**. La page de connexion s’affiche dans la langue de votre navigateur, anglais, français ou chinois, et les noms de langue sous le cadre permettent d’en changer. Une fois connecté, Nuvora adopte la langue enregistrée dans votre compte, que vous modifiez à tout moment dans **Paramètres du compte**, sous **Langue**.
 
-Vous arrivez sur **Posts**, ou sur la page d’accueil choisie dans **Paramètres du compte**. Un accès client arrive toujours sur son **Espace client**, et un partenaire commercial sur **Commissions**.
+À votre toute première connexion, Nuvora ouvre **Découverte** : tous les modules de votre menu, les premières étapes utiles, le centre d’aide et une visite guidée de l’écran. Si vous vous rendiez sur une page précise, depuis le lien d’un e-mail par exemple, **Accéder à votre page** vous y conduit. Ensuite, vous arrivez sur **Posts**, ou sur la page d’accueil choisie dans **Paramètres du compte**, et **Découverte** reste à portée de main dans le menu placé sous votre photo. Un accès client arrive toujours sur son **Espace client**, et un partenaire commercial sur **Commissions**.
 
 Les nouvelles équipes demandent en outre une seconde étape : un code de connexion à 6 chiffres envoyé à votre adresse e-mail, valable 10 minutes. Saisissez-le sous **Code de connexion** et cliquez sur **Confirmer et se connecter**. Sur un ordinateur dont vous vous servez tous les jours, laissez cochée la case **Faire confiance à ce navigateur pendant 30 jours : il ne demandera plus que mon mot de passe.** Un administrateur peut désactiver cette étape pour toute l’équipe depuis la page **Équipe**. Voir [Compte et connexion](/fr/aide/compte-et-connexion#le-code-de-connexion-par-e-mail).
 
 Une fois que vous êtes connecté, Nuvora vérifie vos connexions LinkedIn en arrière-plan. Si l’une d’elles doit être renouvelée, une notification l’annonce dans le coin inférieur droit de l’écran. Voir [Mes connexions](/fr/aide/mes-connexions#la-vérification-des-connexions-à-louverture-de-session).
+
+La première page qui suit la connexion présente aussi quelques astuces, sur une petite carte dans le coin inférieur droit : la marche à suivre pour telle tâche, une fonction qui a pu vous échapper, un moyen de gagner du temps. À votre toute première connexion, elles attendent que vous ayez quitté Découverte. Voir [Découverte et astuces](/fr/aide/decouverte-et-astuces#les-astuces-après-la-connexion).
 
 ## Se repérer
 
@@ -86,7 +99,7 @@ La barre en haut de chaque page comporte :
 - Un bouton soleil ou lune, qui bascule entre le thème clair et le thème sombre.
 - **Activité** : les brouillons, générations et vérifications qui tournent pour vous, et leur issue. Le suivi continue pendant que vous passez à une autre page.
 - Votre solde : le montant que vous pouvez dépenser dans l’immédiat. Cliquez dessus pour le recharger. Quand il est épuisé, il affiche **Acheter des crédits**. Un accès client n’a pas de solde et ne voit donc aucun montant à cet endroit.
-- Votre photo, qui ouvre un menu avec **Paramètres du compte**, **Facturation et crédits**, **Équipe**, **Mes connexions**, les choix **Système**, **Clair** et **Sombre**, la ligne des langues et **Se déconnecter**.
+- Votre photo, qui ouvre un menu avec **Paramètres du compte**, **Découverte**, **Facturation et crédits**, **Équipe**, **Mes connexions**, les choix **Système**, **Clair** et **Sombre**, la ligne des langues et **Se déconnecter**.
 
 Le pied de page renvoie au **Centre d’aide**, à **Signaler un bug**, à **Nous contacter**, au site nuvora.studio, aux **Nouveautés**, aux **Conditions d’utilisation** et à la **Politique de confidentialité**.
 

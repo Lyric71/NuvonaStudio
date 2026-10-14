@@ -2,25 +2,30 @@
 title: "账户与登录"
 lang: "zh"
 seoTitle: "账户设置与登录｜Nuvora 帮助中心"
-description: "Nuvora 的设置页：你的姓名、头像、登录邮箱和密码，浅色或深色，英文、法文或中文界面，日期和时间，主页，每周摘要，我的模型，语音输入，你的智能体，发票和操作日志；以及邮件登录验证码、受信任的浏览器、重置密码、长期未用的登录账号和退出登录。"
+description: "Nuvora 的设置页：你的姓名、头像、登录邮箱和密码，浅色或深色，英文、法文或中文界面，日期和时间，主页，每周摘要，登录后的小贴士，我的模型，语音输入，你的智能体，发票和操作日志；以及邮件登录验证码、受信任的浏览器、重置密码、长期未用的登录账号和退出登录。"
 excerpt: "账户设置里与你有关的每一项，以及登录、登录验证码和找回密码是怎么运作的。"
 section: "account"
 order: 14
-updated: 2026-10-08
+updated: 2026-10-14
 appPaths: ["/settings", "/login", "/forgot-password", "/reset-password"]
 audience: "所有人"
-related: ["getting-started", "my-connections", "your-team", "balance-and-payments", "agents", "choosing-a-model", "troubleshooting"]
+related: ["getting-started", "discovery-and-tips", "my-connections", "your-team", "balance-and-payments", "agents", "choosing-a-model", "troubleshooting"]
 shots:
   - file: "/images/help/account-and-sign-in-settings.zh.webp"
     route: "/settings"
     alt: "设置页：顶部横幅写着当前登录的人、角色和团队，以及当前可用、今日支出和本月支出；左侧是分区列表；右侧是账户总览和您的姓名两张卡片"
     captured: 2026-10-04
-sources: ["src/pages/settings.astro", "src/styles/apps/nuvora.css", "public/apps/nuvora/vocabulary.js", "src/lib/app.ts", "src/layouts/Layout.astro", "src/components/ThemeSwitch.astro", "src/pages/login.astro", "src/lib/mfa.ts", "src/pages/api/login.ts", "src/pages/api/login/mfa.ts", "src/pages/forgot-password.astro", "src/pages/reset-password.astro", "src/lib/auth.ts", "src/pages/api/team.ts", "src/lib/inactivity-cleanup.ts", "src/lib/inactivity-mail.ts"]
+  - file: "/images/help/account-and-sign-in-tips.zh.webp"
+    route: "/settings"
+    clip: "#tips"
+    alt: "设置页的小贴士卡片：已打开的“登录时显示小贴士”开关，关于“不再显示”和箭头的说明，“现在看一条小贴士”按钮，以及一张小贴士卡片的示意图"
+    captured: 2026-10-14
+sources: ["src/pages/settings.astro", "src/styles/apps/nuvora.css", "public/apps/nuvora/vocabulary.js", "src/lib/app.ts", "src/layouts/Layout.astro", "src/components/ThemeSwitch.astro", "src/pages/login.astro", "src/lib/mfa.ts", "src/pages/api/login.ts", "src/pages/api/login/mfa.ts", "src/pages/forgot-password.astro", "src/pages/reset-password.astro", "src/lib/auth.ts", "src/pages/api/team.ts", "src/lib/inactivity-cleanup.ts", "src/lib/inactivity-mail.ts", "src/lib/tips.ts", "src/scripts/tipsNotice.ts"]
 ---
 
 在任意页面右上角点你的头像，从菜单里打开 **账户设置**。页面顶部的横幅写着当前登录的是谁、你的角色、你的团队和你加入的日期，旁边是三个数字：**当前可用**、**今日支出** 和 **本月支出**。余额为零或见紧时，第一个数字下面会出现 **购买额度**。客户登录账号没有余额。
 
-各个分区列在左边，分成四组：**账户**（**总览**、**您的姓名**、**头像**、**安全**）、**偏好设置**（**外观**、**语言**、**日期和时间**、**主页**、**您的连接**、**每周摘要**、**我的模型**、**语音输入**）、**自动化**（**您的智能体**）和 **账单**（**发票**、**操作日志**）。点一项，页面就滚到那里。
+各个分区列在左边，分成四组：**账户**（**总览**、**您的姓名**、**头像**、**安全**）、**偏好设置**（**外观**、**语言**、**日期和时间**、**主页**、**您的连接**、**每周摘要**、**小贴士**、**我的模型**、**语音输入**）、**自动化**（**您的智能体**）和 **账单**（**发票**、**操作日志**）。点一项，页面就滚到那里。
 
 ![设置页：顶部横幅写着当前登录的人、角色和团队，以及当前可用、今日支出和本月支出；左侧是分区列表；右侧是账户总览和您的姓名两张卡片](/images/help/account-and-sign-in-settings.zh.webp)
 
@@ -91,6 +96,17 @@ Nuvora 支持英文、法文和中文。语言只改变界面，也就是菜单�
 
 每个开关一拨动就立即保存。每封摘要都附有退订链接，你也可以直接在邮箱里停掉。**查看更新** 打开变更列表，**管理您的全部邮件** 打开一个页面，我们发的每一类可选邮件都在那里设置。
 
+## 小贴士
+
+每次登录后，第一个页面的右下角会弹出一张小卡片，带来几条小贴士，每条都配有 Nuvora 在你所用语言下的截图。卡片怎么用，参见[功能总览与小贴士](/zh/help/discovery-and-tips#登录后的小贴士)。
+
+在 **小贴士** 下：
+
+- **登录时显示小贴士**：打开后，每次登录都会弹出卡片；关闭后就不再出现。开关一拨即保存。在某条小贴士上点 **不再显示**，这里的开关也会随之关闭。
+- **现在看一条小贴士** 会立即打开卡片，不受开关状态影响。
+
+![设置页的小贴士卡片：已打开的“登录时显示小贴士”开关，关于“不再显示”和箭头的说明，“现在看一条小贴士”按钮，以及一张小贴士卡片的示意图](/images/help/account-and-sign-in-tips.zh.webp)
+
 ## 我的模型
 
 **我的模型** 按标签页列出团队允许使用的所有 AI 模型。每一个都已为你开启，之后新增的模型也一样。关掉不想看到的模型，它就会从你自己的模型列表里消失，帖子、提问以及其他所有地方都是如此，其他人则不受任何影响。每个开关一拨动就立即保存。
@@ -154,6 +170,10 @@ Nuvora 支持英文、法文和中文。语言只改变界面，也就是菜单�
 连续两个月没人使用的登录账号，可能会收到一封邮件，请账号主人在一个月后的某个日期之前登录。邮件会写明该账号最近一次使用的时间（或注明从未使用过），以及将被停用的日期。在此之前登录一次即可，账号保持原样，其他一切不变。在每天使用的浏览器上保持登录状态，也算作使用。
 
 如果到期仍无人登录，账号就会被停用，你会收到邮件通知。账号不会被删除：账户和历史记录都会保留，团队管理员可以在 **团队** 页面为你恢复登录（参见 [你的团队](/zh/help/your-team#暂停登录)）。如果这期间忘了密码，可以按上文所述，在登录页点 **忘记密码？**。
+
+## 功能总览
+
+头像下菜单里的 **功能总览**，会重新打开你第一次登录时看到的页面：菜单里的每个模块、入门步骤、帮助中心和快速导览。参见[功能总览与小贴士](/zh/help/discovery-and-tips)。
 
 ## 退出登录
 
