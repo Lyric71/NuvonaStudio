@@ -5,7 +5,7 @@ description: "My Connections in Nuvora: your LinkedIn ad accounts for the Linked
 excerpt: "Connect your own LinkedIn profile, company pages and ad accounts, keep them alive, and know at once when one needs a new sign-in."
 section: "account"
 order: 12
-updated: 2026-10-04
+updated: 2026-10-14
 appPaths: ["/my-connections", "/connections-check"]
 audience: "Everyone but client logins"
 related: ["linkedin-posts", "linkedin-ads", "calendar", "agents", "account-and-sign-in", "troubleshooting"]
@@ -63,7 +63,7 @@ The **LinkedIn** card lists the steps:
 
 Back on the page, a line says how many accounts came back, for example "1 account connected. It is yours alone: nobody else in the workspace can publish on it. Remove anything you did not mean to connect."
 
-Whatever LinkedIn is already signed in to in this browser is what comes back. To connect another LinkedIn login, sign in to LinkedIn as that login first, then click **Connect another account** on the card.
+Whatever LinkedIn is already signed in to in this browser is what comes back. So **Connect another account** shows a note first, with **Sign out of LinkedIn**, which opens LinkedIn's sign-out in a new tab, and **Continue**. Sign out there (or open the page in a private window), click **Continue**, then sign in as the other login. If LinkedIn still sends back a login that was already connected, the page names it and says that nothing was added.
 
 A company page that is missing means LinkedIn doesn't list you as an administrator of it. Ask the page owner to add you, then connect again.
 

@@ -6,7 +6,7 @@ description: "Nuvora 的“我的连接”：给 LinkedIn Ads 页面用的 Linke
 excerpt: "连上你自己的 LinkedIn 个人主页、公司主页和广告账户，让它们一直有效，哪一个需要重新登录，你第一时间就知道。"
 section: "account"
 order: 12
-updated: 2026-10-04
+updated: 2026-10-14
 appPaths: ["/my-connections", "/connections-check"]
 audience: "除客户登录账号外的所有人"
 related: ["linkedin-posts", "linkedin-ads", "calendar", "agents", "account-and-sign-in", "troubleshooting"]
@@ -64,7 +64,7 @@ sources: ["src/pages/my-connections.astro", "src/scripts/personalConnections.ts"
 
 回到页面后，会有一行字告诉你回来了几个账号，例如 “1 account connected. It is yours alone: nobody else in the workspace can publish on it. Remove anything you did not mean to connect.”
 
-回来的是这个浏览器里 LinkedIn 当前已登录的账号。要连接另一个 LinkedIn 账号，先在 LinkedIn 上切换成那个账号登录，再点卡片上的 **连接另一个账号**。
+回来的是这个浏览器里 LinkedIn 当前已登录的账号。所以点 **连接另一个账号** 时，会先出现一段说明，附带 **退出 LinkedIn**（在新标签页打开 LinkedIn 的退出页面）和 **继续** 两个按钮。先在那里退出（或在无痕窗口中打开本页），点 **继续**，再用另一个账号登录。如果 LinkedIn 返回的仍是已连接的账号，页面会写明是哪个账号，并说明没有新增账号。
 
 少了某个公司主页，说明 LinkedIn 没有把你列为它的管理员。请主页所有者把你加进去，再连接一次。
 

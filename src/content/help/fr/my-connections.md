@@ -7,7 +7,7 @@ description: "Mes connexions dans Nuvora : vos comptes publicitaires LinkedIn p
 excerpt: "Connectez votre propre profil LinkedIn, vos pages entreprise et vos comptes publicitaires, gardez-les actifs et sachez aussitôt lequel réclame une nouvelle connexion."
 section: "account"
 order: 12
-updated: 2026-10-04
+updated: 2026-10-14
 appPaths: ["/my-connections", "/connections-check"]
 audience: "Tout le monde, sauf les accès client"
 related: ["linkedin-posts", "linkedin-ads", "calendar", "agents", "account-and-sign-in", "troubleshooting"]
@@ -65,7 +65,7 @@ La carte **LinkedIn** détaille les étapes :
 
 De retour sur la page, une ligne indique combien de comptes sont revenus, par exemple « 1 account connected. », rappelle qu’ils n’appartiennent qu’à vous (personne d’autre dans l’espace de travail ne peut publier dessus) et vous invite à retirer ce que vous n’aviez pas l’intention de connecter.
 
-C’est le compte LinkedIn déjà ouvert dans ce navigateur qui revient. Pour connecter un autre identifiant LinkedIn, connectez-vous d’abord à LinkedIn avec cet identifiant, puis cliquez sur **Connecter un autre compte** dans la carte.
+C’est le compte LinkedIn déjà ouvert dans ce navigateur qui revient. **Connecter un autre compte** affiche donc d’abord une note, avec **Se déconnecter de LinkedIn**, qui ouvre la déconnexion de LinkedIn dans un nouvel onglet, et **Continuer**. Déconnectez-vous là-bas (ou ouvrez la page dans une fenêtre de navigation privée), cliquez sur **Continuer**, puis connectez-vous avec l’autre identifiant. Si LinkedIn renvoie malgré tout un identifiant déjà connecté, la page le nomme et précise qu’aucun compte n’a été ajouté.
 
 Si une page entreprise manque à l’appel, c’est que LinkedIn ne vous compte pas parmi ses administrateurs. Demandez au propriétaire de la page de vous ajouter, puis connectez-vous de nouveau.
 
