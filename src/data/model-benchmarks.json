@@ -1,5 +1,5 @@
 {
-  "collectedOn": "2026-10-08",
+  "collectedOn": "2026-10-15",
   "benchmarks": [
     {
       "kind": "text",
@@ -10,7 +10,7 @@
       "higherIsBetter": true,
       "sourceName": "Artificial Analysis",
       "sourceUrl": "https://artificialanalysis.ai/leaderboards/models",
-      "asOf": "2026-10-08",
+      "asOf": "2026-10-15",
       "note": "Version 4.3, ten tests, each model at its strongest reasoning setting",
       "i18n": {
         "measures": {
@@ -32,7 +32,7 @@
       "higherIsBetter": true,
       "sourceName": "LMArena",
       "sourceUrl": "https://arena.ai/leaderboard/text",
-      "asOf": "2026-10-02",
+      "asOf": "2026-10-13",
       "note": "Overall text ranking, with style control",
       "i18n": {
         "measures": {
@@ -54,7 +54,7 @@
       "higherIsBetter": true,
       "sourceName": "Artificial Analysis",
       "sourceUrl": "https://artificialanalysis.ai/leaderboards/models",
-      "asOf": "2026-10-08",
+      "asOf": "2026-10-15",
       "note": "Median speed measured by Artificial Analysis",
       "i18n": {
         "measures": {
@@ -76,7 +76,7 @@
       "higherIsBetter": true,
       "sourceName": "Artificial Analysis",
       "sourceUrl": "https://artificialanalysis.ai/leaderboards/models",
-      "asOf": "2026-10-08",
+      "asOf": "2026-10-15",
       "note": "Without tools",
       "i18n": {
         "measures": {
@@ -98,7 +98,7 @@
       "higherIsBetter": true,
       "sourceName": "Artificial Analysis",
       "sourceUrl": "https://artificialanalysis.ai/leaderboards/models",
-      "asOf": "2026-10-08",
+      "asOf": "2026-10-15",
       "note": "No longer run on the newest models, which show a dash",
       "i18n": {
         "measures": {
@@ -120,7 +120,7 @@
       "higherIsBetter": true,
       "sourceName": "Artificial Analysis",
       "sourceUrl": "https://artificialanalysis.ai/leaderboards/models",
-      "asOf": "2026-10-08",
+      "asOf": "2026-10-15",
       "note": "No longer run on the newest models, which show a dash",
       "i18n": {
         "measures": {
@@ -142,7 +142,7 @@
       "higherIsBetter": true,
       "sourceName": "Artificial Analysis",
       "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image",
-      "asOf": "2026-10-08",
+      "asOf": "2026-10-15",
       "note": "Overall board, all categories",
       "i18n": {
         "measures": {
@@ -186,7 +186,7 @@
       "higherIsBetter": true,
       "sourceName": "Artificial Analysis",
       "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing",
-      "asOf": "2026-10-08",
+      "asOf": "2026-10-15",
       "note": "Overall board, all categories",
       "i18n": {
         "measures": {
@@ -207,7 +207,7 @@
       "unit": "score",
       "higherIsBetter": true,
       "sourceName": "LMArena",
-      "sourceUrl": "https://arena.ai/leaderboard/image-edit",
+      "sourceUrl": "https://arena.ai/leaderboard/image/image-edit/single-image",
       "asOf": "2026-10-06",
       "note": "Overall board",
       "i18n": {
@@ -230,7 +230,7 @@
       "higherIsBetter": false,
       "sourceName": "Artificial Analysis",
       "sourceUrl": "https://artificialanalysis.ai/image/models",
-      "asOf": "2026-10-08",
+      "asOf": "2026-10-15",
       "note": "Median on the maker's own API, moves from day to day",
       "i18n": {
         "measures": {
@@ -252,7 +252,7 @@
       "higherIsBetter": true,
       "sourceName": "Artificial Analysis",
       "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
-      "asOf": "2026-10-08",
+      "asOf": "2026-10-15",
       "note": "Without audio",
       "i18n": {
         "measures": {
@@ -296,7 +296,7 @@
       "higherIsBetter": true,
       "sourceName": "Artificial Analysis",
       "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
-      "asOf": "2026-10-08",
+      "asOf": "2026-10-15",
       "note": "With audio",
       "i18n": {
         "measures": {
@@ -318,7 +318,7 @@
       "higherIsBetter": true,
       "sourceName": "Artificial Analysis",
       "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/image-to-video",
-      "asOf": "2026-10-08",
+      "asOf": "2026-10-15",
       "note": "Without audio",
       "i18n": {
         "measures": {
@@ -370,41 +370,6 @@
   ],
   "models": [
     {
-      "id": "anthropic/claude-haiku-4.5",
-      "kind": "text",
-      "label": "Claude Haiku 4.5",
-      "provider": "Anthropic",
-      "level": 3,
-      "web": true,
-      "vision": true,
-      "scores": {
-        "aa_index": {
-          "value": 16.9,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
-        },
-        "aa_speed": {
-          "value": 90,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
-        },
-        "gpqa_diamond": {
-          "value": 67.2,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
-        },
-        "hle": {
-          "value": 10.4,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
-        },
-        "tau2_telecom": {
-          "value": 54.7,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
-        },
-        "lmarena_text": {
-          "value": 1414,
-          "sourceUrl": "https://arena.ai/leaderboard/text"
-        }
-      }
-    },
-    {
       "id": "anthropic/claude-fable-5",
       "kind": "text",
       "label": "Claude Fable 5",
@@ -417,25 +382,25 @@
           "value": 49.6,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "aa_speed": {
-          "value": 65,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        "lmarena_text": {
+          "value": 1503,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
         },
-        "gpqa_diamond": {
-          "value": 92.6,
+        "aa_speed": {
+          "value": 66,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
         "hle": {
           "value": 55.5,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
+        "gpqa_diamond": {
+          "value": 92.6,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
         "tau2_telecom": {
           "value": 98.5,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
-        },
-        "lmarena_text": {
-          "value": 1504,
-          "sourceUrl": "https://arena.ai/leaderboard/text"
         }
       }
     },
@@ -452,25 +417,25 @@
           "value": 30.4,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "aa_speed": {
-          "value": 75,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        "lmarena_text": {
+          "value": 1435,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
         },
-        "gpqa_diamond": {
-          "value": 90.3,
+        "aa_speed": {
+          "value": 81,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
         "hle": {
           "value": 37.7,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
+        "gpqa_diamond": {
+          "value": 90.3,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
         "tau2_telecom": {
           "value": 84.8,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
-        },
-        "lmarena_text": {
-          "value": 1436,
-          "sourceUrl": "https://arena.ai/leaderboard/text"
         }
       }
     },
@@ -487,25 +452,25 @@
           "value": 47,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "aa_speed": {
-          "value": 78,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        "lmarena_text": {
+          "value": 1485,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
         },
-        "gpqa_diamond": {
-          "value": 94.1,
+        "aa_speed": {
+          "value": 94,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
         "hle": {
           "value": 49.5,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
+        "gpqa_diamond": {
+          "value": 94.1,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
         "tau2_telecom": {
           "value": 85.1,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
-        },
-        "lmarena_text": {
-          "value": 1484,
-          "sourceUrl": "https://arena.ai/leaderboard/text"
         }
       }
     },
@@ -522,25 +487,25 @@
           "value": 42.1,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "aa_speed": {
-          "value": 108,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        "lmarena_text": {
+          "value": 1466,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
         },
-        "gpqa_diamond": {
-          "value": 92.5,
+        "aa_speed": {
+          "value": 132,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
         "hle": {
           "value": 42.9,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
+        "gpqa_diamond": {
+          "value": 92.5,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
         "tau2_telecom": {
           "value": 86.3,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
-        },
-        "lmarena_text": {
-          "value": 1465,
-          "sourceUrl": "https://arena.ai/leaderboard/text"
         }
       }
     },
@@ -557,21 +522,21 @@
           "value": 37.3,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "aa_speed": {
-          "value": 117,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        "lmarena_text": {
+          "value": 1453,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
         },
-        "gpqa_diamond": {
-          "value": 91.1,
+        "aa_speed": {
+          "value": 122,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
         "hle": {
           "value": 39.5,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "lmarena_text": {
-          "value": 1453,
-          "sourceUrl": "https://arena.ai/leaderboard/text"
+        "gpqa_diamond": {
+          "value": 91.1,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         }
       }
     },
@@ -588,25 +553,25 @@
           "value": 16.8,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "aa_speed": {
-          "value": 125,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        "lmarena_text": {
+          "value": 1390,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
         },
-        "gpqa_diamond": {
-          "value": 82.8,
+        "aa_speed": {
+          "value": 157,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
         "hle": {
           "value": 21.5,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
+        "gpqa_diamond": {
+          "value": 82.8,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
         "tau2_telecom": {
           "value": 68.4,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
-        },
-        "lmarena_text": {
-          "value": 1390,
-          "sourceUrl": "https://arena.ai/leaderboard/text"
         }
       }
     },
@@ -623,25 +588,25 @@
           "value": 13,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "aa_speed": {
-          "value": 131,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        "lmarena_text": {
+          "value": 1338,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
         },
-        "gpqa_diamond": {
-          "value": 67.6,
+        "aa_speed": {
+          "value": 199,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
         "hle": {
           "value": 9.5,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
+        "gpqa_diamond": {
+          "value": 67.6,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
         "tau2_telecom": {
           "value": 36.5,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
-        },
-        "lmarena_text": {
-          "value": 1338,
-          "sourceUrl": "https://arena.ai/leaderboard/text"
         }
       }
     },
@@ -658,25 +623,25 @@
           "value": 30.4,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "aa_speed": {
-          "value": 98,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        "lmarena_text": {
+          "value": 1458,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
         },
-        "gpqa_diamond": {
-          "value": 88.8,
+        "aa_speed": {
+          "value": 100,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
         "hle": {
           "value": 37.5,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
+        "gpqa_diamond": {
+          "value": 88.8,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
         "tau2_telecom": {
           "value": 96.2,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
-        },
-        "lmarena_text": {
-          "value": 1458,
-          "sourceUrl": "https://arena.ai/leaderboard/text"
         }
       }
     },
@@ -693,21 +658,25 @@
           "value": 24.2,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "gpqa_diamond": {
-          "value": 89.4,
+        "lmarena_text": {
+          "value": 1436,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        },
+        "aa_speed": {
+          "value": 37,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
         "hle": {
           "value": 34.8,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
+        "gpqa_diamond": {
+          "value": 89.4,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
         "tau2_telecom": {
           "value": 95,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
-        },
-        "lmarena_text": {
-          "value": 1436,
-          "sourceUrl": "https://arena.ai/leaderboard/text"
         }
       }
     },
@@ -724,21 +693,21 @@
           "value": 40.2,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "aa_speed": {
-          "value": 37,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        "lmarena_text": {
+          "value": 1482,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
         },
-        "gpqa_diamond": {
-          "value": 92.7,
+        "aa_speed": {
+          "value": 39,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
         "hle": {
           "value": 43,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "lmarena_text": {
-          "value": 1482,
-          "sourceUrl": "https://arena.ai/leaderboard/text"
+        "gpqa_diamond": {
+          "value": 92.7,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         }
       }
     },
@@ -755,25 +724,25 @@
           "value": 25.2,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "aa_speed": {
-          "value": 54,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        "lmarena_text": {
+          "value": 1456,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
         },
-        "gpqa_diamond": {
-          "value": 90,
+        "aa_speed": {
+          "value": 56,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
         "hle": {
           "value": 35.6,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
+        "gpqa_diamond": {
+          "value": 90,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
         "tau2_telecom": {
           "value": 93,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
-        },
-        "lmarena_text": {
-          "value": 1456,
-          "sourceUrl": "https://arena.ai/leaderboard/text"
         }
       }
     },
@@ -791,15 +760,15 @@
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
         "aa_speed": {
-          "value": 56,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
-        },
-        "gpqa_diamond": {
-          "value": 92.3,
+          "value": 51,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
         "hle": {
           "value": 38,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "gpqa_diamond": {
+          "value": 92.3,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         }
       }
@@ -817,21 +786,21 @@
           "value": 44.3,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "aa_speed": {
-          "value": 62,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        "lmarena_text": {
+          "value": 1455,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
         },
-        "gpqa_diamond": {
-          "value": 94.9,
+        "aa_speed": {
+          "value": 56,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
         "hle": {
           "value": 42.9,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "lmarena_text": {
-          "value": 1454,
-          "sourceUrl": "https://arena.ai/leaderboard/text"
+        "gpqa_diamond": {
+          "value": 94.9,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         }
       }
     },
@@ -848,21 +817,21 @@
           "value": 25.2,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "gpqa_diamond": {
-          "value": 88.5,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        "lmarena_text": {
+          "value": 1472,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
         },
         "hle": {
           "value": 32.4,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
+        "gpqa_diamond": {
+          "value": 88.5,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
         "tau2_telecom": {
           "value": 96.5,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
-        },
-        "lmarena_text": {
-          "value": 1472,
-          "sourceUrl": "https://arena.ai/leaderboard/text"
         }
       }
     },
@@ -879,21 +848,21 @@
           "value": 20.4,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "gpqa_diamond": {
-          "value": 85.3,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        "lmarena_text": {
+          "value": 1430,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
         },
         "hle": {
           "value": 19.3,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
+        "gpqa_diamond": {
+          "value": 85.3,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
         "tau2_telecom": {
           "value": 93.3,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
-        },
-        "lmarena_text": {
-          "value": 1430,
-          "sourceUrl": "https://arena.ai/leaderboard/text"
         }
       }
     },
@@ -910,21 +879,21 @@
           "value": 44.8,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "aa_speed": {
-          "value": 79,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        "lmarena_text": {
+          "value": 1479,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
         },
-        "gpqa_diamond": {
-          "value": 91.7,
+        "aa_speed": {
+          "value": 62,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
         "hle": {
           "value": 42.3,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "lmarena_text": {
-          "value": 1478,
-          "sourceUrl": "https://arena.ai/leaderboard/text"
+        "gpqa_diamond": {
+          "value": 91.7,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         }
       }
     },
@@ -941,21 +910,21 @@
           "value": 41.8,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "aa_speed": {
-          "value": 51,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        "lmarena_text": {
+          "value": 1474,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
         },
-        "gpqa_diamond": {
-          "value": 91.2,
+        "aa_speed": {
+          "value": 67,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
         "hle": {
           "value": 39.9,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "lmarena_text": {
-          "value": 1473,
-          "sourceUrl": "https://arena.ai/leaderboard/text"
+        "gpqa_diamond": {
+          "value": 91.2,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         }
       }
     },
@@ -972,21 +941,21 @@
           "value": 23.5,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "gpqa_diamond": {
-          "value": 80.9,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        "lmarena_text": {
+          "value": 1434,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
         },
         "hle": {
           "value": 17.1,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
+        "gpqa_diamond": {
+          "value": 80.9,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
         "tau2_telecom": {
           "value": 98.5,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
-        },
-        "lmarena_text": {
-          "value": 1433,
-          "sourceUrl": "https://arena.ai/leaderboard/text"
         }
       }
     },
@@ -1003,21 +972,21 @@
           "value": 43.6,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "aa_speed": {
-          "value": 42,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        "lmarena_text": {
+          "value": 1488,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
         },
-        "gpqa_diamond": {
-          "value": 93.5,
+        "aa_speed": {
+          "value": 45,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
         "hle": {
           "value": 46.9,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "lmarena_text": {
-          "value": 1488,
-          "sourceUrl": "https://arena.ai/leaderboard/text"
+        "gpqa_diamond": {
+          "value": 93.5,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         }
       }
     },
@@ -1034,25 +1003,25 @@
           "value": 14.2,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "aa_speed": {
-          "value": 168,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        "lmarena_text": {
+          "value": 1427,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
         },
-        "gpqa_diamond": {
-          "value": 74.8,
+        "aa_speed": {
+          "value": 167,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
         "hle": {
           "value": 13.8,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
+        "gpqa_diamond": {
+          "value": 74.8,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
         "tau2_telecom": {
           "value": 94.2,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
-        },
-        "lmarena_text": {
-          "value": 1427,
-          "sourceUrl": "https://arena.ai/leaderboard/text"
         }
       }
     },
@@ -1069,25 +1038,25 @@
           "value": 9.3,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "aa_speed": {
-          "value": 78,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        "lmarena_text": {
+          "value": 1414,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
         },
-        "gpqa_diamond": {
-          "value": 68,
+        "aa_speed": {
+          "value": 74,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
         "hle": {
           "value": 4.2,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
+        "gpqa_diamond": {
+          "value": 68,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
         "tau2_telecom": {
           "value": 24.6,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
-        },
-        "lmarena_text": {
-          "value": 1414,
-          "sourceUrl": "https://arena.ai/leaderboard/text"
         }
       }
     },
@@ -1105,15 +1074,15 @@
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
         "aa_speed": {
-          "value": 160,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
-        },
-        "gpqa_diamond": {
-          "value": 76.9,
+          "value": 165,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
         "hle": {
           "value": 9.9,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "gpqa_diamond": {
+          "value": 76.9,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
         "tau2_telecom": {
@@ -1135,17 +1104,40 @@
           "value": 38.1,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
+        "lmarena_text": {
+          "value": 1443,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        },
         "aa_speed": {
-          "value": 129,
+          "value": 135,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
         "hle": {
           "value": 38.5,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        }
+      }
+    },
+    {
+      "id": "anthropic/claude-haiku-5.5",
+      "kind": "text",
+      "label": "Claude Haiku 5.5",
+      "provider": "Anthropic",
+      "level": 1,
+      "web": true,
+      "vision": true,
+      "scores": {
+        "aa_index": {
+          "value": 43.4,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "lmarena_text": {
-          "value": 1443,
-          "sourceUrl": "https://arena.ai/leaderboard/text"
+        "aa_speed": {
+          "value": 237,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 44.4,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         }
       }
     },
@@ -1178,6 +1170,10 @@
           "value": 57.6,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
+        "lmarena_text": {
+          "value": 1508,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        },
         "aa_speed": {
           "value": 95,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
@@ -1185,10 +1181,6 @@
         "hle": {
           "value": 61.4,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
-        },
-        "lmarena_text": {
-          "value": 1504,
-          "sourceUrl": "https://arena.ai/leaderboard/text"
         }
       }
     },
@@ -1205,44 +1197,40 @@
           "value": 56,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
+        "lmarena_text": {
+          "value": 1475,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        },
         "aa_speed": {
-          "value": 129,
+          "value": 137,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
         "hle": {
           "value": 55,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
-        },
-        "lmarena_text": {
-          "value": 1471,
-          "sourceUrl": "https://arena.ai/leaderboard/text"
         }
       }
     },
     {
-      "id": "openai/gpt-6.1-sol",
+      "id": "mistral/mistral-large-4",
       "kind": "text",
-      "label": "GPT-6.1 Sol",
-      "provider": "OpenAI",
-      "level": 4,
-      "web": true,
+      "label": "Mistral Large 4",
+      "provider": "Mistral",
+      "level": 2,
+      "web": false,
       "vision": true,
       "scores": {
         "aa_index": {
-          "value": 51.8,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
-        },
-        "aa_speed": {
-          "value": 55,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
-        },
-        "hle": {
-          "value": 52.9,
+          "value": 38.4,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
         "lmarena_text": {
-          "value": 1483,
+          "value": 1431,
           "sourceUrl": "https://arena.ai/leaderboard/text"
+        },
+        "hle": {
+          "value": 35,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         }
       }
     },
@@ -1259,17 +1247,44 @@
           "value": 46.4,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
+        "lmarena_text": {
+          "value": 1444,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
+        },
         "aa_speed": {
-          "value": 73,
+          "value": 86,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
         "hle": {
           "value": 43.1,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        }
+      }
+    },
+    {
+      "id": "openai/gpt-6.1-sol",
+      "kind": "text",
+      "label": "GPT-6.1 Sol",
+      "provider": "OpenAI",
+      "level": 4,
+      "web": true,
+      "vision": true,
+      "scores": {
+        "aa_index": {
+          "value": 51.8,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
         "lmarena_text": {
-          "value": 1442,
+          "value": 1484,
           "sourceUrl": "https://arena.ai/leaderboard/text"
+        },
+        "aa_speed": {
+          "value": 59,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        },
+        "hle": {
+          "value": 52.9,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         }
       }
     },
@@ -1286,17 +1301,17 @@
           "value": 41.8,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "gpqa_diamond": {
-          "value": 91.2,
-          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
+        "lmarena_text": {
+          "value": 1474,
+          "sourceUrl": "https://arena.ai/leaderboard/text"
         },
         "hle": {
           "value": 39.9,
           "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         },
-        "lmarena_text": {
-          "value": 1473,
-          "sourceUrl": "https://arena.ai/leaderboard/text"
+        "gpqa_diamond": {
+          "value": 91.2,
+          "sourceUrl": "https://artificialanalysis.ai/leaderboards/models"
         }
       }
     },
@@ -1308,23 +1323,23 @@
       "level": 2,
       "scores": {
         "aa_t2i": {
-          "value": 1172.43,
+          "value": 1187.83,
           "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
-        },
-        "aa_edit": {
-          "value": 1124.83,
-          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
         },
         "lm_t2i": {
           "value": 1383.04,
           "sourceUrl": "https://arena.ai/leaderboard/text-to-image"
         },
+        "aa_edit": {
+          "value": 1131.37,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
+        },
         "lm_edit": {
           "value": 1461.74,
-          "sourceUrl": "https://arena.ai/leaderboard/image-edit"
+          "sourceUrl": "https://arena.ai/leaderboard/image/image-edit/single-image"
         },
         "aa_img_time": {
-          "value": 116.5,
+          "value": 109.6,
           "sourceUrl": "https://artificialanalysis.ai/image/models"
         }
       }
@@ -1337,23 +1352,23 @@
       "level": 2,
       "scores": {
         "aa_t2i": {
-          "value": 1190.85,
+          "value": 1208.52,
           "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
-        },
-        "aa_edit": {
-          "value": 1163.12,
-          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
         },
         "lm_t2i": {
           "value": 1397.62,
           "sourceUrl": "https://arena.ai/leaderboard/text-to-image"
         },
+        "aa_edit": {
+          "value": 1177.95,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
+        },
         "lm_edit": {
           "value": 1481.02,
-          "sourceUrl": "https://arena.ai/leaderboard/image-edit"
+          "sourceUrl": "https://arena.ai/leaderboard/image/image-edit/single-image"
         },
         "aa_img_time": {
-          "value": 54.7,
+          "value": 52.6,
           "sourceUrl": "https://artificialanalysis.ai/image/models"
         }
       }
@@ -1366,23 +1381,23 @@
       "level": 2,
       "scores": {
         "aa_t2i": {
-          "value": 1197.57,
+          "value": 1217.12,
           "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
-        },
-        "aa_edit": {
-          "value": 1182.58,
-          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
         },
         "lm_t2i": {
           "value": 1424.55,
           "sourceUrl": "https://arena.ai/leaderboard/text-to-image"
         },
+        "aa_edit": {
+          "value": 1197.91,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
+        },
         "lm_edit": {
           "value": 1523.57,
-          "sourceUrl": "https://arena.ai/leaderboard/image-edit"
+          "sourceUrl": "https://arena.ai/leaderboard/image/image-edit/single-image"
         },
         "aa_img_time": {
-          "value": 120.4,
+          "value": 125.5,
           "sourceUrl": "https://artificialanalysis.ai/image/models"
         }
       }
@@ -1395,23 +1410,23 @@
       "level": 3,
       "scores": {
         "aa_t2i": {
-          "value": 1125.56,
+          "value": 1138.92,
           "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
-        },
-        "aa_edit": {
-          "value": 1109.83,
-          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
         },
         "lm_t2i": {
           "value": 1261.76,
           "sourceUrl": "https://arena.ai/leaderboard/text-to-image"
         },
+        "aa_edit": {
+          "value": 1120.37,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
+        },
         "lm_edit": {
           "value": 1387.4,
-          "sourceUrl": "https://arena.ai/leaderboard/image-edit"
+          "sourceUrl": "https://arena.ai/leaderboard/image/image-edit/single-image"
         },
         "aa_img_time": {
-          "value": 8.2,
+          "value": 8.5,
           "sourceUrl": "https://artificialanalysis.ai/image/models"
         }
       }
@@ -1424,23 +1439,23 @@
       "level": 4,
       "scores": {
         "aa_t2i": {
-          "value": 1102.22,
+          "value": 1115.09,
           "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
-        },
-        "aa_edit": {
-          "value": 1100.91,
-          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
         },
         "lm_t2i": {
           "value": 1234.07,
           "sourceUrl": "https://arena.ai/leaderboard/text-to-image"
         },
+        "aa_edit": {
+          "value": 1109.79,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
+        },
         "lm_edit": {
           "value": 1385.96,
-          "sourceUrl": "https://arena.ai/leaderboard/image-edit"
+          "sourceUrl": "https://arena.ai/leaderboard/image/image-edit/single-image"
         },
         "aa_img_time": {
-          "value": 16.7,
+          "value": 16.6,
           "sourceUrl": "https://artificialanalysis.ai/image/models"
         }
       }
@@ -1453,20 +1468,20 @@
       "level": 2,
       "scores": {
         "aa_t2i": {
-          "value": 909.11,
+          "value": 920.43,
           "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
-        },
-        "aa_edit": {
-          "value": 912.82,
-          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
         },
         "lm_t2i": {
           "value": 1058.72,
           "sourceUrl": "https://arena.ai/leaderboard/text-to-image"
         },
+        "aa_edit": {
+          "value": 910.5,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
+        },
         "lm_edit": {
           "value": 1176.46,
-          "sourceUrl": "https://arena.ai/leaderboard/image-edit"
+          "sourceUrl": "https://arena.ai/leaderboard/image/image-edit/single-image"
         }
       }
     },
@@ -1478,20 +1493,20 @@
       "level": 4,
       "scores": {
         "aa_t2i": {
-          "value": 932.5,
+          "value": 928.94,
           "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
-        },
-        "aa_edit": {
-          "value": 931.24,
-          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
         },
         "lm_t2i": {
           "value": 1074.43,
           "sourceUrl": "https://arena.ai/leaderboard/text-to-image"
         },
+        "aa_edit": {
+          "value": 919.49,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
+        },
         "lm_edit": {
           "value": 1180.68,
-          "sourceUrl": "https://arena.ai/leaderboard/image-edit"
+          "sourceUrl": "https://arena.ai/leaderboard/image/image-edit/single-image"
         }
       }
     },
@@ -1503,23 +1518,23 @@
       "level": 2,
       "scores": {
         "aa_t2i": {
-          "value": 1022.1,
+          "value": 1027.05,
           "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
-        },
-        "aa_edit": {
-          "value": 1036.82,
-          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
         },
         "lm_t2i": {
           "value": 1148.51,
           "sourceUrl": "https://arena.ai/leaderboard/text-to-image"
         },
+        "aa_edit": {
+          "value": 1040.01,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
+        },
         "lm_edit": {
           "value": 1301.88,
-          "sourceUrl": "https://arena.ai/leaderboard/image-edit"
+          "sourceUrl": "https://arena.ai/leaderboard/image/image-edit/single-image"
         },
         "aa_img_time": {
-          "value": 11.3,
+          "value": 11.9,
           "sourceUrl": "https://artificialanalysis.ai/image/models"
         }
       }
@@ -1532,23 +1547,23 @@
       "level": 3,
       "scores": {
         "aa_t2i": {
-          "value": 1080.51,
+          "value": 1095.69,
           "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
-        },
-        "aa_edit": {
-          "value": 1107.88,
-          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
         },
         "lm_t2i": {
           "value": 1255.5,
           "sourceUrl": "https://arena.ai/leaderboard/text-to-image"
         },
+        "aa_edit": {
+          "value": 1124.4,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
+        },
         "lm_edit": {
           "value": 1393.59,
-          "sourceUrl": "https://arena.ai/leaderboard/image-edit"
+          "sourceUrl": "https://arena.ai/leaderboard/image/image-edit/single-image"
         },
         "aa_img_time": {
-          "value": 68.1,
+          "value": 60.5,
           "sourceUrl": "https://artificialanalysis.ai/image/models"
         }
       }
@@ -1561,23 +1576,23 @@
       "level": 2,
       "scores": {
         "aa_t2i": {
-          "value": 1115.1,
+          "value": 1126.62,
           "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
-        },
-        "aa_edit": {
-          "value": 1119.82,
-          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
         },
         "lm_t2i": {
           "value": 1274.04,
           "sourceUrl": "https://arena.ai/leaderboard/text-to-image"
         },
+        "aa_edit": {
+          "value": 1125.96,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
+        },
         "lm_edit": {
           "value": 1402.65,
-          "sourceUrl": "https://arena.ai/leaderboard/image-edit"
+          "sourceUrl": "https://arena.ai/leaderboard/image/image-edit/single-image"
         },
         "aa_img_time": {
-          "value": 14.6,
+          "value": 15.3,
           "sourceUrl": "https://artificialanalysis.ai/image/models"
         }
       }
@@ -1590,20 +1605,20 @@
       "level": 3,
       "scores": {
         "aa_t2i": {
-          "value": 1155.66,
+          "value": 1167.09,
           "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
-        },
-        "aa_edit": {
-          "value": 1109.97,
-          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
         },
         "lm_t2i": {
           "value": 1294.21,
           "sourceUrl": "https://arena.ai/leaderboard/text-to-image"
         },
+        "aa_edit": {
+          "value": 1112.21,
+          "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/editing"
+        },
         "lm_edit": {
           "value": 1424.54,
-          "sourceUrl": "https://arena.ai/leaderboard/image-edit"
+          "sourceUrl": "https://arena.ai/leaderboard/image/image-edit/single-image"
         }
       }
     },
@@ -1615,7 +1630,7 @@
       "level": 2,
       "scores": {
         "aa_t2i": {
-          "value": 891.36,
+          "value": 874.73,
           "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
         },
         "lm_t2i": {
@@ -1632,7 +1647,7 @@
       "level": 3,
       "scores": {
         "aa_t2i": {
-          "value": 894.68,
+          "value": 855.78,
           "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
         }
       }
@@ -1645,7 +1660,7 @@
       "level": 1,
       "scores": {
         "aa_t2i": {
-          "value": 956.86,
+          "value": 950.62,
           "sourceUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
         },
         "lm_t2i": {
@@ -1662,20 +1677,20 @@
       "level": 2,
       "scores": {
         "aa_t2v": {
-          "value": 964.55,
+          "value": 959.5,
           "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
         },
+        "lm_t2v": {
+          "value": 1361.91,
+          "sourceUrl": "https://arena.ai/leaderboard/text-to-video"
+        },
         "aa_t2v_audio": {
-          "value": 960.6,
+          "value": 963.96,
           "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
         },
         "aa_i2v": {
           "value": 1259.24,
           "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-        },
-        "lm_t2v": {
-          "value": 1361.91,
-          "sourceUrl": "https://arena.ai/leaderboard/text-to-video"
         },
         "lm_i2v": {
           "value": 1385.06,
@@ -1734,20 +1749,20 @@
       "level": 2,
       "scores": {
         "aa_t2v": {
-          "value": 1126.7,
+          "value": 1134.21,
           "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
         },
+        "lm_t2v": {
+          "value": 1476.27,
+          "sourceUrl": "https://arena.ai/leaderboard/text-to-video"
+        },
         "aa_t2v_audio": {
-          "value": 1156.11,
+          "value": 1173.29,
           "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
         },
         "aa_i2v": {
           "value": 1361.76,
           "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-        },
-        "lm_t2v": {
-          "value": 1476.27,
-          "sourceUrl": "https://arena.ai/leaderboard/text-to-video"
         },
         "lm_i2v": {
           "value": 1479.81,
@@ -1763,11 +1778,11 @@
       "level": 3,
       "scores": {
         "aa_t2v": {
-          "value": 1035.96,
+          "value": 1036.27,
           "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
         },
         "aa_t2v_audio": {
-          "value": 1044.76,
+          "value": 1059.49,
           "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
         },
         "aa_i2v": {
@@ -1796,20 +1811,20 @@
       "level": 3,
       "scores": {
         "aa_t2v": {
-          "value": 1079.49,
+          "value": 1083.9,
           "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
         },
+        "lm_t2v": {
+          "value": 1479.18,
+          "sourceUrl": "https://arena.ai/leaderboard/text-to-video"
+        },
         "aa_t2v_audio": {
-          "value": 1116.36,
+          "value": 1137.78,
           "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
         },
         "aa_i2v": {
           "value": 1338.93,
           "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-        },
-        "lm_t2v": {
-          "value": 1479.18,
-          "sourceUrl": "https://arena.ai/leaderboard/text-to-video"
         },
         "lm_i2v": {
           "value": 1474.57,
@@ -1825,16 +1840,16 @@
       "level": 4,
       "scores": {
         "aa_t2v": {
-          "value": 1104.12,
-          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-        },
-        "aa_t2v_audio": {
-          "value": 1142.52,
+          "value": 1104.82,
           "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
         },
         "lm_t2v": {
           "value": 1473.93,
           "sourceUrl": "https://arena.ai/leaderboard/text-to-video"
+        },
+        "aa_t2v_audio": {
+          "value": 1159.19,
+          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
         },
         "lm_i2v": {
           "value": 1477.41,
@@ -1850,20 +1865,20 @@
       "level": 3,
       "scores": {
         "aa_t2v": {
-          "value": 1116.44,
+          "value": 1120.86,
           "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-        },
-        "aa_t2v_audio": {
-          "value": 1137.38,
-          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
-        },
-        "aa_i2v": {
-          "value": 1356.42,
-          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
         },
         "lm_t2v": {
           "value": 1460.34,
           "sourceUrl": "https://arena.ai/leaderboard/text-to-video"
+        },
+        "aa_t2v_audio": {
+          "value": 1158.24,
+          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
+        },
+        "aa_i2v": {
+          "value": 1356.41,
+          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
         },
         "lm_i2v": {
           "value": 1495.41,
@@ -1878,13 +1893,13 @@
       "provider": "Google",
       "level": null,
       "scores": {
-        "aa_i2v": {
-          "value": 1368.15,
-          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
-        },
         "lm_t2v": {
           "value": 1512.89,
           "sourceUrl": "https://arena.ai/leaderboard/text-to-video"
+        },
+        "aa_i2v": {
+          "value": 1368.15,
+          "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/image-to-video"
         },
         "lm_i2v": {
           "value": 1464.83,
@@ -1900,11 +1915,11 @@
       "level": 2,
       "scores": {
         "aa_t2v": {
-          "value": 985.38,
+          "value": 979.85,
           "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
         },
         "aa_t2v_audio": {
-          "value": 993.29,
+          "value": 998.36,
           "sourceUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video"
         }
       }
