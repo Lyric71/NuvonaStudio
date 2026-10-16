@@ -69,7 +69,7 @@ Une adresse qui appartient déjà à une autre équipe ne peut pas être invité
 
 ## Demandes d’adhésion
 
-Quand quelqu’un s’inscrit avec **Join a team** et indique le nom de votre équipe ou l’adresse e-mail d’un administrateur, sa demande apparaît sous **Demandes d’adhésion**, avec la date à laquelle elle a été faite.
+Quand quelqu’un s’inscrit avec **Rejoindre une équipe** et indique le nom de votre équipe ou l’adresse e-mail d’un administrateur, sa demande apparaît sous **Demandes d’adhésion**, avec la date à laquelle elle a été faite.
 
 - **Accepter comme créateur** : la personne reçoit une invitation par e-mail, où elle choisit son mot de passe.
 - **Refuser** : la demande est abandonnée.
@@ -145,6 +145,6 @@ La carte **Factures et connexion**, réservée aux administrateurs, regroupe deu
 
 ## Renommer l’équipe
 
-Les administrateurs voient le nom de l’équipe dans un champ modifiable, en haut de la page. Modifiez-le et cliquez sur **Enregistrer le nom**. Un nom d’équipe compte au moins 2 caractères.
+Les administrateurs voient le nom de l’équipe dans un champ modifiable, en haut de la page. Modifiez-le et cliquez sur **Enregistrer le nom**. Un nom d’équipe compte au moins 2 caractères et ne peut contenir ni adresse web ni adresse e-mail.
 
 La même carte montre aux administrateurs le solde de l’équipe, sous **Crédits de l’équipe**, avec un bouton **Acheter des crédits**. Voir [Solde et paiements](/fr/aide/solde-et-paiements).

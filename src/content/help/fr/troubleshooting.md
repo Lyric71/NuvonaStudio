@@ -7,7 +7,7 @@ description: "Ce que signifient les messages de Nuvora et comment réagir : un 
 excerpt: "Les messages que Nuvora affiche quand quelque chose bloque, ce que chacun signifie et comment repartir."
 section: "troubleshooting"
 order: 16
-updated: 2026-10-04
+updated: 2026-10-16
 appPaths: ["/billing", "/files", "/files/tools/image-editor", "/signup", "/login", "/invite", "/team", "/client", "/validation", "/social/linkedin/posts", "/my-connections", "/ads/linkedin", "/ads/linkedin/library", "/ask", "/agents"]
 audience: "Tout le monde"
 related: ["balance-and-payments", "assets-library", "account-and-sign-in", "your-team", "client-space", "validation", "linkedin-posts", "my-connections", "linkedin-ads", "ask", "agents"]
@@ -67,8 +67,10 @@ Repérez dans la première colonne le message qui s’affiche. Dans les messages
 |---|---|---|
 | **This code is not valid, or it has expired. Request a new one.** | Le code d’inscription est erroné ou date de plus de 20 minutes, ou il a été mal saisi trop de fois. | Cliquez sur **recommencez** et demandez un nouveau code. |
 | **Temporary mailboxes cannot open an account. Please use your work or personal address.** | Les adresses jetables sont refusées. | Utilisez une véritable adresse. |
+| **Un nom ne peut contenir ni adresse web ni adresse e-mail.** | Un prénom, un nom ou un nom d’équipe contient une adresse web ou une adresse e-mail, dans le formulaire d’inscription, dans les **Paramètres** ou sur la page **Équipe**. | Retirez l’adresse, puis réessayez. |
 | **This address already has an account. Sign in instead.** | L’adresse dispose déjà d’un accès. | Connectez-vous, ou cliquez sur **Mot de passe oublié ?** |
 | **Identifiant ou mot de passe invalide.** | L’adresse e-mail ou le mot de passe est erroné. | Vérifiez les deux, ou cliquez sur **Mot de passe oublié ?** |
+| **La vérification de sécurité a échoué. Veuillez réessayer.** | La vérification automatique au-dessus du bouton, la case **Je ne suis pas un robot**, n’a pas pu aboutir sur le formulaire de connexion, d’inscription ou de mot de passe oublié. | Attendez que la case affiche **Vérifié**, puis réessayez, ou rechargez la page. La vérification exige JavaScript, et un bloqueur de publicités ou une extension de confidentialité trop stricte peut l’arrêter : autorisez Nuvora dans l’extension, ou changez de navigateur. |
 | **Ce compte a été suspendu. Adressez-vous à votre administrateur.** | Un administrateur a suspendu votre accès. | Adressez-vous à un administrateur de votre équipe. |
 | **Ce code n’est pas le bon. Il reste [n] essais.** | Le code de connexion a été mal saisi. | Vérifiez l’e-mail et saisissez-le de nouveau. |
 | **Ce code n’est pas valable, ou il a expiré. Reconnectez-vous pour en recevoir un nouveau.** | Le code de connexion est erroné ou date de plus de 10 minutes. | Reconnectez-vous, ou cliquez sur **Envoyer un autre code**. |

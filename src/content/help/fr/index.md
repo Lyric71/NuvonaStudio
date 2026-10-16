@@ -19,7 +19,7 @@ Nuvora est un espace de travail entièrement consacré à LinkedIn. Il rédige v
 
 ## Pour commencer
 
-1. [Premiers pas](/fr/aide/premiers-pas) : ce qu’est Nuvora, la création de votre compte (pays, Moi seulement, Créer une équipe ou Rejoindre une équipe, la façon dont vous nous avez connus), la connexion, le menu et votre premier post.
+1. [Premiers pas](/fr/aide/premiers-pas) : ce qu’est Nuvora, la création de votre compte (pays, Pour moi seul, Créer une équipe ou Rejoindre une équipe, la façon dont vous nous avez connus), la connexion, le menu et votre premier post.
 2. [Découverte et astuces](/fr/aide/decouverte-et-astuces) : la page Découverte qui vous accueille à la première connexion, ses modules et ses premières étapes, la visite rapide de l’écran et les astuces qui suivent chaque connexion.
 
 ## Publier sur LinkedIn

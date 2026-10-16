@@ -95,7 +95,7 @@ Un agent personnalisé lit les données que vous choisissez et suit les instruct
    - **Dans l’application** : **Activité sociale** (les contenus sociaux des 30 derniers jours, ce qui a été rédigé, planifié et publié), **Publications LinkedIn** (les posts LinkedIn des 30 derniers jours et des 14 prochains, publiés, programmés ou en échec, ainsi que les brouillons en attente) et **Compte publicitaire LinkedIn** (le compte publicitaire de la personne pour qui l’agent tourne, lu en direct, les 7 derniers jours comparés aux 7 précédents).
    - **Dans la Bibliothèque de contenus** : n’importe quelle [campagne](/fr/aide/campagnes) de l’équipe, en tête de liste et signalée par **Campagne**, ainsi que n’importe quel dossier ou document de la bibliothèque. Une campagne apporte son brief et chacun de ses contenus, les images et les clips décrits par leur prompt. Un dossier apporte tous les documents qu’il contient, sous-dossiers compris. Les fichiers PDF, Word, Excel, Markdown et texte sont lus ; les images et les clips sont laissés de côté. Chaque téléchargement est facturé comme depuis la Bibliothèque de contenus. Au-delà de six entrées, un champ de recherche (**Rechercher une campagne, un dossier ou un document**) resserre la liste. **Gérer la bibliothèque** ouvre la bibliothèque dans un nouvel onglet.
    - **Systèmes connectés** : les systèmes reliés à votre équipe, s’il y en a. **Gérer les connexions** ouvre la page où on les relie.
-4. Dans l’onglet **Général**, rédigez ses **Instructions** : ce qu’il doit chercher dans ces données, ce qui mérite un constat, et ce qu’il doit ignorer.
+4. Dans l’onglet **Général**, rédigez ses **Instructions** : ce qu’il doit chercher dans ces données, ce qui mérite un constat, et ce qu’il doit ignorer. **Améliorer avec l’IA**, à côté de la zone, les rédige pour vous à partir du nom et du périmètre de l’agent, ou réécrit ce que vous avez saisi.
 5. Cliquez sur **Créer l’agent**. Il démarre activé.
 
 Vous ne pouvez confier à un agent que des données que vous voyez vous-même. Chaque bloc suit vos droits, comme sur ses propres pages.
@@ -110,6 +110,8 @@ Le même formulaire sert à ajouter, à créer et à modifier un agent. **Nom**,
 |---|---|
 | **La description présentée aux utilisateurs** | La phrase affichée sur sa carte. |
 | **Instructions** | Ce qu’il surveille et comment en juger. Laissez le champ vide sur un agent standard pour conserver les instructions standard. Ce qu’il a le droit de signaler et sa manière de graduer la gravité sont fixés par la plateforme. |
+
+Chacune des deux zones dispose d’un bouton **Améliorer avec l’IA**. Si la zone contient du texte, il le réécrit ; si elle est vide, il la rédige à partir du nom et du périmètre de l’agent. Il écrit avec le modèle sélectionné en haut de l’onglet. Le prix s’affiche sous la zone, avec **Annuler**, qui rétablit votre texte. Rien n’est enregistré tant que vous n’enregistrez pas l’agent.
 
 ### Périmètre
 
@@ -233,6 +235,7 @@ Une exécution qui fait appel à l’IA est payante : les tokens du modèle, pl
 | Une exécution planifiée de votre agent personnel | Vous, propriétaire de l’agent, dans la limite quotidienne qui vous est accordée sur les crédits de l’équipe. |
 | Une exécution planifiée d’un agent de l’équipe | L’équipe. |
 | **Lancer maintenant** | La personne qui clique. |
+| **Améliorer avec l’IA** dans le formulaire de l’agent | La personne qui clique, au prix affiché sous la zone. |
 
 Le prix de chaque exécution qui a fait appel à l’IA figure dans **Exécutions précédentes** et dans l’e-mail des résultats. Le **Budget mensuel (USD)** et le **Budget hebdomadaire (USD)** propres à l’agent l’arrêtent avant qu’il ne dépense davantage ; une limite plus stricte fixée pour vous ou pour l’équipe l’emporte toujours. Voir [Solde et paiements](/fr/aide/solde-et-paiements).
 

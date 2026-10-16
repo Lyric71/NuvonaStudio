@@ -7,7 +7,7 @@ description: "La page Paramètres de Nuvora : votre nom, votre photo, votre adr
 excerpt: "Tout ce qui vous concerne dans les Paramètres du compte, et le fonctionnement de la connexion, du code de connexion et de la récupération du mot de passe."
 section: "account"
 order: 14
-updated: 2026-10-14
+updated: 2026-10-16
 appPaths: ["/settings", "/login", "/forgot-password", "/reset-password"]
 audience: "Tout le monde"
 related: ["getting-started", "discovery-and-tips", "my-connections", "your-team", "balance-and-payments", "agents", "choosing-a-model", "troubleshooting"]
@@ -42,7 +42,7 @@ Un administrateur gère l’équipe, ses membres et ses crédits partagés. Voir
 
 ## Votre nom
 
-Sous **Votre nom**, saisissez votre **Prénom** et votre **Nom**, puis cliquez sur **Enregistrer**. C’est ainsi que Nuvora s’adresse à vous et que vos collègues vous voient : dans l’en-tête, dans les listes de personnes et dans les e-mails que nous vous envoyons. Votre adresse de connexion ne change pas ici. Laissez les deux champs vides, et Nuvora affiche votre adresse e-mail à la place.
+Sous **Votre nom**, saisissez votre **Prénom** et votre **Nom**, puis cliquez sur **Enregistrer**. C’est ainsi que Nuvora s’adresse à vous et que vos collègues vous voient : dans l’en-tête, dans les listes de personnes et dans les e-mails que nous vous envoyons. Votre adresse de connexion ne change pas ici. Laissez les deux champs vides, et Nuvora affiche votre adresse e-mail à la place. Un nom ne peut contenir ni adresse web ni adresse e-mail : Nuvora vous le signale et conserve celui que vous aviez.
 
 ## Photo de profil
 
@@ -140,6 +140,12 @@ Sous **Factures**, saisissez le **Nom sur la facture** et l’**Adresse** imprim
 
 **Journal d’activité** recense chaque action payante que vous avez lancée, les ressources qu’elle a mobilisées et le montant facturé : le nombre d’actions enregistrées, ce que vous avez dépensé ce mois-ci et aujourd’hui, un graphique des 14 derniers jours, la dépense par action et la liste complète, que vous pouvez filtrer.
 
+## Journal de publication
+
+**Journal de publication** retrace le sort de chaque post LinkedIn que vous avez programmé ou publié : la date, le post, le compte, le résultat (**Publié**, **Échec de l’envoi**, **Nouvelle tentative prévue**, **Modifié sur le réseau** ou **Supprimé**) et le lien vers le post ou la réponse de LinkedIn. Trois chiffres figurent en tête : **Publié**, **Échec de l’envoi** et **Retentés plus tard**. Filtrez la liste en tapant quelques mots, ou avec **Tous**, **Publié**, **Échec de l’envoi** et **Autre** ; **Afficher plus** fait apparaître les événements plus anciens.
+
+Les posts programmés, publiés ou non, vous parviennent aussi par e-mail une fois par jour, à 8 h dans votre fuseau horaire, réunis dans un seul récapitulatif : Nuvora n’envoie aucun e-mail post par post, et une journée sans rien à signaler n’en envoie aucun. Pour arrêter ce récapitulatif, désactivez **Publication sur les réseaux sociaux** sur la page qu’ouvre **Gérer tous vos e-mails** ; le journal, lui, demeure.
+
 ## Le code de connexion par e-mail
 
 Les nouvelles équipes demandent une seconde étape à la connexion. Après votre mot de passe, Nuvora envoie un code à 6 chiffres à votre adresse e-mail. L’écran **Encore une étape** indique où il est parti et combien de temps il reste valable : 10 minutes.
@@ -159,7 +165,7 @@ L’onglet **Code de connexion** de **Connexion et sécurité** liste les naviga
 ## Mot de passe oublié
 
 1. Sur la page de connexion, cliquez sur **Mot de passe oublié ?**
-2. Saisissez votre adresse e-mail dans **Identifiant** et cliquez sur **Envoyer le lien de réinitialisation**.
+2. Saisissez votre adresse e-mail dans **Identifiant** et cliquez sur **Envoyer le lien de réinitialisation**. La case **Je ne suis pas un robot**, au-dessus du bouton, se coche d’abord toute seule, comme sur la page de connexion.
 3. Si un compte existe pour cette adresse, un lien de réinitialisation vous est envoyé. Il reste valable environ une heure.
 4. Ouvrez le lien, saisissez un **Nouveau mot de passe** d’au moins 8 caractères et **Confirmez le mot de passe**, puis cliquez sur **Définir le nouveau mot de passe**.
 5. La page affiche **Mot de passe mis à jour**. Cliquez sur **Se connecter**.

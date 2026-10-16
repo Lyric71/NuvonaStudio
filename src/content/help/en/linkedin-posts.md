@@ -5,7 +5,7 @@ description: "The Posts module: brief and draft a LinkedIn post, add its picture
 excerpt: "Draft a LinkedIn post with AI or by hand, give it a picture or a carousel, and publish it on your profile or your company page, now or at the hour you pick."
 section: "linkedin"
 order: 2
-updated: 2026-10-08
+updated: 2026-10-16
 appPaths: ["/social/linkedin/posts", "/my-connections"]
 audience: "Creators and admins; viewers read"
 related: ["calendar", "validation", "my-connections", "assets-library", "campaigns", "skills", "choosing-a-model", "client-space", "your-team", "agents"]
@@ -139,7 +139,7 @@ Open **Publishing** and stay on the **Publish automatically** tab. Nuvora posts 
 
 The buttons stay locked until an account is ticked: the badge next to the tabs reads **Off until you tick one**, then **Ready when you are**. The time is read in your own time zone, set in **Settings**. A scheduled time must be at least two minutes ahead and no more than a year away, and one post can go to up to 20 accounts.
 
-Nuvora looks at the queue every five minutes, so a post set for 09:00 goes out between 09:00 and 09:05. It checks the post against LinkedIn's limits again before sending. When a scheduled post goes out, the person who queued it gets an email saying so. Every scheduled and published post also shows on the [Calendar](/help/calendar).
+Nuvora looks at the queue every five minutes, so a post set for 09:00 goes out between 09:00 and 09:05. It checks the post against LinkedIn's limits again before sending. Nuvora sends no email post by post: once a day at 08:00 your time, one email recaps the scheduled posts that went out or did not, and your **Publishing log** in **User Settings** keeps every one of them. Every scheduled and published post also shows on the [Calendar](/help/calendar).
 
 ## Publish manually
 
@@ -166,7 +166,7 @@ Everything you schedule or send lands under **In the queue**, one row per accoun
 
 **Cancel** takes the post out of the queue after you confirm. It stays in the module and can be scheduled again.
 
-A temporary problem on LinkedIn's side is retried by itself, three attempts in all, and the row shows when the next attempt is due. A content problem or an account that needs reconnecting is not retried, and the person who queued the post receives an email saying what LinkedIn said. An account that stopped working shows **Reconnect** on its tile and can't be ticked: reconnect it on My Connections. A tile also shows the days left when the connection has a week or less to go.
+A temporary problem on LinkedIn's side is retried by itself, three attempts in all, and the row shows when the next attempt is due. A content problem or an account that needs reconnecting is not retried. What LinkedIn said shows on the post, in your **Publishing log** and in the next daily recap email. An account that stopped working shows **Reconnect** on its tile and can't be ticked: reconnect it on My Connections. A tile also shows the days left when the connection has a week or less to go.
 
 Once a post is out, Nuvora can't change or remove it on LinkedIn. To edit or delete it, do it on LinkedIn.
 

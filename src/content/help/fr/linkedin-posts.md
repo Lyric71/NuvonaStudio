@@ -7,7 +7,7 @@ description: "Le module Posts : rédiger le brief et le brouillon d’un post L
 excerpt: "Rédigez un post LinkedIn avec l’IA ou à la main, donnez-lui une image ou un carrousel, et publiez-le sur votre profil ou votre page entreprise, tout de suite ou à l’heure de votre choix."
 section: "linkedin"
 order: 2
-updated: 2026-10-08
+updated: 2026-10-16
 appPaths: ["/social/linkedin/posts", "/my-connections"]
 audience: "Créateurs et administrateurs ; les lecteurs consultent"
 related: ["calendar", "validation", "my-connections", "assets-library", "campaigns", "skills", "choosing-a-model", "client-space", "your-team", "agents"]
@@ -141,7 +141,7 @@ Ouvrez **La publication** et restez sur l’onglet **Publier automatiquement**. 
 
 Les boutons restent verrouillés tant qu’aucun compte n’est coché : le badge à côté des onglets indique **Inactif tant qu’aucun compte n’est coché**, puis **Prêt quand vous l’êtes**. L’heure s’entend dans votre propre fuseau horaire, défini dans **Paramètres**. Une heure programmée doit se situer au moins deux minutes plus tard et au plus un an plus tard, et un même post peut partir sur 20 comptes au maximum.
 
-Nuvora consulte la file d’attente toutes les cinq minutes : un post prévu à 9 h part donc entre 9 h et 9 h 05. Il contrôle encore une fois le post au regard des limites de LinkedIn avant l’envoi. Quand un post programmé part, la personne qui l’a mis en file reçoit un e-mail qui le lui confirme. Chaque post programmé ou publié apparaît également dans le [Calendrier](/fr/aide/calendrier).
+Nuvora consulte la file d’attente toutes les cinq minutes : un post prévu à 9 h part donc entre 9 h et 9 h 05. Il contrôle encore une fois le post au regard des limites de LinkedIn avant l’envoi. Nuvora n’envoie pas d’e-mail post par post : une fois par jour, à 8 h dans votre fuseau horaire, un seul e-mail récapitule les posts programmés publiés ou non, et votre **Journal de publication**, dans les **Paramètres du compte**, les conserve tous. Chaque post programmé ou publié apparaît également dans le [Calendrier](/fr/aide/calendrier).
 
 ## Publier manuellement
 
@@ -168,7 +168,7 @@ Tout ce que vous programmez ou envoyez arrive sous **Dans la file d’attente**,
 
 **Annuler** retire le post de la file d’attente après confirmation. Il reste dans le module et peut être programmé de nouveau.
 
-Un incident passager du côté de LinkedIn fait l’objet de nouvelles tentatives automatiques, trois en tout, et la ligne indique l’heure de la prochaine. Un problème de contenu, ou un compte à reconnecter, n’entraîne aucune nouvelle tentative : la personne qui a mis le post en file reçoit un e-mail reprenant la réponse de LinkedIn. Un compte qui ne fonctionne plus affiche **Reconnecter** sur sa tuile et ne peut pas être coché : reconnectez-le dans Mes connexions. Une tuile indique aussi le nombre de jours restants lorsque la connexion expire dans une semaine ou moins.
+Un incident passager du côté de LinkedIn fait l’objet de nouvelles tentatives automatiques, trois en tout, et la ligne indique l’heure de la prochaine. Un problème de contenu, ou un compte à reconnecter, n’entraîne aucune nouvelle tentative : la réponse de LinkedIn s’affiche sur le post, dans votre **Journal de publication** et dans le prochain e-mail récapitulatif. Un compte qui ne fonctionne plus affiche **Reconnecter** sur sa tuile et ne peut pas être coché : reconnectez-le dans Mes connexions. Une tuile indique aussi le nombre de jours restants lorsque la connexion expire dans une semaine ou moins.
 
 Une fois un post parti, Nuvora ne peut plus le modifier ni le retirer de LinkedIn. Pour le modifier ou le supprimer, faites-le sur LinkedIn.
 

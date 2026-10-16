@@ -6,7 +6,7 @@ description: "Nuvora 的各种提示是什么意思、该怎么办：余额为�
 excerpt: "Nuvora 在操作中断时给出的提示，每一条是什么意思，以及怎样重新上手。"
 section: "troubleshooting"
 order: 16
-updated: 2026-10-04
+updated: 2026-10-16
 appPaths: ["/billing", "/files", "/files/tools/image-editor", "/signup", "/login", "/invite", "/team", "/client", "/validation", "/social/linkedin/posts", "/my-connections", "/ads/linkedin", "/ads/linkedin/library", "/ask", "/agents"]
 audience: "所有人"
 related: ["balance-and-payments", "assets-library", "account-and-sign-in", "your-team", "client-space", "validation", "linkedin-posts", "my-connections", "linkedin-ads", "ask", "agents"]
@@ -66,8 +66,10 @@ sources: ["src/lib/credits.ts", "src/scripts/creditsPanel.ts", "src/scripts/cred
 |---|---|---|
 | **This code is not valid, or it has expired. Request a new one.** | 注册验证码不对，或已超过 20 分钟，或者输错次数太多。 | 点 **重新开始**，申请一个新的验证码。 |
 | **Temporary mailboxes cannot open an account. Please use your work or personal address.** | 一次性邮箱一律被拒。 | 使用真实的邮箱地址。 |
+| **名称中不能包含网址或邮箱地址。** | 注册表单、账户设置或 **团队** 页面上，名、姓或团队名称里含有网址或邮箱地址。 | 删掉地址，再试一次。 |
 | **This address already has an account. Sign in instead.** | 这个地址已经有登录账号。 | 直接登录，或者点 **忘记密码？**。 |
 | **账号或密码错误。** | 邮箱或密码不对。 | 两样都检查一遍，或者点 **忘记密码？**。 |
+| **安全验证未通过，请重试。** | 登录、注册或忘记密码表单上，按钮上方的 **我不是机器人** 自动检查没能完成。 | 等方框显示 **已验证** 后再试，或者刷新页面。这项检查需要开启 JavaScript，广告拦截器或过于严格的隐私插件也可能拦下它：在插件里放行 Nuvora，或者换一个浏览器。 |
 | **账户已停用，请联系管理员。** | 管理员暂停了你的登录。 | 找你团队的管理员。 |
 | **验证码不正确，还剩 [n] 次机会。** | 登录验证码输错了。 | 核对邮件，重新输入。 |
 | **验证码无效或已过期。请重新登录以获取新的验证码。** | 登录验证码不对，或已超过 10 分钟。 | 重新登录，或者点 **重新发送验证码**。 |

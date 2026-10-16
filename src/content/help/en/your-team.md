@@ -143,6 +143,6 @@ The **Invoices and sign-in** card, for admins, holds two decisions the team take
 
 ## Rename the team
 
-Admins see the team's name in an editable field at the top of the page. Change it and click **Save the name**. A team name needs at least 2 characters.
+Admins see the team's name in an editable field at the top of the page. Change it and click **Save the name**. A team name needs at least 2 characters and can't contain a web address or an email address.
 
 The same card shows admins the team's balance, under **Team credits**, with a **Buy credits** button. See [Balance and payments](/help/balance-and-payments).

@@ -5,7 +5,7 @@ description: "The Settings page in Nuvora: your name, picture, sign-in email and
 excerpt: "Everything in User Settings that applies to you, and how signing in, the sign-in code and password recovery work."
 section: "account"
 order: 14
-updated: 2026-10-14
+updated: 2026-10-16
 appPaths: ["/settings", "/login", "/forgot-password", "/reset-password"]
 audience: "Everyone"
 related: ["getting-started", "discovery-and-tips", "my-connections", "your-team", "balance-and-payments", "agents", "choosing-a-model", "troubleshooting"]
@@ -40,7 +40,7 @@ An admin manages the team, its people and its shared credits. See [Your team](/h
 
 ## Your name
 
-Under **Your name**, type your **First name** and **Last name** and click **Save**. It is how Nuvora addresses you and how your teammates see you, in the header, in the lists of people and in the emails we send you. Your sign-in address doesn't change here. Leave both fields empty and Nuvora uses your email address instead.
+Under **Your name**, type your **First name** and **Last name** and click **Save**. It is how Nuvora addresses you and how your teammates see you, in the header, in the lists of people and in the emails we send you. Your sign-in address doesn't change here. Leave both fields empty and Nuvora uses your email address instead. A name can't contain a web address or an email address: Nuvora says so and keeps the one you had.
 
 ## Profile picture
 
@@ -138,6 +138,12 @@ Under **Invoices**, type the **Name on the invoice** and the **Address** printed
 
 **Activity log** lists every paid action you ran, what it used and what it was billed: the number of actions recorded, what you spent this month and today, a chart of the last 14 days, the spend by action, and the full list, which you can filter.
 
+## Publishing log
+
+**Publishing log** lists what happened to every LinkedIn post you scheduled or published: when, the post, the account, the outcome (**Published**, **Did not go out**, **Will be tried again**, **Edited on the network** or **Deleted**) and the link to the post or what LinkedIn said. Three figures sit on top: **Published**, **Did not go out** and **Tried again later**. Filter the list by typing, or with **All**, **Published**, **Did not go out** and **Other**; **Show more** brings older events.
+
+The scheduled posts that went out or did not also reach you by email, once a day at 08:00 your time, all in one recap: Nuvora sends no email post by post, and a day with nothing to report sends nothing. To stop the recap, switch off **Social publishing** on the page **Manage all your emails** opens; the log stays.
+
 ## The sign-in code by email
 
 New teams ask for a second step when you sign in. After your password, Nuvora sends a 6-digit code to your email address. The screen **One more step** says where it went and how long it is good for: 10 minutes.
@@ -157,7 +163,7 @@ The **Sign-in code** tab in **Sign-in and security** lists the browsers you told
 ## Forgot your password
 
 1. On the sign-in page, click **Forgot password?**.
-2. Type your **Login** email address and click **Send reset link**.
+2. Type your **Login** email address and click **Send reset link**. The **I'm not a robot** box above the button ticks itself first, as on the sign-in page.
 3. If an account exists for that address, a reset link is on its way. It stays valid for about an hour.
 4. Open the link, type a **New password** of at least 8 characters and **Confirm password**, then click **Set new password**.
 5. The page says **Password updated**. Click **Sign in**.

@@ -5,7 +5,7 @@ description: "What Nuvora's messages mean and what to do: an empty balance, a pr
 excerpt: "The messages Nuvora shows when something stops, what each one means, and how to get going again."
 section: "troubleshooting"
 order: 16
-updated: 2026-10-04
+updated: 2026-10-16
 appPaths: ["/billing", "/files", "/files/tools/image-editor", "/signup", "/login", "/invite", "/team", "/client", "/validation", "/social/linkedin/posts", "/my-connections", "/ads/linkedin", "/ads/linkedin/library", "/ask", "/agents"]
 audience: "Everyone"
 related: ["balance-and-payments", "assets-library", "account-and-sign-in", "your-team", "client-space", "validation", "linkedin-posts", "my-connections", "linkedin-ads", "ask", "agents"]
@@ -65,8 +65,10 @@ Find the message you see in the first column. In the messages below, a name in s
 |---|---|---|
 | **This code is not valid, or it has expired. Request a new one.** | The sign-up code is wrong or older than 20 minutes, or it was mistyped too many times. | Click **start again** and ask for a new code. |
 | **Temporary mailboxes cannot open an account. Please use your work or personal address.** | Disposable addresses are refused. | Use a real address. |
+| **A name cannot contain a web address or an email address.** | A first name, a last name or a team name holds a web address or an email address, on the sign-up form, in **User Settings** or on the **Team** page. | Take the address out and try again. |
 | **This address already has an account. Sign in instead.** | The address already has a login. | Sign in, or click **Forgot password?**. |
 | **Invalid login or password.** | The email or the password is wrong. | Check both, or click **Forgot password?**. |
+| **The security check did not pass. Please try again.** | The automatic check above the button, the box marked **I'm not a robot**, couldn't finish on the sign-in, sign-up or forgot password form. | Wait until the box reads **Verified**, then try again, or reload the page. The check needs JavaScript, and an ad blocker or a strict privacy extension can stop it: allow Nuvora in the extension, or use another browser. |
 | **This account has been suspended. Contact your administrator.** | An admin paused your login. | Ask an admin of your team. |
 | **That code is not right. [n] attempts left.** | The sign-in code was mistyped. | Check the email and type it again. |
 | **This code is not valid, or it has expired. Sign in again to get a new one.** | The sign-in code is wrong or older than 10 minutes. | Sign in again, or click **Send another code**. |

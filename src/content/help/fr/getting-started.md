@@ -7,7 +7,7 @@ description: "Ce qu’est Nuvora, comment créer votre compte seul ou en équipe
 excerpt: "Créez votre compte, repérez-vous dans le menu et publiez votre premier post LinkedIn en quelques minutes."
 section: "getting-started"
 order: 1
-updated: 2026-10-14
+updated: 2026-10-16
 appPaths: ["/signup", "/login", "/discover", "/social/linkedin/posts"]
 audience: "Tout le monde"
 related: ["discovery-and-tips", "linkedin-posts", "calendar", "linkedin-ads", "validation", "ask", "agents", "assets-library", "my-connections", "balance-and-payments", "your-team", "client-space", "account-and-sign-in"]
@@ -15,7 +15,7 @@ shots:
   - file: "/images/help/getting-started-signup.fr.webp"
     route: "/signup"
     clip: "la carte Créez votre compte"
-    alt: "La carte Créez votre compte : Prénom, Nom, E-mail, Pays, les trois choix sous Votre façon de travailler, les cinq réponses sous Comment nous avez-vous connus ?, la case des conditions d’utilisation et Recevoir mon code"
+    alt: "La carte Créez votre compte : Prénom, Nom, E-mail, Pays, la liste Votre façon de travailler, la liste Comment nous avez-vous connus ?, la case des conditions d’utilisation et Recevoir mon code"
     captured: 2026-10-14
   - file: "/images/help/getting-started-menu.fr.webp"
     route: "/social/linkedin/posts"
@@ -32,19 +32,19 @@ Vous pouvez travailler seul, ou au sein d’une équipe qui partage un solde pr�
 ## Créer votre compte
 
 1. Sur la page de connexion, cliquez sur **Créer un compte**.
-2. Saisissez votre **Prénom**, votre **Nom** et votre **E-mail**.
+2. Saisissez votre **Prénom**, votre **Nom** et votre **E-mail**. Un nom ne peut contenir ni adresse web ni adresse e-mail.
 3. Sous **Pays**, choisissez le pays depuis lequel vous travaillez. La liste est rédigée dans la langue de la page ; quand Nuvora sait d’où vous vous connectez, ce pays est déjà sélectionné, et vous le corrigez s’il ne convient pas.
-4. Sous **Votre façon de travailler**, choisissez l’une des trois options :
-   - **Moi seulement** : « Créez seul, avec vos propres crédits. Pas besoin d’équipe : vous pourrez en créer une plus tard depuis la page Équipe. » Aucune équipe n’est créée : vous travaillez en tant que **Créateur**. Si vous créez plus tard une équipe depuis la page **Équipe**, vous en devenez l’administrateur.
-   - **Créer une équipe** : « Vous la pilotez : vous invitez des personnes, qui créent en puisant dans une réserve de crédits commune. » Un champ apparaît pour saisir le nom de votre équipe. Vous en êtes l’administrateur.
-   - **Rejoindre une équipe** : « Votre équipe utilise déjà Nuvora : un administrateur vous donne accès. » Un champ apparaît, où vous indiquez le nom de votre équipe ou l’adresse e-mail de votre administrateur.
-5. Sous **Comment nous avez-vous connus ?**, choisissez la réponse qui vous correspond : **Google ou un autre moteur de recherche**, **Un assistant IA (ChatGPT, Gemini, Claude, Perplexity…)**, **Un salon professionnel ou une exposition**, **Une recommandation, quelqu’un nous a conseillés** ou **Ailleurs**.
+4. Sous **Votre façon de travailler**, ouvrez la liste et choisissez l’une des trois options. **Pour moi seul** est sélectionné d’emblée, et la ligne sous la liste décrit l’option retenue :
+   - **Pour moi seul** : « Créez en solo, avec vos propres crédits. Nul besoin d’équipe : vous pourrez en créer une plus tard depuis la page Équipe. » Aucune équipe n’est créée : vous travaillez en tant que **Créateur**. Si vous créez plus tard une équipe depuis la page **Équipe**, vous en devenez l’administrateur.
+   - **Créer une équipe** : « Vous la dirigez : vous invitez des personnes, qui créent en puisant dans des crédits partagés. » Un champ apparaît pour saisir le nom de votre équipe, qui, lui non plus, ne peut contenir ni adresse web ni adresse e-mail. Vous en êtes l’administrateur.
+   - **Rejoindre une équipe** : « Votre équipe utilise déjà Nuvora : un administrateur vous ouvre l’accès. » Un champ apparaît, où vous indiquez le nom de votre équipe ou l’adresse e-mail de votre administrateur.
+5. Sous **Comment nous avez-vous connus ?**, ouvrez la liste, qui affiche **Choisissez une réponse**, et choisissez celle qui vous correspond : **Google ou un autre moteur de recherche**, **Un assistant IA (ChatGPT, Gemini, Claude, Perplexity…)**, **Un salon professionnel ou une exposition**, **Une recommandation, quelqu’un nous a conseillés** ou **Ailleurs**.
 6. Cochez la case d’acceptation des conditions d’utilisation.
-7. Cliquez sur **Recevoir mon code**. Nuvora vous envoie par e-mail un code à 6 chiffres. Rien n’est créé tant que vous ne l’avez pas saisi.
+7. Cliquez sur **Recevoir mon code**, sous la case **Je ne suis pas un robot**, qui se coche toute seule pendant le chargement de la page : vous n’avez rien à cliquer. Nuvora vous envoie par e-mail un code à 6 chiffres. Rien n’est créé tant que vous ne l’avez pas saisi.
 
 Ces deux réponses sont obligatoires : s’il en manque une, le formulaire affiche **Choisissez votre pays.** ou **Dites-nous comment vous nous avez connus.** Votre pays apparaît sur votre fiche dans l’équipe, à l’intention de vos administrateurs ; la façon dont vous nous avez connus n’est lue que par Nuvora.
 
-![La carte Créez votre compte : Prénom, Nom, E-mail, Pays, les trois choix sous Votre façon de travailler, les cinq réponses sous Comment nous avez-vous connus ?, la case des conditions d’utilisation et Recevoir mon code](/images/help/getting-started-signup.fr.webp)
+![La carte Créez votre compte : Prénom, Nom, E-mail, Pays, la liste Votre façon de travailler, la liste Comment nous avez-vous connus ?, la case des conditions d’utilisation, la vérification Je ne suis pas un robot, cochée, et Recevoir mon code](/images/help/getting-started-signup.fr.webp)
 
 Le code reste valable 20 minutes. Les adresses jetables ne permettent pas d’ouvrir un compte : utilisez votre adresse professionnelle ou personnelle. Si l’adresse possède déjà un compte, vous recevez à la place d’un code un e-mail qui vous le signale.
 
@@ -52,14 +52,14 @@ Le code reste valable 20 minutes. Les adresses jetables ne permettent pas d’o
 
 L’écran suivant s’intitule **Consultez votre boîte de réception**.
 
-- **Moi seulement** ou **Créer une équipe** : saisissez le code dans **Code de vérification**, choisissez un **Mot de passe** d’au moins 8 caractères, puis cliquez sur **Créer mon compte**. Vous êtes connecté et arrivez sur **Découverte**, la page qui présente tout ce que vous pouvez faire (voir [Découverte et astuces](/fr/aide/decouverte-et-astuces)).
+- **Pour moi seul** ou **Créer une équipe** : saisissez le code dans **Code de vérification**, choisissez un **Mot de passe** d’au moins 8 caractères, puis cliquez sur **Créer mon compte**. Vous êtes connecté et arrivez sur **Découverte**, la page qui présente tout ce que vous pouvez faire (voir [Découverte et astuces](/fr/aide/decouverte-et-astuces)).
 - **Rejoindre une équipe** : saisissez le code et cliquez sur **Envoyer ma demande**. Aucun mot de passe ne vous est encore demandé. L’écran **Votre demande est envoyée** vous indique que les administrateurs de l’équipe ont été prévenus. Dès que l’un d’eux accepte, vous recevez une invitation par e-mail. Ouvrez-la, choisissez votre mot de passe et cliquez sur **Rejoindre et se connecter** : vous arrivez vous aussi sur **Découverte**.
 
 Rien ne vous parvient ? Regardez dans le dossier des indésirables, ou cliquez sur **recommencez** pour corriger l’adresse.
 
 ## Se connecter
 
-Saisissez votre **Identifiant** (votre adresse e-mail) et votre **Mot de passe**, puis cliquez sur **Se connecter**. La page de connexion s’affiche dans la langue de votre navigateur, anglais, français ou chinois, et les noms de langue sous le cadre permettent d’en changer. Une fois connecté, Nuvora adopte la langue enregistrée dans votre compte, que vous modifiez à tout moment dans **Paramètres du compte**, sous **Langue**.
+Saisissez votre **Identifiant** (votre adresse e-mail) et votre **Mot de passe**, puis cliquez sur **Se connecter**. Au-dessus du bouton, la case **Je ne suis pas un robot** se coche toute seule pendant le chargement de la page et affiche **Vérifié** une seconde plus tard : elle tient les scripts à l’écart, et vous n’avez rien à cliquer. La page de connexion s’affiche dans la langue de votre navigateur, anglais, français ou chinois, et les noms de langue sous le cadre permettent d’en changer. Une fois connecté, Nuvora adopte la langue enregistrée dans votre compte, que vous modifiez à tout moment dans **Paramètres du compte**, sous **Langue**.
 
 À votre toute première connexion, Nuvora ouvre **Découverte** : tous les modules de votre menu, les premières étapes utiles, le centre d’aide et une visite guidée de l’écran. Si vous vous rendiez sur une page précise, depuis le lien d’un e-mail par exemple, **Accéder à votre page** vous y conduit. Ensuite, vous arrivez sur **Posts**, ou sur la page d’accueil choisie dans **Paramètres du compte**, et **Découverte** reste à portée de main dans le menu placé sous votre photo. Un accès client arrive toujours sur son **Espace client**, et un partenaire commercial sur **Commissions**.
 

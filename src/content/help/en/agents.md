@@ -93,7 +93,7 @@ A custom agent reads the data you pick and follows instructions you write.
    - **In the app**: **Social activity** (the social content of the last 30 days, what was drafted, planned and published), **LinkedIn publishing** (the LinkedIn posts of the last 30 days and the next 14, published, scheduled, failed, and the drafts waiting) and **LinkedIn ad account** (the ad account of the person the agent runs for, read live, the last 7 days against the 7 before).
    - **From the Assets Library**: any of your team's [campaigns](/help/campaigns), listed first and marked **Campaign**, and any folder or document of the library. A campaign brings its brief and every asset in it, pictures and clips by their prompt. A folder brings every document in it and in its subfolders. PDF, Word, Excel, Markdown and text files are read; pictures and clips are left aside. Every download is billed like one from the Assets Library. Past six entries, a search box (**Search a campaign, a folder or a document**) narrows the list. **Manage the library** opens the library in a new tab.
    - **Connected systems**: the systems connected to your team, if any. **Manage connections** opens the page where they are connected.
-4. On the **General** tab, write its **Instructions**: what it should look for in that data, what counts as a finding, and what it should ignore.
+4. On the **General** tab, write its **Instructions**: what it should look for in that data, what counts as a finding, and what it should ignore. **Improve with AI**, next to the box, writes them for you from the agent's name and scope, or rewrites what you typed.
 5. Click **Create the agent**. It starts switched on.
 
 You can only give an agent data you can see yourself. Each block follows your rights, as on its own pages.
@@ -108,6 +108,8 @@ The same form serves for adding, creating and editing an agent. **Name**, at the
 |---|---|
 | **What users are told it does** | The sentence shown on its card. |
 | **Instructions** | What it watches and how to judge it. Leave it empty on a standard agent to keep the standard instructions. What it may report and how it grades severity is fixed by the platform. |
+
+Each of the two boxes has an **Improve with AI** button. With text in the box, it rewrites it; with the box empty, it writes it from the agent's name and scope. It writes with the model picked at the top of the tab, under **Improve with AI writes with**. The price shows under the box, with **Undo**, which puts back what you had. Nothing is saved until you save the agent.
 
 ### Scope
 
@@ -231,6 +233,7 @@ A run that reaches the AI is paid: the tokens of the model, plus each web search
 | A scheduled run of your personal agent | You, the agent's owner, counted against your daily limit on the team's credits. |
 | A scheduled run of a team agent | The team. |
 | **Run now** | The person who clicks it. |
+| **Improve with AI** on the agent form | The person who clicks it, at the price shown under the box. |
 
 The price of every run that reached the AI is shown in **Previous runs** and in the results email. The agent's own **Monthly budget (USD)** and **Weekly budget (USD)** stop it before it spends more; a tighter limit set for you or the team still wins. See [Balance and payments](/help/balance-and-payments).
 
