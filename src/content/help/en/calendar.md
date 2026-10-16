@@ -5,7 +5,7 @@ description: "The Calendar: every LinkedIn post planned, scheduled, published or
 excerpt: "See what is planned, what is booked to go out and what is already live on LinkedIn, move a send to another day, and act on what the publishing watcher noticed."
 section: "linkedin"
 order: 3
-updated: 2026-10-04
+updated: 2026-10-16
 appPaths: ["/social/calendar/monthly", "/social/calendar/weekly", "/social/calendar/list"]
 audience: "Everyone in the team; creators and admins plan and move"
 related: ["linkedin-posts", "agents", "validation", "my-connections", "account-and-sign-in"]
@@ -14,6 +14,14 @@ shots:
     route: "/social/calendar/monthly"
     alt: "The Calendar on the Monthly view for October 2026: the band with Monthly, Weekly and List, the No brand button, How this page works and Add a publication, the To do, Planned, Published and Refused counters at zero, and the empty month grid"
     captured: 2026-10-04
+  - file: "/images/help/calendar-busy-day.webp"
+    route: "/social/calendar/monthly"
+    alt: "The month grid with a busy Thursday 22: four publications shown on the day and a +3 more button under them"
+    captured: 2026-10-16
+  - file: "/images/help/calendar-day-dialog.webp"
+    route: "/social/calendar/monthly"
+    alt: "The day dialog for Thursday 22 October: 7 publications listed in their colors, with Close and Add a publication"
+    captured: 2026-10-16
 sources: ["src/lib/app.ts", "src/pages/social/calendar/monthly.astro", "src/pages/social/calendar/weekly.astro", "src/pages/social/calendar/list.astro", "src/components/panels/SocialCalendarPanel.astro", "src/scripts/socialCalendar.ts", "src/pages/api/social-posts/index.ts", "src/pages/api/social-posts/[id].ts", "src/lib/social-db.ts", "src/lib/social/publications.ts", "src/lib/social/limits.ts", "src/lib/own-work.ts", "src/lib/no-brand.ts", "src/components/AgentFindings.astro", "src/scripts/agentFindings.ts", "src/pages/api/agents/run.ts", "src/pages/api/agents/findings.ts", "src/pages/api/agents/finding-action.ts", "src/lib/agents/watchers.ts", "src/lib/agents/agents-db.ts", "src/middleware.ts"]
 ---
 
@@ -51,8 +59,18 @@ Hours are shown in your own time zone, set in **Settings**. See [Account and sig
 The month as a grid, Monday to Sunday, today circled. Each publication is a small card on its day: the network, the hour it goes out, a word for where it stands (**Planned**, **Sending** or **Did not go out**), the initials of the person in charge, and the title. Point at a card to read the account it goes out on and, for a refused one, why.
 
 - **Click an empty part of a day** to plan a publication on that day.
-- **Click a post written in Posts** to open it there, on its **Publishing** step.
+- **Click a post written in Posts** to open it there, on the last step it reached.
 - **Click a publication added by hand** to open it in its window and change it.
+
+### A busy day
+
+A day shows up to four publications. The rest wait behind a **+N more** button under them (**+3 more** for three more), so one busy day never stretches its week down the page.
+
+![The month grid with a busy Thursday 22: four publications shown on the day and a +3 more button under them](/images/help/calendar-busy-day.webp)
+
+Click **+N more** to open the whole day in a window: the date, the number of publications, and every publication of the day in the order it goes out, the ones added by hand without an hour last. Each card wears its color and opens like a card of the grid. **Add a publication** plans one more on that day, and **Close** (or **Escape**) brings you back to the month. To move a send to another day, drag its card on the grid itself: the cards of the window can't be dragged.
+
+![The day dialog for Thursday 22 October: 7 publications listed in their colors, with Close and Add a publication](/images/help/calendar-day-dialog.webp)
 
 ## Weekly
 

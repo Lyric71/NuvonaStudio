@@ -6,7 +6,7 @@ description: "日历：每篇已计划、已排期、已发布或被拒的 Linke
 excerpt: "看清哪些在计划中，哪些已排期待发，哪些已在 LinkedIn 上线，把一次发送挪到另一天，并处理发布监测发现的问题。"
 section: "linkedin"
 order: 3
-updated: 2026-10-04
+updated: 2026-10-16
 appPaths: ["/social/calendar/monthly", "/social/calendar/weekly", "/social/calendar/list"]
 audience: "团队所有成员；创作者和管理员负责规划和调整"
 related: ["linkedin-posts", "agents", "validation", "my-connections", "account-and-sign-in"]
@@ -15,6 +15,14 @@ shots:
     route: "/social/calendar/monthly"
     alt: "2026 年 10 月的日历按月视图：横栏上有按月、周和列表，No brand 按钮、本页说明和新建发布内容，待办、计划、已发布和被拒四个计数器均为零，下方是空白的月历网格"
     captured: 2026-10-04
+  - file: "/images/help/calendar-busy-day.zh.webp"
+    route: "/social/calendar/monthly"
+    alt: "月历网格中 22 日（周四）排得很满：当天显示四条发布，下方有“另有 3 条”按钮"
+    captured: 2026-10-16
+  - file: "/images/help/calendar-day-dialog.zh.webp"
+    route: "/social/calendar/monthly"
+    alt: "10 月 22 日（周四）的当日窗口：按各自颜色列出 7 条发布，底部有关闭和新建发布内容"
+    captured: 2026-10-16
 sources: ["src/lib/app.ts", "src/pages/social/calendar/monthly.astro", "src/pages/social/calendar/weekly.astro", "src/pages/social/calendar/list.astro", "src/components/panels/SocialCalendarPanel.astro", "src/scripts/socialCalendar.ts", "src/pages/api/social-posts/index.ts", "src/pages/api/social-posts/[id].ts", "src/lib/social-db.ts", "src/lib/social/publications.ts", "src/lib/social/limits.ts", "src/lib/own-work.ts", "src/lib/no-brand.ts", "src/components/AgentFindings.astro", "src/scripts/agentFindings.ts", "src/pages/api/agents/run.ts", "src/pages/api/agents/findings.ts", "src/pages/api/agents/finding-action.ts", "src/lib/agents/watchers.ts", "src/lib/agents/agents-db.ts", "src/middleware.ts"]
 ---
 
@@ -52,8 +60,18 @@ sources: ["src/lib/app.ts", "src/pages/social/calendar/monthly.astro", "src/page
 整月以网格呈现，从周一到周日，今天会被圈出。每条发布是当天格子里的一张小卡片：网络、发出时间、一个表示进展的词（**计划**、**Sending** 或 **未能发出**）、负责人的姓名缩写，以及标题。把鼠标移到卡片上，可以看到它发往哪个账号；被拒的卡片还会显示原因。
 
 - **点击某一天的空白处**，在当天规划一条发布。
-- **点击在帖子中撰写的帖子**，会在帖子模块中打开它，停在 **发布** 步骤。
+- **点击在帖子中撰写的帖子**，会在帖子模块中打开它，停在它进行到的最后一步。
 - **点击手动添加的发布**，会在它的窗口中打开，供你修改。
+
+### 排得很满的一天
+
+每天最多显示四条发布，其余的收在下方的 **另有 N 条** 按钮后面（还剩三条时显示 **另有 3 条**），这样某一天再忙，也不会把整周拉得老长。
+
+![月历网格中 22 日（周四）排得很满：当天显示四条发布，下方有“另有 3 条”按钮](/images/help/calendar-busy-day.zh.webp)
+
+点击 **另有 N 条**，会在窗口中打开这一整天：日期、发布条数，以及当天全部发布，按发出时间排列，没有时间的手动发布排在最后。每张卡片保留各自的颜色，点击后的效果与网格中的卡片相同。**新建发布内容** 可在当天再规划一条，**关闭**（或按 **Esc** 键）回到月视图。要把某次发送挪到别的日子，请直接在网格上拖动它的卡片：窗口里的卡片不能拖动。
+
+![10 月 22 日（周四）的当日窗口：按各自颜色列出 7 条发布，底部有关闭和新建发布内容](/images/help/calendar-day-dialog.zh.webp)
 
 ## 周
 

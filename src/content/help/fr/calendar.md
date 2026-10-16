@@ -7,7 +7,7 @@ description: "Le Calendrier : chaque post LinkedIn prévu, programmé, publié 
 excerpt: "Voyez ce qui est prévu, ce qui est programmé et ce qui est déjà en ligne sur LinkedIn, déplacez un envoi à un autre jour et donnez suite à ce qu’a relevé le veilleur des publications."
 section: "linkedin"
 order: 3
-updated: 2026-10-04
+updated: 2026-10-16
 appPaths: ["/social/calendar/monthly", "/social/calendar/weekly", "/social/calendar/list"]
 audience: "Toute l’équipe ; les créateurs et les administrateurs planifient et déplacent"
 related: ["linkedin-posts", "agents", "validation", "my-connections", "account-and-sign-in"]
@@ -16,6 +16,14 @@ shots:
     route: "/social/calendar/monthly"
     alt: "Le Calendrier en vue Mensuel pour octobre 2026 : le bandeau avec Mensuel, Hebdomadaire et Liste, le bouton No brand, Fonctionnement de cette page et Ajouter une publication, les compteurs À faire, Prévu, Publié et Refusée à zéro, et la grille du mois encore vide"
     captured: 2026-10-04
+  - file: "/images/help/calendar-busy-day.fr.webp"
+    route: "/social/calendar/monthly"
+    alt: "La grille du mois avec un jeudi 22 chargé : quatre publications affichées sur le jour et, en dessous, un bouton +3 de plus"
+    captured: 2026-10-16
+  - file: "/images/help/calendar-day-dialog.fr.webp"
+    route: "/social/calendar/monthly"
+    alt: "La fenêtre du jeudi 22 octobre : 7 publications listées dans leurs couleurs, avec Fermer et Ajouter une publication"
+    captured: 2026-10-16
 sources: ["src/lib/app.ts", "src/pages/social/calendar/monthly.astro", "src/pages/social/calendar/weekly.astro", "src/pages/social/calendar/list.astro", "src/components/panels/SocialCalendarPanel.astro", "src/scripts/socialCalendar.ts", "src/pages/api/social-posts/index.ts", "src/pages/api/social-posts/[id].ts", "src/lib/social-db.ts", "src/lib/social/publications.ts", "src/lib/social/limits.ts", "src/lib/own-work.ts", "src/lib/no-brand.ts", "src/components/AgentFindings.astro", "src/scripts/agentFindings.ts", "src/pages/api/agents/run.ts", "src/pages/api/agents/findings.ts", "src/pages/api/agents/finding-action.ts", "src/lib/agents/watchers.ts", "src/lib/agents/agents-db.ts", "src/middleware.ts"]
 ---
 
@@ -53,8 +61,18 @@ Les heures s’affichent dans votre propre fuseau horaire, défini dans **Param�
 Le mois sous forme de grille, du lundi au dimanche, avec la date du jour entourée. Chaque publication y figure comme une petite carte posée sur son jour : le réseau, l’heure de départ, un mot qui dit où elle en est (**Prévu**, **Sending** ou **Non partis**), les initiales du responsable et le titre. Survolez une carte pour lire le compte sur lequel elle part et, si elle a été refusée, pour quelle raison.
 
 - **Cliquez sur la partie vide d’un jour** pour y planifier une publication.
-- **Cliquez sur un post rédigé dans Posts** pour l’ouvrir là-bas, à son étape **La publication**.
+- **Cliquez sur un post rédigé dans Posts** pour l’ouvrir là-bas, à la dernière étape qu’il a atteinte.
 - **Cliquez sur une publication ajoutée à la main** pour l’ouvrir dans sa fenêtre et la modifier.
+
+### Une journée chargée
+
+Un jour affiche au plus quatre publications. Les autres attendent derrière un bouton **+N de plus** placé en dessous (**+3 de plus** s’il en reste trois) : une journée chargée n’étire jamais sa semaine vers le bas de la page.
+
+![La grille du mois avec un jeudi 22 chargé : quatre publications affichées sur le jour et, en dessous, un bouton +3 de plus](/images/help/calendar-busy-day.fr.webp)
+
+Cliquez sur **+N de plus** pour ouvrir la journée entière dans une fenêtre : la date, le nombre de publications, puis toutes les publications du jour dans l’ordre de leur départ, celles ajoutées à la main sans heure en dernier. Chaque carte garde sa couleur et s’ouvre comme une carte de la grille. **Ajouter une publication** en planifie une de plus ce jour-là, et **Fermer** (ou **Échap**) vous ramène au mois. Pour déplacer un envoi vers un autre jour, faites glisser sa carte sur la grille elle-même : les cartes de la fenêtre ne se déplacent pas.
+
+![La fenêtre du jeudi 22 octobre : 7 publications listées dans leurs couleurs, avec Fermer et Ajouter une publication](/images/help/calendar-day-dialog.fr.webp)
 
 ## Hebdomadaire
 

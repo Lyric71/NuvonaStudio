@@ -3,11 +3,11 @@ title: "Aide Nuvora"
 slug: "aide"
 lang: "fr"
 seoTitle: "Centre d’aide | Aide Nuvora"
-description: "Les guides de Nuvora : premiers pas, page Découverte et astuces, posts LinkedIn, Calendrier, LinkedIn Ads, Validation, Interroger, agents, Bibliothèque de contenus et Éditeur d’images, campagnes, compétences, choix du modèle, équipes et clients, Espace client, Mes connexions, solde et paiements, votre compte, partenaires et dépannage."
+description: "Les guides de Nuvora : premiers pas, page Découverte et astuces, posts LinkedIn, Calendrier, LinkedIn Ads, Validation, Interroger, agents, Bibliothèque de contenus et Éditeur d’images, campagnes, Bloc-notes, compétences, choix du modèle, équipes et clients, Espace client, Mes connexions, solde et paiements, votre compte, partenaires et dépannage."
 excerpt: "Tout ce qu’il faut pour rédiger, faire valider, publier et mesurer votre présence sur LinkedIn avec Nuvora, seul ou en équipe, pour votre entreprise ou pour vos clients."
 section: "home"
 order: 0
-updated: 2026-10-14
+updated: 2026-10-16
 appPaths: []
 audience: "Tout le monde"
 related: []
@@ -38,21 +38,22 @@ Nuvora est un espace de travail entièrement consacré à LinkedIn. Il rédige v
 
 9. [Bibliothèque de contenus](/fr/aide/bibliotheque-de-contenus) : tous les fichiers de l’équipe rangés en dossiers, pour les retrouver, les étiqueter, les déplacer et les verser dans une campagne, et l’Éditeur d’images, qui met une image au format LinkedIn, la recadre, la retouche, y ajoute du texte et y place un logo.
 10. [Campagnes](/fr/aide/campagnes) : les visuels, documents et posts d’une opération LinkedIn réunis sous un nom et un brief, puis lus d’un seul tenant par Interroger, vos agents et vos posts.
-11. [Compétences](/fr/aide/competences) : les consignes qui façonnent vos brouillons et les réponses d’Interroger, le catalogue, vos propres compétences et celles de l’équipe.
-12. [Choisir un modèle](/fr/aide/choisir-un-modele) : les options Rapide, Équilibré et Puissant dans les posts, le menu de réécriture et Interroger, le coût d’une exécution, Tous les modèles, et la page Benchmarks des modèles, qui compare les modèles de texte sur des benchmarks publics.
+11. [Bloc-notes](/fr/aide/bloc-notes) : vos notes personnelles, dans un volet qui s’ouvre sur chaque page avec Alt+N : des feuilles de texte mis en forme, la dictée, des fichiers et des enregistrements de votre voix ou d’un appel, une note copiée ou insérée dans un post, une copie conservée dans la Bibliothèque de contenus. Personne d’autre ne les voit.
+12. [Compétences](/fr/aide/competences) : les consignes qui façonnent vos brouillons et les réponses d’Interroger, le catalogue, vos propres compétences et celles de l’équipe.
+13. [Choisir un modèle](/fr/aide/choisir-un-modele) : les options Rapide, Équilibré et Puissant dans les posts, le menu de réécriture et Interroger, le coût d’une exécution, Tous les modèles, et la page Benchmarks des modèles, qui compare les modèles de texte sur des benchmarks publics.
 
 ## Votre équipe et vos clients
 
-13. [Votre équipe](/fr/aide/votre-equipe) : travailler seul ou en équipe, les rôles Administrateur, Créateur, Lecteur et Client, les invitations, les demandes d’adhésion, les limites quotidiennes, la suspension d’un accès, les clients et leurs accès, les coordonnées de facturation et le code de connexion.
-14. [Espace client](/fr/aide/espace-client) : pour les collaborateurs de vos clients, ce qu’ils voient, ce qu’ils téléchargent et comment ils approuvent le travail de l’équipe.
+14. [Votre équipe](/fr/aide/votre-equipe) : travailler seul ou en équipe, les rôles Administrateur, Créateur, Lecteur et Client, les invitations, les demandes d’adhésion, les limites quotidiennes, la suspension d’un accès, les clients et leurs accès, les coordonnées de facturation et le code de connexion.
+15. [Espace client](/fr/aide/espace-client) : pour les collaborateurs de vos clients, ce qu’ils voient, ce qu’ils téléchargent et comment ils approuvent le travail de l’équipe.
 
 ## Votre compte et vos finances
 
-15. [Mes connexions](/fr/aide/mes-connexions) : relier votre profil LinkedIn, vos pages entreprise et vos comptes publicitaires, la durée de vie d’une connexion, son renouvellement et la vérification des connexions après chaque ouverture de session.
-16. [Solde et paiements](/fr/aide/solde-et-paiements) : un solde prépayé en dollars américains, d’abord celui de l’équipe puis le vôtre, le rechargement par carte, Alipay ou WeChat Pay, les codes promotionnels, le rechargement automatique, les factures et le relevé de consommation.
-17. [Compte et connexion](/fr/aide/compte-et-connexion) : votre nom, votre photo, votre adresse e-mail et votre mot de passe, le thème clair ou sombre, l’interface en anglais, en français ou en chinois, la date et l’heure, votre page d’accueil, vos modèles, la saisie vocale, le code de connexion reçu par e-mail, la réinitialisation du mot de passe et le sort d’un accès resté inutilisé.
-18. [Partenaires](/fr/aide/partenaires) : l’espace partenaire, réservé aux partenaires commerciaux.
+16. [Mes connexions](/fr/aide/mes-connexions) : relier votre profil LinkedIn, vos pages entreprise et vos comptes publicitaires, la durée de vie d’une connexion, son renouvellement et la vérification des connexions après chaque ouverture de session.
+17. [Solde et paiements](/fr/aide/solde-et-paiements) : un solde prépayé en dollars américains, d’abord celui de l’équipe puis le vôtre, le rechargement par carte, Alipay ou WeChat Pay, les codes promotionnels, le rechargement automatique, les factures et le relevé de consommation.
+18. [Compte et connexion](/fr/aide/compte-et-connexion) : votre nom, votre photo, votre adresse e-mail et votre mot de passe, le thème clair ou sombre, l’interface en anglais, en français ou en chinois, la date et l’heure, votre page d’accueil, vos modèles, la saisie vocale, le code de connexion reçu par e-mail, la réinitialisation du mot de passe et le sort d’un accès resté inutilisé.
+19. [Partenaires](/fr/aide/partenaires) : l’espace partenaire, réservé aux partenaires commerciaux.
 
 ## En cas de problème
 
-19. [Dépannage](/fr/aide/depannage) : les messages qu’affiche Nuvora, ce qu’ils signifient et la marche à suivre.
+20. [Dépannage](/fr/aide/depannage) : les messages qu’affiche Nuvora, ce qu’ils signifient et la marche à suivre.

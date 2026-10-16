@@ -1,11 +1,11 @@
 ---
 title: "Agents"
 seoTitle: "Agents that watch your LinkedIn publishing and ads | Nuvora Help"
-description: "The two standard agents, LinkedIn publishing watcher and LinkedIn Ads watcher, agents you create from scratch, schedules, Run now, findings and what to do with them, the results email, and what a run costs and who pays."
+description: "The two standard agents, LinkedIn publishing watcher and LinkedIn Ads watcher, agents you create from scratch, the agent form and its Scope tab, schedules, Run now, findings and what to do with them, the results email, and what a run costs and who pays."
 excerpt: "Agents re-read your LinkedIn publishing and your ad account on a schedule and tell you what changed, with the real dates and figures."
 section: "intelligence"
 order: 7
-updated: 2026-10-08
+updated: 2026-10-16
 appPaths: ["/agents", "/agents/organization", "/agents/catalog", "/agents/runs"]
 audience: "Everyone; Creators and Admins add, change and run agents; team agents are for Admins"
 related: ["linkedin-ads", "calendar", "linkedin-posts", "ask", "assets-library", "campaigns", "balance-and-payments", "your-team"]
@@ -18,7 +18,12 @@ shots:
     route: "/agents/runs"
     alt: "The Agents Command Room tab, empty: Running now, Switched on and Previous runs with the Agents of filter"
     captured: 2026-10-04
-sources: ["src/pages/agents/index.astro", "src/pages/agents/organization.astro", "src/pages/agents/catalog.astro", "src/pages/agents/runs.astro", "src/scripts/agentsAdminPanel.ts", "src/scripts/agentForm.ts", "src/scripts/agentsCatalog.ts", "src/scripts/agentRunsPanel.ts", "src/scripts/agentFindings.ts", "src/components/AgentFindings.astro", "src/pages/ads/linkedin/index.astro", "src/pages/social/calendar/monthly.astro", "src/lib/agents/watchers.ts", "src/lib/agents/data-sources.ts", "src/lib/agents/external-sources.ts", "src/lib/campaigns.ts", "src/lib/agents/agent-spend.ts", "src/lib/agents/agent-web.ts", "src/lib/agents/scheduler.ts", "src/lib/agents/run-notify.ts", "src/pages/api/agents/run.ts", "src/pages/api/agents/runs.ts", "src/pages/api/agents/finding-action.ts", "src/pages/api/agents/settings.ts", "src/lib/app.ts", "vercel.json"]
+  - file: "/images/help/agents-scope.webp"
+    route: "/agents"
+    clip: "the agent form, Scope tab"
+    alt: "The form of the LinkedIn publishing watcher on its Scope tab: Name, the General, Scope, Schedule and budget and Notifications tabs, then the Connections, Modules and features (LinkedIn > Posts and LinkedIn > Publishing and scheduling, each on Reads), Data it reads and AI rows, with Add a module or feature, A text model, the model with its price per run and Web search"
+    captured: 2026-10-16
+sources: ["src/pages/agents/index.astro", "src/pages/agents/organization.astro", "src/pages/agents/catalog.astro", "src/pages/agents/runs.astro", "src/scripts/agentsAdminPanel.ts", "src/scripts/agentForm.ts", "src/styles/agent-form.css", "src/scripts/modelPicker.ts", "src/lib/agents/declared-scope.ts", "src/scripts/agentsCatalog.ts", "src/scripts/agentRunsPanel.ts", "src/scripts/agentFindings.ts", "src/components/AgentFindings.astro", "src/pages/ads/linkedin/index.astro", "src/pages/social/calendar/monthly.astro", "src/lib/agents/watchers.ts", "src/lib/agents/data-sources.ts", "src/lib/agents/external-sources.ts", "src/lib/campaigns.ts", "src/lib/agents/agent-spend.ts", "src/lib/agents/agent-web.ts", "src/lib/agents/scheduler.ts", "src/lib/agents/run-notify.ts", "src/pages/api/agents/run.ts", "src/pages/api/agents/runs.ts", "src/pages/api/agents/finding-action.ts", "src/pages/api/agents/settings.ts", "src/lib/app.ts", "vercel.json"]
 ---
 
 An **agent** watches part of your LinkedIn work for you. On a schedule, it re-reads its data, compares it with what it saw last time, and reports what changed as **findings**: short alerts with the real dates and figures, and a suggested next step.
@@ -28,7 +33,7 @@ Nothing runs until someone adds an agent. Open **Agents** in the menu: it holds 
 | Menu entry | Tab | What it holds |
 |---|---|---|
 | **My agents** | **Personal** | Your own agents: the only ones you edit, test and duplicate. They spend your own budget. |
-| **Team agents** | **Organization** | The agents shared across the team. Admins only. |
+| **Team agents** | **Team** | The agents shared across the team. Admins only. |
 | **Catalog** | **Catalog** | The standard agents, open to everyone. |
 | **Runs** | **Agents Command Room** | What is running, what is switched on, and every previous run. |
 
@@ -84,31 +89,60 @@ A custom agent reads the data you pick and follows instructions you write.
 
 1. Open **Agents** > **My agents**.
 2. Unfold **Create an agent from scratch**.
-3. Fill in the form (see below). Under **The data it reads**, tick what it should read:
-   - **Social activity**: the social content of the last 30 days, what was drafted, planned and published.
-   - **LinkedIn publishing**: the LinkedIn posts of the last 30 days and the next 14, published, scheduled, failed, and the drafts waiting.
-   - **LinkedIn ad account**: the ad account of the person the agent runs for, read live, the last 7 days against the 7 before.
-   - **From the Assets Library**: any of your team's [campaigns](/help/campaigns), listed first and marked **Campaign**, and any folder or document of the library. A campaign brings its brief and every asset in it, pictures and clips by their prompt. A folder brings every document in it and in its subfolders. PDF, Word, Excel, Markdown and text files are read; pictures and clips are left aside. Every download is billed like one from the Assets Library. Past six entries, a search box (**Search a campaign, a folder or a document**) narrows the list.
-4. Write its **Instructions**: what it should look for in that data, what counts as a finding, and what it should ignore.
+3. Fill in the form (see below). On its **Scope** tab, under **Data it reads**, tick what it should read:
+   - **In the app**: **Social activity** (the social content of the last 30 days, what was drafted, planned and published), **LinkedIn publishing** (the LinkedIn posts of the last 30 days and the next 14, published, scheduled, failed, and the drafts waiting) and **LinkedIn ad account** (the ad account of the person the agent runs for, read live, the last 7 days against the 7 before).
+   - **From the Assets Library**: any of your team's [campaigns](/help/campaigns), listed first and marked **Campaign**, and any folder or document of the library. A campaign brings its brief and every asset in it, pictures and clips by their prompt. A folder brings every document in it and in its subfolders. PDF, Word, Excel, Markdown and text files are read; pictures and clips are left aside. Every download is billed like one from the Assets Library. Past six entries, a search box (**Search a campaign, a folder or a document**) narrows the list. **Manage the library** opens the library in a new tab.
+   - **Connected systems**: the systems connected to your team, if any. **Manage connections** opens the page where they are connected.
+4. On the **General** tab, write its **Instructions**: what it should look for in that data, what counts as a finding, and what it should ignore.
 5. Click **Create the agent**. It starts switched on.
 
 You can only give an agent data you can see yourself. Each block follows your rights, as on its own pages.
 
 ## The agent form
 
-The same form serves for adding, creating and editing an agent.
+The same form serves for adding, creating and editing an agent. **Name**, at the top, is the name shown on its card and in the emails. Under it, four tabs split the rest. The form opens on the tab you used last.
+
+### General
 
 | Field | What it does |
 |---|---|
-| **Name** | The name shown on its card and in the emails. |
-| **Model** | The model the agent reasons with. |
-| **The data it reads** | Fixed for a standard agent; your choice for one you created. |
-| **Web search** | **ON**: on each run the agent also searches the web, up to three searches, for what your data can't hold (competitors' news, market facts, prices, regulations). Each search is billed with the run. **OFF**: its own data only. |
 | **What users are told it does** | The sentence shown on its card. |
-| **Instructions (the brief the agent reasons with)** | What it watches and how to judge it. Leave it empty on a standard agent to keep the standard instructions. What it may report and how it grades severity is fixed by the platform. |
+| **Instructions** | What it watches and how to judge it. Leave it empty on a standard agent to keep the standard instructions. What it may report and how it grades severity is fixed by the platform. |
+
+### Scope
+
+**Scope** shows everything the agent works on, and lets you change any part of it at any time: change what you want, then click **Save**.
+
+![The form of the LinkedIn publishing watcher on its Scope tab: Name, the General, Scope, Schedule and budget and Notifications tabs, then the Connections, Modules and features (LinkedIn > Posts and LinkedIn > Publishing and scheduling, each on Reads), Data it reads and AI rows, with Add a module or feature, A text model, the model with its price per run and Web search](/images/help/agents-scope.webp)
+
+| Row | What it holds |
+|---|---|
+| **Connections** | The accounts of yours it may use, such as your LinkedIn ad account for the LinkedIn Ads watcher, each with what it may do there: **Off**, **Reads**, or **Reads and changes**. When there is none to give, the row says so, with a link to My Connections. |
+| **Modules and features** | The parts of Nuvora it works in, named as in the rights of your team (**LinkedIn** > **Posts**, for example), each with **Off**, **Reads** or **Reads and changes**. **Add a module or feature…** gives it one more, among those of Nuvora. |
+| **Data it reads** | Fixed for a standard agent: it reads what it was built to read. Your choice for one you created. |
+| **AI** | The kind of model it runs: **No AI model**, **A text model**, **An image model** or **A video model**. Then the model itself, picked from a list that shows what one run costs with each model (**Standard** keeps the agent's own), and the **Web search** switch. With **No AI model**, a run costs nothing. |
+
+**Web search ON**: on each run the agent also searches the web, up to three searches, for what your data can't hold (competitors' news, market facts, prices, regulations). Each search is billed with the run. **OFF**: its own data only.
+
+Two rules hold the scope in place:
+
+- You can only give an agent the modules, features and connections you can use yourself. Data blocks follow your rights too, as on their own pages.
+- A run never reads or writes anything outside the scope as it is saved. Switch a part off, and the next run leaves it alone.
+
+When you create an agent from scratch, the **Scope** tab holds **Data it reads** and **AI** only. The rest of the scope shows once the agent exists, the next time you open it.
+
+### Schedule and budget
+
+| Field | What it does |
+|---|---|
 | **Runs every (hours)** | The minimum time between two scheduled runs. |
-| **Monthly budget (USD)** and **Weekly budget (USD)** | The most this agent may spend per calendar month and over any seven days. Whichever is reached first stops it from running. Empty means no limit of its own. The form shows what it spent this month and in the last seven days. |
-| **Email the results to** | **The agent's owner** (your own agents) or **The organization's administrators** (team agents), **These people only** with a list of addresses, or **Nobody**. |
+| **Monthly budget (USD)** and **Weekly budget (USD)** | The most this agent may spend per calendar month and over any seven days. Whichever is reached first stops it from running. Empty means no limit of its own. Under them, **This month** and **Last seven days** show what it spent. |
+
+### Notifications
+
+| Field | What it does |
+|---|---|
+| **Email the results to** | **The agent's owner** (your own agents) or the team's Admins (team agents), **These people only** with a list of addresses, or **Nobody**. |
 | **Email content** | **Summary and link**, or **Full results** with the findings in the email. |
 
 A field left empty uses the standard version of the agent. Changes apply from the next run.
@@ -179,7 +213,7 @@ A run that skipped the AI, because nothing changed or there was nothing to read,
 
 ## Team agents
 
-**Team agents** (the **Organization** tab) is for Admins. The agents added there are shared: they run for the whole team, and their runs are paid by the team.
+**Team agents** (the **Team** tab) is for Admins. The agents added there are shared: they run for the whole team, and their runs are paid by the team.
 
 - **Create an agent from scratch** at the top and **Add an agent** at the bottom work as on My agents.
 - **Configure** picks what you set up, for example the team's agents, or one member's personal agents, managed on their behalf.

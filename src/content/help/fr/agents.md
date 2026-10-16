@@ -3,11 +3,11 @@ title: "Agents"
 slug: "agents"
 lang: "fr"
 seoTitle: "Des agents qui surveillent vos publications et vos publicités LinkedIn | Aide Nuvora"
-description: "Les deux agents standard, Veilleur des publications LinkedIn et Veilleur LinkedIn Ads, les agents créés de zéro, les calendriers, Lancer maintenant, les constats et la suite à leur donner, l’e-mail des résultats, ce que coûte une exécution et qui la paie."
+description: "Les deux agents standard, Veilleur des publications LinkedIn et Veilleur LinkedIn Ads, les agents créés de zéro, le formulaire de l’agent et son onglet Périmètre, les calendriers, Lancer maintenant, les constats et la suite à leur donner, l’e-mail des résultats, ce que coûte une exécution et qui la paie."
 excerpt: "Les agents relisent à intervalle régulier vos publications LinkedIn et votre compte publicitaire, puis vous signalent ce qui a changé, dates et chiffres réels à l’appui."
 section: "intelligence"
 order: 7
-updated: 2026-10-08
+updated: 2026-10-16
 appPaths: ["/agents", "/agents/organization", "/agents/catalog", "/agents/runs"]
 audience: "Tout le monde ; les créateurs et les administrateurs ajoutent, modifient et lancent les agents ; les agents de l’équipe sont réservés aux administrateurs"
 related: ["linkedin-ads", "calendar", "linkedin-posts", "ask", "assets-library", "campaigns", "balance-and-payments", "your-team"]
@@ -20,7 +20,12 @@ shots:
     route: "/agents/runs"
     alt: "L’onglet Poste de commande des agents, vide : En cours, Activés et Exécutions précédentes avec le filtre Agents de"
     captured: 2026-10-04
-sources: ["src/pages/agents/index.astro", "src/pages/agents/organization.astro", "src/pages/agents/catalog.astro", "src/pages/agents/runs.astro", "src/scripts/agentsAdminPanel.ts", "src/scripts/agentForm.ts", "src/scripts/agentsCatalog.ts", "src/scripts/agentRunsPanel.ts", "src/scripts/agentFindings.ts", "src/components/AgentFindings.astro", "src/pages/ads/linkedin/index.astro", "src/pages/social/calendar/monthly.astro", "src/lib/agents/watchers.ts", "src/lib/agents/data-sources.ts", "src/lib/agents/external-sources.ts", "src/lib/campaigns.ts", "src/lib/agents/agent-spend.ts", "src/lib/agents/agent-web.ts", "src/lib/agents/scheduler.ts", "src/lib/agents/run-notify.ts", "src/pages/api/agents/run.ts", "src/pages/api/agents/runs.ts", "src/pages/api/agents/finding-action.ts", "src/pages/api/agents/settings.ts", "src/lib/app.ts", "vercel.json"]
+  - file: "/images/help/agents-scope.fr.webp"
+    route: "/agents"
+    clip: "le formulaire de l’agent, onglet Périmètre"
+    alt: "Le formulaire du Veilleur des publications LinkedIn sur son onglet Périmètre : Nom, les onglets Général, Périmètre, Planning et budget et Notifications, puis les lignes Connexions, Modules et outils (LinkedIn > Posts et LinkedIn > Publication et programmation, chacun sur Lit), Données lues et IA, avec Ajouter un module ou une fonction, Un modèle de texte, le modèle avec son prix par exécution et Recherche web"
+    captured: 2026-10-16
+sources: ["src/pages/agents/index.astro", "src/pages/agents/organization.astro", "src/pages/agents/catalog.astro", "src/pages/agents/runs.astro", "src/scripts/agentsAdminPanel.ts", "src/scripts/agentForm.ts", "src/styles/agent-form.css", "src/scripts/modelPicker.ts", "src/lib/agents/declared-scope.ts", "src/scripts/agentsCatalog.ts", "src/scripts/agentRunsPanel.ts", "src/scripts/agentFindings.ts", "src/components/AgentFindings.astro", "src/pages/ads/linkedin/index.astro", "src/pages/social/calendar/monthly.astro", "src/lib/agents/watchers.ts", "src/lib/agents/data-sources.ts", "src/lib/agents/external-sources.ts", "src/lib/campaigns.ts", "src/lib/agents/agent-spend.ts", "src/lib/agents/agent-web.ts", "src/lib/agents/scheduler.ts", "src/lib/agents/run-notify.ts", "src/pages/api/agents/run.ts", "src/pages/api/agents/runs.ts", "src/pages/api/agents/finding-action.ts", "src/pages/api/agents/settings.ts", "src/lib/app.ts", "vercel.json"]
 ---
 
 Un **agent** surveille pour vous une partie de votre travail sur LinkedIn. À intervalle régulier, il relit ses données, les compare à ce qu’il avait vu la fois précédente et signale ce qui a changé sous forme de **constats** : de courtes alertes, avec les dates et les chiffres réels, et une suggestion pour la suite.
@@ -86,31 +91,60 @@ Un agent personnalisé lit les données que vous choisissez et suit les instruct
 
 1. Ouvrez **Agents** > **Mes agents**.
 2. Dépliez **Créer un agent de zéro**.
-3. Remplissez le formulaire (voir plus bas). Sous **Les données qu’il lit**, cochez ce qu’il doit lire :
-   - **Activité sociale** : les contenus sociaux des 30 derniers jours, ce qui a été rédigé, planifié et publié.
-   - **Publications LinkedIn** : les posts LinkedIn des 30 derniers jours et des 14 prochains, publiés, programmés ou en échec, ainsi que les brouillons en attente.
-   - **Compte publicitaire LinkedIn** : le compte publicitaire de la personne pour qui l’agent tourne, lu en direct, les 7 derniers jours comparés aux 7 précédents.
-   - **Dans la Bibliothèque de contenus** : n’importe quelle [campagne](/fr/aide/campagnes) de l’équipe, en tête de liste et signalée par **Campagne**, ainsi que n’importe quel dossier ou document de la bibliothèque. Une campagne apporte son brief et chacun de ses contenus, les images et les clips décrits par leur prompt. Un dossier apporte tous les documents qu’il contient, sous-dossiers compris. Les fichiers PDF, Word, Excel, Markdown et texte sont lus ; les images et les clips sont laissés de côté. Chaque téléchargement est facturé comme depuis la Bibliothèque de contenus. Au-delà de six entrées, un champ de recherche (**Rechercher une campagne, un dossier ou un document**) resserre la liste.
-4. Rédigez ses **Instructions** : ce qu’il doit chercher dans ces données, ce qui mérite un constat, et ce qu’il doit ignorer.
+3. Remplissez le formulaire (voir plus bas). Dans son onglet **Périmètre**, sous **Données lues**, cochez ce qu’il doit lire :
+   - **Dans l’application** : **Activité sociale** (les contenus sociaux des 30 derniers jours, ce qui a été rédigé, planifié et publié), **Publications LinkedIn** (les posts LinkedIn des 30 derniers jours et des 14 prochains, publiés, programmés ou en échec, ainsi que les brouillons en attente) et **Compte publicitaire LinkedIn** (le compte publicitaire de la personne pour qui l’agent tourne, lu en direct, les 7 derniers jours comparés aux 7 précédents).
+   - **Dans la Bibliothèque de contenus** : n’importe quelle [campagne](/fr/aide/campagnes) de l’équipe, en tête de liste et signalée par **Campagne**, ainsi que n’importe quel dossier ou document de la bibliothèque. Une campagne apporte son brief et chacun de ses contenus, les images et les clips décrits par leur prompt. Un dossier apporte tous les documents qu’il contient, sous-dossiers compris. Les fichiers PDF, Word, Excel, Markdown et texte sont lus ; les images et les clips sont laissés de côté. Chaque téléchargement est facturé comme depuis la Bibliothèque de contenus. Au-delà de six entrées, un champ de recherche (**Rechercher une campagne, un dossier ou un document**) resserre la liste. **Gérer la bibliothèque** ouvre la bibliothèque dans un nouvel onglet.
+   - **Systèmes connectés** : les systèmes reliés à votre équipe, s’il y en a. **Gérer les connexions** ouvre la page où on les relie.
+4. Dans l’onglet **Général**, rédigez ses **Instructions** : ce qu’il doit chercher dans ces données, ce qui mérite un constat, et ce qu’il doit ignorer.
 5. Cliquez sur **Créer l’agent**. Il démarre activé.
 
 Vous ne pouvez confier à un agent que des données que vous voyez vous-même. Chaque bloc suit vos droits, comme sur ses propres pages.
 
 ## Le formulaire de l’agent
 
-Le même formulaire sert à ajouter, à créer et à modifier un agent.
+Le même formulaire sert à ajouter, à créer et à modifier un agent. **Nom**, tout en haut, est le nom affiché sur sa carte et dans les e-mails. En dessous, quatre onglets se partagent le reste. Le formulaire s’ouvre sur le dernier onglet utilisé.
+
+### Général
 
 | Champ | Son rôle |
 |---|---|
-| **Nom** | Le nom affiché sur sa carte et dans les e-mails. |
-| **Modèle** | Le modèle avec lequel l’agent raisonne. |
-| **Les données qu’il lit** | Imposées pour un agent standard ; à votre choix pour un agent que vous avez créé. |
-| **Recherche web** | **ON** : à chaque exécution, l’agent cherche aussi sur le web, jusqu’à trois recherches, ce que vos données ne peuvent contenir (actualité des concurrents, faits de marché, prix, réglementation). Chaque recherche est facturée avec l’exécution. **OFF** : ses seules données. |
-| **Ce que les utilisateurs lisent de son rôle** | La phrase affichée sur sa carte. |
-| **Instructions (le brief sur lequel l’agent raisonne)** | Ce qu’il surveille et comment en juger. Laissez le champ vide sur un agent standard pour conserver les instructions standard. Ce qu’il a le droit de signaler et sa manière de graduer la gravité sont fixés par la plateforme. |
-| **S’exécute toutes les (heures)** | Le délai minimal entre deux exécutions planifiées. |
-| **Budget mensuel (USD)** et **Budget hebdomadaire (USD)** | Le maximum que cet agent peut dépenser par mois civil et sur sept jours glissants. Le premier plafond atteint l’empêche de tourner. Vide signifie aucune limite propre. Le formulaire affiche ce qu’il a dépensé ce mois-ci et sur les sept derniers jours. |
-| **Envoyer les résultats à** | **Le propriétaire de l’agent** (vos propres agents) ou **Les administrateurs de l’équipe** (agents de l’équipe), **Uniquement ces personnes** avec une liste d’adresses, ou **Personne**. |
+| **La description présentée aux utilisateurs** | La phrase affichée sur sa carte. |
+| **Instructions** | Ce qu’il surveille et comment en juger. Laissez le champ vide sur un agent standard pour conserver les instructions standard. Ce qu’il a le droit de signaler et sa manière de graduer la gravité sont fixés par la plateforme. |
+
+### Périmètre
+
+**Périmètre** montre tout ce sur quoi l’agent travaille, et vous permet d’en modifier n’importe quelle partie à tout moment : changez ce que vous voulez, puis cliquez sur **Enregistrer**.
+
+![Le formulaire du Veilleur des publications LinkedIn sur son onglet Périmètre : Nom, les onglets Général, Périmètre, Planning et budget et Notifications, puis les lignes Connexions, Modules et outils (LinkedIn > Posts et LinkedIn > Publication et programmation, chacun sur Lit), Données lues et IA, avec Ajouter un module ou une fonction, Un modèle de texte, le modèle avec son prix par exécution et Recherche web](/images/help/agents-scope.fr.webp)
+
+| Ligne | Ce qu’elle contient |
+|---|---|
+| **Connexions** | Les comptes à vous qu’il peut utiliser, comme votre compte publicitaire LinkedIn pour le Veilleur LinkedIn Ads, chacun avec ce qu’il a le droit d’y faire : **Désactivé**, **Lit** ou **Lecture et modification**. Quand il n’y en a aucune à confier, la ligne le signale, avec un lien vers Mes connexions. |
+| **Modules et outils** | Les parties de Nuvora dans lesquelles il travaille, nommées comme dans les droits de votre équipe (**LinkedIn** > **Posts**, par exemple), chacune réglée sur **Désactivé**, **Lit** ou **Lecture et modification**. **Ajouter un module ou une fonction…** lui en confie une de plus, parmi celles de Nuvora. |
+| **Données lues** | Imposées pour un agent standard : il lit ce pour quoi il a été conçu. À votre choix pour un agent que vous avez créé. |
+| **IA** | Le type de modèle qu’il fait tourner : **Aucun modèle d’IA**, **Un modèle de texte**, **Un modèle d’image** ou **Un modèle vidéo**. Puis le modèle lui-même, choisi dans une liste qui affiche le coût d’une exécution avec chaque modèle (**Standard** conserve celui de l’agent), et l’interrupteur **Recherche web**. Avec **Aucun modèle d’IA**, une exécution ne coûte rien. |
+
+**Recherche web** sur **OUI** : à chaque exécution, l’agent cherche aussi sur le web, jusqu’à trois recherches, ce que vos données ne peuvent contenir (actualité des concurrents, faits de marché, prix, réglementation). Chaque recherche est facturée avec l’exécution. Sur **NON** : ses seules données.
+
+Deux règles tiennent le périmètre :
+
+- Vous ne pouvez confier à un agent que les modules, fonctions et connexions que vous utilisez vous-même. Les blocs de données suivent eux aussi vos droits, comme sur leurs propres pages.
+- Une exécution ne lit ni n’écrit jamais rien en dehors du périmètre tel qu’il est enregistré. Désactivez une partie, et l’exécution suivante n’y touche plus.
+
+Quand vous créez un agent de zéro, l’onglet **Périmètre** ne contient que **Données lues** et **IA**. Le reste du périmètre apparaît une fois l’agent créé, la prochaine fois que vous l’ouvrez.
+
+### Planning et budget
+
+| Champ | Son rôle |
+|---|---|
+| **Fréquence d’exécution (heures)** | Le délai minimal entre deux exécutions planifiées. |
+| **Budget mensuel (USD)** et **Budget hebdomadaire (USD)** | Le maximum que cet agent peut dépenser par mois civil et sur sept jours glissants. Le premier plafond atteint l’empêche de tourner. Vide signifie aucune limite propre. En dessous, **Ce mois-ci** et **Sept derniers jours** affichent ce qu’il a dépensé. |
+
+### Notifications
+
+| Champ | Son rôle |
+|---|---|
+| **Envoyer les résultats à** | **Le propriétaire de l’agent** (vos propres agents) ou les administrateurs de l’équipe (agents de l’équipe), **Uniquement ces personnes** avec une liste d’adresses, ou **Personne**. |
 | **Contenu de l’e-mail** | **Résumé et lien**, ou **Résultats complets**, avec les constats dans l’e-mail. |
 
 Un champ laissé vide reprend la version standard de l’agent. Les modifications s’appliquent dès l’exécution suivante.
@@ -130,7 +164,7 @@ Dans **Modifier et tester**, sous **Exécution d’essai**, cliquez sur **Exécu
 
 ## Quand les agents tournent
 
-Un agent activé tourne selon son calendrier. Le planificateur effectue un passage par jour, et un agent s’exécute lors de ce passage dès que le délai fixé dans **S’exécute toutes les (heures)** s’est écoulé depuis sa dernière exécution. Les deux agents standard tournent environ une fois par jour.
+Un agent activé tourne selon son calendrier. Le planificateur effectue un passage par jour, et un agent s’exécute lors de ce passage dès que le délai fixé dans **Fréquence d’exécution (heures)** s’est écoulé depuis sa dernière exécution. Les deux agents standard tournent environ une fois par jour.
 
 Une exécution saute entièrement l’appel d’IA, et ne coûte rien, quand rien n’a changé depuis le passage précédent ou quand il n’y a encore aucune donnée à lire (par exemple, aucun compte publicitaire connecté).
 

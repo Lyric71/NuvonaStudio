@@ -2,11 +2,11 @@
 title: "智能体"
 lang: "zh"
 seoTitle: "替你盯住 LinkedIn 发布与广告的智能体｜Nuvora 帮助中心"
-description: "两个标准智能体（LinkedIn 发布监测和 LinkedIn 广告监测）、从零创建的智能体、运行计划、立即运行、发现及其处理方式、结果邮件，以及一次运行的费用和由谁支付。"
+description: "两个标准智能体（LinkedIn 发布监测和 LinkedIn 广告监测）、从零创建的智能体、智能体表单及其范围标签页、运行计划、立即运行、发现及其处理方式、结果邮件，以及一次运行的费用和由谁支付。"
 excerpt: "智能体按计划重新读取你的 LinkedIn 发布情况和广告账户，告诉你哪里有了变化，并附上真实的日期和数字。"
 section: "intelligence"
 order: 7
-updated: 2026-10-08
+updated: 2026-10-16
 appPaths: ["/agents", "/agents/organization", "/agents/catalog", "/agents/runs"]
 audience: "所有人；创作者和管理员可以添加、修改和运行智能体；团队智能体仅限管理员"
 related: ["linkedin-ads", "calendar", "linkedin-posts", "ask", "assets-library", "campaigns", "balance-and-payments", "your-team"]
@@ -19,7 +19,12 @@ shots:
     route: "/agents/runs"
     alt: "尚无内容的智能体指挥室标签页：正在运行、已开启和历史运行，以及智能体所属筛选器"
     captured: 2026-10-04
-sources: ["src/pages/agents/index.astro", "src/pages/agents/organization.astro", "src/pages/agents/catalog.astro", "src/pages/agents/runs.astro", "src/scripts/agentsAdminPanel.ts", "src/scripts/agentForm.ts", "src/scripts/agentsCatalog.ts", "src/scripts/agentRunsPanel.ts", "src/scripts/agentFindings.ts", "src/components/AgentFindings.astro", "src/pages/ads/linkedin/index.astro", "src/pages/social/calendar/monthly.astro", "src/lib/agents/watchers.ts", "src/lib/agents/data-sources.ts", "src/lib/agents/external-sources.ts", "src/lib/campaigns.ts", "src/lib/agents/agent-spend.ts", "src/lib/agents/agent-web.ts", "src/lib/agents/scheduler.ts", "src/lib/agents/run-notify.ts", "src/pages/api/agents/run.ts", "src/pages/api/agents/runs.ts", "src/pages/api/agents/finding-action.ts", "src/pages/api/agents/settings.ts", "src/lib/app.ts", "vercel.json"]
+  - file: "/images/help/agents-scope.zh.webp"
+    route: "/agents"
+    clip: "智能体表单的范围标签页"
+    alt: "LinkedIn 发布监测的表单停在范围标签页：名称，常规、范围、计划与预算和通知四个标签页，下方是连接、模块与功能（LinkedIn > 帖子、LinkedIn > 发布与定时，均为读取）、读取的数据和 AI 几行，包括添加模块或功能、文本模型、标出每次运行价格的模型，以及联网搜索"
+    captured: 2026-10-16
+sources: ["src/pages/agents/index.astro", "src/pages/agents/organization.astro", "src/pages/agents/catalog.astro", "src/pages/agents/runs.astro", "src/scripts/agentsAdminPanel.ts", "src/scripts/agentForm.ts", "src/styles/agent-form.css", "src/scripts/modelPicker.ts", "src/lib/agents/declared-scope.ts", "src/scripts/agentsCatalog.ts", "src/scripts/agentRunsPanel.ts", "src/scripts/agentFindings.ts", "src/components/AgentFindings.astro", "src/pages/ads/linkedin/index.astro", "src/pages/social/calendar/monthly.astro", "src/lib/agents/watchers.ts", "src/lib/agents/data-sources.ts", "src/lib/agents/external-sources.ts", "src/lib/campaigns.ts", "src/lib/agents/agent-spend.ts", "src/lib/agents/agent-web.ts", "src/lib/agents/scheduler.ts", "src/lib/agents/run-notify.ts", "src/pages/api/agents/run.ts", "src/pages/api/agents/runs.ts", "src/pages/api/agents/finding-action.ts", "src/pages/api/agents/settings.ts", "src/lib/app.ts", "vercel.json"]
 ---
 
 **智能体** 替你盯住 LinkedIn 工作的某个方面。它按计划重新读取数据，与上次所见对比，再把变化写成 **发现**：简短的提醒，附有真实的日期和数字，以及建议的下一步。
@@ -85,31 +90,60 @@ sources: ["src/pages/agents/index.astro", "src/pages/agents/organization.astro",
 
 1. 打开 **智能体** > **我的智能体**。
 2. 展开 **从零创建智能体**。
-3. 填写表单（见下文）。在 **它读取的数据** 下，勾选它要读取的内容：
-   - **社交动态**：最近 30 天的社交内容，包括起草、计划和发布的内容。
-   - **LinkedIn 发布**：最近 30 天和未来 14 天的 LinkedIn 帖子，包括已发布、已排期和发布失败的帖子，以及待处理的草稿。
-   - **LinkedIn 广告账户**：智能体运行对象的广告账户，实时读取，对比最近 7 天与此前 7 天。
-   - **来自素材库**：团队的任意 [营销活动](/zh/help/campaigns)（排在最前，标有 **营销活动**），以及素材库中的任意文件夹或文档。选择一个营销活动，会带上它的简报和其中全部素材，图片和视频片段以提示词呈现。选择一个文件夹，会带上其中及其子文件夹里的所有文档。可读取 PDF、Word、Excel、Markdown 和文本文件；图片和视频片段不读。每次下载都按素材库的下载标准计费。条目超过六个时，可用搜索框（**搜索营销活动、文件夹或文档**）缩小范围。
-4. 撰写 **指令**：它要在这些数据中找什么、什么算一条发现、哪些可以忽略。
+3. 填写表单（见下文）。在 **范围** 标签页的 **读取的数据** 下，勾选它要读取的内容：
+   - **应用内数据**：**社交动态**（最近 30 天的社交内容，包括起草、计划和发布的内容）、**LinkedIn 发布**（最近 30 天和未来 14 天的 LinkedIn 帖子，包括已发布、已排期和发布失败的帖子，以及待处理的草稿）和 **LinkedIn 广告账户**（智能体运行对象的广告账户，实时读取，对比最近 7 天与此前 7 天）。
+   - **来自素材库**：团队的任意 [营销活动](/zh/help/campaigns)（排在最前，标有 **营销活动**），以及素材库中的任意文件夹或文档。选择一个营销活动，会带上它的简报和其中全部素材，图片和视频片段以提示词呈现。选择一个文件夹，会带上其中及其子文件夹里的所有文档。可读取 PDF、Word、Excel、Markdown 和文本文件；图片和视频片段不读。每次下载都按素材库的下载标准计费。条目超过六个时，可用搜索框（**搜索营销活动、文件夹或文档**）缩小范围。**管理素材库** 会在新标签页中打开素材库。
+   - **已连接的系统**：团队已连接的系统（如果有）。**管理连接** 会打开连接这些系统的页面。
+4. 在 **常规** 标签页撰写 **运行指令**：它要在这些数据中找什么、什么算一条发现、哪些可以忽略。
 5. 点击 **创建智能体**。新智能体一创建就处于开启状态。
 
 你只能把自己看得到的数据交给智能体。每个数据块都遵循你的权限，与它在各自页面上一样。
 
 ## 智能体表单
 
-添加、创建和编辑智能体，用的都是同一张表单。
+添加、创建和编辑智能体，用的都是同一张表单。最上方的 **名称** 是显示在卡片和邮件中的名字。名称下方，其余设置分在四个标签页里。表单会停在你上次使用的标签页。
+
+### 常规
 
 | 字段 | 作用 |
 |---|---|
-| **名称** | 显示在卡片和邮件中的名字。 |
-| **模型** | 智能体用来推理的模型。 |
-| **它读取的数据** | 标准智能体固定不变；自己创建的智能体由你选择。 |
-| **联网搜索** | **开**：每次运行时，智能体还会联网搜索，最多三次，查找你的数据里没有的信息（竞争对手动态、市场情况、价格、法规）。每次搜索随运行一起计费。**关**：只用它自己的数据。 |
 | **面向用户的功能说明** | 显示在卡片上的那句话。 |
-| **指令（智能体推理所依据的内容简报）** | 它盯什么、如何判断。标准智能体留空，即沿用标准指令。它可以报告哪些内容、如何划分严重程度，由平台统一规定。 |
+| **运行指令** | 它盯什么、如何判断。标准智能体留空，即沿用标准指令。它可以报告哪些内容、如何划分严重程度，由平台统一规定。 |
+
+### 范围
+
+**范围** 列出智能体所涉及的一切，任何部分都可以随时修改：改好后点击 **保存**。
+
+![LinkedIn 发布监测的表单停在范围标签页：名称，常规、范围、计划与预算和通知四个标签页，下方是连接、模块与功能（LinkedIn > 帖子、LinkedIn > 发布与定时，均为读取）、读取的数据和 AI 几行，包括添加模块或功能、文本模型、标出每次运行价格的模型，以及联网搜索](/images/help/agents-scope.zh.webp)
+
+| 行 | 内容 |
+|---|---|
+| **连接** | 它可以使用的你本人的账户，比如 LinkedIn 广告监测要用的 LinkedIn 广告账户；每个账户都标明它能做什么：**关**、**读取** 或 **读取并修改**。没有可分配的连接时，这一行会注明，并附上前往“我的连接”的链接。 |
+| **模块与功能** | 它在 Nuvora 中涉及的各个部分，名称与团队权限中的一致（例如 **LinkedIn** > **帖子**），每项可设为 **关**、**读取** 或 **读取并修改**。用 **添加模块或功能…** 可以从 Nuvora 的功能中再交给它一项。 |
+| **读取的数据** | 标准智能体固定不变，只读取它设计时设定的数据；自己创建的智能体由你选择。 |
+| **AI** | 它使用的模型类型：**不使用 AI 模型**、**文本模型**、**图像模型** 或 **视频模型**。接着是具体模型，列表中标出每个模型运行一次的费用（**标准** 表示沿用智能体自带的模型），以及 **联网搜索** 开关。选择 **不使用 AI 模型** 时，运行不产生费用。 |
+
+**联网搜索** 为 **开** 时，每次运行智能体还会联网搜索，最多三次，查找你的数据里没有的信息（竞争对手动态、市场情况、价格、法规）。每次搜索随运行一起计费。为 **关** 时，只用它自己的数据。
+
+范围受两条规则约束：
+
+- 你只能把自己有权使用的模块、功能和连接交给智能体。数据块同样遵循你的权限，与它们在各自页面上一样。
+- 运行时，智能体绝不会读取或写入已保存范围之外的任何内容。关掉某一部分，下一次运行就不再碰它。
+
+从零创建智能体时，**范围** 标签页只有 **读取的数据** 和 **AI** 两行。智能体创建之后，下次打开时才会显示完整的范围。
+
+### 计划与预算
+
+| 字段 | 作用 |
+|---|---|
 | **运行间隔（小时）** | 两次定时运行之间的最短间隔。 |
-| **月度预算（USD）** 和 **每周预算（USD）** | 该智能体每个自然月、以及任意七天内最多可花的金额。哪个先到，就先叫停运行。留空表示不单独设限。表单会显示它本月和最近七天已经花了多少。 |
-| **结果发送给** | **智能体的所有者**（你自己的智能体）或 **团队的管理员**（团队智能体），附地址列表的 **仅这些人**，或 **不发送**。 |
+| **月度预算（USD）** 和 **每周预算（USD）** | 该智能体每个自然月、以及任意七天内最多可花的金额。哪个先到，就先叫停运行。留空表示不单独设限。下方的 **本月** 和 **最近七天** 显示它已经花了多少。 |
+
+### 通知
+
+| 字段 | 作用 |
+|---|---|
+| **结果发送给** | **智能体的所有者**（你自己的智能体）或团队的管理员（团队智能体），附地址列表的 **仅限以下人员**，或 **不发送**。 |
 | **邮件内容** | **摘要和链接**，或把发现写进邮件的 **完整结果**。 |
 
 留空的字段沿用智能体的标准版本。修改从下一次运行起生效。

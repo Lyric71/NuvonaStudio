@@ -5,7 +5,7 @@ description: "Working alone or in a team, the Admin, Creator, Viewer and Client 
 excerpt: "A team shares one pool of credits and works for its clients. Admins invite people, set daily limits, add clients and give their people a login."
 section: "team"
 order: 10
-updated: 2026-10-14
+updated: 2026-10-16
 appPaths: ["/team", "/invite"]
 audience: "Everyone; most actions are for admins"
 related: ["getting-started", "balance-and-payments", "client-space", "linkedin-posts", "validation", "skills", "agents", "account-and-sign-in"]
@@ -14,7 +14,7 @@ shots:
     route: "/team"
     alt: "The Team page of a new team: Just you, for now, the team name with Save the name, Team credits at $0.00 with Buy credits, the Members card with one admin and No limit for admins, then the Invite someone, Clients and Invoices and sign-in cards"
     captured: 2026-10-04
-sources: ["src/pages/team.astro", "src/scripts/teamPanel.ts", "src/pages/api/team.ts", "src/pages/api/team/clients.ts", "src/pages/api/team/clients/[id].ts", "src/lib/team-clients.ts", "src/lib/invitations.ts", "src/lib/user-admin.ts", "src/lib/app.ts", "src/layouts/Layout.astro", "src/pages/settings.astro", "src/pages/invite/[token].astro", "src/pages/signup.astro", "src/scripts/socialContent.ts", "src/pages/api/social-content/[id].ts", "src/lib/stored-files.ts", "src/lib/validation-http.ts", "src/scripts/validationRequest.ts", "src/pages/admin/users/[id].astro", "public/apps/nuvora/vocabulary.js", "src/scripts/userDetail.ts", "src/lib/usage-events.ts", "src/lib/signup-fields.ts"]
+sources: ["src/pages/team.astro", "src/scripts/teamPanel.ts", "src/pages/api/team.ts", "src/pages/api/team/clients.ts", "src/pages/api/team/clients/[id].ts", "src/lib/team-clients.ts", "src/lib/invitations.ts", "src/lib/user-admin.ts", "src/lib/app.ts", "src/layouts/Layout.astro", "src/pages/settings.astro", "src/pages/invite/[token].astro", "src/pages/signup.astro", "src/scripts/socialContent.ts", "src/pages/api/social-content/[id].ts", "src/lib/stored-files.ts", "src/lib/validation-http.ts", "src/scripts/validationRequest.ts", "src/pages/admin/users/[id].astro", "public/apps/nuvora/vocabulary.js", "src/scripts/userDetail.ts", "src/lib/usage-events.ts", "src/lib/signup-fields.ts", "src/lib/features.ts"]
 ---
 
 In Nuvora, a **team** is a group of people who share one pool of credits. Everything the team does with AI is paid from the team's credits first. A team can also work for **clients**: the companies it writes LinkedIn posts for. Open **Team** in the menu.
@@ -45,7 +45,7 @@ The person who creates a team is its first admin. Your own role is shown in **Us
 Beyond the role, each person's access can be fitted more finely:
 
 - **Modules**: a module switched off for someone disappears for them entirely, menu and pages. The modules are **Posts**, **Calendar**, **LinkedIn Ads**, **Validation**, **Ask**, **Agents**, **Assets Library**, **Image editor**, **Campaigns** and **Skills**.
-- **Rights**: what a person may do in each area (see it, create in it, change it, delete from it), graded on **Posts**, **Publishing and scheduling**, **LinkedIn Ads**, **Validation**, **Assets**, **Image editor**, **Campaigns**, **Ask**, **Agents**, **Skills**, **Team members**, **Team settings** and **Shared credits**. Each right follows the person's role until it is changed for them.
+- **Rights**: what a person may do in each area (see it, create in it, change it, delete from it), graded on **Posts**, **Publishing and scheduling**, **LinkedIn Ads**, **Validation**, **Assets**, **Image editor**, **Campaigns**, **Ask**, **Agents**, **Skills**, **Scratchpad**, **Team members**, **Team settings** and **Shared credits**. Each right follows the person's role until it is changed for them. The **Scratchpad** row is the person's own notes, files and recordings: every role writes in its own, Viewers included. See [Scratchpad](/help/scratchpad).
 
 An admin changes both on the person's own page: on the Team page, click **Details** in their row, adjust the **Modules** and **Rights, module by module** cards, then click **Save changes**. **Back to the team** returns to the list. Nobody can change their own rights.
 

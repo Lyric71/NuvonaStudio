@@ -6,7 +6,7 @@ description: "一个人用还是团队用，管理员、创作者、查看者和
 excerpt: "一个团队共用一笔额度，并为自己的客户工作。管理员负责邀请成员、设定每日限额、添加客户并为客户方人员开通登录。"
 section: "team"
 order: 10
-updated: 2026-10-14
+updated: 2026-10-16
 appPaths: ["/team", "/invite"]
 audience: "所有人；大部分操作仅限管理员"
 related: ["getting-started", "balance-and-payments", "client-space", "linkedin-posts", "validation", "skills", "agents", "account-and-sign-in"]
@@ -15,7 +15,7 @@ shots:
     route: "/team"
     alt: "一个新团队的团队页面：目前只有您，团队名称和保存名称按钮，团队额度为 $0.00 并带购买额度按钮，成员卡片里有一位管理员并标着管理员不设限额，下方是邀请成员、客户、发票与登录几张卡片"
     captured: 2026-10-04
-sources: ["src/pages/team.astro", "src/scripts/teamPanel.ts", "src/pages/api/team.ts", "src/pages/api/team/clients.ts", "src/pages/api/team/clients/[id].ts", "src/lib/team-clients.ts", "src/lib/invitations.ts", "src/lib/user-admin.ts", "src/lib/app.ts", "src/layouts/Layout.astro", "src/pages/settings.astro", "src/pages/invite/[token].astro", "src/pages/signup.astro", "src/scripts/socialContent.ts", "src/pages/api/social-content/[id].ts", "src/lib/stored-files.ts", "src/lib/validation-http.ts", "src/scripts/validationRequest.ts", "src/pages/admin/users/[id].astro", "public/apps/nuvora/vocabulary.js", "src/scripts/userDetail.ts", "src/lib/usage-events.ts", "src/lib/signup-fields.ts"]
+sources: ["src/pages/team.astro", "src/scripts/teamPanel.ts", "src/pages/api/team.ts", "src/pages/api/team/clients.ts", "src/pages/api/team/clients/[id].ts", "src/lib/team-clients.ts", "src/lib/invitations.ts", "src/lib/user-admin.ts", "src/lib/app.ts", "src/layouts/Layout.astro", "src/pages/settings.astro", "src/pages/invite/[token].astro", "src/pages/signup.astro", "src/scripts/socialContent.ts", "src/pages/api/social-content/[id].ts", "src/lib/stored-files.ts", "src/lib/validation-http.ts", "src/scripts/validationRequest.ts", "src/pages/admin/users/[id].astro", "public/apps/nuvora/vocabulary.js", "src/scripts/userDetail.ts", "src/lib/usage-events.ts", "src/lib/signup-fields.ts", "src/lib/features.ts"]
 ---
 
 在 Nuvora 里，**团队** 是共用一笔额度的一群人。团队用 AI 做的每件事，都先从团队额度里付费。团队还可以为 **客户** 工作，也就是团队替其撰写 LinkedIn 帖子的那些公司。点菜单里的 **团队** 打开这一页。
@@ -46,7 +46,7 @@ Nuvora 有四种角色。
 在角色之外，每个人的访问范围还能调得更细：
 
 - **模块**：给某人关掉一个模块，这个模块就从他那里彻底消失，菜单和页面都不见了。模块包括 **帖子**、**日历**、**LinkedIn Ads**、**审核**、**提问**、**智能体**、**素材库**、**图片编辑器**、**营销活动** 和 **技能**。
-- **权限**：一个人在各个领域能做什么（查看、创建、修改、删除），按 **帖子**、**发布与定时**、**LinkedIn Ads**、**审核**、**素材**、**图片编辑器**、**营销活动**、**提问**、**智能体**、**技能**、**团队成员**、**团队设置** 和 **共享额度** 分级设置。每项权限都跟随这个人的角色，除非单独为他改过。
+- **权限**：一个人在各个领域能做什么（查看、创建、修改、删除），按 **帖子**、**发布与定时**、**LinkedIn Ads**、**审核**、**素材**、**图片编辑器**、**营销活动**、**提问**、**智能体**、**技能**、**速记区**、**团队成员**、**团队设置** 和 **共享额度** 分级设置。每项权限都跟随这个人的角色，除非单独为他改过。**速记区** 一行管的是每个人自己的笔记、文件和录音：所有角色都能在自己的速记区里写，查看者也不例外。参见 [速记区](/zh/help/scratchpad)。
 
 管理员在这个人自己的页面上调整这两项：在团队页面上点他那一行的 **详情**，调整 **模块** 和 **逐个模块的权限** 两张卡片，再点 **保存修改**。点 **返回团队** 回到列表。谁都不能修改自己的权限。
 
