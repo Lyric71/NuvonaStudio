@@ -7,7 +7,7 @@ description: "Travailler seul ou en équipe, les rôles Administrateur, Créateu
 excerpt: "Une équipe partage une même réserve de crédits et travaille pour ses clients. Les administrateurs invitent les personnes, fixent les limites quotidiennes, ajoutent les clients et ouvrent des accès à leurs collaborateurs."
 section: "team"
 order: 10
-updated: 2026-10-16
+updated: 2026-10-17
 appPaths: ["/team", "/invite"]
 audience: "Tout le monde ; la plupart des actions reviennent aux administrateurs"
 related: ["getting-started", "balance-and-payments", "client-space", "linkedin-posts", "validation", "skills", "agents", "account-and-sign-in"]
@@ -47,7 +47,7 @@ La personne qui crée une équipe en est le premier administrateur. Votre propre
 Au-delà du rôle, l’accès de chacun peut être réglé plus finement :
 
 - **Modules** : un module désactivé pour une personne disparaît entièrement pour elle, du menu comme des pages. Les modules sont **Posts**, **Calendrier**, **LinkedIn Ads**, **Validation**, **Interroger**, **Agents**, **Bibliothèque de contenus**, **Éditeur d’images**, **Campagnes** et **Compétences**.
-- **Droits** : ce qu’une personne peut faire dans chaque domaine (le voir, y créer, y modifier, y supprimer), réglé pour **Posts**, **Publication et programmation**, **LinkedIn Ads**, **Validation**, **Contenus**, **Éditeur d’images**, **Campagnes**, **Interroger**, **Agents**, **Compétences**, **Bloc-notes**, **Membres de l’équipe**, **Réglages de l’équipe** et **Crédits partagés**. Chaque droit suit le rôle de la personne tant qu’il n’est pas modifié pour elle. La ligne **Bloc-notes** concerne les notes, fichiers et enregistrements personnels de chacun : tous les rôles écrivent dans les leurs, lecteurs compris. Voir [Bloc-notes](/fr/aide/bloc-notes).
+- **Droits** : ce qu’une personne peut faire dans chaque domaine (le voir, y créer, y modifier, y supprimer), réglé pour **Posts**, **Publication et programmation**, **LinkedIn Ads**, **Validation**, **Contenus**, **Éditeur d’images**, **Campagnes**, **Interroger**, **Agents**, **Compétences**, **Bloc-notes**, **Journal**, **Membres de l’équipe**, **Réglages de l’équipe** et **Crédits partagés**. Chaque droit suit le rôle de la personne tant qu’il n’est pas modifié pour elle. La ligne **Bloc-notes** concerne les notes, fichiers et enregistrements personnels de chacun : tous les rôles écrivent dans les leurs, lecteurs compris. Voir [Bloc-notes](/fr/aide/bloc-notes). La ligne **Journal** ouvre l’historique propre à chacun (exécutions, notifications, exécutions d’agents, e-mails reçus, connexions et actions payantes), que personne d’autre ne voit ; le droit de voir suffit. Voir [Journal](/fr/aide/journal).
 
 Un administrateur règle les deux sur la page de la personne : sur la page Équipe, cliquez sur **Détails** dans sa ligne, ajustez les cartes **Modules** et **Les droits, module par module**, puis cliquez sur **Enregistrer les modifications**. **Retour à l’équipe** ramène à la liste. Personne ne peut modifier ses propres droits.
 

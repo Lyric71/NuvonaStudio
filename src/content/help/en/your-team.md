@@ -5,7 +5,7 @@ description: "Working alone or in a team, the Admin, Creator, Viewer and Client 
 excerpt: "A team shares one pool of credits and works for its clients. Admins invite people, set daily limits, add clients and give their people a login."
 section: "team"
 order: 10
-updated: 2026-10-16
+updated: 2026-10-17
 appPaths: ["/team", "/invite"]
 audience: "Everyone; most actions are for admins"
 related: ["getting-started", "balance-and-payments", "client-space", "linkedin-posts", "validation", "skills", "agents", "account-and-sign-in"]
@@ -45,7 +45,7 @@ The person who creates a team is its first admin. Your own role is shown in **Us
 Beyond the role, each person's access can be fitted more finely:
 
 - **Modules**: a module switched off for someone disappears for them entirely, menu and pages. The modules are **Posts**, **Calendar**, **LinkedIn Ads**, **Validation**, **Ask**, **Agents**, **Assets Library**, **Image editor**, **Campaigns** and **Skills**.
-- **Rights**: what a person may do in each area (see it, create in it, change it, delete from it), graded on **Posts**, **Publishing and scheduling**, **LinkedIn Ads**, **Validation**, **Assets**, **Image editor**, **Campaigns**, **Ask**, **Agents**, **Skills**, **Scratchpad**, **Team members**, **Team settings** and **Shared credits**. Each right follows the person's role until it is changed for them. The **Scratchpad** row is the person's own notes, files and recordings: every role writes in its own, Viewers included. See [Scratchpad](/help/scratchpad).
+- **Rights**: what a person may do in each area (see it, create in it, change it, delete from it), graded on **Posts**, **Publishing and scheduling**, **LinkedIn Ads**, **Validation**, **Assets**, **Image editor**, **Campaigns**, **Ask**, **Agents**, **Skills**, **Scratchpad**, **Log**, **Team members**, **Team settings** and **Shared credits**. Each right follows the person's role until it is changed for them. The **Scratchpad** row is the person's own notes, files and recordings: every role writes in its own, Viewers included. See [Scratchpad](/help/scratchpad). The **Log** row opens the person's own history (runs, notifications, agent runs, emails received, sign-ins and paid actions), which nobody else sees; viewing is all it takes. See [Log](/help/log).
 
 An admin changes both on the person's own page: on the Team page, click **Details** in their row, adjust the **Modules** and **Rights, module by module** cards, then click **Save changes**. **Back to the team** returns to the list. Nobody can change their own rights.
 

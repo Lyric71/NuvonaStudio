@@ -1,11 +1,11 @@
 ---
 title: "Nuvora Help"
 seoTitle: "Nuvora Help Center"
-description: "Guides for Nuvora: getting started, the Discovery page and tips, LinkedIn posts, the Calendar, LinkedIn Ads, Validation, Ask, agents, the Assets Library and its Image editor, campaigns, the Scratchpad, skills, choosing a model, teams and their clients, the Client space, My Connections, your balance and payments, your account, partners and troubleshooting."
+description: "Guides for Nuvora: getting started, the Discovery page and tips, LinkedIn posts, the Calendar, LinkedIn Ads, Validation, Ask, agents, the Assets Library and its Image editor, campaigns, the Scratchpad, skills, choosing a model, teams and their clients, the Client space, My Connections, your balance and payments, your account, your Log, partners and troubleshooting."
 excerpt: "Everything you need to write, approve, publish and measure your LinkedIn presence with Nuvora, alone or with your team, for your company or for your clients."
 section: "home"
 order: 0
-updated: 2026-10-16
+updated: 2026-10-17
 appPaths: []
 audience: "Everyone"
 related: []
@@ -50,8 +50,9 @@ Nuvora is a workspace for LinkedIn and nothing else. It writes your posts with A
 16. [My Connections](/help/my-connections): connecting your LinkedIn profile, your company pages and your ad accounts, how long a connection lasts, renewing it, and the connection check after you sign in.
 17. [Balance and payments](/help/balance-and-payments): a prepaid balance in US dollars, the team balance then your own, topping up by card, Alipay or WeChat Pay, promotional codes, automatic top-up, invoices and the usage log.
 18. [Account and sign-in](/help/account-and-sign-in): your name, picture, email and password, light or dark, the interface in English, French or Chinese, date and time, your home page, My models, voice input, the sign-in code by email, password reset and what happens to a login left unused.
-19. [Partners](/help/partners): the partner area, for commercial partners only.
+19. [Log](/help/log): your own history in the menu under your picture: runs and notifications, agent runs, the emails you received, your sign-ins and your spending, in one table you can filter, search and sort.
+20. [Partners](/help/partners): the partner area, for commercial partners only.
 
 ## When something goes wrong
 
-20. [Troubleshooting](/help/troubleshooting): the messages Nuvora shows, what they mean and what to do.
+21. [Troubleshooting](/help/troubleshooting): the messages Nuvora shows, what they mean and what to do.

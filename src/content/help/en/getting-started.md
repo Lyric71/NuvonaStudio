@@ -5,7 +5,7 @@ description: "What Nuvora is, how to create your account alone or with a team, h
 excerpt: "Create your account, find your way around the menu and publish your first LinkedIn post in a few minutes."
 section: "getting-started"
 order: 1
-updated: 2026-10-16
+updated: 2026-10-17
 appPaths: ["/signup", "/login", "/discover", "/social/linkedin/posts"]
 audience: "Everyone"
 related: ["discovery-and-tips", "linkedin-posts", "calendar", "linkedin-ads", "validation", "ask", "agents", "assets-library", "my-connections", "balance-and-payments", "your-team", "client-space", "account-and-sign-in"]
@@ -95,9 +95,9 @@ The bar at the top of every page holds:
 
 - A house button that makes the page you're on your home page, the one you land on when you sign in. Click it again to go back to the default.
 - A sun or moon button that switches between light and dark.
-- **Activity**: the drafts, renders and checks running for you, and how they ended. It keeps following a run while you move to another page.
+- **Activity**: the drafts, renders and checks running for you, and how they ended. It keeps following a run while you move to another page, and a card in the bottom right corner tells you when one ends. Coming back to more than five finished runs, you get a card for the five newest and one **While you were away** card with the count and a **More** button that opens your [Log](/help/log). **See everything in the Log**, at the foot of the panel, opens it too, and **Clear finished** takes the finished runs off the panel without deleting them: they stay in the Log.
 - Your balance: the amount you can spend right now. Click it to top up. When the balance is empty, it reads **Buy credits**. A client login has no balance, so it sees no amount here.
-- Your picture, which opens a menu with **User Settings**, **Discovery**, **Billing & credits**, **Team**, **My Connections**, the **System**, **Light** and **Dark** choices, the language row and **Sign out**.
+- Your picture, which opens a menu with **User Settings**, **Log** (your own history, see [Log](/help/log)), **Discovery**, **Billing & credits**, **Team**, **My Connections**, the **System**, **Light** and **Dark** choices, the language row and **Sign out**.
 
 The footer links to the **Help center**, **Report a bug**, **Contact us**, the nuvora.studio website, **What's new**, the **Terms of Service** and the **Privacy Policy**.
 

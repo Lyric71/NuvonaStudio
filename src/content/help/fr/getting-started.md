@@ -7,7 +7,7 @@ description: "Ce qu’est Nuvora, comment créer votre compte seul ou en équipe
 excerpt: "Créez votre compte, repérez-vous dans le menu et publiez votre premier post LinkedIn en quelques minutes."
 section: "getting-started"
 order: 1
-updated: 2026-10-16
+updated: 2026-10-17
 appPaths: ["/signup", "/login", "/discover", "/social/linkedin/posts"]
 audience: "Tout le monde"
 related: ["discovery-and-tips", "linkedin-posts", "calendar", "linkedin-ads", "validation", "ask", "agents", "assets-library", "my-connections", "balance-and-payments", "your-team", "client-space", "account-and-sign-in"]
@@ -97,9 +97,9 @@ La barre en haut de chaque page comporte :
 
 - Un bouton en forme de maison, qui fait de la page affichée votre page d’accueil, celle sur laquelle vous arrivez à la connexion. Un second clic rétablit la page par défaut.
 - Un bouton soleil ou lune, qui bascule entre le thème clair et le thème sombre.
-- **Activité** : les brouillons, générations et vérifications qui tournent pour vous, et leur issue. Le suivi continue pendant que vous passez à une autre page.
+- **Activité** : les brouillons, générations et vérifications qui tournent pour vous, et leur issue. Le suivi continue pendant que vous passez à une autre page, et une carte en bas à droite vous prévient dès qu’une tâche s’achève. Au retour, face à plus de cinq tâches terminées, vous recevez une carte pour les cinq plus récentes et une carte **Pendant votre absence** qui en donne le nombre, avec un bouton **Plus** ouvrant votre [Journal](/fr/aide/journal). **Tout voir dans le Journal**, au pied du panneau, l’ouvre aussi ; **Effacer les tâches terminées** retire les tâches achevées du panneau sans les supprimer : elles restent dans le Journal.
 - Votre solde : le montant que vous pouvez dépenser dans l’immédiat. Cliquez dessus pour le recharger. Quand il est épuisé, il affiche **Acheter des crédits**. Un accès client n’a pas de solde et ne voit donc aucun montant à cet endroit.
-- Votre photo, qui ouvre un menu avec **Paramètres du compte**, **Découverte**, **Facturation et crédits**, **Équipe**, **Mes connexions**, les choix **Système**, **Clair** et **Sombre**, la ligne des langues et **Se déconnecter**.
+- Votre photo, qui ouvre un menu avec **Paramètres du compte**, **Journal** (votre propre historique, voir [Journal](/fr/aide/journal)), **Découverte**, **Facturation et crédits**, **Équipe**, **Mes connexions**, les choix **Système**, **Clair** et **Sombre**, la ligne des langues et **Se déconnecter**.
 
 Le pied de page renvoie au **Centre d’aide**, à **Signaler un bug**, à **Nous contacter**, au site nuvora.studio, aux **Nouveautés**, aux **Conditions d’utilisation** et à la **Politique de confidentialité**.
 

@@ -3,11 +3,11 @@ title: "Aide Nuvora"
 slug: "aide"
 lang: "fr"
 seoTitle: "Centre d’aide | Aide Nuvora"
-description: "Les guides de Nuvora : premiers pas, page Découverte et astuces, posts LinkedIn, Calendrier, LinkedIn Ads, Validation, Interroger, agents, Bibliothèque de contenus et Éditeur d’images, campagnes, Bloc-notes, compétences, choix du modèle, équipes et clients, Espace client, Mes connexions, solde et paiements, votre compte, partenaires et dépannage."
+description: "Les guides de Nuvora : premiers pas, page Découverte et astuces, posts LinkedIn, Calendrier, LinkedIn Ads, Validation, Interroger, agents, Bibliothèque de contenus et Éditeur d’images, campagnes, Bloc-notes, compétences, choix du modèle, équipes et clients, Espace client, Mes connexions, solde et paiements, votre compte, votre Journal, partenaires et dépannage."
 excerpt: "Tout ce qu’il faut pour rédiger, faire valider, publier et mesurer votre présence sur LinkedIn avec Nuvora, seul ou en équipe, pour votre entreprise ou pour vos clients."
 section: "home"
 order: 0
-updated: 2026-10-16
+updated: 2026-10-17
 appPaths: []
 audience: "Tout le monde"
 related: []
@@ -52,8 +52,9 @@ Nuvora est un espace de travail entièrement consacré à LinkedIn. Il rédige v
 16. [Mes connexions](/fr/aide/mes-connexions) : relier votre profil LinkedIn, vos pages entreprise et vos comptes publicitaires, la durée de vie d’une connexion, son renouvellement et la vérification des connexions après chaque ouverture de session.
 17. [Solde et paiements](/fr/aide/solde-et-paiements) : un solde prépayé en dollars américains, d’abord celui de l’équipe puis le vôtre, le rechargement par carte, Alipay ou WeChat Pay, les codes promotionnels, le rechargement automatique, les factures et le relevé de consommation.
 18. [Compte et connexion](/fr/aide/compte-et-connexion) : votre nom, votre photo, votre adresse e-mail et votre mot de passe, le thème clair ou sombre, l’interface en anglais, en français ou en chinois, la date et l’heure, votre page d’accueil, vos modèles, la saisie vocale, le code de connexion reçu par e-mail, la réinitialisation du mot de passe et le sort d’un accès resté inutilisé.
-19. [Partenaires](/fr/aide/partenaires) : l’espace partenaire, réservé aux partenaires commerciaux.
+19. [Journal](/fr/aide/journal) : votre propre historique, dans le menu sous votre photo : exécutions et notifications, passages de vos agents, e-mails reçus, connexions et dépenses, dans un tableau à filtrer, à fouiller et à trier.
+20. [Partenaires](/fr/aide/partenaires) : l’espace partenaire, réservé aux partenaires commerciaux.
 
 ## En cas de problème
 
-20. [Dépannage](/fr/aide/depannage) : les messages qu’affiche Nuvora, ce qu’ils signifient et la marche à suivre.
+21. [Dépannage](/fr/aide/depannage) : les messages qu’affiche Nuvora, ce qu’ils signifient et la marche à suivre.

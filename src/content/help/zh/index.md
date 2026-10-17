@@ -2,11 +2,11 @@
 title: "Nuvora 帮助"
 lang: "zh"
 seoTitle: "使用指南｜Nuvora 帮助中心"
-description: "Nuvora 使用指南：快速上手、功能总览与小贴士、LinkedIn 帖子、日历、LinkedIn Ads、审核、提问、智能体、素材库与图片编辑器、营销活动、速记区、技能、选择模型、团队与客户、客户空间、我的连接、余额与付款、你的账户、合作伙伴，以及疑难排查。"
+description: "Nuvora 使用指南：快速上手、功能总览与小贴士、LinkedIn 帖子、日历、LinkedIn Ads、审核、提问、智能体、素材库与图片编辑器、营销活动、速记区、技能、选择模型、团队与客户、客户空间、我的连接、余额与付款、你的账户、日志、合作伙伴，以及疑难排查。"
 excerpt: "用 Nuvora 撰写、审批、发布和衡量你在 LinkedIn 上的声量，一个人或带着团队，为自己的公司，也为你的客户。"
 section: "home"
 order: 0
-updated: 2026-10-16
+updated: 2026-10-17
 appPaths: []
 audience: "所有人"
 related: []
@@ -51,8 +51,9 @@ Nuvora 是一个只做 LinkedIn 的工作空间。帖子可以交给 AI 起草�
 16. [我的连接](/zh/help/my-connections)：连接你的 LinkedIn 个人主页、公司主页和广告账户，连接的有效期，如何续期，以及登录后的连接检查。
 17. [余额与付款](/zh/help/balance-and-payments)：以美元计的预付余额，先扣团队余额再扣个人余额，用银行卡、支付宝或微信支付充值，优惠码，自动充值，发票和用量记录。
 18. [账户与登录](/zh/help/account-and-sign-in)：你的姓名、头像、邮箱和密码，浅色或深色，英文、法文或中文界面，日期和时间，你的主页，我的模型，语音输入，邮件登录验证码，重置密码，以及长期未用的登录账号会怎样。
-19. [合作伙伴](/zh/help/partners)：合作伙伴专区，仅向商业合作伙伴开放。
+19. [日志](/zh/help/log)：头像菜单里你自己的记录：运行与通知、智能体运行、收到的邮件、登录记录和支出，汇成一张可筛选、可搜索、可排序的表。
+20. [合作伙伴](/zh/help/partners)：合作伙伴专区，仅向商业合作伙伴开放。
 
 ## 遇到问题时
 
-20. [疑难排查](/zh/help/troubleshooting)：Nuvora 显示的各类提示，它们的含义，以及该怎么办。
+21. [疑难排查](/zh/help/troubleshooting)：Nuvora 显示的各类提示，它们的含义，以及该怎么办。
