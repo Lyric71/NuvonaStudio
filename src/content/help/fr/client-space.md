@@ -7,7 +7,7 @@ description: "Pour les collaborateurs des clients d’une équipe : la connexio
 excerpt: "L’équipe avec laquelle vous travaillez a créé des posts LinkedIn pour votre entreprise. Voici comment les retrouver, les télécharger, les commenter et les approuver."
 section: "team"
 order: 11
-updated: 2026-10-04
+updated: 2026-10-17
 appPaths: ["/client", "/validation", "/validation/[id]", "/settings", "/invite"]
 audience: "Les accès client"
 related: ["validation", "account-and-sign-in", "your-team"]
@@ -59,7 +59,7 @@ Quand l’équipe sollicite votre approbation, une carte en haut de votre espace
 
 L’équipe reçoit votre décision par e-mail. Si vous avez renvoyé le contenu, elle y répond par une nouvelle version sur la même page, et vous en êtes de nouveau averti par e-mail.
 
-Vous pouvez commenter tout contenu de votre entreprise soumis à relecture, même lorsque le validateur est quelqu’un d’autre : écrivez dans le **Fil de discussion** et cliquez sur **Commentaire**. Les autres participants du fil reçoivent un e-mail. Voir [Validation](/fr/aide/validation).
+Vous pouvez commenter tout contenu de votre entreprise soumis à relecture, même lorsque le validateur est quelqu’un d’autre : écrivez dans le **Fil de discussion** et cliquez sur **Commenter**. Les autres participants du fil reçoivent un e-mail. Voir [Validation](/fr/aide/validation).
 
 L’entrée **Validation** du menu liste les mêmes fils, sous **En attente de moi**, **Mes demandes** et **Tous les contenus**. Vous ne voyez jamais que ceux de votre entreprise. Un accès client répond dans un fil ; il ne soumet jamais rien en validation.
 

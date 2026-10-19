@@ -5,7 +5,7 @@ description: "The Calendar: every LinkedIn post planned, scheduled, published or
 excerpt: "See what is planned, what is booked to go out and what is already live on LinkedIn, move a send to another day, and act on what the publishing watcher noticed."
 section: "linkedin"
 order: 3
-updated: 2026-10-16
+updated: 2026-10-18
 appPaths: ["/social/calendar/monthly", "/social/calendar/weekly", "/social/calendar/list"]
 audience: "Everyone in the team; creators and admins plan and move"
 related: ["linkedin-posts", "agents", "validation", "my-connections", "account-and-sign-in"]
@@ -39,6 +39,8 @@ The dark band at the top holds:
 
 The **No brand** button beside the three views is your team's own plan. Your team has only this one, so there is nothing to choose there.
 
+The account button next to it chooses which of your own LinkedIn accounts the calendar reads: your profile and the pages you connected on [My connections](/help/my-connections). An account belongs to whoever connected it, so a post that goes out only on a colleague's account stays on their calendar. **Not on an account yet** covers what is planned or published by hand, **Tick all** ticks them all, **Untick all** clears them, and **Manage my accounts** opens My connections in a new tab. Your choice is remembered in this browser.
+
 ![The Calendar on the Monthly view for October 2026: the band with Monthly, Weekly and List, the No brand button, How this page works and Add a publication, the To do, Planned, Published and Refused counters at zero, and the empty month grid](/images/help/calendar-monthly.webp)
 
 ## What the colors mean
@@ -56,7 +58,7 @@ Hours are shown in your own time zone, set in **Settings**. See [Account and sig
 
 ## Monthly
 
-The month as a grid, Monday to Sunday, today circled. Each publication is a small card on its day: the network, the hour it goes out, a word for where it stands (**Planned**, **Sending** or **Did not go out**), the initials of the person in charge, and the title. Point at a card to read the account it goes out on and, for a refused one, why.
+The month as a grid, Monday to Sunday, today framed in cyan with a **Today** tag. Days gone by sit on a grey hatched ground and take no new publication, since what is done is done; their cards still open. Each publication is a small card on its day: the network, the hour it goes out, a word for where it stands (**Planned**, **Sending** or **Did not go out**), the initials of the person in charge, and the title. Point at a card to read the account it goes out on and, for a refused one, why.
 
 - **Click an empty part of a day** to plan a publication on that day.
 - **Click a post written in Posts** to open it there, on the last step it reached.

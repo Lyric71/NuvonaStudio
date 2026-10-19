@@ -6,7 +6,7 @@ description: "日历：每篇已计划、已排期、已发布或被拒的 Linke
 excerpt: "看清哪些在计划中，哪些已排期待发，哪些已在 LinkedIn 上线，把一次发送挪到另一天，并处理发布监测发现的问题。"
 section: "linkedin"
 order: 3
-updated: 2026-10-16
+updated: 2026-10-18
 appPaths: ["/social/calendar/monthly", "/social/calendar/weekly", "/social/calendar/list"]
 audience: "团队所有成员；创作者和管理员负责规划和调整"
 related: ["linkedin-posts", "agents", "validation", "my-connections", "account-and-sign-in"]
@@ -40,6 +40,8 @@ sources: ["src/lib/app.ts", "src/pages/social/calendar/monthly.astro", "src/page
 
 三个视图旁边的 **No brand** 按钮就是你团队自己的计划。你的团队只有这一个，所以这里无需选择。
 
+旁边的账号按钮用来选择日历读取你的哪些 LinkedIn 账号：你的个人主页，以及你在 [我的连接](/zh/help/my-connections) 里连接的页面。账号属于连接它的人，所以只在同事账号上发出的帖子留在同事的日历里。**尚未关联账号** 指手动排期或手动发布的内容，**全选** 全部勾选，**全部取消** 一次清空，**管理我的账号** 在新标签页打开我的连接。你的选择记在这台浏览器里。
+
 ![2026 年 10 月的日历按月视图：横栏上有按月、周和列表，No brand 按钮、本页说明和新建发布内容，待办、计划、已发布和被拒四个计数器均为零，下方是空白的月历网格](/images/help/calendar-monthly.zh.webp)
 
 ## 颜色的含义
@@ -57,7 +59,7 @@ sources: ["src/lib/app.ts", "src/pages/social/calendar/monthly.astro", "src/page
 
 ## 按月
 
-整月以网格呈现，从周一到周日，今天会被圈出。每条发布是当天格子里的一张小卡片：网络、发出时间、一个表示进展的词（**计划**、**Sending** 或 **未能发出**）、负责人的姓名缩写，以及标题。把鼠标移到卡片上，可以看到它发往哪个账号；被拒的卡片还会显示原因。
+整月以网格呈现，从周一到周日，今天用青色边框和 **今天** 标签突出显示。已经过去的日期铺着灰色斜纹底，不能再新建发布，因为做过的就是做过了；上面的卡片仍可打开。每条发布是当天格子里的一张小卡片：网络、发出时间、一个表示进展的词（**计划**、**Sending** 或 **未能发出**）、负责人的姓名缩写，以及标题。把鼠标移到卡片上，可以看到它发往哪个账号；被拒的卡片还会显示原因。
 
 - **点击某一天的空白处**，在当天规划一条发布。
 - **点击在帖子中撰写的帖子**，会在帖子模块中打开它，停在它进行到的最后一步。

@@ -7,7 +7,7 @@ description: "Le Calendrier : chaque post LinkedIn prévu, programmé, publié 
 excerpt: "Voyez ce qui est prévu, ce qui est programmé et ce qui est déjà en ligne sur LinkedIn, déplacez un envoi à un autre jour et donnez suite à ce qu’a relevé le veilleur des publications."
 section: "linkedin"
 order: 3
-updated: 2026-10-16
+updated: 2026-10-18
 appPaths: ["/social/calendar/monthly", "/social/calendar/weekly", "/social/calendar/list"]
 audience: "Toute l’équipe ; les créateurs et les administrateurs planifient et déplacent"
 related: ["linkedin-posts", "agents", "validation", "my-connections", "account-and-sign-in"]
@@ -41,6 +41,8 @@ Le bandeau sombre, en haut, comporte :
 
 Le bouton **No brand**, à côté des trois vues, correspond au planning propre à votre équipe. Votre équipe n’en a qu’un, il n’y a donc rien à choisir à cet endroit.
 
+Le bouton de compte, juste à côté, choisit ceux de vos comptes LinkedIn que lit le calendrier : votre profil et les pages connectées dans [Mes connexions](/fr/aide/mes-connexions). Un compte appartient à la personne qui l’a connecté ; un post qui ne part que sur le compte d’un collègue reste donc sur son calendrier à lui. **Pas encore sur un compte** regroupe ce qui est planifié ou publié à la main, **Tout cocher** coche tout, **Tout décocher** retire tout, et **Gérer mes comptes** ouvre Mes connexions dans un nouvel onglet. Votre choix est retenu dans ce navigateur.
+
 ![Le Calendrier en vue Mensuel pour octobre 2026 : le bandeau avec Mensuel, Hebdomadaire et Liste, le bouton No brand, Fonctionnement de cette page et Ajouter une publication, les compteurs À faire, Prévu, Publié et Refusée à zéro, et la grille du mois encore vide](/images/help/calendar-monthly.fr.webp)
 
 ## Ce que signifient les couleurs
@@ -58,7 +60,7 @@ Les heures s’affichent dans votre propre fuseau horaire, défini dans **Param�
 
 ## Mensuel
 
-Le mois sous forme de grille, du lundi au dimanche, avec la date du jour entourée. Chaque publication y figure comme une petite carte posée sur son jour : le réseau, l’heure de départ, un mot qui dit où elle en est (**Prévu**, **Sending** ou **Non partis**), les initiales du responsable et le titre. Survolez une carte pour lire le compte sur lequel elle part et, si elle a été refusée, pour quelle raison.
+Le mois sous forme de grille, du lundi au dimanche, avec la date du jour dans un cadre cyan et la mention **Aujourd’hui**. Les jours passés reposent sur un fond gris hachuré et n’acceptent plus de nouvelle publication, car ce qui est fait est fait ; leurs cartes s’ouvrent toujours. Chaque publication y figure comme une petite carte posée sur son jour : le réseau, l’heure de départ, un mot qui dit où elle en est (**Prévu**, **Sending** ou **Non partis**), les initiales du responsable et le titre. Survolez une carte pour lire le compte sur lequel elle part et, si elle a été refusée, pour quelle raison.
 
 - **Cliquez sur la partie vide d’un jour** pour y planifier une publication.
 - **Cliquez sur un post rédigé dans Posts** pour l’ouvrir là-bas, à la dernière étape qu’il a atteinte.

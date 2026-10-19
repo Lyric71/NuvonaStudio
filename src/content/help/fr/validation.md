@@ -7,7 +7,7 @@ description: "Soumettez un post LinkedIn ou un fichier à l’approbation d’un
 excerpt: "Soumettez un post ou un fichier à approbation, gardez chaque version et chaque commentaire dans un même fil, et laissez un client approuver ce qui a été conçu pour lui."
 section: "linkedin"
 order: 5
-updated: 2026-10-04
+updated: 2026-10-17
 appPaths: ["/validation", "/validation/[id]"]
 audience: "Tout le monde ; les clients approuvent ce qui a été conçu pour eux"
 related: ["linkedin-posts", "your-team", "client-space", "assets-library"]
@@ -121,7 +121,7 @@ Le statut repasse à **En attente de validation**, et le validateur est prévenu
 
 ## Commenter
 
-Écrivez dans le **Fil de discussion**, puis cliquez sur **Commentaire**. Les autres participants du fil sont prévenus par e-mail.
+Écrivez dans le **Fil de discussion**, puis cliquez sur **Commenter**. Les autres participants du fil sont prévenus par e-mail.
 
 ## Changer de validateur
 

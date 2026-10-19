@@ -5,7 +5,7 @@ description: "What a skill is, how to take one from the Catalog, edit it or writ
 excerpt: "Reusable instructions the AI follows when it writes your LinkedIn posts, picked in the post's brief or on a question in Ask."
 section: "library"
 order: 9
-updated: 2026-10-04
+updated: 2026-10-17
 appPaths: ["/skills", "/skills/organization", "/skills/catalog"]
 audience: "Everyone; team skills are written by admins"
 related: ["linkedin-posts", "ask", "your-team"]
@@ -13,11 +13,11 @@ shots:
   - file: "/images/help/skills-my-skills.webp"
     route: "/skills"
     alt: "My skills: the Personal, Team and Catalog tabs, New skill, and the standard post format skills, each switched on, with Duplicate, Switch off, Edit and Delete"
-    captured: 2026-10-04
+    captured: 2026-10-17
   - file: "/images/help/skills-catalog.webp"
     route: "/skills/catalog"
     alt: "The Catalog with its search box, the All, Social networks, Marketing, Brand voice and Small business chips, and the Social networks skills marked In my skills"
-    captured: 2026-10-04
+    captured: 2026-10-17
 sources: ["src/lib/app.ts", "src/middleware.ts", "src/pages/skills/index.astro", "src/pages/skills/organization.astro", "src/pages/skills/catalog.astro", "src/components/SkillsNav.astro", "src/scripts/skillsPanel.ts", "src/scripts/skillsPicker.ts", "src/pages/api/skills/index.ts", "src/lib/skills-db.ts", "src/lib/skill-catalog.ts", "src/lib/social-format-skills.ts", "src/lib/kwp-skills.ts", "src/pages/api/social-content/draft.ts", "src/scripts/socialContent.ts", "src/components/panels/SocialContentPanel.astro", "src/pages/ask.astro", "src/scripts/askIntelligence.ts", "public/apps/nuvora/vocabulary.js"]
 ---
 

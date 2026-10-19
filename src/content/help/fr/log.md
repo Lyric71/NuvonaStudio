@@ -74,7 +74,7 @@ Toute la période se charge d’un coup, jusqu’à 1 000 lignes par rubrique. 
 ## Ouvrir une ligne
 
 - Une exécution ouvre la page à laquelle elle appartient, comme une ligne d’**Activité**.
-- Une exécution d’agent ouvre l’onglet **Exécutions** des agents, sur cette exécution précise. Voir [Agents](/fr/aide/agents).
+- Une exécution d’agent ouvre l’onglet **Poste de commande des agents** (l’entrée **Exécutions** du menu Agents), directement sur cette exécution. Voir [Agents](/fr/aide/agents#le-poste-de-commande-des-agents).
 - Un e-mail déplie son texte sous sa ligne. Un nouveau clic sur l’objet le replie.
 - Une connexion ou une action payante ne mène nulle part : tout ce qu’il faut savoir figure sur la ligne.
 

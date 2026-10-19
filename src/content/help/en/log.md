@@ -72,7 +72,7 @@ The whole period loads at once, up to 1,000 rows per section. When a section hol
 ## Open a row
 
 - A run opens the page it belongs to, like a row of **Activity**.
-- An agent run opens the **Runs** tab of Agents on that run. See [Agents](/help/agents).
+- An agent run opens the **Agents Command Room** tab (**Runs** in the Agents menu) on that run. See [Agents](/help/agents#the-agents-command-room).
 - An email unfolds its text under its row. Click the subject again to fold it.
 - A sign-in or a paid action has nowhere to go: everything there is to know is on the row.
 

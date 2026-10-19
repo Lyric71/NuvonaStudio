@@ -5,7 +5,7 @@ description: "The two standard agents, LinkedIn publishing watcher and LinkedIn 
 excerpt: "Agents re-read your LinkedIn publishing and your ad account on a schedule and tell you what changed, with the real dates and figures."
 section: "intelligence"
 order: 7
-updated: 2026-10-16
+updated: 2026-10-17
 appPaths: ["/agents", "/agents/organization", "/agents/catalog", "/agents/runs"]
 audience: "Everyone; Creators and Admins add, change and run agents; team agents are for Admins"
 related: ["linkedin-ads", "calendar", "linkedin-posts", "ask", "assets-library", "campaigns", "balance-and-payments", "your-team"]
@@ -13,11 +13,11 @@ shots:
   - file: "/images/help/agents-catalog.webp"
     route: "/agents/catalog"
     alt: "The agent Catalog: the Standard section with the LinkedIn publishing watcher and the LinkedIn Ads watcher, each with what it reads, View details and Add to my agents"
-    captured: 2026-10-04
+    captured: 2026-10-17
   - file: "/images/help/agents-runs.webp"
     route: "/agents/runs"
     alt: "The Agents Command Room tab, empty: Running now, Switched on and Previous runs with the Agents of filter"
-    captured: 2026-10-04
+    captured: 2026-10-17
   - file: "/images/help/agents-scope.webp"
     route: "/agents"
     clip: "the agent form, Scope tab"
@@ -220,7 +220,7 @@ A run that skipped the AI, because nothing changed or there was nothing to read,
 - **Create an agent from scratch** at the top and **Add an agent** at the bottom work as on My agents.
 - **Configure** picks what you set up, for example the team's agents, or one member's personal agents, managed on their behalf.
 
-Members see the team's agents on **My agents**, under **Your organization's agents**. **View details** shows one in full, and **Add to my agents** makes a copy of their own, which they change, run and schedule, and whose runs are billed to them. The team's agent stays as it is.
+Members see the team's agents on **My agents**, under **Your team's agents**. **View details** shows one in full, and **Add to my agents** makes a copy of their own, which they change, run and schedule, and whose runs are billed to them. The team's agent stays as it is.
 
 Keep the LinkedIn Ads watcher in personal agents: as a team agent it has no one's ad account to read.
 
